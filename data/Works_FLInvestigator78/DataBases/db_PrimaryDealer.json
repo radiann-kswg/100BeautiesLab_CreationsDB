@@ -2,6 +2,10 @@
   {
     "Card": { "Suit": "Major", "SuitNum": 0 },
     "Progress": "notProceeded",
+    "ArcanaHolding_DBLink": {
+      "_DB": "Primary",
+      "Card": { "Suit": "Major", "SuitNum": 0 }
+    },
     "FormalName_JP": "恐山 ユート",
     "FormalName_JPReading": "おそれざん ユート",
     "FormalName_EN": "Uto' Osoreyama",
@@ -42,6 +46,10 @@
   {
     "Card": { "Suit": "Major", "SuitNum": 1 },
     "Progress": "notProceeded",
+    "ArcanaHolding_DBLink": {
+      "_DB": "Primary",
+      "Card": { "Suit": "Major", "SuitNum": 1 }
+    },
     "FormalName_JP": "金田一 卓斗",
     "FormalName_JPReading": "きんだいち タクト",
     "FormalName_EN": "Tact Kindaichi",
@@ -83,6 +91,10 @@
   {
     "Card": { "Suit": "Major", "SuitNum": 2 },
     "Progress": "notProceeded",
+    "ArcanaHolding_DBLink": {
+      "_DB": "Primary",
+      "Card": { "Suit": "Major", "SuitNum": 2 }
+    },
     "FormalName_JP": "二宮 律",
     "FormalName_JPReading": "にのみや りつ",
     "FormalName_EN": "Liz Ninomiya",
@@ -124,6 +136,10 @@
   {
     "Card": { "Suit": "Major", "SuitNum": 3 },
     "Progress": "notProceeded",
+    "ArcanaHolding_DBLink": {
+      "_DB": "Primary",
+      "Card": { "Suit": "Major", "SuitNum": 3 }
+    },
     "FormalName_JP": "三笠 めぐ",
     "FormalName_JPReading": "みかさ めぐ",
     "FormalName_EN": "Meg Mikasa",
@@ -171,6 +187,10 @@
   {
     "Card": { "Suit": "Major", "SuitNum": 8 },
     "Progress": "notProceeded",
+    "ArcanaHolding_DBLink": {
+      "_DB": "Primary",
+      "Card": { "Suit": "Major", "SuitNum": 8 }
+    },
     "FormalName_JP": "熱海 ふれあ",
     "FormalName_JPReading": "あたみ ふれあ",
     "FormalName_EN": "Flare Atami",
@@ -212,6 +232,10 @@
   {
     "Card": { "Suit": "Major", "SuitNum": 9 },
     "Progress": "notProceeded",
+    "ArcanaHolding_DBLink": {
+      "_DB": "Primary",
+      "Card": { "Suit": "Major", "SuitNum": 9 }
+    },
     "FormalName_JP": "仙道 歩浪",
     "FormalName_JPReading": "せんどう ほろー",
     "FormalName_EN": "Hollow Sendō",
@@ -253,6 +277,10 @@
   {
     "Card": { "Suit": "Major", "SuitNum": 16 },
     "Progress": "notProceeded",
+    "ArcanaHolding_DBLink": {
+      "_DB": "Primary",
+      "Card": { "Suit": "Major", "SuitNum": 16 }
+    },
     "FormalName_JP": "ヴェンジー.C.テンペスト",
     "FormalName_EN": "Vengy.C.Tempest",
     "RaceType": "Human",
@@ -293,6 +321,10 @@
   {
     "Card": { "Suit": "Major", "SuitNum": 17 },
     "Progress": "notProceeded",
+    "ArcanaHolding_DBLink": {
+      "_DB": "Primary",
+      "Card": { "Suit": "Major", "SuitNum": 17 }
+    },
     "FormalName_JP": "ライト.リヴァーブリッジ",
     "FormalName_EN": "Light.Reverbridge",
     "RaceType": "Human",
@@ -319,6 +351,10 @@
   {
     "Card": { "Suit": "Major", "SuitNum": 18 },
     "Progress": "notProceeded",
+    "ArcanaHolding_DBLink": {
+      "_DB": "Primary",
+      "Card": { "Suit": "Major", "SuitNum": 18 }
+    },
     "FormalName_JP": "センセシア.ムーンライト",
     "FormalName_EN": "Sensetia.Moonlight",
     "RaceType": "HalfLunaWolf(Arcanized)",
@@ -359,6 +395,10 @@
   {
     "Card": { "Suit": "Dealer", "Num": 79 },
     "Progress": "released(beta)",
+    "ArcanaHolding_DBLink": {
+      "_DB": "Primary",
+      "Card": { "Suit": "Dealer", "Num": 79 }
+    },
     "AnotherRegions_DBLink": {
       "_Work": "NumberTales",
       "_DB": "SemiPrimary",
@@ -370,8 +410,11 @@
     "FormalName_EN": "Dancy Actressilk",
     "RaceType": "Human",
     "GenderType": "Female",
-    "Belonging": [{ "Faction": "第三県立技巧美術女子高校" }],
-    "Class": [],
+    "Belonging": [
+      { "Faction": "セブンティエイト特殊探偵団" },
+      { "Faction": "第三県立技巧美術女子高校" }
+    ],
+    "Class": ["采配幹部(ディーラーズ)"],
     "Height_cm": 166,
     "Weight_kg": 52,
     "Age": 17,
@@ -444,6 +487,10 @@
   {
     "Card": { "Suit": "Dealer", "Num": 80 },
     "Progress": "released(beta)",
+    "ArcanaHolding_DBLink": {
+      "_DB": "Primary",
+      "Card": { "Suit": "Dealer", "Num": 80 }
+    },
     "AnotherRegions_DBLink": {
       "_Work": "NumberTales",
       "_DB": "SemiPrimary",
@@ -455,8 +502,11 @@
     "FormalName_EN": "Phonia Actressilk",
     "RaceType": "Human",
     "GenderType": "Female",
-    "Belonging": [{ "Faction": "南第三県専門学校" }],
-    "Class": [],
+    "Belonging": [
+      { "Faction": "セブンティエイト特殊探偵団" },
+      { "Faction": "南第三県専門学校" }
+    ],
+    "Class": ["采配幹部(ディーラーズ)"],
     "Height_cm": 166,
     "Weight_kg": 52,
     "Age": 17,

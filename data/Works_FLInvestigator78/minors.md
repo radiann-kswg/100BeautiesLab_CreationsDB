@@ -143,31 +143,31 @@
 
 ### 小姓札（ペイジ） / Page
 
-**♣ ClubWands**
+**♣ ランスロット / Lancelot**
 リード.アンカレッヂ / Leads.Anchorage
 
-**♥ HeartCups**
+**♥ ラ-ハイヤ / La.Hire**
 ディッシュ.ロマネス / Dishes.Romanes
 
-**♠ SpadeSwords**
-ダウス.インターズ / Daus.Interns
+**♠ オジエ / Ogier**
+ダウス.ル.インターズ / Daus.Le.Interns
 
-**♦ DiamondPentacles**
+**♦ ヘクター / Hector**
 リッチ.インテリス / Ritch.Intelis
 
 ### 騎士札（ナイツ） / Knight
 
-**♣ オジエ / Ogier**
-？？？
+**♣ ランスロット / Lancelot**
+マグニム.フォン.シー / Macnimue.von.Sea
 
 **♥ ラ-ハイヤ / La.Hire**
-？？？
+アングジェリーナ.レイジ.ガスコーニュ / Anger'lina.Rage.Gascony
 
-**♠ ランスロット / Lancelot**
-？？？
+**♠ オジエ / Ogier**
+ダウス.ル.ダノワ / Daus.Le.Danois
 
-**♦ ヘクター / Hector**
-？？？
+**♦ ローラン / Laurent**
+ポリーン.オルゴール.デュランビート / Pauline.Orgel.Duranbeat
 
 ### 女王札（クイーン） / Queen
 
@@ -185,14 +185,14 @@
 
 ### 王札（キング） / King
 
-**♣ デイヴィッド / David**
+**♣ アレキサンダー / Alexander**
 ？？？
 
-**♥ アレキサンダー / Alexander**
-？？？
-
-**♠ シャルルマーニュ / Charlemagne**
+**♥ シャルルマーニュ / Charlemagne**
 カール.ホワイト.ヴァレンタイン / Carl.White.Valentine
+
+**♠ ダビデ / David**
+？？？
 
 **♦ シーザー / Caesar**
 ？？？

@@ -1,0 +1,220 @@
+[
+  {
+    "Card": { "Suit": "FireWands", "SuitNum": 1, "Num": 23 },
+    "Progress": "notProceeded",
+    "ArcanaHolding_DBLink": {
+      "_DB": "Primary",
+      "Card": { "Suit": "FireWands", "SuitNum": 1 }
+    },
+    "FormalName_JP": "馬場 界座",
+    "FormalName_JPReading": "ばば カイザ",
+    "FormalName_EN": "Kaiser Baba",
+    "RaceType": "Human",
+    "GenderType": "Male"
+  },
+  {
+    "Card": { "Suit": "FireWands", "SuitNum": 11, "Num": 33 },
+    "Progress": "notProceeded",
+    "ArcanaHolding_DBLink": {
+      "_DB": "Primary",
+      "Card": { "Suit": "FireWands", "SuitNum": 11 }
+    },
+    "FormalName_JP": "リード.アンカレッヂ",
+    "FormalName_EN": "Leads.Anchorage",
+    "RaceType": "Human",
+    "GenderType": "Female",
+    "FromArea": { "Area": "英皇国" }
+  },
+  {
+    "Card": { "Suit": "FireWands", "SuitNum": 12, "Num": 34 },
+    "Progress": "notProceeded",
+    "ArcanaHolding_DBLink": {
+      "_DB": "Primary",
+      "Card": { "Suit": "FireWands", "SuitNum": 12 }
+    },
+    "FormalName_JP": "マグニム.フォン.シー",
+    "FormalName_EN": "Macnimue.von.Sea",
+    "RaceType": "Human",
+    "GenderType": "Male",
+    "FromArea": { "Area": "黒薔薇国" }
+  },
+  {
+    "Card": { "Suit": "FireWands", "SuitNum": 13, "Num": 35 },
+    "Progress": "notProceeded",
+    "ArcanaHolding_DBLink": {
+      "_DB": "Primary",
+      "Card": { "Suit": "FireWands", "SuitNum": 13 }
+    },
+    "FormalName_JP": "オードリー.カッツェ.ブラックフレア",
+    "FormalName_EN": "Audrey.Katze.Blackflare",
+    "FromArea": { "Area": "黒薔薇国" }
+  },
+  {
+    "Card": { "Suit": "FireWands", "SuitNum": 14, "Num": 36 },
+    "Progress": "notProceeded"
+  },
+  {
+    "Card": { "Suit": "WaterCups", "SuitNum": 1, "Num": 37 },
+    "Progress": "notProceeded",
+    "ArcanaHolding_DBLink": {
+      "_DB": "Primary",
+      "Card": { "Suit": "WaterCups", "SuitNum": 1 }
+    },
+    "FormalName_JP": "蓮宮 遥",
+    "FormalName_JPReading": "はすみや はる",
+    "FormalName_EN": "Hal Losas",
+    "RaceType": "Human",
+    "GenderType": "Female"
+  },
+  {
+    "Card": { "Suit": "WaterCups", "SuitNum": 11, "Num": 47 },
+    "ArcanaHolding_DBLink": {
+      "_DB": "Primary",
+      "Card": { "Suit": "WaterCups", "SuitNum": 11 }
+    },
+    "Progress": "notProceeded",
+    "FormalName_JP": "ディッシュ.ロマネス",
+    "FormalName_EN": "Dishes.Romanes",
+    "RaceType": "Human",
+    "GenderType": "Female",
+    "FromArea": { "Area": "神皇国" }
+  },
+  {
+    "Card": { "Suit": "WaterCups", "SuitNum": 12, "Num": 48 },
+    "ArcanaHolding_DBLink": {
+      "_DB": "Primary",
+      "Card": { "Suit": "WaterCups", "SuitNum": 12 }
+    },
+    "Progress": "notProceeded",
+    "FormalName_JP": "アングジェリーナ.レイジ.ガスコーニュ",
+    "FormalName_EN": "Anger'lina.Rage.Gascony",
+    "RaceType": "Human",
+    "GenderType": "Female",
+    "FromArea": { "Area": "神皇国" }
+  },
+  {
+    "Card": { "Suit": "WaterCups", "SuitNum": 13, "Num": 49 },
+    "Progress": "notProceeded",
+    "ArcanaHolding_DBLink": {
+      "_DB": "Primary",
+      "Card": { "Suit": "WaterCups", "SuitNum": 13 }
+    },
+    "FormalName_JP": "ユリィ.ジューン",
+    "FormalName_EN": "Yurie.Junes",
+    "FromArea": { "Area": "南英州諸国" }
+  },
+  {
+    "Card": { "Suit": "WaterCups", "SuitNum": 14, "Num": 50 },
+    "Progress": "notProceeded",
+    "ArcanaHolding_DBLink": {
+      "_DB": "Primary",
+      "Card": { "Suit": "WaterCups", "SuitNum": 14 }
+    },
+    "FormalName_JP": "カール.ホワイト.ヴァレンタイン",
+    "FormalName_EN": "Carl.White.Valentine"
+  },
+  {
+    "Card": { "Suit": "SlashSwords", "SuitNum": 1, "Num": 51 },
+    "Progress": "notProceeded",
+    "ArcanaHolding_DBLink": {
+      "_DB": "Primary",
+      "Card": { "Suit": "SlashSwords", "SuitNum": 1 }
+    },
+    "FormalName_JP": "神谷 瑛志",
+    "FormalName_JPReading": "かみや エース",
+    "FormalName_EN": "Ace Kamiya",
+    "RaceType": "Human",
+    "GenderType": "Male"
+  },
+  {
+    "Card": { "Suit": "SlashSwords", "SuitNum": 11, "Num": 61 },
+    "Progress": "notProceeded",
+    "ArcanaHolding_DBLink": {
+      "_DB": "Primary",
+      "Card": { "Suit": "SlashSwords", "SuitNum": 11 }
+    },
+    "FormalName_JP": "ダウス.ル.インターズ",
+    "FormalName_EN": "Daus.Le.Interns",
+    "FromArea": { "Area": "神皇国" }
+  },
+  {
+    "Card": { "Suit": "SlashSwords", "SuitNum": 12, "Num": 62 },
+    "Progress": "notProceeded",
+    "ArcanaHolding_DBLink": {
+      "_DB": "Primary",
+      "Card": { "Suit": "SlashSwords", "SuitNum": 12 }
+    },
+    "FormalName_JP": "ダウス.ル.ダノワ",
+    "FormalName_EN": "Daus.Le.Danois",
+    "FromArea": { "Area": "神皇国" }
+  },
+  {
+    "Card": { "Suit": "SlashSwords", "SuitNum": 13, "Num": 63 },
+    "Progress": "notProceeded",
+    "ArcanaHolding_DBLink": {
+      "_DB": "Primary",
+      "Card": { "Suit": "SlashSwords", "SuitNum": 13 }
+    },
+    "FormalName_JP": "ミネルヴァ.パルテノン",
+    "FormalName_EN": "Minerva.Parthenon",
+    "FromArea": { "Area": "南英州諸国" }
+  },
+  {
+    "Card": { "Suit": "SlashSwords", "SuitNum": 14, "Num": 64 },
+    "Progress": "notProceeded"
+  },
+  {
+    "Card": { "Suit": "PentacleObjects", "SuitNum": 1, "Num": 65 },
+    "Progress": "notProceeded",
+    "ArcanaHolding_DBLink": {
+      "_DB": "Primary",
+      "Card": { "Suit": "PentacleObjects", "SuitNum": 1 }
+    },
+    "FormalName_JP": "鏡花 夢中",
+    "FormalName_JPReading": "きょうか とりこ",
+    "FormalName_EN": "Dreamin Mirrors",
+    "RaceType": "Human",
+    "GenderType": "Female"
+  },
+  {
+    "Card": { "Suit": "PentacleObjects", "SuitNum": 11, "Num": 75 },
+    "Progress": "notProceeded",
+    "ArcanaHolding_DBLink": {
+      "_DB": "Primary",
+      "Card": { "Suit": "PentacleObjects", "SuitNum": 11 }
+    },
+    "FormalName_JP": "リッチ.インテリス",
+    "FormalName_EN": "Ritch.Intelis",
+    "RaceType": "Human",
+    "GenderType": "Male",
+    "FromArea": { "Area": "神皇国" }
+  },
+  {
+    "Card": { "Suit": "PentacleObjects", "SuitNum": 12, "Num": 76 },
+    "Progress": "notProceeded",
+    "ArcanaHolding_DBLink": {
+      "_DB": "Primary",
+      "Card": { "Suit": "PentacleObjects", "SuitNum": 12 }
+    },
+    "FormalName_JP": "ポリーン.オルゴール.デュランビート",
+    "FormalName_EN": "Pauline.Orgel.Duranbeat",
+    "RaceType": "Human",
+    "GenderType": "Female",
+    "FromArea": { "Area": "南英州諸国" }
+  },
+  {
+    "Card": { "Suit": "PentacleObjects", "SuitNum": 13, "Num": 77 },
+    "Progress": "notProceeded",
+    "ArcanaHolding_DBLink": {
+      "_DB": "Primary",
+      "Card": { "Suit": "PentacleObjects", "SuitNum": 13 }
+    },
+    "FormalName_JP": "リーチェ.エリザベス",
+    "FormalName_EN": "Leiche.Elizabeth",
+    "FromArea": { "Area": "神皇国" }
+  },
+  {
+    "Card": { "Suit": "PentacleObjects", "SuitNum": 14, "Num": 78 },
+    "Progress": "notProceeded"
+  }
+]

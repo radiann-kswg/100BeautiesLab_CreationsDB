@@ -20,6 +20,11 @@
     "isForSecondary": false
   },
   {
+    "Area": "南英州諸国",
+    "Area_EN": "South Internations",
+    "isForSecondary": null
+  },
+  {
     "Area": "雄志結国",
     "Area_EN": "United.Heroic.Nation",
     "isForSecondary": false

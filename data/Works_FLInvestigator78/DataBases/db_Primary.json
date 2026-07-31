@@ -330,7 +330,7 @@
     "Unlike_JP": "命乞い",
     "Unlike_EN": "Pleading for one's life",
     "Summary_JP": "\"未来消失\"に遭った先で辿り着く\"輪廻の境界(リインカーネートボーダー)\"でただ一人残り事件の被害により失われた存在をあるべき場所へ見送り続けている、異能組織『セブンティエイト特殊探偵団』（通称『運命線探偵』）の第13幹部。\nアルカナホルダーが存在しない【転生の死神】のアルカナムスペックそのものであり、すべての物事や人生に終焉をもたらす力を有していますが、能力の詳細は未だ謎に包まれたままです。\n【愚かなる旅人】というアルカナムスペックと深い関係があるようですが……",
-    "Summary_EN": "The 13th executive of the special investigations organization 'Team.78(Seventy-Eight) the Special Investigators' (commonly known as the 'FateLine Investigators'), remaining as the sole presence at the 'Reincarnation Border' reached by those who have experienced 'Future Erasure', continuing to send off the existences lost to incident damage to where they belong.\nBeing the ArcanumSpec of the [⁠Death of Reincarnation⁠] itself — with no Arcana Holder to wield it — it possesses the power to bring an end to all things and every life, though the details of this ability remain shrouded in mystery.\nIt seems to share a deep connection with the ArcanumSpec known as the [⁠Foolish Tripper⁠]...",
+    "Summary_EN": "The 13th executive of the special investigations organization 'Team.78(Seventy-Eight) the Special Investigators' (commonly known as the 'FateLine Investigators'), remaining as the sole presence at the 'Reincarnation Border' reached by those who have experienced 'Future Erasure', continuing to send off the existences lost to incident damage to where they belong.\nBeing the ArcanumSpec of the [⁠Death of Reincarnation⁠] itself — with no ArcanaHolder to wield it — it possesses the power to bring an end to all things and every life, though the details of this ability remain shrouded in mystery.\nIt seems to share a deep connection with the ArcanumSpec known as the [⁠Foolish Tripper⁠]...",
     "AdditionalDesigned_JP": "カードイラスト：喜雨(kiu/xiyue)(https://kiucouch.myportfolio.com/),REITO_KYUN♡(https://piku.page/@REITO_KYUN)\nカード背景・CG：喜雨(kiu/xiyue)\n意匠デザイン：ラジアン(柏木主税),散狐アタスト(https://misskey.io/@atast)",
     "AdditionalDesigned_EN": "Card Illustration：喜雨(kiu/xiyue)(https://kiucouch.myportfolio.com/),REITO_KYUN♡(https://piku.page/@REITO_KYUN)\nCard Backimage & CG：喜雨(kiu/xiyue)\nCard Frame & Emblem Design：ラジアン(柏木主税),散狐アタスト(https://misskey.io/@atast)",
     "ArcanamspecAbout_JP": "終焉をもたらす\n？？？",
@@ -480,6 +480,334 @@
       "SafetyLevel": { "SafetyLevelText": "恐らく安全" },
       "SpecLevel": { "Rank": "B" }
     }
+  },
+  {
+    "Card": { "Suit": "FireWands", "SuitNum": 1, "Num": 23 },
+    "Progress": "notProceeded",
+    "ThisArcanaHolder_DBLink": {
+      "_DB": "MinorsDealer",
+      "Card": { "Suit": "FireWands", "SuitNum": 1 }
+    },
+    "Name_JP": "ワンズ",
+    "Name_EN": "Wands",
+    "FormalName_JP": "炎の棍棒 一番札",
+    "FormalName_JPReading": "ファイアワンズ エースカテゴリー",
+    "FormalName_EN": "Fire Wands Ace Category",
+    "CodeName_JP": "♣Ace\n炎の棍棒",
+    "CodeName_EN": "♣Ace\nFire Wands",
+    "RaceType": "Human",
+    "GenderType": "MaleNeutral"
+  },
+  {
+    "Card": { "Suit": "FireWands", "SuitNum": 11, "Num": 33 },
+    "Progress": "notProceeded",
+    "ThisArcanaHolder_DBLink": {
+      "_DB": "MinorsDealer",
+      "Card": { "Suit": "FireWands", "SuitNum": 11 }
+    },
+    "Name_JP": "ランスロット・Jr.",
+    "Name_EN": "Lancelot.Jr.",
+    "FormalName_JP": "炎の棍棒 小姓札\nランスロット・ジュニア",
+    "FormalName_JPReading": "ファイアワンズ ペイジカテゴリー\nランスロット・ジュニア",
+    "FormalName_EN": "Fire Wands Page Category\nLancelot.Jr.",
+    "CodeName_JP": "♣Jack",
+    "CodeName_EN": "♣Jack",
+    "RaceType": "Human",
+    "GenderType": "FemaleNeutral"
+  },
+  {
+    "Card": { "Suit": "FireWands", "SuitNum": 12, "Num": 34 },
+    "Progress": "notProceeded",
+    "ThisArcanaHolder_DBLink": {
+      "_DB": "MinorsDealer",
+      "Card": { "Suit": "FireWands", "SuitNum": 12 }
+    },
+    "Name_JP": "ランスロット・キャバリア",
+    "Name_EN": "Lancelot.Cavalier",
+    "FormalName_JP": "炎の棍棒 騎士札\nランスロット・キャバリア",
+    "FormalName_JPReading": "ファイアワンズ ナイトカテゴリー\nランスロット・キャバリア",
+    "FormalName_EN": "Fire Wands Knight Category\nLancelot.Cavalier",
+    "CodeName_JP": "♣Cavalier",
+    "CodeName_EN": "♣Cavalier",
+    "RaceType": "Human",
+    "GenderType": "MaleNeutral"
+  },
+  {
+    "Card": { "Suit": "FireWands", "SuitNum": 13, "Num": 35 },
+    "Progress": "notProceeded",
+    "ThisArcanaHolder_DBLink": {
+      "_DB": "MinorsDealer",
+      "Card": { "Suit": "FireWands", "SuitNum": 13 }
+    },
+    "Name_JP": "アルジーヌ",
+    "Name_EN": "Argine",
+    "FormalName_JP": "炎の棍棒 女王札\nアルジーヌ",
+    "FormalName_JPReading": "ファイアワンズ クイーンカテゴリー\nアルジーヌ",
+    "FormalName_EN": "Fire Wands Queen Category\nArgine",
+    "CodeName_JP": "♣Queen",
+    "CodeName_EN": "♣Queen",
+    "RaceType": "Human",
+    "GenderType": "FemaleNeutral"
+  },
+  {
+    "Card": { "Suit": "FireWands", "SuitNum": 14, "Num": 36 },
+    "Progress": "notProceeded",
+    "Name_JP": "アレキサンダー",
+    "Name_EN": "Alexander",
+    "FormalName_JP": "炎の棍棒 王札\nアレキサンダー",
+    "FormalName_JPReading": "ファイアワンズ キングカテゴリー\nアレキサンダー",
+    "FormalName_EN": "Fire Wands King Category\nAlexander",
+    "CodeName_JP": "♣King",
+    "CodeName_EN": "♣King",
+    "RaceType": "Human",
+    "GenderType": "MaleNeutral"
+  },
+  {
+    "Card": { "Suit": "WaterCups", "SuitNum": 1, "Num": 37 },
+    "Progress": "notProceeded",
+    "ThisArcanaHolder_DBLink": {
+      "_DB": "MinorsDealer",
+      "Card": { "Suit": "WaterCups", "SuitNum": 1 }
+    },
+    "Name_JP": "カップス",
+    "Name_EN": "Cups",
+    "FormalName_JP": "水の聖杯 一番札",
+    "FormalName_JPReading": "ウォーターカップス エースカテゴリー",
+    "FormalName_EN": "Water Cups Ace Category",
+    "CodeName_JP": "♥Ace\n水の聖杯",
+    "CodeName_EN": "♥Ace\nWater Cups",
+    "RaceType": "Human",
+    "GenderType": "FemaleNeutral"
+  },
+  {
+    "Card": { "Suit": "WaterCups", "SuitNum": 11, "Num": 47 },
+    "Progress": "notProceeded",
+    "ThisArcanaHolder_DBLink": {
+      "_DB": "MinorsDealer",
+      "Card": { "Suit": "WaterCups", "SuitNum": 11 }
+    },
+    "Name_JP": "ラ-ハイヤ・Jr.",
+    "Name_EN": "La-Hire.Jr.",
+    "FormalName_JP": "水の聖杯 小姓札\nラ-ハイヤ・ジュニア",
+    "FormalName_JPReading": "ウォーターカップス ペイジカテゴリー\nラ-ハイヤ・ジュニア",
+    "FormalName_EN": "Water Cups Page Category\nLa-Hire.Jr.",
+    "CodeName_JP": "♥Jack",
+    "CodeName_EN": "♥Jack",
+    "RaceType": "Human",
+    "GenderType": "FemaleNeutral"
+  },
+  {
+    "Card": { "Suit": "WaterCups", "SuitNum": 12, "Num": 48 },
+    "Progress": "notProceeded",
+    "ThisArcanaHolder_DBLink": {
+      "_DB": "MinorsDealer",
+      "Card": { "Suit": "WaterCups", "SuitNum": 12 }
+    },
+    "Name_JP": "ラ-ハイヤ・キャバリア",
+    "Name_EN": "La-Hire.Cavalier",
+    "FormalName_JP": "水の聖杯 騎士札\nラ-ハイヤ・キャバリア",
+    "FormalName_JPReading": "ウォーターカップス ナイトカテゴリー\nラ-ハイヤ・キャバリア",
+    "FormalName_EN": "Water Cups Knight Category\nLa-Hire.Cavalier",
+    "CodeName_JP": "♥Cavalier",
+    "CodeName_EN": "♥Cavalier",
+    "RaceType": "Human",
+    "GenderType": "FemaleNeutral"
+  },
+  {
+    "Card": { "Suit": "WaterCups", "SuitNum": 13, "Num": 49 },
+    "Progress": "notProceeded",
+    "ThisArcanaHolder_DBLink": {
+      "_DB": "MinorsDealer",
+      "Card": { "Suit": "WaterCups", "SuitNum": 13 }
+    },
+    "Name_JP": "ジュディス",
+    "Name_EN": "Judith",
+    "FormalName_JP": "水の聖杯 女王札\nジュディス",
+    "FormalName_JPReading": "ウォーターカップス クイーンカテゴリー\nジュディス",
+    "FormalName_EN": "Water Cups Queen Category\nJudith",
+    "CodeName_JP": "♥Queen",
+    "CodeName_EN": "♥Queen",
+    "RaceType": "Human",
+    "GenderType": "FemaleNeutral"
+  },
+  {
+    "Card": { "Suit": "WaterCups", "SuitNum": 14, "Num": 50 },
+    "Progress": "notProceeded",
+    "ThisArcanaHolder_DBLink": {
+      "_DB": "MinorsDealer",
+      "Card": { "Suit": "WaterCups", "SuitNum": 14 }
+    },
+    "Name_JP": "シャルル",
+    "Name_EN": "Charles",
+    "FormalName_JP": "水の聖杯 王札\nシャルルマーニュ",
+    "FormalName_JPReading": "ウォーターカップス キングカテゴリー\nシャルルマーニュ",
+    "FormalName_EN": "Water Cups King Category\nCharlemagne",
+    "CodeName_JP": "♥King",
+    "CodeName_EN": "♥King",
+    "RaceType": "Human",
+    "GenderType": "MaleNeutral"
+  },
+  {
+    "Card": { "Suit": "SlashSwords", "SuitNum": 1, "Num": 51 },
+    "Progress": "notProceeded",
+    "ThisArcanaHolder_DBLink": {
+      "_DB": "MinorsDealer",
+      "Card": { "Suit": "SlashSwords", "SuitNum": 1 }
+    },
+    "Name_JP": "ソード",
+    "Name_EN": "Swords",
+    "FormalName_JP": "風の刀剣 一番札",
+    "FormalName_JPReading": "スラッシュソード エースカテゴリー",
+    "FormalName_EN": "Slash Swords Ace Category",
+    "CodeName_JP": "♠Ace\n風の刀剣",
+    "CodeName_EN": "♠Ace\nSlash(Wind) Swords",
+    "RaceType": "Human",
+    "GenderType": "MaleNeutral"
+  },
+  {
+    "Card": { "Suit": "SlashSwords", "SuitNum": 11, "Num": 61 },
+    "Progress": "notProceeded",
+    "ThisArcanaHolder_DBLink": {
+      "_DB": "MinorsDealer",
+      "Card": { "Suit": "SlashSwords", "SuitNum": 11 }
+    },
+    "Name_JP": "オジエ・ジュニア",
+    "Name_EN": "Ogier.Jr.",
+    "FormalName_JP": "風の刀剣 小姓札\nオジエ・ジュニア",
+    "FormalName_JPReading": "スラッシュソード ペイジカテゴリー\nオジエ・ジュニア",
+    "FormalName_EN": "Slash Swords Page Category\nOgier.Jr.",
+    "CodeName_JP": "♠Jack",
+    "CodeName_EN": "♠Jack",
+    "RaceType": "Human",
+    "GenderType": "MaleNeutral"
+  },
+  {
+    "Card": { "Suit": "SlashSwords", "SuitNum": 12, "Num": 62 },
+    "Progress": "notProceeded",
+    "ThisArcanaHolder_DBLink": {
+      "_DB": "MinorsDealer",
+      "Card": { "Suit": "SlashSwords", "SuitNum": 12 }
+    },
+    "Name_JP": "オジエ・キャバリア",
+    "Name_EN": "Ogier.Cavalier",
+    "FormalName_JP": "風の刀剣 騎士札\nオジエ・キャバリア",
+    "FormalName_JPReading": "スラッシュソード ナイトカテゴリー\nオジエ・キャバリア",
+    "FormalName_EN": "Slash Swords Knight Category\nOgier.Cavalier",
+    "CodeName_JP": "♠Cavalier",
+    "CodeName_EN": "♠Cavalier",
+    "RaceType": "Human",
+    "GenderType": "MaleNeutral"
+  },
+  {
+    "Card": { "Suit": "SlashSwords", "SuitNum": 13, "Num": 63 },
+    "Progress": "notProceeded",
+    "ThisArcanaHolder_DBLink": {
+      "_DB": "MinorsDealer",
+      "Card": { "Suit": "SlashSwords", "SuitNum": 13 }
+    },
+    "Name_JP": "アテナ",
+    "Name_EN": "Athena",
+    "FormalName_JP": "風の刀剣 女王札\nアテナ",
+    "FormalName_JPReading": "スラッシュソード クイーンカテゴリー\nアテナ",
+    "FormalName_EN": "Slash Swords Queen Category\nAthena",
+    "CodeName_JP": "♠Queen",
+    "CodeName_EN": "♠Queen",
+    "RaceType": "Human",
+    "GenderType": "FemaleNeutral"
+  },
+  {
+    "Card": { "Suit": "SlashSwords", "SuitNum": 14, "Num": 64 },
+    "Progress": "notProceeded",
+    "Name_JP": "ダビデ",
+    "Name_EN": "David",
+    "FormalName_JP": "風の刀剣 王札\nダビデ",
+    "FormalName_JPReading": "スラッシュソード キングカテゴリー\nダビデ",
+    "FormalName_EN": "Slash Swords King Category\nDavid",
+    "CodeName_JP": "♠King",
+    "CodeName_EN": "♠King",
+    "RaceType": "Human",
+    "GenderType": "MaleNeutral"
+  },
+  {
+    "Card": { "Suit": "PentacleObjects", "SuitNum": 1, "Num": 65 },
+    "Progress": "notProceeded",
+    "ThisArcanaHolder_DBLink": {
+      "_DB": "MinorsDealer",
+      "Card": { "Suit": "PentacleObjects", "SuitNum": 1 }
+    },
+    "Name_JP": "ペンタクル",
+    "Name_EN": "Pentacle",
+    "FormalName_JP": "金の硬貨 一番札",
+    "FormalName_JPReading": "ペンタクルオブジェクツ エースカテゴリー",
+    "FormalName_EN": "Pentacle Objects Ace Category",
+    "CodeName_JP": "♦Ace\n金の硬貨(五芒星の物体)",
+    "CodeName_EN": "♦Ace\nPentacle Objects(Coins)",
+    "RaceType": "Human",
+    "GenderType": "FemaleNeutral"
+  },
+  {
+    "Card": { "Suit": "PentacleObjects", "SuitNum": 11, "Num": 75 },
+    "Progress": "notProceeded",
+    "ThisArcanaHolder_DBLink": {
+      "_DB": "MinorsDealer",
+      "Card": { "Suit": "PentacleObjects", "SuitNum": 11 }
+    },
+    "Name_JP": "ヘクター",
+    "Name_EN": "Hector",
+    "FormalName_JP": "金の硬貨 小姓札\nヘクター",
+    "FormalName_JPReading": "ペンタクルオブジェクツ ペイジカテゴリー\nヘクター",
+    "FormalName_EN": "Pentacle Objects Page Category\nHector",
+    "CodeName_JP": "♦Jack",
+    "CodeName_EN": "♦Jack",
+    "RaceType": "Human",
+    "GenderType": "MaleNeutral"
+  },
+  {
+    "Card": { "Suit": "PentacleObjects", "SuitNum": 12, "Num": 76 },
+    "Progress": "notProceeded",
+    "ThisArcanaHolder_DBLink": {
+      "_DB": "MinorsDealer",
+      "Card": { "Suit": "PentacleObjects", "SuitNum": 12 }
+    },
+    "Name_JP": "ローラン",
+    "Name_EN": "Laurent",
+    "FormalName_JP": "金の硬貨 騎士札\nローラン",
+    "FormalName_JPReading": "ペンタクルオブジェクツ ナイトカテゴリー\nローラン",
+    "FormalName_EN": "Pentacle Objects Knight Category\nLaurent",
+    "CodeName_JP": "♦Cavalier",
+    "CodeName_EN": "♦Cavalier",
+    "RaceType": "Human",
+    "GenderType": "FemaleNeutral"
+  },
+  {
+    "Card": { "Suit": "PentacleObjects", "SuitNum": 13, "Num": 77 },
+    "Progress": "notProceeded",
+    "ThisArcanaHolder_DBLink": {
+      "_DB": "MinorsDealer",
+      "Card": { "Suit": "PentacleObjects", "SuitNum": 13 }
+    },
+    "Name_JP": "レイチェル",
+    "Name_EN": "Rachel",
+    "FormalName_JP": "金の硬貨 女王札\nレイチェル",
+    "FormalName_JPReading": "ペンタクルオブジェクツ クイーンカテゴリー\nレイチェル",
+    "FormalName_EN": "Pentacle Objects Queen Category\nRachel",
+    "CodeName_JP": "♦Queen",
+    "CodeName_EN": "♦Queen",
+    "RaceType": "Human",
+    "GenderType": "FemaleNeutral"
+  },
+  {
+    "Card": { "Suit": "PentacleObjects", "SuitNum": 14, "Num": 78 },
+    "Progress": "notProceeded",
+    "Name_JP": "シーザー",
+    "Name_EN": "Caesar",
+    "FormalName_JP": "金の硬貨 王札\nシーザー",
+    "FormalName_JPReading": "ペンタクルオブジェクツ キングカテゴリー\nシーザー",
+    "FormalName_EN": "Pentacle Objects King Category\nCaesar",
+    "CodeName_JP": "♦King",
+    "CodeName_EN": "♦King",
+    "RaceType": "Human",
+    "GenderType": "MaleNeutral"
   },
   {
     "Card": { "Suit": "Dealer", "SuitNum": null, "Num": 79 },

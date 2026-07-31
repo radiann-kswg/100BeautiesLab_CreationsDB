@@ -1,12 +1,5 @@
 [
   {
-    "Card": { "Suit": "FireWands", "SuitNum": 1, "Num": 23 },
-    "Progress": "notProceeded",
-    "FormalName_JP": "馬場 界座",
-    "FormalName_JPReading": "ばば カイザ",
-    "FormalName_EN": "Kaiser Baba"
-  },
-  {
     "Card": { "Suit": "FireWands", "SuitNum": 2, "Num": 24 },
     "Progress": "notProceeded",
     "FormalName_JP": "田淵 ひより",
@@ -66,33 +59,6 @@
     "Progress": "notProceeded",
     "FormalName_JP": "ブランシュ.バーン",
     "FormalName_EN": "Blanche.Burn"
-  },
-  {
-    "Card": { "Suit": "FireWands", "SuitNum": 11, "Num": 33 },
-    "Progress": "notProceeded",
-    "FormalName_JP": "リード.アンカレッヂ",
-    "FormalName_EN": "Leads.Anchorage"
-  },
-  {
-    "Card": { "Suit": "FireWands", "SuitNum": 12, "Num": 34 },
-    "Progress": "notProceeded"
-  },
-  {
-    "Card": { "Suit": "FireWands", "SuitNum": 13, "Num": 35 },
-    "Progress": "notProceeded",
-    "FormalName_JP": "オードリー.カッツェ.ブラックフレア",
-    "FormalName_EN": "Audrey.Katze.Blackflare"
-  },
-  {
-    "Card": { "Suit": "FireWands", "SuitNum": 14, "Num": 36 },
-    "Progress": "notProceeded"
-  },
-  {
-    "Card": { "Suit": "WaterCups", "SuitNum": 1, "Num": 37 },
-    "Progress": "notProceeded",
-    "FormalName_JP": "蓮宮 遥",
-    "FormalName_JPReading": "はすみや はる",
-    "FormalName_EN": "Hal Losas"
   },
   {
     "Card": { "Suit": "WaterCups", "SuitNum": 2, "Num": 38 },
@@ -155,33 +121,6 @@
     "Progress": "notProceeded",
     "FormalName_JP": "ホーパー.アラン",
     "FormalName_EN": "Hoper.Aran"
-  },
-  {
-    "Card": { "Suit": "WaterCups", "SuitNum": 11, "Num": 47 },
-    "Progress": "notProceeded",
-    "FormalName_JP": "ディッシュ.ロマネス",
-    "FormalName_EN": "Dishes.Romanes"
-  },
-  {
-    "Card": { "Suit": "WaterCups", "SuitNum": 12, "Num": 48 },
-    "Progress": "notProceeded"
-  },
-  {
-    "Card": { "Suit": "WaterCups", "SuitNum": 13, "Num": 49 },
-    "Progress": "notProceeded",
-    "FormalName_JP": "ユリィ.ジューン",
-    "FormalName_EN": "Yurie.Junes"
-  },
-  {
-    "Card": { "Suit": "WaterCups", "SuitNum": 14, "Num": 50 },
-    "Progress": "notProceeded"
-  },
-  {
-    "Card": { "Suit": "SlashSwords", "SuitNum": 1, "Num": 51 },
-    "Progress": "notProceeded",
-    "FormalName_JP": "神谷 瑛志",
-    "FormalName_JPReading": "かみや エース",
-    "FormalName_EN": "Ace Kamiya"
   },
   {
     "Card": { "Suit": "SlashSwords", "SuitNum": 2, "Num": 52 },
@@ -248,31 +187,6 @@
     "FormalName_EN": "Peddy.Dist"
   },
   {
-    "Card": { "Suit": "SlashSwords", "SuitNum": 11, "Num": 61 },
-    "Progress": "notProceeded",
-    "FormalName_JP": "ダウス.インターズ",
-    "FormalName_EN": "Daus.Interns"
-  },
-  {
-    "Card": { "Suit": "SlashSwords", "SuitNum": 13, "Num": 63 },
-    "Progress": "notProceeded",
-    "FormalName_JP": "ミネルヴァ.パルテノン",
-    "FormalName_EN": "Minerva.Parthenon"
-  },
-  {
-    "Card": { "Suit": "SlashSwords", "SuitNum": 14, "Num": 64 },
-    "Progress": "notProceeded",
-    "FormalName_JP": "カール.ホワイト.ヴァレンタイン",
-    "FormalName_EN": "Carl.White.Valentine"
-  },
-  {
-    "Card": { "Suit": "PentacleObjects", "SuitNum": 1, "Num": 65 },
-    "Progress": "notProceeded",
-    "FormalName_JP": "鏡花 夢中",
-    "FormalName_JPReading": "きょうか とりこ",
-    "FormalName_EN": "Dreamin Mirrors"
-  },
-  {
     "Card": { "Suit": "PentacleObjects", "SuitNum": 2, "Num": 66 },
     "Progress": "notProceeded",
     "FormalName_JP": "江戸川 笑",
@@ -332,25 +246,5 @@
     "Progress": "notProceeded",
     "FormalName_JP": "ディノ.メディック",
     "FormalName_EN": "Dinos.Medic"
-  },
-  {
-    "Card": { "Suit": "PentacleObjects", "SuitNum": 11, "Num": 75 },
-    "Progress": "notProceeded",
-    "FormalName_JP": "リッチ.インテリス",
-    "FormalName_EN": "Ritch.Intelis"
-  },
-  {
-    "Card": { "Suit": "PentacleObjects", "SuitNum": 12, "Num": 76 },
-    "Progress": "notProceeded"
-  },
-  {
-    "Card": { "Suit": "PentacleObjects", "SuitNum": 13, "Num": 77 },
-    "Progress": "notProceeded",
-    "FormalName_JP": "リーチェ.エリザベス",
-    "FormalName_EN": "Leiche.Elizabeth"
-  },
-  {
-    "Card": { "Suit": "PentacleObjects", "SuitNum": 14, "Num": 78 },
-    "Progress": "notProceeded"
   }
 ]
