@@ -69,43 +69,59 @@
     {
       "hashTag": "ThisArcanaHolder_DBLink",
       "$type": "$Def_DBLinkRef|#Null",
+      "$alt": "ArcanaHolding_DBLink",
       "$enrich": true,
       "hashTag_JP": "アルカナホルダー",
-      "hashTag_EN": "ArcanaHolder"
+      "hashTag_EN": "ArcanaHolder",
+      "isForMobs": false
+    },
+    {
+      "hashTag": "ArcanaHolding_DBLink",
+      "$type": "$Def_DBLinkRef|#Null",
+      "$enrich": false,
+      "hashTag_JP": "アルカナ所持関係",
+      "hashTag_EN": "Arcana Holding Relation",
+      "isForMobs": null
     },
     {
       "hashTag": "For79thDealerCalling_JP",
       "$type": "#String|#Null",
       "hashTag_JP": "錦野舞(第79アルカナ)の呼び方",
-      "$display": { "section": "sub" }
+      "$display": { "section": "sub" },
+      "isForMobs": false
     },
     {
       "hashTag": "For79thDealerCalling_EN",
       "$type": "#String_EN|#Null",
       "hashTag_EN": "Dancy Actressilk(79th Arcana) Calling",
-      "$display": { "section": "sub" }
+      "$display": { "section": "sub" },
+      "isForMobs": false
     },
     {
       "hashTag": "For80thDealerCalling_JP",
       "$type": "#String|#Null",
       "hashTag_JP": "錦野歌嫁(第80アルカナ)の呼び方",
-      "$display": { "section": "sub" }
+      "$display": { "section": "sub" },
+      "isForMobs": false
     },
     {
       "hashTag": "For80thDealerCalling_EN",
       "$type": "#String_EN|#Null",
       "hashTag_EN": "Phonia Actressilk(80th Arcana) Calling",
-      "$display": { "section": "sub" }
+      "$display": { "section": "sub" },
+      "isForMobs": false
     },
     {
       "hashTag": "ArcanamspecAbout_JP",
       "$type": "#Summary|#Null",
-      "hashTag_JP": "アルカナムスペック(アルカナ能力)について"
+      "hashTag_JP": "アルカナムスペック(アルカナ能力)について",
+      "isForMobs": null
     },
     {
       "hashTag": "ArcanamspecAbout_EN",
       "$type": "#Summary|#Null",
-      "hashTag_EN": "About Arcanamspecs (Arcana Abilities)"
+      "hashTag_EN": "About Arcanamspecs (Arcana Abilities)",
+      "isForMobs": null
     },
     {
       "hashTag": "ArcanumspecStats",
@@ -232,7 +248,8 @@
       ],
       "hashTag_JP": "アルカナムスペック(アルカナ能力)の特性",
       "hashTag_EN": "Arcanamspec (Arcana Ability) Traits",
-      "$display": { "sectionWrapper": "arcanumSpecSection" }
+      "$display": { "sectionWrapper": "arcanumSpecSection" },
+      "isForMobs": null
     },
     {
       "hashTag": "Relation",
@@ -252,7 +269,8 @@
       ],
       "hashTag_JP": "関係キャラクター",
       "isForSecondary": false,
-      "$display": { "sectionWrapper": "relationSection" }
+      "$display": { "sectionWrapper": "relationSection" },
+      "isForMobs": false
     },
     {
       "hashTag": "RelationTo_Primary",
@@ -273,7 +291,8 @@
       "hashTag_JP": "原作との関係",
       "hashTag_EN": "Relation to Primary Characters",
       "isForSecondary": true,
-      "$display": { "sectionWrapper": "relationSection" }
+      "$display": { "sectionWrapper": "relationSection" },
+      "isForMobs": false
     }
   ],
   "$VersDef": {

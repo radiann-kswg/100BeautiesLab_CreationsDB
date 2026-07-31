@@ -40,19 +40,22 @@
       "hashTag": "Model",
       "$type": "#Index",
       "hashTag_JP": "型式",
-      "hashTag_EN": "Model"
+      "hashTag_EN": "Model",
+      "isForMobs": false
     },
     {
       "hashTag": "Logic",
       "$type": "#Index",
       "hashTag_JP": "論理/ロジック",
-      "hashTag_EN": "Logic"
+      "hashTag_EN": "Logic",
+      "isForMobs": true
     },
     {
       "hashTag": "LogicAlt",
       "$type": "#Index",
       "hashTag_JP": "互換論理/互換ロジック",
-      "hashTag_EN": "Alternative Logic"
+      "hashTag_EN": "Alternative Logic",
+      "isForMobs": true
     },
     {
       "hashTag": "ForMasterCalling_JP",
@@ -83,14 +86,14 @@
     {
       "hashTag": "ExistingRarity",
       "$type": [{ "hashTag": "Rarity", "$type": "$EnumDef_Rarity,$EnumLink" }],
-      "isForMobs": true,
       "hashTag_JP": "残存レア度",
       "hashTag_EN": "Existing Rarity",
       "$display": {
         "section": "spec",
         "tagSpace": "creation",
         "rarityFormat": "alphaLabel"
-      }
+      },
+      "isForMobs": true
     }
   ],
   "$VarsDef": {}

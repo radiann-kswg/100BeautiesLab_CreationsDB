@@ -6,6 +6,7 @@
       "DB_Summary": "運命線探偵の公式一次創作作品に登場するキャラクター。\nタロットカードに関連する特性をそれぞれ有している。",
       "DB_Summary_EN": "Characters appearing in the official primary work of FateLine Investigator 78.\nEach one carries traits associated with tarot cards.",
       "StoryEra": {
+        "isMobs": false,
         "FromEra": [{ "EraGen": 7, "YearInEra": 24 }, { "byRealYear": 2044 }],
         "ToEra": [
           { "EraGen": 8, "YearInEra": 2 },
@@ -21,6 +22,7 @@
         "StoryEraAbout_EN": "between WDCE.VII.24 to WDCE.VIII.2(Equivalent to between: DC.2044-2046)\n\nThis period is significant for the \"World Development Creation VIII\" "
       },
       "_Commons": {
+        "isMobs": false,
         "Belonging": [{ "Faction": "セブンティエイト特殊探偵団" }],
         "_ListLinkIf_Suit": [
           { "Suit": "FireWands", "Class": ["火の棍棒支部"] },
@@ -52,8 +54,50 @@
         "StoryEraAbout_EN": "between WDCE.VII.24 to WDCE.VIII.2(Equivalent to between: DC.2044-2046)\n\nThis period is significant for the \"World Development Creation VIII\" "
       },
       "_Commons": {
+        "isMobs": false,
+        "Belonging": [{ "Faction": "セブンティエイト特殊探偵団" }],
         "_ListLinkIf_Suit": [
-          { "Suit": "Dealer", "FromArea": { "Area": "九蓮国" } }
+          { "Suit": "FireWands", "Class": ["火の棍棒支部"] },
+          { "Suit": "WaterCups", "Class": ["水の聖杯支部"] },
+          { "Suit": "SlashSwords", "Class": ["風の刀剣支部"] },
+          { "Suit": "PentacleObjects", "Class": ["金の硬貨支部"] },
+          {
+            "Suit": "Dealer",
+            "Class": ["采配幹部(ディーラーズ)"],
+            "FromArea": { "Area": "九蓮国" }
+          }
+        ]
+      }
+    },
+    "#DB_MinorArcana": {
+      "DB_Label_JP": "アルカナ(マイナーズ)",
+      "DB_Label_EN": "Arcana(Minors)",
+      "DB_Summary": "運命線探偵の公式一次創作作品に登場する能力存在。\nこちらには主に小アルカナの数札をモチーフにした能力存在に関する情報をまとめている。",
+      "DB_Summary_EN": "Characters appearing in the official primary work of FateLine Investigator 78.\nThis DB mainly compiles information on those who possess tarot-motif abilities based on the Minor Arcana.",
+      "_Commons": {
+        "isMobs": true,
+        "Belonging": [{ "Faction": "セブンティエイト特殊探偵団" }],
+        "_ListLinkIf_Suit": [
+          { "Suit": "FireWands", "Class": ["火の棍棒支部"] },
+          { "Suit": "WaterCups", "Class": ["水の聖杯支部"] },
+          { "Suit": "SlashSwords", "Class": ["風の刀剣支部"] },
+          { "Suit": "PentacleObjects", "Class": ["金の硬貨支部"] }
+        ]
+      }
+    },
+    "#DB_MinorsDealer": {
+      "DB_Label_JP": "アルカナホルダー(マイナーズ)",
+      "DB_Label_EN": "ArcanaHolders(Minor Arcana)",
+      "DB_Summary": "運命線探偵の公式一次創作作品に登場するキャラクター。\nこちらには主に小アルカナのタロットをモチーフにした能力の保有者に関する情報をまとめている。",
+      "DB_Summary_EN": "Characters appearing in the official primary work of FateLine Investigator 78.\nThis DB mainly compiles information on those who possess tarot-motif abilities based on the Minor Arcana.",
+      "_Commons": {
+        "isMobs": false,
+        "Belonging": [{ "Faction": "セブンティエイト特殊探偵団" }],
+        "_ListLinkIf_Suit": [
+          { "Suit": "FireWands", "Class": ["火の棍棒支部"] },
+          { "Suit": "WaterCups", "Class": ["水の聖杯支部"] },
+          { "Suit": "SlashSwords", "Class": ["風の刀剣支部"] },
+          { "Suit": "PentacleObjects", "Class": ["金の硬貨支部"] }
         ]
       }
     },
@@ -62,7 +106,16 @@
       "DB_Label_EN": "Unprocessed Arcana Holder",
       "DB_Summary": "運命線探偵のうち、まだ制作の目途が立っていないキャラクター。\nこちらには主に小アルカナのタロットをモチーフにした能力の保有者に関する情報をまとめている。",
       "DB_Summary_EN": "Characters in FateLine Investigator 78 for whom production is not yet underway.\nThis DB mainly compiles information on those who possess tarot-motif abilities based on the Minor Arcana.",
-      "_Commons": {},
+      "_Commons": {
+        "isMobs": false,
+        "Belonging": [{ "Faction": "セブンティエイト特殊探偵団" }],
+        "_ListLinkIf_Suit": [
+          { "Suit": "FireWands", "Class": ["火の棍棒支部"] },
+          { "Suit": "WaterCups", "Class": ["水の聖杯支部"] },
+          { "Suit": "SlashSwords", "Class": ["風の刀剣支部"] },
+          { "Suit": "PentacleObjects", "Class": ["金の硬貨支部"] }
+        ]
+      },
       "DB_Hidden": true
     }
   },
