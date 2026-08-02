@@ -1,5 +1,18 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### perf: `DataFetcher` にリクエストスコープのメモ化を入れ、`bootstrap` のリクエストを 2105 → 252 へ削減した (2026-08-02)
+
+`/pages/v1/bootstrap`（既定 `includeRecords=1&enrich=1`）は全作品 × 全公開DB を総なめするため、`readWorkMeta()` が `readDbMetaEntry()` / `readDB()` / enrich の各所から繰り返し呼ばれ、同一のメタファイルを何度も取り直していた（実測: `Works_FLInvestigator78/DataBases/db_meta.json` が **39 回**）。キャラシートの初回表示が重くなる直接の原因であり、今後追加する相関図ページ（`_work_in_progress/2026-08-02_progress_relations-graph.md`）も同じ経路を通るため、先に解消した。
+
+- **`lib/sw-common.js` の `DataFetcher`**: `beginRequestScope()` / `endRequestScope()` を追加。スコープ有効中は同一パスのフェッチを 1 回へ合流させる。解決値ではなく **Promise 自体**をキャッシュするため、逐次呼び出しと並行呼び出しの双方が合流する。ネストと並行リクエストに備えて**参照カウント**で管理し、0 へ戻った時点でキャッシュごと破棄する（TTL を持たないため、リクエストをまたいだ鮮度の後退は起きない）。
+- **メモ化の対象を限定**: `_isMemoizableJsonPath()` により、末尾が `db_meta.json` / `db_type.json` のパスと `/Dictionaries/` 配下のみを対象とし、**レコード本体（`db_*.json` / `ref_*.json` / `trans_*.json`）は決してメモ化しない**。`CommonsProcessor.applyCommonsToRecords()` はレコードを in-place で書き換える（`rec[k] = v`）ため、レコード配列を共有すると 2 番目以降の利用者が `_Commons` 適用済みの配列を受け取り、別 DB 文脈の値が混ざる。`fileExists()`（HEAD）は真偽値しか返さないため常にメモ化対象。
+- **失敗の扱い**: 404 等の失敗も同一スコープ内では再試行しない。`readRefMeta()` / `readLocMeta()` のように「無ければ空を返す」分岐が多く、同一リクエスト内で再取得しても結果が変わらないため。保存時に握り潰し用の `catch` を派生させ、unhandled rejection を防いでいる（元の Promise は reject のまま返るので呼び出し側の `try/catch` は従来どおり動作する）。
+- **`lib/sw-common.js` の `ServiceWorkerBase`**: `handleApiRequestInScope()` を追加し、`fetch` イベントからの呼び出しをこれに差し替えた。スコープの開閉点をここ 1 箇所に集約したため、各エンドポイントハンドラ側の改修は不要。`try/finally` で例外時も必ず閉じる。
+- **実測効果**: リクエスト **2105 → 252（88.0% 減）**、転送 25.46 → 20.14 MiB。取得できるレコード件数は 589 で前後一致。
+- **残課題（本変更の対象外）**: 残る 252 リクエストの多くはレコード本体の再読み込みで、`_DBLink` 解決に使う `resolveCache` が `handleBootstrapEndpoint()` の **DB ごとのループ内で作り直されている**ことに由来する。別途の最適化対象として記録した。
+- **影響範囲**: `lib/sw-common.js`（`DataFetcher` / `ServiceWorkerBase`）/ `tests/sw.datafetcher-memo.test.js`（新規）/ `docs/api-sw-spec.md` §2.1（新設）。`pages/sw.js` / `api/sw.js` / `svc/sw.js` は無改修（`importScripts` の構成に変更なし）。
+- **検証**: `npm test` 47 ファイル / 643 件すべて成功（新規 12 件）。`npm run data:order:check` は 0/1310 レコード整列（差分なし）。ローカル HTTP サーバーでの目視確認は未実施。
+
 ### docs: 複数ローカル環境の作業分担を `README.LOCAL.md` の `## 作業分担` 節で共有する運用ルールを追加した (2026-08-02)
 
 `main` / `sub1` / `sub2` / `sub3` の 4 ローカル環境を並行運用する際、「どの環境が今どの作業を担当しているか」を各エージェント（Claude Code / Claude Desktop・Cowork / GitHub Copilot / Codex ほか）が把握できる場所が無かった。Git 管理外の `README.LOCAL.md` を分担の正とし、その読み方・書式・同期手順を正典側で規定した。
