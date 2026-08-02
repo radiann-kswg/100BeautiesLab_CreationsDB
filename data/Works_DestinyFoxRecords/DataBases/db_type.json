@@ -4,7 +4,7 @@
     "$type": "#String",
     "hashTag_JP": "理学単位次元",
     "hashTag_EN": "UnitalDimention",
-    "$badge": { "keys": ["Unit"] }
+    "$badge": { "keys": ["Unit_Badge"] }
   },
   "$IndexDef_Proxy": {
     "hashTag": "Generation",
@@ -21,6 +21,14 @@
       "hashTag_EN": "Unit Full Name",
       "$slot": "#Index",
       "$display": { "auto": false }
+    },
+    {
+      "hashTag": "Unit_Badge",
+      "$type": "#String",
+      "$slot": "#Index",
+      "hashTag_JP": "インデックスバッジ",
+      "hashTag_EN": "Index Badge",
+      "$display": { "langMode": "shared", "auto": false }
     },
     {
       "hashTag": "Generation",
