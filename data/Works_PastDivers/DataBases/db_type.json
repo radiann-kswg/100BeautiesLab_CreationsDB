@@ -19,14 +19,7 @@
         "hashTag": "Generation",
         "$type": "#Number|#Null",
         "hashTag_JP": "月暦の世代",
-        "hashTag_EN": "GenerationOfLunar",
-        "$display": {
-          "facet": {
-            "order": 18,
-            "hierarchy": 18,
-            "dictRef": { "from": "Lunar", "field": "Generation" }
-          }
-        }
+        "hashTag_EN": "GenerationOfLunar"
       }
     ],
     "hashTag_JP": "クロノス",
