@@ -20130,13 +20130,13 @@
           "Num": 69,
           "Comments": "「へーんなの」",
           "Comments_EN": "\"What a strange one.\"",
-          "RealationLabel": ["cousin"]
+          "RelationLabel": ["cousin"]
         },
         {
           "Num": 76,
           "Comments": "「生真面目なヤツ…」",
           "Comments_EN": "\"Such a rigidly serious one...\"",
-          "RealationLabel": ["classmate"]
+          "RelationLabel": ["classmate"]
         }
       ]
     },
