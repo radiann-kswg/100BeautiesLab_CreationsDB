@@ -91,10 +91,15 @@
 				-->
 				<section class="relmap__group">
 					<h2 class="relmap__group-title" id="label-grouping">グルーピング</h2>
-					<label class="relmap__field">
-						<span>束ね方</span>
-						<select id="select-grouping" aria-label="グルーピング軸を選択"></select>
-					</label>
+					<div class="relmap__field">
+						<span id="label-grouping-axis">束ね方</span>
+						<div
+							class="relmap__presets"
+							id="select-grouping"
+							role="group"
+							aria-labelledby="label-grouping-axis"
+						></div>
+					</div>
 					<label class="relmap__check">
 						<input id="chk-merge-same" type="checkbox" checked />
 						<span>同一存在をまとめる</span>

@@ -101,10 +101,18 @@
   flex: 1 1 auto;
   min-height: 44px;
   font-size: var(--font-size-xs);
+  border-color: var(--border);
+  color: var(--muted);
+  background: transparent;
+}
+.relmap__preset:hover:not(:disabled) {
+  border-color: var(--border-strong);
+  color: var(--fg);
 }
 .relmap__preset.is-active {
   border-color: var(--accent);
   color: var(--accent);
+  background: var(--card);
 }
 
 .relmap__legend {

@@ -111,15 +111,30 @@
 	flex-wrap: wrap
 	gap: var(--spacing-xs)
 
+// マップ選択・グルーピング軸のチップ。
+//
+// `.ghost`（characters.sass:714-717）は**すべてのボタンへ accent の枠と文字色**を付けるため、
+// `.is-active` で accent を再指定しても差が出ず、選択状態が見えていなかった。
+// 非選択側を沈めることで区別する（characters.sass:1478-1487 の `.lang-toggle__opt` と同じ作法。
+// あちらも `opacity 0.35 → 1` で「沈める / 起こす」を表現している）。
 .relmap__preset
 	flex: 1 1 auto
 	min-height: 44px
 	font-size: var(--font-size-xs)
+	// 非選択: 枠も文字も地に寄せる
+	border-color: var(--border)
+	color: var(--muted)
+	background: transparent
 
-	// 選択中のマップ／プリセット
+	&:hover:not(:disabled)
+		border-color: var(--border-strong)
+		color: var(--fg)
+
+	// 選択中: 色相は変えず accent で点灯させる
 	&.is-active
 		border-color: var(--accent)
 		color: var(--accent)
+		background: var(--card)
 
 // エッジ種別の凡例（色 + 線種のスウォッチ付き）
 .relmap__legend

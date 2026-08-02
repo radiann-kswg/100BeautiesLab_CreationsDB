@@ -1312,18 +1312,38 @@ function renderMapSelector() {
 
 /** グルーピング軸セレクタ（宣言から自動列挙） */
 function renderGroupingSelector() {
-	const sel = $('select-grouping');
-	if (!sel) return;
+	const box = $('select-grouping');
+	if (!box) return;
 	const usable = selectUsableFacets(state.facets, drilledNodes());
-	replaceChildren(sel, [
-		el('option', { value: '', text: 'なし' }),
-		...usable.map(f => el('option', {
-			value: f.key,
-			text: `${pickLang(f.label_JP, f.label_EN)}（${f.stats.valueCount}）`
-		}))
+
+	// 選択中の軸が今のスコープで使えないなら「なし」へ戻す
+	if (state.grouping && !usable.some(f => f.key === state.grouping)) state.grouping = '';
+
+	/** @param {string} key @param {string} label @returns {HTMLElement} */
+	const chip = (key, label) => {
+		const active = state.grouping === key;
+		const b = el('button', {
+			type: 'button',
+			class: `relmap__preset ghost${active ? ' is-active' : ''}`,
+			'aria-pressed': active ? 'true' : 'false',
+			text: label,
+			onclick: () => {
+				state.grouping = key;
+				syncUrl(false);
+				renderGroupingSelector();
+				renderGraph();
+			}
+		});
+		return b;
+	};
+
+	// 軸セレクタは `<select>` ではなく横並びのチップ行にする。
+	// すぐ上のマップ選択（`relmap__presets`）と同じ語彙になり、
+	// 「いま何の軸で束ねているか」が開かずに一覧できる（アークナイツのフィルタ行から取り込んだ形）。
+	replaceChildren(box, [
+		chip('', 'なし'),
+		...usable.map(f => chip(f.key, `${pickLang(f.label_JP, f.label_EN)}（${f.stats.valueCount}）`))
 	]);
-	sel.value = usable.some(f => f.key === state.grouping) ? state.grouping : '';
-	if (sel.value !== state.grouping) state.grouping = sel.value;
 }
 
 /** エッジ種別の凡例＋トグル */
@@ -1368,11 +1388,7 @@ function onViewChanged(push) {
 
 /** コントロールのイベントを配線する */
 function wireControls() {
-	$('select-grouping')?.addEventListener('change', (ev) => {
-		state.grouping = ev.target.value;
-		syncUrl(false);
-		renderGraph();
-	});
+	// グルーピング軸はチップ行なので、各ボタンの onclick を renderGroupingSelector() が配線する
 
 	$('chk-secondary')?.addEventListener('change', (ev) => {
 		state.includeSecondary = ev.target.checked;
