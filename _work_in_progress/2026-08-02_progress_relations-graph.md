@@ -270,6 +270,8 @@ canvas を CSS で消しても操作できる状態を保つ。キーボード�
 | 0 | `bootstrap` 高速化（`DataFetcher` メモ化） | **完了** | 170 | 423（実装 124 / テスト 262 / 文書 37） | ✅ 47 / 643（新規 12） |
 | 1-a | 共有基盤の切り出し（`viewer-locator` / `page-api-bridge`） | **完了** | 740 | 1,003（lib 721 / テスト 264 / `characters.js` −356/+18） | ✅ 48 / 693（新規 50） |
 | 1-b | 相関図 MVP（`graph-model` / Cytoscape / ページ 3 点） | **完了** | 1,700 | **3,830**（下記内訳） | ✅ 50 / 782（新規 89） |
+| 2-a | 宣言駆動の軸・バッジ（`$display.facet` / `Works_Code` / `$badge`） | **完了** | 1,300 | 1,281（lib 558 / テスト 631 / data 92） | ✅ 52 / 869（新規 87） |
+| 2-b | 描画（軸セレクタ・中間ノード・密度連動エッジ・タイル・六角格子） | 未着手 | 1,650 | — | — |
 | 2 | グルーピング軸と中間ノードモード | 未着手 | 800 | — | — |
 | 3 | 絞り込みと操作の作り込み | 未着手 | 700 | — | — |
 | 4 | 導線・文書 | 未着手 | 550 | — | — |
@@ -353,8 +355,55 @@ canvas を CSS で消しても操作できる状態を保つ。キーボード�
   5. **ラベルの重なり** — 105 ノード表示で名前が重なって読めなかったため、
      ノードが 60 を超えたら次数上位 40 件だけラベルを残す密度調整を入れた
      （選択・強調時は復活）。本格的な密度対策は Phase 3
-- **Phase 2**: 作品内エッジ 0 の 5 作品（計 51 ノード）が `FromArea` / `RaceType` を中間ノードにして図になる。
-  `_Commons` 由来の値にバッジが付きトグルで除外できる。同じ `Class` コードが所属ごとに違うラベルへ解決される。
+- **Phase 2-a（完了・実データ実測）**: グルーピング軸とインデックスバッジを**宣言駆動**にした。
+
+  **背景**: 当初の「`$dict` 宣言の有無で軸を自動列挙」は実データと合っていなかった。
+  被覆率 100% の `Progress` と Phase 2 で使う `FromArea` が漏れ、異なり値 1 の
+  `sec_Category` / `sec_DesignedBy` を拾ってしまう。User の「typedef で識別可能に」という要望は正しかった。
+
+  **入れた宣言**（`data/` 92 挿入 / 30 削除・13 ファイル）:
+  - `$display.facet` … `data/db_type.json` の 6 フィールド（`Belonging` / `FromArea` / `Class` /
+    `Progress` / `RaceType` / `GenderType`）。`path` で構造の奥の値を指す（`Belonging[].Faction` など）
+  - `Works_Code` … `data/db_meta.json` の 9 作品へ 3 文字コード
+    （`NTS` / `FLI` / `SAR` / `SCG` / `PDV` / `DFR` / `UBL` / `UAL` / **`VTU`**）。
+    `$MetaType.$Def_CreationWorkCatalog` にも schema を宣言
+  - `$badge` … 各作品 `db_type.json` の `$IndexDef` 11 箇所（`$IndexDef_Proxy` / `$IndexDef_PrimaryMobs` 含む）
+  - `dict_Suit.json` へ `Suit_Code` 列（User が `Major` 行も追加してくれたのでフォールバック不要になった）
+
+  **実測 1（バッジ）**: 全 9 作品 22 DB・**1,311 件すべて一意かつ非空**（重複 0 / 空 0）。
+
+  | 作品 | バッジ例 |
+  | --- | --- |
+  | FLI | `M0` `W1` `C1`（`Suit_Code` 経由） |
+  | PDV | `3G3` `1G2`（`dict_Lunar.json` の `Num` + `Generation`） |
+  | UBL | `Ag1` `Bg1` |
+  | VTU | `1`〜`8`（User が追加した `Virtues_Num` を使用） |
+  | DFR | `s` `m` `kg` / `G1` `G2` |
+
+  **実測 2（軸）**: enrich 後 478 ノードで **6 軸すべてが実用**（被覆率 5% 以上・値 2 種以上）。
+
+  | 軸 | 被覆率 | 値の種類 | 多値 | 描画方式 |
+  | --- | ---: | ---: | ---: | --- |
+  | `Progress` | 100.0% | 10 | 0 | compound node |
+  | `RaceType` | 96.7% | 37 | 2 | 中間ノード |
+  | `Class` | 92.3% | 148（136 丸め） | 116 | 中間ノード |
+  | `Belonging` | 91.8% | 27 | 44 | 中間ノード |
+  | `GenderType` | 89.5% | 8 | 0 | compound node |
+  | `FromArea` | 38.3% | 9 | 0 | compound node |
+
+  多値／単値の判定が正しく効き、Cytoscape の compound node（1 ノード 1 親）で表せない軸を
+  自動で中間ノード方式へ振り分けられる状態になった。
+
+  **実装中に判明したこと**:
+  1. **辞書は `Dictionaries/dict_*.json` だけではない** — VirtuesUs の `#List_Virtues`（`Virtues_Num` を持つ）は
+     `DataBases/db_meta.json` の `General.$VarsDef` 側にしか無い。
+     AGENTS.md「辞書の実行時合流」のとおり `db_meta.json` / `db_type.json` の `$VarsDef` も積む必要がある
+  2. **JSON を `JSON.stringify` で書き戻すとファイル全体が再整形される** — 317 行の差分になったので破棄し、
+     Edit ツール（`.claude/settings.json` の PostToolUse prettier フック経由）で入れ直した。92 行に収まった
+  3. `data/db_type.json` などは **LF** 改行（`pages/characters.js` は CRLF）。スクリプトで触るなら自動判定が要る
+
+- **Phase 2-b**: 「所属別」「クラス別」で図が束ねられ凡例と対応する。
+  作品内エッジ 0 の 5 作品が中間ノードモードで図になる。`Commented` が密度に応じて自動で隠れる。
 - **Phase 3**: NumberTales/Primary の密な図でも「言及・コメント」を切って読める密度にできる（699 → 約 330 本）。
   フィルタ状態が常時表示され隠れフィルタが無い。キーボードだけで巡回・遷移できる。
 - **Phase 4**: `npm run agents:check` と `tests/agent-instructions.sync.test.js` が通る（生成物のズレなし）。
