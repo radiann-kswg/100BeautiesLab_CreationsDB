@@ -15,7 +15,8 @@
         "hashTag_JP": "ロット番号",
         "hashTag_EN": "Lot Number"
       }
-    ]
+    ],
+    "$badge": { "keys": ["ModelSeries", "Num"] }
   },
   "$IndexDef_PrimaryMobs": {
     "hashTag": "Logic",
@@ -33,7 +34,8 @@
         "hashTag_JP": "ロジック番号",
         "hashTag_EN": "Logic Number"
       }
-    ]
+    ],
+    "$badge": { "keys": ["LogicSeries", "Num"] }
   },
   "$DefType": [
     {

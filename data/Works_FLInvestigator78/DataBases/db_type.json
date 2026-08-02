@@ -24,7 +24,15 @@
       }
     ],
     "hashTag_JP": "カード(アルカナ)",
-    "hashTag_EN": "Card (Arcana)"
+    "hashTag_EN": "Card (Arcana)",
+    "$badge": {
+      "keys": [
+        { "key": "Suit", "codeFrom": "Suit_Code" },
+        { "key": "SuitNum" },
+        { "key": "Num", "whenMissing": "SuitNum" }
+      ],
+      "separator": ""
+    }
   },
   "$DefType": [
     { "hashTag": "Card", "$type": "#Index", "hashTag_JP": "カード" },

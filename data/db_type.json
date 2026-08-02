@@ -10,7 +10,11 @@
       "$type": "$EnumDef",
       "hashTag_JP": "進捗",
       "hashTag_EN": "Creation Progress",
-      "$display": { "section": "basic", "tagSpace": "creatorProgress" }
+      "$display": {
+        "section": "basic",
+        "tagSpace": "creatorProgress",
+        "facet": { "order": 40 }
+      }
     },
     {
       "hashTag": "AnotherVersions_DBLink",
@@ -138,7 +142,8 @@
       "hashTag_EN": "Race",
       "$display": {
         "section": "basic",
-        "tagSpace": "creation"
+        "tagSpace": "creation",
+        "facet": { "order": 50 }
       }
     },
     {
@@ -150,7 +155,8 @@
       "$display": {
         "section": "basic",
         "tagSpace": "creation",
-        "langMode": "shared"
+        "langMode": "shared",
+        "facet": { "order": 60 }
       }
     },
     {
@@ -159,13 +165,20 @@
       "$dict": "Faction",
       "hashTag_JP": "所属",
       "hashTag_EN": "Belonging",
-      "$display": { "section": "basic", "tagSpace": "creation" }
+      "$display": {
+        "section": "basic",
+        "tagSpace": "creation",
+        "facet": { "path": "Faction", "order": 10 }
+      }
     },
     {
       "hashTag": "FromArea",
       "$type": "$Def_BaseArea",
       "hashTag_JP": "出身地",
-      "hashTag_EN": "From Area"
+      "hashTag_EN": "From Area",
+      "$display": {
+        "facet": { "path": "Area", "order": 20 }
+      }
     },
     {
       "hashTag": "Class",
@@ -173,7 +186,11 @@
       "$dict": "Class",
       "hashTag_JP": "クラス名",
       "hashTag_EN": "Class",
-      "$display": { "section": "basic", "tagSpace": "creation" }
+      "$display": {
+        "section": "basic",
+        "tagSpace": "creation",
+        "facet": { "order": 30, "maxGroups": 12 }
+      }
     },
     {
       "hashTag": "Height_cm",
@@ -686,6 +703,13 @@
           "hashTag": "Title_EN",
           "$type": "##String_EN|#Summary|#Null",
           "hashTag_EN": "Title"
+        },
+        {
+          "hashTag": "Works_Code",
+          "$type": "##String|#Null",
+          "hashTag_JP": "作品コード",
+          "hashTag_EN": "Work Code",
+          "$display": { "langMode": "shared" }
         },
         {
           "hashTag": "Works_Summary_JP",

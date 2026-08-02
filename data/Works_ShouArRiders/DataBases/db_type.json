@@ -18,7 +18,8 @@
       }
     ],
     "hashTag_JP": "獣種",
-    "hashTag_EN": "BeastType"
+    "hashTag_EN": "BeastType",
+    "$badge": { "keys": ["Beast"] }
   },
   "$DefType": [
     { "hashTag": "BeastType", "$type": "#Index", "hashTag_JP": "獣種" },

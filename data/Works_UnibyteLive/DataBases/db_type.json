@@ -17,7 +17,11 @@
       }
     ],
     "hashTag_JP": "キーレター",
-    "hashTag_EN": "Key-Letter"
+    "hashTag_EN": "Key-Letter",
+    "$badge": {
+      "keys": [{ "key": "Alphabet" }, { "key": "AlphaGen", "prefix": "g" }],
+      "separator": ""
+    }
   },
   "$DefType": [
     {
