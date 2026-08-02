@@ -455,7 +455,7 @@ UI → Service Worker (`/pages/v1/`) → 静的 JSON 読み込み + `_DBLink`/`_
 - **空値を出さない**: `q` / `lang` は値があるときだけ付与し、空パラメータは URL に残しません。
 - **後方互換**: 旧パラメータ（`work` / `db` / `idx` / `idxKey` / `num` の個別キー、`Works_` 接頭辞付き作品ID）と、カテゴリキーを含まない旧 URL（例: `Card.SuitNum:16`）は **読み取りのみ**互換維持。生成側は常に `c` 形式で出力し、旧形式で開かれた URL は表示時に新形式へ書き換わります。
 - **例外**: 値そのものにカンマを含む等、圧縮ロケータへ往復できない複合条件のみ、従来の個別キー形式で出力します。
-- **実装の集約先**: URL 文法の実装は `pages/characters.js` の `buildViewerQueryString()` / `parseViewerLocator()` / `parseIdxToken()` に集約します。各所で `new URLSearchParams({...})` を組み立て直さないでください。
+- **実装の集約先**: URL 文法の実装は **`lib/viewer-locator.js`** の `buildViewerQueryString()` / `parseViewerLocator()` / `parseIdxToken()` に集約します（キャラシートと相関図の双方が import する DOM 非依存の純関数群）。各所で `new URLSearchParams({...})` を組み立て直さないでください。`location` / `history` に依存する現在クエリの読み書き（`getQS()` / `setQS()` / `buildViewerHref()`）だけを各ページ側に置きます。
 - **運用方針**: 直リンク挙動の変更は、原則コード変更ではなく作品別 typedef の `$IndexDef` を更新して追従させます。
 
 ---
