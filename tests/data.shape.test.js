@@ -512,17 +512,17 @@ describe('TailsUnit schema', () => {
   it('NT db_Primary.json backfilled TailsUnit_PNGName for the 11 reference-image characters', () => {
     const records = load('data/Works_NumberTales/DataBases/db_Primary.json');
     const expected = new Map([
-      [4, 'attr_tailsUnit4'],
-      [6, 'attr_tailsUnit6'],
-      [16, 'attr_tailsUnit16'],
-      [23, 'attr_tailsUnit23'],
-      [39, 'attr_tailsUnit39'],
-      [49, 'attr_tailsUnit49'],
-      [57, 'attr_tailsUnit57'],
-      [61, 'attr_tailsUnit61'],
-      [73, 'attr_tailsUnit73'],
-      [85, 'attr_tailsUnit85'],
-      [93, 'attr_tailsUnit93'],
+      [4, 'attr_tailsUnitNTS-4'],
+      [6, 'attr_tailsUnitNTS-6'],
+      [16, 'attr_tailsUnitNTS-16'],
+      [23, 'attr_tailsUnitNTS-23'],
+      [39, 'attr_tailsUnitNTS-39'],
+      [49, 'attr_tailsUnitNTS-49'],
+      [57, 'attr_tailsUnitNTS-57'],
+      [61, 'attr_tailsUnitNTS-61'],
+      [73, 'attr_tailsUnitNTS-73'],
+      [85, 'attr_tailsUnitNTS-85'],
+      [93, 'attr_tailsUnitNTS-93'],
     ]);
     for (const [num, fileName] of expected) {
       const rec = records.find((r) => r.Num === num);

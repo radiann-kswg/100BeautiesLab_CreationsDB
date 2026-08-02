@@ -17,14 +17,14 @@
   "General": {
     "$VarsDef": {
       "#List_Virtues": [
-        { "Virtues": "仁", "Virtues_EN": "Benevolence" },
-        { "Virtues": "義", "Virtues_EN": "Righteousness" },
-        { "Virtues": "礼", "Virtues_EN": "Propriety" },
-        { "Virtues": "智", "Virtues_EN": "Wisdom" },
-        { "Virtues": "忠", "Virtues_EN": "Loyalty" },
-        { "Virtues": "信", "Virtues_EN": "Trustworthiness" },
-        { "Virtues": "孝", "Virtues_EN": "Filial Piety" },
-        { "Virtues": "悌", "Virtues_EN": "Brotherly Love" }
+        { "Virtues": "仁", "Virtues_EN": "Benevolence", "Virtues_Num": 1 },
+        { "Virtues": "義", "Virtues_EN": "Righteousness", "Virtues_Num": 2 },
+        { "Virtues": "礼", "Virtues_EN": "Propriety", "Virtues_Num": 3 },
+        { "Virtues": "智", "Virtues_EN": "Wisdom", "Virtues_Num": 4 },
+        { "Virtues": "忠", "Virtues_EN": "Loyalty", "Virtues_Num": 5 },
+        { "Virtues": "信", "Virtues_EN": "Trustworthiness", "Virtues_Num": 6 },
+        { "Virtues": "孝", "Virtues_EN": "Filial Piety", "Virtues_Num": 7 },
+        { "Virtues": "悌", "Virtues_EN": "Brotherly Love", "Virtues_Num": 8 }
       ]
     }
   }

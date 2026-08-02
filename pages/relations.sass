@@ -1,0 +1,379 @@
+// ==================================================
+// 創作キャラ・相関図ページ用スタイルシート
+// 100BeautiesLab Creations DB (Web) - pages/relations.html 用
+//
+// characters.css を先に読み込んだうえで重ねる差分スタイル。
+// 配色・スペーシング・角丸・フォントサイズはすべて characters.sass の
+// CSS カスタムプロパティ（--bg / --accent / --spacing-* など）を流用し、
+// このファイルでは新しいデザイントークンを定義しない。
+//
+// 参考にした UI の考え方（アークナイツのノードマップ）:
+//   1. 集約ノードからのドリルダウンとパンくず（操作感）
+//   2. 左レール / 中央キャンバス / 右インスペクタの 3 ペイン（画面構成）
+// 見た目のトーンそのものは踏襲せず、既存デザインシステムの範囲で組む。
+// ==================================================
+
+// ==================================================
+// ページ全体レイアウト
+// ==================================================
+
+// 相関図はビューポート高いっぱいを使うため、ページ全体のスクロールを抑える
+.relmap-body
+	min-height: 100vh
+
+// 3 ペイン（デスクトップ）／縦積み（モバイル）
+.relmap
+	display: grid
+	grid-template-columns: 1fr
+	gap: var(--spacing-md)
+	padding: 0 var(--spacing-md) var(--spacing-md)
+	max-width: 1600px
+	margin: 0 auto
+
+	@media (min-width: 1024px)
+		grid-template-columns: 260px minmax(0, 1fr) 300px
+		align-items: start
+		padding: 0 var(--spacing-lg) var(--spacing-lg)
+
+	@media (min-width: 1280px)
+		grid-template-columns: 280px minmax(0, 1fr) 340px
+
+// ==================================================
+// 左レール（スコープ・グルーピング・絞り込み）
+// ==================================================
+
+.relmap__rail
+	padding: var(--spacing-md)
+	align-self: start
+
+	@media (min-width: 1024px)
+		position: sticky
+		top: var(--spacing-md)
+		max-height: calc(100vh - var(--spacing-xl))
+		overflow-y: auto
+
+// レールの開閉ボタンはモバイルのみ表示する
+.relmap__rail-toggle
+	width: 100%
+	margin-bottom: var(--spacing-sm)
+
+	@media (min-width: 1024px)
+		display: none
+
+.relmap__rail-body
+	display: flex
+	flex-direction: column
+	gap: var(--spacing-lg)
+
+	&[hidden]
+		display: none
+
+.relmap__group
+	display: flex
+	flex-direction: column
+	gap: var(--spacing-sm)
+
+.relmap__group-title
+	margin: 0
+	font-size: var(--font-size-sm)
+	color: var(--muted)
+	letter-spacing: 0.04em
+
+.relmap__field
+	display: flex
+	flex-direction: column
+	gap: var(--spacing-xs)
+	font-size: var(--font-size-sm)
+
+	select, input
+		width: 100%
+
+.relmap__check
+	display: flex
+	align-items: center
+	gap: var(--spacing-sm)
+	font-size: var(--font-size-sm)
+	// タッチターゲットを 44px 以上に保つ
+	min-height: 44px
+
+.relmap__presets
+	display: flex
+	flex-wrap: wrap
+	gap: var(--spacing-xs)
+
+.relmap__preset
+	flex: 1 1 auto
+	min-height: 44px
+	font-size: var(--font-size-xs)
+
+	// 選択中のマップ／プリセット
+	&.is-active
+		border-color: var(--accent)
+		color: var(--accent)
+
+// エッジ種別の凡例（色 + 線種のスウォッチ付き）
+.relmap__legend
+	display: flex
+	flex-direction: column
+	gap: var(--spacing-xs)
+
+.relmap__legend-item
+	display: flex
+	align-items: center
+	flex-wrap: wrap
+	gap: var(--spacing-sm)
+	font-size: var(--font-size-sm)
+	min-height: 32px
+	cursor: pointer
+
+	// 密度により自動で隠している種別。「なぜ消えたか」が分かるようにする
+	&.is-auto-hidden
+		opacity: 0.75
+
+// 「自動で非表示中（密度）」のバッジ
+.relmap__legend-auto
+	flex: 1 0 100%
+	padding-left: 36px
+	font-size: var(--font-size-xs)
+	color: var(--warning)
+
+// スウォッチは色だけでなく線種でも区別できるようにする
+// （色覚特性や、グレースケール印刷でも読めるようにするため）
+.relmap__legend-swatch
+	flex: 0 0 auto
+	width: 28px
+	height: 0
+	border-top-width: 3px
+	border-top-style: var(--swatch-line, solid)
+	border-top-color: var(--swatch-color, currentColor)
+
+// ==================================================
+// 中央ステージ（グラフキャンバス）
+// ==================================================
+
+.relmap__stage
+	position: relative
+	display: flex
+	flex-direction: column
+	gap: var(--spacing-sm)
+	padding: var(--spacing-md)
+	min-width: 0
+
+.relmap__breadcrumb
+	display: flex
+	flex-wrap: wrap
+	align-items: center
+	gap: var(--spacing-xs)
+	font-size: var(--font-size-sm)
+
+.relmap__crumb
+	padding: var(--spacing-xs) var(--spacing-sm)
+	font-size: var(--font-size-sm)
+
+.relmap__crumb--current
+	color: var(--fg)
+	font-weight: bold
+
+.relmap__crumb-sep
+	color: var(--muted)
+
+// 「（次: 所属）」のように、次に掘れる段を示すヒント
+.relmap__crumb-hint
+	font-size: var(--font-size-xs)
+
+// インデックスバッジ（NTS-57 / FLI-M16 など）
+.relmap__badge
+	display: inline-block
+	padding: 1px var(--spacing-xs)
+	border: 1px solid var(--border-strong)
+	border-radius: var(--border-radius-sm)
+	font-size: var(--font-size-xs)
+	color: var(--accent)
+	letter-spacing: 0.03em
+
+// Cytoscape が canvas を差し込むコンテナ。高さを明示しないと 0 になる
+.relmap__canvas
+	position: relative
+	width: 100%
+	height: 60vh
+	min-height: 360px
+	border: 1px solid var(--border)
+	border-radius: var(--border-radius-md)
+	background: var(--bg-deep)
+	overflow: hidden
+
+	@media (min-width: 1024px)
+		height: calc(100vh - 220px)
+		min-height: 480px
+
+.relmap__overlay
+	position: absolute
+	inset: 0
+	display: flex
+	align-items: center
+	justify-content: center
+	background: rgba(5, 8, 15, 0.72)
+	border-radius: var(--border-radius-md)
+	z-index: 2
+
+	&[hidden]
+		display: none
+
+.relmap__overlay-text
+	margin: 0
+	color: var(--fg)
+	font-size: var(--font-size-lg)
+
+.relmap__stats
+	margin: 0
+	font-size: var(--font-size-xs)
+
+.relmap__fatal
+	padding: var(--spacing-xl)
+	color: var(--error)
+
+	h2
+		margin: 0 0 var(--spacing-sm)
+		font-size: var(--font-size-lg)
+
+// ==================================================
+// 右インスペクタ
+// ==================================================
+
+.relmap__inspector
+	padding: var(--spacing-md)
+	align-self: start
+
+	@media (min-width: 1024px)
+		position: sticky
+		top: var(--spacing-md)
+		max-height: calc(100vh - var(--spacing-xl))
+		overflow-y: auto
+
+.relmap__inspector-empty
+	margin: 0
+	color: var(--muted)
+	font-size: var(--font-size-sm)
+
+.relmap__inspector-title
+	margin: 0 0 var(--spacing-xs)
+	font-size: var(--font-size-lg)
+
+.relmap__inspector-sub,
+.relmap__inspector-index
+	margin: 0 0 var(--spacing-xs)
+	font-size: var(--font-size-xs)
+
+.relmap__inspector-open
+	display: inline-block
+	margin: var(--spacing-sm) 0 var(--spacing-md)
+
+.relmap__inspector-h3
+	margin: var(--spacing-md) 0 var(--spacing-sm)
+	font-size: var(--font-size-sm)
+	color: var(--muted)
+
+.relmap__rel-list
+	margin: 0
+	padding-left: 1.1em
+	display: flex
+	flex-direction: column
+	gap: var(--spacing-sm)
+	font-size: var(--font-size-sm)
+
+.relmap__rel-labels
+	color: var(--muted)
+
+.relmap__rel-comment
+	margin: var(--spacing-xs) 0 0
+	color: var(--muted)
+	font-size: var(--font-size-xs)
+	white-space: pre-wrap
+
+// エッジ種別のバッジ。色は JS 側の EDGE_STYLE と対応させる
+.relmap__kind
+	display: inline-block
+	padding: 1px var(--spacing-xs)
+	border-radius: var(--border-radius-sm)
+	font-size: var(--font-size-xs)
+	border: 1px solid currentColor
+
+.relmap__kind--related
+	color: var(--accent)
+
+.relmap__kind--commented
+	color: var(--muted)
+
+.relmap__kind--sameBeing
+	color: var(--success)
+
+.relmap__kind--variant
+	color: var(--accent-2)
+
+.relmap__kind--master
+	color: var(--warning)
+
+// ==================================================
+// テキスト版（アクセシビリティの代替経路）
+// ==================================================
+
+.relmap__aux
+	display: flex
+	flex-direction: column
+	gap: var(--spacing-md)
+	padding-bottom: var(--spacing-2xl)
+
+	> details
+		padding: var(--spacing-md)
+
+	summary
+		cursor: pointer
+		font-size: var(--font-size-sm)
+		min-height: 32px
+
+.relmap__adjacency
+	display: flex
+	flex-direction: column
+	gap: var(--spacing-md)
+	margin-top: var(--spacing-md)
+	font-size: var(--font-size-sm)
+
+.relmap__adjacency-item
+	h3
+		margin: 0 0 var(--spacing-xs)
+		font-size: var(--font-size-sm)
+
+	ul
+		margin: 0
+		padding-left: 1.2em
+
+.relmap__isolated,
+.relmap__diagnostics
+	margin-top: var(--spacing-md)
+	font-size: var(--font-size-sm)
+
+.relmap__isolated-list
+	margin: 0
+	padding-left: 1.2em
+	columns: 1
+
+	@media (min-width: 768px)
+		columns: 2
+
+	@media (min-width: 1280px)
+		columns: 3
+
+.relmap__diag-h3
+	margin: var(--spacing-md) 0 var(--spacing-xs)
+	font-size: var(--font-size-sm)
+	color: var(--muted)
+
+// ==================================================
+// アニメーション抑制（OS の「視差効果を減らす」を尊重）
+// ==================================================
+
+@media (prefers-reduced-motion: reduce)
+	.relmap__canvas *
+		animation-duration: 0.01ms !important
+		animation-iteration-count: 1 !important
+		transition-duration: 0.01ms !important

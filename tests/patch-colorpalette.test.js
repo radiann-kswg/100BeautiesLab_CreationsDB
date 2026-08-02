@@ -60,7 +60,7 @@ function colorDistance(a, b) {
 
 describe('detectSwatchChips — 設定画のカラーチップ検出', () => {
     it('Num 4 の設定画から、カタログに印字された 5 色すべてを検出する', () => {
-        const img = decodePng(fs.readFileSync(path.join(IMAGES, 'concept', 'cnsp_img4.png')));
+        const img = decodePng(fs.readFileSync(path.join(IMAGES, 'concept', 'cnsp_imgNTS-4.png')));
         const chips = detectSwatchChips(img);
         expect(chips.length).toBeGreaterThanOrEqual(5);
 
@@ -74,13 +74,13 @@ describe('detectSwatchChips — 設定画のカラーチップ検出', () => {
     it('チップが重なって描かれていても個別に検出する（Num 48）', () => {
         // Num 48 のチップは大小の円が重畳しており、単純な「有色の連結成分」では
         // 全部が 1 つの塊に融合してしまう。色が変わる境界で成分を切ることで分離できる。
-        const img = decodePng(fs.readFileSync(path.join(IMAGES, 'concept', 'cnsp_img48.png')));
+        const img = decodePng(fs.readFileSync(path.join(IMAGES, 'concept', 'cnsp_imgNTS-48.png')));
         const chips = detectSwatchChips(img);
         expect(chips.length).toBeGreaterThanOrEqual(5);
     });
 
     it('大小が不揃いでも小さなチップを取りこぼさない（Num 75 の青は半径 3.7px しかない）', () => {
-        const img = decodePng(fs.readFileSync(path.join(IMAGES, 'concept', 'cnsp_img75.png')));
+        const img = decodePng(fs.readFileSync(path.join(IMAGES, 'concept', 'cnsp_imgNTS-75.png')));
         const chips = detectSwatchChips(img);
         // パレット領域を特定してから、その周辺だけを緩い条件で再捜査することで拾える
         const hasSmallBlue = chips.some(c => colorDistance(c.hex, '#6F94C8') < 20);
@@ -88,14 +88,14 @@ describe('detectSwatchChips — 設定画のカラーチップ検出', () => {
     });
 
     it('キャラクター本体の塗りをチップと誤検出しない（線画に接する成分は除外）', () => {
-        const img = decodePng(fs.readFileSync(path.join(IMAGES, 'concept', 'cnsp_img4.png')));
+        const img = decodePng(fs.readFileSync(path.join(IMAGES, 'concept', 'cnsp_imgNTS-4.png')));
         const chips = detectSwatchChips(img);
         // 配色見本は 1 箇所にまとまって描かれるため、検出数は高々 8 程度に収まる
         expect(chips.length).toBeLessThanOrEqual(8);
     });
 
     it('チップが無い画像では空配列を返す', () => {
-        const img = decodePng(fs.readFileSync(path.join(IMAGES, 'corefolder', '1', 'emstk_corefolder1-1.png')));
+        const img = decodePng(fs.readFileSync(path.join(IMAGES, 'corefolder', '1', 'emstk_corefolderNTS-1-1.png')));
         const chips = detectSwatchChips(img);
         expect(Array.isArray(chips)).toBe(true);
     });
@@ -103,7 +103,7 @@ describe('detectSwatchChips — 設定画のカラーチップ検出', () => {
 
 describe('measurePaletteCoverage — 配色の被覆率実測（Role の根拠）', () => {
     it('指定した配色ごとの被覆率を返し、合計が 1 を超えない', () => {
-        const img = decodePng(fs.readFileSync(path.join(IMAGES, 'corefolder', '1', 'emstk_corefolder1-1.png')));
+        const img = decodePng(fs.readFileSync(path.join(IMAGES, 'corefolder', '1', 'emstk_corefolderNTS-1-1.png')));
         const coverage = measurePaletteCoverage(img, ['#ED5D47', '#FF8682', '#FFAC8F']);
         expect(coverage).toHaveLength(3);
         for (const c of coverage) expect(c).toBeGreaterThanOrEqual(0);
@@ -111,7 +111,7 @@ describe('measurePaletteCoverage — 配色の被覆率実測（Role の根拠�
     });
 
     it('画像に存在する色の被覆率が 0 より大きくなる', () => {
-        const img = decodePng(fs.readFileSync(path.join(IMAGES, 'corefolder', '1', 'emstk_corefolder1-1.png')));
+        const img = decodePng(fs.readFileSync(path.join(IMAGES, 'corefolder', '1', 'emstk_corefolderNTS-1-1.png')));
         const coverage = measurePaletteCoverage(img, ['#ED5D47']);
         expect(coverage[0]).toBeGreaterThan(0);
     });
@@ -241,7 +241,7 @@ describe('parseChipList / 手入力チップ — 自動検出できないレコ�
 
     it('手入力チップは自動検出より優先され、source が manual になる', () => {
         const { chips, source } = detectChipsForRecord(
-            { Images: { concept_PNGName: 'cnsp_img4' } },
+            { Images: { concept_PNGName: 'cnsp_imgNTS-4' } },
             IMAGES,
             ['#67BDBD', '#A4DAEF'],
         );
@@ -251,9 +251,9 @@ describe('parseChipList / 手入力チップ — 自動検出できないレコ�
 
     it('手入力チップも被覆率の降順で Role が決まる（自動検出と同じ扱い）', () => {
         const chips = [{ hex: '#67BDBD', count: 0 }, { hex: '#387EB6', count: 0 }];
-        const record = { Images: { corefolder_PNGPath: ['40/emstk_corefolder40-1'] } };
+        const record = { Images: { corefolder_PNGPath: ['40/emstk_corefolderNTS-40-1'] } };
         const { ordered, measuredOn } = rankChipsByCoverage(chips, record, IMAGES);
-        expect(measuredOn).toContain('corefolder40-1');
+        expect(measuredOn).toContain('corefolderNTS-40-1');
         // corefolder 画像では #67BDBD の方が広く使われている
         expect(ordered[0].hex).toBe('#67BDBD');
         expect(ordered[0].coverage).toBeGreaterThan(ordered[1].coverage);

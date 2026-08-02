@@ -39,7 +39,7 @@ import {
 const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SAMPLE_PNG = path.join(
     REPO_ROOT, 'data', 'Works_NumberTales', 'Images', 'DB_Primary',
-    'corefolder', '1', 'emstk_corefolder1-1.png',
+    'corefolder', '1', 'emstk_corefolderNTS-1-1.png',
 );
 
 describe('decodePng — 自前 PNG デコーダ（依存追加ゼロ）', () => {
@@ -177,9 +177,9 @@ describe('resolveImageSources — 画像ソースの優先順', () => {
         const sources = resolveImageSources(
             {
                 Images: {
-                    concept_PNGName: 'cnsp_img1',
-                    corefolder_PNGPath: ['1/emstk_corefolder1-1'],
-                    arts_PNGPath: ['humanoids/2023/art_img1-humanoid'],
+                    concept_PNGName: 'cnsp_imgNTS-1',
+                    corefolder_PNGPath: ['1/emstk_corefolderNTS-1-1'],
+                    arts_PNGPath: ['humanoids/2023/art_imgNTS-1-humanoid'],
                 },
             },
             path.join(REPO_ROOT, 'data', 'Works_NumberTales', 'Images', 'DB_Primary'),
@@ -198,7 +198,7 @@ describe('buildColorPaletteDraft — ColorPalette 下書きの生成', () => {
         images: [
             {
                 role: 'arts',
-                file: 'data/.../art_img1-humanoid.png',
+                file: 'data/.../art_imgNTS-1-humanoid.png',
                 foregroundRatio: 0.22, // corefolder より低いが、優先順で先に来る
                 candidates: [
                     { hex: '#FFA195', ratio: 0.5, hsv: { h: 7, s: 0.42, v: 1 }, matchedHints: [{ word: 'red orange', bodyPart: '#BodyPart_Hair', source: 'x' }] },
@@ -209,7 +209,7 @@ describe('buildColorPaletteDraft — ColorPalette 下書きの生成', () => {
             },
             {
                 role: 'corefolder',
-                file: 'data/.../emstk_corefolder1-1.png',
+                file: 'data/.../emstk_corefolderNTS-1-1.png',
                 foregroundRatio: 0.28, // こちらの方が前景比率は高い
                 candidates: [
                     { hex: '#FFB69E', ratio: 0.25, hsv: { h: 15, s: 0.38, v: 1 }, matchedHints: [] },

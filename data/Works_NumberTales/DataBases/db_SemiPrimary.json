@@ -1,10 +1,11 @@
 [
   {
     "Num": 100,
+    "Num_Badge": "100",
     "Progress": "stillTentative",
     "Name_JP": "100(モモ)",
     "Name_EN": "100(Centa)",
-    "Images": { "corefolder_PNGPath": ["100/emstk_corefolder100-1"] },
+    "Images": { "corefolder_PNGPath": ["100/emstk_corefolderNTS-100-1"] },
     "FormalName_JP": "ナンバーテールズ100番機\nナンバーテールズ キャレ-ディス",
     "FormalName_EN": "NumberTales #100\nNumberTales Unit.Carré-10",
     "CodeName_JP": "一〇〇",
@@ -87,7 +88,7 @@
             "value_EN": "Roman numeral 'C', with Arabic numeral '- 100 -' below"
           }
         ],
-        "img_PNGName": "attr_numberMark100",
+        "img_PNGName": "attr_numberMarkNTS-100",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -220,6 +221,7 @@
   },
   {
     "Num": 101,
+    "Num_Badge": "101",
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": "101-mp" }],
     "Name_JP": "101(ヒノマルイ)",
@@ -240,6 +242,7 @@
   },
   {
     "Num": 102,
+    "Num_Badge": "102",
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": "102-mp" }],
     "Name_JP": "102(ヒノマルフ)",
@@ -260,6 +263,7 @@
   },
   {
     "Num": 103,
+    "Num_Badge": "103",
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": "103-mp" }],
     "Name_JP": "103(ヒノマルミ)",
@@ -280,6 +284,7 @@
   },
   {
     "Num": 104,
+    "Num_Badge": "104",
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": "104-mp" }],
     "Name_JP": "104(ヒノマルヨ)",
@@ -299,6 +304,7 @@
   },
   {
     "Num": 105,
+    "Num_Badge": "105",
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": "105-mp" }],
     "Name_JP": "105(ヒノマルゴ)",
@@ -318,6 +324,7 @@
   },
   {
     "Num": 106,
+    "Num_Badge": "106",
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": "106-mp" }],
     "Name_JP": "106(ヒノマルム)",
@@ -337,6 +344,7 @@
   },
   {
     "Num": 107,
+    "Num_Badge": "107",
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": "107-mp" }],
     "Name_JP": "107(ヒノマルナ)",
@@ -356,6 +364,7 @@
   },
   {
     "Num": 108,
+    "Num_Badge": "108",
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": "108-mp" }],
     "Name_JP": "108(ヒノマルヤ)",
@@ -375,6 +384,7 @@
   },
   {
     "Num": 109,
+    "Num_Badge": "109",
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": "109-mp" }],
     "Name_JP": "109(ヒノマルク)",
@@ -394,6 +404,7 @@
   },
   {
     "Num": 110,
+    "Num_Badge": "110",
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": "110-mp" }],
     "Name_JP": "110(ハクト)",
@@ -414,6 +425,7 @@
   },
   {
     "Num": 111,
+    "Num_Badge": "111",
     "Progress": "released",
     "isTriple": false,
     "AnotherVersions_DBLink": [
@@ -421,7 +433,7 @@
     ],
     "Name_JP": "111(アイズ)",
     "Name_EN": "111(Ize)",
-    "Images": { "concept_PNGName": "cnsp_img111" },
+    "Images": { "concept_PNGName": "cnsp_imgNTS-111" },
     "FormalName_JP": "ナンバーテールズ111番機",
     "FormalName_EN": "NumberTales #111",
     "CodeName_JP": "一一一",
@@ -729,6 +741,7 @@
   },
   {
     "Num": 112,
+    "Num_Badge": "112",
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": "112-mp" }],
     "Name_JP": "112(ハクトウジ)",
@@ -749,6 +762,7 @@
   },
   {
     "Num": 113,
+    "Num_Badge": "113",
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": "113-mp" }],
     "Name_JP": "113(ハクトミ)",
@@ -767,6 +781,7 @@
   },
   {
     "Num": 114,
+    "Num_Badge": "114",
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": "114-mp" }],
     "Name_JP": "114(ハクトヨ)",
@@ -785,6 +800,7 @@
   },
   {
     "Num": 115,
+    "Num_Badge": "115",
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [
       { "_DB": "SelfSecondary", "Num": "115-mp" },
@@ -806,6 +822,7 @@
   },
   {
     "Num": 116,
+    "Num_Badge": "116",
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": "116-mp" }],
     "Name_JP": "116(ハクソロク)",
@@ -824,6 +841,7 @@
   },
   {
     "Num": 117,
+    "Num_Badge": "117",
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": "117-mp" }],
     "Name_JP": "117(ハクトナ)",
@@ -842,6 +860,7 @@
   },
   {
     "Num": 118,
+    "Num_Badge": "118",
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": "118-mp" }],
     "Name_JP": "118(ハクトウヤ)",
@@ -860,6 +879,7 @@
   },
   {
     "Num": 119,
+    "Num_Badge": "119",
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": "119-mp" }],
     "Name_JP": "119(ハクトク)",
@@ -878,6 +898,7 @@
   },
   {
     "Num": "121-sq",
+    "Num_Badge": "121SQ",
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 121 }],
     "Name_JP": "121(エルフェルト)\n11²(キャレオンズ)",
@@ -898,6 +919,7 @@
   },
   {
     "Num": "125-cub",
+    "Num_Badge": "125KZ",
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 125 }],
     "Name_JP": "125(イブコ)\n5³(リツコ)",
@@ -916,6 +938,7 @@
   },
   {
     "Num": "144-sq",
+    "Num_Badge": "144SQ",
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 144 }],
     "Name_JP": "144(グロス)\n12²(グロス)",
@@ -940,6 +963,7 @@
   },
   {
     "Num": "169-sq",
+    "Num_Badge": "169SQ",
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 169 }],
     "FormalName_JP": "ナンバーテールズ キャレ-トレーズ(同位異格169番機)",
@@ -954,6 +978,7 @@
   },
   {
     "Num": "196-sq",
+    "Num_Badge": "196SQ",
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 196 }],
     "FormalName_JP": "ナンバーテールズ キャレ-カトルズ(同位異格196番機)",
@@ -968,6 +993,7 @@
   },
   {
     "Num": "200-dev",
+    "Num_Badge": "200DV",
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 200 }],
     "Name_JP": "200(バイセンテ)",
@@ -998,6 +1024,7 @@
   },
   {
     "Num": "216-cub",
+    "Num_Badge": "216KZ",
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 216 }],
     "Name_JP": "216(ニイロ)\n6³(リク)",
@@ -1022,6 +1049,7 @@
   },
   {
     "Num": 222,
+    "Num_Badge": "222A",
     "Progress": "released",
     "isTriple": false,
     "AnotherVersions_DBLink": [
@@ -1031,13 +1059,13 @@
     "Name_JP": "222(ペルゲン)\n222(ドッペルゲンズ)",
     "Name_EN": "222(Pelgäns)\n222(Doppelgäns)",
     "Images": {
-      "concept_PNGName": "cnsp_img222A",
-      "conceptAlt_PNGName": ["cnsp_img222-orig"],
+      "concept_PNGName": "cnsp_imgNTS-222A",
+      "conceptAlt_PNGName": ["cnsp_imgNTS-222A,NTS-222B-orig"],
       "corefolder_PNGPath": [
-        "222/emstk_corefolder222-2a",
-        "222/emstk_corefolder222-1"
+        "222/emstk_corefolderNTS-222A-2a",
+        "222/emstk_corefolderNTS-222A,NTS-222B-1"
       ],
-      "designAlt_PNGPath": ["chattingArt/chart_img222-humanoidWBed"]
+      "designAlt_PNGPath": ["chattingArt/chart_imgNTS-222A,NTS-222B-humanoidWBed"]
     },
     "FormalName_JP": "ナンバーテールズ222番機(開発用オリジナル版3倍型2号機)",
     "FormalName_EN": "NumberTales #222 (Original version for development of EXtended By.3 Type Unit.2)",
@@ -1104,7 +1132,7 @@
             "value_EN": "Arabic numeral '222'"
           }
         ],
-        "img_PNGName": "attr_numberMark222A",
+        "img_PNGName": "attr_numberMarkNTS-222A",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -1201,7 +1229,7 @@
             "value_EN": "pendant featuring three '2's and a heart motif"
           }
         ],
-        "img_PNGName": "attr_costumeItem222A-pendant",
+        "img_PNGName": "attr_costumeItemNTS-222A-pendant",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -1341,6 +1369,7 @@
   },
   {
     "Num": "222-alt",
+    "Num_Badge": "222B",
     "Progress": "released",
     "isTriple": false,
     "AnotherVersions_DBLink": [
@@ -1350,13 +1379,13 @@
     "Name_JP": "222(ドッペル)\n222(ドッペルゲンズ)",
     "Name_EN": "222(Doppels)\n222(Doppelgäns)",
     "Images": {
-      "concept_PNGName": "cnsp_img222B",
-      "conceptAlt_PNGName": ["cnsp_img222-orig"],
+      "concept_PNGName": "cnsp_imgNTS-222B",
+      "conceptAlt_PNGName": ["cnsp_imgNTS-222A,NTS-222B-orig"],
       "corefolder_PNGPath": [
-        "222/emstk_corefolder222-2b",
-        "222/emstk_corefolder222-1"
+        "222/emstk_corefolderNTS-222B-2b",
+        "222/emstk_corefolderNTS-222A,NTS-222B-1"
       ],
-      "designAlt_PNGPath": ["chattingArt/chart_img222-humanoidWBed"]
+      "designAlt_PNGPath": ["chattingArt/chart_imgNTS-222A,NTS-222B-humanoidWBed"]
     },
     "FormalName_JP": "ナンバーテールズ222番機(開発用オリジナル版1+11号2倍機)",
     "FormalName_EN": "NumberTales #222 (Original version for development of Unit.1+11 EXtended By.2)",
@@ -1423,7 +1452,7 @@
             "value_EN": "Arabic numeral '222'"
           }
         ],
-        "img_PNGName": "attr_numberMark222B",
+        "img_PNGName": "attr_numberMarkNTS-222B",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -1520,7 +1549,7 @@
             "value_EN": "pendant featuring three '2's and a heart motif"
           }
         ],
-        "img_PNGName": "attr_costumeItem222B-pendant",
+        "img_PNGName": "attr_costumeItemNTS-222B-pendant",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -1640,6 +1669,7 @@
   },
   {
     "Num": "225-sq",
+    "Num_Badge": "225SQ",
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 225 }],
     "FormalName_JP": "ナンバーテールズ キャレ-クインズ(同位異格225番機)",
@@ -1654,6 +1684,7 @@
   },
   {
     "Num": "256-sq",
+    "Num_Badge": "256SQ",
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 256 }],
     "Name_JP": "256(バイツ)\n16²(バイツ)",
@@ -1681,6 +1712,7 @@
   },
   {
     "Num": "289-sq",
+    "Num_Badge": "289SQ",
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 289 }],
     "FormalName_JP": "ナンバーテールズ キャレ-ディセット(同位異格289番機)",
@@ -1695,6 +1727,7 @@
   },
   {
     "Num": "324-sq",
+    "Num_Badge": "324SQ",
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 324 }],
     "FormalName_JP": "ナンバーテールズ キャレ-ディズュイット(同位異格324番機)",
@@ -1709,6 +1742,7 @@
   },
   {
     "Num": 333,
+    "Num_Badge": "333",
     "isTriple": false,
     "Progress": "notProceeded",
     "AnotherVersions_DBLink": [
@@ -1730,6 +1764,7 @@
   },
   {
     "Num": "343-cub",
+    "Num_Badge": "343KZ",
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 343 }],
     "Name_JP": "343(ミシミ)\n7³(ズューブ)",
@@ -1748,6 +1783,7 @@
   },
   {
     "Num": "361-sq",
+    "Num_Badge": "361SQ",
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 361 }],
     "FormalName_JP": "ナンバーテールズ キャレ-ディズネフ(同位異格361番機)",
@@ -1764,6 +1800,7 @@
   },
   {
     "Num": "400-sq",
+    "Num_Badge": "400SQ",
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [
       { "_DB": "SelfSecondary", "Num": "400-gc" },
@@ -1787,6 +1824,7 @@
   },
   {
     "Num": 400,
+    "Num_Badge": "400",
     "Progress": "notProceeded",
     "AnotherVersions_DBLink": [{ "_DB": "SelfSecondary", "Num": "400-gc" }],
     "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": "400-sq" }],
@@ -1808,6 +1846,7 @@
   },
   {
     "Num": 444,
+    "Num_Badge": "444",
     "isTriple": false,
     "Progress": "unreleased",
     "AnotherVersions_DBLink": [
@@ -1816,11 +1855,11 @@
     "Name_JP": "444(シテン)",
     "Name_EN": "444(Quad-emperone)",
     "Images": {
-      "concept_PNGName": "cnsp_img444",
+      "concept_PNGName": "cnsp_imgNTS-444",
       "corefolder_PNGPath": [
-        "444/emstk_corefolder444-1",
-        "444/emstk_corefolder444-2",
-        "444/emstk_corefolder444-3"
+        "444/emstk_corefolderNTS-444-1",
+        "444/emstk_corefolderNTS-444-2",
+        "444/emstk_corefolderNTS-444-3"
       ]
     },
     "FormalName_JP": "ナンバーテールズ444番機",
@@ -1899,7 +1938,7 @@
             "value_EN": "Arabic numeral '444'"
           }
         ],
-        "img_PNGName": "attr_numberMark444",
+        "img_PNGName": "attr_numberMarkNTS-444",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -1925,7 +1964,7 @@
             "value_EN": "Arabic numeral '444'"
           }
         ],
-        "img_PNGName": "attr_numberMark444",
+        "img_PNGName": "attr_numberMarkNTS-444",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -2009,7 +2048,7 @@
             "value_EN": "halo consisting of three squares/diamonds"
           }
         ],
-        "img_PNGName": "attr_halo444",
+        "img_PNGName": "attr_haloNTS-444",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -2253,6 +2292,7 @@
   },
   {
     "Num": "512-cub",
+    "Num_Badge": "512KZ",
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 512 }],
     "Name_JP": "512(ハキビ)\n8³(ハキビ)",
@@ -2273,6 +2313,7 @@
   },
   {
     "Num": 555,
+    "Num_Badge": "555",
     "Progress": "notProceeded",
     "isTriple": false,
     "AnotherVersions_DBLink": [
@@ -2294,6 +2335,7 @@
   },
   {
     "Num": 666,
+    "Num_Badge": "666",
     "Progress": "released",
     "isTriple": false,
     "AnotherVersions_DBLink": [
@@ -2302,8 +2344,8 @@
     "Name_JP": "666(リリス)",
     "Name_EN": "666(Lilith)",
     "Images": {
-      "concept_PNGName": "cnsp_img666",
-      "corefolder_PNGPath": ["666/emstk_corefolder666-1"]
+      "concept_PNGName": "cnsp_imgNTS-666",
+      "corefolder_PNGPath": ["666/emstk_corefolderNTS-666-1"]
     },
     "FormalName_JP": "ナンバーテールズ666番機",
     "FormalName_EN": "NumberTales #666",
@@ -2433,7 +2475,7 @@
             "value_EN": "halo with three '6's arranged in rotational symmetry (with a circle in the center)"
           }
         ],
-        "img_PNGName": "attr_halo666",
+        "img_PNGName": "attr_haloNTS-666",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -2449,7 +2491,7 @@
             "value_EN": "wings inspired by the motif of '666' (with heart-shaped tips)"
           }
         ],
-        "img_PNGName": "attr_wing666",
+        "img_PNGName": "attr_wingNTS-666",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -2486,7 +2528,7 @@
             "value_EN": "brooch with three '6's arranged in rotational symmetry and hexagonal shape"
           }
         ],
-        "img_PNGName": "attr_costumeItem666-brooch",
+        "img_PNGName": "attr_costumeItemNTS-666-brooch",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -2523,7 +2565,7 @@
             "value_EN": "brooch with three '6's arranged in rotational symmetry and hexagonal shape"
           }
         ],
-        "img_PNGName": "attr_costumeItem666-brooch",
+        "img_PNGName": "attr_costumeItemNTS-666-brooch",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -2642,6 +2684,7 @@
   },
   {
     "Num": "729-sxp",
+    "Num_Badge": "729XP",
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 729 }],
     "Name_JP": "729(ナブク)",
@@ -2660,6 +2703,7 @@
   },
   {
     "Num": 777,
+    "Num_Badge": "777",
     "Progress": "released",
     "isTriple": false,
     "AnotherVersions_DBLink": [
@@ -2669,8 +2713,8 @@
     "Name_JP": "777(ヨロコビ)",
     "Name_EN": "777(Lucky-sevens)\n777(Luckies)",
     "Images": {
-      "concept_PNGName": "cnsp_img777A",
-      "conceptAlt_PNGName": ["cnsp_img777C", "cnsp_img777-orig"]
+      "concept_PNGName": "cnsp_imgNTS-777",
+      "conceptAlt_PNGName": ["cnsp_imgNTS-777,NTS-777JPC", "cnsp_imgNTS-777,NTS-777JP-orig"]
     },
     "FormalName_JP": "ナンバーテールズ777番機",
     "FormalName_EN": "NumberTales #777",
@@ -2953,14 +2997,15 @@
   },
   {
     "Num": "777.Jackpot",
+    "Num_Badge": "777JP",
     "Progress": "released",
     "isTriple": false,
     "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": 777 }],
     "Name_JP": "777(ヨロコビ)",
     "Name_EN": "777(Lucky-sevens)\n777(Luckies)",
     "Images": {
-      "concept_PNGName": "cnsp_img777B",
-      "conceptAlt_PNGName": ["cnsp_img777C", "cnsp_img777-orig"]
+      "concept_PNGName": "cnsp_imgNTS-777JP",
+      "conceptAlt_PNGName": ["cnsp_imgNTS-777,NTS-777JPC", "cnsp_imgNTS-777,NTS-777JP-orig"]
     },
     "FormalName_JP": "ナンバーテールズ777番機-ジャックポット",
     "FormalName_EN": "NumberTales #777.Jackpot",
@@ -3230,6 +3275,7 @@
   },
   {
     "Num": 888,
+    "Num_Badge": "888",
     "Progress": "notProceeded",
     "isTriple": false,
     "AnotherVersions_DBLink": [
@@ -3262,6 +3308,7 @@
   },
   {
     "Num": 999,
+    "Num_Badge": "999",
     "Progress": "notProceeded",
     "isTriple": false,
     "AnotherVersions_DBLink": [
@@ -3308,14 +3355,15 @@
   },
   {
     "Num": "3x11",
+    "Num_Badge": "3x11",
     "Progress": "released",
     "Name_JP": "トレッド\n3×11(トリィレブン)",
     "Name_EN": "Treidre'\n3×11(Trieleven)",
     "Images": {
-      "concept_PNGName": "cnsp_img3x11",
+      "concept_PNGName": "cnsp_imgNTS-3x11",
       "corefolder_PNGPath": [
-        "3x11/emstk_corefolder3x11-1",
-        "3x11/emstk_corefolder3x11-2"
+        "3x11/emstk_corefolderNTS-3x11-1",
+        "3x11/emstk_corefolderNTS-3x11-2"
       ],
       "arts_PNGPath": ["corefolders/autumnMoon/art_autumnMoon2025"]
     },
@@ -3396,7 +3444,7 @@
             "value_EN": "Arabic numeral '33', followed by a small parenthetical '(3×11)'"
           }
         ],
-        "img_PNGName": "attr_numberMark3x11",
+        "img_PNGName": "attr_numberMarkNTS-3x11",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -3551,7 +3599,7 @@
             "value_EN": "two round brooches featuring a three-color motif"
           }
         ],
-        "img_PNGName": "attr_emblem3x11-doubleBrooch",
+        "img_PNGName": "attr_emblemNTS-3x11-doubleBrooch",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -3567,7 +3615,7 @@
             "value_EN": "halo featuring heart shapes, a three-color motif, and six bands"
           }
         ],
-        "img_PNGName": "attr_halo3x11",
+        "img_PNGName": "attr_haloNTS-3x11",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -3760,6 +3808,7 @@
   },
   {
     "Num": "64-sxp",
+    "Num_Badge": "64XP",
     "Progress": "notProceeded",
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "Primary", "Num": 64 }
@@ -3802,6 +3851,7 @@
   },
   {
     "Num": "9x9",
+    "Num_Badge": "9x9",
     "Progress": "notProceeded",
     "Name_JP": "81(クック)\n9²(クック)",
     "Name_EN": "81(Neuf-neuf)\n9²(Neuf-neuf)",
@@ -3837,6 +3887,7 @@
   },
   {
     "Num": "%",
+    "Num_Badge": "DIV",
     "Progress": "notProceeded",
     "AnotherRegions_DBLink": {
       "_Work": "FLInvestigator78",
@@ -3878,6 +3929,7 @@
   },
   {
     "Num": "∞",
+    "Num_Badge": "INF",
     "Progress": "notProceeded",
     "AnotherRegions_DBLink": {
       "_Work": "FLInvestigator78",

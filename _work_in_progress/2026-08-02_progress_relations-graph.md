@@ -269,7 +269,10 @@ canvas を CSS で消しても操作できる状態を保つ。キーボード�
 | −0.5 | ベースラインの赤 5 件を解消（`254795f`） | **完了** | — | 42（data 20 / tests 22） | ✅ 46 / 631 |
 | 0 | `bootstrap` 高速化（`DataFetcher` メモ化） | **完了** | 170 | 423（実装 124 / テスト 262 / 文書 37） | ✅ 47 / 643（新規 12） |
 | 1-a | 共有基盤の切り出し（`viewer-locator` / `page-api-bridge`） | **完了** | 740 | 1,003（lib 721 / テスト 264 / `characters.js` −356/+18） | ✅ 48 / 693（新規 50） |
-| 1-b | 相関図 MVP（`graph-model` / Cytoscape / ページ 3 点） | 未着手 | 1,700 | — | — |
+| 1-b | 相関図 MVP（`graph-model` / Cytoscape / ページ 3 点） | **完了** | 1,700 | **3,830**（下記内訳） | ✅ 50 / 782（新規 89） |
+| 2-a | 宣言駆動の軸・バッジ（`$display.facet` / `Works_Code` / `$badge`） | **完了** | 1,300 | 1,281（lib 558 / テスト 631 / data 92） | ✅ 52 / 869（新規 87） |
+| 2-b | 描画（階層駆動・マップ分割・中間ノード・密度連動エッジ・タイル・六角格子・エゴネットワーク） | **完了** | 1,650 | 約 1,600（`relations.js` 全面改稿 / `graph-layout.js` 184 / テスト 156） | ✅ 53 / 901（新規 32） |
+| 2-c | NumberTales の `Num_Badge`（User 指定ルールでの短縮コード） | **完了** | — | 1,096（data 挿入）＋ 宣言 8 ＋ テスト 60 | ✅ 53 / 908（新規 7） |
 | 2 | グルーピング軸と中間ノードモード | 未着手 | 800 | — | — |
 | 3 | 絞り込みと操作の作り込み | 未着手 | 700 | — | — |
 | 4 | 導線・文書 | 未着手 | 550 | — | — |
@@ -300,11 +303,195 @@ canvas を CSS で消しても操作できる状態を保つ。キーボード�
   - **新規 lib は 3 つの `sw.js` の `importScripts` へ足していない**（ESM を足すと SW 全体が SyntaxError で評価失敗する）
   - `AGENTS.md`「直リンク（URL クエリ）」の「実装の集約先」を `pages/characters.js` → `lib/viewer-locator.js` へ更新し、
     `npm run agents:build` で生成物（`.claude/skills/localize-en-draft/SKILL.md`）を同期
-- **Phase 1-b**: 全体グラフが成立する（479 ノード / 無向 772 エッジ / 最大成分 142 / 集約 9 ノードから開始）。
-  NumberTales → Primary へドリルダウンすると平均次数 5.44 の密な相関図。
-  **他 8 作品が薄いことが目で見え、Phase 2 の必要性が実証される。**
-- **Phase 2**: 作品内エッジ 0 の 5 作品（計 51 ノード）が `FromArea` / `RaceType` を中間ノードにして図になる。
-  `_Commons` 由来の値にバッジが付きトグルで除外できる。同じ `Class` コードが所属ごとに違うラベルへ解決される。
+- **Phase 1-b（完了・ブラウザ実測）**: 相関図が実ブラウザ（Playwright / Chromium）で
+  **エラー・警告ゼロで動作**した。
+
+  | 項目 | 実測値 |
+  | --- | --- |
+  | ノード | **478**（キー衝突 0・取りこぼし 0） |
+  | エッジ | 有向 1,066 → 相互 216 組を畳んで **無向 850** |
+  | 内訳 | 関係 288 / 言及・コメント 363 / 同一存在 63 / 別版・派生 115 / 主従 21 |
+  | 未解決リンク | 9（診断パネルに出し、グラフには描かない） |
+  | 曖昧リンク | 0 |
+  | 初期表示 | 9 作品の集約ノード / 11 本 |
+  | NumberTales/Primary | 105 キャラノード / 587 本 |
+
+  - ドリルダウン（作品 → DB → キャラ）・パンくず・URL 同期（`?s=NumberTales/Primary`）が動作
+  - キャラシート遷移を実機確認: `?c=NumberTales/Primary/Num:1` →「1(ハジメ)」が 1 件表示。
+    複合 Index も `FLInvestigator78/Primary/Num:22,Suit:Major,SuitNum:0` →「フェニクス」、
+    `UnibyteLive/Primary/AlphaGen:1,Alphabet:A` →「A:アロー」、
+    `PastDivers/Primary/Lunar:Kisaragi` →「雪乙女しいな」がいずれも正しく解決
+  - 隣接リスト 259 項目 / 孤立トレイ 76 件 / 診断パネル 9 件が描画される
+  - **他 8 作品が薄いことが目で見える**（作品密度: NumberTales 2.49 / FLI78 0.88 / UnibyteLive 0.22 /
+    PastDivers・UnauthedLogica・SinisterChangingGirls・VirtuesUs・ShouArRiders 0.00）。Phase 2 の必要性が実証された
+
+  **行数内訳（見積 1,700 → 実績 3,830。大きく超過した）**:
+  `lib/graph/graph-model.js` 832 / `pages/relations.js` 1,362 / `pages/relations.sass` 348 /
+  `pages/relations.css` 362（生成物）/ `pages/relations.html` 215 /
+  `tests/graph.model.test.js` 570 / `tests/pages.relations.syntax.test.js` 99 / `vitest.config.js` 28。
+  超過の主因は (a) スキーマ駆動のエッジ抽出と部分集合一致の実装が想定より厚くなった、
+  (b) テストを 89 件に厚くした（実データ不変条件を全 DB について回した）、
+  (c) 診断パネル・隣接リスト・孤立トレイなど a11y 代替経路を MVP に含めた。
+
+  **実装中に判明して対処したこと**:
+  1. **`.mjs` の MIME 問題** — Cytoscape 配布物の `cytoscape.esm.min.mjs` をそのまま置くと
+     `python -m http.server` が `text/plain` で返し、`Expected a JavaScript-or-Wasm module script` で
+     モジュール読み込みが失敗した。three.js を `three.module.min.js` と `.js` 拡張子で置いている先例に倣い
+     **拡張子のみ改名**（中身は無改変。ハッシュ一致を確認済み）。`THIRD_PARTY_NOTICES.md` に理由を明記
+  2. **資料系DBがキャラノードに混ざる** — `listWorkDBs()` は `References` レイヤーのDBも返すため、
+     `CommonReferences` の Race / Faction / Society / Region8 / Vocabulary 計 **46 件**が
+     キャラクターとしてグラフに載っていた。DB 名の列挙ではなく **`DB_Layer` で判定**して除外
+     （`dbFilter` で `layer === 'DataBases'` のみ採用）。478 件へ収束
+  3. **非公開データの多重防御**（User 指摘）— `/pages/v1/bootstrap` は `isPrivate` /
+     `DB_Hidden` / `Works_Hidden` を除外済みだが、`graph-model.js` が「呼び出し元が除外済み」に
+     依存していた。`data/` を直接読む呼び出し元やテストからも漏れないよう、**モデル側にも除外を実装**し
+     `diagnostics.excluded` へ件数を記録するようにした。
+     実測では `_Secondaries._Commons` 経由で `isPrivate` になるレコードが 1 件あり
+     （NumberTales/Secondary「ヘキサデミカル-テールズ 第二最終番機」）、bootstrap から正しく消えていることも確認
+  4. **`npm test` が `.cache/` を走査していた** — `npm pack cytoscape` の展開物に含まれる
+     `playwright-tests/renderer.spec.js` などを Vitest が収集し 2 ファイルが失敗した。
+     AGENTS.md は一時ファイルを `.cache/` に置くと定めているので、
+     `vitest.config.js` を新設して `.cache/**` ほかを除外（`.cache/` に壊れた spec を置いても
+     `npm test` が通ることを確認済み）
+  5. **ラベルの重なり** — 105 ノード表示で名前が重なって読めなかったため、
+     ノードが 60 を超えたら次数上位 40 件だけラベルを残す密度調整を入れた
+     （選択・強調時は復活）。本格的な密度対策は Phase 3
+- **Phase 2-a（完了・実データ実測）**: グルーピング軸とインデックスバッジを**宣言駆動**にした。
+
+  **背景**: 当初の「`$dict` 宣言の有無で軸を自動列挙」は実データと合っていなかった。
+  被覆率 100% の `Progress` と Phase 2 で使う `FromArea` が漏れ、異なり値 1 の
+  `sec_Category` / `sec_DesignedBy` を拾ってしまう。User の「typedef で識別可能に」という要望は正しかった。
+
+  **入れた宣言**（`data/` 92 挿入 / 30 削除・13 ファイル）:
+  - `$display.facet` … `data/db_type.json` の 6 フィールド（`Belonging` / `FromArea` / `Class` /
+    `Progress` / `RaceType` / `GenderType`）。`path` で構造の奥の値を指す（`Belonging[].Faction` など）
+  - `Works_Code` … `data/db_meta.json` の 9 作品へ 3 文字コード
+    （`NTS` / `FLI` / `SAR` / `SCG` / `PDV` / `DFR` / `UBL` / `UAL` / **`VTU`**）。
+    `$MetaType.$Def_CreationWorkCatalog` にも schema を宣言
+  - `$badge` … 各作品 `db_type.json` の `$IndexDef` 11 箇所（`$IndexDef_Proxy` / `$IndexDef_PrimaryMobs` 含む）
+  - `dict_Suit.json` へ `Suit_Code` 列（User が `Major` 行も追加してくれたのでフォールバック不要になった）
+
+  **実測 1（バッジ）**: 全 9 作品 22 DB・**1,311 件すべて一意かつ非空**（重複 0 / 空 0）。
+
+  | 作品 | バッジ例 |
+  | --- | --- |
+  | FLI | `M0` `W1` `C1`（`Suit_Code` 経由） |
+  | PDV | `3G3` `1G2`（`dict_Lunar.json` の `Num` + `Generation`） |
+  | UBL | `Ag1` `Bg1` |
+  | VTU | `1`〜`8`（User が追加した `Virtues_Num` を使用） |
+  | DFR | `s` `m` `kg` / `G1` `G2` |
+
+  **実測 2（軸）**: enrich 後 478 ノードで **6 軸すべてが実用**（被覆率 5% 以上・値 2 種以上）。
+
+  | 軸 | 被覆率 | 値の種類 | 多値 | 描画方式 |
+  | --- | ---: | ---: | ---: | --- |
+  | `Progress` | 100.0% | 10 | 0 | compound node |
+  | `RaceType` | 96.7% | 37 | 2 | 中間ノード |
+  | `Class` | 92.3% | 148（136 丸め） | 116 | 中間ノード |
+  | `Belonging` | 91.8% | 27 | 44 | 中間ノード |
+  | `GenderType` | 89.5% | 8 | 0 | compound node |
+  | `FromArea` | 38.3% | 9 | 0 | compound node |
+
+  多値／単値の判定が正しく効き、Cytoscape の compound node（1 ノード 1 親）で表せない軸を
+  自動で中間ノード方式へ振り分けられる状態になった。
+
+  **実装中に判明したこと**:
+  1. **辞書は `Dictionaries/dict_*.json` だけではない** — VirtuesUs の `#List_Virtues`（`Virtues_Num` を持つ）は
+     `DataBases/db_meta.json` の `General.$VarsDef` 側にしか無い。
+     AGENTS.md「辞書の実行時合流」のとおり `db_meta.json` / `db_type.json` の `$VarsDef` も積む必要がある
+  2. **JSON を `JSON.stringify` で書き戻すとファイル全体が再整形される** — 317 行の差分になったので破棄し、
+     Edit ツール（`.claude/settings.json` の PostToolUse prettier フック経由）で入れ直した。92 行に収まった
+  3. `data/db_type.json` などは **LF** 改行（`pages/characters.js` は CRLF）。スクリプトで触るなら自動判定が要る
+
+- **Phase 2-b（完了・ブラウザ実測）**: 相関図の階層・マップ・描画を宣言駆動へ載せ替えた。
+  実ブラウザ（Playwright / Chromium）で**エラー・警告ゼロ**。
+
+  **User フィードバックへの対応**:
+  1. **ごちゃごちゃしすぎ** → 密度連動でエッジを自動非表示（`言及・コメント` 363 本が既定で隠れる）。
+     隠したことは凡例に「自動で非表示中（密度）」と明示する
+  2. **ノード形状** → 角丸タイル＋インデックスバッジ（`57` / `M16`）、次数でサイズ、軸で色分け、
+     サムネイル（既定 OFF）
+  3. **階層を typedef 駆動に** → `$display.facet.hierarchy` を宣言した軸だけがドリルダウンの段になる。
+     **DB 別は宣言しなかったので階層から外れた**（グルーピング軸としては引き続き使える）
+  4. **Index 別（`FLI` の `Suit`・世代）** → `$IndexDef` の**子要素**へ `$display.facet` を宣言することで実現。
+     値の取り出しは既存の `path` 機構を流用（`{key:"Card.Suit", field:"Card", path:"Suit"}`）
+  5. **画面に収めることを優先しない** → 全体表示の倍率が 0.45 を下回るなら `fit()` せず等倍付近で出す
+  6. **本人以外が関わった二次創作を別マップへ** → `$display.mapPartition` 宣言 ＋
+     辞書行の `isOwner` フラグで判定。**コードに人名を埋め込まない**。実測 自作 472 / 共同 6
+  7. **キャラシートへ飛ぶ前にエゴネットワークを挟む** → キャラのノードを選ぶと
+     「そのキャラ＋直接つながる相手だけ」の画面になり、右のインスペクタから改めてキャラシートへ飛ぶ
+
+  **作品ごとの階層（宣言だけで変わる）**:
+
+  | 作品 | 階層 |
+  | --- | --- |
+  | NumberTales | 作品 → 所属 → クラス名 → キャラ |
+  | FLInvestigator78 | 作品 → 所属 → **カード種別** → クラス名 → キャラ |
+  | UnibyteLive | 作品 → 所属 → **アルファベットごとの世代** → クラス名 → キャラ |
+  | PastDivers | 作品 → 所属 → **月暦の世代** → クラス名 → キャラ |
+  | UnauthedLogica | 作品 → 所属 → **モデル系統** → クラス名 → キャラ |
+
+  **ブラウザ実測**:
+
+  | 画面 | 結果 |
+  | --- | --- |
+  | 初期表示 | 9 作品の集約 / 11 本。軸候補 8 種が宣言から自動列挙 |
+  | ナンバーテールズ | 4 所属ノード（対象 157 キャラ） |
+  | ↳ 百花繚乱研究所 | 13 クラス名ノード / 38 本 |
+  | ↳ 1桁番(ユニデジッツ) | 9 キャラ個体 / 21 本 |
+  | 共同二次創作マップ | 6 キャラ |
+  | エゴネットワーク（57） | 13 ノード / 12 本。インスペクタに `NTS-57` と関係先 12 件（ラベル・コメント付き） |
+
+  **実装中に判明したこと**:
+  1. **Cytoscape のスタイルに関数値を渡すとパーサが落ちる** — `border-color: (e) => ...` で
+     `Cannot read properties of null (reading 'value')`。`data(color)` マッパーへ変更し、
+     **必ず空でない色文字列を data に入れる**ようにした
+  2. **`background-image: data(thumb)` は値が空だと無効** — サムネイルが無いノードには
+     `thumb` キー自体を持たせず、`[thumb]` セレクタで弾く形にした
+  3. **`cose` は 1 反復が O(n²)** — 中間ノードで 288 ノード級になると 800 反復で 30 秒超固まった。
+     反復回数をノード数に反比例させ、400 ノード超は `grid` へ切り替える
+     （最終的に六角格子へスナップするので、力学レイアウトには大まかな相対位置だけを求めればよい）
+  4. `main().catch()` で例外を握ると `pageerror` が飛ばず原因を追えないので、
+     `showFatal()` で必ず `console.error` にスタックを残すようにした
+- **Phase 2-c（完了・User 指定ルール）**: NumberTales に短縮コード用フィールド **`Num_Badge`** を新設した。
+
+  **前提**: `$IndexDef` の `Num` は**一切変更しない**（User 明示）。`Num_Badge` は別フィールドとして持つ。
+
+  | ルール | 対象 | 変換 | 件数 |
+  | --- | --- | --- | ---: |
+  | 1 | 整数 4 桁以内 / 16 進表記 / ゼロ埋め数字列 | 文字列で表記のまま転写 | 1,007 |
+  | 2 | `{整数}-{半角文字列}` | `{整数}{短縮コード}`（6 文字以内） | 77 |
+  | 3 | その他の半角文字列 | そのまま転写 | 2 |
+  | 例外 | User 指定 | 個別指定 | 10 |
+
+  **サフィックスの短縮コード（大文字統一）**:
+  `-numberize`→`RZ` / `-mp`→`MP` / `-sq`→`SQ` / `-cub`→`KZ` / `-sxp`→`XP` /
+  `-dev`→`DV` / `-jw`→`JW` / `-gc`→`GC`
+
+  **例外**: `2-alt`→`2B`（バイナ）/ `10-alt`→`10D`（ディケ）/ `67`→`67A`・`67-old`→`67B`（ムナ）/
+  `222`→`222A`（ペルゲン）・`222-alt`→`222B`（ドッペル）/ `%`→`DIV`（錦野舞）/ `∞`→`INF`（錦野歌嫁）/
+  `777.Jackpot`→`777JP` / `777.Jackpot-mp`→`777JMP`
+
+  **小文字を保つケース**: 16 進のプレフィックス（`0xA` / `0xFF`）と乗算記号（`3x11` / `9x9`）は
+  値そのものの表記なので小文字の `x` を維持する（大文字統一は「こちらで付けた短縮コード」にのみ適用）。
+
+  **実測**: 全 1,096 件で**生成失敗 0 / DB 内重複 0 / 6 文字超え 0**。
+  ブラウザで `NTS-57` / `NTS-101MP` / `NTS-DIV` を確認。
+
+  **実装メモ**:
+  - `db_type.json` の `Num_Badge` に **`$slot: "#Index"`**（`$slot` 明示の逃がし弁）を付けて
+    レコードのキー順を `Num` → `Num_Badge` → `Progress` に保った。`data:order:check` は 0/1310 で通る
+  - `$badge` は `{ keys: ["Num_Badge", { key: "Num", whenMissing: "Num_Badge" }] }` とし、
+    `Num_Badge` が無いレコードでも `Num` へフォールバックする
+  - `lib/graph/graph-badge.js` の `buildBadgeBody()` を拡張し、`keys` が
+    **インデックスのペア → レコードのフィールド**の順に値を探すようにした
+    （インデックス以外のフィールドを宣言だけでバッジへ使えるようにするため）
+  - data への書き込みは**テキストレベルの挿入**（レコード直下の `"Num":` はインデント 4、
+    `Relation` / `_DBLink` 内のネストは 10 以上なので厳密一致で判別できる）。
+    差分は **1,096 挿入 / 0 削除**で、既存の書式を一切崩していない
+  - `$display: { auto: false }` を付けてキャラシートの自動表示からは外している
+    （表示用の短縮コードであり創作内容ではないため）
+
 - **Phase 3**: NumberTales/Primary の密な図でも「言及・コメント」を切って読める密度にできる（699 → 約 330 本）。
   フィルタ状態が常時表示され隠れフィルタが無い。キーボードだけで巡回・遷移できる。
 - **Phase 4**: `npm run agents:check` と `tests/agent-instructions.sync.test.js` が通る（生成物のズレなし）。
@@ -407,6 +594,9 @@ PLAN  [merge]  data/Works_FLInvestigator78/RoleplayPrompts/DB_PrimaryDealer/Deal
 | −0.5 | ✅ 46 / 631 | ✅ 0/1310 | 既存ドリフト `changed=3` | ✅ 一致 | 対象外 | 対象外 |
 | 0 | ✅ 47 / 643（新規 12） | ✅ 0/1310 | 未計測（Phase 0 は data 非改変） | ✅ 一致 | 対象外 | **未実施** |
 | 1-a | ✅ 48 / 693（新規 50） | 対象外（data 非改変） | 対象外 | ✅ 一致（`agents:build` 実施） | 対象外 | **未実施** |
+| 1-b | ✅ 50 / 782（新規 89） | ✅ 0/1310 | 対象外（data 非改変） | ✅ 一致 | ✅ `npx sass` で生成 | ✅ **Playwright で実施** |
+| 2-a | ✅ 52 / 869（新規 87） | ✅ 0/1310 | 既存ドリフト `changed=3` のまま | ✅ 一致 | 対象外 | 対象外（UI 非改変） |
+| 2-b | ✅ 53 / 901（新規 32） | ✅ 0/1310 | 対象外（data 非改変） | ✅ 一致 | ✅ `npx sass` で生成 | ✅ **Playwright で実施** |
 | 1-a | — | — | — | — | 対象外 | — |
 | 1-b | — | — | — | — | — | — |
 | 2 | — | — | — | — | — | — |

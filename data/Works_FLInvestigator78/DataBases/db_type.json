@@ -5,9 +5,13 @@
       {
         "hashTag": "Suit",
         "$type": "#IndexListKey",
+        "$dict": "Suit",
         "hashTag_JP": "カード種別",
         "hashTag_EN": "CardType",
-        "$display": { "langMode": "shared" }
+        "$display": {
+          "langMode": "shared",
+          "facet": { "order": 15, "hierarchy": 15 }
+        }
       },
       {
         "hashTag": "SuitNum",
@@ -24,7 +28,15 @@
       }
     ],
     "hashTag_JP": "カード(アルカナ)",
-    "hashTag_EN": "Card (Arcana)"
+    "hashTag_EN": "Card (Arcana)",
+    "$badge": {
+      "keys": [
+        { "key": "Suit", "codeFrom": "Suit_Code" },
+        { "key": "SuitNum" },
+        { "key": "Num", "whenMissing": "SuitNum" }
+      ],
+      "separator": ""
+    }
   },
   "$DefType": [
     { "hashTag": "Card", "$type": "#Index", "hashTag_JP": "カード" },

@@ -1,13 +1,14 @@
 [
   {
     "Num": "0xA",
+    "Num_Badge": "0xA",
     "Progress": "accepted\nremadeReleased",
     "sec_SeriesTitle": "ヘキサデミカル・テールズ",
     "Name_JP": "0xA(エース)",
     "Name_EN": "0xA(Ace)",
     "Images": {
-      "concept_PNGName": "hexademical/cnsp_img0xA",
-      "corefolder_PNGPath": ["hexademical/0xA/emstk_corefolder0xA-1"],
+      "concept_PNGName": "hexademical/cnsp_imgNTS-0xA",
+      "corefolder_PNGPath": ["hexademical/0xA/emstk_corefolderNTS-0xA-1"],
       "arts_PNGPath": [
         "hexademical-corefolders/art_sphericateDay202406-1",
         "hexademical-corefolders/art_sphericateDay202406-2",
@@ -201,13 +202,14 @@
   },
   {
     "Num": "0xB",
+    "Num_Badge": "0xB",
     "Progress": "accepted\nremadeReleased",
     "sec_SeriesTitle": "ヘキサデミカル・テールズ",
     "Name_JP": "0xB(ベータ)",
     "Name_EN": "0xB(Beta)",
     "Images": {
-      "concept_PNGName": "hexademical/cnsp_img0xB",
-      "corefolder_PNGPath": ["hexademical/0xB/emstk_corefolder0xB-1"],
+      "concept_PNGName": "hexademical/cnsp_imgNTS-0xB",
+      "corefolder_PNGPath": ["hexademical/0xB/emstk_corefolderNTS-0xB-1"],
       "arts_PNGPath": [
         "hexademical-corefolders/art_sphericateDay202406-1",
         "hexademical-corefolders/art_sphericateDay202406-2",
@@ -415,15 +417,16 @@
   },
   {
     "Num": "0xC",
+    "Num_Badge": "0xC",
     "Progress": "accepted\nremadeReleased",
     "sec_SeriesTitle": "ヘキサデミカル・テールズ",
     "Name_JP": "0xC(セレス)",
     "Name_EN": "0xC(Ceres)",
     "Images": {
-      "concept_PNGName": "hexademical/cnsp_img0xC",
+      "concept_PNGName": "hexademical/cnsp_imgNTS-0xC",
       "corefolder_PNGPath": [
-        "hexademical/0xC/emstk_corefolder0xC-1",
-        "hexademical/0xC/emstk_corefolder0xC-2"
+        "hexademical/0xC/emstk_corefolderNTS-0xC-1",
+        "hexademical/0xC/emstk_corefolderNTS-0xC-2"
       ],
       "arts_PNGPath": [
         "hexademical-corefolders/art_sphericateDay202406-1",
@@ -625,15 +628,16 @@
   },
   {
     "Num": "0xD",
+    "Num_Badge": "0xD",
     "Progress": "accepted\nremadeReleased",
     "sec_SeriesTitle": "ヘキサデミカル・テールズ",
     "Name_JP": "0xD(デプス)",
     "Name_EN": "0xD(Depth)",
     "Images": {
-      "concept_PNGName": "hexademical/cnsp_img0xD",
+      "concept_PNGName": "hexademical/cnsp_imgNTS-0xD",
       "corefolder_PNGPath": [
-        "hexademical/0xD/emstk_corefolder0xD-1",
-        "hexademical/0xD/emstk_corefolder0xD-2"
+        "hexademical/0xD/emstk_corefolderNTS-0xD-1",
+        "hexademical/0xD/emstk_corefolderNTS-0xD-2"
       ],
       "arts_PNGPath": [
         "hexademical-corefolders/art_sphericateDay202406-1",
@@ -842,13 +846,14 @@
   },
   {
     "Num": "0xE",
+    "Num_Badge": "0xE",
     "Progress": "accepted\nremadeReleased",
     "sec_SeriesTitle": "ヘキサデミカル・テールズ",
     "Name_JP": "0xE(エネ)",
     "Name_EN": "0xE(Enè)",
     "Images": {
-      "concept_PNGName": "hexademical/cnsp_img0xE",
-      "corefolder_PNGPath": ["hexademical/0xE/emstk_corefolder0xE-1"],
+      "concept_PNGName": "hexademical/cnsp_imgNTS-0xE",
+      "corefolder_PNGPath": ["hexademical/0xE/emstk_corefolderNTS-0xE-1"],
       "arts_PNGPath": [
         "hexademical-corefolders/art_sphericateDay202406-1",
         "hexademical-corefolders/art_sphericateDay202406-2",
@@ -1044,17 +1049,18 @@
   },
   {
     "Num": "0xF",
+    "Num_Badge": "0xF",
     "Progress": "accepted\nremadeReleased",
     "sec_SeriesTitle": "ヘキサデミカル・テールズ",
     "Name_JP": "0xF(フォルテ)",
     "Name_EN": "0xF(Forte)",
     "Images": {
-      "concept_PNGName": "hexademical/cnsp_img0xF",
+      "concept_PNGName": "hexademical/cnsp_imgNTS-0xF",
       "corefolder_PNGPath": [
-        "hexademical/0xF/emstk_corefolder0xF-1",
-        "hexademical/0xF/emstk_corefolder0xF-2",
-        "hexademical/0xF/emstk_corefolder0xF-1a",
-        "hexademical/0xF/emstk_corefolder0xF-2a"
+        "hexademical/0xF/emstk_corefolderNTS-0xF-1",
+        "hexademical/0xF/emstk_corefolderNTS-0xF-2",
+        "hexademical/0xF/emstk_corefolderNTS-0xF-1a",
+        "hexademical/0xF/emstk_corefolderNTS-0xF-2a"
       ],
       "arts_PNGPath": [
         "hexademical-corefolders/art_sphericateDay202406-1",
@@ -1255,6 +1261,7 @@
   },
   {
     "Num": "0xFF",
+    "Num_Badge": "0xFF",
     "Progress": "notProceeded",
     "AnotherVersions_DBLink": {
       "_Work": "NumberTales",
@@ -1275,6 +1282,7 @@
   },
   {
     "Num": "115-numberize",
+    "Num_Badge": "115RZ",
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "SameMPSeries_DBLink": [
       { "_DB": "SelfSecondary", "Num": "115-mp" },
@@ -1283,8 +1291,8 @@
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
     "Images": {
-      "concept_PNGName": "numberize/cnsp_img115-numberize",
-      "conceptAlt_PNGName": ["numberize/cnsp_img115-numberize-image"]
+      "concept_PNGName": "numberize/cnsp_imgNTS-115RZ",
+      "conceptAlt_PNGName": ["numberize/cnsp_imgNTS-115RZ-image"]
     },
     "Class": ["ナンバーテールズ化"],
     "TailsUnit": [
@@ -1307,11 +1315,12 @@
   },
   {
     "Num": "148-numberize",
+    "Num_Badge": "148RZ",
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 148 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
-    "Images": { "concept_PNGName": "numberize/cnsp_img148-numberize" },
+    "Images": { "concept_PNGName": "numberize/cnsp_imgNTS-148RZ" },
     "Class": ["ナンバーテールズ化"],
     "TailsUnit": [
       {
@@ -1336,11 +1345,12 @@
   },
   {
     "Num": "227-numberize",
+    "Num_Badge": "227RZ",
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 227 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
-    "Images": { "concept_PNGName": "numberize/cnsp_img227-numberize" },
+    "Images": { "concept_PNGName": "numberize/cnsp_imgNTS-227RZ" },
     "Class": ["ナンバーテールズ化"],
     "TailsUnit": [
       {
@@ -1405,11 +1415,12 @@
   },
   {
     "Num": "232-numberize",
+    "Num_Badge": "232RZ",
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 232 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
-    "Images": { "concept_PNGName": "numberize/cnsp_img232-numberize" },
+    "Images": { "concept_PNGName": "numberize/cnsp_imgNTS-232RZ" },
     "Class": ["ナンバーテールズ化"],
     "TailsUnit": [
       {
@@ -1433,11 +1444,12 @@
   },
   {
     "Num": "238-numberize",
+    "Num_Badge": "238RZ",
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 238 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
-    "Images": { "concept_PNGName": "numberize/cnsp_img238-numberize" },
+    "Images": { "concept_PNGName": "numberize/cnsp_imgNTS-238RZ" },
     "Class": ["ナンバーテールズ化"],
     "TailsUnit": [
       {
@@ -1462,15 +1474,16 @@
   },
   {
     "Num": "241-numberize",
+    "Num_Badge": "241RZ",
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 241 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
     "Images": {
-      "concept_PNGName": "numberize/cnsp_img241-numberize",
-      "corefolder_PNGPath": ["numberize/emstk_corefolder241-numberize1"],
+      "concept_PNGName": "numberize/cnsp_imgNTS-241RZ",
+      "corefolder_PNGPath": ["numberize/emstk_corefolderNTS-241RZ1"],
       "arts_PNGPath": [
-        "numberize-corefolders/art_img96,241numberize-corefolder"
+        "numberize-corefolders/art_imgNTS-96,NTS-241RZ-corefolder"
       ]
     },
     "Class": ["ナンバーテールズ化"],
@@ -1503,11 +1516,12 @@
   },
   {
     "Num": "258-numberize",
+    "Num_Badge": "258RZ",
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 258 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
-    "Images": { "concept_PNGName": "numberize/cnsp_img258-numberize" },
+    "Images": { "concept_PNGName": "numberize/cnsp_imgNTS-258RZ" },
     "Class": ["ナンバーテールズ化"],
     "TailsUnit": [
       {
@@ -1532,11 +1546,12 @@
   },
   {
     "Num": "263-numberize",
+    "Num_Badge": "263RZ",
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 263 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
-    "Images": { "concept_PNGName": "numberize/cnsp_img263-numberize" },
+    "Images": { "concept_PNGName": "numberize/cnsp_imgNTS-263RZ" },
     "Class": ["ナンバーテールズ化"],
     "TailsUnit": [
       {
@@ -1561,11 +1576,12 @@
   },
   {
     "Num": "265-numberize",
+    "Num_Badge": "265RZ",
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 265 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
-    "Images": { "concept_PNGName": "numberize/cnsp_img265-numberize" },
+    "Images": { "concept_PNGName": "numberize/cnsp_imgNTS-265RZ" },
     "Class": ["ナンバーテールズ化"],
     "TailsUnit": [
       {
@@ -1590,14 +1606,15 @@
   },
   {
     "Num": "294-numberize",
+    "Num_Badge": "294RZ",
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 294 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
     "Images": {
-      "concept_PNGName": "numberize/cnsp_img294-numberize",
+      "concept_PNGName": "numberize/cnsp_imgNTS-294RZ",
       "arts_PNGPath": [
-        "numberize-corefolders/art_img294numberize,295numberize-corefolder"
+        "numberize-corefolders/art_imgNTS-294RZ,NTS-295RZ-corefolder"
       ]
     },
     "Class": ["ナンバーテールズ化"],
@@ -1624,14 +1641,15 @@
   },
   {
     "Num": "295-numberize",
+    "Num_Badge": "295RZ",
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 295 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
     "Images": {
-      "concept_PNGName": "numberize/cnsp_img295-numberize",
+      "concept_PNGName": "numberize/cnsp_imgNTS-295RZ",
       "arts_PNGPath": [
-        "numberize-corefolders/art_img294numberize,295numberize-corefolder"
+        "numberize-corefolders/art_imgNTS-294RZ,NTS-295RZ-corefolder"
       ]
     },
     "Class": ["ナンバーテールズ化"],
@@ -1658,13 +1676,14 @@
   },
   {
     "Num": "337-numberize",
+    "Num_Badge": "337RZ",
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 337 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
     "Images": {
-      "concept_PNGName": "numberize/cnsp_img337-numberize",
-      "arts_PNGPath": ["numberize-corefolders/art_img337numberize-corefolder"]
+      "concept_PNGName": "numberize/cnsp_imgNTS-337RZ",
+      "arts_PNGPath": ["numberize-corefolders/art_imgNTS-337RZ-corefolder"]
     },
     "Class": ["ナンバーテールズ化"],
     "TailsUnit": [
@@ -1761,11 +1780,12 @@
   },
   {
     "Num": "366-numberize",
+    "Num_Badge": "366RZ",
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 366 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
-    "Images": { "concept_PNGName": "numberize/cnsp_img366-numberize" },
+    "Images": { "concept_PNGName": "numberize/cnsp_imgNTS-366RZ" },
     "Class": ["ナンバーテールズ化"],
     "TailsUnit": [
       {
@@ -1789,11 +1809,12 @@
   },
   {
     "Num": "376-numberize",
+    "Num_Badge": "376RZ",
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 376 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
-    "Images": { "concept_PNGName": "numberize/cnsp_img376-numberize" },
+    "Images": { "concept_PNGName": "numberize/cnsp_imgNTS-376RZ" },
     "Class": ["ナンバーテールズ化"],
     "TailsUnit": [
       {
@@ -1818,11 +1839,12 @@
   },
   {
     "Num": "377-numberize",
+    "Num_Badge": "377RZ",
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 377 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
-    "Images": { "concept_PNGName": "numberize/cnsp_img377-numberize" },
+    "Images": { "concept_PNGName": "numberize/cnsp_imgNTS-377RZ" },
     "Class": ["ナンバーテールズ化"],
     "TailsUnit": [
       {
@@ -1846,11 +1868,12 @@
   },
   {
     "Num": "387-numberize",
+    "Num_Badge": "387RZ",
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 387 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
-    "Images": { "concept_PNGName": "numberize/cnsp_img387-numberize" },
+    "Images": { "concept_PNGName": "numberize/cnsp_imgNTS-387RZ" },
     "Class": ["ナンバーテールズ化"],
     "TailsUnit": [
       {
@@ -1907,13 +1930,14 @@
   },
   {
     "Num": "401-numberize",
+    "Num_Badge": "401RZ",
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 401 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
     "Images": {
-      "concept_PNGName": "numberize/cnsp_img401-numberize",
-      "arts_PNGPath": ["numberize-corefolders/art_img401numberize-corefolder"]
+      "concept_PNGName": "numberize/cnsp_imgNTS-401RZ",
+      "arts_PNGPath": ["numberize-corefolders/art_imgNTS-401RZ-corefolder"]
     },
     "Class": ["ナンバーテールズ化"],
     "TailsUnit": [
@@ -1934,11 +1958,12 @@
   },
   {
     "Num": "411-numberize",
+    "Num_Badge": "411RZ",
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 411 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
-    "Images": { "concept_PNGName": "numberize/cnsp_img411-numberize" },
+    "Images": { "concept_PNGName": "numberize/cnsp_imgNTS-411RZ" },
     "Class": ["ナンバーテールズ化"],
     "TailsUnit": [
       {
@@ -1992,11 +2017,12 @@
   },
   {
     "Num": "421-numberize",
+    "Num_Badge": "421RZ",
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 421 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
-    "Images": { "concept_PNGName": "numberize/cnsp_img421-numberize" },
+    "Images": { "concept_PNGName": "numberize/cnsp_imgNTS-421RZ" },
     "Class": ["ナンバーテールズ化"],
     "TailsUnit": [
       {
@@ -2027,11 +2053,12 @@
   },
   {
     "Num": "467-numberize",
+    "Num_Badge": "467RZ",
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 467 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
-    "Images": { "concept_PNGName": "numberize/cnsp_img467-numberize" },
+    "Images": { "concept_PNGName": "numberize/cnsp_imgNTS-467RZ" },
     "Class": ["ナンバーテールズ化"],
     "TailsUnit": [
       {
@@ -2056,11 +2083,12 @@
   },
   {
     "Num": "476-numberize",
+    "Num_Badge": "476RZ",
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 476 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
-    "Images": { "concept_PNGName": "numberize/cnsp_img476-numberize" },
+    "Images": { "concept_PNGName": "numberize/cnsp_imgNTS-476RZ" },
     "Class": ["ナンバーテールズ化"],
     "TailsUnit": [
       {
@@ -2085,11 +2113,12 @@
   },
   {
     "Num": "510-numberize",
+    "Num_Badge": "510RZ",
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 510 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
-    "Images": { "concept_PNGName": "numberize/cnsp_img510-numberize" },
+    "Images": { "concept_PNGName": "numberize/cnsp_imgNTS-510RZ" },
     "Class": ["ナンバーテールズ化"],
     "TailsUnit": [
       {
@@ -2109,11 +2138,12 @@
   },
   {
     "Num": "558-numberize",
+    "Num_Badge": "558RZ",
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 558 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
-    "Images": { "concept_PNGName": "numberize/cnsp_img558-numberize" },
+    "Images": { "concept_PNGName": "numberize/cnsp_imgNTS-558RZ" },
     "Class": ["ナンバーテールズ化"],
     "TailsUnit": [
       {
@@ -2137,13 +2167,14 @@
   },
   {
     "Num": "605-numberize",
+    "Num_Badge": "605RZ",
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 605 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
     "Images": {
-      "concept_PNGName": "numberize/cnsp_img605-numberize",
-      "corefolder_PNGPath": ["numberize/emstk_corefolder605-numberize1"]
+      "concept_PNGName": "numberize/cnsp_imgNTS-605RZ",
+      "corefolder_PNGPath": ["numberize/emstk_corefolderNTS-605RZ1"]
     },
     "Class": ["ナンバーテールズ化"],
     "TailsUnit": [
@@ -2164,11 +2195,12 @@
   },
   {
     "Num": "625-numberize",
+    "Num_Badge": "625RZ",
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 625 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
-    "Images": { "concept_PNGName": "numberize/cnsp_img625-numberize" },
+    "Images": { "concept_PNGName": "numberize/cnsp_imgNTS-625RZ" },
     "Class": ["ナンバーテールズ化"],
     "TailsUnit": [
       {
@@ -2225,11 +2257,12 @@
   },
   {
     "Num": "638-numberize",
+    "Num_Badge": "638RZ",
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 638 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
-    "Images": { "concept_PNGName": "numberize/cnsp_img638-numberize" },
+    "Images": { "concept_PNGName": "numberize/cnsp_imgNTS-638RZ" },
     "Class": ["ナンバーテールズ化"],
     "TailsUnit": [
       {
@@ -2254,11 +2287,12 @@
   },
   {
     "Num": "670-numberize",
+    "Num_Badge": "670RZ",
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 670 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
-    "Images": { "concept_PNGName": "numberize/cnsp_img670-numberize" },
+    "Images": { "concept_PNGName": "numberize/cnsp_imgNTS-670RZ" },
     "Class": ["ナンバーテールズ化"],
     "TailsUnit": [
       {
@@ -2278,11 +2312,12 @@
   },
   {
     "Num": "736-numberize",
+    "Num_Badge": "736RZ",
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 736 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
-    "Images": { "concept_PNGName": "numberize/cnsp_img736-numberize" },
+    "Images": { "concept_PNGName": "numberize/cnsp_imgNTS-736RZ" },
     "Class": ["ナンバーテールズ化"],
     "TailsUnit": [
       {
@@ -2307,11 +2342,12 @@
   },
   {
     "Num": "773-numberize",
+    "Num_Badge": "773RZ",
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 773 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
-    "Images": { "concept_PNGName": "numberize/cnsp_img773-numberize" },
+    "Images": { "concept_PNGName": "numberize/cnsp_imgNTS-773RZ" },
     "Class": ["ナンバーテールズ化"],
     "TailsUnit": [
       {
@@ -2335,11 +2371,12 @@
   },
   {
     "Num": "979-numberize",
+    "Num_Badge": "979RZ",
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 979 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
-    "Images": { "concept_PNGName": "numberize/cnsp_img979-numberize" },
+    "Images": { "concept_PNGName": "numberize/cnsp_imgNTS-979RZ" },
     "Class": ["ナンバーテールズ化"],
     "TailsUnit": [
       {
@@ -2363,10 +2400,11 @@
   },
   {
     "Num": "1122-numberize",
+    "Num_Badge": "1122RZ",
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
-    "Images": { "concept_PNGName": "numberize/cnsp_img1122-numberize" },
+    "Images": { "concept_PNGName": "numberize/cnsp_imgNTS-1122RZ" },
     "Class": ["ナンバーテールズ化"],
     "TailsUnit": [
       {

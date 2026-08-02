@@ -5,9 +5,13 @@
       {
         "hashTag": "ModelSeries",
         "$type": "#IndexListKey|#Null",
+        "$dict": "ModelSeries",
         "hashTag_JP": "モデル系統",
         "hashTag_EN": "Model Series",
-        "$display": { "langMode": "shared" }
+        "$display": {
+          "langMode": "shared",
+          "facet": { "order": 17, "hierarchy": 17 }
+        }
       },
       {
         "hashTag": "Num",
@@ -15,7 +19,8 @@
         "hashTag_JP": "ロット番号",
         "hashTag_EN": "Lot Number"
       }
-    ]
+    ],
+    "$badge": { "keys": ["ModelSeries", "Num"] }
   },
   "$IndexDef_PrimaryMobs": {
     "hashTag": "Logic",
@@ -33,7 +38,8 @@
         "hashTag_JP": "ロジック番号",
         "hashTag_EN": "Logic Number"
       }
-    ]
+    ],
+    "$badge": { "keys": ["LogicSeries", "Num"] }
   },
   "$DefType": [
     {

@@ -1,5 +1,21 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### refactor: 画像ファイル名の識別子をインデックスバッジ（作品コード付き）へ一括統一した (2026-08-02)
+
+相関図ページ（`_work_in_progress/2026-08-02_progress_relations-graph.md` Phase 2-a / 2-c）で **インデックスバッジ**が宣言駆動で実装された（`lib/graph/graph-badge.js` ＋ 各作品 `db_type.json` の `$IndexDef.$badge` ＋ `data/db_meta.json` の `Works_Code`）一方、画像ファイル名の識別子は作品ごとに体系がバラバラ（`cnsp_img57` / `crddsn_imgFLM16` / `cnsp_imgEZ13` / `cnsp_imgCL3G3` / `cnsp_imgDrcNE` / `design_imgSITh`）で、同じ「キャラの短い識別子」が二重管理になっていた。ファイル名側をバッジの `full` 表記（`Works_Code` + `-` + バッジ本体）へ揃えた。
+
+- **改名の規則**: ファイル名を `{prefix}_{kind}{旧識別子}{残り}` と見て、**旧識別子だけ**を `full`（`NTS-57` / `FLI-M0` / `SAR-EZ1` / `DFR-SIL`）へ差し替える。`{残り}`（`-humanoid` / `-1` / `-newyear2023` 等）は触らない。旧識別子は推測せず、**参照元レコードから導ける候補の最長前方一致**で検出した（未検出 0 件）。
+- **対象**: 識別子を含む命名すべて。`img` 296 / `corefolder` 186 / `numberMark` 94 / `catalog` 11 / `tailsUnit` 11 / `costumeItem` 6 / `halo` 6 / `weakening` 5 / `emblem` 5 ほか、計 **640 ファイルを `git mv`**。イベント年月ベースの命名（`sphericateDay202305` / `birthday2025` / `autumnMoon2024` / `destinyFoxRec-2021` 等 37 件）は識別子を持たないので対象外だが、`art_sphericateDay202309-img9` のように**中に識別子を持つもの**は差し替えた。
+- **共有ファイルは連名**: 複数レコードから参照される画像は、既存の連名表記（`art_img34,43-parody`）に倣ってカンマ区切りで全バッジを並べる（`art_imgNTS-34,NTS-43-parody`）。15 件。`_DBCrossLinkPath` 経由の参照は「借用であって所有ではない」ため帰属先から除外する。
+- **末尾の単一大文字（`A` / `-B`）**: 「同番号の別レコードを区別する記号」として使われている場合はバッジが区別を担うので落とし、落とすと衝突する場合は残す。これにより `cnsp_img67-A`（`Num:"67-old"` = `67B`）/ `cnsp_img67-B`（`Num:67` = `67A`）の **A/B 逆転**がバッジ側を正として解消された。同一レコードの別カット（`cnsp_img14-A` / `-B`）は残す。
+- **`Unit_Badge`（DestinyFoxRecords）を新設**: `Unit` の生値に `-(normal)` / `-(tangent)` / `-(quaternion)` があり、そのままではファイル名に使えなかった。`$badge: { keys: ["Unit_Badge"] }` としてレコード側の短縮コード（`SIT` / `SIL` / `SITH` / `RVN` 等）を正にした。
+- **`Beast_Badge`（ShouArRiders）は辞書参照**: `dict_Beast.json` に `Beast_Badge` 列（`EZ1`〜`EZ13`）を持ち、`$badge` を `{ "keys": [{ "key": "Beast", "codeFrom": "Beast_Badge" }] }` として**レコードへ複製せず辞書行から解決**する。`$dictRef` と同じ「値は辞書で一元管理する」方針。
+- **JSON 参照の張り替え**: **733 箇所 / 12 ファイル**。`Images` だけでなく **`AppearanceDetail[].img_PNGName`** と **`TailsUnit[].TailsUnit_PNGName`** にも画像参照がある。`JSON.parse` → `stringify` で書き戻すとファイル全体が再整形されるため、値の境界（`"` の直前／`/` の直後）を lookbehind・lookahead で固定した**テキスト置換**で行った（行数の増減ゼロ＝整形は不変）。
+- **既存のリンク切れ 2 件を解消**: DFR セコンドの `design_imgSITec`（実体は参照なしで放置されていた `design_imgSIT.png`）と、DFR メトレの `cnsp_imgSIL`（実体は `cnsp_imgPhysU-m.png`）。作業後、`data/**` の画像参照は**リンク切れ 0 件**。
+- **バッジからファイル名は生成しない**: `lib/graph/graph-badge.js` は表示専用のまま。ファイル名には別カットを表す接尾辞や連名が付き、バッジだけからは復元できないため、画像パス解決は従来どおり DB へ手書きされた実名を使う（`lib/data-common.js` の `resolveImagePath()` は無改修）。ヘッダ JSDoc にこの理由を明記した。
+- **影響範囲**: `data/Works_*/Images/**`（640 ファイルの改名）/ `data/Works_*/DataBases/db_*.json`（12 ファイル）/ `data/Works_ShouArRiders/DataBases/db_type.json`・`Dictionaries/dict_Beast.json` / `lib/graph/graph-badge.js` / `tests/{data.shape,extract-palette,patch-colorpalette,pages.characters.ui-output}.test.js`（旧ファイル名の追従 13 件）。
+- **検証**: `npm test` **904 / 906 成功**。残る 2 件は `data/Works_UnibyteLive/DataBases/db_temp.json`（`.gitignore` の `*_temp.json` 対象で Git 管理外の作業ファイル。2 レコードとも `{Alphabet:"A", AlphaGen:1}` でバッジが重複）由来の**既存の赤**で、本作業とは無関係。当該ファイルを一時退避すると 53 ファイル / 904 件が全件成功することを実測して切り分けた。`npm run data:order:check` は 0/1310 レコード整列（差分なし）。
+
 ### perf: `DataFetcher` にリクエストスコープのメモ化を入れ、`bootstrap` のリクエストを 2105 → 252 へ削減した (2026-08-02)
 
 `/pages/v1/bootstrap`（既定 `includeRecords=1&enrich=1`）は全作品 × 全公開DB を総なめするため、`readWorkMeta()` が `readDbMetaEntry()` / `readDB()` / enrich の各所から繰り返し呼ばれ、同一のメタファイルを何度も取り直していた（実測: `Works_FLInvestigator78/DataBases/db_meta.json` が **39 回**）。キャラシートの初回表示が重くなる直接の原因であり、今後追加する相関図ページ（`_work_in_progress/2026-08-02_progress_relations-graph.md`）も同じ経路を通るため、先に解消した。

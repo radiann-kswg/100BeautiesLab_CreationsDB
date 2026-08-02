@@ -3,7 +3,8 @@
     "hashTag": "Virtues",
     "$type": "#ListIndex",
     "hashTag_JP": "美徳",
-    "hashTag_EN": "Virtues"
+    "hashTag_EN": "Virtues",
+    "$badge": { "keys": [{ "key": "Virtues", "codeFrom": "Virtues_Num" }] }
   },
   "$DefType": [
     {

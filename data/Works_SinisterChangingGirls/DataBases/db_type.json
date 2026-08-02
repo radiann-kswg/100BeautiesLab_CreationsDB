@@ -3,7 +3,8 @@
     "hashTag": "Drc",
     "$type": "#ListIndex",
     "hashTag_JP": "方角",
-    "hashTag_EN": "Direction"
+    "hashTag_EN": "Direction",
+    "$badge": { "keys": ["Drc"] }
   },
   "$DefType": [
     {

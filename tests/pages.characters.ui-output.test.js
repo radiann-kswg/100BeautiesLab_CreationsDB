@@ -1349,7 +1349,7 @@ describe('pages/characters.js UI output', () => {
 
 		const section = getSubFieldSectionNode('TailsUnit');
 		const img = section?.querySelector('.tailsunit__reference-image .image-item img');
-		expect(img?.getAttribute('src')).toContain('/Images/DB_Primary/attr/tailsUnit/attr_tailsUnit4.png');
+		expect(img?.getAttribute('src')).toContain('/Images/DB_Primary/attr/tailsUnit/attr_tailsUnitNTS-4.png');
 		expect(img?.getAttribute('alt')).toBeTruthy();
 
 		// クリックでライトボックス拡大表示につながる既存のzoomトリガーを再利用している

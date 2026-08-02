@@ -1,6 +1,7 @@
 [
   {
     "Num": "101-mp",
+    "Num_Badge": "101MP",
     "Progress": "notProceeded",
     "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": 101 }],
     "FormalName_JP": "量産型ナンバーテールズ101番機シリーズ",
@@ -10,6 +11,7 @@
   },
   {
     "Num": "102-mp",
+    "Num_Badge": "102MP",
     "Progress": "notProceeded",
     "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": 102 }],
     "FormalName_JP": "量産型ナンバーテールズ102番機シリーズ",
@@ -19,6 +21,7 @@
   },
   {
     "Num": "103-mp",
+    "Num_Badge": "103MP",
     "Progress": "notProceeded",
     "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": 103 }],
     "FormalName_JP": "量産型ナンバーテールズ103番機シリーズ",
@@ -28,6 +31,7 @@
   },
   {
     "Num": "104-mp",
+    "Num_Badge": "104MP",
     "Progress": "notProceeded",
     "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": 104 }],
     "FormalName_JP": "量産型ナンバーテールズ104番機シリーズ",
@@ -37,6 +41,7 @@
   },
   {
     "Num": "105-mp",
+    "Num_Badge": "105MP",
     "Progress": "notProceeded",
     "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": 105 }],
     "FormalName_JP": "量産型ナンバーテールズ105番機シリーズ",
@@ -46,6 +51,7 @@
   },
   {
     "Num": "106-mp",
+    "Num_Badge": "106MP",
     "Progress": "notProceeded",
     "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": 106 }],
     "FormalName_JP": "量産型ナンバーテールズ106番機シリーズ",
@@ -55,6 +61,7 @@
   },
   {
     "Num": "107-mp",
+    "Num_Badge": "107MP",
     "Progress": "notProceeded",
     "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": 107 }],
     "FormalName_JP": "量産型ナンバーテールズ107番機シリーズ",
@@ -64,6 +71,7 @@
   },
   {
     "Num": "108-mp",
+    "Num_Badge": "108MP",
     "Progress": "notProceeded",
     "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": 108 }],
     "FormalName_JP": "量産型ナンバーテールズ108番機シリーズ",
@@ -73,6 +81,7 @@
   },
   {
     "Num": "109-mp",
+    "Num_Badge": "109MP",
     "Progress": "notProceeded",
     "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": 109 }],
     "FormalName_JP": "量産型ナンバーテールズ109番機シリーズ",
@@ -82,6 +91,7 @@
   },
   {
     "Num": "110-mp",
+    "Num_Badge": "110MP",
     "Progress": "notProceeded",
     "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": 110 }],
     "FormalName_JP": "量産型ナンバーテールズ110番機シリーズ",
@@ -91,6 +101,7 @@
   },
   {
     "Num": "111-mp",
+    "Num_Badge": "111MP",
     "Progress": "released(beta)",
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 111 }
@@ -100,7 +111,7 @@
     "sec_DesignedBy": ["RadianN"],
     "Name_JP": "量産型 111(アイズ)",
     "Name_EN": "Cloned 111(Ize)",
-    "Images": { "concept_PNGName": "cnsp_img111-mp" },
+    "Images": { "concept_PNGName": "cnsp_imgNTS-111MP" },
     "FormalName_JP": "量産型ナンバーテールズ111番機シリーズ",
     "FormalName_EN": "NumberTales #111 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]111-*****",
@@ -391,6 +402,7 @@
   },
   {
     "Num": "112-mp",
+    "Num_Badge": "112MP",
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": 112 }],
     "FormalName_JP": "量産型ナンバーテールズ112番機シリーズ",
@@ -400,6 +412,7 @@
   },
   {
     "Num": "113-mp",
+    "Num_Badge": "113MP",
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": 113 }],
     "FormalName_JP": "量産型ナンバーテールズ113番機シリーズ",
@@ -409,6 +422,7 @@
   },
   {
     "Num": "114-mp",
+    "Num_Badge": "114MP",
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": 114 }],
     "FormalName_JP": "量産型ナンバーテールズ114番機シリーズ",
@@ -418,6 +432,7 @@
   },
   {
     "Num": "115-mp",
+    "Num_Badge": "115MP",
     "Progress": "stillTentative",
     "SameMPSeries_DBLink": [
       { "_DB": "SemiPrimary", "Num": 115 },
@@ -445,6 +460,7 @@
   },
   {
     "Num": "116-mp",
+    "Num_Badge": "116MP",
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": 116 }],
     "FormalName_JP": "量産型ナンバーテールズ116番機シリーズ",
@@ -454,6 +470,7 @@
   },
   {
     "Num": "117-mp",
+    "Num_Badge": "117MP",
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": 117 }],
     "FormalName_JP": "量産型ナンバーテールズ117番機シリーズ",
@@ -463,6 +480,7 @@
   },
   {
     "Num": "118-mp",
+    "Num_Badge": "118MP",
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": 118 }],
     "FormalName_JP": "量産型ナンバーテールズ118番機シリーズ",
@@ -472,6 +490,7 @@
   },
   {
     "Num": "119-mp",
+    "Num_Badge": "119MP",
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": 119 }],
     "FormalName_JP": "量産型ナンバーテールズ119番機シリーズ",
@@ -481,6 +500,7 @@
   },
   {
     "Num": 120,
+    "Num_Badge": "120",
     "Progress": "notProceeded",
     "Name_JP": "120(ダスト)",
     "Name_EN": "120(Darst)",
@@ -495,6 +515,7 @@
   },
   {
     "Num": 121,
+    "Num_Badge": "121",
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": "121-sq" }],
     "Name_JP": "121(エルフェルト)",
@@ -511,6 +532,7 @@
   },
   {
     "Num": 123,
+    "Num_Badge": "123",
     "Progress": "notProceeded",
     "Name_JP": "123(ヒフミ)",
     "Name_EN": "123(Hop-Step-Jumper)",
@@ -524,6 +546,7 @@
   },
   {
     "Num": 125,
+    "Num_Badge": "125",
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": "125-cub" }],
     "FormalName_JP": "量産型ナンバーテールズ125番機シリーズ",
@@ -536,6 +559,7 @@
   },
   {
     "Num": 127,
+    "Num_Badge": "127",
     "Progress": "notProceeded",
     "sec_Category": "リクエストナンバー",
     "sec_DesignedBy": ["RadianN"],
@@ -551,6 +575,7 @@
   },
   {
     "Num": 144,
+    "Num_Badge": "144",
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": "144-sq" }],
     "Name_JP": "144(グロス)",
@@ -567,6 +592,7 @@
   },
   {
     "Num": 148,
+    "Num_Badge": "148",
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "148-numberize" }],
     "FormalName_JP": "量産型ナンバーテールズ148番機シリーズ",
@@ -597,6 +623,7 @@
   },
   {
     "Num": 150,
+    "Num_Badge": "150",
     "Progress": "notProceeded",
     "Name_JP": "150(ハクハン)",
     "Name_EN": "150(Onehalven)",
@@ -612,6 +639,7 @@
   },
   {
     "Num": 153,
+    "Num_Badge": "153",
     "Progress": "notProceeded",
     "Name_JP": "153(ヒゴミ)",
     "Name_EN": "153(Unipetri)",
@@ -627,6 +655,7 @@
   },
   {
     "Num": 156,
+    "Num_Badge": "156",
     "Progress": "notProceeded",
     "Name_JP": "156(ヒゴロ)",
     "Name_EN": "156(Onefix)",
@@ -642,6 +671,7 @@
   },
   {
     "Num": 169,
+    "Num_Badge": "169",
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": "169-sq" }],
     "Name_JP": "169(ワイドアスペクツ)",
@@ -658,6 +688,7 @@
   },
   {
     "Num": 200,
+    "Num_Badge": "200",
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": "200-dev" }],
     "FormalName_JP": "量産型ナンバーテールズ200番機シリーズ",
@@ -670,6 +701,7 @@
   },
   {
     "Num": 214,
+    "Num_Badge": "214",
     "Progress": "notProceeded",
     "Name_JP": "214(バレンタ)",
     "Name_EN": "214(Valenta)",
@@ -687,6 +719,7 @@
   },
   {
     "Num": 216,
+    "Num_Badge": "216",
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": "216-cub" }],
     "Name_JP": "216(ニイロ)",
@@ -703,6 +736,7 @@
   },
   {
     "Num": "222-mp",
+    "Num_Badge": "222MP",
     "Progress": "notProceeded",
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 222 },
@@ -738,6 +772,7 @@
   },
   {
     "Num": 223,
+    "Num_Badge": "223",
     "Progress": "released(beta)",
     "sec_Category": "リクエストナンバー",
     "sec_DesignedBy": ["RadianN"],
@@ -747,8 +782,8 @@
     "Name_JP": "223(ツヅサ)",
     "Name_EN": "223(Twitwenthir)",
     "Images": {
-      "concept_PNGName": "cr/cnsp_img223",
-      "corefolder_PNGPath": ["223/emstk_corefolder223-1"]
+      "concept_PNGName": "cr/cnsp_imgNTS-223",
+      "corefolder_PNGPath": ["223/emstk_corefolderNTS-223-1"]
     },
     "FormalName_JP": "量産型ナンバーテールズ223番機CRシリーズ(ナンバーテールズ223番機)",
     "FormalName_EN": "NumberTales #223-CR Series Mass Production Version for Sales (NumberTales #223)",
@@ -848,6 +883,7 @@
   },
   {
     "Num": "223-jw",
+    "Num_Badge": "223JW",
     "Progress": "notProceeded",
     "sec_Category": null,
     "sec_DesignedBy": ["RadianN"],
@@ -892,6 +928,7 @@
   },
   {
     "Num": 227,
+    "Num_Badge": "227",
     "Progress": "stillTentative",
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "227-numberize" }],
     "FormalName_JP": "量産型ナンバーテールズ227番機シリーズ",
@@ -920,6 +957,7 @@
   },
   {
     "Num": 232,
+    "Num_Badge": "232",
     "Progress": "stillTentative",
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "232-numberize" }],
     "FormalName_JP": "量産型ナンバーテールズ232番機シリーズ",
@@ -949,6 +987,7 @@
   },
   {
     "Num": 238,
+    "Num_Badge": "238",
     "Progress": "stillTentative",
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "238-numberize" }],
     "FormalName_JP": "量産型ナンバーテールズ238番機シリーズ",
@@ -979,6 +1018,7 @@
   },
   {
     "Num": 241,
+    "Num_Badge": "241",
     "Progress": "stillTentative",
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "241-numberize" }],
     "FormalName_JP": "量産型ナンバーテールズ241番機シリーズ",
@@ -1015,6 +1055,7 @@
   },
   {
     "Num": 244,
+    "Num_Badge": "244",
     "Progress": "notProceeded",
     "Name_JP": "244(ツグヨシ)",
     "Name_EN": "244(Twiforfours)",
@@ -1028,6 +1069,7 @@
   },
   {
     "Num": 255,
+    "Num_Badge": "255",
     "Progress": "notProceeded",
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "Secondary", "Num": "0xFF" }
@@ -1048,6 +1090,7 @@
   },
   {
     "Num": 256,
+    "Num_Badge": "256",
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": "256-sq" }],
     "Name_JP": "256(バイツ)",
@@ -1065,6 +1108,7 @@
   },
   {
     "Num": 258,
+    "Num_Badge": "258",
     "Progress": "stillTentative",
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "258-numberize" }],
     "FormalName_JP": "量産型ナンバーテールズ258番機シリーズ",
@@ -1095,6 +1139,7 @@
   },
   {
     "Num": 263,
+    "Num_Badge": "263",
     "Progress": "stillTentative",
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "263-numberize" }],
     "FormalName_JP": "量産型ナンバーテールズ263番機シリーズ",
@@ -1125,6 +1170,7 @@
   },
   {
     "Num": 265,
+    "Num_Badge": "265",
     "Progress": "stillTentative",
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "265-numberize" }],
     "FormalName_JP": "量産型ナンバーテールズ265番機シリーズ",
@@ -1155,6 +1201,7 @@
   },
   {
     "Num": 294,
+    "Num_Badge": "294",
     "Progress": "stillTentative",
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "294-numberize" }],
     "FormalName_JP": "量産型ナンバーテールズ294番機シリーズ",
@@ -1185,6 +1232,7 @@
   },
   {
     "Num": 295,
+    "Num_Badge": "295",
     "Progress": "stillTentative",
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "295-numberize" }],
     "FormalName_JP": "量産型ナンバーテールズ295番機シリーズ",
@@ -1215,6 +1263,7 @@
   },
   {
     "Num": 314,
+    "Num_Badge": "314",
     "Progress": "notProceeded",
     "Name_JP": "314(マドカ)",
     "Name_EN": "314(Circcle)",
@@ -1232,6 +1281,7 @@
   },
   {
     "Num": "333-mp",
+    "Num_Badge": "333MP",
     "Progress": "notProceeded",
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 333 }
@@ -1248,6 +1298,7 @@
   },
   {
     "Num": 337,
+    "Num_Badge": "337",
     "Progress": "stillTentative",
     "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": "337-numberize" }],
     "FormalName_JP": "量産型ナンバーテールズ337番機シリーズ",
@@ -1277,6 +1328,7 @@
   },
   {
     "Num": 343,
+    "Num_Badge": "343",
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": "343-cub" }],
     "FormalName_JP": "量産型ナンバーテールズ343番機シリーズ",
@@ -1289,6 +1341,7 @@
   },
   {
     "Num": 360,
+    "Num_Badge": "360",
     "Progress": "notProceeded",
     "Name_JP": "360(ディクリール)",
     "Name_EN": "360(Degreel)",
@@ -1304,6 +1357,7 @@
   },
   {
     "Num": 365,
+    "Num_Badge": "365",
     "Progress": "notProceeded",
     "Name_JP": "365(イヤース)",
     "Name_EN": "365(Yearß)",
@@ -1320,6 +1374,7 @@
   },
   {
     "Num": 366,
+    "Num_Badge": "366",
     "Progress": "stillTentative",
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "366-numberize" }],
     "Name_JP": "366(ウルウニチ)",
@@ -1337,6 +1392,7 @@
   },
   {
     "Num": 369,
+    "Num_Badge": "369",
     "Progress": "notProceeded",
     "Name_JP": "369(ミロク)",
     "Name_EN": "369(Tracles)",
@@ -1352,6 +1408,7 @@
   },
   {
     "Num": 370,
+    "Num_Badge": "370",
     "Progress": "notProceeded",
     "Name_JP": "370(サチマル)",
     "Name_EN": "370(Threeventy)",
@@ -1367,6 +1424,7 @@
   },
   {
     "Num": 371,
+    "Num_Badge": "371",
     "Progress": "notProceeded",
     "Name_JP": "371(ミナヒト)",
     "Name_EN": "371(Treventone)",
@@ -1382,6 +1440,7 @@
   },
   {
     "Num": 373,
+    "Num_Badge": "373",
     "Progress": "notProceeded",
     "Name_JP": "373(ミナミ)",
     "Name_EN": "373(Thrsevthy)",
@@ -1395,6 +1454,7 @@
   },
   {
     "Num": 376,
+    "Num_Badge": "376",
     "Progress": "stillTentative",
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "376-numberize" }],
     "FormalName_JP": "量産型ナンバーテールズ376番機シリーズ",
@@ -1425,6 +1485,7 @@
   },
   {
     "Num": 377,
+    "Num_Badge": "377",
     "Progress": "stillTentative",
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "377-numberize" }],
     "FormalName_JP": "量産型ナンバーテールズ377番機シリーズ",
@@ -1437,6 +1498,7 @@
   },
   {
     "Num": 385,
+    "Num_Badge": "385",
     "Progress": "notProceeded",
     "Name_JP": "385(ミヤコ)",
     "Name_EN": "385(Threightifiver)\n385(Miyako)",
@@ -1452,6 +1514,7 @@
   },
   {
     "Num": 387,
+    "Num_Badge": "387",
     "Progress": "stillTentative",
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "387-numberize" }],
     "FormalName_JP": "量産型ナンバーテールズ387番機シリーズ",
@@ -1482,6 +1545,7 @@
   },
   {
     "Num": "400-gc",
+    "Num_Badge": "400GC",
     "Progress": "notProceeded",
     "AnotherVersions_DBLink": [{ "_DB": "SemiPrimary", "Num": 400 }],
     "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": "400-sq" }],
@@ -1499,6 +1563,7 @@
   },
   {
     "Num": 401,
+    "Num_Badge": "401",
     "Progress": "stillTentative",
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "401-numberize" }],
     "FormalName_JP": "量産型ナンバーテールズ401番機シリーズ",
@@ -1524,6 +1589,7 @@
   },
   {
     "Num": 404,
+    "Num_Badge": "404",
     "Progress": "notProceeded",
     "Name_JP": "404(イエナキ)",
     "Name_EN": "404(Foundnot)",
@@ -1539,6 +1605,7 @@
   },
   {
     "Num": 407,
+    "Num_Badge": "407",
     "Progress": "notProceeded",
     "Name_JP": "407(シレナ)",
     "Name_EN": "407(Fore-o-sept)",
@@ -1554,6 +1621,7 @@
   },
   {
     "Num": 411,
+    "Num_Badge": "411",
     "Progress": "stillTentative",
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "411-numberize" }],
     "FormalName_JP": "量産型ナンバーテールズ411番機シリーズ",
@@ -1582,6 +1650,7 @@
   },
   {
     "Num": 421,
+    "Num_Badge": "421",
     "Progress": "stillTentative",
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "421-numberize" }],
     "FormalName_JP": "量産型ナンバーテールズ421番機シリーズ",
@@ -1618,6 +1687,7 @@
   },
   {
     "Num": "444-mp",
+    "Num_Badge": "444MP",
     "Progress": "released(beta)",
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 444 }
@@ -1628,8 +1698,8 @@
     "Name_JP": "量産型 444(シテン)",
     "Name_EN": "Cloned 444(Quad-emperone)",
     "Images": {
-      "concept_PNGName": "cnsp_img444-mp",
-      "corefolder_PNGPath": ["444/emstk_corefolder444-mp1"]
+      "concept_PNGName": "cnsp_imgNTS-444MP",
+      "corefolder_PNGPath": ["444/emstk_corefolderNTS-444MP1"]
     },
     "FormalName_JP": "量産型ナンバーテールズ444番機シリーズ",
     "FormalName_EN": "NumberTales #444 Series Mass Production Version for Sales",
@@ -1667,7 +1737,7 @@
             "value_EN": "Arabic numeral '444'"
           }
         ],
-        "img_PNGName": "attr_numberMark444mp",
+        "img_PNGName": "attr_numberMarkNTS-444MP",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -1693,7 +1763,7 @@
             "value_EN": "Arabic numeral '444'"
           }
         ],
-        "img_PNGName": "attr_numberMark444mp",
+        "img_PNGName": "attr_numberMarkNTS-444MP",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -1719,7 +1789,7 @@
             "value_EN": "Arabic numeral '444'"
           }
         ],
-        "img_PNGName": "attr_numberMark444-lot",
+        "img_PNGName": "attr_numberMarkNTS-444MP-lot",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -1798,7 +1868,7 @@
             "value_EN": "halo consisting of three squares/diamonds"
           }
         ],
-        "img_PNGName": "attr_halo444mp",
+        "img_PNGName": "attr_haloNTS-444MP",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -1990,6 +2060,7 @@
   },
   {
     "Num": 451,
+    "Num_Badge": "451",
     "Progress": "notProceeded",
     "Name_JP": "451(ブックバーン)",
     "Name_EN": "451(Bookburn)",
@@ -2005,6 +2076,7 @@
   },
   {
     "Num": 456,
+    "Num_Badge": "456",
     "Progress": "notProceeded",
     "Name_JP": "456(シゴロ)",
     "Name_EN": "456(Sigoro)",
@@ -2020,6 +2092,7 @@
   },
   {
     "Num": 467,
+    "Num_Badge": "467",
     "Progress": "stillTentative",
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "467-numberize" }],
     "FormalName_JP": "量産型ナンバーテールズ467番機シリーズ",
@@ -2050,6 +2123,7 @@
   },
   {
     "Num": 476,
+    "Num_Badge": "476",
     "Progress": "stillTentative",
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "476-numberize" }],
     "FormalName_JP": "量産型ナンバーテールズ476番機シリーズ",
@@ -2080,6 +2154,7 @@
   },
   {
     "Num": 496,
+    "Num_Badge": "496",
     "Progress": "notProceeded",
     "sec_Category": "リクエストナンバー",
     "sec_DesignedBy": ["RadianN"],
@@ -2095,6 +2170,7 @@
   },
   {
     "Num": 500,
+    "Num_Badge": "500",
     "Progress": "notProceeded",
     "Name_JP": "500(ハルフィミル)",
     "Name_EN": "500(Halvemill)",
@@ -2110,6 +2186,7 @@
   },
   {
     "Num": 510,
+    "Num_Badge": "510",
     "Progress": "stillTentative",
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "510-numberize" }],
     "FormalName_JP": "量産型ナンバーテールズ510番機シリーズ",
@@ -2135,6 +2212,7 @@
   },
   {
     "Num": 512,
+    "Num_Badge": "512",
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": "512-cub" }],
     "Name_JP": "512(ハキビ)",
@@ -2151,6 +2229,7 @@
   },
   {
     "Num": 528,
+    "Num_Badge": "528",
     "Progress": "notProceeded",
     "Name_JP": "528(ソルフェジアン)",
     "Name_EN": "528(Solfeggian)",
@@ -2166,6 +2245,7 @@
   },
   {
     "Num": "555-mp",
+    "Num_Badge": "555MP",
     "Progress": "notProceeded",
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 555 }
@@ -2182,6 +2262,7 @@
   },
   {
     "Num": 558,
+    "Num_Badge": "558",
     "Progress": "stillTentative",
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "558-numberize" }],
     "FormalName_JP": "量産型ナンバーテールズ558番機シリーズ",
@@ -2211,6 +2292,7 @@
   },
   {
     "Num": 572,
+    "Num_Badge": "572",
     "Progress": "notProceeded",
     "Name_JP": "572(コナツ)",
     "Name_EN": "572(Fiventwy)",
@@ -2224,6 +2306,7 @@
   },
   {
     "Num": 605,
+    "Num_Badge": "605",
     "Progress": "stillTentative",
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "605-numberize" }],
     "FormalName_JP": "量産型ナンバーテールズ605番機シリーズ",
@@ -2249,6 +2332,7 @@
   },
   {
     "Num": 616,
+    "Num_Badge": "616",
     "Progress": "notProceeded",
     "Name_JP": "616(リィル)",
     "Name_EN": "616(Lil)",
@@ -2266,6 +2350,7 @@
   },
   {
     "Num": 625,
+    "Num_Badge": "625",
     "Progress": "stillTentative",
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "625-numberize" }],
     "FormalName_JP": "量産型ナンバーテールズ625番機シリーズ",
@@ -2296,6 +2381,7 @@
   },
   {
     "Num": 634,
+    "Num_Badge": "634",
     "Progress": "notProceeded",
     "Name_JP": "634(ムサシ)",
     "Name_EN": "634(Sithfone)",
@@ -2309,6 +2395,7 @@
   },
   {
     "Num": 638,
+    "Num_Badge": "638",
     "Progress": "stillTentative",
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "638-numberize" }],
     "FormalName_JP": "量産型ナンバーテールズ638番機シリーズ",
@@ -2339,6 +2426,7 @@
   },
   {
     "Num": "666-mp",
+    "Num_Badge": "666MP",
     "Progress": "released(beta)",
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 666 }
@@ -2349,8 +2437,8 @@
     "Name_JP": "量産型 666(リリス)",
     "Name_EN": "Cloned 666(Lilith)",
     "Images": {
-      "concept_PNGName": "cnsp_img666-mp",
-      "corefolder_PNGPath": ["666/emstk_corefolder666-mp1"]
+      "concept_PNGName": "cnsp_imgNTS-666MP",
+      "corefolder_PNGPath": ["666/emstk_corefolderNTS-666MP1"]
     },
     "FormalName_JP": "量産型ナンバーテールズ666番機シリーズ",
     "FormalName_EN": "NumberTales #666 Series Mass Production Version for Sales",
@@ -2419,7 +2507,7 @@
             "value_EN": "Arabic numeral '666'"
           }
         ],
-        "img_PNGName": "attr_numberMark666-lot",
+        "img_PNGName": "attr_numberMarkNTS-666MP-lot",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -2482,7 +2570,7 @@
             "value_EN": "halo with three '6's arranged in rotational symmetry"
           }
         ],
-        "img_PNGName": "attr_halo666mp",
+        "img_PNGName": "attr_haloNTS-666MP",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -2498,7 +2586,7 @@
             "value_EN": "wings inspired by the motif of '666'"
           }
         ],
-        "img_PNGName": "attr_wing666mp",
+        "img_PNGName": "attr_wingNTS-666MP",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -2535,7 +2623,7 @@
             "value_EN": "brooch with three '6's arranged in rotational symmetry and hexagonal shape"
           }
         ],
-        "img_PNGName": "attr_costumeItem666mp-brooch",
+        "img_PNGName": "attr_costumeItemNTS-666MP-brooch",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -2572,7 +2660,7 @@
             "value_EN": "brooch with three '6's arranged in rotational symmetry and hexagonal shape"
           }
         ],
-        "img_PNGName": "attr_costumeItem666mp-brooch",
+        "img_PNGName": "attr_costumeItemNTS-666MP-brooch",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -2682,6 +2770,7 @@
   },
   {
     "Num": 670,
+    "Num_Badge": "670",
     "Progress": "stillTentative",
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "670-numberize" }],
     "FormalName_JP": "量産型ナンバーテールズ670番機シリーズ",
@@ -2707,6 +2796,7 @@
   },
   {
     "Num": 696,
+    "Num_Badge": "696",
     "Progress": "notProceeded",
     "Name_JP": "696(ロクロ)",
     "Name_EN": "696(Signovix)",
@@ -2720,6 +2810,7 @@
   },
   {
     "Num": 729,
+    "Num_Badge": "729",
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": "729-sxp" }],
     "Name_JP": "729(ナブク)",
@@ -2734,6 +2825,7 @@
   },
   {
     "Num": 736,
+    "Num_Badge": "736",
     "Progress": "stillTentative",
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "736-numberize" }],
     "FormalName_JP": "量産型ナンバーテールズ736番機シリーズ",
@@ -2764,14 +2856,15 @@
   },
   {
     "Num": 753,
+    "Num_Badge": "753",
     "Progress": "released(beta)",
     "sec_Category": "リクエストナンバー",
     "sec_DesignedBy": ["RadianN"],
     "Name_JP": "753(ナゴミ)",
     "Name_EN": "753(Nagomi)\n753(Sefenvethirs)",
     "Images": {
-      "concept_PNGName": "jw/cnsp_img753",
-      "corefolder_PNGPath": ["753/emstk_corefolder753-1"]
+      "concept_PNGName": "jw/cnsp_imgNTS-753",
+      "corefolder_PNGPath": ["753/emstk_corefolderNTS-753-1"]
     },
     "FormalName_JP": "量産型ナンバーテールズ753番機JWシリーズ(ナンバーテールズ753番機)",
     "FormalName_EN": "NumberTales #753-JW Series Mass Production Version for Sales (NumberTales #753)",
@@ -2876,6 +2969,7 @@
   },
   {
     "Num": 773,
+    "Num_Badge": "773",
     "Progress": "stillTentative",
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "773-numberize" }],
     "Name_JP": "773(チナミ)",
@@ -2907,6 +3001,7 @@
   },
   {
     "Num": 774,
+    "Num_Badge": "774",
     "Progress": "notProceeded",
     "Name_JP": "774(ナモナシ)",
     "Name_EN": "774(Save-Service-For-Nameless)\n774(SSFN)",
@@ -2922,6 +3017,7 @@
   },
   {
     "Num": "777-mp",
+    "Num_Badge": "777MP",
     "Progress": "released(beta)",
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 777 }
@@ -2933,8 +3029,8 @@
     "Name_JP": "量産型 777(ヨロコビ)",
     "Name_EN": "Cloned 777(Lucky-sevens)\nCloned 777(Luckies)",
     "Images": {
-      "concept_PNGName": "cnsp_img777-mpA",
-      "conceptAlt_PNGName": ["cnsp_img777-mpC", "cnsp_img777-mp"]
+      "concept_PNGName": "cnsp_imgNTS-777MPA",
+      "conceptAlt_PNGName": ["cnsp_imgNTS-777MP,NTS-777JMPC", "cnsp_imgNTS-777MP,NTS-777JMP"]
     },
     "FormalName_JP": "量産型ナンバーテールズ777番機シリーズ",
     "FormalName_EN": "NumberTales #777 Series Mass Production Version for Sales",
@@ -3203,6 +3299,7 @@
   },
   {
     "Num": "777.Jackpot-mp",
+    "Num_Badge": "777JMP",
     "Progress": "released(beta)",
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 777 }
@@ -3214,8 +3311,8 @@
     "Name_JP": "量産型 777(ヨロコビ)",
     "Name_EN": "Cloned 777(Lucky-sevens)\nCloned 777(Luckies)",
     "Images": {
-      "concept_PNGName": "cnsp_img777-mpB",
-      "conceptAlt_PNGName": ["cnsp_img777-mpC", "cnsp_img777-mp"]
+      "concept_PNGName": "cnsp_imgNTS-777JMP-mpB",
+      "conceptAlt_PNGName": ["cnsp_imgNTS-777MP,NTS-777JMPC", "cnsp_imgNTS-777MP,NTS-777JMP"]
     },
     "FormalName_JP": "量産型ナンバーテールズ777番機[ジャックポット]シリーズ",
     "FormalName_EN": "NumberTales #777.Jackpot Series Mass Production Version for Sales",
@@ -3505,6 +3602,7 @@
   },
   {
     "Num": 780,
+    "Num_Badge": "780",
     "Progress": "notProceeded",
     "Name_JP": "780(ナハト)",
     "Name_EN": "780(Sevighty)",
@@ -3518,6 +3616,7 @@
   },
   {
     "Num": 808,
+    "Num_Badge": "808",
     "Progress": "notProceeded",
     "Name_JP": "808(ヤオヤ)",
     "Name_EN": "808(Yaoya)\n808(Vegeta)",
@@ -3533,6 +3632,7 @@
   },
   {
     "Num": 833,
+    "Num_Badge": "833",
     "Progress": "notProceeded",
     "Name_JP": "833(ハザミ)",
     "Name_EN": "833(Egthirthree)",
@@ -3546,6 +3646,7 @@
   },
   {
     "Num": "888-mp",
+    "Num_Badge": "888MP",
     "Progress": "notProceeded",
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 888 }
@@ -3562,6 +3663,7 @@
   },
   {
     "Num": 959,
+    "Num_Badge": "959",
     "Progress": "notProceeded",
     "Name_JP": "959(クゴク)",
     "Name_EN": "959(Nifinine)",
@@ -3582,6 +3684,7 @@
   },
   {
     "Num": 966,
+    "Num_Badge": "966",
     "Progress": "notProceeded",
     "Name_JP": "966(クロール)",
     "Name_EN": "966(Nixiß-ect)",
@@ -3595,6 +3698,7 @@
   },
   {
     "Num": 969,
+    "Num_Badge": "969",
     "Progress": "notProceeded",
     "Name_JP": "969(クルクル)",
     "Name_EN": "969(Roll-roll)",
@@ -3610,6 +3714,7 @@
   },
   {
     "Num": 979,
+    "Num_Badge": "979",
     "Progress": "stillTentative",
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "979-numberize" }],
     "FormalName_JP": "量産型ナンバーテールズ979番機シリーズ",
@@ -3639,6 +3744,7 @@
   },
   {
     "Num": "999-mp",
+    "Num_Badge": "999MP",
     "Progress": "notProceeded",
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 999 }
