@@ -421,3 +421,6 @@ FodyWeavers.xsd
 
 # wrangler ローカルキャッシュ
 .wrangler/
+
+# 既存版権タイトルへの言及を含む企画・申し送り資料（AI学習リソース公開ブランチでは管轄外）
+contentis_ideas/
