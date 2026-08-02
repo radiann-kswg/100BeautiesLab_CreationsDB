@@ -37,7 +37,7 @@
 | --- | --- | --- |
 | DestinyFoxRecords | レコードへ **`Unit_Badge`** を新設し `$badge: { keys: ["Unit_Badge"] }` | `Unit` の生値に `-(normal)` / `-(tangent)` / `-(quaternion)` があり、そのままではファイル名に使えなかった |
 | 〃 | ケルビンの `Unit_Badge` を `SIH` → **`SITH`** へ | 作業途中に User 指定 |
-| ShouArRiders | `dict_Beast.json` へ **`Beast_Badge`** 列（`EZ1`〜`EZ13`）を追加し、`$badge` を `{ key: "Beast", codeFrom: "Beast_Badge" }` の**辞書参照**へ | レコードへ手書きせず辞書で解決したい、との User 指定 |
+| ShouArRiders | `dict_Beast.json` へ **`Beast_Badge`** 列（`EZ1`〜`EZ13` の全 15 値。戌年が Raccoon / Fox / Dog の 3 行に分かれるため `EZ11A`(Fox) / `EZ11B`(Raccoon) を含む）を追加し、`$badge` を `{ key: "Beast", codeFrom: "Beast_Badge" }` の**辞書参照**へ | レコードへ手書きせず辞書で解決したい、との User 指定 |
 
 ---
 
@@ -183,15 +183,27 @@ Git 管理外のローカル作業ファイル）。2 レコードとも `{Alpha
 
   | ファイル | 見送りの理由 |
   | --- | --- |
-  | `attr_numberMark223-lot` | `Num:223`（`223`）と `Num:"223-jw"`（`223JW`）のどちらか一意に定まらない |
+  | `attr_numberMark223-lot` → **解決済み** | User 決定の命名法則（作品コード・バッジとも**ハイフンを含まない**）により `WORK=NTs` / `BADGE=223` / `suffix=-lot` と一意に読める。作品コードのタイプミスを直して `attr_numberMarkNTS-223-lot.png` へ改名した |
   | `cnsp_imgPhysU-m` → **User が対応済み** | （`cnsp_imgDFR-SIL.png` へ改名済み） |
+  | `cnsp-fg_NTsCoreFolder` → **解決済み** | 孤児ではなく `ref_Vocabulary.json:47` の参照側が `cnsp-fg_NTscorefolder` と誤っていた（大小文字不一致）。JSON を実ファイル名へ訂正 |
   | `design_imgPh9` / `ArchFaith` / `pr_officialCard_202504` / `pr_officialCard_202510` | 識別子を含まない（作品全体の資料画像） |
   | `art[EN]_sphericateDay202202` | 識別子を含まない |
-  | `chr-dsgn_NTsCatalog-Summary` / `cnsp-fg_NTsClass` / `cnsp-fg_NTsCoreFolder` / `cnsp-fg_NTsHumanoid` | 同上 |
+  | `chr-dsgn_NTsCatalog-Summary` / `cnsp-fg_NTsClass` / `cnsp-fg_NTsHumanoid` | 同上 |
 
-- **ShouArRiders の `db_type.json` に残る `Beast_Badge` の子要素宣言**（`$IndexDef.$type` 内）は、
-  辞書参照へ切り替えたため**レコード側では使われない**。宣言を残すか外すかは User 判断。
-  残しても `$display.auto: false` なのでキャラシート表示・キー順ともに影響しない。
+- **ShouArRiders の `db_type.json` の `Beast_Badge` 子要素宣言**（`$IndexDef.$type` 内）について、
+  当初「外してもよい／表示に影響しない」と記載していたが、**どちらも誤りだった**ので訂正する。
+
+  1. **宣言は外せない（load-bearing）**。
+     `EnrichmentProcessor.supplementIndexFieldFromVarsDef()`（`lib/data-common.js:1150` の `declaredSubKeys`）は
+     「`$IndexDef.$type` に宣言されたサブキーしか辞書行から取り込まない」ため、
+     外すと enrich 出力から `Beast_Badge` が消える。**現在の置き場所が正しい**
+     （SAR の `$IndexDef` はネスト object なので、子要素として宣言する器がある。
+     NumberTales / DestinyFoxRecords はスカラー Index なので `$DefType` 側しか選べない、という構造差）。
+  2. **`$display.auto: false` は index 子要素では読まれない**。
+     `pages/characters.js:1554` の `getIndexSubDefDisplayConfig()` が参照するのは `subDef.$display.index` だけで、
+     既定が `detail: true / value: true` のため空振りしていた。
+     結果、キャラシート詳細の Index ピルに「干支バッジ: EZ1」が **SAR 全 7 レコードで露出**していた。
+     → `{ "langMode": "shared", "index": "none" }` へ訂正済み（バッジ解決結果は `SAR-EZ*` のまま不変）。
 - **`cnsp_imgSIL` 以外の画像未作成**は無し（リンク切れ 0 件）。
 - **新規画像を足すときの命名**: `{prefix}_{kind}{Works_Code}-{バッジ本体}{接尾辞}`。
   バッジからファイル名を自動生成する実装は入れていない（接尾辞・連名が復元できないため）。

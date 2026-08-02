@@ -3030,7 +3030,10 @@
     "Name_EN": "Cloned 777(Lucky-sevens)\nCloned 777(Luckies)",
     "Images": {
       "concept_PNGName": "cnsp_imgNTS-777MPA",
-      "conceptAlt_PNGName": ["cnsp_imgNTS-777MP,NTS-777JMPC", "cnsp_imgNTS-777MP,NTS-777JMP"]
+      "conceptAlt_PNGName": [
+        "cnsp_imgNTS-777MP,NTS-777JMPC",
+        "cnsp_imgNTS-777MP,NTS-777JMP"
+      ]
     },
     "FormalName_JP": "量産型ナンバーテールズ777番機シリーズ",
     "FormalName_EN": "NumberTales #777 Series Mass Production Version for Sales",
@@ -3312,7 +3315,10 @@
     "Name_EN": "Cloned 777(Lucky-sevens)\nCloned 777(Luckies)",
     "Images": {
       "concept_PNGName": "cnsp_imgNTS-777JMP-mpB",
-      "conceptAlt_PNGName": ["cnsp_imgNTS-777MP,NTS-777JMPC", "cnsp_imgNTS-777MP,NTS-777JMP"]
+      "conceptAlt_PNGName": [
+        "cnsp_imgNTS-777MP,NTS-777JMPC",
+        "cnsp_imgNTS-777MP,NTS-777JMP"
+      ]
     },
     "FormalName_JP": "量産型ナンバーテールズ777番機[ジャックポット]シリーズ",
     "FormalName_EN": "NumberTales #777.Jackpot Series Mass Production Version for Sales",

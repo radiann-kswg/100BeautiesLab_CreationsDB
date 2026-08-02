@@ -15,7 +15,7 @@
         "$slot": "#Index",
         "hashTag_JP": "干支バッジ",
         "hashTag_EN": "Eto Badge",
-        "$display": { "langMode": "shared", "auto": false }
+        "$display": { "langMode": "shared", "index": "none" }
       },
       { "hashTag": "Eto", "$type": "#String_JP", "hashTag_JP": "干支" },
       {
