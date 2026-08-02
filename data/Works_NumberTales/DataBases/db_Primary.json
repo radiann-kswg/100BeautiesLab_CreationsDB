@@ -7,7 +7,10 @@
     "Name_EN": "1(Unitta)",
     "Images": {
       "concept_PNGName": "cnsp_imgNTS-1",
-      "corefolder_PNGPath": ["1/emstk_corefolderNTS-1-1", "1/emstk_corefolderNTS-1-2"],
+      "corefolder_PNGPath": [
+        "1/emstk_corefolderNTS-1-1",
+        "1/emstk_corefolderNTS-1-2"
+      ],
       "arts_PNGPath": ["humanoids/2023/art_imgNTS-1-humanoid"]
     },
     "FormalName_JP": "ナンバーテールズ1番機",
@@ -689,7 +692,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:23af45d244e40b090bf999e56df4f3cbcf0156ef7698206d4e52afb3c5720361",
+        "structuralSourceHash": "sha256:aacc144d295da37f0ee21d27c65399b2e1bbe79ae9dce53b7020efc757dfafca",
         "structuralEntries": {
           "common.identity_tags": [
             "red orange hair, short hair",
@@ -751,7 +754,7 @@
             "gray short boots"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -763,7 +766,10 @@
     "Name_EN": "2(Twiny)",
     "Images": {
       "concept_PNGName": "cnsp_imgNTS-2",
-      "corefolder_PNGPath": ["2/emstk_corefolderNTS-2-1", "2/emstk_corefolderNTS-2-2"],
+      "corefolder_PNGPath": [
+        "2/emstk_corefolderNTS-2-1",
+        "2/emstk_corefolderNTS-2-2"
+      ],
       "arts_PNGPath": [
         "humanoids/art_numbertalesAniv2nd",
         "corefolders/2023/art_imgNTS-2-corefolderWinter"
@@ -1306,7 +1312,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:774665190fd0eb66263128718702d29bf7dc90d1081eac2e904d4011a0bf512b",
+        "structuralSourceHash": "sha256:699f9852f424287a40d36c269fd29dfbc2b230cd1b355e837074d4e29f0cdcb8",
         "structuralEntries": {
           "common.identity_tags": [
             "orange hair, short hair",
@@ -1367,7 +1373,7 @@
             "orange business skirt, skirt"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -1379,7 +1385,10 @@
     "Name_EN": "3(Treiya)",
     "Images": {
       "concept_PNGName": "cnsp_imgNTS-3",
-      "corefolder_PNGPath": ["3/emstk_corefolderNTS-3-1", "3/emstk_corefolderNTS-3-2"]
+      "corefolder_PNGPath": [
+        "3/emstk_corefolderNTS-3-1",
+        "3/emstk_corefolderNTS-3-2"
+      ]
     },
     "FormalName_JP": "ナンバーテールズ3番機",
     "FormalName_EN": "NumberTales #3",
@@ -1881,7 +1890,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:17fac5bb4c5b069cc73c461156363360bd8fb7b1e0a17caad2c55c91c6d27d07",
+        "structuralSourceHash": "sha256:a90ddfa527bc58c4715730988b9feae3c6c150a63344c0fff8669bd900a7bf60",
         "structuralEntries": {
           "common.identity_tags": [
             "yellow hair, spiky hair, yellow hair clip",
@@ -1936,7 +1945,7 @@
             "yellow short pants"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -2480,7 +2489,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:a8c454b5f59dd3fd4fc5837173d0a1f41900582f562de0473c81c2087b1f4e62",
+        "structuralSourceHash": "sha256:d3c9c1c45fcb0b00ed46d941320bfce89a8be1a4cb0c5f1881748bf68dddb86c",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox (drooping ears)",
@@ -2541,7 +2550,7 @@
             "skirt"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -2559,7 +2568,9 @@
         "5/emstk_corefolderNTS-5-3"
       ],
       "arts_PNGPath": ["humanoids/art_pmNTS-5game"],
-      "designAlt_PNGPath": ["chattingArt/chart_imgNTS-25,NTS-5-humanoidCoolerSeason"]
+      "designAlt_PNGPath": [
+        "chattingArt/chart_imgNTS-25,NTS-5-humanoidCoolerSeason"
+      ]
     },
     "FormalName_JP": "ナンバーテールズ5番機",
     "FormalName_EN": "NumberTales #5",
@@ -3185,7 +3196,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:c7a9f4969201294a284341288eccab65723c0ea342a81444df8eb4818044feb8",
+        "structuralSourceHash": "sha256:045e79cd6b76b8566f1ab9abd8a25d47a71a37e27bf8dfb61e6d5a5e54ee681e",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox",
@@ -3256,7 +3267,7 @@
             "light blue short skirt, teal stockings"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -3759,7 +3770,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:20e83bda9bbba360d013a056244b603899abe2f62ce14fa944c9d99d0f113342",
+        "structuralSourceHash": "sha256:92998fdf72508f200d31ce9ae07d037f3602db11c87f089e729285873a61685d",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox",
@@ -3827,7 +3838,7 @@
             "bound by rope"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -4378,7 +4389,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:1e301820c101f7ab6d2e862ca31ec5e6ef695c49893c6f2894d47fa685410380",
+        "structuralSourceHash": "sha256:ef8158842deda940b6ec07a1482c751252800d8227f90651a4522e9b0bb2170c",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox",
@@ -4442,7 +4453,7 @@
             "Japanese-style casual outfit"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -4994,7 +5005,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:c81e219c63b45458e51cf71bc9080cbec1921e3cb36ca2d8416b9f855e5c17a5",
+        "structuralSourceHash": "sha256:4e642d485473884465b37faf5f142c5f5e360ec65c3f40d12c27233d5a8bb6f6",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox (hidden under the hood)",
@@ -5060,7 +5071,7 @@
             "tool pouches"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -5072,7 +5083,10 @@
     "Name_EN": "9(Nina)",
     "Images": {
       "concept_PNGName": "cnsp_imgNTS-9",
-      "corefolder_PNGPath": ["9/emstk_corefolderNTS-9-1", "9/emstk_corefolderNTS-9-2"],
+      "corefolder_PNGPath": [
+        "9/emstk_corefolderNTS-9-1",
+        "9/emstk_corefolderNTS-9-2"
+      ],
       "arts_PNGPath": [
         "corefolders/sphericateDay/art_sphericateDay202309-imgNTS-9",
         "corefolders/sphericateDay/art_sphericateDay202403"
@@ -5628,7 +5642,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:a18a1e58c0213d7e27d570c29abf322ac7a1863190a718ecdc8b1e4b95690f70",
+        "structuralSourceHash": "sha256:47b32f92414457ad5c4b04263757fa9c19f47fa295c10b6adcf2cf5e67403e2d",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox (with accent color tips)",
@@ -5691,7 +5705,7 @@
             "tall slender"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -6285,7 +6299,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:32b73f2855bbd8a2083ec04e291ddc8a8f5d2e96f8e3ae1b30c3591ce42570fd",
+        "structuralSourceHash": "sha256:64de30af3cb4faeed57bc1d18a572c2e045e231f075f3f77999a6fd477c00c9f",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox",
@@ -6349,7 +6363,7 @@
             "wide-leg pants"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -6848,7 +6862,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:6119b82e9a618d3d2df283ef7ebe7942a0c1cbadccf8857e1981b6eab7451084",
+        "structuralSourceHash": "sha256:5607a3d1d35e649d20b40f8626852150da65701076f46efffc568721d29ac049",
         "structuralEntries": {
           "common.identity_tags": [
             "Cat (hidden under the hood)",
@@ -6913,7 +6927,7 @@
             "bound by rope"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -7430,7 +7444,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:ad338b89f60b44de164ac0beed9460c9a5ac89e2e9e1223d12a6e4969d17ee8b",
+        "structuralSourceHash": "sha256:e64c06750fc1f26a42e39e717fa86b31dab86d5b44e4f81031c934c93fe237f9",
         "structuralEntries": {
           "common.identity_tags": [
             "peach orange hair",
@@ -7495,7 +7509,7 @@
             "bound by rope"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -8023,7 +8037,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:7d45f5307573285e7d36a53f35c7ed1ef80fe022d32ba2e4013599ff14355568",
+        "structuralSourceHash": "sha256:3c1890ec5eed8ce0a84455044a90bd9ee0694e7442dc3839882ee3fd2fa93e7f",
         "structuralEntries": {
           "common.identity_tags": ["Fox", "teal light blue hair"],
           "common.silhouette_features": [
@@ -8077,7 +8091,7 @@
             "white gloves with red mouths"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -8703,7 +8717,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:5d1d7174d9fc0fb82948710c87520da20693d76f4fdc45c41e0c94173f2791a1",
+        "structuralSourceHash": "sha256:eca22ef9006eb3b254c918c142950c89c28daa74294ef5ed095ba3acb2e66f02",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox",
@@ -8764,7 +8778,7 @@
             "tri-color outfit"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -9334,7 +9348,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:92ae0d1952c3c3f3fa530a3eac4e2900a33c78bb03108a1c52057e0d548ae5e1",
+        "structuralSourceHash": "sha256:ba896754043990041b5f76cf563cd1eb59d85684a211d5e392b5ea7ec57b507f",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox",
@@ -9400,7 +9414,7 @@
             "pale-colored jacket"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -9923,7 +9937,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:df8dc8bc869f5f4ca47e6ffa8592bbcc2c4e068595e9ea23d0263d71cbcce171",
+        "structuralSourceHash": "sha256:d9f6ac187c6b3880b0cf41ed27f6b49015dbb9395f8e4f11e645b25f08829012",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox (hidden when wearing the hat)",
@@ -9987,7 +10001,7 @@
             "bound by rope"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -10501,7 +10515,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:c1449d9c11edd1b7cf9c3bf463118b55b2e96177fcbf312e41f0e496b912af89",
+        "structuralSourceHash": "sha256:635d738285aa3fec4b65fb2337d541ae1db6a51616687e245ee710603e6771a0",
         "structuralEntries": {
           "common.identity_tags": [
             "short blue indigo hair, square hair pin (17 shape)",
@@ -10565,7 +10579,7 @@
             "bound by rope"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -11011,7 +11025,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:9345b5f35a09512ade83b28d65625715bf7e7fc336b76506579694c0ef03424e",
+        "structuralSourceHash": "sha256:9b45292397c916b1c1666c6c5e5679e128ffbc8702da868e8092b0e3019b1f31",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox",
@@ -11066,7 +11080,7 @@
             "skirt"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -11537,7 +11551,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:c3ee1f40512053517ba3ff6e4cae59a20c5367798a29c01b2537e9d1a9f791f2",
+        "structuralSourceHash": "sha256:fce858c2d3f2e1b493eac43f91cc94c883cd6a244ab33e76bd4a9a6329cfce8f",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox",
@@ -11593,7 +11607,7 @@
             "wide-leg dark red pants"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -12221,7 +12235,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:98905535eaa0009f4766c39384bf5ae56dc05c58c6e04b7ada8d833d9b4d0916",
+        "structuralSourceHash": "sha256:710d33785b4194fe410978e6579ef5eee2e8684f072d8eb0590de7fd579fb3d5",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox",
@@ -12282,7 +12296,7 @@
             "casual private outfit"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -12750,7 +12764,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:417b5efa86e870d36037b0ca83095e5695279da26567b68411e248a3bfd46332",
+        "structuralSourceHash": "sha256:0970e1a64f945a73c4ae17b4839ed2b5d72047fd69b86cab3d20106c7c1663e4",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox",
@@ -12812,7 +12826,7 @@
             "oversized warm orange coat"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -13520,7 +13534,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:6be22c307624ffdce7c3a6be4b0389f107da8c5ddf53d630a034a01e2eeaf7fd",
+        "structuralSourceHash": "sha256:1e40bafccb7fb1a8f7b679dc07e5d68b19e41e4e1b94af3973efc712338ad8fb",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox",
@@ -13598,7 +13612,7 @@
             "fashion boots in orange with gray accent color"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -14137,7 +14151,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:0806ae48e11565835ae23386971657b36efdfa33cf222dff171831def9efca3a",
+        "structuralSourceHash": "sha256:efc93e81f64177830abdabc529cdc2da6cfe8d68d31c42b2cb42f2a6efcc185d",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox",
@@ -14201,7 +14215,7 @@
             "casual private outfit"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -14734,7 +14748,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:09d384930dd10703cfdb87476278dfbd38ed57a8b8c36cc72b09bb2f75e473b0",
+        "structuralSourceHash": "sha256:7cb0ac10dd5db07f57bbe72ddfa16f0c85cedf2dded7dc2c9347c23f77d1016d",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox (with accent color tips)",
@@ -14798,7 +14812,7 @@
             "bound by rope"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -14827,7 +14841,9 @@
           }
         }
       ],
-      "designAlt_PNGPath": ["chattingArt/chart_imgNTS-25,NTS-5-humanoidCoolerSeason"]
+      "designAlt_PNGPath": [
+        "chattingArt/chart_imgNTS-25,NTS-5-humanoidCoolerSeason"
+      ]
     },
     "FormalName_JP": "ナンバーテールズ25番機",
     "FormalName_EN": "NumberTales #25",
@@ -15447,7 +15463,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:55dd9645d7d66d5676445d1819e6f60f403ab525a7f27a79026998fa841adcb2",
+        "structuralSourceHash": "sha256:4585c84283fe9a3857ccc854afcb6b59fb5acd1845951a5f021cca55c949a5a9",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox",
@@ -15511,7 +15527,7 @@
             "dark blue gloves"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -16034,7 +16050,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:ad9955ca0ff0212a9ff07fa324d9f1983ab585acafaec38072aeca13f270baab",
+        "structuralSourceHash": "sha256:d2472350829ac56d98ee0b5ef6950ddb96efd46f232c293623aff05c77137a30",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox (with white accent color tips)",
@@ -16090,7 +16106,7 @@
             "large breasts"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -16687,7 +16703,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:1ff65149b4c1445c89a20f48c2404bdff84275d1fa168495032568aadb7493a4",
+        "structuralSourceHash": "sha256:7f52d5dddee72c7a5763d321cfc0217a958045e575ea626d09182ca0c806e632",
         "structuralEntries": {
           "common.identity_tags": [
             "number '27' marking on purple name tag",
@@ -16750,7 +16766,7 @@
             "casual private outfit"
           ]
         },
-        "lastStructuralResync": "2026-07-16"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -16762,7 +16778,10 @@
     "Name_EN": "28(Tweighan)",
     "Images": {
       "concept_PNGName": "cnsp_imgNTS-28",
-      "conceptAlt_PNGName": ["cnsp_imgNTS-28-onBusiness", "cnsp_imgNTS-28-onPrivate"],
+      "conceptAlt_PNGName": [
+        "cnsp_imgNTS-28-onBusiness",
+        "cnsp_imgNTS-28-onPrivate"
+      ],
       "corefolder_PNGPath": ["28/emstk_corefolderNTS-28-1"],
       "arts_PNGPath": [
         {
@@ -17415,7 +17434,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:fb0d1c9de8d47b92cb34ec1168ef142ad99da1538dc78628121c4fbe7791a22c",
+        "structuralSourceHash": "sha256:9a4358c2d0cf6934640759b5425e03894b4d84484000a6cf52e2e9d9184387c0",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox",
@@ -17484,7 +17503,7 @@
             "red blazer (2 outfit variants)"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -18527,7 +18546,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:d173d60e32382d4948baf2c705304d758ed85c1a85e0a7a20b7e7c5e033e1e06",
+        "structuralSourceHash": "sha256:0db21e0c99f6b3bc6d3f6e3a6c0f256fc8f65c3738e84894df30edc4562643f0",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox",
@@ -18583,7 +18602,7 @@
             "large breasts"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -19238,7 +19257,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:a71094ddb45ec89e27c21073260fa7567d63ee926c6cb7770dc9ccdd269ee74a",
+        "structuralSourceHash": "sha256:0933900b3db208d563d99e8a09186b3a9942ba0539c90a4f52c2d014abd23007",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox",
@@ -19308,7 +19327,7 @@
             "yellow bracelet on the left wrist"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -19855,7 +19874,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:9d2b7427d840c37ac3254a79439466c8c8a59faf647c58f2eef75015bc75d14d",
+        "structuralSourceHash": "sha256:b8d1fc4a64ae0a1608261d812b55dae96c8e9102f820b48892953398fc71894a",
         "structuralEntries": {
           "common.silhouette_features": [
             "branching fox 3 tails",
@@ -19904,7 +19923,7 @@
             "the right side of the area with a pale stripe pattern from the chest to the waist of the hooded top, somewhat large to match the vertical size of the stripe pattern, dark, Arabic numeral '32'"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -20553,7 +20572,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:6900df2322241087662607d1612822fe09b54f4f9bfd8d7d0909ff632e412883",
+        "structuralSourceHash": "sha256:6fb0bff54b4a5d9ec31da64eb11e833d1f4284ff806ea2f1e26886d77be710ae",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox",
@@ -20625,7 +20644,7 @@
             "bound by rope"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -21166,7 +21185,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:f35b1db33f842e79c1380113fde412b4abfc9d08bc2a2a21f9d708dc6631a457",
+        "structuralSourceHash": "sha256:2bd53a88ff724876964af3e5d96f64a05d9d051c186a466e79c31a49b0a17671",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox",
@@ -21230,7 +21249,7 @@
             "small stature"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -21807,7 +21826,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:ccdf48cb15a6b3e6abc1cb7d3ec5495ee9cdddd54c3a05f608ad457a34ed2356",
+        "structuralSourceHash": "sha256:e236d9147e8aa33354d29c33dd8b743bfbfb81d1b267092bf67026a3c052bb7b",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox",
@@ -21878,7 +21897,7 @@
             "white robe with orange hakama (miko)"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -22466,7 +22485,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:ba14d4197e6417c87eae3d92c356084023a19a0fb9403d03c47d630c0735da1b",
+        "structuralSourceHash": "sha256:71a6c77d46f71554e34f19d4a7b7cc7af34b4191e5e15e688ea9d9ec84cdb731",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox (large, fluffy and spread out)",
@@ -22526,7 +22545,7 @@
             "ruffle and lace details"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -23106,7 +23125,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:5e13a01d0b74d66eb93901a4e4b4b514922f8fd73c68a5c125e1618f71206551",
+        "structuralSourceHash": "sha256:d27b40cd78eb595dda3bda116a31c121d7f1e4e0e49fb7d111b2b084f8f9d2d3",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox",
@@ -23177,7 +23196,7 @@
             "bound by rope"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -23815,7 +23834,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:fa92279f249264af25f94a3ac87f241228bac70fdff554d5586ad613bd5fd544",
+        "structuralSourceHash": "sha256:e9d03824e4227e04f6e8e4b1b30c093bc19bd8342873587d0eb88c4ec74c4ec5",
         "structuralEntries": {
           "common.identity_tags": ["Fox", "short amber-blonde hair"],
           "common.silhouette_features": [
@@ -23872,7 +23891,7 @@
             "tall masculine stature"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -24368,7 +24387,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:ac6dac6a843149c368c28aca9d97203caa813d9325fd6ee67796e1eaf9375129",
+        "structuralSourceHash": "sha256:c800a82734e51201be7e755c4775bcc88a91dda9ea9418513d2624f412592e9f",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox",
@@ -24435,7 +24454,7 @@
             "teal lace-up tall boots"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -25033,7 +25052,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:765087161e95b273fb5bbd3bcf678f63a5c82d6a2270ecd1f1ace9e7c7d492a4",
+        "structuralSourceHash": "sha256:57bfff5c066986bc11fb8dc813f6932daabe2205d862da5f95007e647b2f83e1",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox",
@@ -25094,7 +25113,7 @@
             "white knee-high socks, cyan shoes"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -25628,7 +25647,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:1b14fff75f3eeca3e987e4ae340a5835726940f7472fb8f9c87db19b9fcd03e4",
+        "structuralSourceHash": "sha256:0a18c24a83b25b4cc6e693fb875be77db7b892ea809c28bf8e17f492ce509b9f",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox (with accent color tips)",
@@ -25683,7 +25702,7 @@
             "white socks, pink shoes"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -26216,7 +26235,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:c890b97ce26c89facd33b008d4012d37aa39fff377bc6ab95d40aebc6e3e82c3",
+        "structuralSourceHash": "sha256:2dc135cf281c90391fac29f9760fa173ce47642f0bc6a7a4a442b5132683e90d",
         "structuralEntries": {
           "common.identity_tags": ["Fox", "short dark navy hair", "amber eyes"],
           "common.silhouette_features": [
@@ -26271,7 +26290,7 @@
             "often holding a game controller"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -26857,7 +26876,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:3623e40f92cde8e180b8947d83617d4cdc35a0084a8e46252966d2b9995ba090",
+        "structuralSourceHash": "sha256:962d2483f404b0210e06db8dacf047c81d01ba33410319c56717d20174694f63",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox",
@@ -26915,7 +26934,7 @@
             "light yellow leg warmers, orange boots"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -27395,7 +27414,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:4a4284438c87adbe366fe0c20d21c2abc2be21eba4bea8e7af00faa646b1f924",
+        "structuralSourceHash": "sha256:9f047bc834dc46c2d4507f7023df6f955490c5ea694c5764718336907d555ca2",
         "structuralEntries": {
           "common.identity_tags": ["Fox", "short black ponytail", "teal eyes"],
           "common.silhouette_features": [
@@ -27448,7 +27467,7 @@
             "teal sandals"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -28605,7 +28624,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:4cc50aaa72add2c34938a6ce52d7493935825e6b84a95e55524e896258dedd9e",
+        "structuralSourceHash": "sha256:66c082c5e512f33af933eac0a54bd6f33917bf0e1254a2b6e59be229e65210fd",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox",
@@ -28662,7 +28681,7 @@
             "white knee-high socks, navy geta"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -29191,7 +29210,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:3f1e0c1165eb887192f27e1962b4f45c5fa468a8614891e413028504460e7048",
+        "structuralSourceHash": "sha256:7ecb6a05db825018264d682c9533ff2f2d71c395d059d320098c627fe08e3787",
         "structuralEntries": {
           "common.identity_tags": ["Fox"],
           "common.silhouette_features": [
@@ -29243,7 +29262,7 @@
             "brown boots"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -29794,7 +29813,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:f8a19cdda6ea938ffe5a948e5a28fea3bc12a77223ab74a0334f7b9bef297e9d",
+        "structuralSourceHash": "sha256:ba1259071cac6a2d65360559ac36c673316bdc394f4b4d371c11b8d00a9e4361",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox",
@@ -29859,7 +29878,7 @@
             "blue short pants"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -30424,7 +30443,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:5be55a9d98904102a4ac0897170aacaac3cec35ee2a935aee26425d563e3240b",
+        "structuralSourceHash": "sha256:0683786d35d1558d8429831e4ec833846709de1e86d3cab04ef5b6a2fd1d395a",
         "structuralEntries": {
           "common.identity_tags": [
             "large cat ears",
@@ -30483,7 +30502,7 @@
             "dark green leggings"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -31618,7 +31637,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:34aa45cb8e67d3362efade5e9f5f4b347153b99d4009720bcf2fcd65d666ba22",
+        "structuralSourceHash": "sha256:bd1522025ec2887f38405df55cf59db7f43188b3a46a950c95f261799956d564",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox",
@@ -31677,7 +31696,7 @@
             "gray inner layer"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -32194,7 +32213,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:18591f2c653b5e719279a15c799c352563ceb69ac428caa9b5197e4fba825dc5",
+        "structuralSourceHash": "sha256:95e38687a9475b9811ac9934816f643f4ff9be100e5512957365771c62812128",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox",
@@ -32262,7 +32281,7 @@
             "bound by rope"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -32860,7 +32879,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:87c97735b585e9173ce57de0dc8bc8f2db77aa219a6e688ecc3f1eab93078ebc",
+        "structuralSourceHash": "sha256:567035a0c65f5800ec2fefe7ed554b57a8d5494ee0bba9b2aac0ff12463a3f97",
         "structuralEntries": {
           "common.identity_tags": ["medium dark green hair", "green eyes"],
           "common.silhouette_features": [
@@ -32914,7 +32933,7 @@
             "white inner collar"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -33492,7 +33511,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:85bd2a189972cbd91d30f485b4992cb2606c820f354852508737831d6e6c366b",
+        "structuralSourceHash": "sha256:d3a3a367812b782dea75104322c7620892541c7429a3923470bebc57c9dfd6af",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox (with light-colored tips)",
@@ -33552,7 +33571,7 @@
             "white socks, pink shoes"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -34155,7 +34174,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:fdf0c903c7989435b279e56f289a1b389804b27dc51caa4c6b9e30feaab547b4",
+        "structuralSourceHash": "sha256:2f33890ad2cf871679eebd0d30db66cc837ddc5b29339ec136ca5344506657bf",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox",
@@ -34218,7 +34237,7 @@
             "blue inner shirt"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -35553,7 +35572,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:65bfa441f3427e390da3e795a6c34c7f86902effb7de59bed04a6dc282512276",
+        "structuralSourceHash": "sha256:98ca465c13f777a1a6ebd49c5d508ead140fe909524d77bca77bd8a95467eb63",
         "structuralEntries": {
           "common.identity_tags": ["Fox", "pink intake hair", "purple eyes"],
           "common.silhouette_features": [
@@ -35622,7 +35641,7 @@
             "magenta boots"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -36372,7 +36391,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:391fe8b05414cabd6e9905ed173ae7d51f3547880017bedf232639e3279abf6a",
+        "structuralSourceHash": "sha256:dfb8430c2dfcbad1d1a1e261a6619434feda58f3454d1a065000235b62350ef2",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox",
@@ -36454,7 +36473,7 @@
             "bound by rope"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -36981,7 +37000,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:50b9ae3e3b72fd0802368f91e779ae08177044cb561fe19277c50de591e18fb0",
+        "structuralSourceHash": "sha256:fa2fb3d8a5f370d294aeeae0d73ab51ade5b20fab460154dfcf82e7db984bcc9",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox (with dark pink accent color tips)",
@@ -37045,7 +37064,7 @@
             "bound by rope"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -37584,7 +37603,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:b96005d322384eb8660913956952b2fcc9a7e53cdd1a2ac3dc46d309cbd7fa52",
+        "structuralSourceHash": "sha256:dde67c4cd3e497f0d6cc143e972bd815b473ecfb846fa7fe7892d5090503aca1",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox",
@@ -37648,7 +37667,7 @@
             "brown shoes"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -38660,7 +38679,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:48f0b501d6c54849d7754d92b3966582044a1300c1782d65f7a40a2862345dc5",
+        "structuralSourceHash": "sha256:8d5809d249f2749773fafd4da0959384c89ac75e6ee8a43a2f83347330d7aa02",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox (with light-colored tips)",
@@ -38717,7 +38736,7 @@
             "pink shoes"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -39280,7 +39299,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:f0eaf550d23b24260ae95589cbc46d02a543b0517e5ec31f5178e3ba8cc32c24",
+        "structuralSourceHash": "sha256:bd689e819e746e787ec0b80a4541968b635f419340c7b23a0eb0d76f42c6b0cd",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox",
@@ -39345,7 +39364,7 @@
             "yellow trim accents"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -40741,7 +40760,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:0d2006b9d9f3b6c05fd37b6926bb529784b074c313916600d15b6415cb0319c5",
+        "structuralSourceHash": "sha256:a20785f59b33067132bcf7ef07531f6f54acd0d36cb61c90d55d49656d797d9e",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox (hanging in a shape overlapping the bandana)",
@@ -40800,7 +40819,7 @@
             "light brown workwear (work outfit)"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -41937,7 +41956,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:a34788e284ebd88aa5e261a0a3f100015a820c68673163ade3d79250bcd393bd",
+        "structuralSourceHash": "sha256:4a58462275fd8f582d4035c7b53b14bc54eee2d60faa88fa77df587f4e1befd2",
         "structuralEntries": {
           "common.identity_tags": ["Fox", "purple hair", "dark blue eyes"],
           "common.silhouette_features": [
@@ -41990,7 +42009,7 @@
             "light blue armwear with white lines and purple accents"
           ]
         },
-        "lastStructuralResync": "2026-07-25"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -42490,7 +42509,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:eeb2689b4a7396d40b19a4e38efb24cb889f882580e72235c928a3b72f829df5",
+        "structuralSourceHash": "sha256:1a5fdced9c86aa503316249d43b2c9feb7966721d68130b9753208eff743b5b9",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox",
@@ -42554,7 +42573,7 @@
             "bound by rope"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -43086,7 +43105,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:ba7b14d73ba56eb68f94ff387df13221306cdeaa5a3cb0724eeb15c848fd20bf",
+        "structuralSourceHash": "sha256:7f82828e635c6d478a6c4dbc940f648a2a899539b92d4dd1a7695fbb92fd20d1",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox (with a subtle diamond-mark accent)",
@@ -43149,7 +43168,7 @@
             "dark purple lace-up boots"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -43711,7 +43730,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:cbbe91a51ec7733d790bacf355a99d806fb065a605709039d7f89950b52e2fde",
+        "structuralSourceHash": "sha256:7792f6933e361a227a5cf59ea9efb54bf902fcb0b047a392f04f6edfacae8bc0",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox",
@@ -43779,7 +43798,7 @@
             "bound by rope"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -44273,7 +44292,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:586651be655e78450aafed15067a777344b4314967c67144626367ab58532dc7",
+        "structuralSourceHash": "sha256:6a5998ec38bb3f7107983aa4a01a8bdf8bbb71167b13167d6111fe1bed0636f0",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox",
@@ -44335,7 +44354,7 @@
             "gray geta sandals"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -44871,7 +44890,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:c5097be110320bb529c2b6db85c95d495dd588c423b15b3460e5d9eecf0592c3",
+        "structuralSourceHash": "sha256:623d64884fc95fd828475eb73ba535be0d9a8ef57cada0636666f57e0982de9f",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox",
@@ -44934,7 +44953,7 @@
             "yellow shoes"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -45527,7 +45546,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:3b21cedf60b1f2b9139d5f1c20c05578327d89f8aa43cfd47c8c278be97b0cba",
+        "structuralSourceHash": "sha256:9e73fb1bd12ff8d2fd3481acfb5d845dd6c932176cb9b82873aa72f91ad53b07",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox",
@@ -45595,7 +45614,7 @@
             "blue shoes"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -46120,7 +46139,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:bff749fe7955d63faa84c0c8c3d30a548f16c48dd6a92a26b3587d23027a5b87",
+        "structuralSourceHash": "sha256:206fd7eb8a7cad7210246b077935131f69ae1d866b1fdce8483c826ceeaa6bbb",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox (with accent color tips)",
@@ -46179,7 +46198,7 @@
             "blue-platform sandals"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -47827,7 +47846,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:c183d8334dc007f270295ddb728ae45c0eefa7aab540f2392494904bcc36b0e5",
+        "structuralSourceHash": "sha256:583cd7bd64bc36e4a815a512ca24e64916211c797ff0444d224e075de0454f6a",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox",
@@ -47887,7 +47906,7 @@
             "pink shoes"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -48525,7 +48544,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:2adf61209f44bba2c74890f93debe07f87223792b9d1b43843e917a94b1a6a6c",
+        "structuralSourceHash": "sha256:835b97fb968d822de580d8ebf2c90204cf78ce5dc50ad742d46cdf16283af306",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox",
@@ -48590,7 +48609,7 @@
             "gray-green lace-up boots"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -49144,7 +49163,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:1f11d637307ba32b1d8c4210d5f21ac19c76ed00dde7a4434483109d61a4c819",
+        "structuralSourceHash": "sha256:7690f6d8d484f7fb5901cb6059a8999e8443fcf6c2b0fdbe34418299435b52eb",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox",
@@ -49203,7 +49222,7 @@
             "bound by rope"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -49709,7 +49728,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:27e4510e5a5b41c0b1ff4a58bfd0bb5f2f78d1aba3d53570cffc66ab9e2cfba9",
+        "structuralSourceHash": "sha256:e6f7694078504e10f785c5b7470c63453566df5b5cdfeae78dd9f9f7e96ce6bd",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox (right ear is hidden by the bandana)",
@@ -49770,7 +49789,7 @@
             "dark brown shoes with pink ankle strap"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -50951,7 +50970,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:c098d38e591c9dda1c7f7fdc0207f0124ac814a03103ef79f9e6530bc32010d7",
+        "structuralSourceHash": "sha256:49c04ae9b75849a4df475f0f992eee398ea333faa3452de7b997faea038b704b",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox",
@@ -51020,7 +51039,7 @@
             "bound by rope"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -51584,7 +51603,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:07eb626b6631ff9564e7e4cde117d75b976f0d84704fafbd485745c0d46c24ce",
+        "structuralSourceHash": "sha256:a461bcd41276454f054bcda134a2dcb60efc6d628a1d05c9af5cb173d49839b3",
         "structuralEntries": {
           "common.identity_tags": ["Fox", "long magenta hair", "red eyes"],
           "common.silhouette_features": [
@@ -51640,7 +51659,7 @@
             "white wimple-like collar"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -52825,7 +52844,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:583eeecad5375695c44a8fad73408409d7a8072015cf7c77226bf766f35e3fcf",
+        "structuralSourceHash": "sha256:81a5f245e69cc93c74ae8d87703ee03ffcbc20554228b3b350db3e8db769d52d",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox",
@@ -52886,7 +52905,7 @@
             "cream-white knee-high socks, brown lace-up shoes"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -53419,7 +53438,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:5ee9795f9fd5c7c9482be190e99d06aef2ad21c27bf9a8b95fbf2f933d6b3d73",
+        "structuralSourceHash": "sha256:9da690b6d9ccc1292ee28b0398736545a896f48c400b807da74ef81ac6fc44e0",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox (drooping ears)",
@@ -53480,7 +53499,7 @@
             "barefoot (blue socks)"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -54799,7 +54818,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:4ec7f031d55dcb03007fd132dd42936bbbbe67d1ff54138c8ff79363e49f5a03",
+        "structuralSourceHash": "sha256:c6f183722fa6c9987ab98114f378a259b288258c9a6e99561d9dc698e663fd40",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox (drooping ears)",
@@ -54868,7 +54887,7 @@
             "bound by rope"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -55367,7 +55386,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:cbd7dad524e33b98996796584395ec6c7dc6b8309b22942d84ce2ecdc5e74763",
+        "structuralSourceHash": "sha256:002a92a8f528a90aa4277a31bf70d68326965b1b052ec208eac2222519736e56",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox",
@@ -55427,7 +55446,7 @@
             "red ankle boots with strap"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -56061,7 +56080,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:a8dca2876e6b544cd9e6381f87c3606f3c0f5dd5f69130bb0dddcf344c3f44bb",
+        "structuralSourceHash": "sha256:746731b551fa13f2c5ebd7bd85d282c5e15102345da7af2c7cc921b319feca45",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox (with crimson accent color tips)",
@@ -56139,7 +56158,7 @@
             "bound by rope"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -56643,7 +56662,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:edea82482f00b16f3b407d17c3c5f9e98b18fa7338c48b9224c754cd3273aa98",
+        "structuralSourceHash": "sha256:35b54b404295a777179cce270a3136ca4ec862aaac97c961319bab82633e84d6",
         "structuralEntries": {
           "common.identity_tags": ["Fox"],
           "common.silhouette_features": ["fox 2 tails", "Fox"],
@@ -56688,7 +56707,7 @@
             "holographic body (prototype state)"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -57028,7 +57047,7 @@
       },
       "alt_modes": null,
       "_meta": {
-        "structuralSourceHash": "sha256:8a1876fe90bbff86f464d0782f6d5aa6e0566d3da775e38dcde1aa816469c82a",
+        "structuralSourceHash": "sha256:b9dec54cf09adcf4bec2d7dda073bcd02e57090bb49a36c5eb904ea061915a32",
         "structuralEntries": {
           "common.silhouette_features": ["fox 10 tails"],
           "forms.corefolder.form_tags": ["corefolder form"],
@@ -57065,7 +57084,7 @@
             "bound by rope"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
@@ -57586,7 +57605,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:38b4d829244128b564c9b6b44f0db839c8008e46e8b550b3d572835e864e289b",
+        "structuralSourceHash": "sha256:e1c9f6cd2889fd69c8c10587c7f4998817ab60edb44045e35a6a9d1b4811d00b",
         "structuralEntries": {
           "common.identity_tags": ["Cat"],
           "common.silhouette_features": [
@@ -57637,7 +57656,7 @@
             "casual suit resembling a white coat"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-08-02"
       }
     }
   },
