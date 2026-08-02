@@ -168,7 +168,7 @@
       "$display": {
         "section": "basic",
         "tagSpace": "creation",
-        "facet": { "path": "Faction", "order": 10 }
+        "facet": { "path": "Faction", "order": 10, "hierarchy": 10 }
       }
     },
     {
@@ -189,7 +189,7 @@
       "$display": {
         "section": "basic",
         "tagSpace": "creation",
-        "facet": { "order": 30, "maxGroups": 12 }
+        "facet": { "order": 30, "maxGroups": 12, "hierarchy": 30 }
       }
     },
     {
@@ -829,7 +829,16 @@
           "$dict": "DesignedBy",
           "hashTag_JP": "キャラクターデザイン・考案",
           "hashTag_EN": "Character Design / Concept By",
-          "$display": { "section": "secondaryInfo" }
+          "$display": {
+            "section": "secondaryInfo",
+            "mapPartition": {
+              "ownerFlag": "isOwner",
+              "ownLabel_JP": "自作のみ",
+              "ownLabel_EN": "Own works only",
+              "sharedLabel_JP": "共同二次創作",
+              "sharedLabel_EN": "Collaborative works"
+            }
+          }
         },
         {
           "hashTag": "SecondarySummary_JP",

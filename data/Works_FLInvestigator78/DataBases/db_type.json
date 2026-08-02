@@ -5,9 +5,13 @@
       {
         "hashTag": "Suit",
         "$type": "#IndexListKey",
+        "$dict": "Suit",
         "hashTag_JP": "カード種別",
         "hashTag_EN": "CardType",
-        "$display": { "langMode": "shared" }
+        "$display": {
+          "langMode": "shared",
+          "facet": { "order": 15, "hierarchy": 15 }
+        }
       },
       {
         "hashTag": "SuitNum",

@@ -13,7 +13,8 @@
         "hashTag": "AlphaGen",
         "$type": "#Number|#Null",
         "hashTag_JP": "アルファベットごとの世代",
-        "hashTag_EN": "Generation of Alphabet"
+        "hashTag_EN": "Generation of Alphabet",
+        "$display": { "facet": { "order": 16, "hierarchy": 16 } }
       }
     ],
     "hashTag_JP": "キーレター",
