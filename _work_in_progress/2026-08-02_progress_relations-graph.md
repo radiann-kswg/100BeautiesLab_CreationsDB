@@ -1,6 +1,6 @@
 # 2026-08-02 進捗: キャラクター相関図ページ（`pages/relations.html`）の新設
 
-> **ステータス: Phase −1 完了（本ログ作成）／ Phase 0 未着手**
+> **ステータス: Phase −1 完了（本ログ作成）／ Phase −0.5 完了（ベースラインの赤を解消）／ Phase 0 着手中**
 > 本ログは着手前に作成し、以降の全 Phase で継続更新する。方針を変更した場合は
 > **まずこのログへ反映してから実装へ戻る**（作業中の融通を効かせるための運用）。
 
@@ -265,8 +265,9 @@ canvas を CSS で消しても操作できる状態を保つ。キーボード�
 
 | Phase | 内容 | 状態 | 見積 | 実績 | `npm test` |
 | :---: | --- | --- | ---: | ---: | --- |
-| −1 | 進捗ログ作成（本ファイル） | **完了** | 200 | — | — |
-| 0 | `bootstrap` 高速化（`DataFetcher` メモ化） | 未着手 | 170 | — | — |
+| −1 | 進捗ログ作成（本ファイル） | **完了** | 200 | 565（索引・T-13 登録込み） | 対象外 |
+| −0.5 | ベースラインの赤 5 件を解消（`254795f`） | **完了** | — | 42（data 20 / tests 22） | ✅ 46 / 631 |
+| 0 | `bootstrap` 高速化（`DataFetcher` メモ化） | 着手中 | 170 | — | — |
 | 1-a | 共有基盤の切り出し（`viewer-locator` / `page-api-bridge`） | 未着手 | 740 | — | — |
 | 1-b | 相関図 MVP（`graph-model` / Cytoscape / ページ 3 点） | 未着手 | 1,700 | — | — |
 | 2 | グルーピング軸と中間ノードモード | 未着手 | 800 | — | — |
@@ -311,9 +312,17 @@ canvas を CSS で消しても操作できる状態を保つ。キーボード�
 
 ### ベースライン（着手前 / 2026-08-02 実測）
 
-> ⚠️ **着手前の時点で既にテストが赤い。** 本作業（相関図）とは無関係の、
-> 直近のデータ更新コミット由来の追従漏れである。Phase 0 以降の「既存件数が減っていないこと」判定の
-> 前提が崩れるため、**先に解消するか、赤の内訳を確定させたうえで進む必要がある**。
+> ✅ **解消済み。** 着手前の時点で `npm test` が 2 ファイル・5 件で失敗していたが、
+> 本作業（相関図）とは無関係の、直近データ更新コミット（`7a2751c` / `10abeeb`）由来の追従漏れだった。
+> Phase 0 以降の「既存件数が減っていないこと」判定の前提を作るため、**Phase 0 の前に別コミットで解消した**。
+>
+> - 解消コミット: **`254795f DB構造整備＆テスト回路更新`**
+> - **確定ベースライン: `npm test` 46 ファイル / 631 件 すべて成功**
+> - `npm run data:order:check`: 0/1310 レコード整列（差分なし）
+> - `npm run agents:check`: 生成物は正典と一致
+
+<details>
+<summary>解消前の赤の内訳（記録）</summary>
 
 - `npm test`（`.\node_modules\.bin\vitest.cmd run`）: **46 ファイル / 631 件中、2 ファイル・5 件が失敗**
   （44 ファイル / 626 件は成功）
@@ -347,11 +356,29 @@ canvas を CSS で消しても操作できる状態を保つ。キーボード�
 - したがって AGENTS.md の「DB 更新によってテストが落ちた場合はテスト側を新しいデータ仕様へ追従させる」
   に該当する。ただし**元のガード（cross-work から `Class` を持ち込まないこと）は残す**必要がある
   → 参照先 NumberTales/SemiPrimary `Num:"%"` の `Class`
-  （`["百倍番(ハンドレッズデジッツ)","デシベルモデレーターズ","10号機型","キャレ型ハイナンバーズ"]`）が
-  **混入していないこと**を明示的にアサートする形へ書き換える
+  （`["開発者","ヒューマノイド開発部(シンフォニー.XVI)"]`）と `RelationTo_Primary` が
+  **混入していないこと**を明示的にアサートする形へ書き換えた
 
 - `npm run data:order:check`: **失敗**（上記 4 レコード）
-- `npm run roleplay:check`: 未計測
+
+</details>
+
+#### `npm run roleplay:check` の既存ドリフト（**本作業では触らない**）
+
+`changed=3 unchanged=55 noCP=323 errors=0`。配布用ロールプレイプロンプトの生成物が、
+直近の DB 更新（錦野舞・錦野歌嫁への `Class` 入力など）に追従していない。
+
+```
+PLAN  [create] data/Works_NumberTales/RoleplayPrompts/DB_Primary/roleplay-prompt-80.md
+PLAN  [merge]  data/Works_FLInvestigator78/RoleplayPrompts/DB_PrimaryDealer/Dealer/roleplay-prompt-79.md
+               sections: updated:## 「錦野舞」の概要, updated:## 「錦野舞」の基本情報
+PLAN  [merge]  data/Works_FLInvestigator78/RoleplayPrompts/DB_PrimaryDealer/Dealer/roleplay-prompt-80.md
+               sections: updated:## 「錦野歌嫁」の概要, updated:## 「錦野歌嫁」の基本情報
+```
+
+**キー順整列の前後で `changed=3` は不変**（`git stash` で `data/` の変更を退避して HEAD 状態で再実行し確認）。
+→ **本作業とは無関係の既存ドリフト**であり、`npm test` の対象外（別 npm script）。
+生成物は創作内容を含むため、再生成の可否は User 判断とし本作業では触らない。
 
 ### Phase 別の結果
 
