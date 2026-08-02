@@ -225,6 +225,36 @@
   background-attachment: fixed;
   opacity: 0.2;
 }
+.relmap__canvas .relmap__board {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  display: block;
+}
+.relmap__canvas .relmap__hover-label {
+  position: absolute;
+  left: var(--spacing-sm);
+  bottom: var(--spacing-sm);
+  z-index: 2;
+  margin: 0;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  max-width: calc(100% - var(--spacing-lg));
+  pointer-events: none;
+  border: 1px solid var(--accent);
+  border-radius: var(--border-radius-sm);
+  background: var(--panel);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  color: var(--accent);
+  font-size: var(--font-size-xs);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.relmap__canvas .relmap__hover-label[hidden] {
+  display: none;
+}
 .relmap__canvas::after {
   content: "";
   position: absolute;

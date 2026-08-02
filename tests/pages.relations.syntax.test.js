@@ -64,6 +64,23 @@ describe('相関図ページの構成', () => {
 		expect(html).toContain('id="adjacency"');
 		expect(html).toContain('id="adjacency-body"');
 	});
+
+	it('ドリルの絞り込みがセンチネルのグループキーを両方とも扱う', () => {
+		// `UNSET_GROUP_KEY`（未設定）と `OTHER_GROUP_KEY`（`maxGroups` を超えて丸めた分）は
+		// **レコードの値と直接照合できないセンチネル**。
+		// `OTHER_GROUP_KEY` の分岐が無いと `values.includes('\0other')` が必ず false になり、
+		// 「その他」を掘っても 0 件になる（実際にこの不具合が出た）。
+		const js = read('pages/relations.js');
+		const start = js.indexOf('function drilledNodes');
+		expect(start).toBeGreaterThan(-1);
+		const body = js.slice(start, js.indexOf('\n}', start));
+		// 「識別子が出てくる」だけでは分岐を潰しても通ってしまうので、
+		// 選択値との比較そのものが在ることを見る
+		expect(body, 'drilledNodes() が UNSET_GROUP_KEY と比較していない')
+			.toMatch(/picked\s*===\s*UNSET_GROUP_KEY/);
+		expect(body, 'drilledNodes() が OTHER_GROUP_KEY と比較していない')
+			.toMatch(/picked\s*===\s*OTHER_GROUP_KEY/);
+	});
 });
 
 describe('Cytoscape へ渡す色の約束事（無言の #999 フォールバック防止）', () => {
@@ -112,6 +129,31 @@ describe('Cytoscape へ渡す色の約束事（無言の #999 フォールバッ
 		// 実測: [-1, 1] の範囲外の値を渡すとページごとクラッシュする。
 		// マス塗りは背景 canvas レイヤーへ描くので Cytoscape の shape は使わない
 		expect(js).not.toContain('shape-polygon-points');
+	});
+
+	it('Cytoscape の初期化で layout を明示する（既定の grid が position を上書きするため）', () => {
+		// **`layout` を省くと Cytoscape は既定で `grid` を走らせ、
+		// element に載せた position を上書きする。**
+		// 実際にこれでマス塗りのアンカーが等間隔グリッドへ飛ばされ、
+		// 背景の塗りと Cytoscape の描画が別々の場所に出る不具合が起きた
+		const init = js.slice(js.indexOf('cy = cytoscape('), js.indexOf('cy = cytoscape(') + 500);
+		expect(init).toMatch(/layout:\s*\{\s*name:\s*'preset'/);
+	});
+
+	it('集約段を離れたらマス塗りの割当を捨てる', () => {
+		// `state.board` を残したままキャラ個体段へ移ると、前の段の塗りが新しい倍率で
+		// 描き直されてキャラのタイルの下に透けて出る（当たり判定も古い区画を拾う）。
+		// 実際にこの不具合が出た（キャラ個体段で 44,132 画素が残っていた）
+		expect(js).toMatch(/mode\s*!==\s*'cells'\s*\)\s*state\.board\s*=\s*null/);
+	});
+
+	it('マス塗りは Cytoscape ノードにせず背景レイヤーへ描く', () => {
+		const html = read('pages/relations.html');
+		// 面をノードにすると cy.layout() が O(n²) で固まり、
+		// 400 ノード超で無言に grid へ切り替わってセル座標が壊れる
+		expect(html).toContain('id="board"');
+		expect(js).toContain("$('board')");
+		expect(js).toContain("from '../lib/graph/graph-hexfill.js'");
 	});
 
 	it('意味論色（--success / --warning / --error）をエッジ種別へ流用しない', () => {

@@ -328,11 +328,18 @@ describe('実データ不変条件', () => {
 
 	it('`$IndexDef` の子要素も軸になる（作品ごとの Index 別グルーピング）', () => {
 		const indexFacets = facets.filter(f => f.key.includes('.'));
-		expect(indexFacets.map(f => f.key)).toContain('Card.Suit');            // FLI78 のカード種別
-		expect(indexFacets.map(f => f.key)).toContain('Letter.AlphaGen');      // UnibyteLive の世代
+		expect(indexFacets.map(f => f.key)).toContain('Card.Suit');           // FLI78 のカード種別
+		expect(indexFacets.map(f => f.key)).toContain('Model.ModelSeries');   // UnauthedLogica の型式
 		// `key` は `<root>.<sub>` だが、レコード上のフィールドは root
 		expect(indexFacets.find(f => f.key === 'Card.Suit').field).toBe('Card');
 		expect(indexFacets.find(f => f.key === 'Card.Suit').path).toBe('Suit');
+	});
+
+	it('世代（`AlphaGen` / `Chronos.Generation`）は軸として宣言していない', () => {
+		// 値の種類が 2〜3 しか無く、区画に分けても視覚的な違いが乏しいため
+		// 宣言ごと外している（User 判断）。宣言を消すだけで軸が消えるのがスキーマ駆動の狙い
+		expect(facets.map(f => f.key)).not.toContain('Letter.AlphaGen');
+		expect(facets.map(f => f.key)).not.toContain('Chronos.Generation');
 	});
 
 	it('階層（`hierarchy`）を宣言した軸だけがドリルダウンの段になる', () => {
@@ -346,16 +353,69 @@ describe('実データ不変条件', () => {
 	});
 
 	it('作品ごとに階層が変わる（宣言のスコープに従う）', () => {
-		const ubl = buildHierarchy(facets, { scope: '#Works_UnibyteLive' }).map(l => l.key);
+		const ual = buildHierarchy(facets, { scope: '#Works_UnauthedLogica' }).map(l => l.key);
 		const nts = buildHierarchy(facets, { scope: '#Works_NumberTales' }).map(l => l.key);
-		expect(ubl).toContain('Letter.AlphaGen');
-		expect(nts).not.toContain('Letter.AlphaGen');
+		expect(ual).toContain('Model.ModelSeries');
+		expect(nts).not.toContain('Model.ModelSeries');
 		expect(nts).not.toContain('Card.Suit');
 	});
 
 	it('構造型の軸には `path` が宣言されている（コード側で子要素名を決め打ちしないため）', () => {
 		expect(facets.find(f => f.key === 'Belonging').path).toBe('Faction');
 		expect(facets.find(f => f.key === 'FromArea').path).toBe('Area');
+	});
+
+	it('多値軸の「その他」は上位に 1 つも該当しないノードだけを入れる', () => {
+		// `Class` は 1 キャラが最大 5 個持つ。単に丸めた値のメンバーを寄せると
+		// **上位クラスも持っているキャラが「その他」にも入り**、掘った先で同じ上位クラスが
+		// また出てきて分類として意味を成さなくなる（実データでその不具合が出た）。
+		const facet = { key: 'Class', field: 'Class', label_JP: 'クラス', label_EN: 'Class' };
+		// A(4) > B(3) > rare1(2) > rare2(1) になるよう件数を作り、maxGroups=2 で A/B が上位になる
+		const nodes = [
+			{ key: 'a1', record: { Class: ['A'] } },
+			{ key: 'a2', record: { Class: ['A'] } },
+			{ key: 'a3', record: { Class: ['A'] } },
+			{ key: 'b1', record: { Class: ['B'] } },
+			{ key: 'b2', record: { Class: ['B'] } },
+			{ key: 'b3', record: { Class: ['B'] } },
+			// 上位(A)とレア(rare1)の両方を持つ。**その他へ入れてはいけない**
+			{ key: 'mixed', record: { Class: ['A', 'rare1'] } },
+			// レアだけ。これがその他の本体
+			{ key: 'only1', record: { Class: ['rare1'] } },
+			{ key: 'only2', record: { Class: ['rare2'] } }
+		];
+
+		const { groups } = groupNodesByFacet(nodes, facet, { maxGroups: 2, includeUnset: false });
+		const other = groups.find(g => g.value === OTHER_GROUP_KEY);
+
+		expect(other, '「その他」が作られていない').toBeTruthy();
+		expect(other.members.sort()).toEqual(['only1', 'only2']);
+		expect(other.members, '上位クラスも持つノードが混ざっている').not.toContain('mixed');
+		// 見出しの「N 種」も、その他に残った値だけで数える
+		expect(other.label_JP).toBe('その他（2 種）');
+	});
+
+	it('「その他」を同じ軸で掘り直すと必ず小さくなる（階層が収束する）', () => {
+		// 収束しないと「その他 > その他 > …」が延々続いてしまう
+		const facet = { key: 'Class', field: 'Class', label_JP: 'クラス', label_EN: 'Class' };
+		const nodes = Array.from({ length: 40 }, (_, i) => ({
+			key: `n${i}`,
+			// 上位ほど人数が多くなるよう偏らせる
+			record: { Class: [`c${Math.floor(Math.sqrt(i))}`] }
+		}));
+
+		let scope = nodes;
+		let prev = Infinity;
+		for (let depth = 0; depth < 4; depth += 1) {
+			const { groups } = groupNodesByFacet(scope, facet, { maxGroups: 2, includeUnset: false });
+			const other = groups.find(g => g.value === OTHER_GROUP_KEY);
+			if (!other) break;
+			expect(other.members.length, `深さ ${depth} で縮んでいない`).toBeLessThan(prev);
+			prev = other.members.length;
+			const keep = new Set(other.members);
+			scope = scope.filter(n => keep.has(n.key));
+		}
+		expect(prev).toBeLessThan(nodes.length);
 	});
 
 	it('`Class` は値の種類が多いので `maxGroups` が宣言されている', () => {
@@ -386,23 +446,32 @@ describe('実データ不変条件', () => {
 		expect(dead, `実データから値を 1 件も取り出せない軸: ${dead.join(', ')}`).toEqual([]);
 	});
 
-	it('`dictRef` の軸は辞書を渡せば値が取れる（PastDivers の月暦の世代）', () => {
-		const facet = facets.find(f => f.key === 'Chronos.Generation');
-		expect(facet, 'Chronos.Generation の宣言が無い').toBeTruthy();
-		expect(facet.dictRef).toEqual({ from: 'Lunar', field: 'Generation' });
+	it('`dictRef` の軸は辞書を渡せば値が取れる', () => {
+		// `dictRef` は「兄弟の辞書コードが指す辞書行の値で束ねる」機構。
+		// 実データでの唯一の利用箇所だった PastDivers の月暦の世代は
+		// 「値の種類が少なく区画に分けても違いが乏しい」ため軸の宣言を外したので、
+		// **機構そのものは合成データで押さえる**（データ側の都合でカバレッジが落ちないように）
+		const facet = {
+			key: 'Chronos.Generation', field: 'Chronos', path: 'Generation',
+			dictRef: { from: 'Lunar', field: 'Generation' },
+			label_JP: '月暦の世代', label_EN: 'Generation'
+		};
+		const dict = [
+			{ Lunar: 'Mutsuki', Generation: 1 },
+			{ Lunar: 'Kisaragi', Generation: 1 },
+			{ Lunar: 'Yayoi', Generation: 2 }
+		];
+		const lookup = (key, value, column) => dict.find(r => r.Lunar === value)?.[column];
 
-		const lunar = readJson('data/Works_PastDivers/Dictionaries/dict_Lunar.json');
-		const lookup = (key, value, column) => lunar.find(r => r.Lunar === value)?.[column];
+		const nodes = [
+			{ key: 'a', record: { Chronos: { Lunar: 'Mutsuki' } } },
+			{ key: 'b', record: { Chronos: { Lunar: 'Kisaragi' } } },
+			{ key: 'c', record: { Chronos: { Lunar: 'Yayoi' } } }
+		];
 
-		const nodes = [];
-		for (const p of globSync('data/Works_PastDivers/DataBases/db_*.json', { cwd: repoRoot })) {
-			if (/db_(meta|type)\.json$/.test(path.basename(p))) continue;
-			const recs = readJson(p);
-			if (Array.isArray(recs)) recs.forEach((r, i) => nodes.push({ key: `${p}|${i}`, record: r }));
-		}
-
-		const { stats } = groupNodesByFacet(nodes, facet, { includeUnset: false, lookupDictCell: lookup });
-		expect(stats.valueCount).toBeGreaterThan(1);
-		expect(stats.coverage).toBeGreaterThan(0.5);
+		const { groups, stats } = groupNodesByFacet(nodes, facet, { includeUnset: false, lookupDictCell: lookup });
+		expect(stats.valueCount).toBe(2);           // 世代 1 と 2
+		expect(stats.coverage).toBe(1);
+		expect(groups.find(g => String(g.value) === '1').members.sort()).toEqual(['a', 'b']);
 	});
 });
