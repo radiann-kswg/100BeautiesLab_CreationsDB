@@ -57,6 +57,7 @@ import {
 } from '../lib/graph/graph-facets.js';
 import { buildBadge, createDictCellLookup, getWorksCode } from '../lib/graph/graph-badge.js';
 import { snapToHexLattice, resolveSpacing, boundsOf, shouldFitToViewport } from '../lib/graph/graph-layout.js';
+import { buildPalette, createTokenReader } from '../lib/graph/graph-palette.js';
 
 /* ========================================================================
    定数
@@ -96,31 +97,22 @@ const CHARACTER_DB_LAYER = 'DataBases';
  * 数値が小さいほど薄い関係とみなし、混み合ったときに先に隠す。
  * `hideAt` は「表示エッジ数がこれを超えたら自動で隠す」しきい値（`null` は常に表示）。
  * `layout` はレイアウトへの寄与度（0 ならノード配置を引っ張らない）。
+ * `tone` は `graph-palette.js` の `palette.edge` を引くキー。
+ *
+ * 色は水色〜紺の単一系統へ寄せてある。以前は同一存在に `--success`（緑）、
+ * 主従に `--warning`（橙）を使っていたが、これは状態を表す意味論色の目的外流用だった。
+ * 線種（solid / dashed / dotted）との二重符号化が既にあるので、色を寄せても識別性は落ちない。
  */
 const EDGE_STYLE = Object.freeze({
-	[EDGE_KINDS.RELATED]: { color: 'var(--accent)', line: 'solid', weight: 100, hideAt: null, layout: 1 },
-	[EDGE_KINDS.SAME_BEING]: { color: 'var(--success)', line: 'solid', weight: 90, hideAt: null, layout: 1 },
-	[EDGE_KINDS.MASTER]: { color: 'var(--warning)', line: 'dashed', weight: 70, hideAt: null, layout: 0.6 },
-	[EDGE_KINDS.VARIANT]: { color: 'var(--accent-2)', line: 'dashed', weight: 50, hideAt: 400, layout: 0.4 },
-	[EDGE_KINDS.COMMENTED]: { color: 'var(--muted)', line: 'dotted', weight: 10, hideAt: 250, layout: 0 }
+	[EDGE_KINDS.RELATED]: { tone: 'related', line: 'solid', weight: 100, hideAt: null, layout: 1 },
+	[EDGE_KINDS.SAME_BEING]: { tone: 'sameBeing', line: 'solid', weight: 90, hideAt: null, layout: 1 },
+	[EDGE_KINDS.MASTER]: { tone: 'master', line: 'dashed', weight: 70, hideAt: null, layout: 0.6 },
+	[EDGE_KINDS.VARIANT]: { tone: 'variant', line: 'dashed', weight: 50, hideAt: 400, layout: 0.4 },
+	[EDGE_KINDS.COMMENTED]: { tone: 'commented', line: 'dotted', weight: 10, hideAt: 250, layout: 0 }
 });
-
-/** クラスタの色。`characters.css` のアクセント系から作る決め打ちの循環パレット */
-const CLUSTER_COLORS = [
-	'#5fd6ff', '#9a8cff', '#2bd4a0', '#f7b733', '#ff5d6c',
-	'#3a86e0', '#9be9ff', '#c48cff', '#7ee8b0', '#ffd27a',
-	'#ff8fa0', '#6fa8ff'
-];
 
 /** ノードの基本サイズ（六角格子の間隔を決める基準） */
 const NODE_BASE_SIZE = 46;
-
-/**
- * グルーピング軸で色が付かないノードの既定ボーダー色
- * @description `border-color: data(color)` は空文字だとスタイル適用に失敗するため、
- * 必ず有効な色文字列を入れておく（`characters.css` の `--border` 相当）。
- */
-const DEFAULT_NODE_BORDER = '#1d2a4a';
 
 /** サムネイルの同時ロード上限 */
 const THUMB_CONCURRENCY = 6;
@@ -524,11 +516,14 @@ function buildAggregateElements(nodes, level) {
 			if (!memberOf.has(n.key)) memberOf.set(n.key, []);
 			memberOf.get(n.key).push(id);
 		}
+		// グループの識別は「位置 + ラベル + 濃度段 + 枠」の多重符号化で行う。
+		// 色相を変える循環パレットは使わない（キャラシートに無い色が増えるため）
+		const shade = shadeFor(i);
 		elements.push({
 			data: {
 				id, kind: 'group', value, level: level.key,
 				label: g.label, count: g.members.length,
-				color: CLUSTER_COLORS[i % CLUSTER_COLORS.length]
+				color: shade.fill, borderColor: shade.border
 			}
 		});
 		i += 1;
@@ -581,19 +576,19 @@ function buildCharacterElements(nodes) {
 		mode = grouped.multiValued ? 'bridge' : 'compound';
 
 		grouped.groups.forEach((g, idx) => {
-			const color = CLUSTER_COLORS[idx % CLUSTER_COLORS.length];
+			const shade = shadeFor(idx);
 			const id = `grp:${g.value}`;
 			const label = pickLang(g.label_JP, g.label_EN);
 
 			if (mode === 'compound') {
 				// 単値軸: Cytoscape の compound node（囲い）で表す
-				elements.push({ data: { id, kind: 'cluster', label, color } });
-				for (const k of g.members) { parentOf.set(k, id); colorOf.set(k, color); }
+				elements.push({ data: { id, kind: 'cluster', label, color: shade.fill, borderColor: shade.border } });
+				for (const k of g.members) { parentOf.set(k, id); colorOf.set(k, shade.border); }
 			} else {
 				// 多値軸: 1 ノード 1 親の制約を避けるため、軸の値を実ノードにして 2 部グラフにする
-				elements.push({ data: { id, kind: 'facet', label, color, count: g.members.length } });
+				elements.push({ data: { id, kind: 'facet', label, color: shade.fill, borderColor: shade.border, count: g.members.length } });
 				for (const k of g.members) {
-					if (!colorOf.has(k)) colorOf.set(k, color);
+					if (!colorOf.has(k)) colorOf.set(k, shade.border);
 					bridgeEdges.push({ data: { id: `bridge::${id}::${k}`, source: id, target: `node:${k}`, kind: 'facet' } });
 				}
 			}
@@ -609,7 +604,7 @@ function buildCharacterElements(nodes) {
 				label: nodeLabel(n), badge: n.badge || n.indexText,
 				degree: n.degree || 0,
 				// `border-color: data(color)` が空文字だとスタイル適用に失敗するので既定色を入れる
-				color: colorOf.get(n.key) || DEFAULT_NODE_BORDER,
+				color: colorOf.get(n.key) || palette().nodeBorder,
 				// `background-image: data(thumb)` は値が空だと無効になるため、
 				// サムネイルが無いノードにはキー自体を持たせない（`[thumb]` セレクタで弾く）
 				...(state.showThumbs && n.thumb ? { thumb: n.thumb } : {}),
@@ -663,7 +658,7 @@ function buildEgoElements(scopeNodes) {
 			workId: n.workId, dbName: n.dbName,
 			label: nodeLabel(n), badge: n.badge || n.indexText,
 			degree: n.degree || 0,
-			color: isCenter ? CLUSTER_COLORS[0] : DEFAULT_NODE_BORDER,
+			color: isCenter ? palette().nodeBorderActive : palette().nodeBorder,
 			...(state.showThumbs && n.thumb ? { thumb: n.thumb } : {}),
 			center: isCenter ? 1 : 0
 		}
@@ -722,25 +717,43 @@ function loadCytoscape() {
 	return cytoscapePromise;
 }
 
-/** @param {string} name @param {string} fallback @returns {string} */
-function cssVar(name, fallback) {
-	const v = getComputedStyle(document.documentElement).getPropertyValue(name).trim();
-	return v || fallback;
+/** 解決済みパレット。`getComputedStyle` は同期レイアウトを誘発するので起動時 1 回だけ解決する */
+let paletteCache = null;
+
+/**
+ * 相関図のパレットを取得する
+ *
+ * @description **Cytoscape へ `color-mix()` / `var()` を渡してはいけない。**
+ * 実測で、Cytoscape は `color-mix()` / `color(srgb …)` / `oklab()` を拒否し、
+ * 例外を投げずに警告だけ出して `#999` へフォールバックする。目視では「なんとなく灰色」に
+ * 見えるだけで気づけないため、色はすべて `graph-palette.js` 側で実値へ解決してから渡す。
+ * @returns {Object} `buildPalette()` の戻り値
+ */
+function palette() {
+	if (!paletteCache) paletteCache = buildPalette(createTokenReader(document));
+	return paletteCache;
 }
 
-/** @param {string} value @returns {string} */
-function resolveCssVar(value) {
-	const m = /^var\((--[^)]+)\)$/.exec(String(value || '').trim());
-	return m ? cssVar(m[1], '#888') : value;
+/**
+ * グループ番号から濃度段（面の色と枠の色）を引く
+ *
+ * @description **色相でカテゴリを塗り分けない。** グループの識別は
+ * 「格子上の位置 + ラベル + 濃度段 + 枠 + 左レール凡例」の多重符号化で行う。
+ * 濃度段は accent を card へ混ぜたラダーで、段数を超えたら循環する。
+ * @param {number} index - グループの通し番号
+ * @returns {{fill: string, border: string}}
+ */
+function shadeFor(index) {
+	const p = palette();
+	const shades = p.shades;
+	const i = ((Number.isFinite(index) ? index : 0) % shades.length + shades.length) % shades.length;
+	return { fill: shades[i], border: i >= shades.length - 2 ? p.cellBorder : p.cellBorderInner };
 }
 
 /** Cytoscape のスタイル定義 @returns {Array} */
 function buildCyStyle() {
-	const fg = cssVar('--fg', '#e9f3ff');
-	const accent = cssVar('--accent', '#5fd6ff');
-	const card = cssVar('--card', '#0f1830');
-	const border = cssVar('--border', '#1d2a4a');
-	const muted = cssVar('--muted', '#9fb6d6');
+	const p = palette();
+	const { fg, accent, card, border, muted } = p;
 
 	const styles = [
 		{
@@ -779,18 +792,21 @@ function buildCyStyle() {
 			style: { 'border-color': accent, 'border-width': 4 }
 		},
 		{
-			// 集約ノード（作品 / 軸の値）
+			// 集約ノード（作品 / 軸の値）。
+			// 面をベタ塗りせず、地に近い濃度段＋枠で「盤面に置かれた区画」に見せる
+			// （accent 系で 150×92px を 85% 不透明で塗ると、キャラシートの語彙から浮く。
+			//  あちらで accent が塗る面は最大でも .chip の 80×24px までしかない）
 			selector: 'node[kind = "group"], node[kind = "facet"]',
 			style: {
 				'shape': 'round-rectangle',
 				'background-color': 'data(color)',
-				'border-color': 'data(color)',
-				'border-width': 2,
-				'background-opacity': 0.85,
+				'border-color': 'data(borderColor)',
+				'border-width': 1.5,
+				'background-opacity': 1,
 				'width': 'mapData(count, 1, 200, 56, 150)',
 				'height': 'mapData(count, 1, 200, 40, 92)',
 				'label': 'data(label)',
-				'color': '#05080f',
+				'color': fg,
 				'font-size': 13,
 				'font-weight': 'bold',
 				'text-valign': 'center',
@@ -804,10 +820,10 @@ function buildCyStyle() {
 			style: {
 				'shape': 'round-rectangle',
 				'background-color': 'data(color)',
-				'background-opacity': 0.07,
-				'border-color': 'data(color)',
+				'background-opacity': 1,
+				'border-color': 'data(borderColor)',
 				'border-width': 1,
-				'border-opacity': 0.5,
+				'border-opacity': 0.8,
 				'label': 'data(label)',
 				'text-valign': 'top',
 				'text-halign': 'center',
@@ -816,8 +832,9 @@ function buildCyStyle() {
 				'padding': 18
 			}
 		},
+		// 選択・強調は色相を変えず accent で縁取る（characters.sass:1478-1487 の作法）
 		{ selector: 'node:selected', style: { 'border-color': accent, 'border-width': 4 } },
-		{ selector: 'node.dimmed', style: { 'opacity': 0.18 } },
+		{ selector: 'node.dimmed', style: { 'opacity': p.dimAlpha } },
 		{ selector: 'node.highlighted', style: { 'border-color': accent, 'border-width': 4 } },
 		{
 			selector: 'edge',
@@ -838,11 +855,21 @@ function buildCyStyle() {
 				'width': 1, 'target-arrow-shape': 'none'
 			}
 		},
-		{ selector: 'edge.dimmed', style: { 'opacity': 0.06 } }
+		{ selector: 'edge.dimmed', style: { 'opacity': 0.06 } },
+		{
+			// 検索の減光・選択の切り替えを滑らかにする。
+			// Cytoscape 組み込みの style transition なので JS 側の補間コードは不要
+			selector: 'node, edge',
+			style: {
+				'transition-property': 'opacity, border-color, border-width, line-color',
+				'transition-duration': '160ms',
+				'transition-timing-function': 'ease-out'
+			}
+		}
 	];
 
 	for (const [kind, s] of Object.entries(EDGE_STYLE)) {
-		const color = resolveCssVar(s.color);
+		const color = p.edge[s.tone];
 		styles.push({
 			selector: `edge[kind = "${kind}"]`,
 			style: {
@@ -1323,7 +1350,7 @@ function renderEdgeKinds() {
 			input,
 			el('span', {
 				class: 'relmap__legend-swatch',
-				style: `--swatch-color: ${EDGE_STYLE[kind].color}; --swatch-line: ${EDGE_STYLE[kind].line}`
+				style: `--swatch-color: ${palette().edge[EDGE_STYLE[kind].tone]}; --swatch-line: ${EDGE_STYLE[kind].line}`
 			}),
 			el('span', { text: kindLabel(kind) }),
 			el('span', { class: 'muted', text: ` (${counts[kind] ?? 0})` }),
