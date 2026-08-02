@@ -174,6 +174,29 @@
   `pages/characters.js`（`getWorkIndexAliasDefs` 他）/ `docs/schema-meta-processing.md` /
   キー順テスト（`/#Index\b/` は `#IndexAlt` にマッチしないため判定の明示的拡張が必要）
 
+### T-13 🔴 キャラクター相関図ページ（`pages/relations.html`）の新設 — **進行中**
+
+- **関連ログ**: `2026-08-02_progress_relations-graph.md`（単一）
+- **状態**: Phase −1（着手前ログ作成）完了 / Phase 0 未着手。全 5 フェーズ・総見積 約 5,600 行
+- **内容**: `Relation` / `RelationTo_*` / `*_DBLink`（全 7 種）/ `ThisMasters[]._DBLink` を
+  スキーマ駆動で拾い、全創作タイトルのキャラ間関係をグラフ表示する新規ページ。
+  スコープ（全体／作品／DB）× グルーピング（作品／DB／所属／クラス／出身／種族）の直交 2 軸
+- **実装の前提（着手前の実測検証で確定）**:
+  - `/pages/v1/bootstrap` は実ネットワークで 2105 リクエスト / 25.46 MiB / 30〜60 秒級 →
+    **Phase 0 で `DataFetcher` メモ化**（約 180 リクエスト / 2.57 MiB へ）。既存キャラシートにも効く
+  - ノードキーは「単一 `keyPath:value` 対」では 5 作品 8 DB で衝突する →
+    DBスコープ済み `$IndexDef` の**全サブキーをキー名昇順ソート**して連結（公開 1312 件で 100% 一意）
+  - `Relation` 実データは**ナンバーテールズ単独**。5 作品は作品内エッジ 0 →
+    エッジ密度 < 1.0 の作品はグルーピング軸を実ノード化した 2 部グラフへ自動フォールバック
+  - `Relation` は 4 作品すべてが `$display.sectionWrapper: "relationSection"` を宣言済みのため
+    **`data/` 変更なしでスキーマ駆動が成立する**（typedef 改修は不要と判断）
+- **影響範囲**: `lib/sw-common.js`（メモ化）/ `lib/viewer-locator.js`・`lib/page-api-bridge.js`（切り出し・新規）/
+  `lib/graph/*.js`（新規）/ `pages/relations.{html,js,sass,css}`（新規）/ `pages/characters.js`（アダプタ化）/
+  `pages/vendor/cytoscape/`（Cytoscape.js 同梱）/ `tests/` 6 本 / `docs/relations-graph.md`（新規）＋既存 docs 4 本 /
+  `AGENTS.md` → `npm run agents:build` / `index.html` / `CHANGELOG.md`
+- **T-05 との関係**: `$VersDef` / `$VarsDef` の綴り揺れは本作業では**是正しない**
+  （`graph-model.js` は両方を根に積むので相関図の表示には影響しない）
+
 ---
 
 ## B. User の判断・入力を待っているもの（Claude 側の準備は完了）
@@ -318,6 +341,7 @@
 | ログ | 主題 | 関連タスク | 状態 |
 | --- | --- | --- | --- |
 | [2026-07-25_remaining-task.md](./2026-07-25_remaining-task.md) | **本ファイル**（残タスクの起点） | — | 🟢 現行 |
+| [2026-08-02_progress_relations-graph.md](./2026-08-02_progress_relations-graph.md) | キャラクター相関図ページ（`pages/relations.html`）の新設 | **T-13** | 🟢 現行（Phase −1 完了 / Phase 0 未着手） |
 | [2026-07-29_github-triage.md](./2026-07-29_github-triage.md) | GitHub 未解決問題の日次トリアージ | **T-25** | 🟢 現行（未解決は Issue #13 のみ。CI 失敗・Dependabot・PR は全て解決済み） |
 | [2026-07-29_progress_belonging-faction-typedef.md](./2026-07-29_progress_belonging-faction-typedef.md) | `Belonging` の `$Def_Faction[]` 化・`$dictRef` 参照解決 | **T-33** | ⚠️ 実装完了・実機目視と Workers 側判断が残 |
 | [2026-07-22_progress_issue13-numerology-skinship.md](./2026-07-22_progress_issue13-numerology-skinship.md) | Issue #13 の要件整理 | **T-25** | 📝 設計判断待ち |

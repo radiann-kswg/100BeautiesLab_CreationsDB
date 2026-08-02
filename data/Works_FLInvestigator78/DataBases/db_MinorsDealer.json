@@ -68,11 +68,11 @@
   },
   {
     "Card": { "Suit": "WaterCups", "SuitNum": 11, "Num": 47 },
+    "Progress": "notProceeded",
     "ArcanaHolding_DBLink": {
       "_DB": "Primary",
       "Card": { "Suit": "WaterCups", "SuitNum": 11 }
     },
-    "Progress": "notProceeded",
     "FormalName_JP": "ディッシュ.ロマネス",
     "FormalName_EN": "Dishes.Romanes",
     "RaceType": "Human",
@@ -81,11 +81,11 @@
   },
   {
     "Card": { "Suit": "WaterCups", "SuitNum": 12, "Num": 48 },
+    "Progress": "notProceeded",
     "ArcanaHolding_DBLink": {
       "_DB": "Primary",
       "Card": { "Suit": "WaterCups", "SuitNum": 12 }
     },
-    "Progress": "notProceeded",
     "FormalName_JP": "アングジェリーナ.レイジ.ガスコーニュ",
     "FormalName_EN": "Anger'lina.Rage.Gascony",
     "RaceType": "Human",
