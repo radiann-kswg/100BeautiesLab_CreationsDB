@@ -269,7 +269,7 @@ canvas を CSS で消しても操作できる状態を保つ。キーボード�
 | −0.5 | ベースラインの赤 5 件を解消（`254795f`） | **完了** | — | 42（data 20 / tests 22） | ✅ 46 / 631 |
 | 0 | `bootstrap` 高速化（`DataFetcher` メモ化） | **完了** | 170 | 423（実装 124 / テスト 262 / 文書 37） | ✅ 47 / 643（新規 12） |
 | 1-a | 共有基盤の切り出し（`viewer-locator` / `page-api-bridge`） | **完了** | 740 | 1,003（lib 721 / テスト 264 / `characters.js` −356/+18） | ✅ 48 / 693（新規 50） |
-| 1-b | 相関図 MVP（`graph-model` / Cytoscape / ページ 3 点） | 未着手 | 1,700 | — | — |
+| 1-b | 相関図 MVP（`graph-model` / Cytoscape / ページ 3 点） | **完了** | 1,700 | **3,830**（下記内訳） | ✅ 50 / 782（新規 89） |
 | 2 | グルーピング軸と中間ノードモード | 未着手 | 800 | — | — |
 | 3 | 絞り込みと操作の作り込み | 未着手 | 700 | — | — |
 | 4 | 導線・文書 | 未着手 | 550 | — | — |
@@ -300,9 +300,59 @@ canvas を CSS で消しても操作できる状態を保つ。キーボード�
   - **新規 lib は 3 つの `sw.js` の `importScripts` へ足していない**（ESM を足すと SW 全体が SyntaxError で評価失敗する）
   - `AGENTS.md`「直リンク（URL クエリ）」の「実装の集約先」を `pages/characters.js` → `lib/viewer-locator.js` へ更新し、
     `npm run agents:build` で生成物（`.claude/skills/localize-en-draft/SKILL.md`）を同期
-- **Phase 1-b**: 全体グラフが成立する（479 ノード / 無向 772 エッジ / 最大成分 142 / 集約 9 ノードから開始）。
-  NumberTales → Primary へドリルダウンすると平均次数 5.44 の密な相関図。
-  **他 8 作品が薄いことが目で見え、Phase 2 の必要性が実証される。**
+- **Phase 1-b（完了・ブラウザ実測）**: 相関図が実ブラウザ（Playwright / Chromium）で
+  **エラー・警告ゼロで動作**した。
+
+  | 項目 | 実測値 |
+  | --- | --- |
+  | ノード | **478**（キー衝突 0・取りこぼし 0） |
+  | エッジ | 有向 1,066 → 相互 216 組を畳んで **無向 850** |
+  | 内訳 | 関係 288 / 言及・コメント 363 / 同一存在 63 / 別版・派生 115 / 主従 21 |
+  | 未解決リンク | 9（診断パネルに出し、グラフには描かない） |
+  | 曖昧リンク | 0 |
+  | 初期表示 | 9 作品の集約ノード / 11 本 |
+  | NumberTales/Primary | 105 キャラノード / 587 本 |
+
+  - ドリルダウン（作品 → DB → キャラ）・パンくず・URL 同期（`?s=NumberTales/Primary`）が動作
+  - キャラシート遷移を実機確認: `?c=NumberTales/Primary/Num:1` →「1(ハジメ)」が 1 件表示。
+    複合 Index も `FLInvestigator78/Primary/Num:22,Suit:Major,SuitNum:0` →「フェニクス」、
+    `UnibyteLive/Primary/AlphaGen:1,Alphabet:A` →「A:アロー」、
+    `PastDivers/Primary/Lunar:Kisaragi` →「雪乙女しいな」がいずれも正しく解決
+  - 隣接リスト 259 項目 / 孤立トレイ 76 件 / 診断パネル 9 件が描画される
+  - **他 8 作品が薄いことが目で見える**（作品密度: NumberTales 2.49 / FLI78 0.88 / UnibyteLive 0.22 /
+    PastDivers・UnauthedLogica・SinisterChangingGirls・VirtuesUs・ShouArRiders 0.00）。Phase 2 の必要性が実証された
+
+  **行数内訳（見積 1,700 → 実績 3,830。大きく超過した）**:
+  `lib/graph/graph-model.js` 832 / `pages/relations.js` 1,362 / `pages/relations.sass` 348 /
+  `pages/relations.css` 362（生成物）/ `pages/relations.html` 215 /
+  `tests/graph.model.test.js` 570 / `tests/pages.relations.syntax.test.js` 99 / `vitest.config.js` 28。
+  超過の主因は (a) スキーマ駆動のエッジ抽出と部分集合一致の実装が想定より厚くなった、
+  (b) テストを 89 件に厚くした（実データ不変条件を全 DB について回した）、
+  (c) 診断パネル・隣接リスト・孤立トレイなど a11y 代替経路を MVP に含めた。
+
+  **実装中に判明して対処したこと**:
+  1. **`.mjs` の MIME 問題** — Cytoscape 配布物の `cytoscape.esm.min.mjs` をそのまま置くと
+     `python -m http.server` が `text/plain` で返し、`Expected a JavaScript-or-Wasm module script` で
+     モジュール読み込みが失敗した。three.js を `three.module.min.js` と `.js` 拡張子で置いている先例に倣い
+     **拡張子のみ改名**（中身は無改変。ハッシュ一致を確認済み）。`THIRD_PARTY_NOTICES.md` に理由を明記
+  2. **資料系DBがキャラノードに混ざる** — `listWorkDBs()` は `References` レイヤーのDBも返すため、
+     `CommonReferences` の Race / Faction / Society / Region8 / Vocabulary 計 **46 件**が
+     キャラクターとしてグラフに載っていた。DB 名の列挙ではなく **`DB_Layer` で判定**して除外
+     （`dbFilter` で `layer === 'DataBases'` のみ採用）。478 件へ収束
+  3. **非公開データの多重防御**（User 指摘）— `/pages/v1/bootstrap` は `isPrivate` /
+     `DB_Hidden` / `Works_Hidden` を除外済みだが、`graph-model.js` が「呼び出し元が除外済み」に
+     依存していた。`data/` を直接読む呼び出し元やテストからも漏れないよう、**モデル側にも除外を実装**し
+     `diagnostics.excluded` へ件数を記録するようにした。
+     実測では `_Secondaries._Commons` 経由で `isPrivate` になるレコードが 1 件あり
+     （NumberTales/Secondary「ヘキサデミカル-テールズ 第二最終番機」）、bootstrap から正しく消えていることも確認
+  4. **`npm test` が `.cache/` を走査していた** — `npm pack cytoscape` の展開物に含まれる
+     `playwright-tests/renderer.spec.js` などを Vitest が収集し 2 ファイルが失敗した。
+     AGENTS.md は一時ファイルを `.cache/` に置くと定めているので、
+     `vitest.config.js` を新設して `.cache/**` ほかを除外（`.cache/` に壊れた spec を置いても
+     `npm test` が通ることを確認済み）
+  5. **ラベルの重なり** — 105 ノード表示で名前が重なって読めなかったため、
+     ノードが 60 を超えたら次数上位 40 件だけラベルを残す密度調整を入れた
+     （選択・強調時は復活）。本格的な密度対策は Phase 3
 - **Phase 2**: 作品内エッジ 0 の 5 作品（計 51 ノード）が `FromArea` / `RaceType` を中間ノードにして図になる。
   `_Commons` 由来の値にバッジが付きトグルで除外できる。同じ `Class` コードが所属ごとに違うラベルへ解決される。
 - **Phase 3**: NumberTales/Primary の密な図でも「言及・コメント」を切って読める密度にできる（699 → 約 330 本）。
@@ -407,6 +457,7 @@ PLAN  [merge]  data/Works_FLInvestigator78/RoleplayPrompts/DB_PrimaryDealer/Deal
 | −0.5 | ✅ 46 / 631 | ✅ 0/1310 | 既存ドリフト `changed=3` | ✅ 一致 | 対象外 | 対象外 |
 | 0 | ✅ 47 / 643（新規 12） | ✅ 0/1310 | 未計測（Phase 0 は data 非改変） | ✅ 一致 | 対象外 | **未実施** |
 | 1-a | ✅ 48 / 693（新規 50） | 対象外（data 非改変） | 対象外 | ✅ 一致（`agents:build` 実施） | 対象外 | **未実施** |
+| 1-b | ✅ 50 / 782（新規 89） | ✅ 0/1310 | 対象外（data 非改変） | ✅ 一致 | ✅ `npx sass` で生成 | ✅ **Playwright で実施** |
 | 1-a | — | — | — | — | 対象外 | — |
 | 1-b | — | — | — | — | — | — |
 | 2 | — | — | — | — | — | — |

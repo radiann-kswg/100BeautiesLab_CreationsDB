@@ -10,18 +10,25 @@
 | --- | --- | --- | --- | --- |
 | [three.js](https://github.com/mrdoob/three.js/) | 0.185.1 | MIT | VRM 3Dビューア | `three/build/three.module.min.js`, `three/build/three.core.min.js`, `three/addons/**` |
 | [@pixiv/three-vrm](https://github.com/pixiv/three-vrm) | 3.5.5 | MIT | VRM 3Dビューア | `three-vrm/three-vrm.module.min.js` |
-| [Cytoscape.js](https://github.com/cytoscape/cytoscape.js) | 3.34.0 | MIT | キャラクター相関図 | `cytoscape/cytoscape.esm.min.mjs` |
+| [Cytoscape.js](https://github.com/cytoscape/cytoscape.js) | 3.34.0 | MIT | キャラクター相関図 | `cytoscape/cytoscape.esm.min.js` |
 
 - `three/addons/**` は three.js 本体パッケージの `examples/jsm/` 配下から、`GLTFLoader.js` の
   実行に必要な最小限のファイルのみ抽出したもの（`loaders/GLTFLoader.js` / `controls/OrbitControls.js` /
   `utils/BufferGeometryUtils.js` / `utils/SkeletonUtils.js`）。
-- Cytoscape.js は `dist/cytoscape.esm.min.mjs`（ESM 版・minified）のみを配置している。
+- Cytoscape.js は配布物の `dist/cytoscape.esm.min.mjs`（ESM 版・minified）のみを配置している。
   UMD 版（`cytoscape.min.js`）や非 minified 版は使わない。
   レイアウトは本体同梱の `cose` を使うため、`cytoscape-fcose` / `cytoscape-cola` 等の
   拡張パッケージは追加していない。
+  **配置時に拡張子を `.mjs` → `.js` へ改名している**（内容は無改変）。
+  `.mjs` は静的ホスティングによっては `text/plain` で配信され、
+  「Expected a JavaScript-or-Wasm module script but the server responded with a MIME type of "text/plain"」
+  でモジュール読み込みが失敗する（ローカル確認に使う `python -m http.server` で実際に発生）。
+  three.js を `three.module.min.js` として置いているのと同じ理由。
 
-いずれも `npm pack <package>@<version>` で取得した公式配布物を**そのまま**配置しており、
-改変は行っていない。各ディレクトリの `LICENSE` ファイルに原文を同梱する。
+いずれも `npm pack <package>@<version>` で取得した公式配布物を配置しており、
+**中身の改変は行っていない**（上記のとおり Cytoscape.js のみ拡張子を改名）。
+無改変であることは配布物とのハッシュ比較で確認できる。
+各ディレクトリの `LICENSE` ファイルに原文を同梱する。
 
 どのライブラリも**ユーザー操作またはページ初期化のタイミングで動的 `import()` される**。
 `<head>` の import map に宣言があるだけではロードされない。
