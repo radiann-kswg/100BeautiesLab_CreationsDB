@@ -114,6 +114,30 @@
 - `Works_Hidden: true` を持つ作品は、作品一覧・配下のDB・検索の全エンドポイントから除外または 404 で遮断されます（後述の §5.4 を参照）
 - `DB_Hidden: true` を持つDBは、作品配下のDB一覧・直接アクセス・検索から除外または 404 で遮断されます（後述の §5.3 を参照）
 
+### 2.1 リクエストスコープのメモ化（`DataFetcher`）
+
+上記 1〜6 の全体は `ServiceWorkerBase.handleApiRequestInScope()` が
+`DataFetcher.beginRequestScope()` / `endRequestScope()` で挟んで実行します。
+このスコープが有効な間、**メタ・型・辞書 JSON の取得と `HEAD` による存在確認は同一パスにつき 1 回へ合流**します。
+
+- **対象**: パス末尾が `db_meta.json` / `db_type.json` のもの、および `/Dictionaries/` 配下（`DataFetcher._isMemoizableJsonPath()`）
+- **非対象**: レコード本体（`db_*.json` / `ref_*.json` / `trans_*.json`）。
+  `CommonsProcessor.applyCommonsToRecords()` はレコードを **in-place で書き換える**（`rec[k] = v`）ため、
+  レコード配列を共有すると 2 番目以降の利用者が `_Commons` 適用済みの配列を受け取り、別 DB 文脈の値が混ざります
+- **鮮度**: TTL を持たず、参照カウントが 0 へ戻った時点でキャッシュごと破棄します。
+  リクエストをまたいで古い内容が残ることはありません（並行する複数リクエストが重なっている間だけ共有します）
+- **失敗の扱い**: 404 等の失敗も同一スコープ内では再試行しません。
+  `readRefMeta()` / `readLocMeta()` のように「無ければ空を返す」分岐が多く、同一リクエスト内で再取得しても結果が変わらないためです
+- 解決値ではなく **Promise 自体**をキャッシュするため、逐次呼び出しだけでなく並行呼び出しも 1 本のフェッチへ合流します
+
+**効果（`/pages/v1/bootstrap?includeRecords=1&enrich=1` の実測）**:
+リクエスト **2105 → 252（88.0% 減）**、転送 25.46 → 20.14 MiB。
+導入前は `Works_FLInvestigator78/DataBases/db_meta.json` を **39 回**読み直していました。
+
+> 残る 252 リクエストの多くはレコード本体の再読み込みで、`_DBLink` 解決に使う `resolveCache` が
+> `handleBootstrapEndpoint()` の **DB ごとのループ内で作り直されている**ことに由来します。
+> こちらは別途の最適化対象です（本メモ化の対象外）。
+
 ---
 
 ## 3. 各定義ファイルの責務

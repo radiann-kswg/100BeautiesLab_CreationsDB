@@ -267,7 +267,7 @@ canvas を CSS で消しても操作できる状態を保つ。キーボード�
 | :---: | --- | --- | ---: | ---: | --- |
 | −1 | 進捗ログ作成（本ファイル） | **完了** | 200 | 565（索引・T-13 登録込み） | 対象外 |
 | −0.5 | ベースラインの赤 5 件を解消（`254795f`） | **完了** | — | 42（data 20 / tests 22） | ✅ 46 / 631 |
-| 0 | `bootstrap` 高速化（`DataFetcher` メモ化） | 着手中 | 170 | — | — |
+| 0 | `bootstrap` 高速化（`DataFetcher` メモ化） | **完了** | 170 | 423（実装 124 / テスト 262 / 文書 37） | ✅ 47 / 643（新規 12） |
 | 1-a | 共有基盤の切り出し（`viewer-locator` / `page-api-bridge`） | 未着手 | 740 | — | — |
 | 1-b | 相関図 MVP（`graph-model` / Cytoscape / ページ 3 点） | 未着手 | 1,700 | — | — |
 | 2 | グルーピング軸と中間ノードモード | 未着手 | 800 | — | — |
@@ -276,8 +276,16 @@ canvas を CSS で消しても操作できる状態を保つ。キーボード�
 
 ### Phase ごとの「確認できること」
 
-- **Phase 0**: bootstrap のリクエスト数 2105 → 約 180、転送 25.46 MiB → 2.57 MiB。
-  DevTools > Network で `db_meta.json` が 39 回 → 1 回。既存キャラシートの初回表示も速くなる。
+- **Phase 0（完了・実測）**: bootstrap のリクエスト数 **2105 → 252（88.0% 減）**、転送 25.46 → **20.14 MiB**。
+  取得レコード件数は 589 で前後一致。`Works_FLInvestigator78/DataBases/db_meta.json` の 39 回読みが 1 回になった。
+  - 計測方法: `.cache/measure-bootstrap.mjs`（`lib/*` を `pages/sw.js` と同じ順で vm へロードし、
+    fs バックエンドの `fetch` を注入して `handleBootstrapEndpoint()` をスコープ有/無で実行）
+  - **着手前見積（約 180 リクエスト / 2.57 MiB）には届かなかった。** 残る 252 のうち上位は
+    レコード本体の再読み込み（`db_MinorsDealer.json` 19 回 / `db_SemiPrimary.json` 18 回 /
+    `db_PrimaryDealer.json` 15 回）で、`_DBLink` 解決に使う `resolveCache` が
+    `handleBootstrapEndpoint()` の **DB ごとのループ内で作り直されている**ことに由来する
+    （`lib/sw-common.js` の `for (const db of databases)` 内で `new Map()`）。
+    これは `DataFetcher` のメモ化とは別レイヤーの最適化なので**本 Phase の対象外**とし、下記の課題へ回した
 - **Phase 1-a**: キャラシートの挙動が 1 ミリも変わっていないこと。
   **合格条件 = `tests/pages.characters.url-params.test.js` と `pages.characters.ui-output.test.js` の
   期待値を 1 行も書き換えずに全件グリーン。** 満たさない限り 1-b へ進まない。
@@ -385,7 +393,8 @@ PLAN  [merge]  data/Works_FLInvestigator78/RoleplayPrompts/DB_PrimaryDealer/Deal
 | Phase | `npm test` | `data:order:check` | `roleplay:check` | `agents:check` | `relations.css` 生成 | 目視確認 |
 | :---: | --- | --- | --- | --- | --- | --- |
 | −1 | 対象外 | 対象外 | 対象外 | 対象外 | 対象外 | 対象外 |
-| 0 | — | — | — | — | 対象外 | — |
+| −0.5 | ✅ 46 / 631 | ✅ 0/1310 | 既存ドリフト `changed=3` | ✅ 一致 | 対象外 | 対象外 |
+| 0 | ✅ 47 / 643（新規 12） | ✅ 0/1310 | 未計測（Phase 0 は data 非改変） | ✅ 一致 | 対象外 | **未実施** |
 | 1-a | — | — | — | — | 対象外 | — |
 | 1-b | — | — | — | — | — | — |
 | 2 | — | — | — | — | — | — |
@@ -450,7 +459,15 @@ python -m http.server 8080
 
 ## 未完了タスク / 申し送り
 
-- Phase 0 着手時に `npm test` のベースライン件数を計測して本ログへ記録する。
+- **`resolveCache` の巻き上げ（Phase 0 の残課題）**: `lib/sw-common.js` の `handleBootstrapEndpoint()` は
+  `for (const db of databases)` ループの**中**で `const resolveCache = new Map()` を作っており、DB をまたぐと
+  `_DBLink` 解決のキャッシュが捨てられる。これをリクエスト単位（または作品単位）へ巻き上げれば
+  残る 252 リクエスト・20.14 MiB をさらに削減できる見込み。
+  ただし `ReferenceResolver.resolveAllInAny()` のキャッシュ意味論（参照文字列が DB 文脈に依存しないか）の
+  確認と専用テストが要るため、Phase 0 とは分けて扱う。
+- **ローカル HTTP サーバーでの Phase 0 目視確認が未実施**。
+  `python -m http.server 8080` → `pages/characters.html` を開き、DevTools > Network で
+  `db_meta.json` の取得回数が 1 回になっていること・一覧/詳細/検索の結果が変更前と同一であることを確認する。
 - Cytoscape.js は `npm pack cytoscape@<version>` で取得し、`pages/vendor/cytoscape/` へ
   本体（ESM ビルド）と `LICENSE` を配置。`pages/vendor/THIRD_PARTY_NOTICES.md` の対応表と更新手順も更新する。
 - `relations.css` は VS Code の SASS 拡張による生成物。npm script が無いため、
