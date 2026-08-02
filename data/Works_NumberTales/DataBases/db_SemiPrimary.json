@@ -5,7 +5,7 @@
     "Progress": "stillTentative",
     "Name_JP": "100(モモ)",
     "Name_EN": "100(Centa)",
-    "Images": { "corefolder_PNGPath": ["100/emstk_corefolder100-1"] },
+    "Images": { "corefolder_PNGPath": ["100/emstk_corefolderNTS-100-1"] },
     "FormalName_JP": "ナンバーテールズ100番機\nナンバーテールズ キャレ-ディス",
     "FormalName_EN": "NumberTales #100\nNumberTales Unit.Carré-10",
     "CodeName_JP": "一〇〇",
@@ -88,7 +88,7 @@
             "value_EN": "Roman numeral 'C', with Arabic numeral '- 100 -' below"
           }
         ],
-        "img_PNGName": "attr_numberMark100",
+        "img_PNGName": "attr_numberMarkNTS-100",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -433,7 +433,7 @@
     ],
     "Name_JP": "111(アイズ)",
     "Name_EN": "111(Ize)",
-    "Images": { "concept_PNGName": "cnsp_img111" },
+    "Images": { "concept_PNGName": "cnsp_imgNTS-111" },
     "FormalName_JP": "ナンバーテールズ111番機",
     "FormalName_EN": "NumberTales #111",
     "CodeName_JP": "一一一",
@@ -1059,13 +1059,13 @@
     "Name_JP": "222(ペルゲン)\n222(ドッペルゲンズ)",
     "Name_EN": "222(Pelgäns)\n222(Doppelgäns)",
     "Images": {
-      "concept_PNGName": "cnsp_img222A",
-      "conceptAlt_PNGName": ["cnsp_img222-orig"],
+      "concept_PNGName": "cnsp_imgNTS-222A",
+      "conceptAlt_PNGName": ["cnsp_imgNTS-222A,NTS-222B-orig"],
       "corefolder_PNGPath": [
-        "222/emstk_corefolder222-2a",
-        "222/emstk_corefolder222-1"
+        "222/emstk_corefolderNTS-222A-2a",
+        "222/emstk_corefolderNTS-222A,NTS-222B-1"
       ],
-      "designAlt_PNGPath": ["chattingArt/chart_img222-humanoidWBed"]
+      "designAlt_PNGPath": ["chattingArt/chart_imgNTS-222A,NTS-222B-humanoidWBed"]
     },
     "FormalName_JP": "ナンバーテールズ222番機(開発用オリジナル版3倍型2号機)",
     "FormalName_EN": "NumberTales #222 (Original version for development of EXtended By.3 Type Unit.2)",
@@ -1132,7 +1132,7 @@
             "value_EN": "Arabic numeral '222'"
           }
         ],
-        "img_PNGName": "attr_numberMark222A",
+        "img_PNGName": "attr_numberMarkNTS-222A",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -1229,7 +1229,7 @@
             "value_EN": "pendant featuring three '2's and a heart motif"
           }
         ],
-        "img_PNGName": "attr_costumeItem222A-pendant",
+        "img_PNGName": "attr_costumeItemNTS-222A-pendant",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -1379,13 +1379,13 @@
     "Name_JP": "222(ドッペル)\n222(ドッペルゲンズ)",
     "Name_EN": "222(Doppels)\n222(Doppelgäns)",
     "Images": {
-      "concept_PNGName": "cnsp_img222B",
-      "conceptAlt_PNGName": ["cnsp_img222-orig"],
+      "concept_PNGName": "cnsp_imgNTS-222B",
+      "conceptAlt_PNGName": ["cnsp_imgNTS-222A,NTS-222B-orig"],
       "corefolder_PNGPath": [
-        "222/emstk_corefolder222-2b",
-        "222/emstk_corefolder222-1"
+        "222/emstk_corefolderNTS-222B-2b",
+        "222/emstk_corefolderNTS-222A,NTS-222B-1"
       ],
-      "designAlt_PNGPath": ["chattingArt/chart_img222-humanoidWBed"]
+      "designAlt_PNGPath": ["chattingArt/chart_imgNTS-222A,NTS-222B-humanoidWBed"]
     },
     "FormalName_JP": "ナンバーテールズ222番機(開発用オリジナル版1+11号2倍機)",
     "FormalName_EN": "NumberTales #222 (Original version for development of Unit.1+11 EXtended By.2)",
@@ -1452,7 +1452,7 @@
             "value_EN": "Arabic numeral '222'"
           }
         ],
-        "img_PNGName": "attr_numberMark222B",
+        "img_PNGName": "attr_numberMarkNTS-222B",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -1549,7 +1549,7 @@
             "value_EN": "pendant featuring three '2's and a heart motif"
           }
         ],
-        "img_PNGName": "attr_costumeItem222B-pendant",
+        "img_PNGName": "attr_costumeItemNTS-222B-pendant",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -1855,11 +1855,11 @@
     "Name_JP": "444(シテン)",
     "Name_EN": "444(Quad-emperone)",
     "Images": {
-      "concept_PNGName": "cnsp_img444",
+      "concept_PNGName": "cnsp_imgNTS-444",
       "corefolder_PNGPath": [
-        "444/emstk_corefolder444-1",
-        "444/emstk_corefolder444-2",
-        "444/emstk_corefolder444-3"
+        "444/emstk_corefolderNTS-444-1",
+        "444/emstk_corefolderNTS-444-2",
+        "444/emstk_corefolderNTS-444-3"
       ]
     },
     "FormalName_JP": "ナンバーテールズ444番機",
@@ -1938,7 +1938,7 @@
             "value_EN": "Arabic numeral '444'"
           }
         ],
-        "img_PNGName": "attr_numberMark444",
+        "img_PNGName": "attr_numberMarkNTS-444",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -1964,7 +1964,7 @@
             "value_EN": "Arabic numeral '444'"
           }
         ],
-        "img_PNGName": "attr_numberMark444",
+        "img_PNGName": "attr_numberMarkNTS-444",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -2048,7 +2048,7 @@
             "value_EN": "halo consisting of three squares/diamonds"
           }
         ],
-        "img_PNGName": "attr_halo444",
+        "img_PNGName": "attr_haloNTS-444",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -2344,8 +2344,8 @@
     "Name_JP": "666(リリス)",
     "Name_EN": "666(Lilith)",
     "Images": {
-      "concept_PNGName": "cnsp_img666",
-      "corefolder_PNGPath": ["666/emstk_corefolder666-1"]
+      "concept_PNGName": "cnsp_imgNTS-666",
+      "corefolder_PNGPath": ["666/emstk_corefolderNTS-666-1"]
     },
     "FormalName_JP": "ナンバーテールズ666番機",
     "FormalName_EN": "NumberTales #666",
@@ -2475,7 +2475,7 @@
             "value_EN": "halo with three '6's arranged in rotational symmetry (with a circle in the center)"
           }
         ],
-        "img_PNGName": "attr_halo666",
+        "img_PNGName": "attr_haloNTS-666",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -2491,7 +2491,7 @@
             "value_EN": "wings inspired by the motif of '666' (with heart-shaped tips)"
           }
         ],
-        "img_PNGName": "attr_wing666",
+        "img_PNGName": "attr_wingNTS-666",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -2528,7 +2528,7 @@
             "value_EN": "brooch with three '6's arranged in rotational symmetry and hexagonal shape"
           }
         ],
-        "img_PNGName": "attr_costumeItem666-brooch",
+        "img_PNGName": "attr_costumeItemNTS-666-brooch",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -2565,7 +2565,7 @@
             "value_EN": "brooch with three '6's arranged in rotational symmetry and hexagonal shape"
           }
         ],
-        "img_PNGName": "attr_costumeItem666-brooch",
+        "img_PNGName": "attr_costumeItemNTS-666-brooch",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -2713,8 +2713,8 @@
     "Name_JP": "777(ヨロコビ)",
     "Name_EN": "777(Lucky-sevens)\n777(Luckies)",
     "Images": {
-      "concept_PNGName": "cnsp_img777A",
-      "conceptAlt_PNGName": ["cnsp_img777C", "cnsp_img777-orig"]
+      "concept_PNGName": "cnsp_imgNTS-777",
+      "conceptAlt_PNGName": ["cnsp_imgNTS-777,NTS-777JPC", "cnsp_imgNTS-777,NTS-777JP-orig"]
     },
     "FormalName_JP": "ナンバーテールズ777番機",
     "FormalName_EN": "NumberTales #777",
@@ -3004,8 +3004,8 @@
     "Name_JP": "777(ヨロコビ)",
     "Name_EN": "777(Lucky-sevens)\n777(Luckies)",
     "Images": {
-      "concept_PNGName": "cnsp_img777B",
-      "conceptAlt_PNGName": ["cnsp_img777C", "cnsp_img777-orig"]
+      "concept_PNGName": "cnsp_imgNTS-777JP",
+      "conceptAlt_PNGName": ["cnsp_imgNTS-777,NTS-777JPC", "cnsp_imgNTS-777,NTS-777JP-orig"]
     },
     "FormalName_JP": "ナンバーテールズ777番機-ジャックポット",
     "FormalName_EN": "NumberTales #777.Jackpot",
@@ -3360,10 +3360,10 @@
     "Name_JP": "トレッド\n3×11(トリィレブン)",
     "Name_EN": "Treidre'\n3×11(Trieleven)",
     "Images": {
-      "concept_PNGName": "cnsp_img3x11",
+      "concept_PNGName": "cnsp_imgNTS-3x11",
       "corefolder_PNGPath": [
-        "3x11/emstk_corefolder3x11-1",
-        "3x11/emstk_corefolder3x11-2"
+        "3x11/emstk_corefolderNTS-3x11-1",
+        "3x11/emstk_corefolderNTS-3x11-2"
       ],
       "arts_PNGPath": ["corefolders/autumnMoon/art_autumnMoon2025"]
     },
@@ -3444,7 +3444,7 @@
             "value_EN": "Arabic numeral '33', followed by a small parenthetical '(3×11)'"
           }
         ],
-        "img_PNGName": "attr_numberMark3x11",
+        "img_PNGName": "attr_numberMarkNTS-3x11",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -3599,7 +3599,7 @@
             "value_EN": "two round brooches featuring a three-color motif"
           }
         ],
-        "img_PNGName": "attr_emblem3x11-doubleBrooch",
+        "img_PNGName": "attr_emblemNTS-3x11-doubleBrooch",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -3615,7 +3615,7 @@
             "value_EN": "halo featuring heart shapes, a three-color motif, and six bands"
           }
         ],
-        "img_PNGName": "attr_halo3x11",
+        "img_PNGName": "attr_haloNTS-3x11",
         "Note_JP": null,
         "Note_EN": null
       },

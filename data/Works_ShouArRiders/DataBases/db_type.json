@@ -9,6 +9,14 @@
         "hashTag_EN": "Beast",
         "$display": { "langMode": "shared" }
       },
+      {
+        "hashTag": "Beast_Badge",
+        "$type": "#String",
+        "$slot": "#Index",
+        "hashTag_JP": "干支バッジ",
+        "hashTag_EN": "Eto Badge",
+        "$display": { "langMode": "shared", "auto": false }
+      },
       { "hashTag": "Eto", "$type": "#String_JP", "hashTag_JP": "干支" },
       {
         "hashTag": "Num",
@@ -19,7 +27,7 @@
     ],
     "hashTag_JP": "獣種",
     "hashTag_EN": "BeastType",
-    "$badge": { "keys": ["Beast"] }
+    "$badge": { "keys": [{ "key": "Beast", "codeFrom": "Beast_Badge" }] }
   },
   "$DefType": [
     { "hashTag": "BeastType", "$type": "#Index", "hashTag_JP": "獣種" },

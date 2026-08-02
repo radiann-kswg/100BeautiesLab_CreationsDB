@@ -111,7 +111,7 @@
     "sec_DesignedBy": ["RadianN"],
     "Name_JP": "量産型 111(アイズ)",
     "Name_EN": "Cloned 111(Ize)",
-    "Images": { "concept_PNGName": "cnsp_img111-mp" },
+    "Images": { "concept_PNGName": "cnsp_imgNTS-111MP" },
     "FormalName_JP": "量産型ナンバーテールズ111番機シリーズ",
     "FormalName_EN": "NumberTales #111 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]111-*****",
@@ -782,8 +782,8 @@
     "Name_JP": "223(ツヅサ)",
     "Name_EN": "223(Twitwenthir)",
     "Images": {
-      "concept_PNGName": "cr/cnsp_img223",
-      "corefolder_PNGPath": ["223/emstk_corefolder223-1"]
+      "concept_PNGName": "cr/cnsp_imgNTS-223",
+      "corefolder_PNGPath": ["223/emstk_corefolderNTS-223-1"]
     },
     "FormalName_JP": "量産型ナンバーテールズ223番機CRシリーズ(ナンバーテールズ223番機)",
     "FormalName_EN": "NumberTales #223-CR Series Mass Production Version for Sales (NumberTales #223)",
@@ -1698,8 +1698,8 @@
     "Name_JP": "量産型 444(シテン)",
     "Name_EN": "Cloned 444(Quad-emperone)",
     "Images": {
-      "concept_PNGName": "cnsp_img444-mp",
-      "corefolder_PNGPath": ["444/emstk_corefolder444-mp1"]
+      "concept_PNGName": "cnsp_imgNTS-444MP",
+      "corefolder_PNGPath": ["444/emstk_corefolderNTS-444MP1"]
     },
     "FormalName_JP": "量産型ナンバーテールズ444番機シリーズ",
     "FormalName_EN": "NumberTales #444 Series Mass Production Version for Sales",
@@ -1737,7 +1737,7 @@
             "value_EN": "Arabic numeral '444'"
           }
         ],
-        "img_PNGName": "attr_numberMark444mp",
+        "img_PNGName": "attr_numberMarkNTS-444MP",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -1763,7 +1763,7 @@
             "value_EN": "Arabic numeral '444'"
           }
         ],
-        "img_PNGName": "attr_numberMark444mp",
+        "img_PNGName": "attr_numberMarkNTS-444MP",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -1789,7 +1789,7 @@
             "value_EN": "Arabic numeral '444'"
           }
         ],
-        "img_PNGName": "attr_numberMark444-lot",
+        "img_PNGName": "attr_numberMarkNTS-444MP-lot",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -1868,7 +1868,7 @@
             "value_EN": "halo consisting of three squares/diamonds"
           }
         ],
-        "img_PNGName": "attr_halo444mp",
+        "img_PNGName": "attr_haloNTS-444MP",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -2437,8 +2437,8 @@
     "Name_JP": "量産型 666(リリス)",
     "Name_EN": "Cloned 666(Lilith)",
     "Images": {
-      "concept_PNGName": "cnsp_img666-mp",
-      "corefolder_PNGPath": ["666/emstk_corefolder666-mp1"]
+      "concept_PNGName": "cnsp_imgNTS-666MP",
+      "corefolder_PNGPath": ["666/emstk_corefolderNTS-666MP1"]
     },
     "FormalName_JP": "量産型ナンバーテールズ666番機シリーズ",
     "FormalName_EN": "NumberTales #666 Series Mass Production Version for Sales",
@@ -2507,7 +2507,7 @@
             "value_EN": "Arabic numeral '666'"
           }
         ],
-        "img_PNGName": "attr_numberMark666-lot",
+        "img_PNGName": "attr_numberMarkNTS-666MP-lot",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -2570,7 +2570,7 @@
             "value_EN": "halo with three '6's arranged in rotational symmetry"
           }
         ],
-        "img_PNGName": "attr_halo666mp",
+        "img_PNGName": "attr_haloNTS-666MP",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -2586,7 +2586,7 @@
             "value_EN": "wings inspired by the motif of '666'"
           }
         ],
-        "img_PNGName": "attr_wing666mp",
+        "img_PNGName": "attr_wingNTS-666MP",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -2623,7 +2623,7 @@
             "value_EN": "brooch with three '6's arranged in rotational symmetry and hexagonal shape"
           }
         ],
-        "img_PNGName": "attr_costumeItem666mp-brooch",
+        "img_PNGName": "attr_costumeItemNTS-666MP-brooch",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -2660,7 +2660,7 @@
             "value_EN": "brooch with three '6's arranged in rotational symmetry and hexagonal shape"
           }
         ],
-        "img_PNGName": "attr_costumeItem666mp-brooch",
+        "img_PNGName": "attr_costumeItemNTS-666MP-brooch",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -2863,8 +2863,8 @@
     "Name_JP": "753(ナゴミ)",
     "Name_EN": "753(Nagomi)\n753(Sefenvethirs)",
     "Images": {
-      "concept_PNGName": "jw/cnsp_img753",
-      "corefolder_PNGPath": ["753/emstk_corefolder753-1"]
+      "concept_PNGName": "jw/cnsp_imgNTS-753",
+      "corefolder_PNGPath": ["753/emstk_corefolderNTS-753-1"]
     },
     "FormalName_JP": "量産型ナンバーテールズ753番機JWシリーズ(ナンバーテールズ753番機)",
     "FormalName_EN": "NumberTales #753-JW Series Mass Production Version for Sales (NumberTales #753)",
@@ -3029,8 +3029,8 @@
     "Name_JP": "量産型 777(ヨロコビ)",
     "Name_EN": "Cloned 777(Lucky-sevens)\nCloned 777(Luckies)",
     "Images": {
-      "concept_PNGName": "cnsp_img777-mpA",
-      "conceptAlt_PNGName": ["cnsp_img777-mpC", "cnsp_img777-mp"]
+      "concept_PNGName": "cnsp_imgNTS-777MPA",
+      "conceptAlt_PNGName": ["cnsp_imgNTS-777MP,NTS-777JMPC", "cnsp_imgNTS-777MP,NTS-777JMP"]
     },
     "FormalName_JP": "量産型ナンバーテールズ777番機シリーズ",
     "FormalName_EN": "NumberTales #777 Series Mass Production Version for Sales",
@@ -3311,8 +3311,8 @@
     "Name_JP": "量産型 777(ヨロコビ)",
     "Name_EN": "Cloned 777(Lucky-sevens)\nCloned 777(Luckies)",
     "Images": {
-      "concept_PNGName": "cnsp_img777-mpB",
-      "conceptAlt_PNGName": ["cnsp_img777-mpC", "cnsp_img777-mp"]
+      "concept_PNGName": "cnsp_imgNTS-777JMP-mpB",
+      "conceptAlt_PNGName": ["cnsp_imgNTS-777MP,NTS-777JMPC", "cnsp_imgNTS-777MP,NTS-777JMP"]
     },
     "FormalName_JP": "量産型ナンバーテールズ777番機[ジャックポット]シリーズ",
     "FormalName_EN": "NumberTales #777.Jackpot Series Mass Production Version for Sales",

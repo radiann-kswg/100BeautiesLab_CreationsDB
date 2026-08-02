@@ -5,7 +5,7 @@
     "Name_JP": "子刻ハッカ",
     "Name_JPReading": "ねのこくハッカ",
     "Name_EN": "Mus Mousetimes",
-    "Images": { "concept_PNGName": "cnsp_imgEZ1" },
+    "Images": { "concept_PNGName": "cnsp_imgSAR-EZ1" },
     "FormalName_JP": "易.爾姫",
     "FormalName_JPReading": "ヰ.アルヂ/ヰ.アルセ゚",
     "FormalName_EN": "Yì.Ěr jī",
@@ -91,8 +91,8 @@
     "Name_JPReading": "うのこくハネネカ",
     "Name_EN": "Boundy Rabbitimes",
     "Images": {
-      "newYear_PNGPath": ["art_imgEZ4-newyear2023"],
-      "designAlt_PNGPath": ["chattingArt/chart_imgEZ4-private"]
+      "newYear_PNGPath": ["art_imgSAR-EZ4-newyear2023"],
+      "designAlt_PNGPath": ["chattingArt/chart_imgSAR-EZ4-private"]
     },
     "GenderType": "Female",
     "FromArea": { "Area": "九蓮国" },
@@ -129,7 +129,7 @@
     "Name_JP": "辰刻リウロン",
     "Name_JPReading": "たつのこくリウロン",
     "Name_EN": "Liú-lóng Dragotimes",
-    "Images": { "newYear_PNGPath": ["art_imgEZ5-2024"] },
+    "Images": { "newYear_PNGPath": ["art_imgSAR-EZ5-2024"] },
     "FormalName_JP": "劉.元画",
     "FormalName_JPReading": "リウ.ユァンファ",
     "FormalName_EN": "Liú.YuánHuà",
@@ -169,7 +169,7 @@
     "Name_JPReading": "みのこくカミツ",
     "Name_EN": "Ciderin Snaketimes",
     "Images": {
-      "newYear_PNGPath": ["art_imgEZ6-newyear2025A", "art_imgEZ6-newyear2025B"]
+      "newYear_PNGPath": ["art_imgSAR-EZ6-newyear2025A", "art_imgSAR-EZ6-newyear2025B"]
     },
     "FormalName_JP": "花.花琳",
     "FormalName_JPReading": "ホゥア.フアリン",
@@ -214,7 +214,7 @@
     "Name_JP": "午刻ハヤテ",
     "Name_JPReading": "うまのこくハヤテ",
     "Name_EN": "Windrush Horsetimes",
-    "Images": { "newYear_PNGPath": ["art_imgEZ7-newyear2026"] },
+    "Images": { "newYear_PNGPath": ["art_imgSAR-EZ7-newyear2026"] },
     "FormalName_JP": "ルドルフ.コーナー",
     "FormalName_EN": "Rudolf.Korner",
     "GenderType": "Male",
@@ -252,12 +252,12 @@
     "Name_JPReading": "とらのこくネネコ",
     "Name_EN": "Meowcats Tigertimes",
     "Images": {
-      "newYear_PNGPath": ["art_imgEZ13-meowsday2023"],
-      "concept_PNGName": "cnsp_imgEZ13",
+      "newYear_PNGPath": ["art_imgSAR-EZ13-meowsday2023"],
+      "concept_PNGName": "cnsp_imgSAR-EZ13",
       "arts_PNGPath": [
-        "sphericateDay/art_imgEZ13-sphericateDay202309A",
-        "sphericateDay/art_imgEZ13-sphericateDay202309B",
-        "sphericateDay/art_imgEZ13-sphericateDay202309C"
+        "sphericateDay/art_imgSAR-EZ13-sphericateDay202309A",
+        "sphericateDay/art_imgSAR-EZ13-sphericateDay202309B",
+        "sphericateDay/art_imgSAR-EZ13-sphericateDay202309C"
       ]
     },
     "FormalName_JP": "姚.恋華",

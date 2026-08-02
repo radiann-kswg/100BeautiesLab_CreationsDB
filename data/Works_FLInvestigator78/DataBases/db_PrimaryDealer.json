@@ -448,7 +448,7 @@
       "_DB": "Primary",
       "Card": { "Suit": "Dealer", "Num": 79 }
     },
-    "Images": { "concept_PNGName": ["cnsp_imgFLDealer"] },
+    "Images": { "concept_PNGName": ["cnsp_imgFLI-D79,FLI-D80"] },
     "FormalName_JP": "錦野 舞",
     "FormalName_JPReading": "にしきの まい",
     "FormalName_EN": "Dancy Actressilk",
@@ -540,7 +540,7 @@
       "_DB": "Primary",
       "Card": { "Suit": "Dealer", "Num": 80 }
     },
-    "Images": { "concept_PNGName": ["cnsp_imgFLDealer"] },
+    "Images": { "concept_PNGName": ["cnsp_imgFLI-D79,FLI-D80"] },
     "FormalName_JP": "錦野 歌嫁",
     "FormalName_JPReading": "にしきの うたか",
     "FormalName_EN": "Phonia Actressilk",

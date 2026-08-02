@@ -13,7 +13,7 @@
     "Name_JP": "零 零",
     "Name_JPReading": "かずない れい",
     "Name_EN": "Zera Norumber",
-    "Images": { "concept_PNGName": "cnsp_imgDrcN" },
+    "Images": { "concept_PNGName": "cnsp_imgSCG-N" },
     "FormalName_JP": "千歳 玲",
     "FormalName_JPReading": "ちとせ れい",
     "FormalName_EN": "Zeena Thouser",
@@ -42,10 +42,10 @@
     "Name_JPReading": "おうぎ ミハイル",
     "Name_EN": "Mikhail Arch",
     "Images": {
-      "concept_PNGName": "cnsp_imgDrcNE",
+      "concept_PNGName": "cnsp_imgSCG-NE",
       "arts_PNGPath": [
-        "art_imgDrcNE-InfrationAerialSwimming",
-        "chattingArt/chart_imgDrcNE-ramen"
+        "art_imgSCG-NE,SCG-SW-InfrationAerialSwimming",
+        "chattingArt/chart_imgSCG-NE-ramen"
       ]
     },
     "FormalName_JP": "扇 三春.ロールプラン",
@@ -157,8 +157,8 @@
     "Name_JPReading": "いちじく かな",
     "Name_EN": "Canna Ninie",
     "Images": {
-      "concept_PNGName": "cnsp_imgDrcSE",
-      "arts_PNGPath": ["chattingArt/chart_imgDrcSE-checkIntoAlive"]
+      "concept_PNGName": "cnsp_imgSCG-SE",
+      "arts_PNGPath": ["chattingArt/chart_imgSCG-SE-checkIntoAlive"]
     },
     "FormalName_JP": "九.蓮縢",
     "FormalName_JPReading": "ヂュウ.レンテン",
@@ -207,7 +207,7 @@
     "Name_JP": "六花 雙葉\nクィーン.トゥエルヴ",
     "Name_JPReading": "ろくばな ふたは\nクィーン.トゥエルヴ",
     "Name_EN": "Dozenne Hexacrys\nQueen.XII",
-    "Images": { "concept_PNGName": "cnsp_imgDrcS" },
+    "Images": { "concept_PNGName": "cnsp_imgSCG-S" },
     "FormalName_JP": "六花 雙葉",
     "FormalName_JPReading": "ろくばな ふたは",
     "FormalName_EN": "Dozenne Hexacrys",
@@ -229,8 +229,8 @@
     "Name_EN": "Lamill.NuXV",
     "Images": {
       "arts_PNGPath": [
-        "chattingArt/chart_imgDrcSW-whereBabiesFrom",
-        "art_imgDrcNE-InfrationAerialSwimming"
+        "chattingArt/chart_imgSCG-SW-whereBabiesFrom",
+        "art_imgSCG-NE,SCG-SW-InfrationAerialSwimming"
       ]
     },
     "CodeName_JP": "嫉妬の午後",
@@ -339,8 +339,8 @@
     "Name_JPReading": "ざいぜん こさと\nすどう こさと",
     "Name_EN": "Foster Empressor\nFormar Endrof",
     "Images": {
-      "concept_PNGName": "cnsp_imgDrcNW",
-      "arts_PNGPath": ["chattingArt/chart_imgDrcNW"]
+      "concept_PNGName": "cnsp_imgSCG-NW",
+      "arts_PNGPath": ["chattingArt/chart_imgSCG-NW"]
     },
     "FormalName_JP": "終藤 こさと\n扇 残冬",
     "FormalName_JPReading": "すどう こさと\nおうぎ ざんとう",

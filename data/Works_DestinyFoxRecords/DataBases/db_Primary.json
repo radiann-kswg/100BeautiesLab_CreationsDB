@@ -8,7 +8,7 @@
     "Progress": "stillTentative",
     "Name_JP": "セコンド",
     "Name_EN": "Second_SI-T",
-    "Images": { "design_PNGName": "design_imgSITec" },
+    "Images": { "design_PNGName": "design_imgDFR-SIT" },
     "FormalName_JP": "銫133:=9192631770刻",
     "FormalName_JPReading": { "about": "読み方は誰にも知られていない" },
     "FormalName_EN": "Cesium133:=9192631770clocks (* no one knows how to read)",
@@ -54,8 +54,8 @@
     "Name_JP": "メトレ",
     "Name_EN": "Metre_SI-L",
     "Images": {
-      "design_PNGName": "design_imgSIL",
-      "concept_PNGName": "cnsp_imgSIL"
+      "design_PNGName": "design_imgDFR-SIL",
+      "concept_PNGName": "cnsp_imgDFR-SIL"
     },
     "FormalName_JP": "リール ∛竏.絶対尺度",
     "FormalName_JPReading": "リール キュービックキロリッター.アンチヤードポンド",
@@ -101,7 +101,7 @@
     "Progress": "stillTentative",
     "Name_JP": "キログラ",
     "Name_EN": "Kilogra_SI-M",
-    "Images": { "design_PNGName": "design_imgSIM" },
+    "Images": { "design_PNGName": "design_imgDFR-SIM" },
     "FormalName_JP": "瓩=砲丸 リキ吉",
     "FormalName_JPReading": "せんがわら=ショットシェルズ りきち",
     "FormalName_EN": "Pow'kid Thousandweight=Shotshells",
@@ -146,7 +146,7 @@
     "Progress": "stillTentative",
     "Name_JP": "カンデラ",
     "Name_EN": "Candela_SI-J",
-    "Images": { "design_PNGName": "design_imgSIJ" },
+    "Images": { "design_PNGName": "design_imgDFR-SIJ" },
     "FormalName_JP": "燈 希灯 ブライトゲイン\n橙 希灯 ブライトゲイン",
     "FormalName_JPReading": "あかりの ネオン ブライトゲイン\nあかりの ネオン ブライトゲイン",
     "FormalName_EN": "ChéngLight Neons Brightgainess",
@@ -191,7 +191,7 @@
     "Progress": "stillTentative",
     "Name_JP": "ケルビン",
     "Name_EN": "Kelvin_SI-Θ",
-    "Images": { "design_PNGName": "design_imgSITh" },
+    "Images": { "design_PNGName": "design_imgDFR-SITH" },
     "FormalName_JP": "熱 ウルスネムリ",
     "FormalName_JPReading": "ほとぼり ウルスネムリ",
     "FormalName_EN": "Wooldoses Warmer",
@@ -237,8 +237,8 @@
     "Name_JP": "アンプ",
     "Name_EN": "Amp'_SI-I",
     "Images": {
-      "design_PNGName": "design_imgSII",
-      "designAlt_PNGPath": ["chattingArt/chart_imgSII-regularIllness"]
+      "design_PNGName": "design_imgDFR-SII",
+      "designAlt_PNGPath": ["chattingArt/chart_imgDFR-SII-regularIllness"]
     },
     "FormalName_JP": "電 カレン=ソー",
     "FormalName_JPReading": "いなずま カレン=ソー",
@@ -284,7 +284,7 @@
     "Progress": "stillTentative",
     "Name_JP": "モル",
     "Name_EN": "Mol_SI-N",
-    "Images": { "design_PNGName": "design_imgSIN" },
+    "Images": { "design_PNGName": "design_imgDFR-SIN" },
     "FormalName_JP": "掌 大気",
     "FormalName_JPReading": "たなごころ えあ",
     "FormalName_EN": "Airs Parmglob",
@@ -331,7 +331,7 @@
     "Name_JP": "ラジアン",
     "Name_EN": "RadianN",
     "Images": {
-      "design_PNGName": "design_imgRN2",
+      "design_PNGName": "design_imgDFR-RN2",
       "designAlt_PNGPath": [
         "arts/weakening/arts_destinyFoxRec-2021-0031",
         "arts/regular/arts_destinyFoxRec-2021-graduateA",
@@ -342,7 +342,7 @@
           "_DBCrossLinkPath": {
             "_DB": "Proxy",
             "_Field": "design_PNGName",
-            "_IsoPath": "dsgn_imgRN2"
+            "_IsoPath": "dsgn_imgDFR-G2"
           }
         }
       ],
@@ -350,7 +350,7 @@
         {
           "_DBCrossLinkPath": {
             "_DB": "Proxy",
-            "_IsoPath": "emstk_weakeningRN2-1"
+            "_IsoPath": "emstk_weakeningDFR-G2-1"
           }
         }
       ]
@@ -397,10 +397,10 @@
     "Name_JP": "ステラ",
     "Name_EN": "Srera'N",
     "Images": {
-      "design_PNGName": "design_imgSRN",
+      "design_PNGName": "design_imgDFR-SRN",
       "designAlt_PNGPath": [
-        "dsgn_imgSRN",
-        "arts/regular/art_imgSRN-meowsday2022",
+        "dsgn_imgDFR-SRN",
+        "arts/regular/art_imgDFR-SRN-meowsday2022",
         "arts/weakening/arts_destinyFoxRec-2021-0031"
       ]
     },
@@ -449,12 +449,15 @@
     "Name_JP": "ノーマル\nのるまん",
     "Name_EN": "NormalN",
     "Images": {
-      "design_PNGName": "design_imgRVN",
+      "design_PNGName": "design_imgDFR-RVN",
       "designAlt_PNGPath": [
-        "design_imgRVN-1",
+        "design_imgDFR-RVN-1",
         "arts/regular/arts_destinyFoxRec-2021-valentine"
       ],
-      "weakening_PNGPath": ["emstk_weakeningRVN-1", "emstk_weakeningRVN-2"]
+      "weakening_PNGPath": [
+        "emstk_weakeningDFR-RVN-1",
+        "emstk_weakeningDFR-RVN-2"
+      ]
     },
     "FormalName_JP": "法.ベクトラム すい",
     "FormalName_JPReading": "ほう.べくとらむ すい",
@@ -501,7 +504,7 @@
     "Name_JP": "タンゼント",
     "Name_EN": "TangentN",
     "Images": {
-      "design_PNGName": "design_imgRTN",
+      "design_PNGName": "design_imgDFR-RTN",
       "designAlt_PNGPath": ["arts/regular/arts_destinyFoxRec-2021-valentine"]
     },
     "FormalName_JP": "掠風 せつ",
@@ -549,8 +552,8 @@
     "Name_JP": "クォータ",
     "Name_EN": "Quate'N",
     "Images": {
-      "design_PNGName": "design_imgRQN",
-      "arts_PNGPath": ["regular/arts_snsicnRQN"]
+      "design_PNGName": "design_imgDFR-RQN",
+      "arts_PNGPath": ["regular/arts_snsicnDFR-RQN"]
     },
     "FormalName_JP": "扇 元秋",
     "FormalName_JPReading": "おうぎ もとあき",

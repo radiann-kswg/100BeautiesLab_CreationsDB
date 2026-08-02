@@ -6,9 +6,9 @@
     "Name_JP": "1(ハジメ)",
     "Name_EN": "1(Unitta)",
     "Images": {
-      "concept_PNGName": "cnsp_img1",
-      "corefolder_PNGPath": ["1/emstk_corefolder1-1", "1/emstk_corefolder1-2"],
-      "arts_PNGPath": ["humanoids/2023/art_img1-humanoid"]
+      "concept_PNGName": "cnsp_imgNTS-1",
+      "corefolder_PNGPath": ["1/emstk_corefolderNTS-1-1", "1/emstk_corefolderNTS-1-2"],
+      "arts_PNGPath": ["humanoids/2023/art_imgNTS-1-humanoid"]
     },
     "FormalName_JP": "ナンバーテールズ1番機",
     "FormalName_EN": "NumberTales #1",
@@ -90,7 +90,7 @@
             "value_EN": "Arabic numeral '1'"
           }
         ],
-        "img_PNGName": "attr_numberMark1",
+        "img_PNGName": "attr_numberMarkNTS-1",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -116,7 +116,7 @@
             "value_EN": "Arabic numeral '1'"
           }
         ],
-        "img_PNGName": "attr_numberMark1",
+        "img_PNGName": "attr_numberMarkNTS-1",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -557,11 +557,11 @@
     "Name_JP": "2(ツグ)",
     "Name_EN": "2(Twiny)",
     "Images": {
-      "concept_PNGName": "cnsp_img2",
-      "corefolder_PNGPath": ["2/emstk_corefolder2-1", "2/emstk_corefolder2-2"],
+      "concept_PNGName": "cnsp_imgNTS-2",
+      "corefolder_PNGPath": ["2/emstk_corefolderNTS-2-1", "2/emstk_corefolderNTS-2-2"],
       "arts_PNGPath": [
         "humanoids/art_numbertalesAniv2nd",
-        "corefolders/2023/art_img2-corefolderWinter"
+        "corefolders/2023/art_imgNTS-2-corefolderWinter"
       ]
     },
     "FormalName_JP": "ナンバーテールズ2番機",
@@ -644,7 +644,7 @@
             "value_EN": "Arabic numeral '2'"
           }
         ],
-        "img_PNGName": "attr_numberMark2",
+        "img_PNGName": "attr_numberMarkNTS-2",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -670,7 +670,7 @@
             "value_EN": "Arabic numeral '2'"
           }
         ],
-        "img_PNGName": "attr_numberMark2",
+        "img_PNGName": "attr_numberMarkNTS-2",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -974,8 +974,8 @@
     "Name_JP": "3(ナオ)",
     "Name_EN": "3(Treiya)",
     "Images": {
-      "concept_PNGName": "cnsp_img3",
-      "corefolder_PNGPath": ["3/emstk_corefolder3-1", "3/emstk_corefolder3-2"]
+      "concept_PNGName": "cnsp_imgNTS-3",
+      "corefolder_PNGPath": ["3/emstk_corefolderNTS-3-1", "3/emstk_corefolderNTS-3-2"]
     },
     "FormalName_JP": "ナンバーテールズ3番機",
     "FormalName_EN": "NumberTales #3",
@@ -1050,7 +1050,7 @@
             "value_EN": "Arabic numeral '3'"
           }
         ],
-        "img_PNGName": "attr_numberMark3",
+        "img_PNGName": "attr_numberMarkNTS-3",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -1076,7 +1076,7 @@
             "value_EN": "Arabic numeral '3'"
           }
         ],
-        "img_PNGName": "attr_numberMark3",
+        "img_PNGName": "attr_numberMarkNTS-3",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -1362,12 +1362,12 @@
     "Name_JP": "4(モチ)",
     "Name_EN": "4(Forna)",
     "Images": {
-      "concept_PNGName": "cnsp_img4",
-      "catalog_PNGName": "chr-dsgn_catalog4",
+      "concept_PNGName": "cnsp_imgNTS-4",
+      "catalog_PNGName": "chr-dsgn_catalogNTS-4",
       "corefolder_PNGPath": [
-        "4/emstk_corefolder4-1",
-        "4/emstk_corefolder4-2",
-        "4/emstk_corefolder4-3"
+        "4/emstk_corefolderNTS-4-1",
+        "4/emstk_corefolderNTS-4-2",
+        "4/emstk_corefolderNTS-4-3"
       ],
       "arts_PNGPath": [
         "corefolders/sphericateDay/art_sphericateDay202302r1",
@@ -1390,7 +1390,7 @@
       {
         "TailShapeType": "#TailShapeType_Fox",
         "Count": 4,
-        "TailsUnit_PNGName": "attr_tailsUnit4",
+        "TailsUnit_PNGName": "attr_tailsUnitNTS-4",
         "Note_JP": null,
         "Note_EN": null
       }
@@ -1448,7 +1448,7 @@
             "value_EN": "Arabic numeral '4'"
           }
         ],
-        "img_PNGName": "attr_numberMark4",
+        "img_PNGName": "attr_numberMarkNTS-4",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -1474,7 +1474,7 @@
             "value_EN": "Arabic numeral '4'"
           }
         ],
-        "img_PNGName": "attr_numberMark4",
+        "img_PNGName": "attr_numberMarkNTS-4",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -1773,14 +1773,14 @@
     "Name_JP": "5(イズ)",
     "Name_EN": "5(Fifa)",
     "Images": {
-      "concept_PNGName": "cnsp_img5",
+      "concept_PNGName": "cnsp_imgNTS-5",
       "corefolder_PNGPath": [
-        "5/emstk_corefolder5-1",
-        "5/emstk_corefolder5-2",
-        "5/emstk_corefolder5-3"
+        "5/emstk_corefolderNTS-5-1",
+        "5/emstk_corefolderNTS-5-2",
+        "5/emstk_corefolderNTS-5-3"
       ],
-      "arts_PNGPath": ["humanoids/art_pm5game"],
-      "designAlt_PNGPath": ["chattingArt/chart_img25,5-humanoidCoolerSeason"]
+      "arts_PNGPath": ["humanoids/art_pmNTS-5game"],
+      "designAlt_PNGPath": ["chattingArt/chart_imgNTS-25,NTS-5-humanoidCoolerSeason"]
     },
     "FormalName_JP": "ナンバーテールズ5番機",
     "FormalName_EN": "NumberTales #5",
@@ -1855,7 +1855,7 @@
             "value_EN": "Arabic numeral '5'"
           }
         ],
-        "img_PNGName": "attr_numberMark5",
+        "img_PNGName": "attr_numberMarkNTS-5",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -1881,7 +1881,7 @@
             "value_EN": "Arabic numeral '5'"
           }
         ],
-        "img_PNGName": "attr_numberMark5",
+        "img_PNGName": "attr_numberMarkNTS-5",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -2262,12 +2262,12 @@
     "Name_JP": "6(ムイ)",
     "Name_EN": "6(Sics)",
     "Images": {
-      "concept_PNGName": "cnsp_img6",
-      "catalog_PNGName": "chr-dsgn_catalog6",
+      "concept_PNGName": "cnsp_imgNTS-6",
+      "catalog_PNGName": "chr-dsgn_catalogNTS-6",
       "corefolder_PNGPath": [
-        "6/emstk_corefolder6-1",
-        "6/emstk_corefolder6-2",
-        "6/emstk_corefolder6-3"
+        "6/emstk_corefolderNTS-6-1",
+        "6/emstk_corefolderNTS-6-2",
+        "6/emstk_corefolderNTS-6-3"
       ],
       "arts_PNGPath": ["corefolders/sphericateDay/art_sphericateDay202302r1"]
     },
@@ -2287,7 +2287,7 @@
       {
         "TailShapeType": "#TailShapeType_Fox",
         "Count": 6,
-        "TailsUnit_PNGName": "attr_tailsUnit6",
+        "TailsUnit_PNGName": "attr_tailsUnitNTS-6",
         "Note_JP": null,
         "Note_EN": null
       }
@@ -2345,7 +2345,7 @@
             "value_EN": "Arabic numeral '6'"
           }
         ],
-        "img_PNGName": "attr_numberMark6",
+        "img_PNGName": "attr_numberMarkNTS-6",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -2628,10 +2628,10 @@
     "Name_JP": "7(ナナ)",
     "Name_EN": "7(Sevan)",
     "Images": {
-      "concept_PNGName": "cnsp_img7",
-      "corefolder_PNGPath": ["7/emstk_corefolder7-1"],
+      "concept_PNGName": "cnsp_imgNTS-7",
+      "corefolder_PNGPath": ["7/emstk_corefolderNTS-7-1"],
       "arts_PNGPath": [
-        "humanoids/2023/art_img7-humanoid",
+        "humanoids/2023/art_imgNTS-7-humanoid",
         "corefolders/sphericateDay/art_sphericateDay202403"
       ]
     },
@@ -2708,7 +2708,7 @@
             "value_EN": "Arabic numeral '7'"
           }
         ],
-        "img_PNGName": "attr_numberMark7",
+        "img_PNGName": "attr_numberMarkNTS-7",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -2734,7 +2734,7 @@
             "value_EN": "Arabic numeral '7'"
           }
         ],
-        "img_PNGName": "attr_numberMark7",
+        "img_PNGName": "attr_numberMarkNTS-7",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -3033,8 +3033,8 @@
     "Name_JP": "8(ワカツ)",
     "Name_EN": "8(Eighas)",
     "Images": {
-      "concept_PNGName": "cnsp_img8",
-      "corefolder_PNGPath": ["8/emstk_corefolder8-1"],
+      "concept_PNGName": "cnsp_imgNTS-8",
+      "corefolder_PNGPath": ["8/emstk_corefolderNTS-8-1"],
       "arts_PNGPath": ["corefolders/sphericateDay/art_sphericateDay202111"]
     },
     "FormalName_JP": "ナンバーテールズ8番機",
@@ -3112,7 +3112,7 @@
             "value_EN": "Arabic numeral '8'"
           }
         ],
-        "img_PNGName": "attr_numberMark8",
+        "img_PNGName": "attr_numberMarkNTS-8",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -3138,7 +3138,7 @@
             "value_EN": "Arabic numeral '8'"
           }
         ],
-        "img_PNGName": "attr_numberMark8",
+        "img_PNGName": "attr_numberMarkNTS-8",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -3440,10 +3440,10 @@
     "Name_JP": "9(チカ)",
     "Name_EN": "9(Nina)",
     "Images": {
-      "concept_PNGName": "cnsp_img9",
-      "corefolder_PNGPath": ["9/emstk_corefolder9-1", "9/emstk_corefolder9-2"],
+      "concept_PNGName": "cnsp_imgNTS-9",
+      "corefolder_PNGPath": ["9/emstk_corefolderNTS-9-1", "9/emstk_corefolderNTS-9-2"],
       "arts_PNGPath": [
-        "corefolders/sphericateDay/art_sphericateDay202309-img9",
+        "corefolders/sphericateDay/art_sphericateDay202309-imgNTS-9",
         "corefolders/sphericateDay/art_sphericateDay202403"
       ]
     },
@@ -3516,7 +3516,7 @@
             "value_EN": "Arabic numeral '9'"
           }
         ],
-        "img_PNGName": "attr_numberMark9",
+        "img_PNGName": "attr_numberMarkNTS-9",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -3542,7 +3542,7 @@
             "value_EN": "Arabic numeral '9'"
           }
         ],
-        "img_PNGName": "attr_numberMark9",
+        "img_PNGName": "attr_numberMarkNTS-9",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -3871,10 +3871,10 @@
     "Name_JP": "10(ミツル)",
     "Name_EN": "10(Tenim)",
     "Images": {
-      "concept_PNGName": "cnsp_img10",
+      "concept_PNGName": "cnsp_imgNTS-10",
       "corefolder_PNGPath": [
-        "10/emstk_corefolder10-1",
-        "10/emstk_corefolder10-2"
+        "10/emstk_corefolderNTS-10-1",
+        "10/emstk_corefolderNTS-10-2"
       ]
     },
     "FormalName_JP": "ナンバーテールズ10番機",
@@ -3953,7 +3953,7 @@
             "value_EN": "Arabic numeral '10'"
           }
         ],
-        "img_PNGName": "attr_numberMark10",
+        "img_PNGName": "attr_numberMarkNTS-10",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -4327,8 +4327,8 @@
     "Name_JP": "11(トウイチ)",
     "Name_EN": "11(Elevan)",
     "Images": {
-      "concept_PNGName": "cnsp_img11",
-      "corefolder_PNGPath": ["11/emstk_corefolder11-1"]
+      "concept_PNGName": "cnsp_imgNTS-11",
+      "corefolder_PNGPath": ["11/emstk_corefolderNTS-11-1"]
     },
     "FormalName_JP": "ナンバーテールズ11番機",
     "FormalName_EN": "NumberTales #11",
@@ -4401,7 +4401,7 @@
             "value_EN": "Arabic numeral '11' (one digit on each side)"
           }
         ],
-        "img_PNGName": "attr_numberMark11",
+        "img_PNGName": "attr_numberMarkNTS-11",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -4434,7 +4434,7 @@
             "value_EN": "two arrow-shaped hair pins"
           }
         ],
-        "img_PNGName": "attr_costumeItem11-hairpin",
+        "img_PNGName": "attr_costumeItemNTS-11-hairpin",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -4695,15 +4695,15 @@
     "Name_JP": "12(トウジ)",
     "Name_EN": "12(Twelva)",
     "Images": {
-      "concept_PNGName": "cnsp_img12",
+      "concept_PNGName": "cnsp_imgNTS-12",
       "corefolder_PNGPath": [
-        "12/emstk_corefolder12-1",
-        "12/emstk_corefolder12-2"
+        "12/emstk_corefolderNTS-12-1",
+        "12/emstk_corefolderNTS-12-2"
       ],
       "arts_PNGPath": [
         "corefolders/sphericateDay/art_sphericateDay202212r1A",
         "corefolders/sphericateDay/art_sphericateDay202212r1B",
-        "humanoids/2023/art_img12-humanoid"
+        "humanoids/2023/art_imgNTS-12-humanoid"
       ]
     },
     "FormalName_JP": "ナンバーテールズ12番機",
@@ -4781,7 +4781,7 @@
             "value_EN": "Arabic numeral '12'"
           }
         ],
-        "img_PNGName": "attr_numberMark12",
+        "img_PNGName": "attr_numberMarkNTS-12",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -5073,8 +5073,8 @@
     "Name_JP": "13(トミ)",
     "Name_EN": "13(Thirteena)",
     "Images": {
-      "concept_PNGName": "cnsp_img13",
-      "corefolder_PNGPath": ["13/emstk_corefolder13-1"],
+      "concept_PNGName": "cnsp_imgNTS-13",
+      "corefolder_PNGPath": ["13/emstk_corefolderNTS-13-1"],
       "arts_PNGPath": ["corefolders/sphericateDay/art_sphericateDay202306"]
     },
     "FormalName_JP": "ナンバーテールズ13番機",
@@ -5152,7 +5152,7 @@
             "value_EN": "Arabic numeral '13'"
           }
         ],
-        "img_PNGName": "attr_numberMark13",
+        "img_PNGName": "attr_numberMarkNTS-13",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -5178,7 +5178,7 @@
             "value_EN": "Arabic numeral '13'"
           }
         ],
-        "img_PNGName": "attr_numberMark13",
+        "img_PNGName": "attr_numberMarkNTS-13",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -5476,12 +5476,12 @@
     "Name_JP": "14(トヨ)",
     "Name_EN": "14(Forteels)",
     "Images": {
-      "concept_PNGName": "cnsp_img14",
-      "conceptAlt_PNGName": ["cnsp_img14-A", "cnsp_img14-B"],
+      "concept_PNGName": "cnsp_imgNTS-14",
+      "conceptAlt_PNGName": ["cnsp_imgNTS-14-A", "cnsp_imgNTS-14-B"],
       "corefolder_PNGPath": [
-        "14/emstk_corefolder14-1",
-        "14/emstk_corefolder14-2",
-        "14/emstk_corefolder14-3"
+        "14/emstk_corefolderNTS-14-1",
+        "14/emstk_corefolderNTS-14-2",
+        "14/emstk_corefolderNTS-14-3"
       ],
       "arts_PNGPath": [
         "corefolders/sphericateDay/art_sphericateDay202301r2",
@@ -5564,7 +5564,7 @@
             "value_EN": "Arabic numeral '14'"
           }
         ],
-        "img_PNGName": "attr_numberMark14",
+        "img_PNGName": "attr_numberMarkNTS-14",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -5590,7 +5590,7 @@
             "value_EN": "Arabic numeral '14'"
           }
         ],
-        "img_PNGName": "attr_numberMark14",
+        "img_PNGName": "attr_numberMarkNTS-14",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -5955,12 +5955,12 @@
     "Name_JP": "15(トウゴ)",
     "Name_EN": "15(Fifteeld)",
     "Images": {
-      "concept_PNGName": "cnsp_img15",
+      "concept_PNGName": "cnsp_imgNTS-15",
       "corefolder_PNGPath": [
-        "15/emstk_corefolder15-1",
-        "15/emstk_corefolder15-nonharness1"
+        "15/emstk_corefolderNTS-15-1",
+        "15/emstk_corefolderNTS-15-nonharness1"
       ],
-      "arts_PNGPath": ["humanoids/2023/art_img15-humanoid"]
+      "arts_PNGPath": ["humanoids/2023/art_imgNTS-15-humanoid"]
     },
     "FormalName_JP": "ナンバーテールズ15番機",
     "FormalName_EN": "NumberTales #15",
@@ -6045,7 +6045,7 @@
             "value_EN": "Roman numeral 'XV'"
           }
         ],
-        "img_PNGName": "attr_numberMark15",
+        "img_PNGName": "attr_numberMarkNTS-15",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -6071,7 +6071,7 @@
             "value_EN": "Roman numeral 'XV'"
           }
         ],
-        "img_PNGName": "attr_numberMark15",
+        "img_PNGName": "attr_numberMarkNTS-15",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -6380,18 +6380,18 @@
     "Name_JP": "16(ソロク)",
     "Name_EN": "16(Sixteely)",
     "Images": {
-      "concept_PNGName": "cnsp_img16",
-      "catalog_PNGName": "chr-dsgn_catalog16",
+      "concept_PNGName": "cnsp_imgNTS-16",
+      "catalog_PNGName": "chr-dsgn_catalogNTS-16",
       "corefolder_PNGPath": [
-        "16/emstk_corefolder16-1",
-        "16/emstk_corefolder16-2",
-        "16/emstk_corefolder16-3"
+        "16/emstk_corefolderNTS-16-1",
+        "16/emstk_corefolderNTS-16-2",
+        "16/emstk_corefolderNTS-16-3"
       ],
       "arts_PNGPath": [
         "corefolders/sphericateDay/art_sphericateDay202209r1A",
         "corefolders/sphericateDay/art_sphericateDay202209r1B",
-        "corefolders/2024/art_img16-corefolderA",
-        "corefolders/2024/art_img16-corefolderB"
+        "corefolders/2024/art_imgNTS-16-corefolderA",
+        "corefolders/2024/art_imgNTS-16-corefolderB"
       ]
     },
     "FormalName_JP": "ナンバーテールズ16番機",
@@ -6416,7 +6416,7 @@
           { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 2 },
           { "Laterality": "#Lat_Lower", "TailCount": 5, "ClusterCount": 1 }
         ],
-        "TailsUnit_PNGName": "attr_tailsUnit16",
+        "TailsUnit_PNGName": "attr_tailsUnitNTS-16",
         "Note_JP": null,
         "Note_EN": null
       }
@@ -6470,7 +6470,7 @@
             "value_EN": "Arabic numeral '16'"
           }
         ],
-        "img_PNGName": "attr_numberMark16",
+        "img_PNGName": "attr_numberMarkNTS-16",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -6757,9 +6757,9 @@
     "Name_JP": "17(トナ)",
     "Name_EN": "17(Sevteena)",
     "Images": {
-      "concept_PNGName": "cnsp_img17",
-      "corefolder_PNGPath": ["17/emstk_corefolder17-1"],
-      "arts_PNGPath": ["humanoids/2024/art_img17-humanoidHardStudy"]
+      "concept_PNGName": "cnsp_imgNTS-17",
+      "corefolder_PNGPath": ["17/emstk_corefolderNTS-17-1"],
+      "arts_PNGPath": ["humanoids/2024/art_imgNTS-17-humanoidHardStudy"]
     },
     "FormalName_JP": "ナンバーテールズ17番機",
     "FormalName_EN": "NumberTales #17",
@@ -6838,7 +6838,7 @@
             "value_EN": "Arabic numeral '17' (square motif design)"
           }
         ],
-        "img_PNGName": "attr_numberMark17",
+        "img_PNGName": "attr_numberMarkNTS-17",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -7124,10 +7124,10 @@
     "Name_JP": "18(トウヤ)",
     "Name_EN": "18(Eighteeld)",
     "Images": {
-      "concept_PNGName": "cnsp_img18",
+      "concept_PNGName": "cnsp_imgNTS-18",
       "corefolder_PNGPath": [
-        "18/emstk_corefolder18-1",
-        "18/emstk_corefolder18-2"
+        "18/emstk_corefolderNTS-18-1",
+        "18/emstk_corefolderNTS-18-2"
       ]
     },
     "FormalName_JP": "ナンバーテールズ18番機",
@@ -7205,7 +7205,7 @@
             "value_EN": "Arabic numeral with brackets: '>18<'"
           }
         ],
-        "img_PNGName": "attr_numberMark18",
+        "img_PNGName": "attr_numberMarkNTS-18",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -7231,7 +7231,7 @@
             "value_EN": "Arabic numeral with brackets: '>18<'"
           }
         ],
-        "img_PNGName": "attr_numberMark18",
+        "img_PNGName": "attr_numberMarkNTS-18",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -7448,8 +7448,8 @@
     "Name_JP": "19(トク)",
     "Name_EN": "19(Ninteels)",
     "Images": {
-      "concept_PNGName": "cnsp_img19",
-      "corefolder_PNGPath": ["19/emstk_corefolder19-1"]
+      "concept_PNGName": "cnsp_imgNTS-19",
+      "corefolder_PNGPath": ["19/emstk_corefolderNTS-19-1"]
     },
     "FormalName_JP": "ナンバーテールズ19番機",
     "FormalName_EN": "NumberTales #19",
@@ -7526,7 +7526,7 @@
             "value_EN": "Arabic numeral '19'"
           }
         ],
-        "img_PNGName": "attr_numberMark19",
+        "img_PNGName": "attr_numberMarkNTS-19",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -7552,7 +7552,7 @@
             "value_EN": "Arabic numeral '19'"
           }
         ],
-        "img_PNGName": "attr_numberMark19",
+        "img_PNGName": "attr_numberMarkNTS-19",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -7788,16 +7788,16 @@
     "Name_JP": "20(ハツカ)",
     "Name_EN": "20(Twentia)",
     "Images": {
-      "concept_PNGName": "cnsp_img20",
+      "concept_PNGName": "cnsp_imgNTS-20",
       "corefolder_PNGPath": [
-        "20/emstk_corefolder20-1",
-        "20/emstk_corefolder20-2"
+        "20/emstk_corefolderNTS-20-1",
+        "20/emstk_corefolderNTS-20-2"
       ],
       "arts_PNGPath": [
         "corefolders/sphericateDay/art_sphericateDay202112",
         "corefolders/sphericateDay/art_sphericateDay202209r1A",
         "corefolders/sphericateDay/art_sphericateDay202209r1B",
-        "humanoids/2023/art_img20-humanoid"
+        "humanoids/2023/art_imgNTS-20-humanoid"
       ]
     },
     "FormalName_JP": "ナンバーテールズ20番機",
@@ -7871,7 +7871,7 @@
             "value_EN": "Arabic numeral '20'"
           }
         ],
-        "img_PNGName": "attr_numberMark20",
+        "img_PNGName": "attr_numberMarkNTS-20",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -7897,7 +7897,7 @@
             "value_EN": "Arabic numeral '20'"
           }
         ],
-        "img_PNGName": "attr_numberMark20",
+        "img_PNGName": "attr_numberMarkNTS-20",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -8282,8 +8282,8 @@
     "Name_JP": "21(ハツヒ)",
     "Name_EN": "21(Twinone)",
     "Images": {
-      "concept_PNGName": "cnsp_img21",
-      "corefolder_PNGPath": ["21/emstk_corefolder21-1"]
+      "concept_PNGName": "cnsp_imgNTS-21",
+      "corefolder_PNGPath": ["21/emstk_corefolderNTS-21-1"]
     },
     "FormalName_JP": "ナンバーテールズ21番機",
     "FormalName_EN": "NumberTales #21",
@@ -8360,7 +8360,7 @@
             "value_EN": "Arabic numeral '21'"
           }
         ],
-        "img_PNGName": "attr_numberMark21",
+        "img_PNGName": "attr_numberMarkNTS-21",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -8386,7 +8386,7 @@
             "value_EN": "Arabic numeral '21'"
           }
         ],
-        "img_PNGName": "attr_numberMark21",
+        "img_PNGName": "attr_numberMarkNTS-21",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -8618,15 +8618,15 @@
     "Name_JP": "22(フジ)",
     "Name_EN": "22(Twin-twina)",
     "Images": {
-      "concept_PNGName": "cnsp_img22",
+      "concept_PNGName": "cnsp_imgNTS-22",
       "corefolder_PNGPath": [
-        "22/emstk_corefolder22-1",
-        "22/emstk_corefolder22-2",
-        "22/emstk_corefolder22-3"
+        "22/emstk_corefolderNTS-22-1",
+        "22/emstk_corefolderNTS-22-2",
+        "22/emstk_corefolderNTS-22-3"
       ],
       "arts_PNGPath": [
         "corefolders/autumnMoon/art_autumnMoon2023",
-        "chattingArt/chart_img22-humanoid",
+        "chattingArt/chart_imgNTS-22-humanoid",
         "corefolders/autumnMoon/art_autumnMoon2024",
         {
           "_DBCrossLinkPath": {
@@ -8708,7 +8708,7 @@
             "value_EN": "Arabic numeral '22'"
           }
         ],
-        "img_PNGName": "attr_numberMark22",
+        "img_PNGName": "attr_numberMarkNTS-22",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -8734,7 +8734,7 @@
             "value_EN": "Arabic numeral '22' (one digit on each side of the zipper)"
           }
         ],
-        "img_PNGName": "attr_numberMark22",
+        "img_PNGName": "attr_numberMarkNTS-22",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -8861,7 +8861,7 @@
             "value_EN": "gray round brooch with a cross"
           }
         ],
-        "img_PNGName": "attr_emblem22-brooch",
+        "img_PNGName": "attr_emblemNTS-22-brooch",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -9158,12 +9158,12 @@
     "Name_JP": "23(ツグミ)",
     "Name_EN": "23(Twinthery)",
     "Images": {
-      "concept_PNGName": "cnsp_img23",
-      "catalog_PNGName": "chr-dsgn_catalog23",
-      "corefolder_PNGPath": ["23/emstk_corefolder23-1"],
+      "concept_PNGName": "cnsp_imgNTS-23",
+      "catalog_PNGName": "chr-dsgn_catalogNTS-23",
+      "corefolder_PNGPath": ["23/emstk_corefolderNTS-23-1"],
       "arts_PNGPath": [
         "corefolders/sphericateDay/art_sphericateDay202301r2",
-        "humanoids/2023/art_img23-humanoid"
+        "humanoids/2023/art_imgNTS-23-humanoid"
       ]
     },
     "FormalName_JP": "ナンバーテールズ23番機",
@@ -9188,7 +9188,7 @@
           { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 2 },
           { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 1 }
         ],
-        "TailsUnit_PNGName": "attr_tailsUnit23",
+        "TailsUnit_PNGName": "attr_tailsUnitNTS-23",
         "Note_JP": null,
         "Note_EN": null
       }
@@ -9242,7 +9242,7 @@
             "value_EN": "Arabic numeral '23'"
           }
         ],
-        "img_PNGName": "attr_numberMark23",
+        "img_PNGName": "attr_numberMarkNTS-23",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -9268,7 +9268,7 @@
             "value_EN": "Arabic numeral '23'"
           }
         ],
-        "img_PNGName": "attr_numberMark23",
+        "img_PNGName": "attr_numberMarkNTS-23",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -9551,15 +9551,15 @@
     "Name_JP": "24(フトシ)",
     "Name_EN": "24(Hourds)",
     "Images": {
-      "concept_PNGName": "cnsp_img24",
+      "concept_PNGName": "cnsp_imgNTS-24",
       "corefolder_PNGPath": [
-        "24/emstk_corefolder24-1",
-        "24/emstk_corefolder24-2"
+        "24/emstk_corefolderNTS-24-1",
+        "24/emstk_corefolderNTS-24-2"
       ],
       "arts_PNGPath": [
         "corefolders/sphericateDay/art_sphericateDay202302r1",
-        "humanoids/2023/art_img24-humanoid",
-        "corefolders/arts_img24-corefolderMakingSample"
+        "humanoids/2023/art_imgNTS-24-humanoid",
+        "corefolders/arts_imgNTS-24-corefolderMakingSample"
       ]
     },
     "FormalName_JP": "ナンバーテールズ24番機",
@@ -9637,7 +9637,7 @@
             "value_EN": "Arabic numeral '24'"
           }
         ],
-        "img_PNGName": "attr_numberMark24",
+        "img_PNGName": "attr_numberMarkNTS-24",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -9944,15 +9944,15 @@
     "Name_JP": "25(フィズ)",
     "Name_EN": "25(Quartels)",
     "Images": {
-      "concept_PNGName": "cnsp_img25",
+      "concept_PNGName": "cnsp_imgNTS-25",
       "corefolder_PNGPath": [
-        "25/emstk_corefolder25-1",
-        "25/emstk_corefolder25-2"
+        "25/emstk_corefolderNTS-25-1",
+        "25/emstk_corefolderNTS-25-2"
       ],
       "arts_PNGPath": [
-        "corefolders/2023/art_img25-corefolder",
-        "humanoids/2024/art_img25-humanoidValentineA",
-        "humanoids/2024/art_img25-humanoidValentineB",
+        "corefolders/2023/art_imgNTS-25-corefolder",
+        "humanoids/2024/art_imgNTS-25-humanoidValentineA",
+        "humanoids/2024/art_imgNTS-25-humanoidValentineB",
         {
           "_DBCrossLinkPath": {
             "_DB": "Proxy",
@@ -9962,7 +9962,7 @@
           }
         }
       ],
-      "designAlt_PNGPath": ["chattingArt/chart_img25,5-humanoidCoolerSeason"]
+      "designAlt_PNGPath": ["chattingArt/chart_imgNTS-25,NTS-5-humanoidCoolerSeason"]
     },
     "FormalName_JP": "ナンバーテールズ25番機",
     "FormalName_EN": "NumberTales #25",
@@ -10041,7 +10041,7 @@
             "value_EN": "Arabic numeral '25'"
           }
         ],
-        "img_PNGName": "attr_numberMark25",
+        "img_PNGName": "attr_numberMarkNTS-25",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -10067,7 +10067,7 @@
             "value_EN": "Arabic numeral '25'"
           }
         ],
-        "img_PNGName": "attr_numberMark25",
+        "img_PNGName": "attr_numberMarkNTS-25",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -10443,8 +10443,8 @@
     "Name_JP": "26(ニロク)",
     "Name_EN": "26(Twinsix)",
     "Images": {
-      "concept_PNGName": "cnsp_img26",
-      "corefolder_PNGPath": ["26/emstk_corefolder26-1"],
+      "concept_PNGName": "cnsp_imgNTS-26",
+      "corefolder_PNGPath": ["26/emstk_corefolderNTS-26-1"],
       "arts_PNGPath": [
         {
           "_DBCrossLinkPath": {
@@ -10529,7 +10529,7 @@
             "value_EN": "Arabic numeral '26'"
           }
         ],
-        "img_PNGName": "attr_numberMark26",
+        "img_PNGName": "attr_numberMarkNTS-26",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -10555,7 +10555,7 @@
             "value_EN": "Arabic numeral '26'"
           }
         ],
-        "img_PNGName": "attr_numberMark26",
+        "img_PNGName": "attr_numberMarkNTS-26",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -10837,14 +10837,14 @@
     "Name_JP": "27(ツギナ)",
     "Name_EN": "27(Twißven)",
     "Images": {
-      "concept_PNGName": "cnsp_img27",
+      "concept_PNGName": "cnsp_imgNTS-27",
       "corefolder_PNGPath": [
-        "27/emstk_corefolder27-1",
-        "27/emstk_corefolder27-2"
+        "27/emstk_corefolderNTS-27-1",
+        "27/emstk_corefolderNTS-27-2"
       ],
       "arts_PNGPath": [
         "corefolders/sphericateDay/art_sphericateDay202403",
-        "humanoids/2024/art_img27-humanoid",
+        "humanoids/2024/art_imgNTS-27-humanoid",
         {
           "_DBCrossLinkPath": {
             "_DB": "Proxy",
@@ -10936,7 +10936,7 @@
             "value_EN": "Arabic numeral '27'"
           }
         ],
-        "img_PNGName": "attr_numberMark27",
+        "img_PNGName": "attr_numberMarkNTS-27",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -10962,7 +10962,7 @@
             "value_EN": "Arabic numeral '27'"
           }
         ],
-        "img_PNGName": "attr_numberMark27",
+        "img_PNGName": "attr_numberMarkNTS-27",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -10978,7 +10978,7 @@
             "value_EN": "number '27' marking on purple name tag"
           }
         ],
-        "img_PNGName": "attr_tag27-numberMark",
+        "img_PNGName": "attr_tagNTS-27-numberMark",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -11291,9 +11291,9 @@
     "Name_JP": "28(ニハチ)",
     "Name_EN": "28(Tweighan)",
     "Images": {
-      "concept_PNGName": "cnsp_img28",
-      "conceptAlt_PNGName": ["cnsp_img28-onBusiness", "cnsp_img28-onPrivate"],
-      "corefolder_PNGPath": ["28/emstk_corefolder28-1"],
+      "concept_PNGName": "cnsp_imgNTS-28",
+      "conceptAlt_PNGName": ["cnsp_imgNTS-28-onBusiness", "cnsp_imgNTS-28-onPrivate"],
+      "corefolder_PNGPath": ["28/emstk_corefolderNTS-28-1"],
       "arts_PNGPath": [
         {
           "_DBCrossLinkPath": {
@@ -11380,7 +11380,7 @@
             "value_EN": "Arabic numeral '28'"
           }
         ],
-        "img_PNGName": "attr_numberMark28",
+        "img_PNGName": "attr_numberMarkNTS-28",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -11406,7 +11406,7 @@
             "value_EN": "Arabic numeral '28', with a small notation below indicating the sum of its divisors '=1+2+4+7+14'"
           }
         ],
-        "img_PNGName": "attr_numberMark28-leftMath",
+        "img_PNGName": "attr_numberMarkNTS-28-leftMath",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -11432,7 +11432,7 @@
             "value_EN": "Sigma notation indicating the sum of natural numbers up to the 3rd Mersenne number"
           }
         ],
-        "img_PNGName": "attr_numberMark28-rightMath",
+        "img_PNGName": "attr_numberMarkNTS-28-rightMath",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -11458,7 +11458,7 @@
             "value_EN": "Arabic numeral '28'"
           }
         ],
-        "img_PNGName": "attr_numberMark28",
+        "img_PNGName": "attr_numberMarkNTS-28",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -11484,7 +11484,7 @@
             "value_EN": "Arabic numeral '28' (the four circles look like '28')"
           }
         ],
-        "img_PNGName": "attr_numberMark28-earingFront",
+        "img_PNGName": "attr_numberMarkNTS-28-earingFront",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -11510,7 +11510,7 @@
             "value_EN": "Arabic numeral '28', with a small notation below indicating the sum of its divisors '=1+2+4+7+14'"
           }
         ],
-        "img_PNGName": "attr_numberMark28-leftMath",
+        "img_PNGName": "attr_numberMarkNTS-28-leftMath",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -11536,7 +11536,7 @@
             "value_EN": "Sigma notation indicating the sum of natural numbers up to the 3rd Mersenne number"
           }
         ],
-        "img_PNGName": "attr_numberMark28-rightMath",
+        "img_PNGName": "attr_numberMarkNTS-28-rightMath",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -11811,11 +11811,11 @@
     "Name_JP": "29(ニトク)",
     "Name_EN": "29(Twenina)",
     "Images": {
-      "concept_PNGName": "cnsp_img29",
-      "corefolder_PNGPath": ["29/emstk_corefolder29-1"],
+      "concept_PNGName": "cnsp_imgNTS-29",
+      "corefolder_PNGPath": ["29/emstk_corefolderNTS-29-1"],
       "arts_PNGPath": [
-        "corefolders/2023/art_img29-corefolderA",
-        "corefolders/2023/art_img29-corefolderB",
+        "corefolders/2023/art_imgNTS-29-corefolderA",
+        "corefolders/2023/art_imgNTS-29-corefolderB",
         "corefolders/sphericateDay/art_sphericateDay202403",
         "corefolders/autumnMoon/art_autumnMoon2023"
       ]
@@ -12169,12 +12169,12 @@
     "Name_JP": "30(ミツト)",
     "Name_EN": "30(Thirtens)",
     "Images": {
-      "concept_PNGName": "cnsp_img30",
+      "concept_PNGName": "cnsp_imgNTS-30",
       "corefolder_PNGPath": [
-        "30/emstk_corefolder30-1",
-        "30/emstk_corefolder30-2"
+        "30/emstk_corefolderNTS-30-1",
+        "30/emstk_corefolderNTS-30-2"
       ],
-      "arts_PNGPath": ["chattingArt/chart_img30-corefolder"]
+      "arts_PNGPath": ["chattingArt/chart_imgNTS-30-corefolder"]
     },
     "FormalName_JP": "ナンバーテールズ30番機",
     "FormalName_EN": "NumberTales #30",
@@ -12247,7 +12247,7 @@
             "value_EN": "Arabic numeral '30'"
           }
         ],
-        "img_PNGName": "attr_numberMark30",
+        "img_PNGName": "attr_numberMarkNTS-30",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -12273,7 +12273,7 @@
             "value_EN": "Arabic numeral '30'"
           }
         ],
-        "img_PNGName": "attr_numberMark30",
+        "img_PNGName": "attr_numberMarkNTS-30",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -12299,7 +12299,7 @@
             "value_EN": "Arabic numeral '30'"
           }
         ],
-        "img_PNGName": "attr_numberMark30",
+        "img_PNGName": "attr_numberMarkNTS-30",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -12534,12 +12534,12 @@
     "Name_JP": "31(ミツイ)",
     "Name_EN": "31(Thirtone)",
     "Images": {
-      "concept_PNGName": "cnsp_img31",
+      "concept_PNGName": "cnsp_imgNTS-31",
       "corefolder_PNGPath": [
-        "31/emstk_corefolder31-1",
-        "31/emstk_corefolder31-2"
+        "31/emstk_corefolderNTS-31-1",
+        "31/emstk_corefolderNTS-31-2"
       ],
-      "arts_PNGPath": ["corefolders/2023/art_img31-corefolder"]
+      "arts_PNGPath": ["corefolders/2023/art_imgNTS-31-corefolder"]
     },
     "FormalName_JP": "ナンバーテールズ31番機",
     "FormalName_EN": "NumberTales #31",
@@ -12616,7 +12616,7 @@
             "value_EN": "Arabic numeral '31'"
           }
         ],
-        "img_PNGName": "attr_numberMark31",
+        "img_PNGName": "attr_numberMarkNTS-31",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -12642,7 +12642,7 @@
             "value_EN": "Mathematical symbol 'M₅' indicating the 5th Mersenne number, with the formula '=2⁵-1' shown below in small text"
           }
         ],
-        "img_PNGName": "attr_numberMark31-leftMath",
+        "img_PNGName": "attr_numberMarkNTS-31-leftMath",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -12668,7 +12668,7 @@
             "value_EN": "Arabic numeral '31'"
           }
         ],
-        "img_PNGName": "attr_numberMark31",
+        "img_PNGName": "attr_numberMarkNTS-31",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -12694,7 +12694,7 @@
             "value_EN": "Mathematical symbol 'M₅' indicating the 5th Mersenne number, with the formula '=2⁵-1' shown below in small text"
           }
         ],
-        "img_PNGName": "attr_numberMark31-leftMath",
+        "img_PNGName": "attr_numberMarkNTS-31-leftMath",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -13036,10 +13036,10 @@
     "Name_JP": "32(ミツギ)",
     "Name_EN": "32(Thirtwis)",
     "Images": {
-      "concept_PNGName": "cnsp_img32",
+      "concept_PNGName": "cnsp_imgNTS-32",
       "corefolder_PNGPath": [
-        "32/emstk_corefolder32-1",
-        "32/emstk_corefolder32-2"
+        "32/emstk_corefolderNTS-32-1",
+        "32/emstk_corefolderNTS-32-2"
       ]
     },
     "FormalName_JP": "ナンバーテールズ32番機",
@@ -13117,7 +13117,7 @@
             "value_EN": "Arabic numeral '32'"
           }
         ],
-        "img_PNGName": "attr_numberMark32",
+        "img_PNGName": "attr_numberMarkNTS-32",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -13143,7 +13143,7 @@
             "value_EN": "Arabic numeral '32'"
           }
         ],
-        "img_PNGName": "attr_numberMark32",
+        "img_PNGName": "attr_numberMarkNTS-32",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -13459,11 +13459,11 @@
     "Name_JP": "33(ミサ)",
     "Name_EN": "33(Thirthrey)",
     "Images": {
-      "concept_PNGName": "cnsp_img33",
+      "concept_PNGName": "cnsp_imgNTS-33",
       "corefolder_PNGPath": [
-        "33/emstk_corefolder33-1",
-        "33/emstk_corefolder33-2",
-        "33/emstk_corefolder33-3"
+        "33/emstk_corefolderNTS-33-1",
+        "33/emstk_corefolderNTS-33-2",
+        "33/emstk_corefolderNTS-33-3"
       ],
       "arts_PNGPath": ["corefolders/sphericateDay/art_sphericateDay202202"]
     },
@@ -13537,7 +13537,7 @@
             "value_EN": "Arabic numeral '33'"
           }
         ],
-        "img_PNGName": "attr_numberMark33",
+        "img_PNGName": "attr_numberMarkNTS-33",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -13563,7 +13563,7 @@
             "value_EN": "Arabic numeral '33'"
           }
         ],
-        "img_PNGName": "attr_numberMark33",
+        "img_PNGName": "attr_numberMarkNTS-33",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -13957,12 +13957,12 @@
     "Name_JP": "34(サトシ)\nサンジ",
     "Name_EN": "34(Thirfory)\nTroubleforcer",
     "Images": {
-      "concept_PNGName": "cnsp_img34",
+      "concept_PNGName": "cnsp_imgNTS-34",
       "corefolder_PNGPath": [
-        "34/emstk_corefolder34-1",
-        "34/emstk_corefolder34-2"
+        "34/emstk_corefolderNTS-34-1",
+        "34/emstk_corefolderNTS-34-2"
       ],
-      "arts_PNGPath": ["humanoids/parody/art_img34,43-parody"]
+      "arts_PNGPath": ["humanoids/parody/art_imgNTS-34,NTS-43-parody"]
     },
     "FormalName_JP": "ナンバーテールズ34番機",
     "FormalName_EN": "NumberTales #34",
@@ -14039,7 +14039,7 @@
             "value_EN": "Arabic numeral '34'"
           }
         ],
-        "img_PNGName": "attr_numberMark34",
+        "img_PNGName": "attr_numberMarkNTS-34",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -14065,7 +14065,7 @@
             "value_EN": "Arabic numeral '34'"
           }
         ],
-        "img_PNGName": "attr_numberMark34",
+        "img_PNGName": "attr_numberMarkNTS-34",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -14362,14 +14362,14 @@
     "Name_JP": "35(サトコ)\n35(ミコ)",
     "Name_EN": "35(Thirfivan)\n35(Míko)",
     "Images": {
-      "concept_PNGName": "cnsp_img35",
-      "conceptAlt_PNGName": ["cnsp_img35-Normal", "cnsp_img35-Miko"],
+      "concept_PNGName": "cnsp_imgNTS-35",
+      "conceptAlt_PNGName": ["cnsp_imgNTS-35-Normal", "cnsp_imgNTS-35-Miko"],
       "corefolder_PNGPath": [
-        "35/emstk_corefolder35-1",
-        "35/emstk_corefolder35-2",
-        "35/emstk_corefolder35-3"
+        "35/emstk_corefolderNTS-35-1",
+        "35/emstk_corefolderNTS-35-2",
+        "35/emstk_corefolderNTS-35-3"
       ],
-      "designAlt_PNGPath": ["chattingArt/chart_img35-humanoidswimwear"]
+      "designAlt_PNGPath": ["chattingArt/chart_imgNTS-35-humanoidswimwear"]
     },
     "FormalName_JP": "ナンバーテールズ35番機",
     "FormalName_EN": "NumberTales #35",
@@ -14447,7 +14447,7 @@
             "value_EN": "Arabic numeral '35'"
           }
         ],
-        "img_PNGName": "attr_numberMark35",
+        "img_PNGName": "attr_numberMarkNTS-35",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -14789,14 +14789,14 @@
     "Name_JP": "36(ミトム)",
     "Name_EN": "36(Trisixa)",
     "Images": {
-      "concept_PNGName": "cnsp_img36",
+      "concept_PNGName": "cnsp_imgNTS-36",
       "corefolder_PNGPath": [
-        "36/emstk_corefolder36-1",
-        "36/emstk_corefolder36-2"
+        "36/emstk_corefolderNTS-36-1",
+        "36/emstk_corefolderNTS-36-2"
       ],
       "arts_PNGPath": [
         "humanoids/art_mothersDay2023",
-        "chattingArt/chart_img36-corefolderMyNewGear"
+        "chattingArt/chart_imgNTS-36-corefolderMyNewGear"
       ]
     },
     "FormalName_JP": "ナンバーテールズ36番機",
@@ -14874,7 +14874,7 @@
             "value_EN": "Arabic numeral '36'"
           }
         ],
-        "img_PNGName": "attr_numberMark36",
+        "img_PNGName": "attr_numberMarkNTS-36",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -14900,7 +14900,7 @@
             "value_EN": "Arabic numeral '36'"
           }
         ],
-        "img_PNGName": "attr_numberMark36",
+        "img_PNGName": "attr_numberMarkNTS-36",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -15241,17 +15241,17 @@
     "Name_JP": "37(サナ)",
     "Name_EN": "37(Trißven)",
     "Images": {
-      "concept_PNGName": "cnsp_img37",
+      "concept_PNGName": "cnsp_imgNTS-37",
       "corefolder_PNGPath": [
-        "37/emstk_corefolder37-1",
-        "37/emstk_corefolder37-2"
+        "37/emstk_corefolderNTS-37-1",
+        "37/emstk_corefolderNTS-37-2"
       ],
       "arts_PNGPath": [
         "corefolders/sphericateDay/art_sphericateDay202212r1A",
         "corefolders/sphericateDay/art_sphericateDay202212r1B",
-        "humanoids/2023/art_img37-humanoid",
-        "corefolders/2024/art_img37-corefolderA",
-        "corefolders/2024/art_img37-corefolderB"
+        "humanoids/2023/art_imgNTS-37-humanoid",
+        "corefolders/2024/art_imgNTS-37-corefolderA",
+        "corefolders/2024/art_imgNTS-37-corefolderB"
       ]
     },
     "FormalName_JP": "ナンバーテールズ37番機",
@@ -15329,7 +15329,7 @@
             "value_EN": "Arabic numeral '37.' (motif composed of multiple triangles)"
           }
         ],
-        "img_PNGName": "attr_numberMark37",
+        "img_PNGName": "attr_numberMarkNTS-37",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -15708,16 +15708,16 @@
     "Name_JP": "39(サク)",
     "Name_EN": "39(Trenína)",
     "Images": {
-      "concept_PNGName": "cnsp_img39",
-      "catalog_PNGName": "chr-dsgn_catalog39",
+      "concept_PNGName": "cnsp_imgNTS-39",
+      "catalog_PNGName": "chr-dsgn_catalogNTS-39",
       "corefolder_PNGPath": [
-        "39/emstk_corefolder39-1",
-        "39/emstk_corefolder39-2",
-        "39/emstk_corefolder39-3"
+        "39/emstk_corefolderNTS-39-1",
+        "39/emstk_corefolderNTS-39-2",
+        "39/emstk_corefolderNTS-39-3"
       ],
       "arts_PNGPath": [
-        "humanoids/2023/art_img39-humanoidA",
-        "humanoids/2023/art_img39-humanoidB"
+        "humanoids/2023/art_imgNTS-39-humanoidA",
+        "humanoids/2023/art_imgNTS-39-humanoidB"
       ]
     },
     "FormalName_JP": "ナンバーテールズ39番機",
@@ -15739,7 +15739,7 @@
           { "Laterality": "#Lat_Upper", "TailCount": 3, "ClusterCount": 2 },
           { "Laterality": "#Lat_Lower", "TailCount": 6, "ClusterCount": 1 }
         ],
-        "TailsUnit_PNGName": "attr_tailsUnit39",
+        "TailsUnit_PNGName": "attr_tailsUnitNTS-39",
         "Note_JP": null,
         "Note_EN": null
       }
@@ -15793,7 +15793,7 @@
             "value_EN": "Arabic numeral '39' (stylized motif)"
           }
         ],
-        "img_PNGName": "attr_numberMark39",
+        "img_PNGName": "attr_numberMarkNTS-39",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -15819,7 +15819,7 @@
             "value_EN": "Arabic numeral '39' (stylized motif)"
           }
         ],
-        "img_PNGName": "attr_numberMark39",
+        "img_PNGName": "attr_numberMarkNTS-39",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -16170,10 +16170,10 @@
     "Name_JP": "40(ヨソ)",
     "Name_EN": "40(Fortty)",
     "Images": {
-      "concept_PNGName": "cnsp_img40",
+      "concept_PNGName": "cnsp_imgNTS-40",
       "corefolder_PNGPath": [
-        "40/emstk_corefolder40-1",
-        "40/emstk_corefolder40-2"
+        "40/emstk_corefolderNTS-40-1",
+        "40/emstk_corefolderNTS-40-2"
       ]
     },
     "FormalName_JP": "ナンバーテールズ40番機",
@@ -16247,7 +16247,7 @@
             "value_EN": "Geometric pattern resembling Arabic numeral '40'"
           }
         ],
-        "img_PNGName": "attr_numberMark40",
+        "img_PNGName": "attr_numberMarkNTS-40",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -16526,9 +16526,9 @@
     "Name_JP": "41(ヨソイチ)",
     "Name_EN": "41(Forone)",
     "Images": {
-      "concept_PNGName": "cnsp_img41",
-      "conceptAlt_PNGName": ["cnsp_img41-A"],
-      "corefolder_PNGPath": ["41/emstk_corefolder41-1"]
+      "concept_PNGName": "cnsp_imgNTS-41",
+      "conceptAlt_PNGName": ["cnsp_imgNTS-41-A"],
+      "corefolder_PNGPath": ["41/emstk_corefolderNTS-41-1"]
     },
     "FormalName_JP": "ナンバーテールズ41番機",
     "FormalName_EN": "NumberTales #41",
@@ -16605,7 +16605,7 @@
             "value_EN": "Arabic numeral '41'"
           }
         ],
-        "img_PNGName": "attr_numberMark41",
+        "img_PNGName": "attr_numberMarkNTS-41",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -16631,7 +16631,7 @@
             "value_EN": "Arabic numeral '41'"
           }
         ],
-        "img_PNGName": "attr_numberMark41",
+        "img_PNGName": "attr_numberMarkNTS-41",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -16981,16 +16981,16 @@
     "Name_JP": "42(ヨツグ)",
     "Name_EN": "42(Fortwis)",
     "Images": {
-      "concept_PNGName": "cnsp_img42",
+      "concept_PNGName": "cnsp_imgNTS-42",
       "corefolder_PNGPath": [
-        "42/emstk_corefolder42-1",
-        "42/emstk_corefolder42-2"
+        "42/emstk_corefolderNTS-42-1",
+        "42/emstk_corefolderNTS-42-2"
       ],
       "arts_PNGPath": [
-        "humanoids/2023/art_img42-humanoidA",
-        "humanoids/2023/art_img42-humanoidB",
-        "humanoids/parody/art_img42-homage",
-        "chattingArt/chart_img42-corefolder"
+        "humanoids/2023/art_imgNTS-42-humanoidA",
+        "humanoids/2023/art_imgNTS-42-humanoidB",
+        "humanoids/parody/art_imgNTS-42-homage",
+        "chattingArt/chart_imgNTS-42-corefolder"
       ]
     },
     "FormalName_JP": "ナンバーテールズ42番機",
@@ -17066,7 +17066,7 @@
             "value_EN": "Arabic numeral '42'"
           }
         ],
-        "img_PNGName": "attr_numberMark42",
+        "img_PNGName": "attr_numberMarkNTS-42",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -17092,7 +17092,7 @@
             "value_EN": "Arabic numeral '42'"
           }
         ],
-        "img_PNGName": "attr_numberMark42",
+        "img_PNGName": "attr_numberMarkNTS-42",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -17377,12 +17377,12 @@
     "Name_JP": "43(シトミ)",
     "Name_EN": "43(Forthren)",
     "Images": {
-      "concept_PNGName": "cnsp_img43",
+      "concept_PNGName": "cnsp_imgNTS-43",
       "corefolder_PNGPath": [
-        "43/emstk_corefolder43-1",
-        "43/emstk_corefolder43-2"
+        "43/emstk_corefolderNTS-43-1",
+        "43/emstk_corefolderNTS-43-2"
       ],
-      "arts_PNGPath": ["humanoids/parody/art_img34,43-parody"]
+      "arts_PNGPath": ["humanoids/parody/art_imgNTS-34,NTS-43-parody"]
     },
     "FormalName_JP": "ナンバーテールズ43番機",
     "FormalName_EN": "NumberTales #43",
@@ -17459,7 +17459,7 @@
             "value_EN": "Arabic numeral '43'"
           }
         ],
-        "img_PNGName": "attr_numberMark43",
+        "img_PNGName": "attr_numberMarkNTS-43",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -17485,7 +17485,7 @@
             "value_EN": "Arabic numeral '43'"
           }
         ],
-        "img_PNGName": "attr_numberMark43",
+        "img_PNGName": "attr_numberMarkNTS-43",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -17775,14 +17775,14 @@
     "Name_JP": "44(シトシ)",
     "Name_EN": "44(Folfourn)",
     "Images": {
-      "concept_PNGName": "cnsp_img44",
-      "corefolder_PNGPath": ["44/emstk_corefolder44-1"],
+      "concept_PNGName": "cnsp_imgNTS-44",
+      "corefolder_PNGPath": ["44/emstk_corefolderNTS-44-1"],
       "designAlt_PNGPath": [
         "eventArt/art_sphericateDay-halloween2023A",
         "eventArt/art_sphericateDay-halloween2023B"
       ],
       "arts_PNGPath": [
-        "humanoids/2024/art-wip_img44-humanoid",
+        "humanoids/2024/art-wip_imgNTS-44-humanoid",
         "corefolders/sphericateDay/art_sphericateDay202310"
       ]
     },
@@ -17857,7 +17857,7 @@
             "value_EN": "Arabic numeral '44'"
           }
         ],
-        "img_PNGName": "attr_numberMark44",
+        "img_PNGName": "attr_numberMarkNTS-44",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -17883,7 +17883,7 @@
             "value_EN": "Arabic numeral '44'"
           }
         ],
-        "img_PNGName": "attr_numberMark44",
+        "img_PNGName": "attr_numberMarkNTS-44",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -18224,8 +18224,8 @@
     "Name_JP": "45(シゴ)",
     "Name_EN": "45(Folfivas)",
     "Images": {
-      "concept_PNGName": "cnsp_img45",
-      "corefolder_PNGPath": ["45/emstk_corefolder45-1"]
+      "concept_PNGName": "cnsp_imgNTS-45",
+      "corefolder_PNGPath": ["45/emstk_corefolderNTS-45-1"]
     },
     "FormalName_JP": "ナンバーテールズ45番機",
     "FormalName_EN": "NumberTales #45",
@@ -18300,7 +18300,7 @@
             "value_EN": "Arabic numeral '45'"
           }
         ],
-        "img_PNGName": "attr_numberMark45",
+        "img_PNGName": "attr_numberMarkNTS-45",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -18326,7 +18326,7 @@
             "value_EN": "Arabic numeral '45'"
           }
         ],
-        "img_PNGName": "attr_numberMark45",
+        "img_PNGName": "attr_numberMarkNTS-45",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -18578,8 +18578,8 @@
     "Name_JP": "46(シロー)",
     "Name_EN": "46(Forsixen)",
     "Images": {
-      "concept_PNGName": "cnsp_img46",
-      "corefolder_PNGPath": ["46/emstk_corefolder46-1"]
+      "concept_PNGName": "cnsp_imgNTS-46",
+      "corefolder_PNGPath": ["46/emstk_corefolderNTS-46-1"]
     },
     "FormalName_JP": "ナンバーテールズ46番機",
     "FormalName_EN": "NumberTales #46",
@@ -18969,13 +18969,13 @@
     "Name_JP": "47(シナ)",
     "Name_EN": "47(Fourséve)",
     "Images": {
-      "concept_PNGName": "cnsp_img47",
+      "concept_PNGName": "cnsp_imgNTS-47",
       "corefolder_PNGPath": [
-        "47/emstk_corefolder47-1",
-        "47/emstk_corefolder47-2"
+        "47/emstk_corefolderNTS-47-1",
+        "47/emstk_corefolderNTS-47-2"
       ],
       "arts_PNGPath": [
-        "humanoids/2023/art_img47-humanoid",
+        "humanoids/2023/art_imgNTS-47-humanoid",
         "corefolders/sphericateDay/art_sphericateDay202307"
       ]
     },
@@ -19057,7 +19057,7 @@
             "value_EN": "Arabic numeral '47'"
           }
         ],
-        "img_PNGName": "attr_numberMark47",
+        "img_PNGName": "attr_numberMarkNTS-47",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -19083,7 +19083,7 @@
             "value_EN": "Arabic numeral '47'"
           }
         ],
-        "img_PNGName": "attr_numberMark47",
+        "img_PNGName": "attr_numberMarkNTS-47",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -19400,8 +19400,8 @@
     "Name_JP": "48(シハチ)",
     "Name_EN": "48(Foreighn)",
     "Images": {
-      "concept_PNGName": "cnsp_img48",
-      "corefolder_PNGPath": ["48/emstk_corefolder48-1"]
+      "concept_PNGName": "cnsp_imgNTS-48",
+      "corefolder_PNGPath": ["48/emstk_corefolderNTS-48-1"]
     },
     "FormalName_JP": "ナンバーテールズ48番機",
     "FormalName_EN": "NumberTales #48",
@@ -19475,7 +19475,7 @@
             "value_EN": "Arabic numeral '48'"
           }
         ],
-        "img_PNGName": "attr_numberMark48",
+        "img_PNGName": "attr_numberMarkNTS-48",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -19501,7 +19501,7 @@
             "value_EN": "Arabic numeral '48'"
           }
         ],
-        "img_PNGName": "attr_numberMark48",
+        "img_PNGName": "attr_numberMarkNTS-48",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -19801,16 +19801,16 @@
     "Name_JP": "49(ヨチカ)",
     "Name_EN": "49(Fornins)",
     "Images": {
-      "concept_PNGName": "cnsp_img49",
-      "catalog_PNGName": "chr-dsgn_catalog49",
+      "concept_PNGName": "cnsp_imgNTS-49",
+      "catalog_PNGName": "chr-dsgn_catalogNTS-49",
       "corefolder_PNGPath": [
-        "49/emstk_corefolder49-1",
-        "49/emstk_corefolder49-2"
+        "49/emstk_corefolderNTS-49-1",
+        "49/emstk_corefolderNTS-49-2"
       ],
       "arts_PNGPath": [
-        "humanoids/2023/art_img49-humanoid",
-        "corefolders/2023/art_img49-corefolder",
-        "chattingArt/chart_img49-humanoid"
+        "humanoids/2023/art_imgNTS-49-humanoid",
+        "corefolders/2023/art_imgNTS-49-corefolder",
+        "chattingArt/chart_imgNTS-49-humanoid"
       ]
     },
     "FormalName_JP": "ナンバーテールズ49番機",
@@ -19835,7 +19835,7 @@
           { "Laterality": "#Lat_Upper", "TailCount": 4, "ClusterCount": 2 },
           { "Laterality": "#Lat_Lower", "TailCount": 5, "ClusterCount": 1 }
         ],
-        "TailsUnit_PNGName": "attr_tailsUnit49",
+        "TailsUnit_PNGName": "attr_tailsUnitNTS-49",
         "Note_JP": null,
         "Note_EN": null
       }
@@ -19889,7 +19889,7 @@
             "value_EN": "Arabic numeral '49'"
           }
         ],
-        "img_PNGName": "attr_numberMark49",
+        "img_PNGName": "attr_numberMarkNTS-49",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -19915,7 +19915,7 @@
             "value_EN": "Arabic numeral '49'"
           }
         ],
-        "img_PNGName": "attr_numberMark49",
+        "img_PNGName": "attr_numberMarkNTS-49",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -20208,14 +20208,14 @@
     "Name_JP": "50(ナカバ)",
     "Name_EN": "50(Halvan)",
     "Images": {
-      "concept_PNGName": "cnsp_img50",
+      "concept_PNGName": "cnsp_imgNTS-50",
       "corefolder_PNGPath": [
-        "50/emstk_corefolder50-1",
-        "50/emstk_corefolder50-2",
-        "50/emstk_corefolder50-3",
-        "50/emstk_corefolder50-4"
+        "50/emstk_corefolderNTS-50-1",
+        "50/emstk_corefolderNTS-50-2",
+        "50/emstk_corefolderNTS-50-3",
+        "50/emstk_corefolderNTS-50-4"
       ],
-      "arts_PNGPath": ["chattingArt/chart_img50-humanoidBallingRole"]
+      "arts_PNGPath": ["chattingArt/chart_imgNTS-50-humanoidBallingRole"]
     },
     "FormalName_JP": "ナンバーテールズ50番機",
     "FormalName_EN": "NumberTales #50",
@@ -20287,7 +20287,7 @@
             "value_EN": "Arabic numeral '50'"
           }
         ],
-        "img_PNGName": "attr_numberMark50",
+        "img_PNGName": "attr_numberMarkNTS-50",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -20313,7 +20313,7 @@
             "value_EN": "Arabic numeral '50'"
           }
         ],
-        "img_PNGName": "attr_numberMark50",
+        "img_PNGName": "attr_numberMarkNTS-50",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -20633,7 +20633,7 @@
     "Progress": "released",
     "Name_JP": "51(イソイチ)",
     "Name_EN": "51(Fivone)",
-    "Images": { "concept_PNGName": "cnsp_img51" },
+    "Images": { "concept_PNGName": "cnsp_imgNTS-51" },
     "FormalName_JP": "ナンバーテールズ51番機",
     "FormalName_EN": "NumberTales #51",
     "CodeName_JP": "五一",
@@ -20953,12 +20953,12 @@
     "Name_JP": "52(イツギ)",
     "Name_EN": "52(Fiftwis)",
     "Images": {
-      "concept_PNGName": "cnsp_img52",
+      "concept_PNGName": "cnsp_imgNTS-52",
       "corefolder_PNGPath": [
-        "52/emstk_corefolder52-1",
-        "52/emstk_corefolder52-2"
+        "52/emstk_corefolderNTS-52-1",
+        "52/emstk_corefolderNTS-52-2"
       ],
-      "arts_PNGPath": ["corefolders/2023/art_img52-corefolder"]
+      "arts_PNGPath": ["corefolders/2023/art_imgNTS-52-corefolder"]
     },
     "FormalName_JP": "ナンバーテールズ52番機",
     "FormalName_EN": "NumberTales #52",
@@ -21042,7 +21042,7 @@
             "value_EN": "Arabic numeral '52'"
           }
         ],
-        "img_PNGName": "attr_numberMark52",
+        "img_PNGName": "attr_numberMarkNTS-52",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -21068,7 +21068,7 @@
             "value_EN": "Arabic numeral '52'"
           }
         ],
-        "img_PNGName": "attr_numberMark52",
+        "img_PNGName": "attr_numberMarkNTS-52",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -21442,8 +21442,8 @@
     "Name_JP": "53(イツゾウ)",
     "Name_EN": "53(Fifthren)",
     "Images": {
-      "concept_PNGName": "cnsp_img53",
-      "corefolder_PNGPath": ["53/emstk_corefolder53-1"]
+      "concept_PNGName": "cnsp_imgNTS-53",
+      "corefolder_PNGPath": ["53/emstk_corefolderNTS-53-1"]
     },
     "FormalName_JP": "ナンバーテールズ53番機",
     "FormalName_EN": "NumberTales #53",
@@ -21520,7 +21520,7 @@
             "value_EN": "Arabic numeral '53'"
           }
         ],
-        "img_PNGName": "attr_numberMark53",
+        "img_PNGName": "attr_numberMarkNTS-53",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -21845,9 +21845,9 @@
     "Name_JP": "55(イソゴ)",
     "Name_EN": "55(Fifívan)",
     "Images": {
-      "concept_PNGName": "cnsp_img55",
-      "corefolder_PNGPath": ["55/emstk_corefolder55-1"],
-      "arts_PNGPath": ["humanoids/2023/art_img55-humanoidTroubled"]
+      "concept_PNGName": "cnsp_imgNTS-55",
+      "corefolder_PNGPath": ["55/emstk_corefolderNTS-55-1"],
+      "arts_PNGPath": ["humanoids/2023/art_imgNTS-55-humanoidTroubled"]
     },
     "FormalName_JP": "ナンバーテールズ55番機",
     "FormalName_EN": "NumberTales #55",
@@ -21921,7 +21921,7 @@
             "value_EN": "Arabic numeral '55' (one digit on each side)"
           }
         ],
-        "img_PNGName": "attr_numberMark55",
+        "img_PNGName": "attr_numberMarkNTS-55",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -21947,7 +21947,7 @@
             "value_EN": "Arabic numeral '55' (one digit on each side)"
           }
         ],
-        "img_PNGName": "attr_numberMark55",
+        "img_PNGName": "attr_numberMarkNTS-55",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -22274,12 +22274,12 @@
     "Name_JP": "56(イソロク)",
     "Name_EN": "56(Fivsix)",
     "Images": {
-      "concept_PNGName": "cnsp_img56",
-      "corefolder_PNGPath": ["56/emstk_corefolder56-1"],
+      "concept_PNGName": "cnsp_imgNTS-56",
+      "corefolder_PNGPath": ["56/emstk_corefolderNTS-56-1"],
       "arts_PNGPath": [
-        "corefolders/2024/art_img56,65-corefolderA",
-        "corefolders/2024/art_img56-corefolderB",
-        "chattingArt/chart_img56-humanoid"
+        "corefolders/2024/art_imgNTS-56,NTS-65-corefolderA",
+        "corefolders/2024/art_imgNTS-56-corefolderB",
+        "chattingArt/chart_imgNTS-56-humanoid"
       ]
     },
     "FormalName_JP": "ナンバーテールズ56番機",
@@ -22359,7 +22359,7 @@
             "value_EN": "Arabic numeral '56', with the kanji '五十六' slightly smaller below"
           }
         ],
-        "img_PNGName": "attr_numberMark56",
+        "img_PNGName": "attr_numberMarkNTS-56",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -22385,7 +22385,7 @@
             "value_EN": "Arabic numeral '56', with the kanji '五十六' slightly smaller below"
           }
         ],
-        "img_PNGName": "attr_numberMark56",
+        "img_PNGName": "attr_numberMarkNTS-56",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -22710,12 +22710,12 @@
     "Name_JP": "57(イズナ)",
     "Name_EN": "57(Fivens)",
     "Images": {
-      "concept_PNGName": "cnsp_img57",
-      "catalog_PNGName": "chr-dsgn_catalog57",
-      "corefolder_PNGPath": ["57/emstk_corefolder57-1"],
+      "concept_PNGName": "cnsp_imgNTS-57",
+      "catalog_PNGName": "chr-dsgn_catalogNTS-57",
+      "corefolder_PNGPath": ["57/emstk_corefolderNTS-57-1"],
       "arts_PNGPath": [
-        "humanoids/2023/art_img57-humanoid",
-        "corefolders/sphericateDay/art_sphericateDay202305-img57"
+        "humanoids/2023/art_imgNTS-57-humanoid",
+        "corefolders/sphericateDay/art_sphericateDay202305-imgNTS-57"
       ]
     },
     "FormalName_JP": "ナンバーテールズ57番機",
@@ -22738,7 +22738,7 @@
           { "Laterality": "#Lat_Upper", "TailCount": 5, "ClusterCount": 2 },
           { "Laterality": "#Lat_Lower", "TailCount": 2, "ClusterCount": 1 }
         ],
-        "TailsUnit_PNGName": "attr_tailsUnit57",
+        "TailsUnit_PNGName": "attr_tailsUnitNTS-57",
         "Note_JP": null,
         "Note_EN": null
       }
@@ -22792,7 +22792,7 @@
             "value_EN": "Arabic numeral '57'"
           }
         ],
-        "img_PNGName": "attr_numberMark57",
+        "img_PNGName": "attr_numberMarkNTS-57",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -22818,7 +22818,7 @@
             "value_EN": "Arabic numeral '57'"
           }
         ],
-        "img_PNGName": "attr_numberMark57",
+        "img_PNGName": "attr_numberMarkNTS-57",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -23162,12 +23162,12 @@
     "Name_JP": "58(イソヤ)",
     "Name_EN": "58(Fiveighs)",
     "Images": {
-      "concept_PNGName": "cnsp_img58",
+      "concept_PNGName": "cnsp_imgNTS-58",
       "corefolder_PNGPath": [
-        "58/emstk_corefolder58-1",
-        "58/emstk_corefolder58-2"
+        "58/emstk_corefolderNTS-58-1",
+        "58/emstk_corefolderNTS-58-2"
       ],
-      "arts_PNGPath": ["chattingArt/chart_img58-humanoidNoNipples"]
+      "arts_PNGPath": ["chattingArt/chart_imgNTS-58-humanoidNoNipples"]
     },
     "FormalName_JP": "ナンバーテールズ58番機",
     "FormalName_EN": "NumberTales #58",
@@ -23577,13 +23577,13 @@
     "Name_JP": "60(ムソウ)",
     "Name_EN": "60(Sixtina)",
     "Images": {
-      "concept_PNGName": "cnsp_img60",
-      "conceptAlt_PNGName": ["cnsp_img60-Normal", "cnsp_img60-Nerd"],
+      "concept_PNGName": "cnsp_imgNTS-60",
+      "conceptAlt_PNGName": ["cnsp_imgNTS-60-Normal", "cnsp_imgNTS-60-Nerd"],
       "corefolder_PNGPath": [
-        "60/emstk_corefolder60-1",
-        "60/emstk_corefolder60-2"
+        "60/emstk_corefolderNTS-60-1",
+        "60/emstk_corefolderNTS-60-2"
       ],
-      "arts_PNGPath": ["humanoids/2023/art_img60-humanoid"]
+      "arts_PNGPath": ["humanoids/2023/art_imgNTS-60-humanoid"]
     },
     "FormalName_JP": "ナンバーテールズ60番機",
     "FormalName_EN": "NumberTales #60",
@@ -23657,7 +23657,7 @@
             "value_EN": "Arabic numeral '60' (stylized motif)"
           }
         ],
-        "img_PNGName": "attr_numberMark60",
+        "img_PNGName": "attr_numberMarkNTS-60",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -24163,19 +24163,19 @@
     "Name_JP": "61(ロクイチ)\n61(ロイ)",
     "Name_EN": "61(Síxone)\n61(Síon)",
     "Images": {
-      "concept_PNGName": "cnsp_img61",
-      "catalog_PNGName": "chr-dsgn_catalog61",
-      "conceptAlt_PNGName": ["cnsp_img61-B"],
+      "concept_PNGName": "cnsp_imgNTS-61",
+      "catalog_PNGName": "chr-dsgn_catalogNTS-61",
+      "conceptAlt_PNGName": ["cnsp_imgNTS-61-B"],
       "corefolder_PNGPath": [
-        "61/emstk_corefolder61-1",
-        "61/emstk_corefolder61-idol1",
-        "61/emstk_corefolder61-idol2"
+        "61/emstk_corefolderNTS-61-1",
+        "61/emstk_corefolderNTS-61-idol1",
+        "61/emstk_corefolderNTS-61-idol2"
       ],
-      "designAlt_PNGPath": ["catalog/chr-dsgn-alt_wip61-idol"],
+      "designAlt_PNGPath": ["catalog/chr-dsgn-alt_wipNTS-61-idol"],
       "arts_PNGPath": [
         "corefolders/sphericateDay/art_sphericateDay202209r1A",
         "corefolders/sphericateDay/art_sphericateDay202209r1B",
-        "humanoids/2023/art_img61-humanoid"
+        "humanoids/2023/art_imgNTS-61-humanoid"
       ]
     },
     "FormalName_JP": "ナンバーテールズ61番機",
@@ -24198,7 +24198,7 @@
           { "Laterality": "#Lat_Upper", "TailCount": 5, "ClusterCount": 1 },
           { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 2 }
         ],
-        "TailsUnit_PNGName": "attr_tailsUnit61",
+        "TailsUnit_PNGName": "attr_tailsUnitNTS-61",
         "Note_JP": null,
         "Note_EN": null
       }
@@ -24253,7 +24253,7 @@
             "value_EN": "Arabic numeral '61'"
           }
         ],
-        "img_PNGName": "attr_numberMark61",
+        "img_PNGName": "attr_numberMarkNTS-61",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -24280,7 +24280,7 @@
             "value_EN": "Arabic numeral '61'"
           }
         ],
-        "img_PNGName": "attr_numberMark61",
+        "img_PNGName": "attr_numberMarkNTS-61",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -24328,7 +24328,7 @@
             "value_EN": "heart and key motif"
           }
         ],
-        "img_PNGName": "attr_emblem61-heartkey",
+        "img_PNGName": "attr_emblemNTS-61-heartkey",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -24735,8 +24735,8 @@
     "Name_JP": "62(ロジ)",
     "Name_EN": "62(Sictwéna)",
     "Images": {
-      "concept_PNGName": "cnsp_img62",
-      "corefolder_PNGPath": ["62/emstk_corefolder62-1"]
+      "concept_PNGName": "cnsp_imgNTS-62",
+      "corefolder_PNGPath": ["62/emstk_corefolderNTS-62-1"]
     },
     "FormalName_JP": "ナンバーテールズ62番機",
     "FormalName_EN": "NumberTales #62",
@@ -24811,7 +24811,7 @@
             "value_EN": "Arabic numeral '62'"
           }
         ],
-        "img_PNGName": "attr_numberMark62",
+        "img_PNGName": "attr_numberMarkNTS-62",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -25120,11 +25120,11 @@
     "Name_JP": "63(ムツミ)",
     "Name_EN": "63(Sicthrey)",
     "Images": {
-      "concept_PNGName": "cnsp_img63",
+      "concept_PNGName": "cnsp_imgNTS-63",
       "corefolder_PNGPath": [
-        "63/emstk_corefolder63-1",
-        "63/emstk_corefolder63-2",
-        "63/emstk_corefolder63-3"
+        "63/emstk_corefolderNTS-63-1",
+        "63/emstk_corefolderNTS-63-2",
+        "63/emstk_corefolderNTS-63-3"
       ],
       "arts_PNGPath": ["humanoids/art_mothersDay2023"]
     },
@@ -25203,7 +25203,7 @@
             "value_EN": "Arabic numeral '63'"
           }
         ],
-        "img_PNGName": "attr_numberMark63",
+        "img_PNGName": "attr_numberMarkNTS-63",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -25229,7 +25229,7 @@
             "value_EN": "Arabic numeral '63'"
           }
         ],
-        "img_PNGName": "attr_numberMark63",
+        "img_PNGName": "attr_numberMarkNTS-63",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -25523,8 +25523,8 @@
     "Name_JP": "64(ムトシ)",
     "Name_EN": "64(Sixforns)",
     "Images": {
-      "concept_PNGName": "cnsp_img64",
-      "corefolder_PNGPath": ["64/emstk_corefolder64-1"]
+      "concept_PNGName": "cnsp_imgNTS-64",
+      "corefolder_PNGPath": ["64/emstk_corefolderNTS-64-1"]
     },
     "FormalName_JP": "ナンバーテールズ64番機",
     "FormalName_EN": "NumberTales #64",
@@ -25871,11 +25871,11 @@
     "Name_JP": "65(ロクゴ)",
     "Name_EN": "65(Sixfivie)",
     "Images": {
-      "concept_PNGName": "cnsp_img65",
-      "corefolder_PNGPath": ["65/emstk_corefolder65-1"],
+      "concept_PNGName": "cnsp_imgNTS-65",
+      "corefolder_PNGPath": ["65/emstk_corefolderNTS-65-1"],
       "arts_PNGPath": [
-        "corefolders/2024/art_img56,65-corefolderA",
-        "corefolders/2024/art_img65-corefolderB"
+        "corefolders/2024/art_imgNTS-56,NTS-65-corefolderA",
+        "corefolders/2024/art_imgNTS-65-corefolderB"
       ]
     },
     "FormalName_JP": "ナンバーテールズ65番機",
@@ -25951,7 +25951,7 @@
             "value_EN": "Arabic numeral '65'"
           }
         ],
-        "img_PNGName": "attr_numberMark65",
+        "img_PNGName": "attr_numberMarkNTS-65",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -25977,7 +25977,7 @@
             "value_EN": "Arabic numeral '65'"
           }
         ],
-        "img_PNGName": "attr_numberMark65",
+        "img_PNGName": "attr_numberMarkNTS-65",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -26211,16 +26211,16 @@
     "Name_JP": "66(ムロク)",
     "Name_EN": "66(Sixis)",
     "Images": {
-      "concept_PNGName": "cnsp_img66",
-      "conceptAlt_PNGName": ["cnsp_img66-B"],
-      "corefolder_PNGPath": ["66/emstk_corefolder66-1"],
+      "concept_PNGName": "cnsp_imgNTS-66",
+      "conceptAlt_PNGName": ["cnsp_imgNTS-66-B"],
+      "corefolder_PNGPath": ["66/emstk_corefolderNTS-66-1"],
       "designAlt_PNGPath": [
         "eventArt/art_sphericateDay-halloween2023A",
         "eventArt/art_sphericateDay-halloween2023B",
-        "chattingArt/chart_img66-corefolderHalloween"
+        "chattingArt/chart_imgNTS-66-corefolderHalloween"
       ],
       "arts_PNGPath": [
-        "humanoids/2023/art_img66-humanoid",
+        "humanoids/2023/art_imgNTS-66-humanoid",
         "corefolders/sphericateDay/art_sphericateDay202310"
       ]
     },
@@ -26294,7 +26294,7 @@
             "value_EN": "Arabic numeral '66' (one digit on each side)"
           }
         ],
-        "img_PNGName": "attr_numberMark66",
+        "img_PNGName": "attr_numberMarkNTS-66",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -26320,7 +26320,7 @@
             "value_EN": "Arabic numeral '66' (one digit on each side)"
           }
         ],
-        "img_PNGName": "attr_numberMark66",
+        "img_PNGName": "attr_numberMarkNTS-66",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -26623,7 +26623,7 @@
     "SameModels_DBLink": [{ "_DB": "Primary", "Num": 67 }],
     "Name_JP": "67(ムナ)",
     "Name_EN": "67(Sicsevan)",
-    "Images": { "concept_PNGName": "cnsp_img67-A" },
+    "Images": { "concept_PNGName": "cnsp_imgNTS-67B" },
     "FormalName_JP": "ナンバーテールズ旧67番機",
     "FormalName_EN": "NumberTales #67.OldType",
     "ModelNumber": "APHR-NT VI+VII.A",
@@ -26891,7 +26891,7 @@
     "SameModels_DBLink": [{ "_DB": "Primary", "Num": "67-old" }],
     "Name_JP": "67(ムナ)",
     "Name_EN": "67(Sicsevan)",
-    "Images": { "concept_PNGName": "cnsp_img67-B" },
+    "Images": { "concept_PNGName": "cnsp_imgNTS-67A" },
     "FormalName_JP": "ナンバーテールズ67番機",
     "FormalName_EN": "NumberTales #67",
     "CodeName_JP": "六七",
@@ -27306,12 +27306,12 @@
     "Name_JP": "68(ロクヤ)",
     "Name_EN": "68(Siceighns)",
     "Images": {
-      "concept_PNGName": "cnsp_img68",
-      "corefolder_PNGPath": ["68/emstk_corefolder68-1"],
-      "designAlt_PNGPath": ["arts/art_img68-humanoidOnWorkSuit"],
+      "concept_PNGName": "cnsp_imgNTS-68",
+      "corefolder_PNGPath": ["68/emstk_corefolderNTS-68-1"],
+      "designAlt_PNGPath": ["arts/art_imgNTS-68-humanoidOnWorkSuit"],
       "arts_PNGPath": [
         "corefolders/sphericateDay/art_sphericateDay202301r2",
-        "corefolders/2023/art_img68-corefolder"
+        "corefolders/2023/art_imgNTS-68-corefolder"
       ]
     },
     "FormalName_JP": "ナンバーテールズ68番機",
@@ -27387,7 +27387,7 @@
             "value_EN": "Arabic numeral '68'"
           }
         ],
-        "img_PNGName": "attr_numberMark68",
+        "img_PNGName": "attr_numberMarkNTS-68",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -27413,7 +27413,7 @@
             "value_EN": "Arabic numeral '68'"
           }
         ],
-        "img_PNGName": "attr_numberMark68",
+        "img_PNGName": "attr_numberMarkNTS-68",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -27693,11 +27693,11 @@
     "Name_JP": "69(ロック)",
     "Name_EN": "69(Signine)",
     "Images": {
-      "concept_PNGName": "cnsp_img69",
-      "corefolder_PNGPath": ["69/emstk_corefolder69-1"],
+      "concept_PNGName": "cnsp_imgNTS-69",
+      "corefolder_PNGPath": ["69/emstk_corefolderNTS-69-1"],
       "arts_PNGPath": [
-        "humanoids/2023/art_img69-humanoid",
-        "humanoids/2023/art_img69-humanoidOnMask"
+        "humanoids/2023/art_imgNTS-69-humanoid",
+        "humanoids/2023/art_imgNTS-69-humanoidOnMask"
       ]
     },
     "FormalName_JP": "ナンバーテールズ69番機",
@@ -28134,8 +28134,8 @@
     "Name_JP": "70(ナナト)",
     "Name_EN": "70(Seventia)",
     "Images": {
-      "concept_PNGName": "cnsp_img70",
-      "corefolder_PNGPath": ["70/emstk_corefolder70-1"]
+      "concept_PNGName": "cnsp_imgNTS-70",
+      "corefolder_PNGPath": ["70/emstk_corefolderNTS-70-1"]
     },
     "FormalName_JP": "ナンバーテールズ70番機",
     "FormalName_EN": "NumberTales #70",
@@ -28207,7 +28207,7 @@
             "value_EN": "Arabic numeral '70'"
           }
         ],
-        "img_PNGName": "attr_numberMark70",
+        "img_PNGName": "attr_numberMarkNTS-70",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -28233,7 +28233,7 @@
             "value_EN": "Arabic numeral '70'"
           }
         ],
-        "img_PNGName": "attr_numberMark70",
+        "img_PNGName": "attr_numberMarkNTS-70",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -28500,8 +28500,8 @@
     "Name_JP": "71(ナナヒ)",
     "Name_EN": "71(Sevone)",
     "Images": {
-      "concept_PNGName": "cnsp_img71",
-      "corefolder_PNGPath": ["71/emstk_corefolder71-1"]
+      "concept_PNGName": "cnsp_imgNTS-71",
+      "corefolder_PNGPath": ["71/emstk_corefolderNTS-71-1"]
     },
     "FormalName_JP": "ナンバーテールズ71番機",
     "FormalName_EN": "NumberTales #71",
@@ -28577,7 +28577,7 @@
             "value_EN": "Arabic numeral '71' (square motif design)"
           }
         ],
-        "img_PNGName": "attr_numberMark71",
+        "img_PNGName": "attr_numberMarkNTS-71",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -28608,7 +28608,7 @@
             "value_EN": "blue ponytail with number motif hairpin"
           }
         ],
-        "img_PNGName": "attr_costumeItem71-number",
+        "img_PNGName": "attr_costumeItemNTS-71-number",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -28857,8 +28857,8 @@
     "Name_JP": "72(ナフタ)",
     "Name_EN": "72(Sevtwína)",
     "Images": {
-      "concept_PNGName": "cnsp_img72",
-      "corefolder_PNGPath": ["72/emstk_corefolder72-1"]
+      "concept_PNGName": "cnsp_imgNTS-72",
+      "corefolder_PNGPath": ["72/emstk_corefolderNTS-72-1"]
     },
     "FormalName_JP": "ナンバーテールズ72番機",
     "FormalName_EN": "NumberTales #72",
@@ -28933,7 +28933,7 @@
             "value_EN": "NW-7 barcode printed with 'A-72---A' (with a small corresponding string below)"
           }
         ],
-        "img_PNGName": "attr_numberMark72",
+        "img_PNGName": "attr_numberMarkNTS-72",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -28959,7 +28959,7 @@
             "value_EN": "NW-7 barcode printed with 'A-72---A' (with a small corresponding string below)"
           }
         ],
-        "img_PNGName": "attr_numberMark72",
+        "img_PNGName": "attr_numberMarkNTS-72",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -29243,19 +29243,19 @@
     "Name_JP": "73(ナトミ)",
     "Name_EN": "73(Sevthira)",
     "Images": {
-      "concept_PNGName": "cnsp_img73",
-      "catalog_PNGName": "chr-dsgn_catalog73",
+      "concept_PNGName": "cnsp_imgNTS-73",
+      "catalog_PNGName": "chr-dsgn_catalogNTS-73",
       "corefolder_PNGPath": [
-        "73/emstk_corefolder73-1",
-        "73/emstk_corefolder73-2"
+        "73/emstk_corefolderNTS-73-1",
+        "73/emstk_corefolderNTS-73-2"
       ],
       "arts_PNGPath": [
         "corefolders/sphericateDay/art_sphericateDay202212r1A",
         "corefolders/sphericateDay/art_sphericateDay202212r1B",
-        "humanoids/2023/art_img73-humanoid",
-        "humanoids/parody/art_img73-parody",
+        "humanoids/2023/art_imgNTS-73-humanoid",
+        "humanoids/parody/art_imgNTS-73-parody",
         "corefolders/autumnMoon/art_autumnMoon2024",
-        "chattingArt/chart_img73-humanoidWhereIsEho"
+        "chattingArt/chart_imgNTS-73-humanoidWhereIsEho"
       ]
     },
     "FormalName_JP": "ナンバーテールズ73番機",
@@ -29280,7 +29280,7 @@
           { "Laterality": "#Lat_Upper", "TailCount": 4, "ClusterCount": 1 },
           { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 2 }
         ],
-        "TailsUnit_PNGName": "attr_tailsUnit73",
+        "TailsUnit_PNGName": "attr_tailsUnitNTS-73",
         "Note_JP": null,
         "Note_EN": null
       }
@@ -29334,7 +29334,7 @@
             "value_EN": "Arabic numeral '73' (motif composed of multiple triangles)"
           }
         ],
-        "img_PNGName": "attr_numberMark73",
+        "img_PNGName": "attr_numberMarkNTS-73",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -29649,12 +29649,12 @@
     "Name_JP": "74(ナナヨ)",
     "Name_EN": "74(Sefoury)",
     "Images": {
-      "concept_PNGName": "cnsp_img74",
-      "corefolder_PNGPath": ["74/emstk_corefolder74-1"],
+      "concept_PNGName": "cnsp_imgNTS-74",
+      "corefolder_PNGPath": ["74/emstk_corefolderNTS-74-1"],
       "arts_PNGPath": [
         "corefolders/sphericateDay/art_sphericateDay202307",
-        "corefolders/2023/art_img74-corefolderAsObjectA",
-        "corefolders/2023/art_img74-corefolderAsObjectB"
+        "corefolders/2023/art_imgNTS-74-corefolderAsObjectA",
+        "corefolders/2023/art_imgNTS-74-corefolderAsObjectB"
       ]
     },
     "FormalName_JP": "ナンバーテールズ74番機",
@@ -29733,7 +29733,7 @@
             "value_EN": "Arabic numeral '74'"
           }
         ],
-        "img_PNGName": "attr_numberMark74",
+        "img_PNGName": "attr_numberMarkNTS-74",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -30002,10 +30002,10 @@
     "Name_JP": "75(シチゴ)",
     "Name_EN": "75(Sefievn)",
     "Images": {
-      "concept_PNGName": "cnsp_img75",
-      "corefolder_PNGPath": ["75/emstk_corefolder75-1"],
+      "concept_PNGName": "cnsp_imgNTS-75",
+      "corefolder_PNGPath": ["75/emstk_corefolderNTS-75-1"],
       "arts_PNGPath": [
-        "corefolders/sphericateDay/art_sphericateDay202305-img75"
+        "corefolders/sphericateDay/art_sphericateDay202305-imgNTS-75"
       ]
     },
     "FormalName_JP": "ナンバーテールズ75番機",
@@ -30081,7 +30081,7 @@
             "value_EN": "Arabic numeral '75'"
           }
         ],
-        "img_PNGName": "attr_numberMark75",
+        "img_PNGName": "attr_numberMarkNTS-75",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -30107,7 +30107,7 @@
             "value_EN": "Arabic numeral '75'"
           }
         ],
-        "img_PNGName": "attr_numberMark75",
+        "img_PNGName": "attr_numberMarkNTS-75",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -30389,12 +30389,12 @@
     "Name_JP": "76(シチロク)",
     "Name_EN": "76(Sevsix)",
     "Images": {
-      "concept_PNGName": "cnsp_img76",
+      "concept_PNGName": "cnsp_imgNTS-76",
       "corefolder_PNGPath": [
-        "76/emstk_corefolder76-1",
-        "76/emstk_corefolder76-2",
-        "76/emstk_corefolder76-3",
-        "76/emstk_corefolder76-4"
+        "76/emstk_corefolderNTS-76-1",
+        "76/emstk_corefolderNTS-76-2",
+        "76/emstk_corefolderNTS-76-3",
+        "76/emstk_corefolderNTS-76-4"
       ]
     },
     "FormalName_JP": "ナンバーテールズ76番機",
@@ -30470,7 +30470,7 @@
             "value_EN": "Arabic numeral '76'"
           }
         ],
-        "img_PNGName": "attr_numberMark76",
+        "img_PNGName": "attr_numberMarkNTS-76",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -30496,7 +30496,7 @@
             "value_EN": "Arabic numeral '76'"
           }
         ],
-        "img_PNGName": "attr_numberMark76",
+        "img_PNGName": "attr_numberMarkNTS-76",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -30522,7 +30522,7 @@
             "value_EN": "Arabic numeral '76' (stylized motif)"
           }
         ],
-        "img_PNGName": "attr_numberMark76-headset",
+        "img_PNGName": "attr_numberMarkNTS-76-headset",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -30834,10 +30834,10 @@
     "Name_JP": "77(ナヅナ)",
     "Name_EN": "77(Sefvens)",
     "Images": {
-      "concept_PNGName": "cnsp_img77",
+      "concept_PNGName": "cnsp_imgNTS-77",
       "corefolder_PNGPath": [
-        "77/emstk_corefolder77-1",
-        "77/emstk_corefolder77-2"
+        "77/emstk_corefolderNTS-77-1",
+        "77/emstk_corefolderNTS-77-2"
       ]
     },
     "FormalName_JP": "ナンバーテールズ77番機",
@@ -30914,7 +30914,7 @@
             "value_EN": "Arabic numeral '77'"
           }
         ],
-        "img_PNGName": "attr_numberMark77",
+        "img_PNGName": "attr_numberMarkNTS-77",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -30940,7 +30940,7 @@
             "value_EN": "Arabic numeral '77'"
           }
         ],
-        "img_PNGName": "attr_numberMark77",
+        "img_PNGName": "attr_numberMarkNTS-77",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -31005,7 +31005,7 @@
             "value_EN": "green crystal forehead marking"
           }
         ],
-        "img_PNGName": "attr_emblem77-facemaking",
+        "img_PNGName": "attr_emblemNTS-77-facemaking",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -31225,12 +31225,12 @@
     "Name_JP": "78(ナナハ)",
     "Name_EN": "78(Seveights)",
     "Images": {
-      "concept_PNGName": "cnsp_img78",
+      "concept_PNGName": "cnsp_imgNTS-78",
       "corefolder_PNGPath": [
-        "78/emstk_corefolder78-1",
-        "78/emstk_corefolder78-2"
+        "78/emstk_corefolderNTS-78-1",
+        "78/emstk_corefolderNTS-78-2"
       ],
-      "arts_PNGPath": ["corefolders/2025-2026/art_img78-corefolder"]
+      "arts_PNGPath": ["corefolders/2025-2026/art_imgNTS-78-corefolder"]
     },
     "FormalName_JP": "ナンバーテールズ78番機",
     "FormalName_EN": "NumberTales #78",
@@ -31665,7 +31665,7 @@
     "Progress": "released",
     "Name_JP": "80(ヤソ)",
     "Name_EN": "80(Eightis)",
-    "Images": { "concept_PNGName": "cnsp_img80" },
+    "Images": { "concept_PNGName": "cnsp_imgNTS-80" },
     "FormalName_JP": "ナンバーテールズ80番機",
     "FormalName_EN": "NumberTales #80",
     "CodeName_JP": "八〇",
@@ -32123,8 +32123,8 @@
     "Name_JP": "81(ヤイチ)",
     "Name_EN": "81(Eightone)",
     "Images": {
-      "concept_PNGName": "cnsp_img81",
-      "corefolder_PNGPath": ["81/emstk_corefolder81-1"]
+      "concept_PNGName": "cnsp_imgNTS-81",
+      "corefolder_PNGPath": ["81/emstk_corefolderNTS-81-1"]
     },
     "FormalName_JP": "ナンバーテールズ81番機",
     "FormalName_EN": "NumberTales #81",
@@ -32199,7 +32199,7 @@
             "value_EN": "Arabic numeral with brackets: '<81>'"
           }
         ],
-        "img_PNGName": "attr_numberMark81",
+        "img_PNGName": "attr_numberMarkNTS-81",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -32225,7 +32225,7 @@
             "value_EN": "Arabic numeral with brackets: '<81>'"
           }
         ],
-        "img_PNGName": "attr_numberMark81",
+        "img_PNGName": "attr_numberMarkNTS-81",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -32614,8 +32614,8 @@
     "Name_JP": "84(ヤツヨ)",
     "Name_EN": "84(Eightifort)",
     "Images": {
-      "concept_PNGName": "cnsp_img84",
-      "corefolder_PNGPath": ["84/emstk_corefolder84-1"]
+      "concept_PNGName": "cnsp_imgNTS-84",
+      "corefolder_PNGPath": ["84/emstk_corefolderNTS-84-1"]
     },
     "FormalName_JP": "ナンバーテールズ84番機",
     "FormalName_EN": "NumberTales #84",
@@ -32696,7 +32696,7 @@
             "value_EN": "Arabic numeral '84'"
           }
         ],
-        "img_PNGName": "attr_numberMark84",
+        "img_PNGName": "attr_numberMarkNTS-84",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -32722,7 +32722,7 @@
             "value_EN": "Arabic numeral '84'"
           }
         ],
-        "img_PNGName": "attr_numberMark84",
+        "img_PNGName": "attr_numberMarkNTS-84",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -33010,18 +33010,18 @@
     "Name_JP": "85(ハッコ)\n85(パコ)",
     "Name_EN": "85(Eightifie)\n85(Eigfie)",
     "Images": {
-      "concept_PNGName": "cnsp_img85",
-      "catalog_PNGName": "chr-dsgn_catalog85",
+      "concept_PNGName": "cnsp_imgNTS-85",
+      "catalog_PNGName": "chr-dsgn_catalogNTS-85",
       "corefolder_PNGPath": [
-        "85/emstk_corefolder85-1",
-        "85/emstk_corefolder85-2"
+        "85/emstk_corefolderNTS-85-1",
+        "85/emstk_corefolderNTS-85-2"
       ],
       "designAlt_PNGPath": [
         "eventArt/art_sphericateDay-halloween2023A",
         "eventArt/art_sphericateDay-halloween2023B"
       ],
       "arts_PNGPath": [
-        "corefolders/2023/art_img85-corefolder",
+        "corefolders/2023/art_imgNTS-85-corefolder",
         "corefolders/sphericateDay/art_sphericateDay202310"
       ]
     },
@@ -33047,7 +33047,7 @@
           { "Laterality": "#Lat_Upper", "TailCount": 3, "ClusterCount": 1 },
           { "Laterality": "#Lat_Lower", "TailCount": 5, "ClusterCount": 2 }
         ],
-        "TailsUnit_PNGName": "attr_tailsUnit85",
+        "TailsUnit_PNGName": "attr_tailsUnitNTS-85",
         "Note_JP": null,
         "Note_EN": null
       }
@@ -33424,8 +33424,8 @@
     "Name_JP": "86(ハチロ)",
     "Name_EN": "86(Eightix)",
     "Images": {
-      "concept_PNGName": "cnsp_img86",
-      "corefolder_PNGPath": ["86/emstk_corefolder86-1"]
+      "concept_PNGName": "cnsp_imgNTS-86",
+      "corefolder_PNGPath": ["86/emstk_corefolderNTS-86-1"]
     },
     "FormalName_JP": "ナンバーテールズ86番機",
     "FormalName_EN": "NumberTales #86",
@@ -33500,7 +33500,7 @@
             "value_EN": "Arabic numeral '86'"
           }
         ],
-        "img_PNGName": "attr_numberMark86",
+        "img_PNGName": "attr_numberMarkNTS-86",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -33526,7 +33526,7 @@
             "value_EN": "Arabic numeral '86'"
           }
         ],
-        "img_PNGName": "attr_numberMark86",
+        "img_PNGName": "attr_numberMarkNTS-86",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -33790,13 +33790,13 @@
     "Name_JP": "87(ヤシナ)\n87(ハナ)",
     "Name_EN": "87(Eighteven)\n87(Eivee)",
     "Images": {
-      "concept_PNGName": "cnsp_img87",
+      "concept_PNGName": "cnsp_imgNTS-87",
       "corefolder_PNGPath": [
-        "87/emstk_corefolder87-1",
-        "87/emstk_corefolder87-2",
-        "87/emstk_corefolder87-3"
+        "87/emstk_corefolderNTS-87-1",
+        "87/emstk_corefolderNTS-87-2",
+        "87/emstk_corefolderNTS-87-3"
       ],
-      "arts_PNGPath": ["chattingArt/chart_img87-humanoidTooOrdered"]
+      "arts_PNGPath": ["chattingArt/chart_imgNTS-87-humanoidTooOrdered"]
     },
     "FormalName_JP": "ナンバーテールズ87番機",
     "FormalName_EN": "NumberTales #87",
@@ -34228,8 +34228,8 @@
     "Name_JP": "88(ヤソハチ)",
     "Name_EN": "88(Infinights)",
     "Images": {
-      "concept_PNGName": "cnsp_img88",
-      "corefolder_PNGPath": ["88/emstk_corefolder88-1"]
+      "concept_PNGName": "cnsp_imgNTS-88",
+      "corefolder_PNGPath": ["88/emstk_corefolderNTS-88-1"]
     },
     "FormalName_JP": "ナンバーテールズ88番機",
     "FormalName_EN": "NumberTales #88",
@@ -34302,7 +34302,7 @@
             "value_EN": "Arabic numeral '88' (horizontal orientation; can also be seen as two infinity symbols '∞' side by side)"
           }
         ],
-        "img_PNGName": "attr_numberMark88",
+        "img_PNGName": "attr_numberMarkNTS-88",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -34397,7 +34397,7 @@
             "value_EN": "piano-keyboard holographic ring"
           }
         ],
-        "img_PNGName": "attr_motif88-piano",
+        "img_PNGName": "attr_motifNTS-88-piano",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -34610,12 +34610,12 @@
     "Name_JP": "89(ヤスモ)",
     "Name_EN": "89(Eightine)",
     "Images": {
-      "concept_PNGName": "cnsp_img89",
+      "concept_PNGName": "cnsp_imgNTS-89",
       "corefolder_PNGPath": [
-        "89/emstk_corefolder89-1",
-        "89/emstk_corefolder89-2"
+        "89/emstk_corefolderNTS-89-1",
+        "89/emstk_corefolderNTS-89-2"
       ],
-      "arts_PNGPath": ["chattingArt/chart_img89-corefolder"]
+      "arts_PNGPath": ["chattingArt/chart_imgNTS-89-corefolder"]
     },
     "FormalName_JP": "ナンバーテールズ89番機",
     "FormalName_EN": "NumberTales #89",
@@ -34692,7 +34692,7 @@
             "value_EN": "Arabic numeral '89'"
           }
         ],
-        "img_PNGName": "attr_numberMark89",
+        "img_PNGName": "attr_numberMarkNTS-89",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -34718,7 +34718,7 @@
             "value_EN": "Arabic numeral '89'"
           }
         ],
-        "img_PNGName": "attr_numberMark89",
+        "img_PNGName": "attr_numberMarkNTS-89",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -35101,8 +35101,8 @@
     "Name_JP": "92(コトジ)",
     "Name_EN": "92(Nintwina)",
     "Images": {
-      "concept_PNGName": "cnsp_img92",
-      "corefolder_PNGPath": ["92/emstk_corefolder92-1"]
+      "concept_PNGName": "cnsp_imgNTS-92",
+      "corefolder_PNGPath": ["92/emstk_corefolderNTS-92-1"]
     },
     "FormalName_JP": "ナンバーテールズ92番機",
     "FormalName_EN": "NumberTales #92",
@@ -35421,15 +35421,15 @@
     "Name_JP": "93(クミ)",
     "Name_EN": "93(Nintris)",
     "Images": {
-      "concept_PNGName": "cnsp_img93",
-      "catalog_PNGName": "chr-dsgn_catalog93",
+      "concept_PNGName": "cnsp_imgNTS-93",
+      "catalog_PNGName": "chr-dsgn_catalogNTS-93",
       "corefolder_PNGPath": [
-        "93/emstk_corefolder93-1",
-        "93/emstk_corefolder93-2"
+        "93/emstk_corefolderNTS-93-1",
+        "93/emstk_corefolderNTS-93-2"
       ],
       "arts_PNGPath": [
         "corefolders/sphericateDay/art_sphericateDay202201",
-        "humanoids/cnsp_chrst93"
+        "humanoids/cnsp_chrstNTS-93"
       ]
     },
     "FormalName_JP": "ナンバーテールズ93番機",
@@ -35452,7 +35452,7 @@
           { "Laterality": "#Lat_Upper", "TailCount": 6, "ClusterCount": 1 },
           { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 2 }
         ],
-        "TailsUnit_PNGName": "attr_tailsUnit93",
+        "TailsUnit_PNGName": "attr_tailsUnitNTS-93",
         "Note_JP": null,
         "Note_EN": null
       }
@@ -35511,7 +35511,7 @@
             "value_EN": "Arabic numeral '93' (stylized motif)"
           }
         ],
-        "img_PNGName": "attr_numberMark93",
+        "img_PNGName": "attr_numberMarkNTS-93",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -35537,7 +35537,7 @@
             "value_EN": "Arabic numeral '93' (stylized motif)"
           }
         ],
-        "img_PNGName": "attr_numberMark93",
+        "img_PNGName": "attr_numberMarkNTS-93",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -35882,9 +35882,9 @@
     "Name_JP": "94(ツクシ)",
     "Name_EN": "94(Ninfors)",
     "Images": {
-      "concept_PNGName": "cnsp_img94",
-      "corefolder_PNGPath": ["94/emstk_corefolder94-1"],
-      "arts_PNGPath": ["corefolders/2023/art_img94-corefolder"]
+      "concept_PNGName": "cnsp_imgNTS-94",
+      "corefolder_PNGPath": ["94/emstk_corefolderNTS-94-1"],
+      "arts_PNGPath": ["corefolders/2023/art_imgNTS-94-corefolder"]
     },
     "FormalName_JP": "ナンバーテールズ94番機",
     "FormalName_EN": "NumberTales #94",
@@ -35961,7 +35961,7 @@
             "value_EN": "Arabic numeral '94'"
           }
         ],
-        "img_PNGName": "attr_numberMark94",
+        "img_PNGName": "attr_numberMarkNTS-94",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -35987,7 +35987,7 @@
             "value_EN": "Arabic numeral '94'"
           }
         ],
-        "img_PNGName": "attr_numberMark94",
+        "img_PNGName": "attr_numberMarkNTS-94",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -36329,14 +36329,14 @@
     "Name_JP": "96(クルリ)",
     "Name_EN": "96(Rota)",
     "Images": {
-      "concept_PNGName": "cnsp_img96",
+      "concept_PNGName": "cnsp_imgNTS-96",
       "corefolder_PNGPath": [
-        "96/emstk_corefolder96-1",
-        "96/emstk_corefolder96-2"
+        "96/emstk_corefolderNTS-96-1",
+        "96/emstk_corefolderNTS-96-2"
       ],
       "arts_PNGPath": [
-        "humanoids/2023/art_img96-humanoid",
-        "humanoids/2023/art_img96-humanoidCastOff"
+        "humanoids/2023/art_imgNTS-96-humanoid",
+        "humanoids/2023/art_imgNTS-96-humanoidCastOff"
       ]
     },
     "FormalName_JP": "ナンバーテールズ96番機",
@@ -36823,13 +36823,13 @@
     "Name_JP": "97(ココナ)",
     "Name_EN": "97(Ninsefie)",
     "Images": {
-      "concept_PNGName": "cnsp_img97",
+      "concept_PNGName": "cnsp_imgNTS-97",
       "corefolder_PNGPath": [
-        "97/emstk_corefolder97-1",
-        "97/emstk_corefolder97-2",
-        "97/emstk_corefolder97-3"
+        "97/emstk_corefolderNTS-97-1",
+        "97/emstk_corefolderNTS-97-2",
+        "97/emstk_corefolderNTS-97-3"
       ],
-      "arts_PNGPath": ["chattingArt/chart_img97-humanoid"]
+      "arts_PNGPath": ["chattingArt/chart_imgNTS-97-humanoid"]
     },
     "FormalName_JP": "ナンバーテールズ97番機",
     "FormalName_EN": "NumberTales #97",
@@ -36904,7 +36904,7 @@
             "value_EN": "Arabic numeral '97' (slightly stylized)"
           }
         ],
-        "img_PNGName": "attr_numberMark97-1",
+        "img_PNGName": "attr_numberMarkNTS-97-1",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -36930,7 +36930,7 @@
             "value_EN": "Arabic numeral '97' (slightly stylized)"
           }
         ],
-        "img_PNGName": "attr_numberMark97-2",
+        "img_PNGName": "attr_numberMarkNTS-97-2",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -36995,7 +36995,7 @@
             "value_EN": "white cross emblem on gray nun-like top hat"
           }
         ],
-        "img_PNGName": "attr_emblem97-tophat",
+        "img_PNGName": "attr_emblemNTS-97-tophat",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -37237,8 +37237,8 @@
     "Name_JP": "98(キュウヤ)",
     "Name_EN": "98(Nineigha)",
     "Images": {
-      "concept_PNGName": "cnsp_img98",
-      "corefolder_PNGPath": ["98/emstk_corefolder98-1"]
+      "concept_PNGName": "cnsp_imgNTS-98",
+      "corefolder_PNGPath": ["98/emstk_corefolderNTS-98-1"]
     },
     "FormalName_JP": "ナンバーテールズ98番機",
     "FormalName_EN": "NumberTales #98",
@@ -37313,7 +37313,7 @@
             "value_EN": "Arabic numeral '98'"
           }
         ],
-        "img_PNGName": "attr_numberMark98",
+        "img_PNGName": "attr_numberMarkNTS-98",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -37339,7 +37339,7 @@
             "value_EN": "Arabic numeral '98'"
           }
         ],
-        "img_PNGName": "attr_numberMark98",
+        "img_PNGName": "attr_numberMarkNTS-98",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -37602,10 +37602,10 @@
     "Name_JP": "99(ツクモ)",
     "Name_EN": "99(Thukumo)",
     "Images": {
-      "concept_PNGName": "cnsp_img99",
+      "concept_PNGName": "cnsp_imgNTS-99",
       "corefolder_PNGPath": [
-        "99/emstk_corefolder99-1",
-        "99/emstk_corefolder99-2"
+        "99/emstk_corefolderNTS-99-1",
+        "99/emstk_corefolderNTS-99-2"
       ]
     },
     "FormalName_JP": "ナンバーテールズ99番機",
@@ -37680,7 +37680,7 @@
             "value_EN": "Kanji numeral '九十九' (Thukumo)"
           }
         ],
-        "img_PNGName": "attr_numberMark99",
+        "img_PNGName": "attr_numberMarkNTS-99",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -37706,7 +37706,7 @@
             "value_EN": "Two shapes resembling the Arabic numeral '9', one circular and one linear, overlapping with a slight rotational offset"
           }
         ],
-        "img_PNGName": "attr_numberMark99",
+        "img_PNGName": "attr_numberMarkNTS-99",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -37803,7 +37803,7 @@
             "value_EN": "pink light-ring halo behind head"
           }
         ],
-        "img_PNGName": "attr_halo99",
+        "img_PNGName": "attr_haloNTS-99",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -38073,10 +38073,10 @@
     "Name_JP": "バイナ\n2(ツギ)",
     "Name_EN": "Binor\n2(Twicy)",
     "Images": {
-      "concept_PNGName": "cnsp_img2-alt",
+      "concept_PNGName": "cnsp_imgNTS-2B",
       "corefolder_PNGPath": [
-        "2-alt/emstk_corefolder2alt-1",
-        "2-alt/emstk_corefolder2alt-2"
+        "2-alt/emstk_corefolderNTS-2B-1",
+        "2-alt/emstk_corefolderNTS-2B-2"
       ],
       "arts_PNGPath": [
         "corefolders/sphericateDay/art_sphericateDay202112",
@@ -38183,7 +38183,7 @@
             "value_EN": "Arabic numeral '2' with the label 'Bi-nor' slightly smaller and spanning across the numeral (the text reads as 'Bi 2 nor')"
           }
         ],
-        "img_PNGName": "attr_numberMark2alt",
+        "img_PNGName": "attr_numberMarkNTS-2B",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -38272,7 +38272,7 @@
             "value_EN": "orange '試用' (trial / test) label"
           }
         ],
-        "img_PNGName": "attr_tag2alt-試用",
+        "img_PNGName": "attr_tagNTS-2B-試用",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -38458,7 +38458,7 @@
     "Name_JP": "ディケ\n10(ツナイ)",
     "Name_EN": "Dicat\n10(Decadle)",
     "Images": {
-      "corefolder_PNGPath": ["10-alt/emstk_corefolder10alt-ondeck1"]
+      "corefolder_PNGPath": ["10-alt/emstk_corefolderNTS-10D-ondeck1"]
     },
     "FormalName_JP": "ナンバーテールズ試作型10号機",
     "FormalName_EN": "NumberTales' Prototype Mk.10",
@@ -38525,7 +38525,7 @@
             "value_EN": "Roman numeral 'X'"
           }
         ],
-        "img_PNGName": "attr_numberMark10alt",
+        "img_PNGName": "attr_numberMarkNTS-10D",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -38636,7 +38636,7 @@
             "value_EN": "yellow '調整中' (under adjustment) caution label"
           }
         ],
-        "img_PNGName": "attr_tag10alt-調整中",
+        "img_PNGName": "attr_tagNTS-10D-調整中",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -38712,11 +38712,11 @@
     "Name_JP": "000(チトセ)",
     "Name_EN": "000(Thouser)",
     "Images": {
-      "concept_PNGName": "cnsp_img000",
+      "concept_PNGName": "cnsp_imgNTS-000",
       "corefolder_PNGPath": [
-        "000/emstk_corefolder000-1",
-        "000/emstk_corefolder000-2",
-        "000/emstk_corefolder000-3"
+        "000/emstk_corefolderNTS-000-1",
+        "000/emstk_corefolderNTS-000-2",
+        "000/emstk_corefolderNTS-000-3"
       ]
     },
     "FormalName_JP": "ナンバーテールズ0番機",
@@ -38790,7 +38790,7 @@
             "value_EN": "Arabic numeral '000'"
           }
         ],
-        "img_PNGName": "attr_numberMark000",
+        "img_PNGName": "attr_numberMarkNTS-000",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -38816,7 +38816,7 @@
             "value_EN": "Arabic numeral '000'"
           }
         ],
-        "img_PNGName": "attr_numberMark000",
+        "img_PNGName": "attr_numberMarkNTS-000",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -39111,8 +39111,8 @@
     "Name_JPReading": "カズナイ レイ",
     "Name_EN": "Zera Norumber",
     "Images": {
-      "concept_PNGName": "cnsp_img0",
-      "arts_PNGPath": ["art_img0-developper"]
+      "concept_PNGName": "cnsp_imgNTS-0",
+      "arts_PNGPath": ["art_imgNTS-0-developper"]
     },
     "FormalName_JP": "千歳 玲",
     "FormalName_JPReading": "ちとせ れい",
@@ -39420,8 +39420,8 @@
     "Name_JPReading": "カズナイ ハゲム",
     "Name_EN": "Hudret Norumber",
     "Images": {
-      "concept_PNGName": "cnsp_img00",
-      "arts_PNGPath": ["art_img00-developper"]
+      "concept_PNGName": "cnsp_imgNTS-00",
+      "arts_PNGPath": ["art_imgNTS-00-developper"]
     },
     "FormalName_JP": "千歳 励",
     "FormalName_JPReading": "ちとせ はげむ",
