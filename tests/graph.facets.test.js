@@ -15,6 +15,9 @@ import path from 'node:path';
 import { globSync } from 'glob';
 import {
 	collectFacets,
+	buildHierarchy,
+	collectMapPartition,
+	classifyMapPartition,
 	extractFacetValues,
 	resolveFacetLabel,
 	groupNodesByFacet,
@@ -252,6 +255,63 @@ describe('selectUsableFacets', () => {
 	});
 });
 
+describe('collectMapPartition / classifyMapPartition', () => {
+	const globalTypeDef = {
+		$MetaType: {
+			$Def_SecondaryMeta: [{
+				hashTag: 'sec_DesignedBy',
+				$dict: 'DesignedBy',
+				$display: { mapPartition: { ownerFlag: 'isOwner', sharedLabel_JP: '共同二次創作' } }
+			}]
+		}
+	};
+	const partition = collectMapPartition(globalTypeDef);
+	// 本人フラグは辞書行に立てる（コードへ人名を埋め込まない）
+	const rows = [{ DesignedBy: 'RadianN', isOwner: true }, { DesignedBy: 'Atast' }];
+	const lookup = (field, value, column) => rows.find(r => r.DesignedBy === value)?.[column];
+
+	it('宣言を集められる', () => {
+		expect(partition.field).toBe('sec_DesignedBy');
+		expect(partition.ownerFlag).toBe('isOwner');
+		expect(partition.sharedLabel_JP).toBe('共同二次創作');
+	});
+
+	it('本人だけなら own', () => {
+		expect(classifyMapPartition({ sec_DesignedBy: ['RadianN'] }, partition, lookup)).toBe('own');
+	});
+
+	it('他者が 1 人でも混ざれば shared', () => {
+		expect(classifyMapPartition({ sec_DesignedBy: ['Atast'] }, partition, lookup)).toBe('shared');
+		expect(classifyMapPartition({ sec_DesignedBy: ['RadianN', 'Atast'] }, partition, lookup)).toBe('shared');
+	});
+
+	it('値が無ければ own（一次創作など）', () => {
+		expect(classifyMapPartition({}, partition, lookup)).toBe('own');
+		expect(classifyMapPartition({ sec_DesignedBy: null }, partition, lookup)).toBe('own');
+	});
+
+	it('辞書で本人と確認できない値は shared 側へ倒す（安全側）', () => {
+		expect(classifyMapPartition({ sec_DesignedBy: ['Unknown'] }, partition, lookup)).toBe('shared');
+	});
+
+	it('宣言が無ければ常に own', () => {
+		expect(classifyMapPartition({ sec_DesignedBy: ['Atast'] }, null, lookup)).toBe('own');
+	});
+
+	it('実データの `sec_DesignedBy` 辞書に本人フラグが立っている', () => {
+		const dict = readJson('data/Dictionaries/sec_DesignedBy.json');
+		const owners = dict.filter(r => r.isOwner === true);
+		expect(owners.length, '本人フラグ（isOwner: true）を持つ行が無い').toBeGreaterThan(0);
+		expect(dict.some(r => r.isOwner !== true), '他者の行が無いと分割の意味が無い').toBe(true);
+	});
+
+	it('実データの typedef に `mapPartition` が宣言されている', () => {
+		const real = collectMapPartition(readJson('data/db_type.json'));
+		expect(real).toBeTruthy();
+		expect(real.field).toBe('sec_DesignedBy');
+	});
+});
+
 describe('実データ不変条件', () => {
 	const globalTypeDef = readJson('data/db_type.json');
 	const workTypeDefs = {};
@@ -261,10 +321,36 @@ describe('実データ不変条件', () => {
 	}
 	const facets = collectFacets(globalTypeDef, workTypeDefs);
 
-	it('6 つの軸が宣言されている', () => {
-		expect(facets.map(f => f.key)).toEqual([
-			'Belonging', 'FromArea', 'Class', 'Progress', 'RaceType', 'GenderType'
-		]);
+	it('グローバルの 6 軸が宣言されている', () => {
+		const globalKeys = facets.filter(f => f.scope === 'global').map(f => f.key);
+		expect(globalKeys).toEqual(['Belonging', 'FromArea', 'Class', 'Progress', 'RaceType', 'GenderType']);
+	});
+
+	it('`$IndexDef` の子要素も軸になる（作品ごとの Index 別グルーピング）', () => {
+		const indexFacets = facets.filter(f => f.key.includes('.'));
+		expect(indexFacets.map(f => f.key)).toContain('Card.Suit');            // FLI78 のカード種別
+		expect(indexFacets.map(f => f.key)).toContain('Letter.AlphaGen');      // UnibyteLive の世代
+		// `key` は `<root>.<sub>` だが、レコード上のフィールドは root
+		expect(indexFacets.find(f => f.key === 'Card.Suit').field).toBe('Card');
+		expect(indexFacets.find(f => f.key === 'Card.Suit').path).toBe('Suit');
+	});
+
+	it('階層（`hierarchy`）を宣言した軸だけがドリルダウンの段になる', () => {
+		const levels = buildHierarchy(facets, { scope: '#Works_FLInvestigator78' });
+		expect(levels[0].kind).toBe('work');
+		expect(levels.map(l => l.key)).toEqual(['work', 'Belonging', 'Card.Suit', 'Class']);
+		// DB 別は宣言していないので階層に出ない
+		expect(levels.some(l => l.key === 'db')).toBe(false);
+		// 階層を宣言していない軸（グルーピング専用）も出ない
+		expect(levels.some(l => l.key === 'Progress')).toBe(false);
+	});
+
+	it('作品ごとに階層が変わる（宣言のスコープに従う）', () => {
+		const ubl = buildHierarchy(facets, { scope: '#Works_UnibyteLive' }).map(l => l.key);
+		const nts = buildHierarchy(facets, { scope: '#Works_NumberTales' }).map(l => l.key);
+		expect(ubl).toContain('Letter.AlphaGen');
+		expect(nts).not.toContain('Letter.AlphaGen');
+		expect(nts).not.toContain('Card.Suit');
 	});
 
 	it('構造型の軸には `path` が宣言されている（コード側で子要素名を決め打ちしないため）', () => {
@@ -290,11 +376,33 @@ describe('実データ不変条件', () => {
 
 		const dead = [];
 		for (const f of facets) {
+			// `dictRef` の軸はレコードに値が無く辞書行から引くため、辞書を渡さないこのケースでは対象外
+			if (f.dictRef) continue;
 			const { stats } = groupNodesByFacet(nodes, f, { includeUnset: false });
 			// 生レコード（_Commons 未適用）でも 1 件以上は値が取れるはず。
 			// 0 なら宣言の `path` が実データの形と食い違っている
 			if (stats.valueCount === 0) dead.push(f.key);
 		}
 		expect(dead, `実データから値を 1 件も取り出せない軸: ${dead.join(', ')}`).toEqual([]);
+	});
+
+	it('`dictRef` の軸は辞書を渡せば値が取れる（PastDivers の月暦の世代）', () => {
+		const facet = facets.find(f => f.key === 'Chronos.Generation');
+		expect(facet, 'Chronos.Generation の宣言が無い').toBeTruthy();
+		expect(facet.dictRef).toEqual({ from: 'Lunar', field: 'Generation' });
+
+		const lunar = readJson('data/Works_PastDivers/Dictionaries/dict_Lunar.json');
+		const lookup = (key, value, column) => lunar.find(r => r.Lunar === value)?.[column];
+
+		const nodes = [];
+		for (const p of globSync('data/Works_PastDivers/DataBases/db_*.json', { cwd: repoRoot })) {
+			if (/db_(meta|type)\.json$/.test(path.basename(p))) continue;
+			const recs = readJson(p);
+			if (Array.isArray(recs)) recs.forEach((r, i) => nodes.push({ key: `${p}|${i}`, record: r }));
+		}
+
+		const { stats } = groupNodesByFacet(nodes, facet, { includeUnset: false, lookupDictCell: lookup });
+		expect(stats.valueCount).toBeGreaterThan(1);
+		expect(stats.coverage).toBeGreaterThan(0.5);
 	});
 });
