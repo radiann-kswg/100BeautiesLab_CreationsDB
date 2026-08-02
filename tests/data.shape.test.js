@@ -163,8 +163,17 @@ describe('database shapes', () => {
     for (const key of refKeys) {
       expect(databases[key]?.DB_Layer).toBe('References');
     }
-    // Region8 は DB全体の俯瞰マップとしてDB_Imageを持つ
-    expect(databases['#Ref_Region8']?.DB_Image).toBe('cnsp-map_region8');
+    // Region8 は DB全体の俯瞰マップとしてDB_Imageを持つ。
+    // `resolveDbCoverImageUrl()`（pages/characters.js）は per-record 画像と違って拡張子を補完せず、
+    // 直後のガード `/^\/data\/[A-Za-z0-9_/-]+\.[A-Za-z0-9]+$/` が末尾の拡張子を要求するため、
+    // 拡張子が無いと必ず空文字が返ってカバー画像が黙って隠れる。実ファイル名ごと固定する。
+    const region8Image = databases['#Ref_Region8']?.DB_Image;
+    expect(region8Image).toBe('cnsp-map_region8.png');
+    expect(region8Image).toMatch(/\.[A-Za-z0-9]+$/);
+    // 実在確認は readdirSync で行う（existsSync は Windows で大小文字を区別しないため、
+    // GitHub Pages(Linux) でだけ 404 になるケースを取り逃がす）
+    const region8Dir = join(repoRoot, 'data/GeneralImages/Ref_Region8');
+    expect(readdirSync(region8Dir)).toContain(region8Image);
   });
 
   it('data/References/db_type.json declares $IndexDef on Term_JP for the common references pseudo-work', () => {
