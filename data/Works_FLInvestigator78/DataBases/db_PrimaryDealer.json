@@ -439,14 +439,14 @@
   {
     "Card": { "Suit": "Dealer", "Num": 79 },
     "Progress": "released(beta)",
-    "ArcanaHolding_DBLink": {
-      "_DB": "Primary",
-      "Card": { "Suit": "Dealer", "Num": 79 }
-    },
     "AnotherRegions_DBLink": {
       "_Work": "NumberTales",
       "_DB": "SemiPrimary",
       "Num": "%"
+    },
+    "ArcanaHolding_DBLink": {
+      "_DB": "Primary",
+      "Card": { "Suit": "Dealer", "Num": 79 }
     },
     "Images": { "concept_PNGName": ["cnsp_imgFLDealer"] },
     "FormalName_JP": "錦野 舞",
@@ -531,14 +531,14 @@
   {
     "Card": { "Suit": "Dealer", "Num": 80 },
     "Progress": "released(beta)",
-    "ArcanaHolding_DBLink": {
-      "_DB": "Primary",
-      "Card": { "Suit": "Dealer", "Num": 80 }
-    },
     "AnotherRegions_DBLink": {
       "_Work": "NumberTales",
       "_DB": "SemiPrimary",
       "Num": "∞"
+    },
+    "ArcanaHolding_DBLink": {
+      "_DB": "Primary",
+      "Card": { "Suit": "Dealer", "Num": 80 }
     },
     "Images": { "concept_PNGName": ["cnsp_imgFLDealer"] },
     "FormalName_JP": "錦野 歌嫁",

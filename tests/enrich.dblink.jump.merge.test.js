@@ -710,14 +710,32 @@ describe('_DBLink / _Jump merge (in-process)', () => {
     const primaryDealer = loadJson('data/Works_FLInvestigator78/DataBases/db_PrimaryDealer.json');
     const mai = primaryDealer.find(r => r?.Card?.Suit === 'Dealer' && Number(r?.Card?.Num) === 79);
     expect(mai).toBeTruthy();
+
+    // 参照元（FLInvestigator78/PrimaryDealer の錦野舞）が持つ自DBの Class。
+    // 以前は空配列だったが、2026-08-02 の DB 更新で実値が入力された。
+    // 「ベースが空値のときだけ穴埋めする」という enrich の仕様上、実値が入った時点で
+    // cross-work マージは発生しない。テストの主眼は下の「持ち込まれないこと」のガードにある
     expect(Array.isArray(mai.Class)).toBe(true);
-    expect(mai.Class).toHaveLength(0);
+    expect(mai.Class).toEqual(['采配幹部(ディーラーズ)']);
     expect(mai.RelationTo_Primary).toBeUndefined();
+
+    // 参照先（NumberTales/SemiPrimary の Num: "%"）は Class と RelationTo_Primary の双方を持つ。
+    // cross-work の `_DBLink` 制約により、これらが参照元へ流れ込んではいけない
+    const ntSemiPrimary = loadJson('data/Works_NumberTales/DataBases/db_SemiPrimary.json');
+    const linked = ntSemiPrimary.find(r => String(r?.Num) === '%');
+    expect(linked).toBeTruthy();
+    expect(linked.Class).toEqual(['開発者', 'ヒューマノイド開発部(シンフォニー.XVI)']);
+    expect(linked.RelationTo_Primary).toBeTruthy();
 
     const out = await proc.enrichRecords([mai], '#Works_FLInvestigator78', 'PrimaryDealer');
     const e = out[0];
 
-    expect(e.Class).toEqual([]);
+    // 自DBの値が維持され、参照先の Class は 1 件も混入しない
+    expect(e.Class).toEqual(['采配幹部(ディーラーズ)']);
+    for (const leaked of linked.Class) {
+      expect(e.Class).not.toContain(leaked);
+    }
+    // 参照先が持つ RelationTo_Primary も持ち込まれない（現DBの文脈が優先される）
     expect(e.RelationTo_Primary).toBeUndefined();
     expect(e.RelationNotes_JP).toContain('アルカナホルダー');
   });
