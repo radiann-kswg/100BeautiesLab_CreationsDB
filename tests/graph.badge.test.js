@@ -163,6 +163,37 @@ describe('buildBadgeBody', () => {
 	});
 });
 
+describe('レコードのフィールドを参照するバッジ（NumberTales の Num_Badge）', () => {
+	// インデックス（`Num`）とは別に用意した短縮コード用フィールドを宣言だけで使えること。
+	// インデックスフィールド自体は読むだけで書き換えない
+	const def = {
+		hashTag: 'Num',
+		$type: '#Number|#String',
+		$badge: { keys: ['Num_Badge', { key: 'Num', whenMissing: 'Num_Badge' }] }
+	};
+
+	it('`Num_Badge` があればそれを使う', () => {
+		expect(buildBadgeBody({ Num: '101-mp' }, def, null, { Num: '101-mp', Num_Badge: '101MP' })).toBe('101MP');
+	});
+
+	it('`Num_Badge` が無ければ `Num` へフォールバックする', () => {
+		expect(buildBadgeBody({ Num: '57' }, def, null, { Num: 57 })).toBe('57');
+	});
+
+	it('レコードを渡さなくても `Num` で成立する（後方互換）', () => {
+		expect(buildBadgeBody({ Num: '57' }, def)).toBe('57');
+	});
+
+	it('`buildBadge` へ record を渡せる', () => {
+		const r = buildBadge({
+			pairs: { Num: '222-alt' }, indexDef: def, worksCode: 'NTS',
+			record: { Num: '222-alt', Num_Badge: '222B' }
+		});
+		expect(r.badge).toBe('222B');
+		expect(r.full).toBe('NTS-222B');
+	});
+});
+
 describe('buildBadge', () => {
 	const def = { hashTag: 'Num', $badge: { keys: ['Num'] } };
 
@@ -290,6 +321,51 @@ describe('実データ不変条件', () => {
 		expect(new Set(codes).size).toBe(codes.length);
 	});
 
+	it('NumberTales の全レコードが `Num_Badge` を持ち、6 文字以内である', () => {
+		const long = [];
+		const missing = [];
+		for (const p of globSync('data/Works_NumberTales/DataBases/db_*.json', { cwd: repoRoot })) {
+			if (/db_(meta|type)\.json$/.test(path.basename(p))) continue;
+			const recs = readJson(p);
+			if (!Array.isArray(recs)) continue;
+			for (const r of recs) {
+				if (r?.Num === undefined || r?.Num === null) continue;
+				const b = r.Num_Badge;
+				if (typeof b !== 'string' || !b) { missing.push(`${path.basename(p)} Num=${JSON.stringify(r.Num)}`); continue; }
+				if (b.length > 6) long.push(`${b}(${b.length}) <- ${JSON.stringify(r.Num)}`);
+			}
+		}
+		expect(missing, `Num_Badge が無い: ${missing.slice(0, 5).join(' / ')}`).toEqual([]);
+		expect(long, `6 文字を超える: ${long.slice(0, 5).join(' / ')}`).toEqual([]);
+	});
+
+	it('`Num_Badge` はレコードのキー順で `Num` の直後にある', () => {
+		const bad = [];
+		for (const p of globSync('data/Works_NumberTales/DataBases/db_*.json', { cwd: repoRoot })) {
+			if (/db_(meta|type)\.json$/.test(path.basename(p))) continue;
+			const recs = readJson(p);
+			if (!Array.isArray(recs)) continue;
+			for (const r of recs) {
+				const keys = Object.keys(r);
+				const i = keys.indexOf('Num');
+				if (i < 0 || !keys.includes('Num_Badge')) continue;
+				if (keys[i + 1] !== 'Num_Badge') bad.push(`${path.basename(p)} Num=${JSON.stringify(r.Num)} -> ${keys[i + 1]}`);
+			}
+		}
+		expect(bad, `Num の直後に無い: ${bad.slice(0, 5).join(' / ')}`).toEqual([]);
+	});
+
+	it('`Num` フィールドは侵食されていない（型と値がそのまま）', () => {
+		// Num_Badge の導入で Num が文字列化されたりしていないこと
+		const primary = readJson('data/Works_NumberTales/DataBases/db_Primary.json');
+		const num57 = primary.find(r => r.Num === 57);
+		expect(num57, 'Num=57（数値型）が見つからない').toBeTruthy();
+		expect(typeof num57.Num).toBe('number');
+		const alt = primary.find(r => r.Num === '2-alt');
+		expect(alt, 'Num="2-alt"（文字列型）が見つからない').toBeTruthy();
+		expect(alt.Num_Badge).toBe('2B');
+	});
+
 	for (const typePath of workTypePaths) {
 		const workDir = typePath.split(/[/\\]/)[1];
 		const workId = `#Works_${workDir.replace('Works_', '')}`;
@@ -316,7 +392,7 @@ describe('実データ不変条件', () => {
 				for (const rec of recs) {
 					const pairs = extractIndexPairs(rec, indexDef);
 					if (!pairs) continue;
-					const { badge } = buildBadge({ pairs, indexDef, worksCode: code, lookupDictCell: lookup });
+					const { badge } = buildBadge({ pairs, indexDef, worksCode: code, lookupDictCell: lookup, record: rec });
 					const name = rec.Name_JP || rec.FormalName_JP || rec.Name || JSON.stringify(pairs);
 					if (!badge) { empties.push(name); continue; }
 					if (seen.has(badge)) dups.push(`${badge}（${seen.get(badge)} / ${name}）`);

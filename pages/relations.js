@@ -1510,7 +1510,10 @@ function decorateNodes() {
 		const { badge, full } = buildBadge({
 			pairs: n.pairs, indexDef,
 			worksCode: getWorksCode(state.globalMeta, n.workId),
-			lookupDictCell: lookup
+			lookupDictCell: lookup,
+			// `$badge` がインデックス以外のフィールド（NumberTales の `Num_Badge` 等）を
+			// 参照できるようレコードも渡す
+			record: n.record
 		});
 		n.badge = badge;
 		n.badgeFull = full;

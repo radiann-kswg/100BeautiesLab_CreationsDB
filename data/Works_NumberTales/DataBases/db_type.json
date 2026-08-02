@@ -4,7 +4,9 @@
     "$type": "#Number|#String",
     "hashTag_JP": "番号",
     "hashTag_EN": "Number",
-    "$badge": { "keys": ["Num"] }
+    "$badge": {
+      "keys": ["Num_Badge", { "key": "Num", "whenMissing": "Num_Badge" }]
+    }
   },
   "$DefType": [
     {
@@ -12,6 +14,14 @@
       "$type": "#Index",
       "hashTag_JP": "番号",
       "hashTag_EN": "Number"
+    },
+    {
+      "hashTag": "Num_Badge",
+      "$type": "#String",
+      "$slot": "#Index",
+      "hashTag_JP": "番号バッジ",
+      "hashTag_EN": "Number Badge",
+      "$display": { "langMode": "shared", "auto": false }
     },
     {
       "hashTag": "Images",

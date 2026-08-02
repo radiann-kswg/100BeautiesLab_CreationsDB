@@ -1,6 +1,7 @@
 [
   {
     "Num": 1,
+    "Num_Badge": "1",
     "Progress": "released",
     "Name_JP": "1(ハジメ)",
     "Name_EN": "1(Unitta)",
@@ -551,6 +552,7 @@
   },
   {
     "Num": 2,
+    "Num_Badge": "2",
     "Progress": "released",
     "Name_JP": "2(ツグ)",
     "Name_EN": "2(Twiny)",
@@ -967,6 +969,7 @@
   },
   {
     "Num": 3,
+    "Num_Badge": "3",
     "Progress": "released",
     "Name_JP": "3(ナオ)",
     "Name_EN": "3(Treiya)",
@@ -1354,6 +1357,7 @@
   },
   {
     "Num": 4,
+    "Num_Badge": "4",
     "Progress": "released",
     "Name_JP": "4(モチ)",
     "Name_EN": "4(Forna)",
@@ -1764,6 +1768,7 @@
   },
   {
     "Num": 5,
+    "Num_Badge": "5",
     "Progress": "released",
     "Name_JP": "5(イズ)",
     "Name_EN": "5(Fifa)",
@@ -2252,6 +2257,7 @@
   },
   {
     "Num": 6,
+    "Num_Badge": "6",
     "Progress": "released",
     "Name_JP": "6(ムイ)",
     "Name_EN": "6(Sics)",
@@ -2617,6 +2623,7 @@
   },
   {
     "Num": 7,
+    "Num_Badge": "7",
     "Progress": "released",
     "Name_JP": "7(ナナ)",
     "Name_EN": "7(Sevan)",
@@ -3021,6 +3028,7 @@
   },
   {
     "Num": 8,
+    "Num_Badge": "8",
     "Progress": "released",
     "Name_JP": "8(ワカツ)",
     "Name_EN": "8(Eighas)",
@@ -3427,6 +3435,7 @@
   },
   {
     "Num": 9,
+    "Num_Badge": "9",
     "Progress": "released",
     "Name_JP": "9(チカ)",
     "Name_EN": "9(Nina)",
@@ -3857,6 +3866,7 @@
   },
   {
     "Num": 10,
+    "Num_Badge": "10",
     "Progress": "released",
     "Name_JP": "10(ミツル)",
     "Name_EN": "10(Tenim)",
@@ -4312,6 +4322,7 @@
   },
   {
     "Num": 11,
+    "Num_Badge": "11",
     "Progress": "released",
     "Name_JP": "11(トウイチ)",
     "Name_EN": "11(Elevan)",
@@ -4679,6 +4690,7 @@
   },
   {
     "Num": 12,
+    "Num_Badge": "12",
     "Progress": "released",
     "Name_JP": "12(トウジ)",
     "Name_EN": "12(Twelva)",
@@ -5056,6 +5068,7 @@
   },
   {
     "Num": 13,
+    "Num_Badge": "13",
     "Progress": "released",
     "Name_JP": "13(トミ)",
     "Name_EN": "13(Thirteena)",
@@ -5458,6 +5471,7 @@
   },
   {
     "Num": 14,
+    "Num_Badge": "14",
     "Progress": "released",
     "Name_JP": "14(トヨ)",
     "Name_EN": "14(Forteels)",
@@ -5936,6 +5950,7 @@
   },
   {
     "Num": 15,
+    "Num_Badge": "15",
     "Progress": "released",
     "Name_JP": "15(トウゴ)",
     "Name_EN": "15(Fifteeld)",
@@ -6360,6 +6375,7 @@
   },
   {
     "Num": 16,
+    "Num_Badge": "16",
     "Progress": "released",
     "Name_JP": "16(ソロク)",
     "Name_EN": "16(Sixteely)",
@@ -6736,6 +6752,7 @@
   },
   {
     "Num": 17,
+    "Num_Badge": "17",
     "Progress": "released",
     "Name_JP": "17(トナ)",
     "Name_EN": "17(Sevteena)",
@@ -7102,6 +7119,7 @@
   },
   {
     "Num": 18,
+    "Num_Badge": "18",
     "Progress": "released",
     "Name_JP": "18(トウヤ)",
     "Name_EN": "18(Eighteeld)",
@@ -7425,6 +7443,7 @@
   },
   {
     "Num": 19,
+    "Num_Badge": "19",
     "Progress": "released",
     "Name_JP": "19(トク)",
     "Name_EN": "19(Ninteels)",
@@ -7764,6 +7783,7 @@
   },
   {
     "Num": 20,
+    "Num_Badge": "20",
     "Progress": "released",
     "Name_JP": "20(ハツカ)",
     "Name_EN": "20(Twentia)",
@@ -8257,6 +8277,7 @@
   },
   {
     "Num": 21,
+    "Num_Badge": "21",
     "Progress": "released",
     "Name_JP": "21(ハツヒ)",
     "Name_EN": "21(Twinone)",
@@ -8592,6 +8613,7 @@
   },
   {
     "Num": 22,
+    "Num_Badge": "22",
     "Progress": "released",
     "Name_JP": "22(フジ)",
     "Name_EN": "22(Twin-twina)",
@@ -9131,6 +9153,7 @@
   },
   {
     "Num": 23,
+    "Num_Badge": "23",
     "Progress": "released",
     "Name_JP": "23(ツグミ)",
     "Name_EN": "23(Twinthery)",
@@ -9523,6 +9546,7 @@
   },
   {
     "Num": 24,
+    "Num_Badge": "24",
     "Progress": "released",
     "Name_JP": "24(フトシ)",
     "Name_EN": "24(Hourds)",
@@ -9915,6 +9939,7 @@
   },
   {
     "Num": 25,
+    "Num_Badge": "25",
     "Progress": "released",
     "Name_JP": "25(フィズ)",
     "Name_EN": "25(Quartels)",
@@ -10413,6 +10438,7 @@
   },
   {
     "Num": 26,
+    "Num_Badge": "26",
     "Progress": "released",
     "Name_JP": "26(ニロク)",
     "Name_EN": "26(Twinsix)",
@@ -10806,6 +10832,7 @@
   },
   {
     "Num": 27,
+    "Num_Badge": "27",
     "Progress": "released",
     "Name_JP": "27(ツギナ)",
     "Name_EN": "27(Twißven)",
@@ -11259,6 +11286,7 @@
   },
   {
     "Num": 28,
+    "Num_Badge": "28",
     "Progress": "released",
     "Name_JP": "28(ニハチ)",
     "Name_EN": "28(Tweighan)",
@@ -11778,6 +11806,7 @@
   },
   {
     "Num": 29,
+    "Num_Badge": "29",
     "Progress": "released",
     "Name_JP": "29(ニトク)",
     "Name_EN": "29(Twenina)",
@@ -12135,6 +12164,7 @@
   },
   {
     "Num": 30,
+    "Num_Badge": "30",
     "Progress": "released",
     "Name_JP": "30(ミツト)",
     "Name_EN": "30(Thirtens)",
@@ -12499,6 +12529,7 @@
   },
   {
     "Num": 31,
+    "Num_Badge": "31",
     "Progress": "released",
     "Name_JP": "31(ミツイ)",
     "Name_EN": "31(Thirtone)",
@@ -13000,6 +13031,7 @@
   },
   {
     "Num": 32,
+    "Num_Badge": "32",
     "Progress": "released",
     "Name_JP": "32(ミツギ)",
     "Name_EN": "32(Thirtwis)",
@@ -13422,6 +13454,7 @@
   },
   {
     "Num": 33,
+    "Num_Badge": "33",
     "Progress": "released",
     "Name_JP": "33(ミサ)",
     "Name_EN": "33(Thirthrey)",
@@ -13919,6 +13952,7 @@
   },
   {
     "Num": 34,
+    "Num_Badge": "34",
     "Progress": "released",
     "Name_JP": "34(サトシ)\nサンジ",
     "Name_EN": "34(Thirfory)\nTroubleforcer",
@@ -14323,6 +14357,7 @@
   },
   {
     "Num": 35,
+    "Num_Badge": "35",
     "Progress": "released",
     "Name_JP": "35(サトコ)\n35(ミコ)",
     "Name_EN": "35(Thirfivan)\n35(Míko)",
@@ -14749,6 +14784,7 @@
   },
   {
     "Num": 36,
+    "Num_Badge": "36",
     "Progress": "released",
     "Name_JP": "36(ミトム)",
     "Name_EN": "36(Trisixa)",
@@ -15200,6 +15236,7 @@
   },
   {
     "Num": 37,
+    "Num_Badge": "37",
     "Progress": "released",
     "Name_JP": "37(サナ)",
     "Name_EN": "37(Trißven)",
@@ -15629,6 +15666,7 @@
   },
   {
     "Num": 38,
+    "Num_Badge": "38",
     "Progress": "notProceeded",
     "Name_JP": "38(サタハ)",
     "Name_EN": "38(Threighas)",
@@ -15665,6 +15703,7 @@
   },
   {
     "Num": 39,
+    "Num_Badge": "39",
     "Progress": "released",
     "Name_JP": "39(サク)",
     "Name_EN": "39(Trenína)",
@@ -16126,6 +16165,7 @@
   },
   {
     "Num": 40,
+    "Num_Badge": "40",
     "Progress": "released",
     "Name_JP": "40(ヨソ)",
     "Name_EN": "40(Fortty)",
@@ -16481,6 +16521,7 @@
   },
   {
     "Num": 41,
+    "Num_Badge": "41",
     "Progress": "released",
     "Name_JP": "41(ヨソイチ)",
     "Name_EN": "41(Forone)",
@@ -16935,6 +16976,7 @@
   },
   {
     "Num": 42,
+    "Num_Badge": "42",
     "Progress": "released",
     "Name_JP": "42(ヨツグ)",
     "Name_EN": "42(Fortwis)",
@@ -17330,6 +17372,7 @@
   },
   {
     "Num": 43,
+    "Num_Badge": "43",
     "Progress": "released",
     "Name_JP": "43(シトミ)",
     "Name_EN": "43(Forthren)",
@@ -17727,6 +17770,7 @@
   },
   {
     "Num": 44,
+    "Num_Badge": "44",
     "Progress": "released",
     "Name_JP": "44(シトシ)",
     "Name_EN": "44(Folfourn)",
@@ -18175,6 +18219,7 @@
   },
   {
     "Num": 45,
+    "Num_Badge": "45",
     "Progress": "released",
     "Name_JP": "45(シゴ)",
     "Name_EN": "45(Folfivas)",
@@ -18528,6 +18573,7 @@
   },
   {
     "Num": 46,
+    "Num_Badge": "46",
     "Progress": "released",
     "Name_JP": "46(シロー)",
     "Name_EN": "46(Forsixen)",
@@ -18918,6 +18964,7 @@
   },
   {
     "Num": 47,
+    "Num_Badge": "47",
     "Progress": "released",
     "Name_JP": "47(シナ)",
     "Name_EN": "47(Fourséve)",
@@ -19348,6 +19395,7 @@
   },
   {
     "Num": 48,
+    "Num_Badge": "48",
     "Progress": "released",
     "Name_JP": "48(シハチ)",
     "Name_EN": "48(Foreighn)",
@@ -19748,6 +19796,7 @@
   },
   {
     "Num": 49,
+    "Num_Badge": "49",
     "Progress": "released",
     "Name_JP": "49(ヨチカ)",
     "Name_EN": "49(Fornins)",
@@ -20154,6 +20203,7 @@
   },
   {
     "Num": 50,
+    "Num_Badge": "50",
     "Progress": "released",
     "Name_JP": "50(ナカバ)",
     "Name_EN": "50(Halvan)",
@@ -20579,6 +20629,7 @@
   },
   {
     "Num": 51,
+    "Num_Badge": "51",
     "Progress": "released",
     "Name_JP": "51(イソイチ)",
     "Name_EN": "51(Fivone)",
@@ -20897,6 +20948,7 @@
   },
   {
     "Num": 52,
+    "Num_Badge": "52",
     "Progress": "released",
     "Name_JP": "52(イツギ)",
     "Name_EN": "52(Fiftwis)",
@@ -21385,6 +21437,7 @@
   },
   {
     "Num": 53,
+    "Num_Badge": "53",
     "Progress": "released",
     "Name_JP": "53(イツゾウ)",
     "Name_EN": "53(Fifthren)",
@@ -21753,6 +21806,7 @@
   },
   {
     "Num": 54,
+    "Num_Badge": "54",
     "Progress": "notProceeded",
     "Name_JP": "54(イツヨ)",
     "Name_EN": "54(Fiforn)",
@@ -21786,6 +21840,7 @@
   },
   {
     "Num": 55,
+    "Num_Badge": "55",
     "Progress": "released",
     "Name_JP": "55(イソゴ)",
     "Name_EN": "55(Fifívan)",
@@ -22214,6 +22269,7 @@
   },
   {
     "Num": 56,
+    "Num_Badge": "56",
     "Progress": "released",
     "Name_JP": "56(イソロク)",
     "Name_EN": "56(Fivsix)",
@@ -22649,6 +22705,7 @@
   },
   {
     "Num": 57,
+    "Num_Badge": "57",
     "Progress": "released",
     "Name_JP": "57(イズナ)",
     "Name_EN": "57(Fivens)",
@@ -23100,6 +23157,7 @@
   },
   {
     "Num": 58,
+    "Num_Badge": "58",
     "Progress": "released",
     "Name_JP": "58(イソヤ)",
     "Name_EN": "58(Fiveighs)",
@@ -23482,6 +23540,7 @@
   },
   {
     "Num": 59,
+    "Num_Badge": "59",
     "Progress": "notProceeded",
     "Name_JP": "59(イヅク)",
     "Name_EN": "59(Fivenint)",
@@ -23513,6 +23572,7 @@
   },
   {
     "Num": 60,
+    "Num_Badge": "60",
     "Progress": "released",
     "Name_JP": "60(ムソウ)",
     "Name_EN": "60(Sixtina)",
@@ -24098,6 +24158,7 @@
   },
   {
     "Num": 61,
+    "Num_Badge": "61",
     "Progress": "released",
     "Name_JP": "61(ロクイチ)\n61(ロイ)",
     "Name_EN": "61(Síxone)\n61(Síon)",
@@ -24669,6 +24730,7 @@
   },
   {
     "Num": 62,
+    "Num_Badge": "62",
     "Progress": "released",
     "Name_JP": "62(ロジ)",
     "Name_EN": "62(Sictwéna)",
@@ -25053,6 +25115,7 @@
   },
   {
     "Num": 63,
+    "Num_Badge": "63",
     "Progress": "released",
     "Name_JP": "63(ムツミ)",
     "Name_EN": "63(Sicthrey)",
@@ -25454,6 +25517,7 @@
   },
   {
     "Num": 64,
+    "Num_Badge": "64",
     "Progress": "released",
     "AnotherVersions_DBLink": [{ "_DB": "SemiPrimary", "Num": "64-sxp" }],
     "Name_JP": "64(ムトシ)",
@@ -25802,6 +25866,7 @@
   },
   {
     "Num": 65,
+    "Num_Badge": "65",
     "Progress": "released",
     "Name_JP": "65(ロクゴ)",
     "Name_EN": "65(Sixfivie)",
@@ -26141,6 +26206,7 @@
   },
   {
     "Num": 66,
+    "Num_Badge": "66",
     "Progress": "released",
     "Name_JP": "66(ムロク)",
     "Name_EN": "66(Sixis)",
@@ -26552,6 +26618,7 @@
   },
   {
     "Num": "67-old",
+    "Num_Badge": "67B",
     "Progress": "released",
     "SameModels_DBLink": [{ "_DB": "Primary", "Num": 67 }],
     "Name_JP": "67(ムナ)",
@@ -26819,6 +26886,7 @@
   },
   {
     "Num": 67,
+    "Num_Badge": "67A",
     "Progress": "released",
     "SameModels_DBLink": [{ "_DB": "Primary", "Num": "67-old" }],
     "Name_JP": "67(ムナ)",
@@ -27233,6 +27301,7 @@
   },
   {
     "Num": 68,
+    "Num_Badge": "68",
     "Progress": "released",
     "Name_JP": "68(ロクヤ)",
     "Name_EN": "68(Siceighns)",
@@ -27619,6 +27688,7 @@
   },
   {
     "Num": 69,
+    "Num_Badge": "69",
     "Progress": "released",
     "Name_JP": "69(ロック)",
     "Name_EN": "69(Signine)",
@@ -28059,6 +28129,7 @@
   },
   {
     "Num": 70,
+    "Num_Badge": "70",
     "Progress": "released",
     "Name_JP": "70(ナナト)",
     "Name_EN": "70(Seventia)",
@@ -28424,6 +28495,7 @@
   },
   {
     "Num": 71,
+    "Num_Badge": "71",
     "Progress": "released",
     "Name_JP": "71(ナナヒ)",
     "Name_EN": "71(Sevone)",
@@ -28780,6 +28852,7 @@
   },
   {
     "Num": 72,
+    "Num_Badge": "72",
     "Progress": "released",
     "Name_JP": "72(ナフタ)",
     "Name_EN": "72(Sevtwína)",
@@ -29165,6 +29238,7 @@
   },
   {
     "Num": 73,
+    "Num_Badge": "73",
     "Progress": "released",
     "Name_JP": "73(ナトミ)",
     "Name_EN": "73(Sevthira)",
@@ -29570,6 +29644,7 @@
   },
   {
     "Num": 74,
+    "Num_Badge": "74",
     "Progress": "released",
     "Name_JP": "74(ナナヨ)",
     "Name_EN": "74(Sefoury)",
@@ -29922,6 +29997,7 @@
   },
   {
     "Num": 75,
+    "Num_Badge": "75",
     "Progress": "released",
     "Name_JP": "75(シチゴ)",
     "Name_EN": "75(Sefievn)",
@@ -30308,6 +30384,7 @@
   },
   {
     "Num": 76,
+    "Num_Badge": "76",
     "Progress": "released",
     "Name_JP": "76(シチロク)",
     "Name_EN": "76(Sevsix)",
@@ -30752,6 +30829,7 @@
   },
   {
     "Num": 77,
+    "Num_Badge": "77",
     "Progress": "released",
     "Name_JP": "77(ナヅナ)",
     "Name_EN": "77(Sefvens)",
@@ -31142,6 +31220,7 @@
   },
   {
     "Num": 78,
+    "Num_Badge": "78",
     "Progress": "released",
     "Name_JP": "78(ナナハ)",
     "Name_EN": "78(Seveights)",
@@ -31553,6 +31632,7 @@
   },
   {
     "Num": 79,
+    "Num_Badge": "79",
     "Progress": "notProceeded",
     "Name_JP": "79(ナチカ)",
     "Name_EN": "79(Sevenina)",
@@ -31581,6 +31661,7 @@
   },
   {
     "Num": 80,
+    "Num_Badge": "80",
     "Progress": "released",
     "Name_JP": "80(ヤソ)",
     "Name_EN": "80(Eightis)",
@@ -32037,6 +32118,7 @@
   },
   {
     "Num": 81,
+    "Num_Badge": "81",
     "Progress": "released",
     "Name_JP": "81(ヤイチ)",
     "Name_EN": "81(Eightone)",
@@ -32432,6 +32514,7 @@
   },
   {
     "Num": 82,
+    "Num_Badge": "82",
     "Progress": "nowCreating",
     "Name_JP": "82(ヤソジ)",
     "Name_EN": "82(Eightwis)",
@@ -32488,6 +32571,7 @@
   },
   {
     "Num": 83,
+    "Num_Badge": "83",
     "Progress": "notProceeded",
     "Name_JP": "83(ハチゾウ)",
     "Name_EN": "83(Eightrien)",
@@ -32525,6 +32609,7 @@
   },
   {
     "Num": 84,
+    "Num_Badge": "84",
     "Progress": "released",
     "Name_JP": "84(ヤツヨ)",
     "Name_EN": "84(Eightifort)",
@@ -32920,6 +33005,7 @@
   },
   {
     "Num": 85,
+    "Num_Badge": "85",
     "Progress": "released",
     "Name_JP": "85(ハッコ)\n85(パコ)",
     "Name_EN": "85(Eightifie)\n85(Eigfie)",
@@ -33333,6 +33419,7 @@
   },
   {
     "Num": 86,
+    "Num_Badge": "86",
     "Progress": "released",
     "Name_JP": "86(ハチロ)",
     "Name_EN": "86(Eightix)",
@@ -33698,6 +33785,7 @@
   },
   {
     "Num": 87,
+    "Num_Badge": "87",
     "Progress": "released",
     "Name_JP": "87(ヤシナ)\n87(ハナ)",
     "Name_EN": "87(Eighteven)\n87(Eivee)",
@@ -34135,6 +34223,7 @@
   },
   {
     "Num": 88,
+    "Num_Badge": "88",
     "Progress": "released",
     "Name_JP": "88(ヤソハチ)",
     "Name_EN": "88(Infinights)",
@@ -34516,6 +34605,7 @@
   },
   {
     "Num": 89,
+    "Num_Badge": "89",
     "Progress": "released",
     "Name_JP": "89(ヤスモ)",
     "Name_EN": "89(Eightine)",
@@ -34943,6 +35033,7 @@
   },
   {
     "Num": 90,
+    "Num_Badge": "90",
     "Progress": "notProceeded",
     "Name_JP": "90(キュウト)",
     "Name_EN": "90(Nintiels)",
@@ -34972,6 +35063,7 @@
   },
   {
     "Num": 91,
+    "Num_Badge": "91",
     "Progress": "notProceeded",
     "Name_JP": "91(キュウイチ)",
     "Name_EN": "91(Ninone)",
@@ -35004,6 +35096,7 @@
   },
   {
     "Num": 92,
+    "Num_Badge": "92",
     "Progress": "released",
     "Name_JP": "92(コトジ)",
     "Name_EN": "92(Nintwina)",
@@ -35323,6 +35416,7 @@
   },
   {
     "Num": 93,
+    "Num_Badge": "93",
     "Progress": "released",
     "Name_JP": "93(クミ)",
     "Name_EN": "93(Nintris)",
@@ -35783,6 +35877,7 @@
   },
   {
     "Num": 94,
+    "Num_Badge": "94",
     "Progress": "released",
     "Name_JP": "94(ツクシ)",
     "Name_EN": "94(Ninfors)",
@@ -36174,6 +36269,7 @@
   },
   {
     "Num": 95,
+    "Num_Badge": "95",
     "Progress": "notProceeded",
     "Name_JP": "95(キュウゴ)",
     "Name_EN": "95(Ninfife)",
@@ -36228,6 +36324,7 @@
   },
   {
     "Num": 96,
+    "Num_Badge": "96",
     "Progress": "released",
     "Name_JP": "96(クルリ)",
     "Name_EN": "96(Rota)",
@@ -36721,6 +36818,7 @@
   },
   {
     "Num": 97,
+    "Num_Badge": "97",
     "Progress": "released",
     "Name_JP": "97(ココナ)",
     "Name_EN": "97(Ninsefie)",
@@ -37134,6 +37232,7 @@
   },
   {
     "Num": 98,
+    "Num_Badge": "98",
     "Progress": "released",
     "Name_JP": "98(キュウヤ)",
     "Name_EN": "98(Nineigha)",
@@ -37498,6 +37597,7 @@
   },
   {
     "Num": 99,
+    "Num_Badge": "99",
     "Progress": "released",
     "Name_JP": "99(ツクモ)",
     "Name_EN": "99(Thukumo)",
@@ -37968,6 +38068,7 @@
   },
   {
     "Num": "2-alt",
+    "Num_Badge": "2B",
     "Progress": "released",
     "Name_JP": "バイナ\n2(ツギ)",
     "Name_EN": "Binor\n2(Twicy)",
@@ -38352,6 +38453,7 @@
   },
   {
     "Num": "10-alt",
+    "Num_Badge": "10D",
     "Progress": "stillTentative",
     "Name_JP": "ディケ\n10(ツナイ)",
     "Name_EN": "Dicat\n10(Decadle)",
@@ -38605,6 +38707,7 @@
   },
   {
     "Num": "000",
+    "Num_Badge": "000",
     "Progress": "released",
     "Name_JP": "000(チトセ)",
     "Name_EN": "000(Thouser)",
@@ -38999,6 +39102,7 @@
   },
   {
     "Num": "0",
+    "Num_Badge": "0",
     "Progress": "released(beta)",
     "AnotherRegions_DBLink": [
       { "_Work": "SinisterChangingGirls", "_DB": "Primary", "Drc": "N" }
@@ -39310,6 +39414,7 @@
   },
   {
     "Num": "00",
+    "Num_Badge": "00",
     "Progress": "released(beta)",
     "Name_JP": "零 百",
     "Name_JPReading": "カズナイ ハゲム",
