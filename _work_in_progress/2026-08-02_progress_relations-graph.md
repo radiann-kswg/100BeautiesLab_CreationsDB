@@ -268,7 +268,7 @@ canvas を CSS で消しても操作できる状態を保つ。キーボード�
 | −1 | 進捗ログ作成（本ファイル） | **完了** | 200 | 565（索引・T-13 登録込み） | 対象外 |
 | −0.5 | ベースラインの赤 5 件を解消（`254795f`） | **完了** | — | 42（data 20 / tests 22） | ✅ 46 / 631 |
 | 0 | `bootstrap` 高速化（`DataFetcher` メモ化） | **完了** | 170 | 423（実装 124 / テスト 262 / 文書 37） | ✅ 47 / 643（新規 12） |
-| 1-a | 共有基盤の切り出し（`viewer-locator` / `page-api-bridge`） | 未着手 | 740 | — | — |
+| 1-a | 共有基盤の切り出し（`viewer-locator` / `page-api-bridge`） | **完了** | 740 | 1,003（lib 721 / テスト 264 / `characters.js` −356/+18） | ✅ 48 / 693（新規 50） |
 | 1-b | 相関図 MVP（`graph-model` / Cytoscape / ページ 3 点） | 未着手 | 1,700 | — | — |
 | 2 | グルーピング軸と中間ノードモード | 未着手 | 800 | — | — |
 | 3 | 絞り込みと操作の作り込み | 未着手 | 700 | — | — |
@@ -286,9 +286,20 @@ canvas を CSS で消しても操作できる状態を保つ。キーボード�
     `handleBootstrapEndpoint()` の **DB ごとのループ内で作り直されている**ことに由来する
     （`lib/sw-common.js` の `for (const db of databases)` 内で `new Map()`）。
     これは `DataFetcher` のメモ化とは別レイヤーの最適化なので**本 Phase の対象外**とし、下記の課題へ回した
-- **Phase 1-a**: キャラシートの挙動が 1 ミリも変わっていないこと。
-  **合格条件 = `tests/pages.characters.url-params.test.js` と `pages.characters.ui-output.test.js` の
-  期待値を 1 行も書き換えずに全件グリーン。** 満たさない限り 1-b へ進まない。
+- **Phase 1-a（完了）**: **合格条件を満たした。** `tests/pages.characters.url-params.test.js` /
+  `pages.characters.ui-output.test.js` / `pages.characters.syntax.test.js` の **77 件が期待値の書き換えゼロで全件グリーン**
+  （`git diff -- tests/` が既存ファイルについて空であることで確認）。
+  - `lib/viewer-locator.js`（305 行）: URL 直リンク文法。定数 4 種と純関数 8 種を移設。
+    `pages/characters.js` 側に残したのは `location` / `history` 依存の `getQS()` / `setQS()` / `buildViewerHref()` のみ
+  - `lib/page-api-bridge.js`（416 行）: SW 登録の 3 段フォールバック（`/pages/` → `/svc/` → `/api/`）と
+    `api()` / `waitForController()` / `fetchJSON()`。モジュール変数だった `API_BASE_REL` はモジュール内状態へ移し、
+    `getApiBase()` / `resetApiBase()` で読み書きする（テストの状態リセットは `resetApiBase()` を呼ぶ）
+  - `pages/characters.js`: **9,249 → 8,671 行（−578 行）**。`__*ForTest` フックは import した関数を呼ぶだけになり無改修
+  - `tests/lib.viewer-locator.test.js`（264 行 / 50 件）を新規追加。境界条件（値にカンマを含む単一インデックス、
+    往復できない条件の旧形式退避、`db` 無しでは IdxToken を載せない等）を固定
+  - **新規 lib は 3 つの `sw.js` の `importScripts` へ足していない**（ESM を足すと SW 全体が SyntaxError で評価失敗する）
+  - `AGENTS.md`「直リンク（URL クエリ）」の「実装の集約先」を `pages/characters.js` → `lib/viewer-locator.js` へ更新し、
+    `npm run agents:build` で生成物（`.claude/skills/localize-en-draft/SKILL.md`）を同期
 - **Phase 1-b**: 全体グラフが成立する（479 ノード / 無向 772 エッジ / 最大成分 142 / 集約 9 ノードから開始）。
   NumberTales → Primary へドリルダウンすると平均次数 5.44 の密な相関図。
   **他 8 作品が薄いことが目で見え、Phase 2 の必要性が実証される。**
@@ -395,6 +406,7 @@ PLAN  [merge]  data/Works_FLInvestigator78/RoleplayPrompts/DB_PrimaryDealer/Deal
 | −1 | 対象外 | 対象外 | 対象外 | 対象外 | 対象外 | 対象外 |
 | −0.5 | ✅ 46 / 631 | ✅ 0/1310 | 既存ドリフト `changed=3` | ✅ 一致 | 対象外 | 対象外 |
 | 0 | ✅ 47 / 643（新規 12） | ✅ 0/1310 | 未計測（Phase 0 は data 非改変） | ✅ 一致 | 対象外 | **未実施** |
+| 1-a | ✅ 48 / 693（新規 50） | 対象外（data 非改変） | 対象外 | ✅ 一致（`agents:build` 実施） | 対象外 | **未実施** |
 | 1-a | — | — | — | — | 対象外 | — |
 | 1-b | — | — | — | — | — | — |
 | 2 | — | — | — | — | — | — |
