@@ -73,11 +73,21 @@
 	flex-direction: column
 	gap: var(--spacing-sm)
 
-.relmap__group-title
+// 左レールの小見出し。
+// `.card h2`（詳細度 0,1,1）が `.relmap__group-title`（0,1,0）に勝つため、
+// 何もしないと 5 つの小見出し全部に accent→azure の発光バーが付いてしまい、
+// `--glow` の希少性（characters.sass で 2 箇所のみ）が壊れる。
+// クラス 2 つ（0,2,0）で受けて打ち消す。打ち消しの作法は characters.sass:704-712 と同じ。
+.relmap__rail .relmap__group-title
 	margin: 0
+	padding: 0
 	font-size: var(--font-size-sm)
 	color: var(--muted)
 	letter-spacing: 0.04em
+	border-bottom: none
+
+	&::before
+		display: none
 
 .relmap__field
 	display: flex
@@ -101,15 +111,30 @@
 	flex-wrap: wrap
 	gap: var(--spacing-xs)
 
+// マップ選択・グルーピング軸のチップ。
+//
+// `.ghost`（characters.sass:714-717）は**すべてのボタンへ accent の枠と文字色**を付けるため、
+// `.is-active` で accent を再指定しても差が出ず、選択状態が見えていなかった。
+// 非選択側を沈めることで区別する（characters.sass:1478-1487 の `.lang-toggle__opt` と同じ作法。
+// あちらも `opacity 0.35 → 1` で「沈める / 起こす」を表現している）。
 .relmap__preset
 	flex: 1 1 auto
 	min-height: 44px
 	font-size: var(--font-size-xs)
+	// 非選択: 枠も文字も地に寄せる
+	border-color: var(--border)
+	color: var(--muted)
+	background: transparent
 
-	// 選択中のマップ／プリセット
+	&:hover:not(:disabled)
+		border-color: var(--border-strong)
+		color: var(--fg)
+
+	// 選択中: 色相は変えず accent で点灯させる
 	&.is-active
 		border-color: var(--accent)
 		color: var(--accent)
+		background: var(--card)
 
 // エッジ種別の凡例（色 + 線種のスウォッチ付き）
 .relmap__legend
@@ -151,6 +176,9 @@
 // 中央ステージ（グラフキャンバス）
 // ==================================================
 
+// 中央ステージ。角を斜めに落として「機材のパネル」らしさを出す
+// （アークナイツのキャラクター一覧から取り込んだ要素。配色は増やさず形だけ借りる）。
+// clip-path は characters.sass に前例が無いので、相関図の中だけに閉じる。
 .relmap__stage
 	position: relative
 	display: flex
@@ -158,6 +186,7 @@
 	gap: var(--spacing-sm)
 	padding: var(--spacing-md)
 	min-width: 0
+	clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px)
 
 .relmap__breadcrumb
 	display: flex
@@ -191,20 +220,95 @@
 	color: var(--accent)
 	letter-spacing: 0.03em
 
-// Cytoscape が canvas を差し込むコンテナ。高さを明示しないと 0 になる
+// Cytoscape が canvas を差し込むコンテナ。高さを明示しないと 0 になる。
+//
+// 「機材のスクリーン」定型（characters.sass:2248-2255 の .model-viewer__stage）へ揃える:
+//   border-strong + bg-deep + glow 0 0 16px
+// 一番「盤面」であるべき面がこの型を外していたのが、相関図がキャラシートから浮いて見える一因だった。
 .relmap__canvas
 	position: relative
 	width: 100%
 	height: 60vh
 	min-height: 360px
-	border: 1px solid var(--border)
+	border: 1px solid var(--border-strong)
 	border-radius: var(--border-radius-md)
 	background: var(--bg-deep)
+	box-shadow: var(--glow) 0 0 16px
 	overflow: hidden
 
 	@media (min-width: 1024px)
 		height: calc(100vh - 220px)
 		min-height: 480px
+
+	// サイト地のテクスチャ（characters.sass:90-99 の body::before と同じ 46px 方眼 ×2 + 170px 星屑）。
+	//
+	// **画面固定にする（background-attachment: fixed）。** pan/zoom へ追随させると、
+	// 46px 方眼と相関図の格子（122px）が 2.652:1 の非整数比なので干渉縞が出るうえ、
+	// zoom 0.12 で線被覆 18.1%（ベタ塗り化）・zoom 3 で 0.7%（消失）になり LOD クランプが要る。
+	// 「画面に固定された地」と「世界座標の格子」を役割分離すれば、これらが一度に消える。
+	// body::before が position: fixed である事実とも整合する。
+	&::before
+		content: ""
+		position: absolute
+		inset: 0
+		z-index: 0
+		pointer-events: none
+		background-image: linear-gradient(rgba(120, 180, 255, 0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(120, 180, 255, 0.045) 1px, transparent 1px), radial-gradient(circle, rgba(180, 225, 255, 0.6) 0.6px, transparent 0.7px)
+		background-size: 46px 46px, 46px 46px, 170px 170px
+		background-position: 0 0, 0 0, 12px 28px
+		background-attachment: fixed
+		opacity: 0.2
+
+	// 集約表示のマス塗りを描く背景レイヤー。
+	// Cytoscape の canvas より奥（DOM 順で先）に置き、pan/zoom は JS 側で同期する。
+	// クリックは Cytoscape 側で拾うのでイベントは通す
+	.relmap__board
+		position: absolute
+		inset: 0
+		z-index: 0
+		pointer-events: none
+		display: block
+
+	// ポインタが乗っている区画の名前。走査線（z-index: 1）より前へ出す
+	.relmap__hover-label
+		position: absolute
+		left: var(--spacing-sm)
+		bottom: var(--spacing-sm)
+		z-index: 2
+		margin: 0
+		padding: var(--spacing-xs) var(--spacing-sm)
+		max-width: calc(100% - var(--spacing-lg))
+		pointer-events: none
+		border: 1px solid var(--accent)
+		border-radius: var(--border-radius-sm)
+		background: var(--panel)
+		backdrop-filter: blur(4px)
+		-webkit-backdrop-filter: blur(4px)
+		color: var(--accent)
+		font-size: var(--font-size-xs)
+		white-space: nowrap
+		overflow: hidden
+		text-overflow: ellipsis
+
+		&[hidden]
+			display: none
+
+	// 走査線。新しい色は使わず --accent(#5fd6ff) の rgb をごく薄いアルファで敷くだけ
+	&::after
+		content: ""
+		position: absolute
+		inset: -100% 0
+		z-index: 1
+		pointer-events: none
+		background-image: repeating-linear-gradient(rgba(95, 214, 255, 0.03) 0 1px, transparent 1px 3px)
+		animation: relmap-scan 8s linear infinite
+
+// 走査線がゆっくり流れる（3px 周期ぶんだけ動かす＝継ぎ目が出ない）
+@keyframes relmap-scan
+	from
+		transform: translateY(0)
+	to
+		transform: translateY(3px)
 
 .relmap__overlay
 	position: absolute
@@ -212,7 +316,11 @@
 	display: flex
 	align-items: center
 	justify-content: center
-	background: rgba(5, 8, 15, 0.72)
+	// 直値 rgba(5, 8, 15, 0.72) をやめて既存トークンへ。--panel も同じ 0.72 アルファ。
+	// blur はこのリポジトリのオーバーレイ共通の語彙（characters.sass:211-212, 1735-1736）
+	background: var(--panel)
+	backdrop-filter: blur(4px)
+	-webkit-backdrop-filter: blur(4px)
 	border-radius: var(--border-radius-md)
 	z-index: 2
 
@@ -290,7 +398,12 @@
 	font-size: var(--font-size-xs)
 	white-space: pre-wrap
 
-// エッジ種別のバッジ。色は JS 側の EDGE_STYLE と対応させる
+// エッジ種別のバッジ。色は JS 側の graph-palette.js の `palette.edge` と対応させる。
+//
+// 以前は同一存在に --success（緑）、主従に --warning（橙）を使っていたが、
+// これは「状態を表す意味論色」の目的外流用だった。水色〜紺の単一系統へ寄せて
+// --success / --warning は本来の状態語彙へ返す。
+// 線種（solid / dashed / dotted）との二重符号化が凡例スウォッチにあるので識別性は落ちない。
 .relmap__kind
 	display: inline-block
 	padding: 1px var(--spacing-xs)
@@ -305,13 +418,13 @@
 	color: var(--muted)
 
 .relmap__kind--sameBeing
-	color: var(--success)
+	color: var(--accent-bright)
 
 .relmap__kind--variant
 	color: var(--accent-2)
 
 .relmap__kind--master
-	color: var(--warning)
+	color: var(--azure)
 
 // ==================================================
 // テキスト版（アクセシビリティの代替経路）
@@ -373,6 +486,10 @@
 // ==================================================
 
 @media (prefers-reduced-motion: reduce)
+	// キャンバス自身（走査線の ::after）も対象に含める。
+	// 子孫セレクタだけだと擬似要素の animation が止まらない
+	.relmap__canvas,
+	.relmap__canvas::after,
 	.relmap__canvas *
 		animation-duration: 0.01ms !important
 		animation-iteration-count: 1 !important

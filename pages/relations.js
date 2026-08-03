@@ -56,7 +56,14 @@ import {
 	OTHER_GROUP_KEY
 } from '../lib/graph/graph-facets.js';
 import { buildBadge, createDictCellLookup, getWorksCode } from '../lib/graph/graph-badge.js';
-import { snapToHexLattice, resolveSpacing, boundsOf, shouldFitToViewport } from '../lib/graph/graph-layout.js';
+import {
+	snapToHexLattice, resolveSpacing, boundsOf, shouldFitToViewport,
+	nearestCell, hexNeighbors as hexNeighborsOf
+} from '../lib/graph/graph-layout.js';
+import { buildHexFill } from '../lib/graph/graph-hexfill.js';
+import { buildPalette, createTokenReader } from '../lib/graph/graph-palette.js';
+import { reduceCrossings, countCrossings } from '../lib/graph/graph-crossing.js';
+import { routeEdges } from '../lib/graph/graph-edge-route.js';
 
 /* ========================================================================
    定数
@@ -96,31 +103,31 @@ const CHARACTER_DB_LAYER = 'DataBases';
  * 数値が小さいほど薄い関係とみなし、混み合ったときに先に隠す。
  * `hideAt` は「表示エッジ数がこれを超えたら自動で隠す」しきい値（`null` は常に表示）。
  * `layout` はレイアウトへの寄与度（0 ならノード配置を引っ張らない）。
+ * `tone` は `graph-palette.js` の `palette.edge` を引くキー。
+ *
+ * 色は水色〜紺の単一系統へ寄せてある。以前は同一存在に `--success`（緑）、
+ * 主従に `--warning`（橙）を使っていたが、これは状態を表す意味論色の目的外流用だった。
+ * 線種（solid / dashed / dotted）との二重符号化が既にあるので、色を寄せても識別性は落ちない。
  */
 const EDGE_STYLE = Object.freeze({
-	[EDGE_KINDS.RELATED]: { color: 'var(--accent)', line: 'solid', weight: 100, hideAt: null, layout: 1 },
-	[EDGE_KINDS.SAME_BEING]: { color: 'var(--success)', line: 'solid', weight: 90, hideAt: null, layout: 1 },
-	[EDGE_KINDS.MASTER]: { color: 'var(--warning)', line: 'dashed', weight: 70, hideAt: null, layout: 0.6 },
-	[EDGE_KINDS.VARIANT]: { color: 'var(--accent-2)', line: 'dashed', weight: 50, hideAt: 400, layout: 0.4 },
-	[EDGE_KINDS.COMMENTED]: { color: 'var(--muted)', line: 'dotted', weight: 10, hideAt: 250, layout: 0 }
+	[EDGE_KINDS.RELATED]: { tone: 'related', line: 'solid', weight: 100, hideAt: null, layout: 1 },
+	[EDGE_KINDS.SAME_BEING]: { tone: 'sameBeing', line: 'solid', weight: 90, hideAt: null, layout: 1 },
+	[EDGE_KINDS.MASTER]: { tone: 'master', line: 'dashed', weight: 70, hideAt: null, layout: 0.6 },
+	[EDGE_KINDS.VARIANT]: { tone: 'variant', line: 'dashed', weight: 50, hideAt: 400, layout: 0.4 },
+	[EDGE_KINDS.COMMENTED]: { tone: 'commented', line: 'dotted', weight: 10, hideAt: 250, layout: 0 }
 });
-
-/** クラスタの色。`characters.css` のアクセント系から作る決め打ちの循環パレット */
-const CLUSTER_COLORS = [
-	'#5fd6ff', '#9a8cff', '#2bd4a0', '#f7b733', '#ff5d6c',
-	'#3a86e0', '#9be9ff', '#c48cff', '#7ee8b0', '#ffd27a',
-	'#ff8fa0', '#6fa8ff'
-];
 
 /** ノードの基本サイズ（六角格子の間隔を決める基準） */
 const NODE_BASE_SIZE = 46;
 
 /**
- * グルーピング軸で色が付かないノードの既定ボーダー色
- * @description `border-color: data(color)` は空文字だとスタイル適用に失敗するため、
- * 必ず有効な色文字列を入れておく（`characters.css` の `--border` 相当）。
+ * 集約表示のマス 1 つの大きさ（px・世界座標）
+ *
+ * @description キャラ個体段の格子間隔（122px）よりずっと細かく取る。
+ * 同じにすると 478 マスで 2900×2500 の世界座標になり、全体表示の倍率が 0.3 まで落ちて
+ * `shouldFitToViewport()` の下限 0.45 を割ってしまう。
  */
-const DEFAULT_NODE_BORDER = '#1d2a4a';
+const CELL_SPACING = 38;
 
 /** サムネイルの同時ロード上限 */
 const THUMB_CONCURRENCY = 6;
@@ -151,6 +158,10 @@ const state = {
 	map: 'own',
 	/** ドリルダウンの選択値（段ごと） */
 	drill: [],
+	/** 集約表示のマス塗り割当（`buildHexFill()` の結果。背景レイヤーが描く） */
+	board: null,
+	/** ポインタが乗っている区画のグループ番号（-1 なら無し） */
+	hoverGroup: -1,
 	/** エゴネットワークで見ているノードキー */
 	focusKey: '',
 	/** 色分け・囲いの軸キー（'' なら無し） */
@@ -409,9 +420,30 @@ function scopeWorkId() {
 	return state.drill[0] || '';
 }
 
-/** 現在のスコープに応じた階層の段を返す @returns {Array<Object>} */
+/**
+ * 現在のスコープに応じた階層の段を返す
+ *
+ * @description 宣言（`$display.facet.hierarchy`）から作った段に加えて、
+ * **「その他」を掘ったときは同じ軸をもう一段挿す**。
+ *
+ * 「その他」は `maxGroups` に収まらなかった値の寄せ集めなので、
+ * その中にはまだ何十種類もの値が入っている。ここで一気にキャラ個体まで落とすと
+ * 「クラス名で見ていたのに、その他の中だけ急に 84 人がバラける」ことになり、
+ * せっかくの分類が途切れてしまう。同じ軸で掘り直せば、残りの値が改めて上位 N ＋その他に分かれる。
+ * @returns {Array<Object>}
+ */
 function currentLevels() {
-	return buildHierarchy(state.facets, { scope: scopeWorkId() });
+	const base = buildHierarchy(state.facets, { scope: scopeWorkId() });
+	const out = [];
+	for (let i = 0, d = 0; i < base.length || d < state.drill.length; d += 1) {
+		const level = base[Math.min(i, base.length - 1)];
+		if (!level) break;
+		out.push(level);
+		// 「その他」を選んだ段は、同じ軸をもう一度使う（段を進めない）
+		if (state.drill[d] !== OTHER_GROUP_KEY) i += 1;
+		if (i >= base.length && d >= state.drill.length) break;
+	}
+	return out;
 }
 
 /**
@@ -442,6 +474,21 @@ function drilledNodes() {
 			list = list.filter(n => n.workId === picked);
 			continue;
 		}
+		// 「その他」は `maxGroups` を超えた値をまとめた**センチネル**なので、
+		// レコードの値と直接照合できない（`values.includes('\0other')` は必ず false になる）。
+		// 束ね方を決めたのと同じ `groupNodesByFacet()` をこのスコープで再実行し、
+		// 実際に「その他」へ入ったメンバーを取り出す。
+		if (picked === OTHER_GROUP_KEY) {
+			const grouped = groupNodesByFacet(list, level, {
+				lookupDictCell: list[0]?._relmapLookup,
+				resolveLabel: (f, value) => resolveFacetLabelPack(f, value, list[0]?.record)
+			});
+			const other = grouped.groups.find(g => g.value === OTHER_GROUP_KEY);
+			const keep = new Set(other ? other.members : []);
+			list = list.filter(n => keep.has(n.key));
+			continue;
+		}
+
 		list = list.filter(n => {
 			const values = facetValuesOf(n, level);
 			if (picked === UNSET_GROUP_KEY) return values.length === 0;
@@ -516,32 +563,88 @@ function buildAggregateElements(nodes, level) {
 	}
 
 	const memberOf = new Map();
-	const elements = [];
-	let i = 0;
-	for (const [value, g] of groups) {
+	const entries = [...groups.entries()];
+	const indexOfGroup = new Map();
+	entries.forEach(([value, g], i) => {
 		const id = `grp:${value}`;
+		indexOfGroup.set(id, i);
 		for (const n of g.members) {
 			if (!memberOf.has(n.key)) memberOf.set(n.key, []);
 			memberOf.get(n.key).push(id);
 		}
-		elements.push({
-			data: {
-				id, kind: 'group', value, level: level.key,
-				label: g.label, count: g.members.length,
-				color: CLUSTER_COLORS[i % CLUSTER_COLORS.length]
-			}
-		});
-		i += 1;
-	}
+	});
 
-	// 集約ノード間のエッジ（本数を太さで表す）
-	const edges = new Map();
+	// --- 寄せ集めのグループは線を引かない ---
+	//
+	// 「その他」（`maxGroups` に収まらなかった値の寄せ集め）と「(未設定)」は、
+	// **実体のあるまとまりではない**。前者は数十人が 1 つに潰れているのでほぼ全てと繋がり、
+	// 図をハブの線で埋めてしまううえ、「その他と陣営 A が繋がっている」と言われても何も読めない。
+	// 区画（人数）は見せるが、線は引かない。
+	const isBucket = (value) => value === OTHER_GROUP_KEY || value === UNSET_GROUP_KEY;
+	const bucketIds = new Set(entries.filter(([value]) => isBucket(value)).map(([value]) => `grp:${value}`));
+
+	// --- グループ間の繋がりの強さを先に測る ---
+	//
+	// **配置を決める前に繋がりを知る必要がある。**
+	// 大きさだけで並べると、濃い関係のあるグループが図の反対側どうしに置かれて
+	// 接続線が図を横断し、交差だらけになる。線の引き回しで誤魔化すより
+	// 「繋がっているものを隣へ置く」ほうが根本的に効く。
+	const linkWeight = new Map();
 	for (const e of visibleEdges()) {
 		const a = memberOf.get(e.source);
 		const b = memberOf.get(e.target);
 		if (!a || !b) continue;
 		for (const ga of a) for (const gb of b) {
 			if (ga === gb) continue;
+			if (bucketIds.has(ga) || bucketIds.has(gb)) continue;
+			const ia = indexOfGroup.get(ga);
+			const ib = indexOfGroup.get(gb);
+			if (ia === undefined || ib === undefined) continue;
+			const key = ia < ib ? `${ia}|${ib}` : `${ib}|${ia}`;
+			linkWeight.set(key, (linkWeight.get(key) || 0) + 1);
+		}
+	}
+	const links = [...linkWeight.entries()].map(([key, weight]) => {
+		const [a, b] = key.split('|').map(Number);
+		return { a, b, weight };
+	});
+
+	// --- マス塗りの割当（人数分のセルを六角格子へ敷く） ---
+	//
+	// グループの識別は「格子上の位置 + ラベル + 濃度段 + 境界の枠 + 左レール凡例」の多重符号化で行う。
+	// 色相を変える循環パレットは使わない（キャラシートに無い色が増えるため）。
+	const fill = buildHexFill(
+		entries.map(([value, g]) => ({ key: value, label: g.label, size: g.members.length })),
+		{ spacing: CELL_SPACING, shadeCount: palette().shades.length, links }
+	);
+	state.board = fill;
+
+	// Cytoscape へ渡すのは**グループ 1 つにつき 1 個のアンカー**だけ。
+	// マス自体をノードにすると cy.layout() が O(n²) で固まるため、描画は board canvas が持つ。
+	const elements = entries.map(([value, g], i) => {
+		const meta = fill.groups[i];
+		const anchor = meta?.anchor || { x: 0, y: 0 };
+		return {
+			data: {
+				id: `grp:${value}`, kind: 'group', value, level: level.key,
+				label: g.label, count: g.members.length,
+				shade: meta?.shade ?? 0, cellCount: meta?.cellCount ?? 0
+			},
+			position: { x: anchor.x, y: anchor.y }
+		};
+	});
+
+	// 集約ノード間のエッジ（本数を太さで表す）。
+	// 寄せ集めのグループ（その他 / 未設定）に触れる線は引かない
+	const edges = new Map();
+	let bucketEdges = 0;
+	for (const e of visibleEdges()) {
+		const a = memberOf.get(e.source);
+		const b = memberOf.get(e.target);
+		if (!a || !b) continue;
+		for (const ga of a) for (const gb of b) {
+			if (ga === gb) continue;
+			if (bucketIds.has(ga) || bucketIds.has(gb)) { bucketEdges += 1; continue; }
 			const [s, t] = ga < gb ? [ga, gb] : [gb, ga];
 			const id = `${e.kind}::${s}::${t}`;
 			if (!edges.has(id)) edges.set(id, { data: { id, source: s, target: t, kind: e.kind, weight: 0 } });
@@ -551,8 +654,12 @@ function buildAggregateElements(nodes, level) {
 
 	return {
 		elements: [...elements, ...edges.values()],
-		counts: { nodes: elements.length, edges: edges.size, characters: nodes.length },
-		mode: 'aggregate'
+		counts: {
+			nodes: elements.length, edges: edges.size, characters: nodes.length,
+			// 「線が消えた」ではなく「意図して引いていない」と分かるよう統計行へ出す
+			bucketEdges: bucketEdges > 0 ? bucketEdges : 0
+		},
+		mode: 'cells'
 	};
 }
 
@@ -581,19 +688,19 @@ function buildCharacterElements(nodes) {
 		mode = grouped.multiValued ? 'bridge' : 'compound';
 
 		grouped.groups.forEach((g, idx) => {
-			const color = CLUSTER_COLORS[idx % CLUSTER_COLORS.length];
+			const shade = shadeFor(idx);
 			const id = `grp:${g.value}`;
 			const label = pickLang(g.label_JP, g.label_EN);
 
 			if (mode === 'compound') {
 				// 単値軸: Cytoscape の compound node（囲い）で表す
-				elements.push({ data: { id, kind: 'cluster', label, color } });
-				for (const k of g.members) { parentOf.set(k, id); colorOf.set(k, color); }
+				elements.push({ data: { id, kind: 'cluster', label, color: shade.fill, borderColor: shade.border } });
+				for (const k of g.members) { parentOf.set(k, id); colorOf.set(k, shade.border); }
 			} else {
 				// 多値軸: 1 ノード 1 親の制約を避けるため、軸の値を実ノードにして 2 部グラフにする
-				elements.push({ data: { id, kind: 'facet', label, color, count: g.members.length } });
+				elements.push({ data: { id, kind: 'facet', label, color: shade.fill, borderColor: shade.border, count: g.members.length } });
 				for (const k of g.members) {
-					if (!colorOf.has(k)) colorOf.set(k, color);
+					if (!colorOf.has(k)) colorOf.set(k, shade.border);
 					bridgeEdges.push({ data: { id: `bridge::${id}::${k}`, source: id, target: `node:${k}`, kind: 'facet' } });
 				}
 			}
@@ -609,7 +716,7 @@ function buildCharacterElements(nodes) {
 				label: nodeLabel(n), badge: n.badge || n.indexText,
 				degree: n.degree || 0,
 				// `border-color: data(color)` が空文字だとスタイル適用に失敗するので既定色を入れる
-				color: colorOf.get(n.key) || DEFAULT_NODE_BORDER,
+				color: colorOf.get(n.key) || palette().nodeBorder,
 				// `background-image: data(thumb)` は値が空だと無効になるため、
 				// サムネイルが無いノードにはキー自体を持たせない（`[thumb]` セレクタで弾く）
 				...(state.showThumbs && n.thumb ? { thumb: n.thumb } : {}),
@@ -663,7 +770,7 @@ function buildEgoElements(scopeNodes) {
 			workId: n.workId, dbName: n.dbName,
 			label: nodeLabel(n), badge: n.badge || n.indexText,
 			degree: n.degree || 0,
-			color: isCenter ? CLUSTER_COLORS[0] : DEFAULT_NODE_BORDER,
+			color: isCenter ? palette().nodeBorderActive : palette().nodeBorder,
 			...(state.showThumbs && n.thumb ? { thumb: n.thumb } : {}),
 			center: isCenter ? 1 : 0
 		}
@@ -722,25 +829,46 @@ function loadCytoscape() {
 	return cytoscapePromise;
 }
 
-/** @param {string} name @param {string} fallback @returns {string} */
-function cssVar(name, fallback) {
-	const v = getComputedStyle(document.documentElement).getPropertyValue(name).trim();
-	return v || fallback;
+/** 解決済みパレット。`getComputedStyle` は同期レイアウトを誘発するので起動時 1 回だけ解決する */
+let paletteCache = null;
+
+/** 直近の交差削減の結果（統計行と診断パネルに出す） */
+let lastCrossingStats = null;
+
+/**
+ * 相関図のパレットを取得する
+ *
+ * @description **Cytoscape へ `color-mix()` / `var()` を渡してはいけない。**
+ * 実測で、Cytoscape は `color-mix()` / `color(srgb …)` / `oklab()` を拒否し、
+ * 例外を投げずに警告だけ出して `#999` へフォールバックする。目視では「なんとなく灰色」に
+ * 見えるだけで気づけないため、色はすべて `graph-palette.js` 側で実値へ解決してから渡す。
+ * @returns {Object} `buildPalette()` の戻り値
+ */
+function palette() {
+	if (!paletteCache) paletteCache = buildPalette(createTokenReader(document));
+	return paletteCache;
 }
 
-/** @param {string} value @returns {string} */
-function resolveCssVar(value) {
-	const m = /^var\((--[^)]+)\)$/.exec(String(value || '').trim());
-	return m ? cssVar(m[1], '#888') : value;
+/**
+ * グループ番号から濃度段（面の色と枠の色）を引く
+ *
+ * @description **色相でカテゴリを塗り分けない。** グループの識別は
+ * 「格子上の位置 + ラベル + 濃度段 + 枠 + 左レール凡例」の多重符号化で行う。
+ * 濃度段は accent を card へ混ぜたラダーで、段数を超えたら循環する。
+ * @param {number} index - グループの通し番号
+ * @returns {{fill: string, border: string}}
+ */
+function shadeFor(index) {
+	const p = palette();
+	const shades = p.shades;
+	const i = ((Number.isFinite(index) ? index : 0) % shades.length + shades.length) % shades.length;
+	return { fill: shades[i], border: i >= shades.length - 2 ? p.cellBorder : p.cellBorderInner };
 }
 
 /** Cytoscape のスタイル定義 @returns {Array} */
 function buildCyStyle() {
-	const fg = cssVar('--fg', '#e9f3ff');
-	const accent = cssVar('--accent', '#5fd6ff');
-	const card = cssVar('--card', '#0f1830');
-	const border = cssVar('--border', '#1d2a4a');
-	const muted = cssVar('--muted', '#9fb6d6');
+	const p = palette();
+	const { fg, accent, card, border, muted, bgDeep } = p;
 
 	const styles = [
 		{
@@ -779,18 +907,44 @@ function buildCyStyle() {
 			style: { 'border-color': accent, 'border-width': 4 }
 		},
 		{
-			// 集約ノード（作品 / 軸の値）
-			selector: 'node[kind = "group"], node[kind = "facet"]',
+			// 集約グループのアンカー。**面は背景 board canvas が描く**ので、
+			// ここはラベルとエッジの接続点だけを受け持つ透明なノードにする。
+			// （面を Cytoscape ノードにすると cy.layout() が O(n²) で固まり、
+			//  400 ノード超で無言に grid へ切り替わってセル座標が壊れる）
+			selector: 'node[kind = "group"]',
+			style: {
+				'shape': 'ellipse',
+				'background-opacity': 0,
+				'border-width': 0,
+				'width': 10,
+				'height': 10,
+				'label': 'data(label)',
+				'color': fg,
+				'font-size': 12,
+				'font-weight': 'bold',
+				'text-valign': 'center',
+				'text-halign': 'center',
+				'text-wrap': 'ellipsis',
+				'text-max-width': 140,
+				// マス塗りの上に載るので、地色の縁取りで可読性を確保する
+				'text-outline-color': bgDeep,
+				'text-outline-width': 3,
+				'text-outline-opacity': 0.85
+			}
+		},
+		{
+			// 多値軸の中間ノード（キャラ個体段で使う）
+			selector: 'node[kind = "facet"]',
 			style: {
 				'shape': 'round-rectangle',
 				'background-color': 'data(color)',
-				'border-color': 'data(color)',
-				'border-width': 2,
-				'background-opacity': 0.85,
+				'border-color': 'data(borderColor)',
+				'border-width': 1.5,
+				'background-opacity': 1,
 				'width': 'mapData(count, 1, 200, 56, 150)',
 				'height': 'mapData(count, 1, 200, 40, 92)',
 				'label': 'data(label)',
-				'color': '#05080f',
+				'color': fg,
 				'font-size': 13,
 				'font-weight': 'bold',
 				'text-valign': 'center',
@@ -804,10 +958,10 @@ function buildCyStyle() {
 			style: {
 				'shape': 'round-rectangle',
 				'background-color': 'data(color)',
-				'background-opacity': 0.07,
-				'border-color': 'data(color)',
+				'background-opacity': 1,
+				'border-color': 'data(borderColor)',
 				'border-width': 1,
-				'border-opacity': 0.5,
+				'border-opacity': 0.8,
 				'label': 'data(label)',
 				'text-valign': 'top',
 				'text-halign': 'center',
@@ -816,8 +970,9 @@ function buildCyStyle() {
 				'padding': 18
 			}
 		},
+		// 選択・強調は色相を変えず accent で縁取る（characters.sass:1478-1487 の作法）
 		{ selector: 'node:selected', style: { 'border-color': accent, 'border-width': 4 } },
-		{ selector: 'node.dimmed', style: { 'opacity': 0.18 } },
+		{ selector: 'node.dimmed', style: { 'opacity': p.dimAlpha } },
 		{ selector: 'node.highlighted', style: { 'border-color': accent, 'border-width': 4 } },
 		{
 			selector: 'edge',
@@ -826,8 +981,28 @@ function buildCyStyle() {
 				'width': 'mapData(weight, 1, 12, 1.4, 6)',
 				'opacity': 0.7,
 				'target-arrow-shape': 'triangle',
-				'arrow-scale': 0.7
+				'arrow-scale': 0.7,
+				// **必須。** 既定の `intersection` は基準線を「ノード境界の交点」で取るため、
+				// 折れ点の座標計算（`graph-edge-route.js`）が前提にしている中心線とずれる。
+				// ノードの大きさが次数で変わるので、ずれ方も辺ごとにばらつく
+				'edge-distances': 'node-position'
 			}
+		},
+		{
+			// 六角格子の辺に沿った折れ線。折れ点は必ず格子点に乗る
+			selector: 'edge[curveStyle = "round-segments"]',
+			style: {
+				'curve-style': 'round-segments',
+				'segment-weights': 'data(segW)',
+				'segment-distances': 'data(segD)',
+				'segment-radii': 8,
+				'radius-type': 'arc-radius'
+			}
+		},
+		{
+			// 格子の軸と平行な辺は折れる必要が無い
+			selector: 'edge[curveStyle = "straight"]',
+			style: { 'curve-style': 'straight' }
 		},
 		{ selector: 'edge[direction = "mutual"]', style: { 'source-arrow-shape': 'triangle' } },
 		{
@@ -838,11 +1013,31 @@ function buildCyStyle() {
 				'width': 1, 'target-arrow-shape': 'none'
 			}
 		},
-		{ selector: 'edge.dimmed', style: { 'opacity': 0.06 } }
+		{ selector: 'edge.dimmed', style: { 'opacity': 0.06 } },
+		{
+			// マス塗り（集約段）では線を既定で隠す。
+			//
+			// 13 区画に 27 本の線を一度に出すと、向きを格子へ揃えても重なりと交差で読めない
+			// （実測: 53 本の線分のうち 83% が完全な重なりに巻き込まれ、最大 5 本が 1 本に潰れた）。
+			// そもそも集約段の線は「A の誰かと B の誰かが繋がっている」という粗い情報なので、
+			// 常時出す価値が低い。**区画にポインタを乗せたときだけ、その区画の線を出す**。
+			selector: 'edge.agg-hidden',
+			style: { 'display': 'none' }
+		},
+		{
+			// 検索の減光・選択の切り替えを滑らかにする。
+			// Cytoscape 組み込みの style transition なので JS 側の補間コードは不要
+			selector: 'node, edge',
+			style: {
+				'transition-property': 'opacity, border-color, border-width, line-color',
+				'transition-duration': '160ms',
+				'transition-timing-function': 'ease-out'
+			}
+		}
 	];
 
 	for (const [kind, s] of Object.entries(EDGE_STYLE)) {
-		const color = resolveCssVar(s.color);
+		const color = p.edge[s.tone];
 		styles.push({
 			selector: `edge[kind = "${kind}"]`,
 			style: {
@@ -860,6 +1055,283 @@ function buildCyStyle() {
 	return styles;
 }
 
+/* ========================================================================
+   背景レイヤー（マス塗り）の描画
+   ======================================================================== */
+
+/** 六角セルの外周 6 頂点（pointy-top）。中心からの相対座標を先に作っておく */
+function hexCorners(spacing) {
+	const r = spacing / Math.sqrt(3); // 中心 → 頂点の距離
+	const pts = [];
+	for (let k = 0; k < 6; k += 1) {
+		// pointy-top: 頂点が真上（-90°）から 60° ずつ
+		const a = (Math.PI / 180) * (60 * k - 90);
+		pts.push([Math.cos(a) * r, Math.sin(a) * r]);
+	}
+	return pts;
+}
+
+/**
+ * 近傍の並び（`hexNeighbors()` の戻り順）と、六角形の辺番号の対応
+ *
+ * @description 辺 k は頂点 k から頂点 k+1 までの線分で、その外向き法線は `-60 + 60k` 度。
+ * `hexNeighbors()` は [左, 右, 上左, 上右, 下左, 下右] の順に返すので、
+ * それぞれ法線 180° / 0° / -120° / -60° / 120° / 60° ＝ 辺 4 / 1 / 5 / 0 / 3 / 2 に対応する。
+ * この対応があることで「別グループと接している辺だけ」を描ける（地図の国境のように見せる）。
+ */
+const SIDE_OF_NEIGHBOR = Object.freeze([4, 1, 5, 0, 3, 2]);
+
+/** 背景レイヤーの再描画予約（rAF で 1 フレーム 1 回に間引く） */
+let boardFrame = 0;
+
+/** pan/zoom や resize のたびに呼ぶ。実描画は次フレームへまとめる */
+function scheduleBoardDraw() {
+	if (boardFrame) return;
+	boardFrame = requestAnimationFrame(() => {
+		boardFrame = 0;
+		drawBoard();
+	});
+}
+
+/**
+ * マス塗りを背景 canvas へ描く
+ *
+ * @description Cytoscape の view（zoom / pan）に合わせて世界座標をスクリーン座標へ写す。
+ * 濃度段ごとに `Path2D` を 1 本作るので `fill()` は段数（既定 6）以下しか呼ばない。
+ * 境界セルだけ枠を濃く描き、塊の輪郭を見せる（面をベタ塗りしないための工夫）。
+ */
+function drawBoard() {
+	const canvas = $('board');
+	const container = $('canvas');
+	if (!canvas || !container) return;
+
+	const dpr = window.devicePixelRatio || 1;
+	const w = container.clientWidth;
+	const h = container.clientHeight;
+	if (canvas.width !== Math.round(w * dpr) || canvas.height !== Math.round(h * dpr)) {
+		canvas.width = Math.round(w * dpr);
+		canvas.height = Math.round(h * dpr);
+		canvas.style.width = `${w}px`;
+		canvas.style.height = `${h}px`;
+	}
+
+	const ctx = canvas.getContext('2d');
+	ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+	ctx.clearRect(0, 0, w, h);
+
+	const board = state.board;
+	if (!cy || !board || board.cells.length === 0) return;
+
+	const zoom = cy.zoom();
+	const pan = cy.pan();
+	const p = palette();
+	const corners = hexCorners(CELL_SPACING * zoom);
+
+	/** セル 1 つの六角形を経路へ積む。画面外なら何もしない */
+	const addCell = (path, c) => {
+		const x = c.x * zoom + pan.x;
+		const y = c.y * zoom + pan.y;
+		// 画面外のセルは経路に積まない（大きな図でのパス長を抑える）
+		if (x < -CELL_SPACING * zoom || x > w + CELL_SPACING * zoom
+			|| y < -CELL_SPACING * zoom || y > h + CELL_SPACING * zoom) return false;
+		path.moveTo(x + corners[0][0], y + corners[0][1]);
+		for (let k = 1; k < 6; k += 1) path.lineTo(x + corners[k][0], y + corners[k][1]);
+		path.closePath();
+		return true;
+	};
+
+	// 濃度段ごとに 1 本の Path2D へまとめる（fill 呼び出しを段数以下に抑える）。
+	// ポインタが乗っている区画だけは別経路にして、あとから明るく塗り直す
+	const hover = state.hoverGroup;
+	const fills = [];
+	const hovered = new Path2D();
+	for (const c of board.cells) {
+		if (c.group === hover) { addCell(hovered, c); continue; }
+		const path = fills[c.shade] || (fills[c.shade] = new Path2D());
+		addCell(path, c);
+	}
+
+	for (let s = 0; s < fills.length; s += 1) {
+		if (!fills[s]) continue;
+		ctx.fillStyle = p.shades[s % p.shades.length];
+		ctx.fill(fills[s]);
+	}
+
+	// ホバー中の区画。色相は変えず accent を濃く混ぜて「起こす」
+	// （characters.sass:1478-1487 の `.lang-toggle__opt` と同じ、沈める / 起こすの作法）
+	if (hover >= 0) {
+		ctx.fillStyle = p.hoverFill;
+		ctx.fill(hovered);
+	}
+
+	// --- 区画の輪郭 ---
+	//
+	// セル 1 個ずつを縁取ると格子の目が主張して塊の切れ目が読めない。
+	// **別グループ（または空き）と接している辺だけ**を描くと、地図の国境のように区画が立つ。
+	const byCell = board.cellIndex;
+	const inner = new Path2D();     // 塊の内側の仕切り（グループ同士の境）
+	const outer = new Path2D();     // 塊の外周（空きとの境）
+	const hoverEdge = new Path2D(); // ホバー中の区画の輪郭（他との境も外周も含む）
+
+	for (const c of board.cells) {
+		const x = c.x * zoom + pan.x;
+		const y = c.y * zoom + pan.y;
+		if (x < -CELL_SPACING * zoom || x > w + CELL_SPACING * zoom
+			|| y < -CELL_SPACING * zoom || y > h + CELL_SPACING * zoom) continue;
+
+		const ns = hexNeighborsOf(c.col, c.row);
+		for (let i = 0; i < 6; i += 1) {
+			const other = byCell.get(`${ns[i].col},${ns[i].row}`);
+			if (other !== undefined && other === c.group) continue; // 同じグループ同士は描かない
+			const k = SIDE_OF_NEIGHBOR[i];
+			const a = corners[k];
+			const b = corners[(k + 1) % 6];
+			const path = c.group === hover ? hoverEdge : (other === undefined ? outer : inner);
+			path.moveTo(x + a[0], y + a[1]);
+			path.lineTo(x + b[0], y + b[1]);
+		}
+	}
+
+	ctx.lineCap = 'round';
+	// 内側の仕切りは控えめに
+	ctx.strokeStyle = p.cellBorderInner;
+	ctx.lineWidth = Math.max(0.6, 1.0 * Math.min(1.6, zoom));
+	ctx.stroke(inner);
+	// 外周は濃く（区画のかたまりが読める）
+	ctx.strokeStyle = p.cellBorder;
+	ctx.lineWidth = Math.max(1, 1.8 * Math.min(1.6, zoom));
+	ctx.stroke(outer);
+	// ホバー中の区画は accent で縁取り、うっすら発光させて手前へ起こす
+	if (hover >= 0) {
+		ctx.save();
+		ctx.shadowColor = p.accent;
+		ctx.shadowBlur = 10;
+		ctx.strokeStyle = p.accent;
+		ctx.lineWidth = Math.max(1.4, 2.2 * Math.min(1.6, zoom));
+		ctx.stroke(hoverEdge);
+		ctx.restore();
+	}
+}
+
+/**
+ * 集約段の線の出し入れ
+ *
+ * @description マス塗りでは既定で線を隠し、**ポインタが乗っている区画の線だけ**を出す。
+ * 全部出すと重なりと交差で読めなくなるうえ、集約段の線は
+ * 「A の誰かと B の誰かが繋がっている」という粗い情報なので常時出す価値が低い。
+ * @param {number} groupIndex - ホバー中のグループ番号（-1 なら全部隠す）
+ */
+function syncAggregateEdges(groupIndex) {
+	if (!cy || !state.board) return;
+	const anchorId = groupIndex >= 0 ? `grp:${state.board.groups[groupIndex]?.key}` : null;
+	cy.batch(() => {
+		cy.edges().forEach(e => {
+			const show = anchorId && (e.source().id() === anchorId || e.target().id() === anchorId);
+			if (show) e.removeClass('agg-hidden');
+			else e.addClass('agg-hidden');
+		});
+	});
+}
+
+/**
+ * ホバー中の区画名を出す
+ *
+ * @description マス塗りはノードではないので、Cytoscape のラベルとは別に自前で見出しを出す。
+ * ラベルが省略されている区画や、ラベルから離れた位置に乗ったときでも
+ * 「いま何を指しているか」が分かるようにする。
+ * @param {Object|null} group - `state.board.groups` の要素
+ */
+function setHoverLabel(group) {
+	const box = $('hover-label');
+	if (!box) return;
+	if (!group) { box.hidden = true; box.textContent = ''; return; }
+	box.hidden = false;
+	box.textContent = `${group.label}（${group.cellCount}）`;
+}
+
+/**
+ * 世界座標からマスのグループを引く
+ *
+ * @description `nearestCell()` の逆写像なので O(1)。
+ * 背景をタップしたときに「どの区画を押したか」を判定するのに使う。
+ * @param {{x: number, y: number}} modelPos - Cytoscape の model 座標
+ * @returns {Object|null} `state.board.groups` の要素
+ */
+function groupAtModelPos(modelPos) {
+	const board = state.board;
+	if (!board || !modelPos) return null;
+	const cell = nearestCell(modelPos.x, modelPos.y, CELL_SPACING);
+	const g = board.cellIndex.get(`${cell.col},${cell.row}`);
+	return g === undefined ? null : (board.groups[g] || null);
+}
+
+/**
+ * 接続線を六角格子の辺に沿わせる
+ *
+ * @description ノードの座標が確定したあとに呼ぶ。
+ * 各辺の折れ点を求めて `curveStyle` / `segW` / `segD` を data へ載せ、
+ * スタイル側の `edge[curveStyle = "..."]` セレクタが拾う。
+ *
+ * **エゴネットワークでは適用しない。** あちらは中心 1 個と直接の相手だけを放射状に並べる画面で、
+ * 「誰と繋がっているか」を最短で読ませるのが目的なので、線が折れると逆に追いにくい。
+ * @param {string} mode - `buildElements()` が返した描画モード
+ */
+function applyEdgeRouting(mode) {
+	if (!cy) return;
+	if (mode === 'ego') {
+		cy.batch(() => {
+			cy.edges().forEach(e => { e.data('curveStyle', ''); });
+		});
+		return;
+	}
+
+	const positions = new Map();
+	cy.nodes().forEach(n => { if (!n.isParent()) positions.set(n.id(), n.position()); });
+
+	const routes = routeEdges(
+		cy.edges().map(e => ({ id: e.id(), source: e.source().id(), target: e.target().id() })),
+		positions,
+		{ nodeRadius: mode === 'cells' ? CELL_SPACING * 0.6 : NODE_BASE_SIZE * 0.7 }
+	);
+
+	cy.batch(() => {
+		// いったん全部クリアしてから載せ直す（前の段の経路が残らないように）
+		cy.edges().forEach(e => { e.data('curveStyle', ''); });
+		for (const r of routes) {
+			const e = cy.getElementById(r.id);
+			if (!e || e.empty()) continue;
+			e.data('curveStyle', r.curveStyle);
+			// `segment-weights` / `segment-distances` は multiple 型なので配列で渡せる。
+			// レーンをずらす辺は 3 点（両端の短い渡り + 中央の折れ点）になる
+			e.data('segW', r.weights);
+			e.data('segD', r.distances);
+		}
+	});
+}
+
+/**
+ * 指定した世界座標の矩形が画面に収まるよう zoom / pan を合わせる
+ *
+ * @description `cy.fit()` はノードの外接しか見ないので、
+ * マス塗り（ノードではなく背景 canvas が描く）には使えない。
+ * @param {{minX: number, minY: number, maxX: number, maxY: number, width: number, height: number}} bounds
+ * @param {{width: number, height: number}} viewport
+ * @param {number} [padding=24]
+ */
+function fitToBounds(bounds, viewport, padding = 24) {
+	if (!cy || !bounds?.width || !bounds?.height) return;
+	const zoom = Math.min(
+		(viewport.width - padding * 2) / bounds.width,
+		(viewport.height - padding * 2) / bounds.height
+	);
+	const z = Math.max(cy.minZoom(), Math.min(cy.maxZoom(), zoom));
+	cy.zoom(z);
+	cy.pan({
+		x: viewport.width / 2 - ((bounds.minX + bounds.maxX) / 2) * z,
+		y: viewport.height / 2 - ((bounds.minY + bounds.maxY) / 2) * z
+	});
+}
+
 /** @returns {boolean} */
 function prefersReducedMotion() {
 	return Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches);
@@ -873,8 +1345,24 @@ async function renderGraph() {
 	const container = $('canvas');
 	if (!container) return;
 
+	// 段が変わるとグループ番号の意味も変わるので、ホバー状態は持ち越さない
+	state.hoverGroup = -1;
+	setHoverLabel(null);
+
+	// **マス塗りは集約段だけのもの。** キャラ個体段やエゴネットワークへ移ったら必ず捨てる。
+	// 残しておくと前の段の塗りが新しい倍率で描き直され、キャラのタイルの下に
+	// 無関係な区画が透けて出る（当たり判定も古い区画を拾ってしまう）。
+	if (mode !== 'cells') state.board = null;
+
 	if (!cy) {
-		cy = cytoscape({ container, elements, style: buildCyStyle(), minZoom: 0.12, maxZoom: 3 });
+		cy = cytoscape({
+			container, elements, style: buildCyStyle(), minZoom: 0.12, maxZoom: 3,
+			// **`layout` を明示しないと Cytoscape は既定で `grid` を走らせ、
+			// element に載せた position を上書きしてしまう。**
+			// 配置はこちらで決める（マス塗りはセル割当、キャラ個体段は cose + 格子スナップ）ので
+			// 初期化時は preset（＝与えられた座標をそのまま使う）にしておく。
+			layout: { name: 'preset', fit: false }
+		});
 		wireGraphEvents();
 	} else {
 		cy.elements().remove();
@@ -882,45 +1370,85 @@ async function renderGraph() {
 		cy.style(buildCyStyle());
 	}
 
-	// 力学レイアウトで相対位置を決めてから、六角格子へスナップして均等感を出す。
-	// `cose` は 1 反復が O(n^2) なので、反復回数をノード数に反比例させないと
-	// ノードが増えたときに数十秒固まる（実測: 288 ノード × 800 反復で 30 秒超）。
-	// 最終的に格子へスナップするため、力学レイアウトには「大まかな相対位置」だけを求める。
-	const nodeCount = cy.nodes().length;
-	const numIter = Math.max(80, Math.min(600, Math.round(240000 / Math.max(1, nodeCount * nodeCount) * 100)));
-	const layout = cy.layout({
-		name: nodeCount > 400 ? 'grid' : 'cose',
-		animate: false,
-		randomize: false,
-		nodeRepulsion: 9000,
-		idealEdgeLength: 90,
-		nestingFactor: 0.8,
-		gravity: 0.35,
-		numIter,
-		fit: false
-	});
-	layout.run();
+	if (mode === 'cells') {
+		// マス塗り: 位置はセル割当（`buildHexFill()`）が既に決めているので力学レイアウトは走らせない。
+		// アンカーの座標は element に載せてある。
+		//
+		// 交差の削減はここでは**入れ替えではなく配置の段階**で効かせている
+		// （`relaxSeeds()` が繋がりの強いグループを引き寄せる）。
+		// 区画は人数ぶんの大きさを持つので、キャラ個体段のように自由に入れ替えられないため。
+		// 残った交差数だけ測って統計行へ出す
+		const anchors = new Map();
+		cy.nodes().forEach(n => anchors.set(n.id(), n.position()));
+		const crossings = countCrossings(
+			anchors,
+			cy.edges().map(e => ({ source: e.source().id(), target: e.target().id() }))
+		);
+		lastCrossingStats = { before: crossings, after: crossings, skipped: false, swaps: 0, placed: true };
+	} else {
+		// 力学レイアウトで相対位置を決めてから、六角格子へスナップして均等感を出す。
+		// `cose` は 1 反復が O(n^2) なので、反復回数をノード数に反比例させないと
+		// ノードが増えたときに数十秒固まる（実測: 288 ノード × 800 反復で 30 秒超）。
+		// 最終的に格子へスナップするため、力学レイアウトには「大まかな相対位置」だけを求める。
+		const nodeCount = cy.nodes().length;
+		const numIter = Math.max(80, Math.min(600, Math.round(240000 / Math.max(1, nodeCount * nodeCount) * 100)));
+		cy.layout({
+			name: nodeCount > 400 ? 'grid' : 'cose',
+			animate: false,
+			randomize: false,
+			nodeRepulsion: 9000,
+			idealEdgeLength: 90,
+			nestingFactor: 0.8,
+			gravity: 0.35,
+			numIter,
+			fit: false
+		}).run();
+	}
 
-	if (mode !== 'compound') {
+	if (mode !== 'compound' && mode !== 'cells') {
 		// compound（囲い）は親子の入れ子を壊さないようスナップしない
 		const spacing = resolveSpacing({ nodeSize: NODE_BASE_SIZE, labelWidth: 96, gap: 26 });
 		const positions = cy.nodes().filter(n => !n.isParent()).map(n => ({ id: n.id(), ...n.position() }));
-		for (const p of snapToHexLattice(positions, { spacing })) {
+		const snapped = snapToHexLattice(positions, { spacing });
+
+		// 格子へ乗せ切ったあと、接続線の交差が減るようにノードの座標を入れ替える。
+		// 格子点は等価なので入れ替えても充填形は変わらず、交差だけが減る。
+		// `cose` はエッジ長を縮める力学模型で交差数そのものは最小化しないうえ、
+		// スナップの過程で避けていた交差が復活することがあるため、最後に直接減らす。
+		const routed = reduceCrossings(
+			snapped,
+			cy.edges().map(e => ({ source: e.source().id(), target: e.target().id() }))
+		);
+		lastCrossingStats = routed;
+
+		for (const p of routed.positions) {
 			cy.getElementById(p.id).position({ x: p.x, y: p.y });
 		}
+	} else {
+		lastCrossingStats = null;
 	}
 
-	// 画面に収めることを優先しない。潰れる倍率になるなら fit せず等倍付近で出す
-	const positions = cy.nodes().map(n => n.position());
-	const bounds = boundsOf(positions, 60);
+	// 画面に収めることを優先しない。潰れる倍率になるなら fit せず等倍付近で出す。
+	// マス塗りでは Cytoscape のノード（アンカー）ではなく**セル全体**の外接を使う
+	// （アンカーは塊の重心付近にしか無いので、そのまま fit すると塗りが画面外へはみ出す）
+	const bounds = (mode === 'cells' && state.board)
+		? state.board.bounds
+		: boundsOf(cy.nodes().map(n => n.position()), 60);
 	const viewport = { width: container.clientWidth, height: container.clientHeight };
 	const { fits } = shouldFitToViewport(bounds, viewport, 0.45);
 	if (fits) {
-		cy.fit(undefined, 32);
+		if (mode === 'cells') fitToBounds(bounds, viewport, 24);
+		else cy.fit(undefined, 32);
 	} else {
 		cy.zoom(0.75);
 		cy.center();
 	}
+	// 座標が確定してから接続線を格子の辺へ沿わせる
+	applyEdgeRouting(mode);
+	// マス塗りでは線を既定で隠す（ポインタを乗せた区画の線だけ出す）
+	if (mode === 'cells') syncAggregateEdges(-1);
+	else cy.edges().removeClass('agg-hidden');
+	scheduleBoardDraw();
 
 	applyFocusAndQuery();
 	renderStats(counts, mode);
@@ -934,6 +1462,50 @@ async function renderGraph() {
 /** グラフのイベントを配線する */
 function wireGraphEvents() {
 	if (!cy) return;
+
+	// pan / zoom / リサイズに追随して背景のマス塗りを描き直す。
+	// 実描画は rAF で 1 フレーム 1 回に間引く
+	cy.on('viewport resize', scheduleBoardDraw);
+	window.addEventListener('resize', scheduleBoardDraw);
+
+	// ポインタが乗っている区画を明るくする。
+	// マス塗りは Cytoscape のノードではないので `:hover` が効かず、自前で追う必要がある。
+	// 掘る前に「どの区画を押そうとしているか」が分かるようにするための feedback
+	cy.on('mousemove', (evt) => {
+		const group = groupAtModelPos(evt.position);
+		const next = group ? group.index : -1;
+		const container = $('canvas');
+		if (container) container.style.cursor = next >= 0 ? 'pointer' : '';
+		if (next === state.hoverGroup) return; // 同じ区画の中を動いている間は描き直さない
+		state.hoverGroup = next;
+		setHoverLabel(group);
+		syncAggregateEdges(next);
+		scheduleBoardDraw();
+	});
+
+	// キャンバスの外へ出たらホバーを解除する
+	$('canvas')?.addEventListener('mouseleave', () => {
+		if (state.hoverGroup === -1) return;
+		state.hoverGroup = -1;
+		setHoverLabel(null);
+		syncAggregateEdges(-1);
+		scheduleBoardDraw();
+	});
+
+	// マス塗りの上のタップ ＝ その区画を掘る。
+	//
+	// エッジの上も対象に含める。区画の面をめがけて押したのに、
+	// たまたま細い線に当たって何も起きないのは操作として分かりにくいため
+	// （ノードのタップは下のハンドラが受け持つのでここでは除く）。
+	cy.on('tap', (evt) => {
+		const onNode = evt.target !== cy && typeof evt.target.isNode === 'function' && evt.target.isNode();
+		if (onNode) return;
+		const group = groupAtModelPos(evt.position);
+		if (!group) return;
+		state.drill = [...state.drill, group.key];
+		state.focusKey = '';
+		onViewChanged(true);
+	});
 
 	cy.on('tap', 'node', (evt) => {
 		const d = evt.target.data();
@@ -1011,13 +1583,26 @@ function renderStats(counts, mode) {
 	const s = state.graph?.stats;
 	if (!s) return;
 	const modeLabel = {
-		aggregate: '集約', compound: '囲い', bridge: '軸ノード', plain: '個体', ego: '関係先'
+		cells: 'マス塗り', compound: '囲い', bridge: '軸ノード', plain: '個体', ego: '関係先'
 	}[mode] || '';
 	const autoHidden = [...state.autoHiddenKinds].map(kindLabel).join('・');
+
+	// 交差削減の効果。「線が絡んで見える」ときに、そもそも交差が残っているのか
+	// それとも減らし切ったうえでこの形なのかを切り分けられるようにする
+	const cx = lastCrossingStats;
+	let crossText = '';
+	if (cx && !cx.skipped && cx.before > 0) {
+		// マス塗りは配置の段階で交差を減らしているので「削減前 → 後」が無い。残った本数だけ出す
+		crossText = cx.placed ? ` ・ 線の交差 ${cx.after}` : ` ・ 線の交差 ${cx.before} → ${cx.after}`;
+	}
+
 	replaceChildren($('stats'), [
 		`表示: ${counts.nodes} ノード / ${counts.edges} 本（${modeLabel}）`,
 		` ・ 対象 ${counts.characters} キャラ`,
 		autoHidden ? ` ・ 密度により自動で非表示: ${autoHidden}` : '',
+		// 寄せ集めのグループの線は意図して引いていない。黙って消えたと見えないよう明示する
+		counts.bucketEdges ? ` ・ 「その他」「(未設定)」の線 ${counts.bucketEdges} 本は非表示（寄せ集めのため）` : '',
+		crossText,
 		` ・ 全体 ${s.nodeCount} キャラ / ${s.edgeCount} 本`
 	]);
 }
@@ -1285,18 +1870,38 @@ function renderMapSelector() {
 
 /** グルーピング軸セレクタ（宣言から自動列挙） */
 function renderGroupingSelector() {
-	const sel = $('select-grouping');
-	if (!sel) return;
+	const box = $('select-grouping');
+	if (!box) return;
 	const usable = selectUsableFacets(state.facets, drilledNodes());
-	replaceChildren(sel, [
-		el('option', { value: '', text: 'なし' }),
-		...usable.map(f => el('option', {
-			value: f.key,
-			text: `${pickLang(f.label_JP, f.label_EN)}（${f.stats.valueCount}）`
-		}))
+
+	// 選択中の軸が今のスコープで使えないなら「なし」へ戻す
+	if (state.grouping && !usable.some(f => f.key === state.grouping)) state.grouping = '';
+
+	/** @param {string} key @param {string} label @returns {HTMLElement} */
+	const chip = (key, label) => {
+		const active = state.grouping === key;
+		const b = el('button', {
+			type: 'button',
+			class: `relmap__preset ghost${active ? ' is-active' : ''}`,
+			'aria-pressed': active ? 'true' : 'false',
+			text: label,
+			onclick: () => {
+				state.grouping = key;
+				syncUrl(false);
+				renderGroupingSelector();
+				renderGraph();
+			}
+		});
+		return b;
+	};
+
+	// 軸セレクタは `<select>` ではなく横並びのチップ行にする。
+	// すぐ上のマップ選択（`relmap__presets`）と同じ語彙になり、
+	// 「いま何の軸で束ねているか」が開かずに一覧できる（アークナイツのフィルタ行から取り込んだ形）。
+	replaceChildren(box, [
+		chip('', 'なし'),
+		...usable.map(f => chip(f.key, `${pickLang(f.label_JP, f.label_EN)}（${f.stats.valueCount}）`))
 	]);
-	sel.value = usable.some(f => f.key === state.grouping) ? state.grouping : '';
-	if (sel.value !== state.grouping) state.grouping = sel.value;
 }
 
 /** エッジ種別の凡例＋トグル */
@@ -1323,7 +1928,7 @@ function renderEdgeKinds() {
 			input,
 			el('span', {
 				class: 'relmap__legend-swatch',
-				style: `--swatch-color: ${EDGE_STYLE[kind].color}; --swatch-line: ${EDGE_STYLE[kind].line}`
+				style: `--swatch-color: ${palette().edge[EDGE_STYLE[kind].tone]}; --swatch-line: ${EDGE_STYLE[kind].line}`
 			}),
 			el('span', { text: kindLabel(kind) }),
 			el('span', { class: 'muted', text: ` (${counts[kind] ?? 0})` }),
@@ -1341,11 +1946,7 @@ function onViewChanged(push) {
 
 /** コントロールのイベントを配線する */
 function wireControls() {
-	$('select-grouping')?.addEventListener('change', (ev) => {
-		state.grouping = ev.target.value;
-		syncUrl(false);
-		renderGraph();
-	});
+	// グルーピング軸はチップ行なので、各ボタンの onclick を renderGroupingSelector() が配線する
 
 	$('chk-secondary')?.addEventListener('change', (ev) => {
 		state.includeSecondary = ev.target.checked;

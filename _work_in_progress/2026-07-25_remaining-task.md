@@ -177,7 +177,8 @@
 ### T-13 🔴 キャラクター相関図ページ（`pages/relations.html`）の新設 — **進行中**
 
 - **関連ログ**: `2026-08-02_progress_relations-graph.md`（単一）
-- **状態**: Phase −1（着手前ログ作成）完了 / Phase 0 未着手。全 5 フェーズ・総見積 約 5,600 行
+- **状態（2026-08-02 時点）**: **Phase −1 〜 3-C まで完了。次回は 3-D（遷移アニメーション）から。**
+  `npm test` 58 ファイル / 1,063 テスト成功（着手前 46 / 631）。残るのは 3-D / 3-E / Phase 4
 - **内容**: `Relation` / `RelationTo_*` / `*_DBLink`（全 7 種）/ `ThisMasters[]._DBLink` を
   スキーマ駆動で拾い、全創作タイトルのキャラ間関係をグラフ表示する新規ページ。
   スコープ（全体／作品／DB）× グルーピング（作品／DB／所属／クラス／出身／種族）の直交 2 軸
@@ -341,8 +342,8 @@
 | ログ | 主題 | 関連タスク | 状態 |
 | --- | --- | --- | --- |
 | [2026-07-25_remaining-task.md](./2026-07-25_remaining-task.md) | **本ファイル**（残タスクの起点） | — | 🟢 現行 |
-| [2026-08-02_progress_relations-graph.md](./2026-08-02_progress_relations-graph.md) | キャラクター相関図ページ（`pages/relations.html`）の新設 | **T-13** | 🟢 現行（Phase −1 完了 / Phase 0 未着手） |
-| [2026-08-02_progress_image-rename-index-badge.md](./2026-08-02_progress_image-rename-index-badge.md) | 画像ファイル名をインデックスバッジ（作品コード付き）へ一括改名（640 ファイル） | — | ✅ 完了（孤児 10 件の扱いのみ User 判断待ち） |
+| [2026-08-02_progress_relations-graph.md](./2026-08-02_progress_relations-graph.md) | キャラクター相関図ページ（`pages/relations.html`）の新設 | **T-13** | 🟢 現行（Phase 3-C まで完了 / 次は 3-D 遷移アニメーション） |
+| [2026-08-02_progress_image-rename-index-badge.md](./2026-08-02_progress_image-rename-index-badge.md) | 画像ファイル名をインデックスバッジ（作品コード付き）へ一括改名（640 ファイル） | — | ✅ 完了（独立監査で受入可。指摘 8 件は相関図側の「前段」で解消済み） |
 | [2026-07-29_github-triage.md](./2026-07-29_github-triage.md) | GitHub 未解決問題の日次トリアージ | **T-25** | 🟢 現行（未解決は Issue #13 のみ。CI 失敗・Dependabot・PR は全て解決済み） |
 | [2026-07-29_progress_belonging-faction-typedef.md](./2026-07-29_progress_belonging-faction-typedef.md) | `Belonging` の `$Def_Faction[]` 化・`$dictRef` 参照解決 | **T-33** | ⚠️ 実装完了・実機目視と Workers 側判断が残 |
 | [2026-07-22_progress_issue13-numerology-skinship.md](./2026-07-22_progress_issue13-numerology-skinship.md) | Issue #13 の要件整理 | **T-25** | 📝 設計判断待ち |

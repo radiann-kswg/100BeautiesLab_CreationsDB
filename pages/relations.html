@@ -91,10 +91,15 @@
 				-->
 				<section class="relmap__group">
 					<h2 class="relmap__group-title" id="label-grouping">グルーピング</h2>
-					<label class="relmap__field">
-						<span>束ね方</span>
-						<select id="select-grouping" aria-label="グルーピング軸を選択"></select>
-					</label>
+					<div class="relmap__field">
+						<span id="label-grouping-axis">束ね方</span>
+						<div
+							class="relmap__presets"
+							id="select-grouping"
+							role="group"
+							aria-labelledby="label-grouping-axis"
+						></div>
+					</div>
 					<label class="relmap__check">
 						<input id="chk-merge-same" type="checkbox" checked />
 						<span>同一存在をまとめる</span>
@@ -147,7 +152,19 @@
 
 			<!-- グラフ本体（Cytoscape が canvas を挿入する） -->
 			<div class="relmap__canvas" id="canvas" role="application" aria-labelledby="label-stage"
-				aria-describedby="stage-hint"></div>
+				aria-describedby="stage-hint">
+				<!--
+					集約表示の「マス塗り」を描く背景レイヤー。
+					Cytoscape のノードにすると cy.layout() が O(n²) で固まる（実測: 200 ノードで 672ms、
+					400 超で無言に grid へ切り替わってセル座標が壊れる）ため、
+					ここへ直接描いて Cytoscape のノード数はグループ数（9〜27）に据え置く。
+					Cytoscape は自分の canvas をこの要素の後ろへ追加するので、
+					DOM 順どおり「テクスチャ → マス塗り → グラフ」の重なりになる。
+				-->
+				<canvas class="relmap__board" id="board" aria-hidden="true"></canvas>
+				<!-- ポインタが乗っている区画の名前（マス塗りはノードではないので自前で出す） -->
+				<p class="relmap__hover-label" id="hover-label" aria-live="polite" hidden></p>
+			</div>
 			<p id="stage-hint" class="sr-only">
 				ノードを選択すると右側に詳細が表示されます。グラフの内容は下の「関係の一覧（テキスト）」でも確認できます。
 			</p>
