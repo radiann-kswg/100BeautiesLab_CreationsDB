@@ -51,22 +51,19 @@
       "hashTag_EN": "Key-Letter"
     },
     {
-      "hashTag": "Generation",
-      "$type": "#Number|#Null",
-      "hashTag_JP": "アルベッツの世代",
-      "hashTag_EN": "Generation of ALPBETS",
-      "$display": {
-        "unit_JP": "期生",
-        "unit_EN": "Gen.",
-        "unit_EN_ordinal": true
-      }
-    },
-    {
       "hashTag": "ThisPerformer_DBLink",
       "$type": "$Def_DBLinkRef|#Null",
-      "$enrich": false,
+      "$alt": "OwningAvatar_DBLink",
+      "$enrich": true,
       "hashTag_JP": "演者(リアル空間での姿)",
       "hashTag_EN": "Performer (Real-world Appearance)"
+    },
+    {
+      "hashTag": "OwningAvatar_DBLink",
+      "$type": "$Def_DBLinkRef|#Null",
+      "$enrich": false,
+      "hashTag_JP": "所有アバター(アルベッツとしての姿)",
+      "hashTag_EN": "Owning Avatar (As ALPBETS)"
     },
     {
       "hashTag": "StreamingActivity",
@@ -173,18 +170,39 @@
           "hashTag": "Related",
           "$type": "$Def_Relations[]",
           "hashTag_JP": "親密な関係",
-          "hashTag_EN": "Close Related to Primary Characters"
+          "hashTag_EN": "Close Relations"
         },
         {
           "hashTag": "Commented",
           "$type": "$Def_Relations[]",
           "hashTag_JP": "コメント",
-          "hashTag_EN": "Comments to Primary Characters"
+          "hashTag_EN": "Comments to the Characters"
         }
       ],
-      "hashTag_JP": "原作との関係",
-      "hashTag_EN": "Relation to Primary Characters",
+      "hashTag_JP": "原作のアルベッツとの関係",
+      "hashTag_EN": "Relation to ALPBETS of the Primary Work",
       "isForSecondary": true,
+      "$display": { "sectionWrapper": "relationSection" }
+    },
+    {
+      "hashTag": "RelationTo_PrimaryPerformer",
+      "$type": [
+        {
+          "hashTag": "Related",
+          "$type": "$Def_Relations[]",
+          "hashTag_JP": "親密な関係",
+          "hashTag_EN": "Close Relations"
+        },
+        {
+          "hashTag": "Commented",
+          "$type": "$Def_Relations[]",
+          "hashTag_JP": "コメント",
+          "hashTag_EN": "Comments to the Characters"
+        }
+      ],
+      "hashTag_JP": "アルベッツ演者との関係",
+      "hashTag_EN": "Relation to ALPBETS' Performers",
+      "isForSecondary": false,
       "$display": { "sectionWrapper": "relationSection" }
     }
   ],

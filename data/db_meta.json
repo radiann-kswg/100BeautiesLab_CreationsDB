@@ -53,6 +53,7 @@
           "ColorPalette",
           "AbilityStats",
           "Relation",
+          "RelationTo_Primary",
           "ThisMasters",
           "ConversationPattern",
           "VRMs",
@@ -164,7 +165,6 @@
       "$DetailLayout": {
         "headerPills": ["Progress"],
         "basicFields": [
-          "Generation",
           "AnotherRegions_DBLink",
           "FormalName",
           "CodeName",
@@ -181,6 +181,9 @@
           "AppearanceDetail",
           "StreamingActivity",
           "AbilityStats",
+          "Relation",
+          "RelationTo_PrimaryPerformer",
+          "RelationTo_Primary",
           "ConversationPattern",
           "ThisPerformer_DBLink",
           "AnotherRegions_DBLink"
@@ -430,6 +433,11 @@
           "hideText": "削除済み",
           "hideText_JP": "削除済み",
           "hideText_EN": "Archived or Deleted"
+        },
+        {
+          "hideText": "公開不要",
+          "hideText_JP": "プロフィール公開不要",
+          "hideText_EN": "Un-Profiling"
         }
       ],
       "$Def_Day": {

@@ -331,6 +331,9 @@ const unibyteLiveWorkMeta = mergeMetaAndTypeVars(
 );
 const unibyteLivePrimaryRecords = loadJson('data/Works_UnibyteLive/DataBases/db_Primary.json');
 const unibyteLiveArrowRecord = unibyteLivePrimaryRecords.find((record) => record?.Name_JP === 'A:アロー');
+// `Relation`（同DB）と `RelationTo_PrimaryPerformer`（別DB）を同時に持ち、
+// どちらも複合インデックス（Letter{Alphabet, AlphaGen}）で参照先を指しているレコード
+const unibyteLiveNudgeeRecord = unibyteLivePrimaryRecords.find((record) => record?.Name_JP === 'N:ギザン');
 const unauthedLogicaWorkTypeDef = loadJson('data/Works_UnauthedLogica/DataBases/db_type.json');
 const unauthedLogicaWorkMeta = buildWorkMetaFixture('Works_UnauthedLogica');
 const unauthedLogicaMobRecords = loadJson('data/Works_UnauthedLogica/DataBases/db_PrimaryMobs.json');
@@ -501,34 +504,53 @@ describe('pages/characters.js UI output', () => {
 		expect(getBasicFieldValue('Race')).toBe('Warfox (Acquired)');
 	});
 
+	// `unit_JP` / `unit_EN`（+ `unit_EN_ordinal` による英語の序数化）は数値フィールドの単位表示。
+	// かつてハンカクライブの `Generation` が唯一の宣言だったが `Class` へ統合されて実データから消え、
+	// 現在リポジトリ内に `unit_JP` 宣言を持つフィールドは 1 つも無い。描画実装（`pages/characters.js`）は
+	// 生きているため、合成 typedef ＋ 合成 `$DetailLayout` で回帰検出だけを残す。
+	// 実データに `unit_JP` 宣言が復活したら、そのフィールドを使う形へ戻してよい。
 	it('renders unit_JP for numeric fields in Japanese and ordinal unit_EN in English', async () => {
+		const unitWorkTypeDef = structuredClone(unibyteLiveWorkTypeDef);
+		unitWorkTypeDef.$DefType.push({
+			hashTag: 'DebutGen',
+			$type: '#Number|#Null',
+			hashTag_JP: 'デビュー世代',
+			hashTag_EN: 'Debut Generation',
+			$display: { unit_JP: '期生', unit_EN: 'Gen.', unit_EN_ordinal: true }
+		});
+		const unitGlobalMeta = structuredClone(globalMeta);
+		unitGlobalMeta.CreationWorks['#Works_UnibyteLive'].$DetailLayout.basicFields.unshift('DebutGen');
+		const unitRecord = { ...unibyteLiveArrowRecord, DebutGen: 0 };
+
 		charactersModule.__setCharactersTestState({
+			globalMeta: unitGlobalMeta,
 			charState: {
 				db: 'Primary',
 				pageLang: 'jp',
-				workTypeDef: unibyteLiveWorkTypeDef,
+				workTypeDef: unitWorkTypeDef,
 				globalTypeDef,
 				workMeta: unibyteLiveWorkMeta,
 				imageFields: []
 			}
 		});
 
-		await charactersModule.renderDetail('#Works_UnibyteLive', unibyteLiveArrowRecord);
-		expect(getBasicFieldValue('アルベッツの世代')).toBe('0期生');
+		await charactersModule.renderDetail('#Works_UnibyteLive', unitRecord);
+		expect(getBasicFieldValue('デビュー世代')).toBe('0期生');
 
 		charactersModule.__setCharactersTestState({
+			globalMeta: unitGlobalMeta,
 			charState: {
 				db: 'Primary',
 				pageLang: 'en',
-				workTypeDef: unibyteLiveWorkTypeDef,
+				workTypeDef: unitWorkTypeDef,
 				globalTypeDef,
 				workMeta: unibyteLiveWorkMeta,
 				imageFields: []
 			}
 		});
 
-		await charactersModule.renderDetail('#Works_UnibyteLive', unibyteLiveArrowRecord);
-		expect(getBasicFieldValue('Generation of ALPBETS')).toBe('0th Gen.');
+		await charactersModule.renderDetail('#Works_UnibyteLive', unitRecord);
+		expect(getBasicFieldValue('Debut Generation')).toBe('0th Gen.');
 	});
 
 	it('builds a composite index identifier when single index keys are ambiguous', () => {
@@ -763,6 +785,45 @@ describe('pages/characters.js UI output', () => {
 
 		// 旧 ?num= は読み取り互換のみで、生成側では出力しない
 		expect(new URL(primaryLink.href).searchParams.get('num')).toBeNull();
+	});
+
+	// ハンカクライブは複合インデックス（`Letter{Alphabet, AlphaGen}`）を採用している。
+	// かつて Relation の参照は `pickPrimaryIndexSubDef()` が選ぶサブフィールド 1 つ（= `AlphaGen`）
+	// だけで照合していたため、「S の第2世代」を指したつもりが「最初に見つかった第2世代」
+	// （A:エイリ）へ誤爆していた。同DB参照・別DB参照の双方が複合条件で解決されることを守る。
+	it('resolves Relation and RelationTo_* entries of composite index works to the right records', async () => {
+		charactersModule.__setCharactersTestState({
+			charState: {
+				db: 'Primary',
+				workId: '#Works_UnibyteLive',
+				records: unibyteLivePrimaryRecords,
+				workTypeDef: unibyteLiveWorkTypeDef,
+				globalTypeDef,
+				workMeta: unibyteLiveWorkMeta,
+				imageFields: []
+			}
+		});
+
+		await charactersModule.renderDetail('#Works_UnibyteLive', unibyteLiveNudgeeRecord);
+
+		// 2 つの Relation 系フィールドはどちらもセクションとして描画される
+		const relationSection = getSubFieldSectionNode('Relation') || getSectionNode('関係キャラクター');
+		const performerSection = getSubFieldSectionNode('RelationTo_PrimaryPerformer')
+			|| getSectionNode('アルベッツ演者との関係');
+		expect(relationSection).not.toBeNull();
+		expect(performerSection).not.toBeNull();
+
+		// 同DB参照: S/2 は S:ナーミィ。Alphabet を落とすと A:エイリ（A/2）へ誤爆する
+		const relationLink = relationSection.querySelector('a');
+		expect(relationLink?.textContent?.trim()).toBe('S:ナーミィ');
+		expect(new URL(relationLink.href).searchParams.get('c'))
+			.toBe('UnibyteLive/Primary/Alphabet:S,AlphaGen:2');
+
+		// 別DB参照: レコード取得前のプレースホルダに JSON ペイロードを出さず、直リンクは複合条件で組む
+		const performerLink = performerSection.querySelector('a');
+		expect(performerLink?.textContent?.trim()).toBe('S1');
+		expect(new URL(performerLink.href).searchParams.get('c'))
+			.toBe('UnibyteLive/PrimaryPerformer/Alphabet:S,AlphaGen:1');
 	});
 
 	it('renders ConversationPattern as a standalone subField section driven by detail layout', async () => {

@@ -2,28 +2,82 @@
   {
     "Letter": { "Alphabet": "A", "AlphaGen": 1 },
     "Progress": "notProceeded",
+    "OwningAvatar_DBLink": {
+      "_DB": "Primary",
+      "Letter": { "Alphabet": "A", "AlphaGen": 1 }
+    },
     "FormalName_JP": "栄藤 ありか",
     "FormalName_JPReading": "えいとう ありか",
     "FormalName_EN": "Arica Æito",
     "Height_cm": 151,
     "BustSize": "A",
     "Age": 28,
-    "BirthDay": { "Day": { "Month": 4, "DayOfMonth": 17 } }
+    "BirthDay": { "Day": { "Month": 4, "DayOfMonth": 17 } },
+    "AppearanceDetail": null,
+    "AbilityStats": {
+      "Speed": { "Rank": "S" },
+      "Communication": { "Rank": "S" },
+      "Leading": { "Rank": "Z" },
+      "Precision": { "Rank": "A" },
+      "Technic": { "Rank": "B+" },
+      "Actuation": { "Rank": "S" }
+    },
+    "Relation": {
+      "Related": [
+        {
+          "Letter": { "Alphabet": "I", "AlphaGen": 1 },
+          "RelationLabel": ["trusted"]
+        },
+        {
+          "Letter": { "Alphabet": "O", "AlphaGen": 1 },
+          "RelationLabel": ["trusted"]
+        },
+        {
+          "Letter": { "Alphabet": "P", "AlphaGen": 1 },
+          "RelationLabel": ["unmatched"]
+        }
+      ]
+    }
   },
   {
     "Letter": { "Alphabet": "I", "AlphaGen": 1 },
     "Progress": "notProceeded",
+    "OwningAvatar_DBLink": {
+      "_DB": "Primary",
+      "Letter": { "Alphabet": "I", "AlphaGen": 1 }
+    },
     "FormalName_JP": "伊澤 ひとり",
     "FormalName_JPReading": "いざわ ひとり",
     "FormalName_EN": "Firstpher Izawa",
     "Height_cm": 147,
     "BustSize": "E",
     "Age": 26,
-    "BirthDay": { "Day": { "Month": 7, "DayOfMonth": 23 } }
+    "BirthDay": { "Day": { "Month": 7, "DayOfMonth": 23 } },
+    "AppearanceDetail": null,
+    "AbilityStats": {
+      "Speed": { "Rank": "B+" },
+      "Communication": { "Rank": "B+" },
+      "Leading": { "Rank": "A" },
+      "Precision": { "Rank": "A" },
+      "Technic": { "Rank": "S" },
+      "Actuation": { "Rank": "C" }
+    },
+    "Relation": {
+      "Related": [
+        {
+          "Letter": { "Alphabet": "A", "AlphaGen": 1 },
+          "RelationLabel": ["support"]
+        }
+      ]
+    }
   },
   {
     "Letter": { "Alphabet": "I", "AlphaGen": 2 },
     "Progress": "notProceeded",
+    "OwningAvatar_DBLink": {
+      "_DB": "Primary",
+      "Letter": { "Alphabet": "I", "AlphaGen": 2 }
+    },
     "AnotherRegions_DBLink": [
       { "_Work": "VirtuesUs", "_DB": "SemiPrimary", "Virtues": "孝" }
     ],
@@ -35,22 +89,69 @@
     "Height_cm": 154,
     "BustSize": "A",
     "Age": 19,
-    "BirthDay": { "Day": { "Month": 4, "DayOfMonth": 13 } }
+    "BirthDay": { "Day": { "Month": 4, "DayOfMonth": 13 } },
+    "AppearanceDetail": null,
+    "AbilityStats": {
+      "Speed": { "Rank": "A" },
+      "Communication": { "Rank": "C" },
+      "Leading": { "Rank": "S" },
+      "Precision": { "Rank": "B+" },
+      "Technic": { "Rank": "Z" },
+      "Actuation": { "Rank": "S" }
+    },
+    "Relation": {
+      "Related": [
+        {
+          "Letter": { "Alphabet": "O", "AlphaGen": 2 },
+          "RelationLabel": ["awkward_aBit", "trusted"]
+        }
+      ]
+    }
   },
   {
     "Letter": { "Alphabet": "N", "AlphaGen": 1 },
     "Progress": "notProceeded",
+    "OwningAvatar_DBLink": {
+      "_DB": "Primary",
+      "Letter": { "Alphabet": "N", "AlphaGen": 1 }
+    },
     "FormalName_JP": "向居 カミーユ",
     "FormalName_JPReading": "むかい カミーユ",
     "FormalName_EN": "Camille Nachie",
     "GenderType": "Male",
     "Height_cm": 144,
+    "BustSize": { "hideText": "公開不要" },
     "Age": 19,
-    "BirthDay": { "Day": { "Month": 11, "DayOfMonth": 6 } }
+    "BirthDay": { "Day": { "Month": 11, "DayOfMonth": 6 } },
+    "AppearanceDetail": null,
+    "AbilityStats": {
+      "Speed": { "Rank": "A" },
+      "Communication": { "Rank": "C" },
+      "Leading": { "Rank": "A" },
+      "Precision": { "Rank": "A" },
+      "Technic": { "Rank": "B" },
+      "Actuation": { "Rank": "A" }
+    },
+    "Relation": {
+      "Related": [
+        {
+          "Letter": { "Alphabet": "S", "AlphaGen": 1 },
+          "RelationLabel": ["unmatched", "awkward"]
+        },
+        {
+          "Letter": { "Alphabet": "S", "AlphaGen": 2 },
+          "RelationLabel": ["following", "trusted_maybe"]
+        }
+      ]
+    }
   },
   {
     "Letter": { "Alphabet": "O", "AlphaGen": 1 },
     "Progress": "notProceeded",
+    "OwningAvatar_DBLink": {
+      "_DB": "Primary",
+      "Letter": { "Alphabet": "O", "AlphaGen": 1 }
+    },
     "FormalName_JP": "円里 みるま",
     "FormalName_JPReading": "まどかざと みるま",
     "FormalName_EN": "Elcric Orbly",
@@ -58,11 +159,32 @@
     "Height_cm": 120,
     "BustSize": "B",
     "Age": 25,
-    "BirthDay": { "Day": { "Month": 6, "DayOfMonth": 28 } }
+    "BirthDay": { "Day": { "Month": 6, "DayOfMonth": 28 } },
+    "AppearanceDetail": null,
+    "AbilityStats": {
+      "Speed": { "Rank": "A" },
+      "Communication": { "Rank": "A" },
+      "Leading": { "Rank": "B" },
+      "Precision": { "Rank": "C" },
+      "Technic": { "Rank": "B" },
+      "Actuation": { "Rank": "B+" }
+    },
+    "Relation": {
+      "Related": [
+        {
+          "Letter": { "Alphabet": "A", "AlphaGen": 1 },
+          "RelationLabel": ["support"]
+        }
+      ]
+    }
   },
   {
     "Letter": { "Alphabet": "O", "AlphaGen": 2 },
     "Progress": "unprofiled",
+    "OwningAvatar_DBLink": {
+      "_DB": "Primary",
+      "Letter": { "Alphabet": "O", "AlphaGen": 2 }
+    },
     "AnotherRegions_DBLink": [
       { "_Work": "DestinyFoxRecords", "_DB": "Proxy", "Generation": 3 }
     ],
@@ -77,33 +199,100 @@
     "Height_cm": 159,
     "BustSize": "G",
     "Age": { "about_JP": "不詳", "about_EN": "Unknown or Undefined" },
-    "BirthDay": { "Day": { "Month": 6, "DayOfMonth": 10 } }
+    "BirthDay": { "Day": { "Month": 6, "DayOfMonth": 10 } },
+    "AppearanceDetail": null,
+    "AbilityStats": {
+      "Speed": { "Rank": "Z" },
+      "Communication": { "Rank": "A" },
+      "Leading": { "Rank": "C" },
+      "Precision": { "Rank": "B" },
+      "Technic": { "Rank": "B+" },
+      "Actuation": { "Rank": "Z" }
+    },
+    "Relation": {
+      "Related": [
+        {
+          "Letter": { "Alphabet": "I", "AlphaGen": 2 },
+          "RelationLabel": ["abusing", "trusted"]
+        }
+      ]
+    }
   },
   {
     "Letter": { "Alphabet": "S", "AlphaGen": 2 },
     "Progress": "notProceeded",
+    "OwningAvatar_DBLink": {
+      "_DB": "Primary",
+      "Letter": { "Alphabet": "S", "AlphaGen": 2 }
+    },
     "FormalName_JP": "南 まな",
     "FormalName_JPReading": "みなみ まな",
     "FormalName_EN": "Mána Southen",
     "Height_cm": 135,
     "BustSize": "G",
     "Age": 18,
-    "BirthDay": { "Day": { "Month": 5, "DayOfMonth": 22 } }
+    "BirthDay": { "Day": { "Month": 5, "DayOfMonth": 22 } },
+    "AppearanceDetail": null,
+    "AbilityStats": {
+      "Speed": { "Rank": "C" },
+      "Communication": { "Rank": "S" },
+      "Leading": { "Rank": "C" },
+      "Precision": { "Rank": "A" },
+      "Technic": { "Rank": "S" },
+      "Actuation": { "Rank": "S" }
+    },
+    "Relation": {
+      "Related": [
+        {
+          "Letter": { "Alphabet": "Z", "AlphaGen": 1 },
+          "RelationLabel": ["wellMatched"]
+        },
+        {
+          "Letter": { "Alphabet": "S", "AlphaGen": 1 },
+          "RelationLabel": ["disillusioned"]
+        }
+      ]
+    }
   },
   {
     "Letter": { "Alphabet": "Z", "AlphaGen": 1 },
     "Progress": "notProceeded",
+    "OwningAvatar_DBLink": {
+      "_DB": "Primary",
+      "Letter": { "Alphabet": "Z", "AlphaGen": 1 }
+    },
     "FormalName_JP": "北野 ザイヒ",
     "FormalName_JPReading": "きたの ザイヒ",
     "FormalName_EN": "Zxyhi Normus",
     "Height_cm": 162,
     "BustSize": "C",
     "Age": 27,
-    "BirthDay": { "Day": { "Month": 2, "DayOfMonth": 15 } }
+    "BirthDay": { "Day": { "Month": 2, "DayOfMonth": 15 } },
+    "AppearanceDetail": null,
+    "AbilityStats": {
+      "Speed": { "Rank": "B+" },
+      "Communication": { "Rank": "B" },
+      "Leading": { "Rank": "A" },
+      "Precision": { "Rank": "S" },
+      "Technic": { "Rank": "S" },
+      "Actuation": { "Rank": "B" }
+    },
+    "Relation": {
+      "Related": [
+        {
+          "Letter": { "Alphabet": "S", "AlphaGen": 2 },
+          "RelationLabel": ["wellMatched"]
+        }
+      ]
+    }
   },
   {
     "Letter": { "Alphabet": "R", "AlphaGen": 1 },
     "Progress": "notProceeded",
+    "OwningAvatar_DBLink": {
+      "_DB": "Primary",
+      "Letter": { "Alphabet": "R", "AlphaGen": 1 }
+    },
     "FormalName_JP": "絡田 巡",
     "FormalName_JPReading": "らくた めぐり",
     "FormalName_EN": "Roames Rakuta",
@@ -111,11 +300,24 @@
     "Height_cm": 148,
     "BustSize": "A",
     "Age": 21,
-    "BirthDay": { "Day": { "Month": 11, "DayOfMonth": 8 } }
+    "BirthDay": { "Day": { "Month": 11, "DayOfMonth": 8 } },
+    "AppearanceDetail": null,
+    "AbilityStats": {
+      "Speed": { "Rank": "B+" },
+      "Communication": { "Rank": "A" },
+      "Leading": { "Rank": "B+" },
+      "Precision": { "Rank": "A" },
+      "Technic": { "Rank": "B" },
+      "Actuation": { "Rank": "B+" }
+    }
   },
   {
     "Letter": { "Alphabet": "P", "AlphaGen": 1 },
     "Progress": "notProceeded",
+    "OwningAvatar_DBLink": {
+      "_DB": "Primary",
+      "Letter": { "Alphabet": "P", "AlphaGen": 1 }
+    },
     "FormalName_JP": "鶴佐木 わなみ",
     "FormalName_JPReading": "つるさぎ わなみ",
     "FormalName_EN": "Trappy Tsurusagi",
@@ -123,11 +325,40 @@
     "Height_cm": 148,
     "BustSize": "B",
     "Age": 19,
-    "BirthDay": { "Day": { "Month": 11, "DayOfMonth": 17 } }
+    "BirthDay": { "Day": { "Month": 11, "DayOfMonth": 17 } },
+    "AppearanceDetail": null,
+    "AbilityStats": {
+      "Speed": { "Rank": "B+" },
+      "Communication": { "Rank": "D" },
+      "Leading": { "Rank": "D" },
+      "Precision": { "Rank": "B" },
+      "Technic": { "Rank": "C" },
+      "Actuation": { "Rank": "A" }
+    },
+    "Relation": {
+      "Related": [
+        {
+          "Letter": { "Alphabet": "A", "AlphaGen": 1 },
+          "RelationLabel": ["adverselyAffected"]
+        },
+        {
+          "Letter": { "Alphabet": "S", "AlphaGen": 1 },
+          "RelationLabel": [
+            "accompanying",
+            "adverselyAffected",
+            "wellMatched_maybe"
+          ]
+        }
+      ]
+    }
   },
   {
     "Letter": { "Alphabet": "S", "AlphaGen": 1 },
     "Progress": "notProceeded",
+    "OwningAvatar_DBLink": {
+      "_DB": "Primary",
+      "Letter": { "Alphabet": "S", "AlphaGen": 1 }
+    },
     "FormalName_JP": "氷山 メサイア",
     "FormalName_JPReading": "きよやま メサイア",
     "FormalName_EN": "Messiah Snowberg",
@@ -135,6 +366,35 @@
     "Height_cm": 150,
     "BustSize": "AA",
     "Age": 36,
-    "BirthDay": { "Day": { "Month": 12, "DayOfMonth": 14 } }
+    "BirthDay": { "Day": { "Month": 12, "DayOfMonth": 14 } },
+    "AppearanceDetail": null,
+    "AbilityStats": {
+      "Speed": { "Rank": "B+" },
+      "Communication": { "Rank": "D" },
+      "Leading": { "Rank": "S" },
+      "Precision": { "Rank": "C" },
+      "Technic": { "Rank": "Z" },
+      "Actuation": { "Rank": "A" }
+    },
+    "Relation": {
+      "Related": [
+        {
+          "Letter": { "Alphabet": "N", "AlphaGen": 1 },
+          "RelationLabel": ["adverselyAffected", "abusing"]
+        },
+        {
+          "Letter": { "Alphabet": "P", "AlphaGen": 1 },
+          "RelationLabel": [
+            "accompanying",
+            "adverselyAffected",
+            "wellMatched_maybe"
+          ]
+        },
+        {
+          "Letter": { "Alphabet": "Z", "AlphaGen": 1 },
+          "RelationLabel": ["unmatched"]
+        }
+      ]
+    }
   }
 ]

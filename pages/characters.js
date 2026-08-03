@@ -199,6 +199,15 @@ export function __recordMatchesIndexQueryForTest(rec, indexDef, idxValue, idxKey
 	return recordMatchesIndexQuery(rec, indexDef, idxValue, idxKeyPath, legacyNum);
 }
 
+/** section renderer へ bridge している Index ヘルパーのテスト用フック */
+export function __collectIndexEntriesForTest(source, indexDef, metaForLookup = null, globalDefType = null, options = {}) {
+	return collectIndexEntries(source, indexDef, metaForLookup, globalDefType, options);
+}
+
+export function __buildIndexIdentifierForTest(entries, rootKey = '') {
+	return buildIndexIdentifier(entries, rootKey);
+}
+
 export function __resolveWorkDirNameForTest(workId) {
 	return resolveWorkDirName(workId);
 }
@@ -7295,6 +7304,8 @@ export async function renderDetail(workId, rec) {
 			getWorkIndexField,
 			getIndexSubDefs,
 			pickPrimaryIndexSubDef,
+			collectIndexEntries,
+			buildIndexIdentifier,
 			recordMatchesIndexQuery,
 			buildViewerNavigationHref,
 			openDetail,
@@ -7679,6 +7690,8 @@ function renderRelations(rel, fieldLabelMap, workMeta, globalDefType, fieldDispl
 				getWorkIndexField,
 				getIndexSubDefs,
 				pickPrimaryIndexSubDef,
+				collectIndexEntries,
+				buildIndexIdentifier,
 				recordMatchesIndexQuery,
 				buildViewerNavigationHref,
 				fetchDbRecords: (wId, dbName) => fetchDB(wId, dbName, { resolve: true }),

@@ -18,9 +18,9 @@
       },
       "_Commons": {
         "Belonging": [{ "Faction": "アルベッツ" }],
-        "Class": ["現役アルベッツ"],
         "RaceType": "VirtualAvatar",
-        "GenderType": "FemaleNeutral"
+        "GenderType": "FemaleNeutral",
+        "Weight_kg": { "hideText": "公開不要" }
       }
     },
     "#DB_PrimaryPerformer": {
@@ -124,6 +124,18 @@
             "isForSecondary": false
           },
           {
+            "RelationLabel": "disillusioned",
+            "RelationLabel_JP": "幻滅している存在",
+            "RelationLabel_EN": "Disillusioned",
+            "isForSecondary": false
+          },
+          {
+            "RelationLabel": "fuv",
+            "RelationLabel_JP": "ファン/推し",
+            "RelationLabel_EN": "Fan / Fuv",
+            "isForSecondary": false
+          },
+          {
             "RelationLabel": "awkward",
             "RelationLabel_JP": "気まずい関係にある存在",
             "RelationLabel_EN": "Awkward-Relation",
@@ -151,6 +163,18 @@
             "RelationLabel": "interested",
             "RelationLabel_JP": "興味を抱いている相手",
             "RelationLabel_EN": "Interested-In",
+            "isForSecondary": false
+          },
+          {
+            "RelationLabel": "support",
+            "RelationLabel_JP": "支援している存在",
+            "RelationLabel_EN": "Supporting",
+            "isForSecondary": false
+          },
+          {
+            "RelationLabel": "invite",
+            "RelationLabel_JP": "アルベッツに招待した相手",
+            "RelationLabel_EN": "Invited to ALPBETS",
             "isForSecondary": false
           },
           {

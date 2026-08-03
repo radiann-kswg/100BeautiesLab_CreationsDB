@@ -1,5 +1,26 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### fix: オブジェクト型インデックス作品の `Relation` 参照が、サブフィールド 1 つだけで照合され別レコードへ誤爆していたのを直した (2026-08-03)
+
+`lib/section-renders/relation.js` の `getIndexIdentifierFromRelation()` は、参照先の識別子を `pickPrimaryIndexSubDef()` が選ぶ**サブフィールド 1 つ**からしか組み立てていなかった。同関数は `#Number` を最優先（30点）で拾うため、ハンカクライブ（`$IndexDef` = `Letter{ Alphabet: #IndexListKey, AlphaGen: #Number|#Null }`）では `Alphabet` が完全に落ちて `Letter.AlphaGen: 2` だけが条件になり、「S の第2世代（S:ナーミィ）」を指したつもりのリンクが「最初に見つかった第2世代（A:エイリ）」へ飛んでいた。リポジトリには複合条件（`__conditions__` + subset match）の経路が既にあり、`getIndexIdentifierFromRecord()`・`lib/section-renders/dblink.js`・相関図の `extractIndexPairs()` は対応済みで、**Relation だけがこの経路に乗り遅れていた**。
+
+- **複合条件へ正規化**: `collectIndexEntries()` + `buildIndexIdentifier()` を `relationApi` 経由で bridge し、Relation エントリに書かれたサブフィールドを**すべて**含む複合条件（`{ keyPath: '__conditions__', value: '{"Alphabet":"S","AlphaGen":"2"}' }`）を組む。以降は既存の `recordMatchesIndexQuery()` / 圧縮ロケータの subset match 経路へそのまま合流する（解決側の改修は不要）。直リンクは `?c=UnibyteLive/Primary/Alphabet:S,AlphaGen:2` の形になる。
+- **root 省略の耐性**: オブジェクト型 Index では `context: 'value'` で収集し、`Letter` 配下・エントリ直下のどちらの書き方でも拾う。スカラー Index（ナンバーテールズの `Num`）は `context: 'record'`（`record.Num` フォールバック込み）のままで、単一キー（`?c=NumberTales/Primary/Num:57`）の挙動は変えていない。
+- **キー順は typedef 宣言順**: `collectIndexEntries()` は priority 順（`#Number` サブフィールドが先頭）で返すため、直リンク生成前に `index` で並べ直してカテゴリキー先頭（`Alphabet:S,AlphaGen:2`）へ揃えた。レコード側の `getIndexIdentifierFromRecord()` が出す形（`Suit:Major,SuitNum:16`）と一致する。
+- **表示用テキストを分離**: 複合条件の `value` は JSON ペイロードなので画面に出せない。識別子へ `text`（`S2` のようにサブフィールド値を宣言順で連結したもの）を持たせ、クロスDB（`RelationTo_*`）のハイドレーション待ちプレースホルダと、参照先を解決できなかったときのフォールバック表示に使う。`hydrateCharacterName()` の `Num` 直接比較フォールバックも、JSON ペイロードのときは走らせない。
+- **後方互換**: `relationApi` が Index ヘルパーを提供しない場合（キャッシュ差分で古い `pages/characters.js` が動いている場合）は、従来の単一サブフィールド経路へフォールバックする。
+- **影響範囲**: `lib/section-renders/relation.js` / `pages/characters.js`（`relationApi` へ `collectIndexEntries` / `buildIndexIdentifier` を追加。テスト用フック 2 本も追加）/ `tests/section-renders.relation.test.js`（新規）/ `tests/pages.characters.ui-output.test.js`（`Relation` と `RelationTo_PrimaryPerformer` を同時に持つレコードでの回帰テストを追加）。
+- **検証**: `npm test` 59 ファイル / 1071 件中 **1069 件成功**。残る 2 件（`tests/data.field-order.test.js`）は本変更と無関係で、クリーンな作業ツリーでも同じく落ちる**ハンカクライブのデータ入力作業に由来する既存の赤**（`db_PrimaryPerformer.json` のキー順が `$DefType` の正準順へ未整列。`npm run data:order:write` で解消できるが、User のデータ入力作業の範囲として据え置いた）。
+
+### test: `unit_JP` / `unit_EN_ordinal` の回帰テストを、実データ依存から合成 typedef へ組み替えた (2026-08-03)
+
+数値フィールドの単位表示（`$display.unit_JP` / `unit_EN` と、英語を序数化する `unit_EN_ordinal`）を検証していた `tests/pages.characters.ui-output.test.js` のテストが、ハンカクライブの `Generation` フィールドを実データから参照していた。同フィールドは `Class` へ統合されて `db_type.json` から削除されたため、テストが赤のまま残っていた。
+
+- **実装は現役**: `unit_JP` / `unit_EN_ordinal` の描画は `pages/characters.js` に残っている一方、リポジトリ内で `$display.unit_JP` を宣言するフィールドは**全作品を通じて 0 件**になった。テストを消すと実装だけが無検証で残るため、合成 typedef（`DebutGen`）と合成 `$DetailLayout.basicFields` を組み立てて回帰検出のみを維持する形へ変更した。実データに `unit_JP` 宣言が復活したら、そのフィールドを使う形へ戻してよい旨をテスト内に注記している。
+- **残った追従漏れ（本変更の対象外）**: `data/db_meta.json` の `CreationWorks.#Works_UnibyteLive.$DetailLayout.basicFields` には `Generation` が残っている（`db_type.json` 側には無い）。表示上は無視されるだけだが、統合時の掃除漏れとして記録する。
+- **影響範囲**: `tests/pages.characters.ui-output.test.js`。
+- **検証**: 同ファイル 42 件すべて成功。
+
 ### refactor: 画像ファイル名の識別子をインデックスバッジ（作品コード付き）へ一括統一した (2026-08-02)
 
 相関図ページ（`_work_in_progress/2026-08-02_progress_relations-graph.md` Phase 2-a / 2-c）で **インデックスバッジ**が宣言駆動で実装された（`lib/graph/graph-badge.js` ＋ 各作品 `db_type.json` の `$IndexDef.$badge` ＋ `data/db_meta.json` の `Works_Code`）一方、画像ファイル名の識別子は作品ごとに体系がバラバラ（`cnsp_img57` / `crddsn_imgFLM16` / `cnsp_imgEZ13` / `cnsp_imgCL3G3` / `cnsp_imgDrcNE` / `design_imgSITh`）で、同じ「キャラの短い識別子」が二重管理になっていた。ファイル名側をバッジの `full` 表記（`Works_Code` + `-` + バッジ本体）へ揃えた。
