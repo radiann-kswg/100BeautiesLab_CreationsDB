@@ -1,5 +1,26 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### test: 残っていた赤 3 件を現行 DB へ追従させ、`db_PrimaryPerformer.json` のキー順を整列した (2026-08-04)
+
+ハンカクライブの DB 更新に対してテスト側の追従が漏れており、3 件が赤のまま残っていた（`CHANGELOG` 2026-08-03 / 2026-08-04 で「既存の赤」として据え置き記録していたもの）。`AGENTS.md`「データ更新時のテスト追従」に沿って、テスト期待値・フィクスチャを現行データへ合わせ、データ側のキー順は整列ツールで解消した。
+
+- **Relation 複合インデックスのフィクスチャ差し替え**: `tests/pages.characters.ui-output.test.js` の複合インデックス解決テストは `N:ギザン` を使っていたが、DB 更新でこのレコードは `RelationTo_PrimaryPerformer` を持たなくなり、別DB参照セクションが描画されず落ちていた。**`Z:ジグ`** へ差し替え。同レコードは `Relation.Related[0]` が S/2（S:ナーミィ）、`RelationTo_PrimaryPerformer.Commented[0]` が S/1 を指すため、「`Alphabet` を落とすと A/2（A:エイリ）へ誤爆する」という本テストの検証条件と期待値（`?c=UnibyteLive/Primary/Alphabet:S,AlphaGen:2` / `?c=UnibyteLive/PrimaryPerformer/Alphabet:S,AlphaGen:1`）をそのまま満たす。テスト意図は変えていない。
+- **`db_PrimaryPerformer.json` のキー順整列**: `npm run data:order:write` を実行。`$DefType` の正準順に対して `OwningAvatar_DBLink` と `AnotherRegions_DBLink` が入れ替わっていた **2 レコード（I/2・O/2）だけ**が対象で、値は無変更（キーの並べ替えのみ）。他 20 ファイル・1308 レコードは差分ゼロ。`npm run data:order:check` は 0/1310 になった。
+- **`StreamingActivity` の EN 期待値**: 前エントリで対応済み（`Main activity within 'Unibyte Universe'` へ追従）。
+- **影響範囲**: `tests/pages.characters.ui-output.test.js` / `data/Works_UnibyteLive/DataBases/db_PrimaryPerformer.json`。
+- **検証**: `npm test` 59 ファイル / **1072 件すべて成功**（赤ゼロ）。あわせてハンカクライブ全レコード（`db_Primary` 35 件 + `db_PrimaryPerformer` 11 件 × 日英 2 言語 = 92 通り）を `renderDetail()` へ流し、例外・空セクションが出ないことを確認（`.cache/` の一時スクリプト。クロスDB `_DBLink` のハイドレーションは HTTP 不使用のため未検証）。
+
+### fix: `StreamingActivity` の UI を他の standalone subField と同じブロック構成へ揃えた (2026-08-04)
+
+`lib/section-renders/streamingActivity.js` は子フィールドを `ラベル: 値` の 1 タグに詰めた `detail-tag-grid` と `detail-prose` の組み合わせで描画しており、他の subField セクション（`ConversationPattern` 等の汎用 `structuredObjectSection` / `thisMastersSection` / `appearanceDetailSection`）が採る「親ラベルタグ → 子ラベルタグ + 本文ブロックの縦積み」と構成が異なっていた。同じ詳細ページ内でこのセクションだけ浮いて見えるため、DOM 構成を汎用側へ合わせた。
+
+- **ブロック構成の統一**: 出力を `div(margin-bottom:10px) > tag(親ラベル) + div(子ブロック群)`、子ブロックは `div(margin-bottom:10px) > tag(子ラベル) + 本文` へ変更した。`pages/characters.js` の `buildObjectChildBlocks()` が生成する DOM と同じ形で、bilingual wrapper を持たないレコードでは汎用 `structuredObjectSection` と**バイト一致**の出力になる。
+- **`SUMMARY_KEYS` のハードコードを削除**: `StreamingSummary_JP` / `_EN` を field 名で判定して `detail-prose` へ振り分けていた分岐を廃止し、`#Summary` も配列系も `preWrapText()`（`white-space: pre-wrap`）の同一ルートへ寄せた。汎用側と同じ扱いになり、`AGENTS.md`「main code / subscript 分離原則」に沿って field 名依存の分岐が本レンダラーから無くなる。
+- **維持したもの**: ページ言語による `_JP` / `_EN` フィルタと、`_enrichment.bilingualWrapperFields` 駆動の JP/EN 2 列表示（`ListenerNickname`）は従来どおり。2 列表示は子ブロックの**本文**として入るため、ラベルの出方も他 subField と揃う。本レンダラーが独自に担う処理はこの bilingual 2 列だけになった。
+- **schema / データは無改修**: `$display.sectionWrapper: "streamingActivitySection"` の宣言も `db_type.json` / `db_Primary.json` もそのまま。
+- **影響範囲**: `lib/section-renders/streamingActivity.js` / `tests/pages.characters.ui-output.test.js`（ブロック構成の回帰テストを新規 1 件。あわせて EN モードの期待値を現行データの英訳 `Main activity within 'Unibyte Universe'` へ追従）。
+- **検証**: `npm test` 59 ファイル / 1072 件中 1069 件成功（この時点で残っていた赤 3 件は本変更以前からの既存の赤で、変更前の作業ツリーでも同じく落ちることを確認済み。3 件とも上のエントリで解消し、現在は 1072 件すべて成功）。
+
 ### fix: 相関図のエッジ経路で「レーンずらし後の最終形にだけ現れる交差」を折れ方の入れ替えで修復 (2026-08-04)
 
 `lib/graph/graph-edge-route.js` の `routeEdges()` は、折れ方（2 通り）を選ぶ 1 巡目で「既に決めた辺」としか交差を比較しておらず、3 巡目のレーンずらし（多重辺を並行にずらす処理）で実際にレンダリングされる最終形が、1 巡目の想定にない別の辺と新たに交差することがあった（ブラウザ実地確認で発見: 直線の辺と、別の辺のレーンずらし後の脚が交差していた）。
