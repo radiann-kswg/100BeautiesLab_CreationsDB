@@ -570,13 +570,15 @@ NT db_SelfSecondary 等でよく使われる頻出パターン:
 
 ### 4-7. UnibyteLive
 
-配信者（VTuber 系）モチーフの作品。本作固有の配信系フィールドを持つ（いずれも `_JP`/`_EN` ペア型）。
+配信者（VTuber 系）モチーフの作品。本作固有の配信系フィールドを持つ。
 
-- `StreamingSummary_EN`: 配信活動の概要（散文、複数段落可）。
-- `StreamingCategory_EN`: 配信カテゴリの配列。各要素は `{ "value": ..., "about": ... }` 形式で、`value` / `about` を英訳（§3-9 の DialogueExamples と同様の object 配列構造）。例: `{ "value": "Interaction with listeners", "about": "Main activity, ..." }`。
-- `StreamingGreeting_EN`: 挨拶定型句の配列。キャラの口癖を反映した意訳。例: `["こんな～み！"]` → `["Hi, Surger!"]` / `["ジグザってるか〜！"]` → `["Are you zigzagging?"]`。
-- `StreamingAwards_EN`: 受賞・実績の配列。例: `Holds a game engine patent`。
-- `ListenerNickname_EN`: リスナー呼称（ファンネーム）。造語は意訳: `なみのりー` → `Surger(s)` / `ノコギリ族` → `Zigzaggers`。
+`StreamingActivity` 配下の**配列系フィールドは和英共有フィールド**で、`Field_JP` / `Field_EN` へ分けず 1 要素に `value_JP` / `value_EN`（＋補足があれば `about_JP` / `about_EN`）を持つ（§3-9 の DialogueExamples と同じ流儀）。翻訳対象は要素内の `value_EN` / `about_EN` であり、`StreamingCategory_EN` のようなフィールドは存在しない。
+
+- `StreamingSummary_EN`: 配信活動の概要（散文、複数段落可）。ここだけは `_JP`/`_EN` ペア型（グローバルの `Summary_JP`/`Summary_EN` と同じ扱い）。
+- `StreamingCategory[].value_EN` / `.about_EN`: 配信カテゴリと、その補足。例: `{ "value_JP": "リスナーとの交流", "value_EN": "Interaction with listeners", "about_JP": "メイン活動,…", "about_EN": "Main activity, …" }`。
+- `StreamingGreeting[].value_EN`: 挨拶定型句。キャラの口癖を反映した意訳。例: `こんな～み！` → `Hi, Surger!` / `ジグザってるか〜！` → `Are you zigzagging?`。
+- `StreamingAwards[].value_EN`: 受賞・実績。例: `Holds a game engine patent`。
+- `ListenerNickname_EN`: リスナー呼称（ファンネーム）。ここは bilingual wrapper（`ListenerNickname: { ListenerNickname_JP, ListenerNickname_EN }`）。造語は意訳: `なみのりー` → `Surger(s)` / `ノコギリ族` → `Zigzaggers`。
 - `AccessoryUnit_EN`: 装身具・付属パーツの説明（名詞句）。例: `Sの字状に波打ったポニーテールや猫型の尻尾` → `S-shaped wavy ponytail and cat-like tail`。
 - 基本フィールド（`FormalName_EN` / `Name_EN` / `CodeName_EN` / `DayAbout_EN`）も使用。`ThirdPersonCalling` 系は現状未収録（→ §3-3-9）。
 

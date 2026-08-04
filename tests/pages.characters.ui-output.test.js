@@ -334,6 +334,8 @@ const unibyteLiveArrowRecord = unibyteLivePrimaryRecords.find((record) => record
 // `Relation`（同DB）と `RelationTo_PrimaryPerformer`（別DB）を同時に持ち、
 // どちらも複合インデックス（Letter{Alphabet, AlphaGen}）で参照先を指しているレコード
 const unibyteLiveNudgeeRecord = unibyteLivePrimaryRecords.find((record) => record?.Name_JP === 'N:ギザン');
+// StreamingActivity の中身（和英共有フィールド + bilingual wrapper）が一通り埋まっているレコード
+const unibyteLiveNarmyRecord = unibyteLivePrimaryRecords.find((record) => record?.Name_JP === 'S:ナーミィ');
 const unauthedLogicaWorkTypeDef = loadJson('data/Works_UnauthedLogica/DataBases/db_type.json');
 const unauthedLogicaWorkMeta = buildWorkMetaFixture('Works_UnauthedLogica');
 const unauthedLogicaMobRecords = loadJson('data/Works_UnauthedLogica/DataBases/db_PrimaryMobs.json');
@@ -824,6 +826,59 @@ describe('pages/characters.js UI output', () => {
 		expect(performerLink?.textContent?.trim()).toBe('S1');
 		expect(new URL(performerLink.href).searchParams.get('c'))
 			.toBe('UnibyteLive/PrimaryPerformer/Alphabet:S,AlphaGen:1');
+	});
+
+	// StreamingActivity の配列系（StreamingCategory / StreamingGreeting / StreamingAwards）は
+	// JP/EN を別フィールドへ分けず、1 要素に `value_JP` / `value_EN`（＋ `about_JP` / `about_EN`）を
+	// 持つ和英共有フィールドとして宣言している。ページ言語に応じて片方が選ばれることを守る。
+	// `ListenerNickname` だけは bilingual wrapper のままなので JP/EN 併記で残る。
+	const renderNarmyStreamingActivity = async (pageLang) => {
+		charactersModule.__setCharactersTestState({
+			charState: {
+				db: 'Primary',
+				pageLang,
+				workId: '#Works_UnibyteLive',
+				records: unibyteLivePrimaryRecords,
+				workTypeDef: unibyteLiveWorkTypeDef,
+				globalTypeDef,
+				workMeta: unibyteLiveWorkMeta,
+				imageFields: []
+			}
+		});
+
+		await charactersModule.renderDetail('#Works_UnibyteLive', unibyteLiveNarmyRecord);
+
+		const section = getSubFieldSectionNode('StreamingActivity');
+		expect(section).not.toBeNull();
+		return section.textContent?.replace(/\s+/g, ' ').trim() || '';
+	};
+
+	it('renders StreamingActivity shared bilingual fields in Japanese for the jp page language', async () => {
+		const text = await renderNarmyStreamingActivity('jp');
+
+		// value_JP + about_JP が選ばれる（value_EN / about_EN は出さない）
+		expect(text).toContain('リスナーとの交流');
+		expect(text).toContain('メイン活動,「ユニバイト・ユニバース」内での活動');
+		expect(text).not.toContain('Interaction with listeners');
+		// wrapper から共有フィールドへ移した挨拶・実績も JP 側が出る
+		expect(text).toContain('こんな～み！');
+		expect(text).toContain('ゲームエンジン特許あり');
+		expect(text).not.toContain('Holds a game engine patent');
+		// bilingual wrapper のまま残した ListenerNickname も JP 側が出る
+		// （JP/EN 2 列表示は `_enrichment.bilingualWrapperFields` 駆動のため、
+		//   enrich を通していない素レコードを渡すこのテストでは単独表示になる）
+		expect(text).toContain('なみのりー');
+	});
+
+	it('renders StreamingActivity shared bilingual fields in English for the en page language', async () => {
+		const text = await renderNarmyStreamingActivity('en');
+
+		expect(text).toContain('Interaction with listeners');
+		expect(text).toContain("Main activity, activity within 'Unibyte Universe'");
+		expect(text).not.toContain('リスナーとの交流');
+		expect(text).toContain('Hi, Surger!');
+		expect(text).toContain('Holds a game engine patent');
+		expect(text).not.toContain('ゲームエンジン特許あり');
 	});
 
 	it('renders ConversationPattern as a standalone subField section driven by detail layout', async () => {

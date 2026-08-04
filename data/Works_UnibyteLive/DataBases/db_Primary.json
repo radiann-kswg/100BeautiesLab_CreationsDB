@@ -772,59 +772,54 @@
       }
     ],
     "StreamingActivity": {
-      "StreamingCategory_JP": [
+      "StreamingCategory": [
         {
-          "value": "リスナーとの交流",
-          "about": "メイン活動,「ユニバイト・ユニバース」内での活動"
+          "value_JP": "リスナーとの交流",
+          "value_EN": "Interaction with listeners",
+          "about_JP": "メイン活動,「ユニバイト・ユニバース」内での活動",
+          "about_EN": "Main activity, activity within 'Unibyte Universe'"
         },
         {
-          "value": "VRシェーダー制作",
-          "about": "メイン活動,作業配信もしくは演者個人での活動"
+          "value_JP": "VRシェーダー制作",
+          "value_EN": "VR shader creation",
+          "about_JP": "メイン活動,作業配信もしくは演者個人での活動",
+          "about_EN": "Main activity, work streaming or individual performer activity"
         },
         {
-          "value": "メタバース体験コンテンツ",
-          "about": "「ユニバイト・ユニバース」内・同人コンテンツ頒布および動画配信での活動"
+          "value_JP": "メタバース体験コンテンツ",
+          "value_EN": "Metaverse experiential content",
+          "about_JP": "「ユニバイト・ユニバース」内・同人コンテンツ頒布および動画配信での活動",
+          "about_EN": "Activity within 'Unibyte Universe', doujin content distribution and video streaming"
         },
-        { "value": "ショートムービー", "about": "動画配信での活動" },
         {
-          "value": "ゲーム配信：テトリス,レース,音ゲー",
-          "about": "動画配信またはライブ配信での活動,頻度は少な目"
+          "value_JP": "ショートムービー",
+          "value_EN": "Short movies",
+          "about_JP": "動画配信での活動",
+          "about_EN": "Video streaming activity"
+        },
+        {
+          "value_JP": "ゲーム配信：テトリス,レース,音ゲー",
+          "value_EN": "Game streaming: Tetris, racing, rhythm games",
+          "about_JP": "動画配信またはライブ配信での活動,頻度は少な目",
+          "about_EN": "Video streaming or live streaming activity, relatively infrequent"
         }
       ],
-      "StreamingCategory_EN": [
-        {
-          "value": "Interaction with listeners",
-          "about": "Main activity, activity within 'Unibyte Universe'"
-        },
-        {
-          "value": "VR shader creation",
-          "about": "Main activity, work streaming or individual performer activity"
-        },
-        {
-          "value": "Metaverse experiential content",
-          "about": "Activity within 'Unibyte Universe', doujin content distribution and video streaming"
-        },
-        { "value": "Short movies", "about": "Video streaming activity" },
-        {
-          "value": "Game streaming: Tetris, racing, rhythm games",
-          "about": "Video streaming or live streaming activity, relatively infrequent"
-        }
+      "StreamingGreeting": [
+        { "value_JP": "こんな～み！", "value_EN": "Hi, Surger!" }
       ],
-      "StreamingGreeting": {
-        "StreamingGreeting_JP": ["こんな～み！"],
-        "StreamingGreeting_EN": ["Hi, Surger!"]
-      },
       "ListenerNickname": {
         "ListenerNickname_JP": "なみのりー",
         "ListenerNickname_EN": "Surger(s)"
       },
-      "StreamingAwards_JP": [
-        "「ユニバイト・ユニバース」九蓮国サーバ公認クリエイター",
-        "ゲームエンジン特許あり"
-      ],
-      "StreamingAwards_EN": [
-        "'Unibyte Universe' LotusNinean Server trusted creator",
-        "Holds a game engine patent"
+      "StreamingAwards": [
+        {
+          "value_JP": "「ユニバイト・ユニバース」九蓮国サーバ公認クリエイター",
+          "value_EN": "'Unibyte Universe' LotusNinean Server trusted creator"
+        },
+        {
+          "value_JP": "ゲームエンジン特許あり",
+          "value_EN": "Holds a game engine patent"
+        }
       ],
       "StreamingSummary_JP": "ライブ配信では主に映像作品の公開をメインとしており、現実空間では味わえない斬新なプレイ体験でなみのりー(リスナー)たちを楽しませている。\n「ユニバイト・ユニバース」内ではトゥーンギャグに特化した様々なギミックを搭載したアバターでなみのりーと交流しており、時にVRユーザたちの性癖を大いに歪めたコンテンツを世に出したと噂されている。\n個人の同人ショップでアバターカスタムコンテンツも頒布しており、メタバースの新しい楽しみ方の提供にも積極的。",
       "StreamingSummary_EN": "Primarily focused on publishing video content in live streams, entertaining the Surgers (listeners) with innovative play experiences unattainable in real space.\nWithin 'Unibyte Universe', she interacts with Surgers using an avatar packed with toon-gag-specialized gimmicks, and is sometimes rumored to have released content that greatly skewed the sensibilities of VR users.\nAlso actively distributes avatar custom content through her personal doujin shop, enthusiastically offering new ways to enjoy the metaverse."
@@ -1138,16 +1133,15 @@
       }
     ],
     "StreamingActivity": {
-      "StreamingCategory_JP": [],
-      "StreamingGreeting": {
-        "StreamingGreeting_JP": ["ジグザってるか〜！"],
-        "StreamingGreeting_EN": ["Are you zigzagging?"]
-      },
+      "StreamingCategory": [],
+      "StreamingGreeting": [
+        { "value_JP": "ジグザってるか〜！", "value_EN": "Are you zigzagging?" }
+      ],
       "ListenerNickname": {
         "ListenerNickname_JP": "ノコギリ族",
         "ListenerNickname_EN": "Zigzaggers"
       },
-      "StreamingAwards_JP": [],
+      "StreamingAwards": [],
       "StreamingSummary_JP": ""
     },
     "Relation": {

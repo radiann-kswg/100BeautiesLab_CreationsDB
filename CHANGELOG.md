@@ -1,5 +1,17 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### refactor: ハンカクライブ `StreamingActivity` の配列系フィールドを和英共有フィールドへ統一した (2026-08-04)
+
+`Works_UnibyteLive` の `StreamingActivity` は、同じ 1 セクションの中に和英の持ち方が **3 流儀** 混在していた（並列 `Field_JP`/`Field_EN` = `StreamingCategory` / `StreamingAwards` / `StreamingSummary`、bilingual wrapper = `StreamingGreeting` / `ListenerNickname`）。うち**配列**を JP/EN で 2 本立てにしていたフィールドは、要素数・順序の対応がデータ上どこにも保証されず（実際 Z:1 は `StreamingCategory_JP: []` だけで `_EN` キーが存在しない状態だった）、`tools/deepl/draft-translate.mjs` の下書き対象からも外れていた（同ツールは兄弟の JP 値が**文字列**のときだけ候補化するため、配列フィールドは丸ごと対象外）。「配列は共有フィールド、単一テキストは並列」という基準で揃えた。
+
+- **配列系 3 つを和英共有フィールドへ**: `StreamingCategory_JP`/`_EN` → `StreamingCategory`、`StreamingAwards_JP`/`_EN` → `StreamingAwards`、`StreamingGreeting`（bilingual wrapper）→ `StreamingGreeting`。いずれも 1 要素に `value_JP` / `value_EN`（＋補足がある `StreamingCategory` は `about_JP` / `about_EN`）を持つ形とし、`ConversationPattern.DialogueExamples` の `#Dialogue_bilingual[]` と同じ流儀に合わせた。`about`（サフィックス無し）は `about_JP` / `about_EN` へ分割している。
+- **型宣言**: `#String_withAbout[]|#String_bilingual[]|#Null`（`StreamingAwards` は補足を持たないので `#String[]|#String_bilingual[]|#Null`）。`_bilingual` は既存の `#Dialogue_bilingual[]` に倣った「データの形」の宣言で、UI は型名ではなく**値の形**（`value_JP` / `value_EN` の有無）で分岐する（`pages/characters.js` の `formatValueForDisplay()`）。union に `_withAbout[]` を残すのは、配列の 1 要素 1 行連結（`_withAbout` 判定）を維持するため。
+- **据え置いたもの**: `StreamingSummary_JP` / `_EN` は単一の長文で、グローバル標準の `Summary_JP`/`Summary_EN`・`ConversationPattern.*_JP`/`_EN` と同じ並列形のため現状維持（`hashTag_JP` だけ / `hashTag_EN` だけを持つのもこの標準どおり）。`ListenerNickname` は単一の対訳ペアなので bilingual wrapper のまま残し、`_enrichment.bilingualWrapperFields` 駆動の JP/EN 2 列表示を引き続き使う。
+- **副次効果**: 1 フィールドになったことで親に `hashTag_JP` と `hashTag_EN` を両方宣言できるようになり、言語モードによるラベル欠けが解消した。`value_JP` / `value_EN` が兄弟同士になるため、DeepL 下書き（`draft-translate.mjs`）と突き合わせ（`evaluate-translations.mjs`）の対象にも載る。
+- **UI コードは無改修**: 共有フィールドの表示は `formatValueForDisplay()` の既存 `value_JP`/`value_EN` 分岐がそのまま処理する。`lib/section-renders/streamingActivity.js` の言語フィルタ（`_EN` サフィックスのキーを非表示）も、キー名が `_EN` で終わらなくなるため素通りする。
+- **影響範囲**: `data/Works_UnibyteLive/DataBases/db_type.json` / `data/Works_UnibyteLive/DataBases/db_Primary.json`（S:2・Z:1 の 2 レコード）/ `tests/pages.characters.ui-output.test.js`（JP / EN 両モードの回帰テストを新規 2 件）/ `tests/bilingual-fields.test.js`（合成フィクスチャのコメントを実データの現行例へ追従）/ `docs/localization-en-rules.md` §4-7 / `docs/schema-meta-processing.md` §3.2。
+- **検証**: `npm test` 59 ファイル / 1073 件中 **1070 件成功**（新規 2 件を含む）。残る 3 件は本変更以前から落ちている既存の赤で、`data.field-order.test.js` の 2 件（`db_PrimaryPerformer.json` のキー順未整列。`CHANGELOG` 2026-08-03 に記録済み）と、`pages.characters.ui-output.test.js` の Relation 複合インデックステスト 1 件（`N:ギザン` レコードが `RelationTo_PrimaryPerformer` を持たない。`git show HEAD:` で変更前も同じく落ちることを確認）。`npm run data:order:check` は `db_Primary.json` 0/35（キー順の乱れなし）。
+
 ### fix: オブジェクト型インデックス作品の `Relation` 参照が、サブフィールド 1 つだけで照合され別レコードへ誤爆していたのを直した (2026-08-03)
 
 `lib/section-renders/relation.js` の `getIndexIdentifierFromRelation()` は、参照先の識別子を `pickPrimaryIndexSubDef()` が選ぶ**サブフィールド 1 つ**からしか組み立てていなかった。同関数は `#Number` を最優先（30点）で拾うため、ハンカクライブ（`$IndexDef` = `Letter{ Alphabet: #IndexListKey, AlphaGen: #Number|#Null }`）では `Alphabet` が完全に落ちて `Letter.AlphaGen: 2` だけが条件になり、「S の第2世代（S:ナーミィ）」を指したつもりのリンクが「最初に見つかった第2世代（A:エイリ）」へ飛んでいた。リポジトリには複合条件（`__conditions__` + subset match）の経路が既にあり、`getIndexIdentifierFromRecord()`・`lib/section-renders/dblink.js`・相関図の `extractIndexPairs()` は対応済みで、**Relation だけがこの経路に乗り遅れていた**。

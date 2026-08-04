@@ -69,34 +69,16 @@
       "hashTag": "StreamingActivity",
       "$type": [
         {
-          "hashTag": "StreamingCategory_JP",
-          "$type": "#String_withAbout[]",
-          "hashTag_JP": "配信ジャンルについて"
-        },
-        {
-          "hashTag": "StreamingCategory_EN",
-          "$type": "#String_EN_withAbout[]|#Null",
+          "hashTag": "StreamingCategory",
+          "$type": "#String_withAbout[]|#String_bilingual[]|#Null",
+          "hashTag_JP": "配信ジャンルについて",
           "hashTag_EN": "Streaming Category"
         },
         {
           "hashTag": "StreamingGreeting",
-          "$type": [
-            {
-              "hashTag": "StreamingGreeting_JP",
-              "$type": "#String_JP_withAbout[]",
-              "hashTag_JP": "配信挨拶(日本語原文)",
-              "hashTag_EN": "Greeting for Streaming (Japanese Original)"
-            },
-            {
-              "hashTag": "StreamingGreeting_EN",
-              "$type": "#String_EN_withAbout[]",
-              "hashTag_JP": "配信挨拶(英語翻訳)",
-              "hashTag_EN": "Greeting for Streaming (English Translation)"
-            }
-          ],
+          "$type": "#String_withAbout[]|#String_bilingual[]|#Null",
           "hashTag_JP": "配信挨拶",
-          "hashTag_EN": "Greeting for Streaming",
-          "$display": { "langMode": "jp" }
+          "hashTag_EN": "Greeting for Streaming"
         },
         {
           "hashTag": "ListenerNickname",
@@ -119,13 +101,9 @@
           "$display": { "langMode": "jp" }
         },
         {
-          "hashTag": "StreamingAwards_JP",
-          "$type": "#String[]",
-          "hashTag_JP": "配信実績"
-        },
-        {
-          "hashTag": "StreamingAwards_EN",
-          "$type": "#String_EN[]|#Null",
+          "hashTag": "StreamingAwards",
+          "$type": "#String[]|#String_bilingual[]|#Null",
+          "hashTag_JP": "配信実績",
           "hashTag_EN": "Streaming Awards"
         },
         {
