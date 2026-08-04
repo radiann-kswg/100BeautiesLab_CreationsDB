@@ -57,7 +57,7 @@ import {
 } from '../lib/graph/graph-facets.js';
 import { buildBadge, createDictCellLookup, getWorksCode } from '../lib/graph/graph-badge.js';
 import {
-	snapToTriLattice, resolveSpacing, boundsOf, shouldFitToViewport,
+	snapToHexLattice, resolveSpacing, boundsOf, shouldFitToViewport,
 	nearestCell as nearestHexCell, hexNeighbors as hexNeighborsOf
 } from '../lib/graph/graph-layout.js';
 import { buildHexFill } from '../lib/graph/graph-hexfill.js';
@@ -1272,24 +1272,23 @@ function groupAtModelPos(modelPos) {
 }
 
 /**
- * 接続線を三角格子の辺に沿わせる
+ * 接続線を三角格子の 6 方向へ沿わせる
  *
  * @description ノードの座標が確定したあとに呼ぶ。
  * 各辺の折れ点を求めて `curveStyle` / `segW` / `segD` を data へ載せ、
  * スタイル側の `edge[curveStyle = "..."]` セレクタが拾う。
  *
- * **エゴネットワークでは適用しない。** あちらは中心 1 個と直接の相手だけを放射状に並べる画面で、
- * 「誰と繋がっているか」を最短で読ませるのが目的なので、線が折れると逆に追いにくい。
+ * ノードの配置自体は六角格子（`snapToHexLattice`）のままでも、
+ * `hexBendPoints()`（`decomposeHexVector`）は実座標のベクトルを軸分解するだけなので、
+ * `axes` に `TRI_AXES` を渡せば向きの制約だけ三角格子基準にできる
+ * （ノードの格子とエッジの軸は独立に選べる）。
+ *
+ * エゴネットワーク（中心 1 個 + 直接の相手）も対象。中心から複数方向へ伸びる辺が
+ * 近い角度に集まると重なって見えるため、多重辺のレーン分離も含めてここで揃える。
  * @param {string} mode - `buildElements()` が返した描画モード
  */
 function applyEdgeRouting(mode) {
 	if (!cy) return;
-	if (mode === 'ego') {
-		cy.batch(() => {
-			cy.edges().forEach(e => { e.data('curveStyle', ''); });
-		});
-		return;
-	}
 
 	const positions = new Map();
 	cy.nodes().forEach(n => { if (!n.isParent()) positions.set(n.id(), n.position()); });
@@ -1412,10 +1411,11 @@ async function renderGraph() {
 	}
 
 	if (mode !== 'compound' && mode !== 'cells') {
-		// compound（囲い）は親子の入れ子を壊さないようスナップしない
+		// compound（囲い）は親子の入れ子を壊さないようスナップしない。
+		// ノード自体は六角格子へ乗せる（三角格子はエッジの向き制約だけに使う。詳細は `applyEdgeRouting()`）
 		const spacing = resolveSpacing({ nodeSize: NODE_BASE_SIZE, labelWidth: 96, gap: 26 });
 		const positions = cy.nodes().filter(n => !n.isParent()).map(n => ({ id: n.id(), ...n.position() }));
-		const snapped = snapToTriLattice(positions, { spacing });
+		const snapped = snapToHexLattice(positions, { spacing });
 
 		// 格子へ乗せ切ったあと、接続線の交差が減るようにノードの座標を入れ替える。
 		// 格子点は等価なので入れ替えても充填形は変わらず、交差だけが減る。

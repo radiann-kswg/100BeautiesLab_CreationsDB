@@ -89,6 +89,23 @@
 - 確認: `tests/pages.relations.syntax.test.js`（26件）・`tests/graph.hexfill.test.js`・`tests/graph.hexfill-tri-lattice.test.js`（既存互換の確認）全通過。ブラウザで「所属」「進捗」グルーピングを実地確認し、輪郭が六角形の鈍角のみで構成される滑らかな塊になったことをスクリーンショットで確認済み。
 - 全体テスト（`npm test`）は本件と無関係な既存の失敗（`tests/data.field-order.test.js` の `Works_UnibyteLive` データ順、`tests/graph.edge-route.test.js` の処理時間フレーキーテスト、`tests/pages.characters.ui-output.test.js` の複合インデックス解決）が残っているが、いずれも今回の変更対象外・未着手（別件として扱う）。
 
+### 完了（追記 5・作戦変更：三角格子はノード位置ではなくエッジ経路に採用／キャラ単体マップの交差低減）
+
+- User から作戦変更の指示: 「三角格子をグループノードではなくエッジに採用する」「ノード位置は元の六角格子スナップへ戻す」「キャラ単体フォーカスマップでもエッジを三角格子に沿わせて交差を減らす」。
+- 対応（コード）:
+  - `pages/relations.js`: import を `snapToTriLattice` → `snapToHexLattice` に戻し、`renderGraph()` のノード位置スナップ呼び出しも六角格子側に戻した（`TRI_AXES` はエッジ経路用として引き続き import・使用）。
+  - `applyEdgeRouting()` に残っていた「キャラ単体フォーカス時は三角格子ルーティングを使わず素通しする」早期 return を撤去し、単体マップでも `routeEdges(..., { axes: TRI_AXES })` を通すようにした。
+- **発見したバグ（重大）**: 上記変更後、ブラウザ実地確認（Playwright スクリーンショット）でキャラ単体マップのエッジが 12 本中 3 本しか見えない不具合が発覚。
+  - 原因: Cytoscape の `curve-style: round-segments`/`segments` は、`segment-weights` が **ちょうど 0 / 1（＝ノード中心そのもの）付近**になると「ソース/ターゲットノードが重なっている無効な形状」と誤認し、辺を**一切描画しない**（コンソールに `Edge ... has invalid endpoints... expected when source/target overlap` の警告が出る）。`curve-style: straight` に戻すと同じ座標でも正しく描けるため、ジオメトリ計算自体のミスではなく **Cytoscape 側のスタイル解釈のバグ／制約**と特定した。
+  - `lib/graph/graph-edge-route.js` の `routeEdges()` 第3巡目で、レーンずらし（`shift`）のための渡り点を「ノード中心（`from`/`to`）そのもの」を基準に作っていたのが原因。折れ点なし（軸平行・`!r.bend`）のケースだけでなく、**折れ点あり（`r.bend`）で `offsetPolyline()` が作る渡り点も同じ罠にはまる**ことをブラウザでの実測（実際の座標データを使った再現）で確認した。
+  - 修正: 両方の渡り点を、ノードから**脚の向きに沿って**（`nodeRadius + laneGap` ぶん）内側へ逃がしてから法線方向のシフトを掛けるように変更。
+    - 折れ点なしのケース: `from`→`to` の直線上をノード側から内側へスライドさせてから渡りを作る（渡り〜渡り間の区間は元の直線と平行のまま＝格子方向を維持）。
+    - 折れ点ありのケース: `offsetPolyline(from, bend, to, shift, inset)` に `inset` 引数を追加し、`from`→`bend` および `bend`→`to` の**各脚の向きに沿って**内側へスライドさせてから法線シフトを適用（脚の直線＝法線が同じ直線上を移動するだけなので、渡り〜折れ点間の傾き＝格子の6方向は厳密に保たれる）。
+    - 最初は `segment-weights` を事後的に `[margin, 1-margin]` にクランプする案を試したが、`weight`+`distance` の組は「弦（from-to）上の位置＋法線オフセット」で点を再構成する方式のため、`distance` を据え置いたまま `weight` だけ動かすと**別の点**になってしまい、`tests/graph.edge-route.test.js` の「主要な脚は厳密に格子の6方向へ乗る」「重なった線分がない」の2件が回帰（脚の角度が最大2°ずれる／重なりが発生）。このため上記の「脚の向きに沿ってスライド」方式へやり直した。
+  - 検証: `tests/graph.edge-route.test.js` + `tests/graph.edge-route-tri-axes.test.js` + `tests/graph.layout.test.js` + `tests/graph.crossing.test.js` + `tests/pages.relations.syntax.test.js`（計99件）全通過。
+  - ブラウザ実地確認: キャラ単体マップ（`Num=78` フォーカス）で `segment-weights` が全て `[0.11〜0.88]` 程度の安全域に収まったことをデータで確認し、スクリーンショットで **12本全ての関係線が表示される**ことを確認済み。集約表示（六角マス塗り、グルーピング「所属」）も回帰なしを確認済み。
+- `pages/relations.js` の一時デバッグ用フック（`window.__debugCy = cy;`）は調査後に削除済み。`pages/relations.html` の `asset-version` を `2026.08.04.5` に更新。
+
 ## 影響範囲（想定）
 
 - `lib/graph/graph-layout.js`（追加のみ、既存の六角格子関数は変更なし）
