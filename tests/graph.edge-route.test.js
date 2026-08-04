@@ -14,6 +14,7 @@ import {
 	routeEdges
 } from '../lib/graph/graph-edge-route.js';
 import { hexPoint, hexNeighbors } from '../lib/graph/graph-layout.js';
+import { segmentsCross } from '../lib/graph/graph-crossing.js';
 
 const SPACING = 110;
 const pt = (col, row) => hexPoint(col, row, SPACING);
@@ -367,6 +368,94 @@ describe('routeEdges', () => {
 			}
 		}
 		expect(checked).toBeGreaterThan(150);
+	});
+
+	it('レーンずらし後の最終形で残る交差を、折れ方の入れ替えで修復する', () => {
+		// 1 巡目の交差回避判定は「既に決めた辺」との比較しかしない（貪欲）ため、
+		// 後から登場する辺との交差は 1 巡目では気付けない。
+		// A-B は 2 通りの折れ方があり、どちらを選ぶかで C-D（軸平行の直線）と交差するかが変わる。
+		// A-B を先に処理すると（この時点では C-D は未確定なので）交差する方の折れ方が選ばれてしまうが、
+		// 4 巡目でレーンずらし後の最終形を見直し、交差しない方へ入れ替えられるはず
+		// （他に辺が無いので、入れ替えても新しい重なりは発生し得ない＝安全に直せる状況）。
+		const nodes = new Map([
+			['A', { x: 0, y: 0 }],
+			['B', { x: 275, y: 95.26279441628824 }],
+			['C', { x: 100, y: 50 }],
+			['D', { x: 300, y: 50 }]
+		]);
+		const edges = [
+			{ id: 'ab', source: 'A', target: 'B' },
+			{ id: 'cd', source: 'C', target: 'D' }
+		];
+
+		const out = routeEdges(edges, nodes);
+		const ab = out.find(o => o.id === 'ab');
+		const A = nodes.get('A');
+		const B = nodes.get('B');
+		const pts = [A, ...ab.weights.map((w, i) => reconstruct(A, B, w, ab.distances[i])), B];
+
+		const C = nodes.get('C');
+		const D = nodes.get('D');
+		let crossesCD = false;
+		for (let i = 0; i < pts.length - 1; i += 1) {
+			if (segmentsCross(pts[i], pts[i + 1], C, D)) crossesCD = true;
+		}
+		expect(crossesCD, 'A-B の最終形が C-D と交差している（折れ方の入れ替えで直せるはず）').toBe(false);
+	});
+
+	it('折れ方を入れ替えると別の辺と重なってしまう場合は、交差が残っても入れ替えない', () => {
+		// 実機のブラウザ確認で見つかった実例。A-B（の一部の脚）が別の直線の辺 C-D と交差しているが、
+		// A-B のもう一方の折れ方は「別の辺と完全に重なって 1 本に見えてしまう」経路になる。
+		// 重なりは交差よりも読みにくい（線が消える）ため、この場合は入れ替えを見送り、
+		// 交差が残る（＝重なりを増やさない）ほうを選ぶのが正しい。
+		const nodes = new Map([
+			['3', { x: 122, y: 422.62039704680603 }],
+			['4', { x: 122, y: 211.31019852340302 }],
+			['5', { x: 0, y: 211.31019852340302 }],
+			['6', { x: 183, y: 316.96529778510455 }],
+			['8', { x: 122, y: 0 }],
+			['9', { x: 244, y: 211.31019852340302 }]
+		]);
+		const edges = [
+			{ id: 'r35', source: '3', target: '5' },
+			{ id: 'c36', source: '3', target: '6' },
+			{ id: 'r45', source: '4', target: '5' },
+			{ id: 'r46', source: '4', target: '6' },
+			{ id: 'c48', source: '4', target: '8' },
+			{ id: 'r56', source: '5', target: '6' },
+			{ id: 'r69', source: '6', target: '9' },
+			{ id: 'c56', source: '5', target: '6' },
+			{ id: 'c49', source: '4', target: '9' }
+		];
+
+		const out = routeEdges(edges, nodes);
+
+		const segmentsOf = (r) => {
+			const e = edges.find(x => x.id === r.id);
+			const A = nodes.get(e.source);
+			const B = nodes.get(e.target);
+			const pts = [A, ...r.weights.map((w, i) => reconstruct(A, B, w, r.distances[i])), B];
+			const segs = [];
+			for (let i = 0; i < pts.length - 1; i += 1) segs.push([pts[i], pts[i + 1]]);
+			return segs;
+		};
+
+		const sameEnd = (p, q) => Math.abs(p.x - q.x) < 0.5 && Math.abs(p.y - q.y) < 0.5;
+		let crossings = 0;
+		let overlaps = 0;
+		for (let i = 0; i < out.length; i += 1) {
+			for (let j = i + 1; j < out.length; j += 1) {
+				for (const [a, b] of segmentsOf(out[i])) {
+					for (const [c, d] of segmentsOf(out[j])) {
+						if (segmentsCross(a, b, c, d)) crossings += 1;
+						if ((sameEnd(a, c) && sameEnd(b, d)) || (sameEnd(a, d) && sameEnd(b, c))) overlaps += 1;
+					}
+				}
+			}
+		}
+		// 交差 1 本は残るが、それを重なりへ悪化させてはいない
+		expect(overlaps, '折れ方の入れ替えで別の辺と重なってしまっている').toBe(0);
+		expect(crossings).toBeLessThanOrEqual(1);
 	});
 
 	it('空の入力でも壊れない', () => {

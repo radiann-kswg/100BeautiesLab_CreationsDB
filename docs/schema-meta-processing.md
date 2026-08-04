@@ -185,6 +185,9 @@
   - 数値
 - `#String_withAbout`, `#Summary_withAbout`, `#Dialogue_withAbout`
   - `value` と `about_JP/about_EN/about` を持つ補足付き値
+- `#String_bilingual`, `#Dialogue_bilingual`
+  - **和英共有フィールド**。1 要素の中に `value_JP` / `value_EN`（＋補足があれば `about_JP` / `about_EN`）を持ち、フィールド自体は `_JP` / `_EN` へ分けない。配列で和英の要素対応を崩さずに持ちたいときに使う（例: `ConversationPattern.DialogueExamples`、`Works_UnibyteLive` の `StreamingActivity.StreamingCategory` / `StreamingGreeting` / `StreamingAwards`）
+  - 表示は `formatValueForDisplay()` がページ言語で `value_JP` / `value_EN` を選ぶ（型名ではなく**値の形**で分岐するため、`_bilingual` は「データの形」を宣言面へ明示するための型名）。1 要素 1 行で出したい配列では union に `_withAbout[]` を併記して改行連結を維持する
 - `$EnumDef`, `$EnumDef_<Name>`
   - enum 辞書参照
 - `#ListIndex`, `#ListLink`

@@ -74,15 +74,15 @@
   {
     "Letter": { "Alphabet": "I", "AlphaGen": 2 },
     "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "VirtuesUs", "_DB": "SemiPrimary", "Virtues": "孝" }
+    ],
     "OwningAvatar_DBLink": {
       "_DB": "Primary",
       "Letter": { "Alphabet": "I", "AlphaGen": 2 }
     },
-    "AnotherRegions_DBLink": [
-      { "_Work": "VirtuesUs", "_DB": "SemiPrimary", "Virtues": "孝" }
-    ],
     "FormalName_JP": "桜花 孝\n孝 ヴァーチュングレイス=春洋",
-    "FormalName_JPReading": "おうか たかむ\nたかむ ヴァーチュングレイス=はるなみ",
+    "FormalName_JPReading": "おうか たかみ\nたかむ ヴァーチュングレイス=はるなみ",
     "FormalName_EN": "Filia.Pieter Cherrybroom\nFilia.Pieter Virtuengrace=Springer",
     "Belonging": [{ "Faction": "スターダスト・テクノロジー" }],
     "FromArea": { "Area": "雄志結国" },
@@ -181,13 +181,13 @@
   {
     "Letter": { "Alphabet": "O", "AlphaGen": 2 },
     "Progress": "unprofiled",
+    "AnotherRegions_DBLink": [
+      { "_Work": "DestinyFoxRecords", "_DB": "Proxy", "Generation": 3 }
+    ],
     "OwningAvatar_DBLink": {
       "_DB": "Primary",
       "Letter": { "Alphabet": "O", "AlphaGen": 2 }
     },
-    "AnotherRegions_DBLink": [
-      { "_Work": "DestinyFoxRecords", "_DB": "Proxy", "Generation": 3 }
-    ],
     "FormalName_JP": "扇 零夏.スフィリア",
     "FormalName_JPReading": "おうぎ れいか.スフィリア",
     "FormalName_EN": "Arch Origth.Spheria",

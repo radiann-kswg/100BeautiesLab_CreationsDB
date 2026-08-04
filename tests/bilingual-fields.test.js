@@ -174,7 +174,9 @@ describe('TypeDefUtils.collectBilingualWrapperPaths', () => {
   });
 
   it('collects nested bilingual wrapper fields via recursive walk', () => {
-    // StreamingActivity.$type[StreamingGreeting] が nested bilingual wrapper
+    // 親フィールドの $type 配下に置かれた _JP/_EN ペアを検出できることの確認。
+    // 実データ（Works_UnibyteLive）の現行例は `StreamingActivity.ListenerNickname`
+    // （`StreamingGreeting` 等の配列系は和英共有フィールドへ移行済み）。
     const entries = [
       {
         hashTag: 'StreamingActivity',

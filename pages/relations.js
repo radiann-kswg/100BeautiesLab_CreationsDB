@@ -10,7 +10,7 @@
  * - グラフ構築: `lib/graph/graph-model.js`（エッジ抽出・ノード同一性。DOM 非依存）
  * - 軸・階層:   `lib/graph/graph-facets.js`（`$display.facet` 宣言の解決）
  * - バッジ:     `lib/graph/graph-badge.js`（`Works_Code` + `$IndexDef.$badge`）
- * - 配置:       `lib/graph/graph-layout.js`（六角格子へのスナップ）
+ * - 配置:       `lib/graph/graph-layout.js`（三角格子へのスナップ）
  * - 描画:       Cytoscape.js（`pages/vendor/` に同梱。初期化時に動的 import）
  * - 直リンク:   `lib/viewer-locator.js`（キャラシートと同じ URL 文法を共有）
  * - 辞書:       `lib/basic-renders/type-common.js`（`globalThis.TypeResolver`）
@@ -52,15 +52,14 @@ import {
 	extractFacetValues,
 	groupNodesByFacet,
 	selectUsableFacets,
-	UNSET_GROUP_KEY,
-	OTHER_GROUP_KEY
+	UNSET_GROUP_KEY
 } from '../lib/graph/graph-facets.js';
 import { buildBadge, createDictCellLookup, getWorksCode } from '../lib/graph/graph-badge.js';
 import {
 	snapToHexLattice, resolveSpacing, boundsOf, shouldFitToViewport,
-	nearestCell, hexNeighbors as hexNeighborsOf
+	nearestCell as nearestHexCell, hexNeighbors as hexNeighborsOf
 } from '../lib/graph/graph-layout.js';
-import { buildHexFill } from '../lib/graph/graph-hexfill.js';
+import { buildHexFill, logProportionalCellCount } from '../lib/graph/graph-hexfill.js';
 import { buildPalette, createTokenReader } from '../lib/graph/graph-palette.js';
 import { reduceCrossings, countCrossings } from '../lib/graph/graph-crossing.js';
 import { routeEdges } from '../lib/graph/graph-edge-route.js';
@@ -117,7 +116,7 @@ const EDGE_STYLE = Object.freeze({
 	[EDGE_KINDS.COMMENTED]: { tone: 'commented', line: 'dotted', weight: 10, hideAt: 250, layout: 0 }
 });
 
-/** ノードの基本サイズ（六角格子の間隔を決める基準） */
+/** ノードの基本サイズ（三角格子の間隔を決める基準） */
 const NODE_BASE_SIZE = 46;
 
 /**
@@ -423,27 +422,13 @@ function scopeWorkId() {
 /**
  * 現在のスコープに応じた階層の段を返す
  *
- * @description 宣言（`$display.facet.hierarchy`）から作った段に加えて、
- * **「その他」を掘ったときは同じ軸をもう一段挿す**。
- *
- * 「その他」は `maxGroups` に収まらなかった値の寄せ集めなので、
- * その中にはまだ何十種類もの値が入っている。ここで一気にキャラ個体まで落とすと
- * 「クラス名で見ていたのに、その他の中だけ急に 84 人がバラける」ことになり、
- * せっかくの分類が途切れてしまう。同じ軸で掘り直せば、残りの値が改めて上位 N ＋その他に分かれる。
+ * @description 宣言（`$display.facet.hierarchy`）から作った段をそのまま返す。
+ * 「その他」は 2026-08-04 に撤去したため、同じ軸をもう一段挿す特別扱いは無い
+ * （複数値の組み合わせも 1 グループとして扱うので、掘るたびに必ず 1 段ずつ進む）。
  * @returns {Array<Object>}
  */
 function currentLevels() {
-	const base = buildHierarchy(state.facets, { scope: scopeWorkId() });
-	const out = [];
-	for (let i = 0, d = 0; i < base.length || d < state.drill.length; d += 1) {
-		const level = base[Math.min(i, base.length - 1)];
-		if (!level) break;
-		out.push(level);
-		// 「その他」を選んだ段は、同じ軸をもう一度使う（段を進めない）
-		if (state.drill[d] !== OTHER_GROUP_KEY) i += 1;
-		if (i >= base.length && d >= state.drill.length) break;
-	}
-	return out;
+	return buildHierarchy(state.facets, { scope: scopeWorkId() });
 }
 
 /**
@@ -474,28 +459,65 @@ function drilledNodes() {
 			list = list.filter(n => n.workId === picked);
 			continue;
 		}
-		// 「その他」は `maxGroups` を超えた値をまとめた**センチネル**なので、
-		// レコードの値と直接照合できない（`values.includes('\0other')` は必ず false になる）。
-		// 束ね方を決めたのと同じ `groupNodesByFacet()` をこのスコープで再実行し、
-		// 実際に「その他」へ入ったメンバーを取り出す。
-		if (picked === OTHER_GROUP_KEY) {
-			const grouped = groupNodesByFacet(list, level, {
-				lookupDictCell: list[0]?._relmapLookup,
-				resolveLabel: (f, value) => resolveFacetLabelPack(f, value, list[0]?.record)
-			});
-			const other = grouped.groups.find(g => g.value === OTHER_GROUP_KEY);
-			const keep = new Set(other ? other.members : []);
-			list = list.filter(n => keep.has(n.key));
-			continue;
-		}
-
-		list = list.filter(n => {
+		// 多値ノードは「組み合わせ専用 C」ではなく、属する各グループ（A / B）から辿れるようにする。
+		// そのためドリル条件は「選択値を含むか」で判定する。
+		list = list.filter((n) => {
 			const values = facetValuesOf(n, level);
 			if (picked === UNSET_GROUP_KEY) return values.length === 0;
 			return values.includes(picked);
 		});
 	}
 	return list;
+}
+
+/**
+ * `state.drill` の整合を現在データから正規化する
+ *
+ * @description
+ * グループ内マップで別グループを選んだときに URL が
+ * `.../A/B` のような「同階層の値を縦に積んだ形」になると、
+ * 実際の段構造とずれて表示が破綻する。
+ *
+ * この関数は「現在の levels とノード集合で実際に成立する prefix」だけを残し、
+ * 余剰/不正な drill 値を切り落として自己修復する。
+ */
+function normalizeDrillPath() {
+	const levels = currentLevels();
+	if (!Array.isArray(levels) || levels.length === 0) {
+		if (state.drill.length) state.drill = [];
+		return;
+	}
+
+	let list = baseNodes();
+	const next = [];
+	const limit = Math.min(state.drill.length, levels.length);
+
+	for (let depth = 0; depth < limit; depth += 1) {
+		const level = levels[depth];
+		const picked = state.drill[depth];
+		if (!level || !picked) break;
+
+		if (level.kind === 'work') {
+			const ok = list.some(n => n.workId === picked);
+			if (!ok) break;
+			next.push(picked);
+			list = list.filter(n => n.workId === picked);
+			continue;
+		}
+
+		const matches = (n) => {
+			const values = facetValuesOf(n, level);
+			if (picked === UNSET_GROUP_KEY) return values.length === 0;
+			return values.includes(picked);
+		};
+		if (!list.some(matches)) break;
+		next.push(picked);
+		list = list.filter(matches);
+	}
+
+	if (next.length !== state.drill.length || next.some((v, i) => v !== state.drill[i])) {
+		state.drill = next;
+	}
 }
 
 /**
@@ -537,11 +559,13 @@ function buildElements() {
 /**
  * 集約ノード（作品 / 軸の値ごと）を組み立てる
  * @param {Array<Object>} nodes @param {Object} level
+ * @param {{allowDrill?: boolean, showMembers?: boolean, showOverlapMarkers?: boolean}} [options]
  * @returns {{elements: Array, counts: Object, mode: string}}
  */
-function buildAggregateElements(nodes, level) {
+function buildAggregateElements(nodes, level, options = {}) {
 	/** グループキー -> {label, members} */
 	const groups = new Map();
+	let overlapPairs = [];
 
 	if (level.kind === 'work') {
 		for (const n of nodes) {
@@ -549,17 +573,45 @@ function buildAggregateElements(nodes, level) {
 			groups.get(n.workId).members.push(n);
 		}
 	} else {
-		const grouped = groupNodesByFacet(nodes, level, {
-			lookupDictCell: nodes[0]?._relmapLookup,
-			resolveLabel: (facet, value) => resolveFacetLabelPack(facet, value, nodes.find(n => true)?.record)
-		});
-		const byKey = new Map(nodes.map(n => [n.key, n]));
-		for (const g of grouped.groups) {
-			groups.set(g.value, {
-				label: pickLang(g.label_JP, g.label_EN),
-				members: g.members.map(k => byKey.get(k)).filter(Boolean)
-			});
+		// 集約段は「組み合わせ専用グループ」ではなく、各値グループへ所属させる。
+		// これで複数所属キャラを A 側 / B 側どちらからでも辿れる。
+		const valuesByNode = new Map();
+		for (const n of nodes) {
+			const values = [...new Set(facetValuesOf(n, level))];
+			valuesByNode.set(n.key, values);
+			if (values.length === 0) {
+				if (!groups.has(UNSET_GROUP_KEY)) {
+					groups.set(UNSET_GROUP_KEY, { label: pickLang('(未設定)', '(unset)'), members: [] });
+				}
+				groups.get(UNSET_GROUP_KEY).members.push(n);
+				continue;
+			}
+			for (const value of values) {
+				if (!groups.has(value)) {
+					const pack = resolveFacetLabelPack(level, value, n.record)
+						|| { jp: value, en: value };
+					groups.set(value, {
+						label: pickLang(pack.jp, pack.en),
+						members: []
+					});
+				}
+				groups.get(value).members.push(n);
+			}
 		}
+
+		overlapPairs = collectOverlapPairs(valuesByNode);
+
+		// 未設定は末尾、他は人数降順（同数ならキー昇順）
+		const sorted = [...groups.entries()].sort((a, b) => {
+			const aUnset = a[0] === UNSET_GROUP_KEY;
+			const bUnset = b[0] === UNSET_GROUP_KEY;
+			if (aUnset !== bUnset) return aUnset ? 1 : -1;
+			const byCount = (b[1].members.length - a[1].members.length);
+			if (byCount !== 0) return byCount;
+			return String(a[0]).localeCompare(String(b[0]));
+		});
+		groups.clear();
+		for (const [key, group] of sorted) groups.set(key, group);
 	}
 
 	const memberOf = new Map();
@@ -576,11 +628,10 @@ function buildAggregateElements(nodes, level) {
 
 	// --- 寄せ集めのグループは線を引かない ---
 	//
-	// 「その他」（`maxGroups` に収まらなかった値の寄せ集め）と「(未設定)」は、
-	// **実体のあるまとまりではない**。前者は数十人が 1 つに潰れているのでほぼ全てと繋がり、
-	// 図をハブの線で埋めてしまううえ、「その他と陣営 A が繋がっている」と言われても何も読めない。
-	// 区画（人数）は見せるが、線は引かない。
-	const isBucket = (value) => value === OTHER_GROUP_KEY || value === UNSET_GROUP_KEY;
+	// 「(未設定)」は**実体のあるまとまりではない**ため、区画（人数）は見せるが線は引かない。
+	// 「その他」は 2026-08-04 に撤去した（複数値の組み合わせは専用グループになったため、
+	// 巨大な寄せ集めバケット自体が発生しなくなった）。
+	const isBucket = (value) => value === UNSET_GROUP_KEY;
 	const bucketIds = new Set(entries.filter(([value]) => isBucket(value)).map(([value]) => `grp:${value}`));
 
 	// --- グループ間の繋がりの強さを先に測る ---
@@ -609,14 +660,28 @@ function buildAggregateElements(nodes, level) {
 		return { a, b, weight };
 	});
 
-	// --- マス塗りの割当（人数分のセルを六角格子へ敷く） ---
+	// --- マス塗りの割当（対数比例のマス数を六角格子へ敷く） ---
 	//
+	// 三角セルだと輪郭が頂点ぶんだけ尖って鋭角の連続になる。六角セルは内角が常に 120°で鋭角を作らないため、
+	// 塊の輪郭を滑らかに読ませたいこの用途では六角のまま使う（ノード位置のスナップやエッジ経路は三角格子のまま）。
 	// グループの識別は「格子上の位置 + ラベル + 濃度段 + 境界の枠 + 左レール凡例」の多重符号化で行う。
 	// 色相を変える循環パレットは使わない（キャラシートに無い色が増えるため）。
+	//
+	// **面積（マス数）は人数に正比例させず対数比例にする**（`logProportionalCellCount()`）。
+	// 1 人のグループと数百人のグループが同居すると、正比例では最大のグループが図の大半を占めて
+	// 他が埋もれてしまう問題が実データで出たため（2026-08-04）。実人数は `count` として別に持たせ、
+	// ホバー表示やラベルはそちらを使う（マス数はあくまで見た目の面積調整用）。
 	const fill = buildHexFill(
-		entries.map(([value, g]) => ({ key: value, label: g.label, size: g.members.length })),
+		entries.map(([value, g]) => ({ key: value, label: g.label, size: logProportionalCellCount(g.members.length), count: g.members.length })),
 		{ spacing: CELL_SPACING, shadeCount: palette().shades.length, links }
 	);
+	const showOverlapMarkers = options.showOverlapMarkers !== false && !options.showMembers;
+	if (showOverlapMarkers && overlapPairs.length > 0) {
+		const valueToIndex = new Map(entries.map(([value], i) => [value, i]));
+		fill.overlaps = buildOverlapMarkers(fill, overlapPairs, valueToIndex, entries);
+	}
+	// 集約段は通常ドリル可能。グループ内の補助マップとして使うときだけ無効化する
+	fill.allowDrill = options.allowDrill !== false;
 	state.board = fill;
 
 	// Cytoscape へ渡すのは**グループ 1 つにつき 1 個のアンカー**だけ。
@@ -634,8 +699,97 @@ function buildAggregateElements(nodes, level) {
 		};
 	});
 
+	// 任意: マス塗りの上にキャラクターノードを重ねる。
+	// 多値軸では「所属先ごとの重複表示」ではなく、共通領域へ 1 ノードだけ置く。
+	const memberElements = [];
+	if (options.showMembers) {
+		const boundaryCache = new Map();
+		const zoneMembers = new Map();
+		for (const member of nodes) {
+			const gids = [...new Set((memberOf.get(member.key) || []).filter(gid => !bucketIds.has(gid)))].sort();
+			if (gids.length === 0) continue;
+			const zoneKey = gids.join('|');
+			if (!zoneMembers.has(zoneKey)) zoneMembers.set(zoneKey, { gids, members: [] });
+			zoneMembers.get(zoneKey).members.push(member);
+		}
+
+		const zonePosition = (gids) => {
+			if (gids.length === 1) {
+				const idx = indexOfGroup.get(gids[0]);
+				return fill.groups[idx]?.anchor || { x: 0, y: 0 };
+			}
+			if (gids.length === 2) {
+				const a = indexOfGroup.get(gids[0]);
+				const b = indexOfGroup.get(gids[1]);
+				if (Number.isInteger(a) && Number.isInteger(b)) {
+					const key = a < b ? `${a}|${b}` : `${b}|${a}`;
+					if (!boundaryCache.has(key)) boundaryCache.set(key, findBoundaryCentroid(fill, a, b));
+					const p = boundaryCache.get(key);
+					if (p) return p;
+				}
+			}
+
+			let sx = 0;
+			let sy = 0;
+			let n = 0;
+			for (const gid of gids) {
+				const idx = indexOfGroup.get(gid);
+				const a = fill.groups[idx]?.anchor;
+				if (!a) continue;
+				sx += a.x;
+				sy += a.y;
+				n += 1;
+			}
+			if (n > 0) return { x: sx / n, y: sy / n };
+			return { x: 0, y: 0 };
+		};
+
+		for (const [zoneKey, zone] of zoneMembers.entries()) {
+			const gids = zone.gids;
+			const members = [...zone.members].sort((a, b) => String(a.key).localeCompare(String(b.key)));
+			const base = zonePosition(gids);
+			const primaryIndex = indexOfGroup.get(gids[0]);
+			const shade = shadeFor(Number.isInteger(primaryIndex) ? primaryIndex : 0);
+			const RING_STEP = 24;
+
+			for (let i = 0; i < members.length; i += 1) {
+				const member = members[i];
+				// 先頭だけ中心、2人目以降は 6 方向リングへ展開する。
+				// 以前は i=0..5 がすべて ring=0 になり同一点へ重なっていた。
+				const ring = i === 0 ? 0 : Math.floor((i - 1) / 6) + 1;
+				const step = i === 0 ? 0 : (i - 1) % 6;
+				const radius = ring * RING_STEP;
+				const angle = (Math.PI * 2 * step) / 6;
+				const offsetX = ring > 0 ? Math.cos(angle) * radius : 0;
+				const offsetY = ring > 0 ? Math.sin(angle) * radius : 0;
+
+				memberElements.push({
+					data: {
+						id: `node:${member.key}::zone:${encodeURIComponent(zoneKey)}`,
+						kind: 'node',
+						member: 1,
+						nodeKey: member.key,
+						workId: member.workId,
+						dbName: member.dbName,
+						label: nodeLabel(member),
+						badge: member.badge || member.indexText,
+						degree: member.degree || 0,
+						color: gids.length > 1 ? palette().nodeBorderActive : shade.border,
+						...(state.showThumbs && member.thumb ? { thumb: member.thumb } : {})
+					},
+					position: { x: base.x + offsetX, y: base.y + offsetY }
+				});
+			}
+		}
+	}
+
 	// 集約ノード間のエッジ（本数を太さで表す）。
-	// 寄せ集めのグループ（その他 / 未設定）に触れる線は引かない
+	// 寄せ集めのグループ（(未設定)）に触れる線は引かない。
+	//
+	// 2026-08-04: 同じ端点ペア（A-B）に対して関係種別ごとに別エッジを作ると、
+	// 多い組み合わせでは 10 本近い束線になって読みにくい。
+	// 集約段（グループ階層）では端点ペアごとに 1 本へ畳み、
+	// 色は「そのペアで最も本数が多い関係種別」を代表色として使う。
 	const edges = new Map();
 	let bucketEdges = 0;
 	for (const e of visibleEdges()) {
@@ -646,21 +800,158 @@ function buildAggregateElements(nodes, level) {
 			if (ga === gb) continue;
 			if (bucketIds.has(ga) || bucketIds.has(gb)) { bucketEdges += 1; continue; }
 			const [s, t] = ga < gb ? [ga, gb] : [gb, ga];
-			const id = `${e.kind}::${s}::${t}`;
-			if (!edges.has(id)) edges.set(id, { data: { id, source: s, target: t, kind: e.kind, weight: 0 } });
-			edges.get(id).data.weight += 1;
+			const id = `${s}::${t}`;
+			if (!edges.has(id)) {
+				edges.set(id, {
+					data: { id, source: s, target: t, kind: e.kind, weight: 0 },
+					kindCounts: new Map()
+				});
+			}
+			const acc = edges.get(id);
+			acc.data.weight += 1;
+			acc.kindCounts.set(e.kind, (acc.kindCounts.get(e.kind) || 0) + 1);
 		}
 	}
 
+	// ペア内訳から代表の kind を決める（最多本数 -> 優先度 -> kind 名）
+	for (const edge of edges.values()) {
+		let bestKind = edge.data.kind;
+		let bestCount = -1;
+		let bestPriority = -1;
+		for (const [kind, count] of edge.kindCounts.entries()) {
+			const priority = EDGE_STYLE[kind]?.weight ?? 0;
+			if (count > bestCount || (count === bestCount && (priority > bestPriority || (priority === bestPriority && String(kind) < String(bestKind))))) {
+				bestKind = kind;
+				bestCount = count;
+				bestPriority = priority;
+			}
+		}
+		edge.data.kind = bestKind;
+	}
+
 	return {
-		elements: [...elements, ...edges.values()],
+		elements: [...elements, ...memberElements, ...[...edges.values()].map(e => ({ data: e.data }))],
 		counts: {
-			nodes: elements.length, edges: edges.size, characters: nodes.length,
+			nodes: elements.length + memberElements.length, edges: edges.size, characters: nodes.length,
 			// 「線が消えた」ではなく「意図して引いていない」と分かるよう統計行へ出す
 			bucketEdges: bucketEdges > 0 ? bucketEdges : 0
 		},
 		mode: 'cells'
 	};
+}
+
+/**
+ * 多値ノードから、重なり（A∩B）ペアごとの人数を集計する
+ * @param {Map<string,string[]>} valuesByNode
+ * @returns {Array<{aValue: string, bValue: string, count: number}>}
+ */
+function collectOverlapPairs(valuesByNode) {
+	const byPair = new Map();
+	for (const values of valuesByNode.values()) {
+		if (!Array.isArray(values) || values.length < 2) continue;
+		const uniq = [...new Set(values)].sort();
+		for (let i = 0; i < uniq.length; i += 1) {
+			for (let j = i + 1; j < uniq.length; j += 1) {
+				const key = JSON.stringify([uniq[i], uniq[j]]);
+				byPair.set(key, (byPair.get(key) || 0) + 1);
+			}
+		}
+	}
+	return [...byPair.entries()]
+		.map(([key, count]) => {
+			const [aValue, bValue] = JSON.parse(key);
+			return { aValue, bValue, count };
+		})
+		.sort((a, b) => b.count - a.count || a.aValue.localeCompare(b.aValue) || a.bValue.localeCompare(b.bValue));
+}
+
+/**
+ * A/B の境界線上に重なりマーカーを配置する
+ * @param {Object} board
+ * @param {Array<{aValue: string, bValue: string, count: number}>} overlapPairs
+ * @param {Map<string,number>} valueToIndex
+ * @param {Array<[string,{label: string, members: Array<Object>}]>} entries
+ * @returns {Array<{x: number, y: number, groups: [number, number], count: number, label: string}>}
+ */
+function buildOverlapMarkers(board, overlapPairs, valueToIndex, entries) {
+	if (!board || !Array.isArray(board.cells) || overlapPairs.length === 0) return [];
+	const labelByValue = new Map(entries.map(([value, group]) => [value, group.label]));
+	const corners = hexCorners(CELL_SPACING);
+	const markers = [];
+
+	for (const pair of overlapPairs) {
+		const a = valueToIndex.get(pair.aValue);
+		const b = valueToIndex.get(pair.bValue);
+		if (!Number.isInteger(a) || !Number.isInteger(b)) continue;
+
+		let sumX = 0;
+		let sumY = 0;
+		let boundaryCount = 0;
+
+		for (const cell of board.cells) {
+			if (cell.group !== a) continue;
+			const ns = hexNeighborsOf(cell.col, cell.row);
+			for (let i = 0; i < 6; i += 1) {
+				const other = board.cellIndex.get(`${ns[i].col},${ns[i].row}`);
+				if (other !== b) continue;
+				const side = SIDE_OF_NEIGHBOR[i];
+				const p0 = corners[side];
+				const p1 = corners[(side + 1) % 6];
+				sumX += cell.x + (p0[0] + p1[0]) / 2;
+				sumY += cell.y + (p0[1] + p1[1]) / 2;
+				boundaryCount += 1;
+			}
+		}
+
+		if (boundaryCount === 0) continue;
+		const labelA = labelByValue.get(pair.aValue) || pair.aValue;
+		const labelB = labelByValue.get(pair.bValue) || pair.bValue;
+		markers.push({
+			x: sumX / boundaryCount,
+			y: sumY / boundaryCount,
+			groups: [a, b],
+			count: pair.count,
+			label: `${labelA} × ${labelB}`
+		});
+	}
+
+	return markers;
+}
+
+/**
+ * 2 つのグループ境界の重心を求める
+ *
+ * @description 多値所属キャラの「共通領域ノード」を置く基準点。
+ * 境界が取れない場合は `null` を返し、呼び出し側でアンカー平均へフォールバックする。
+ * @param {Object} board
+ * @param {number} aGroup
+ * @param {number} bGroup
+ * @returns {{x: number, y: number}|null}
+ */
+function findBoundaryCentroid(board, aGroup, bGroup) {
+	if (!board || !Array.isArray(board.cells) || !Number.isInteger(aGroup) || !Number.isInteger(bGroup)) return null;
+	const corners = hexCorners(CELL_SPACING);
+	let sumX = 0;
+	let sumY = 0;
+	let count = 0;
+
+	for (const cell of board.cells) {
+		if (cell.group !== aGroup) continue;
+		const ns = hexNeighborsOf(cell.col, cell.row);
+		for (let i = 0; i < 6; i += 1) {
+			const other = board.cellIndex.get(`${ns[i].col},${ns[i].row}`);
+			if (other !== bGroup) continue;
+			const side = SIDE_OF_NEIGHBOR[i];
+			const p0 = corners[side];
+			const p1 = corners[(side + 1) % 6];
+			sumX += cell.x + (p0[0] + p1[0]) / 2;
+			sumY += cell.y + (p0[1] + p1[1]) / 2;
+			count += 1;
+		}
+	}
+
+	if (count === 0) return null;
+	return { x: sumX / count, y: sumY / count };
 }
 
 /**
@@ -685,7 +976,16 @@ function buildCharacterElements(nodes) {
 			lookupDictCell: nodes[0]?._relmapLookup,
 			resolveLabel: (f, value) => resolveFacetLabelPack(f, value, nodes[0]?.record)
 		});
-		mode = grouped.multiValued ? 'bridge' : 'compound';
+
+		if (grouped.multiValued) {
+			// 多値軸の最下段は、橋ノードよりも「どのグループ同士が繋がるか」を
+			// 先に読める表示が欲しいため、集約段と同じマス塗りへ寄せる。
+			// さらにキャラノードをマス上に重ね、どのキャラがどのグループに属するかを可視化する。
+			// このマップは drill 用ではなく俯瞰用なので、タップで段は進めない。
+			return buildAggregateElements(nodes, facet, { allowDrill: false, showMembers: true });
+		}
+
+		mode = 'compound';
 
 		grouped.groups.forEach((g, idx) => {
 			const shade = shadeFor(idx);
@@ -696,13 +996,6 @@ function buildCharacterElements(nodes) {
 				// 単値軸: Cytoscape の compound node（囲い）で表す
 				elements.push({ data: { id, kind: 'cluster', label, color: shade.fill, borderColor: shade.border } });
 				for (const k of g.members) { parentOf.set(k, id); colorOf.set(k, shade.border); }
-			} else {
-				// 多値軸: 1 ノード 1 親の制約を避けるため、軸の値を実ノードにして 2 部グラフにする
-				elements.push({ data: { id, kind: 'facet', label, color: shade.fill, borderColor: shade.border, count: g.members.length } });
-				for (const k of g.members) {
-					if (!colorOf.has(k)) colorOf.set(k, shade.border);
-					bridgeEdges.push({ data: { id: `bridge::${id}::${k}`, source: id, target: `node:${k}`, kind: 'facet' } });
-				}
 			}
 		});
 	}
@@ -903,6 +1196,19 @@ function buildCyStyle() {
 			}
 		},
 		{
+			// マス塗りに重ねるメンバー表示は小さめ固定で、区画との対応を読みやすくする
+			selector: 'node[kind = "node"][member = 1]',
+			style: {
+				'shape': 'round-rectangle',
+				'width': 24,
+				'height': 18,
+				'font-size': 10,
+				'text-max-width': 32,
+				'border-width': 1.8,
+				'background-opacity': 0.92
+			}
+		},
+		{
 			selector: 'node[kind = "node"][center = 1]',
 			style: { 'border-color': accent, 'border-width': 4 }
 		},
@@ -925,7 +1231,8 @@ function buildCyStyle() {
 				'text-valign': 'center',
 				'text-halign': 'center',
 				'text-wrap': 'ellipsis',
-				'text-max-width': 140,
+				// 集約グループ名は長くなりがちなので、140 だと削られ過ぎて読めなくなるケースがあった
+				'text-max-width': 200,
 				// マス塗りの上に載るので、地色の縁取りで可読性を確保する
 				'text-outline-color': bgDeep,
 				'text-outline-width': 3,
@@ -989,7 +1296,7 @@ function buildCyStyle() {
 			}
 		},
 		{
-			// 六角格子の辺に沿った折れ線。折れ点は必ず格子点に乗る
+			// 三角格子の辺に沿った折れ線。折れ点は必ず格子点に乗る
 			selector: 'edge[curveStyle = "round-segments"]',
 			style: {
 				'curve-style': 'round-segments',
@@ -1059,27 +1366,30 @@ function buildCyStyle() {
    背景レイヤー（マス塗り）の描画
    ======================================================================== */
 
-/** 六角セルの外周 6 頂点（pointy-top）。中心からの相対座標を先に作っておく */
+/**
+ * 六角セルの外周 6 頂点。中心からの相対座標を先に作っておく
+ *
+ * @description `hexPoint()` と同じ pointy-top（頂点が上下）の正六角形。内角は常に 120° なので、
+ * セルをそのまま塗って縁取っても尖った鋭角が出ない（三角セルだと頂点ぶん鋭く尖ってしまう）。
+ * @param {number} spacing @returns {Array<[number, number]>} 常に 6 要素（上から時計回り）
+ */
 function hexCorners(spacing) {
-	const r = spacing / Math.sqrt(3); // 中心 → 頂点の距離
-	const pts = [];
-	for (let k = 0; k < 6; k += 1) {
-		// pointy-top: 頂点が真上（-90°）から 60° ずつ
-		const a = (Math.PI / 180) * (60 * k - 90);
-		pts.push([Math.cos(a) * r, Math.sin(a) * r]);
-	}
-	return pts;
+	const r = spacing / Math.sqrt(3);
+	return [
+		[0, -r], [spacing / 2, -r / 2], [spacing / 2, r / 2],
+		[0, r], [-spacing / 2, r / 2], [-spacing / 2, -r / 2]
+	];
 }
 
 /**
  * 近傍の並び（`hexNeighbors()` の戻り順）と、六角形の辺番号の対応
  *
- * @description 辺 k は頂点 k から頂点 k+1 までの線分で、その外向き法線は `-60 + 60k` 度。
- * `hexNeighbors()` は [左, 右, 上左, 上右, 下左, 下右] の順に返すので、
- * それぞれ法線 180° / 0° / -120° / -60° / 120° / 60° ＝ 辺 4 / 1 / 5 / 0 / 3 / 2 に対応する。
- * この対応があることで「別グループと接している辺だけ」を描ける（地図の国境のように見せる）。
+ * @description `hexNeighbors()` は [左, 右, 左上, 右上, 左下, 右下] の順に返す。
+ * `hexCorners()` の頂点順（上→右上→右下→下→左下→左上）に対応する辺（頂点k→頂点k+1）は
+ * それぞれ 4 / 1 / 5 / 0 / 3 / 2 になる。
  */
 const SIDE_OF_NEIGHBOR = Object.freeze([4, 1, 5, 0, 3, 2]);
+
 
 /** 背景レイヤーの再描画予約（rAF で 1 フレーム 1 回に間引く） */
 let boardFrame = 0;
@@ -1164,6 +1474,41 @@ function drawBoard() {
 		ctx.fill(hovered);
 	}
 
+	// 境界上の「重なり（A∩B）」マーカー。
+	// 独立した C 領域ではなく、A と B が接する場所に重なり人数を置く。
+	const overlaps = Array.isArray(board.overlaps) ? board.overlaps : [];
+	if (overlaps.length > 0) {
+		ctx.save();
+		ctx.textAlign = 'center';
+		ctx.textBaseline = 'middle';
+		for (const marker of overlaps) {
+			const x = marker.x * zoom + pan.x;
+			const y = marker.y * zoom + pan.y;
+			if (x < -32 || x > w + 32 || y < -32 || y > h + 32) continue;
+
+			const r = Math.max(7, 10 * Math.min(1.4, zoom));
+			const [ga, gb] = marker.groups;
+			const ca = p.shades[((ga % p.shades.length) + p.shades.length) % p.shades.length];
+			const cb = p.shades[((gb % p.shades.length) + p.shades.length) % p.shades.length];
+			const grad = ctx.createLinearGradient(x - r, y - r, x + r, y + r);
+			grad.addColorStop(0, ca);
+			grad.addColorStop(1, cb);
+
+			ctx.beginPath();
+			ctx.arc(x, y, r, 0, Math.PI * 2);
+			ctx.fillStyle = grad;
+			ctx.fill();
+			ctx.strokeStyle = p.cellBorder;
+			ctx.lineWidth = 1.4;
+			ctx.stroke();
+
+			ctx.fillStyle = p.bgDeep;
+			ctx.font = `bold ${Math.max(10, Math.round(11 * Math.min(1.4, zoom)))}px ui-sans-serif, sans-serif`;
+			ctx.fillText(String(marker.count), x, y);
+		}
+		ctx.restore();
+	}
+
 	// --- 区画の輪郭 ---
 	//
 	// セル 1 個ずつを縁取ると格子の目が主張して塊の切れ目が読めない。
@@ -1246,13 +1591,14 @@ function setHoverLabel(group) {
 	if (!box) return;
 	if (!group) { box.hidden = true; box.textContent = ''; return; }
 	box.hidden = false;
-	box.textContent = `${group.label}（${group.cellCount}）`;
+	// マス数（`cellCount`）は対数比例で圧縮した見た目の面積なので、実人数（`count`）を出す
+	box.textContent = `${group.label}（${group.count ?? group.cellCount}）`;
 }
 
 /**
  * 世界座標からマスのグループを引く
  *
- * @description `nearestCell()` の逆写像なので O(1)。
+ * @description `nearestCell()`（六角格子）の逆写像。
  * 背景をタップしたときに「どの区画を押したか」を判定するのに使う。
  * @param {{x: number, y: number}} modelPos - Cytoscape の model 座標
  * @returns {Object|null} `state.board.groups` の要素
@@ -1260,30 +1606,29 @@ function setHoverLabel(group) {
 function groupAtModelPos(modelPos) {
 	const board = state.board;
 	if (!board || !modelPos) return null;
-	const cell = nearestCell(modelPos.x, modelPos.y, CELL_SPACING);
+	const cell = nearestHexCell(modelPos.x, modelPos.y, CELL_SPACING);
 	const g = board.cellIndex.get(`${cell.col},${cell.row}`);
 	return g === undefined ? null : (board.groups[g] || null);
 }
 
 /**
- * 接続線を六角格子の辺に沿わせる
+ * 接続線を六角格子の 6 方向へ沿わせる
  *
  * @description ノードの座標が確定したあとに呼ぶ。
  * 各辺の折れ点を求めて `curveStyle` / `segW` / `segD` を data へ載せ、
  * スタイル側の `edge[curveStyle = "..."]` セレクタが拾う。
  *
- * **エゴネットワークでは適用しない。** あちらは中心 1 個と直接の相手だけを放射状に並べる画面で、
- * 「誰と繋がっているか」を最短で読ませるのが目的なので、線が折れると逆に追いにくい。
+ * ノードの配置・エッジの軸とも六角格子（`HEX_AXES`、既定値）で統一する。
+ * 三角格子軸（`TRI_AXES`）はマス塗りの格子見栄えとエッジの向きが噛み合わず
+ * 鋭角が目立ったため撤回し、路線図らしい統一感を優先して六角格子オンリーに戻した
+ * （2026-08-04 追記6）。
+ *
+ * エゴネットワーク（中心 1 個 + 直接の相手）も対象。中心から複数方向へ伸びる辺が
+ * 近い角度に集まると重なって見えるため、多重辺のレーン分離も含めてここで揃える。
  * @param {string} mode - `buildElements()` が返した描画モード
  */
 function applyEdgeRouting(mode) {
 	if (!cy) return;
-	if (mode === 'ego') {
-		cy.batch(() => {
-			cy.edges().forEach(e => { e.data('curveStyle', ''); });
-		});
-		return;
-	}
 
 	const positions = new Map();
 	cy.nodes().forEach(n => { if (!n.isParent()) positions.set(n.id(), n.position()); });
@@ -1357,6 +1702,9 @@ async function renderGraph() {
 	if (!cy) {
 		cy = cytoscape({
 			container, elements, style: buildCyStyle(), minZoom: 0.12, maxZoom: 3,
+			// ノードはドラッグで動かせないようにする（表示座標を編集対象にしない）。
+			// キャンバス全体のパン/ズーム操作は引き続き有効。
+			autoungrabify: true,
 			// **`layout` を明示しないと Cytoscape は既定で `grid` を走らせ、
 			// element に載せた position を上書きしてしまう。**
 			// 配置はこちらで決める（マス塗りはセル割当、キャラ個体段は cose + 格子スナップ）ので
@@ -1368,6 +1716,8 @@ async function renderGraph() {
 		cy.elements().remove();
 		cy.add(elements);
 		cy.style(buildCyStyle());
+		// 描画更新後もノードドラッグ無効を維持する。
+		cy.autoungrabify(true);
 	}
 
 	if (mode === 'cells') {
@@ -1386,7 +1736,7 @@ async function renderGraph() {
 		);
 		lastCrossingStats = { before: crossings, after: crossings, skipped: false, swaps: 0, placed: true };
 	} else {
-		// 力学レイアウトで相対位置を決めてから、六角格子へスナップして均等感を出す。
+		// 力学レイアウトで相対位置を決めてから、三角格子へスナップして均等感を出す。
 		// `cose` は 1 反復が O(n^2) なので、反復回数をノード数に反比例させないと
 		// ノードが増えたときに数十秒固まる（実測: 288 ノード × 800 反復で 30 秒超）。
 		// 最終的に格子へスナップするため、力学レイアウトには「大まかな相対位置」だけを求める。
@@ -1406,7 +1756,8 @@ async function renderGraph() {
 	}
 
 	if (mode !== 'compound' && mode !== 'cells') {
-		// compound（囲い）は親子の入れ子を壊さないようスナップしない
+		// compound（囲い）は親子の入れ子を壊さないようスナップしない。
+		// ノード自体は六角格子へ乗せる（三角格子はエッジの向き制約だけに使う。詳細は `applyEdgeRouting()`）
 		const spacing = resolveSpacing({ nodeSize: NODE_BASE_SIZE, labelWidth: 96, gap: 26 });
 		const positions = cy.nodes().filter(n => !n.isParent()).map(n => ({ id: n.id(), ...n.position() }));
 		const snapped = snapToHexLattice(positions, { spacing });
@@ -1502,7 +1853,14 @@ function wireGraphEvents() {
 		if (onNode) return;
 		const group = groupAtModelPos(evt.position);
 		if (!group) return;
-		state.drill = [...state.drill, group.key];
+		if (state.board?.allowDrill === false) {
+			// グループ内マップでは、背景タップも同階層グループ切替として扱う。
+			// （アンカーが小さいため、group ノードを狙い撃ちしなくても移動できるようにする）
+			if (state.drill.length === 0) state.drill = [group.key];
+			else state.drill = [...state.drill.slice(0, -1), group.key];
+		} else {
+			state.drill = [...state.drill, group.key];
+		}
 		state.focusKey = '';
 		onViewChanged(true);
 	});
@@ -1512,7 +1870,14 @@ function wireGraphEvents() {
 
 		// 集約ノード → 1 段掘る
 		if (d.kind === 'group') {
-			state.drill = [...state.drill, d.value];
+			if (state.board?.allowDrill === false) {
+				// グループ内マップでは「深掘り」ではなく同階層のグループ切替にする。
+				// 例: `.../1桁番(ユニデジッツ)/キャロルズ` のような不正な深掘りを防ぐ。
+				if (state.drill.length === 0) state.drill = [d.value];
+				else state.drill = [...state.drill.slice(0, -1), d.value];
+			} else {
+				state.drill = [...state.drill, d.value];
+			}
 			state.focusKey = '';
 			onViewChanged(true);
 			return;
@@ -1600,8 +1965,8 @@ function renderStats(counts, mode) {
 		`表示: ${counts.nodes} ノード / ${counts.edges} 本（${modeLabel}）`,
 		` ・ 対象 ${counts.characters} キャラ`,
 		autoHidden ? ` ・ 密度により自動で非表示: ${autoHidden}` : '',
-		// 寄せ集めのグループの線は意図して引いていない。黙って消えたと見えないよう明示する
-		counts.bucketEdges ? ` ・ 「その他」「(未設定)」の線 ${counts.bucketEdges} 本は非表示（寄せ集めのため）` : '',
+		// 寄せ集めのグループ（(未設定)）の線は意図して引いていない。黙って消えたと見えないよう明示する
+		counts.bucketEdges ? ` ・ 「(未設定)」の線 ${counts.bucketEdges} 本は非表示（寄せ集めのため）` : '',
 		crossText,
 		` ・ 全体 ${s.nodeCount} キャラ / ${s.edgeCount} 本`
 	]);
@@ -1622,10 +1987,14 @@ function renderBreadcrumb() {
 		let label = value;
 		if (level?.kind === 'work') label = workTitle(value);
 		else if (value === UNSET_GROUP_KEY) label = '(未設定)';
-		else if (value === OTHER_GROUP_KEY) label = 'その他';
 		else if (level) {
-			const pack = resolveFacetLabelPack(level, value);
-			label = pickLang(pack?.jp, pack?.en) || value;
+			// 複数値の組み合わせグループは `"A,B"` のような組み合わせキー（`comboKeyForValues()` 参照）なので、
+			// 分解してそれぞれラベル解決してから × で結ぶ（単一値ならそのまま 1 件になる）
+			const parts = String(value).split(',').filter(Boolean);
+			label = parts.map(v => {
+				const pack = resolveFacetLabelPack(level, v);
+				return pickLang(pack?.jp, pack?.en) || v;
+			}).join('×') || value;
 		}
 		items.push(el('span', { class: 'relmap__crumb-sep', text: '›' }));
 		items.push(el('button', {
@@ -1939,6 +2308,7 @@ function renderEdgeKinds() {
 
 /** ビュー変更時の共通処理 @param {boolean} push */
 function onViewChanged(push) {
+	normalizeDrillPath();
 	syncUrl(push);
 	renderGroupingSelector();
 	renderGraph();
@@ -2003,6 +2373,8 @@ function wireControls() {
 
 	window.addEventListener('popstate', () => {
 		readStateFromUrl();
+		normalizeDrillPath();
+		syncUrl(false);
 		applyLangToUi();
 		renderGraph();
 	});
@@ -2073,6 +2445,8 @@ async function main() {
 	});
 
 	decorateNodes();
+	normalizeDrillPath();
+	syncUrl(false);
 
 	renderMapSelector();
 	renderGroupingSelector();

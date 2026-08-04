@@ -65,21 +65,41 @@ describe('相関図ページの構成', () => {
 		expect(html).toContain('id="adjacency-body"');
 	});
 
-	it('ドリルの絞り込みがセンチネルのグループキーを両方とも扱う', () => {
-		// `UNSET_GROUP_KEY`（未設定）と `OTHER_GROUP_KEY`（`maxGroups` を超えて丸めた分）は
-		// **レコードの値と直接照合できないセンチネル**。
-		// `OTHER_GROUP_KEY` の分岐が無いと `values.includes('\0other')` が必ず false になり、
-		// 「その他」を掘っても 0 件になる（実際にこの不具合が出た）。
+	it('ドリルの絞り込みは「選択値を含むか」で判定する（多値ノードを各グループから辿れる）', () => {
+		// 2026-08-04 のベン図改善で、複数所属キャラは A×B 専用グループではなく
+		// A 側 / B 側のどちらからでも辿れる仕様にした。
+		// そのため drilledNodes() は comboKey 一致ではなく includes 判定で絞る。
 		const js = read('pages/relations.js');
 		const start = js.indexOf('function drilledNodes');
 		expect(start).toBeGreaterThan(-1);
 		const body = js.slice(start, js.indexOf('\n}', start));
-		// 「識別子が出てくる」だけでは分岐を潰しても通ってしまうので、
-		// 選択値との比較そのものが在ることを見る
-		expect(body, 'drilledNodes() が UNSET_GROUP_KEY と比較していない')
-			.toMatch(/picked\s*===\s*UNSET_GROUP_KEY/);
-		expect(body, 'drilledNodes() が OTHER_GROUP_KEY と比較していない')
-			.toMatch(/picked\s*===\s*OTHER_GROUP_KEY/);
+		expect(body, 'drilledNodes() が includes 判定になっていない')
+			.toMatch(/values\.includes\(picked\)/);
+		expect(body, '未設定の判定が無い').toMatch(/picked\s*===\s*UNSET_GROUP_KEY/);
+	});
+
+	it('多値グルーピングの最下段は橋ノードではなくマス塗りへ寄せる', () => {
+		// 2026-08-04: グループ内表示で「どのグループ同士が繋がるか」を読みやすくするため、
+		// multiValued な grouping は buildAggregateElements()（cells）へ切り替える。
+		const js = read('pages/relations.js');
+		expect(js).toMatch(/if\s*\(grouped\.multiValued\)\s*\{[\s\S]*return\s+buildAggregateElements\(nodes,\s*facet,\s*\{\s*allowDrill:\s*false,\s*showMembers:\s*true\s*\}\)/);
+		expect(js).toMatch(/state\.board\?\.allowDrill\s*===\s*false/);
+		expect(js).toMatch(/selector:\s*'node\[kind = "node"\]\[member = 1\]'/);
+		expect(js).toMatch(/options\.showOverlapMarkers\s*!==\s*false\s*&&\s*!options\.showMembers/);
+		expect(js).toContain('function findBoundaryCentroid');
+		expect(js).toMatch(/if\s*\(d\.kind\s*===\s*'group'\)\s*\{[\s\S]*state\.board\?\.allowDrill\s*===\s*false[\s\S]*state\.drill\s*=\s*\[\.\.\.state\.drill\.slice\(0,\s*-1\),\s*d\.value\]/);
+		expect(js).toContain('function normalizeDrillPath');
+		expect(js).toMatch(/function onViewChanged\(push\)\s*\{[\s\S]*normalizeDrillPath\(\)/);
+		// group ノードだけでなく背景タップでも同階層置換できること（操作性の要件）
+		expect(js).toMatch(/cy\.on\('tap',\s*\(evt\)\s*=>\s*\{[\s\S]*groupAtModelPos\(evt\.position\)[\s\S]*state\.board\?\.allowDrill\s*===\s*false[\s\S]*state\.drill\s*=\s*\[\.\.\.state\.drill\.slice\(0,\s*-1\),\s*group\.key\]/);
+	});
+
+	it('マス塗り上メンバーの配置で先頭6人が同一点に重ならない', () => {
+		// 2026-08-04: 以前は ring=Math.floor(i/6) で i=0..5 が全員 ring=0 になり、
+		// 同じ座標に重なって一部しかクリックできなかった。
+		const js = read('pages/relations.js');
+		expect(js).toMatch(/const ring = i === 0 \? 0 : Math\.floor\(\(i - 1\) \/ 6\) \+ 1;/);
+		expect(js).toMatch(/const step = i === 0 \? 0 : \(i - 1\) % 6;/);
 	});
 });
 
@@ -138,6 +158,13 @@ describe('Cytoscape へ渡す色の約束事（無言の #999 フォールバッ
 		// 背景の塗りと Cytoscape の描画が別々の場所に出る不具合が起きた
 		const init = js.slice(js.indexOf('cy = cytoscape('), js.indexOf('cy = cytoscape(') + 500);
 		expect(init).toMatch(/layout:\s*\{\s*name:\s*'preset'/);
+	});
+
+	it('ノードドラッグを無効化する（autoungrabify）', () => {
+		// 表示座標はレイアウト結果として扱い、ユーザー操作で位置を壊さない。
+		const init = js.slice(js.indexOf('cy = cytoscape('), js.indexOf('cy = cytoscape(') + 700);
+		expect(init).toMatch(/autoungrabify:\s*true/);
+		expect(js).toMatch(/cy\.autoungrabify\(true\)/);
 	});
 
 	it('集約段を離れたらマス塗りの割当を捨てる', () => {

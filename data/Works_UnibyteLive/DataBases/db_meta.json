@@ -18,6 +18,7 @@
       },
       "_Commons": {
         "Belonging": [{ "Faction": "アルベッツ" }],
+        "FromArea": { "Area": "ユニバイト・ユニバース" },
         "RaceType": "VirtualAvatar",
         "GenderType": "FemaleNeutral",
         "Weight_kg": { "hideText": "公開不要" }
@@ -41,9 +42,9 @@
         "StoryEraAbout_EN": "between WDCE.VIII.1-IX.6(Equivalent to between: DC.2045-2053)"
       },
       "_Commons": {
+        "FromArea": { "Area": "九蓮国" },
         "RaceType": "Human",
-        "GenderType": "Female",
-        "FromArea": { "Area": "九蓮国" }
+        "GenderType": "Female"
       },
       "AI_Optout": true
     }

@@ -348,7 +348,11 @@
 // 右インスペクタ
 // ==================================================
 
+// 未選択時（.relmap__inspector-empty のみ表示）でも右ペインが小箱に潰れないよう、
+// 左レール・中央ステージと釣り合う最低高さを確保する（3 ペインの構図を壊さないため）。
 .relmap__inspector
+	display: flex
+	flex-direction: column
 	padding: var(--spacing-md)
 	align-self: start
 
@@ -356,12 +360,21 @@
 		position: sticky
 		top: var(--spacing-md)
 		max-height: calc(100vh - var(--spacing-xl))
+		min-height: 240px
 		overflow-y: auto
 
 .relmap__inspector-empty
+	flex: 1
+	display: flex
+	align-items: center
+	justify-content: center
 	margin: 0
+	text-align: center
 	color: var(--muted)
 	font-size: var(--font-size-sm)
+
+	&[hidden]
+		display: none
 
 .relmap__inspector-title
 	margin: 0 0 var(--spacing-xs)
@@ -436,13 +449,47 @@
 	gap: var(--spacing-md)
 	padding-bottom: var(--spacing-2xl)
 
+	// 「▸ ラベルだけの単調な帯」から、既存の折りたたみパネル
+	// （characters.sass の .section--collapsible）と同じ見た目に揃える。
+	// 新しい色トークンは足さず、color-mix() も既存トークン同士の合成のみ。
 	> details
 		padding: var(--spacing-md)
+		border: 1px solid color-mix(in srgb, var(--accent) 18%, var(--border))
+		background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 6%, var(--card)) 0%, var(--card) 100%)
+
+		&[open]
+			box-shadow: var(--shadow-sm)
 
 	summary
 		cursor: pointer
 		font-size: var(--font-size-sm)
 		min-height: 32px
+		display: flex
+		align-items: center
+		justify-content: space-between
+		gap: var(--spacing-sm)
+		list-style: none
+
+		&::-webkit-details-marker
+			display: none
+
+		&::after
+			content: "▾"
+			color: var(--muted)
+			font-size: var(--font-size-sm)
+			line-height: 1
+			transition: transform 0.2s ease, color 0.2s ease
+
+		&:hover::after
+			color: var(--accent)
+
+		&:focus-visible
+			outline: 2px solid var(--accent)
+			outline-offset: 3px
+			border-radius: var(--border-radius-sm)
+
+	> details:not([open]) summary::after
+		transform: rotate(-90deg)
 
 .relmap__adjacency
 	display: flex

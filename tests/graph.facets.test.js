@@ -5,9 +5,9 @@
  * 1. **宣言駆動** — 軸は `$display.facet` 宣言からのみ集める。field 名で分岐しない
  * 2. **形の違いを吸収** — `Belonging[]`（object 配列）/ `Class[]`（文字列配列）/
  *    `FromArea`（単一 object）/ `Progress`（スカラー）を同じ経路で扱う
- * 3. **多値を落とさない** — 1 キャラが複数グループに属せること（`Belonging` 最大 3 / `Class` 最大 5）
- * 4. **`maxGroups` の丸め** — `Class` の 148 種を上位 N ＋「その他」へ畳む
- * 5. **`hideText` を値にしない** — 意図的マスクはグループを作らない
+ * 3. **多値は組み合わせ専用グループへ** — 1 キャラが複数値を持つ場合、A・B 両方の値を持つなら
+ *    「A」「B」ではなく「A,B」という専用グループへ 1 回だけ属する（1 キャラ = 1 グループ、重複配置しない）
+ * 4. **`hideText` を値にしない** — 意図的マスクはグループを作らない
  */
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
@@ -22,8 +22,8 @@ import {
 	resolveFacetLabel,
 	groupNodesByFacet,
 	selectUsableFacets,
-	UNSET_GROUP_KEY,
-	OTHER_GROUP_KEY
+	comboKeyForValues,
+	UNSET_GROUP_KEY
 } from '../lib/graph/graph-facets.js';
 
 const repoRoot = process.cwd();
@@ -159,18 +159,29 @@ describe('groupNodesByFacet', () => {
 		{ key: 'd', record: {} }
 	];
 
-	it('値ごとにノードを束ね、件数の多い順に並べる', () => {
+	it('値ごとにノードを束ね、件数の多い順に並べる（同数は組み合わせキーの昇順）', () => {
 		const { groups } = groupNodesByFacet(nodes, FACET_BELONGING, { includeUnset: false });
-		expect(groups.map(g => g.value)).toEqual(['X', 'Y']);
-		expect(groups[0].members).toEqual(['a', 'b']);
+		// a→X, b→X,Y（組み合わせ専用グループ）, c→Y。3 グループとも 1 件ずつなので
+		// 件数タイの場合は value の文字列昇順（'X' < 'X,Y' < 'Y'）
+		expect(groups.map(g => g.value)).toEqual(['X', 'X,Y', 'Y']);
+		expect(groups.find(g => g.value === 'X').members).toEqual(['a']);
+		expect(groups.find(g => g.value === 'Y').members).toEqual(['c']);
 	});
 
-	it('多値ノードは複数グループへ属する（情報を落とさない）', () => {
+	it('複数値のノードは組み合わせ専用グループへ 1 回だけ属する（重複配置しない）', () => {
 		const { groups, byNode, multiValued } = groupNodesByFacet(nodes, FACET_BELONGING, { includeUnset: false });
 		expect(multiValued).toBe(true);
 		expect(byNode.get('b')).toEqual(['X', 'Y']);
-		expect(groups.find(g => g.value === 'X').members).toContain('b');
-		expect(groups.find(g => g.value === 'Y').members).toContain('b');
+		// 「X」「Y」それぞれの単独グループには b が含まれない（重複配置の廃止）
+		expect(groups.find(g => g.value === 'X').members).not.toContain('b');
+		expect(groups.find(g => g.value === 'Y').members).not.toContain('b');
+		// b は「X,Y」という専用グループへだけ属する
+		const combo = groups.find(g => g.value === 'X,Y');
+		expect(combo).toBeTruthy();
+		expect(combo.members).toEqual(['b']);
+		expect(combo.combo).toBe(true);
+		// ラベルは各値のラベルを × で結合したもの（辞書解決なしなら生値のまま）
+		expect(combo.label_JP).toBe('X×Y');
 	});
 
 	it('値が無いノードは (未設定) グループへ入り、末尾に置かれる', () => {
@@ -184,31 +195,21 @@ describe('groupNodesByFacet', () => {
 		expect(groups.some(g => g.value === UNSET_GROUP_KEY)).toBe(false);
 	});
 
-	it('`maxGroups` を超えたら「その他」へ丸める', () => {
-		const many = Array.from({ length: 20 }, (_, i) => ({ key: `n${i}`, record: { Class: [`C${i}`] } }));
-		const { groups } = groupNodesByFacet(many, { ...FACET_CLASS, maxGroups: 5 }, { includeUnset: false });
-		expect(groups).toHaveLength(6); // 上位 5 + その他
-		const other = groups[groups.length - 1];
-		expect(other.value).toBe(OTHER_GROUP_KEY);
-		expect(other.rolledUp).toBe(true);
-		expect(other.members).toHaveLength(15);
+	it('どの値の組み合わせでも、同じキャラが複数グループのメンバーに現れることはない', () => {
+		const { groups } = groupNodesByFacet(nodes, FACET_BELONGING);
+		const seen = new Set();
+		for (const g of groups) {
+			for (const key of g.members) {
+				expect(seen.has(key), `${key} が複数グループに重複配置されている`).toBe(false);
+				seen.add(key);
+			}
+		}
 	});
 
-	it('丸めた「その他」でノードが重複しない', () => {
-		const many = [
-			{ key: 'p', record: { Class: ['A', 'B'] } },
-			{ key: 'q', record: { Class: ['A'] } },
-			{ key: 'r', record: { Class: ['B'] } }
-		];
-		const { groups } = groupNodesByFacet(many, { ...FACET_CLASS, maxGroups: 1 }, { includeUnset: false });
-		const other = groups.find(g => g.value === OTHER_GROUP_KEY);
-		expect(new Set(other.members).size).toBe(other.members.length);
-	});
-
-	it('統計を返す（多値判定と被覆率）', () => {
+	it('統計を返す（多値判定と被覆率。組み合わせも 1 つの値として数える）', () => {
 		const { stats } = groupNodesByFacet(nodes, FACET_BELONGING);
 		expect(stats.nodeCount).toBe(4);
-		expect(stats.valueCount).toBe(2);
+		expect(stats.valueCount).toBe(3); // X / X,Y / Y の 3 グループ
 		expect(stats.multiValuedNodes).toBe(1);
 		expect(stats.unsetNodes).toBe(1);
 		expect(stats.coverage).toBeCloseTo(0.75);
@@ -218,6 +219,23 @@ describe('groupNodesByFacet', () => {
 		const { groups, stats } = groupNodesByFacet([], FACET_BELONGING);
 		expect(groups).toEqual([]);
 		expect(stats.coverage).toBe(0);
+	});
+});
+
+describe('comboKeyForValues', () => {
+	it('単一値ならその値のまま', () => {
+		expect(comboKeyForValues(['A'])).toBe('A');
+	});
+
+	it('複数値は重複除去・ソートしてから `,` で結合する（並び順に依存しない）', () => {
+		expect(comboKeyForValues(['B', 'A'])).toBe('A,B');
+		expect(comboKeyForValues(['A', 'B'])).toBe('A,B');
+		expect(comboKeyForValues(['A', 'A', 'B'])).toBe('A,B'); // 重複除去
+	});
+
+	it('値が無ければ UNSET_GROUP_KEY', () => {
+		expect(comboKeyForValues([])).toBe(UNSET_GROUP_KEY);
+		expect(comboKeyForValues(null)).toBe(UNSET_GROUP_KEY);
 	});
 });
 
@@ -365,60 +383,27 @@ describe('実データ不変条件', () => {
 		expect(facets.find(f => f.key === 'FromArea').path).toBe('Area');
 	});
 
-	it('多値軸の「その他」は上位に 1 つも該当しないノードだけを入れる', () => {
-		// `Class` は 1 キャラが最大 5 個持つ。単に丸めた値のメンバーを寄せると
-		// **上位クラスも持っているキャラが「その他」にも入り**、掘った先で同じ上位クラスが
-		// また出てきて分類として意味を成さなくなる（実データでその不具合が出た）。
+	it('多値ノードは組み合わせ専用グループへ入り、上位クラスと混ざらない（`groupNodesByFacet` との統合確認）', () => {
+		// `Class` は 1 キャラが最大 5 個持つ。2026-08-04 の「その他」撤去後は、
+		// 上位クラス単独のグループへレアな組み合わせのキャラが紛れ込まないことを確認する
+		// （複数値は専用の組み合わせグループへ 1 回だけ配置されるため、単独グループには現れない）。
 		const facet = { key: 'Class', field: 'Class', label_JP: 'クラス', label_EN: 'Class' };
-		// A(4) > B(3) > rare1(2) > rare2(1) になるよう件数を作り、maxGroups=2 で A/B が上位になる
 		const nodes = [
 			{ key: 'a1', record: { Class: ['A'] } },
 			{ key: 'a2', record: { Class: ['A'] } },
-			{ key: 'a3', record: { Class: ['A'] } },
 			{ key: 'b1', record: { Class: ['B'] } },
-			{ key: 'b2', record: { Class: ['B'] } },
-			{ key: 'b3', record: { Class: ['B'] } },
-			// 上位(A)とレア(rare1)の両方を持つ。**その他へ入れてはいけない**
+			// 上位(A)とレア(rare1)の両方を持つ。「A」単独グループには入らない
 			{ key: 'mixed', record: { Class: ['A', 'rare1'] } },
-			// レアだけ。これがその他の本体
-			{ key: 'only1', record: { Class: ['rare1'] } },
-			{ key: 'only2', record: { Class: ['rare2'] } }
+			{ key: 'only1', record: { Class: ['rare1'] } }
 		];
 
-		const { groups } = groupNodesByFacet(nodes, facet, { maxGroups: 2, includeUnset: false });
-		const other = groups.find(g => g.value === OTHER_GROUP_KEY);
-
-		expect(other, '「その他」が作られていない').toBeTruthy();
-		expect(other.members.sort()).toEqual(['only1', 'only2']);
-		expect(other.members, '上位クラスも持つノードが混ざっている').not.toContain('mixed');
-		// 見出しの「N 種」も、その他に残った値だけで数える
-		expect(other.label_JP).toBe('その他（2 種）');
+		const { groups } = groupNodesByFacet(nodes, facet, { includeUnset: false });
+		expect(groups.find(g => g.value === 'A').members).not.toContain('mixed');
+		expect(groups.find(g => g.value === 'A,rare1').members).toEqual(['mixed']);
+		expect(groups.find(g => g.value === 'rare1').members).toEqual(['only1']);
 	});
 
-	it('「その他」を同じ軸で掘り直すと必ず小さくなる（階層が収束する）', () => {
-		// 収束しないと「その他 > その他 > …」が延々続いてしまう
-		const facet = { key: 'Class', field: 'Class', label_JP: 'クラス', label_EN: 'Class' };
-		const nodes = Array.from({ length: 40 }, (_, i) => ({
-			key: `n${i}`,
-			// 上位ほど人数が多くなるよう偏らせる
-			record: { Class: [`c${Math.floor(Math.sqrt(i))}`] }
-		}));
-
-		let scope = nodes;
-		let prev = Infinity;
-		for (let depth = 0; depth < 4; depth += 1) {
-			const { groups } = groupNodesByFacet(scope, facet, { maxGroups: 2, includeUnset: false });
-			const other = groups.find(g => g.value === OTHER_GROUP_KEY);
-			if (!other) break;
-			expect(other.members.length, `深さ ${depth} で縮んでいない`).toBeLessThan(prev);
-			prev = other.members.length;
-			const keep = new Set(other.members);
-			scope = scope.filter(n => keep.has(n.key));
-		}
-		expect(prev).toBeLessThan(nodes.length);
-	});
-
-	it('`Class` は値の種類が多いので `maxGroups` が宣言されている', () => {
+	it('`Class` は値の種類が多いので `maxGroups` が宣言されている（2026-08-04 以降は集計に未使用の互換フィールド）', () => {
 		expect(facets.find(f => f.key === 'Class').maxGroups).toBeLessThanOrEqual(12);
 	});
 
