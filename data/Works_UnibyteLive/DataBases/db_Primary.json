@@ -286,6 +286,10 @@
   {
     "Letter": { "Alphabet": "I", "AlphaGen": 2 },
     "Progress": "nowCreating",
+    "ThisPerformer_DBLink": {
+      "_DB": "PrimaryPerformer",
+      "Letter": { "Alphabet": "I", "AlphaGen": 2 }
+    },
     "Name_JP": "I:カーソル",
     "Name_EN": "I:Inact",
     "Images": { "keycapper_PNGPath": ["I/emstk_keycapperUBL-Ig2-1.png"] },

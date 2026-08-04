@@ -332,8 +332,11 @@ const unibyteLiveWorkMeta = mergeMetaAndTypeVars(
 const unibyteLivePrimaryRecords = loadJson('data/Works_UnibyteLive/DataBases/db_Primary.json');
 const unibyteLiveArrowRecord = unibyteLivePrimaryRecords.find((record) => record?.Name_JP === 'A:アロー');
 // `Relation`（同DB）と `RelationTo_PrimaryPerformer`（別DB）を同時に持ち、
-// どちらも複合インデックス（Letter{Alphabet, AlphaGen}）で参照先を指しているレコード
-const unibyteLiveNudgeeRecord = unibyteLivePrimaryRecords.find((record) => record?.Name_JP === 'N:ギザン');
+// どちらも複合インデックス（Letter{Alphabet, AlphaGen}）で参照先を指しているレコード。
+// Z:ジグ は `Relation.Related[0]` が S/2（S:ナーミィ）、`RelationTo_PrimaryPerformer.Commented[0]` が S/1 を指すため、
+// 「Alphabet を落とすと A/2（A:エイリ）へ誤爆する」という本テストの検証条件をそのまま満たす。
+// （旧フィクスチャの N:ギザン は DB 更新で `RelationTo_PrimaryPerformer` を持たなくなったため差し替えた）
+const unibyteLiveZigRecord = unibyteLivePrimaryRecords.find((record) => record?.Name_JP === 'Z:ジグ');
 // StreamingActivity の中身（和英共有フィールド + bilingual wrapper）が一通り埋まっているレコード
 const unibyteLiveNarmyRecord = unibyteLivePrimaryRecords.find((record) => record?.Name_JP === 'S:ナーミィ');
 const unauthedLogicaWorkTypeDef = loadJson('data/Works_UnauthedLogica/DataBases/db_type.json');
@@ -806,7 +809,7 @@ describe('pages/characters.js UI output', () => {
 			}
 		});
 
-		await charactersModule.renderDetail('#Works_UnibyteLive', unibyteLiveNudgeeRecord);
+		await charactersModule.renderDetail('#Works_UnibyteLive', unibyteLiveZigRecord);
 
 		// 2 つの Relation 系フィールドはどちらもセクションとして描画される
 		const relationSection = getSubFieldSectionNode('Relation') || getSectionNode('関係キャラクター');
@@ -874,11 +877,43 @@ describe('pages/characters.js UI output', () => {
 		const text = await renderNarmyStreamingActivity('en');
 
 		expect(text).toContain('Interaction with listeners');
-		expect(text).toContain("Main activity, activity within 'Unibyte Universe'");
+		expect(text).toContain("Main activity within 'Unibyte Universe'");
 		expect(text).not.toContain('リスナーとの交流');
 		expect(text).toContain('Hi, Surger!');
 		expect(text).toContain('Holds a game engine patent');
 		expect(text).not.toContain('ゲームエンジン特許あり');
+	});
+
+	// StreamingActivity は専用 renderer（streamingActivitySection）を持つが、DOM 構成は
+	// 汎用 structuredObjectSection（ConversationPattern 等）と同じ
+	// 「親ラベルタグ → 子ラベルタグ + 本文ブロックの縦積み」へ揃える。
+	// 旧実装は子フィールドを `ラベル: 値` の 1 タグへ詰めた detail-tag-grid だったため、
+	// 他の subField セクションから浮いて見えていた。
+	it('renders StreamingActivity with the same block composition as generic subField sections', async () => {
+		await renderNarmyStreamingActivity('jp');
+
+		const section = getSubFieldSectionNode('StreamingActivity');
+		const outerBlock = section?.querySelector('.section__body > div');
+		expect(outerBlock).not.toBeNull();
+
+		// 先頭は親フィールドのラベルタグ
+		expect(outerBlock.firstElementChild?.classList.contains('tag')).toBe(true);
+		expect(outerBlock.firstElementChild?.textContent?.trim()).toBe('配信活動について');
+
+		// 子フィールドは 1 件 1 ブロックで、先頭要素がラベルタグ・後続が本文
+		const childBlocks = Array.from(outerBlock.lastElementChild?.children || []);
+		expect(childBlocks.map((node) => node.firstElementChild?.textContent?.trim())).toEqual([
+			'配信ジャンルについて',
+			'配信挨拶',
+			'リスナーのニックネーム',
+			'配信実績',
+			'配信概要'
+		]);
+		expect(childBlocks[0]?.lastElementChild?.textContent || '').toContain('リスナーとの交流');
+
+		// 「ラベル: 値」を 1 タグへ詰める旧構成へ戻っていないこと
+		const tagTexts = Array.from(section.querySelectorAll('.tag')).map((node) => node.textContent?.trim() || '');
+		expect(tagTexts.some((text) => text.startsWith('配信ジャンルについて:'))).toBe(false);
 	});
 
 	it('renders ConversationPattern as a standalone subField section driven by detail layout', async () => {
