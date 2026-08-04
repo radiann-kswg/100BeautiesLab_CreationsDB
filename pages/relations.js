@@ -925,7 +925,8 @@ function buildCyStyle() {
 				'text-valign': 'center',
 				'text-halign': 'center',
 				'text-wrap': 'ellipsis',
-				'text-max-width': 140,
+				// 集約グループ名は長くなりがちなので、140 だと削られ過ぎて読めなくなるケースがあった
+				'text-max-width': 200,
 				// マス塗りの上に載るので、地色の縁取りで可読性を確保する
 				'text-outline-color': bgDeep,
 				'text-outline-width': 3,
