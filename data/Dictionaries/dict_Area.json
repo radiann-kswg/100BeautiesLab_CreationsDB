@@ -50,6 +50,13 @@
     "isForSecondary": null
   },
   {
+    "Area": "ユニバイト・ユニバース",
+    "Area_EN": "Unibyte Universe",
+    "about_JP": "メタバースプラットフォームサービスによるVR空間",
+    "about_EN": "VR space by metaverse platform service",
+    "isForSecondary": false
+  },
+  {
     "Area": "算象(アリスマ)諸国",
     "Area_EN": "Alismathians",
     "isForSecondary": null
