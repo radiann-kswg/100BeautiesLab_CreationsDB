@@ -17,7 +17,7 @@
 2. ✅ `graph-hexfill.js` を**格子アダプタ化**して三角格子も同じロジックで動くようにした（ファイル複製ではなく DI で対応）
 3. ✅ `graph-edge-route.js` の `HEX_AXES`（6方向）を軸集合として差し替え可能にし、三角格子用 `TRI_AXES` を追加
 4. ✅ `graph-crossing.js` の三角格子対応を確認（コード変更なしで動作することを検証済み）
-5. ⬜ `pages/relations.js` の盤面描画（`drawBoard()`）を三角形パスへ変更
+5. ✅ `pages/relations.js` の盤面描画（`drawBoard()`）を三角形パスへ変更
 6. ⬜ キャラ単体フォーカスマップでの交差ゼロ描画を実装
 7. ⬜ 全体テスト・ブラウザ実地確認
 8. ⬜ 六角格子版の扱い（残す/削除）を最終決定
@@ -55,9 +55,21 @@
   - `graph-hexfill.js` と違い、軸分解の角度計算は浮動小数点誤差に敏感（軸そのものを渡す境界テストが実際に1回落ちた）なので、`%` を重ねる実装は避け、元の実装と同じ「加算1回だけで [0, TAU) に収める」方式に戻して修正済み。
 - テスト: `tests/graph.edge-route-tri-axes.test.js`（新規5件）で `TRI_AXES` の形状（60°間隔・HEX_AXESから30°回転）と、実際の三角格子近傍（`triPoint`/`triNeighbors`）で `decomposeHexVector`/`hexBendPoints`/`routeEdges` が正しく動くことを確認。既存 `graph.edge-route.test.js` 含め回帰なし（145件全通過）。
 
+### 完了（追記 3）
+
+- `pages/relations.js` を三角格子へ完全に切り替え（トグルなし、常に `TRI_*`/`triXxx` を使用）：
+  - import を `snapToHexLattice/nearestCell/hexNeighbors` → `snapToTriLattice/nearestTriCell/triNeighbors/isTriUp`、`buildHexFill` の新規 `TRI_LATTICE`、`routeEdges` の新規 `TRI_AXES` に差し替え。
+  - 集約表示の `buildHexFill(...)` 呼び出しに `{ lattice: TRI_LATTICE }` を追加。
+  - `hexCorners(spacing)`（6頂点）を `triCorners(spacing, up)`（3頂点）に置換。`triPoint()` の重心オフセット（上向き=2h/3、下向き=h/3）から逆算し、頂点順をどちらの向きも「尖り→左→右」に揃えた。
+  - `SIDE_OF_NEIGHBOR`（隣接マッピング）を `[4,1,5,0,3,2]`（6方向）から `[0,2,1]`（3方向: 左→辺0、右→辺2、縦→辺1）へ。頂点順を尖り基準で揃えたのでこのマッピングは上向き/下向きで共通になる（`triNeighbors()` の戻り順 [左,右,縦] と対応）。
+  - `drawBoard()` 内の `addCell()` と国境描画ループを 3頂点/3辺に変更し、セルごとに `isTriUp(c.col, c.row)` で上向き/下向きの頂点配列を切り替え。
+  - `groupAtModelPos()` の `nearestCell` を `nearestTriCell` に、`applyEdgeRouting()` の `routeEdges(...)` に `axes: TRI_AXES` を追加、キャラ個体段のレイアウトで `snapToHexLattice` を `snapToTriLattice` に差し替え。
+  - コメント中の「六角格子」表記も対応箇所を三角格子へ更新。
+- 確認: `tests/pages.relations.syntax.test.js`（構文/id参照/禁止パターンのスモーク）26件）全通過。`pages/relations.js` 自体はロジックテストを持たないため、ブラウザ実地確認は次回のステップ（7）で行う。
+- ・キャラ個体段の交差ゼロアルゴリズム（ステップ 6）は未着手。
+
 ### 未着手（次回続き）
 
-- `pages/relations.js` の `drawBoard()`（六角形パス描画・ホバー当たり判定）を三角形パスへ
 - キャラ単体フォーカスマップでの交差ゼロアルゴリズム（角度ソート＋重なり回避のファン状ルーティング）
 - ブラウザでの実地確認・スクリーンショット比較
 
@@ -67,7 +79,7 @@
 - `lib/graph/graph-hexfill.js`（格子アダプタ化済み、既存呼び出しは互換）
 - `lib/graph/graph-edge-route.js`（軸配列引数化済み、既存呼び出しは互換）
 - `lib/graph/graph-crossing.js`（コード変更なしで三角格子対応を確認済み、ドキュメントのみ更新）
-- `pages/relations.js`（今後、描画・当たり判定）
+- `pages/relations.js`（描画・ホバー当たり判定・レイアウト・スナップを三角格子側へ完全切り替え済み。六角格子側の関数は呼ばなくなった）
 - `tests/graph.tri-layout.test.js`（新規）
 - 既存 `tests/graph.*.test.js`（今後、三角格子移行に合わせて更新が必要になる見込み）
 

@@ -10,7 +10,7 @@
  * - グラフ構築: `lib/graph/graph-model.js`（エッジ抽出・ノード同一性。DOM 非依存）
  * - 軸・階層:   `lib/graph/graph-facets.js`（`$display.facet` 宣言の解決）
  * - バッジ:     `lib/graph/graph-badge.js`（`Works_Code` + `$IndexDef.$badge`）
- * - 配置:       `lib/graph/graph-layout.js`（六角格子へのスナップ）
+ * - 配置:       `lib/graph/graph-layout.js`（三角格子へのスナップ）
  * - 描画:       Cytoscape.js（`pages/vendor/` に同梱。初期化時に動的 import）
  * - 直リンク:   `lib/viewer-locator.js`（キャラシートと同じ URL 文法を共有）
  * - 辞書:       `lib/basic-renders/type-common.js`（`globalThis.TypeResolver`）
@@ -57,13 +57,13 @@ import {
 } from '../lib/graph/graph-facets.js';
 import { buildBadge, createDictCellLookup, getWorksCode } from '../lib/graph/graph-badge.js';
 import {
-	snapToHexLattice, resolveSpacing, boundsOf, shouldFitToViewport,
-	nearestCell, hexNeighbors as hexNeighborsOf
+	snapToTriLattice, resolveSpacing, boundsOf, shouldFitToViewport,
+	nearestTriCell, triNeighbors as triNeighborsOf, isTriUp
 } from '../lib/graph/graph-layout.js';
-import { buildHexFill } from '../lib/graph/graph-hexfill.js';
+import { buildHexFill, TRI_LATTICE } from '../lib/graph/graph-hexfill.js';
 import { buildPalette, createTokenReader } from '../lib/graph/graph-palette.js';
 import { reduceCrossings, countCrossings } from '../lib/graph/graph-crossing.js';
-import { routeEdges } from '../lib/graph/graph-edge-route.js';
+import { routeEdges, TRI_AXES } from '../lib/graph/graph-edge-route.js';
 
 /* ========================================================================
    定数
@@ -117,7 +117,7 @@ const EDGE_STYLE = Object.freeze({
 	[EDGE_KINDS.COMMENTED]: { tone: 'commented', line: 'dotted', weight: 10, hideAt: 250, layout: 0 }
 });
 
-/** ノードの基本サイズ（六角格子の間隔を決める基準） */
+/** ノードの基本サイズ（三角格子の間隔を決める基準） */
 const NODE_BASE_SIZE = 46;
 
 /**
@@ -609,13 +609,13 @@ function buildAggregateElements(nodes, level) {
 		return { a, b, weight };
 	});
 
-	// --- マス塗りの割当（人数分のセルを六角格子へ敷く） ---
+	// --- マス塗りの割当（人数分のセルを三角格子へ敷く） ---
 	//
 	// グループの識別は「格子上の位置 + ラベル + 濃度段 + 境界の枠 + 左レール凡例」の多重符号化で行う。
 	// 色相を変える循環パレットは使わない（キャラシートに無い色が増えるため）。
 	const fill = buildHexFill(
 		entries.map(([value, g]) => ({ key: value, label: g.label, size: g.members.length })),
-		{ spacing: CELL_SPACING, shadeCount: palette().shades.length, links }
+		{ spacing: CELL_SPACING, shadeCount: palette().shades.length, links, lattice: TRI_LATTICE }
 	);
 	state.board = fill;
 
@@ -990,7 +990,7 @@ function buildCyStyle() {
 			}
 		},
 		{
-			// 六角格子の辺に沿った折れ線。折れ点は必ず格子点に乗る
+			// 三角格子の辺に沿った折れ線。折れ点は必ず格子点に乗る
 			selector: 'edge[curveStyle = "round-segments"]',
 			style: {
 				'curve-style': 'round-segments',
@@ -1060,27 +1060,33 @@ function buildCyStyle() {
    背景レイヤー（マス塗り）の描画
    ======================================================================== */
 
-/** 六角セルの外周 6 頂点（pointy-top）。中心からの相対座標を先に作っておく */
-function hexCorners(spacing) {
-	const r = spacing / Math.sqrt(3); // 中心 → 頂点の距離
-	const pts = [];
-	for (let k = 0; k < 6; k += 1) {
-		// pointy-top: 頂点が真上（-90°）から 60° ずつ
-		const a = (Math.PI / 180) * (60 * k - 90);
-		pts.push([Math.cos(a) * r, Math.sin(a) * r]);
-	}
-	return pts;
+/**
+ * 三角セルの外周 3 頂点。中心（重心）からの相対座標を先に作っておく
+ *
+ * @description `triPoint()` の重心オフセット（上向き = 2h/3, 下向き = h/3）から逆算した頂点座標。
+ * 頂点の並びはどちらの向きでも `[頂点(向きの尖り側), 左側頂点, 右側頂点]` に揃えてあるので、
+ * 辺番号（0=左辺, 1=底辺/上辺, 2=右辺）が上向き/下向きで共通になる（`SIDE_OF_NEIGHBOR` 参照）。
+ * @param {number} spacing @param {boolean} up - 上向き（頂点が上）三角形かどうか
+ * @returns {Array<[number, number]>} 常に 3 要素
+ */
+function triCorners(spacing, up) {
+	const s = spacing * Math.sqrt(3);
+	const h = s * (Math.sqrt(3) / 2);
+	return up
+		? [[0, -2 * h / 3], [-s / 2, h / 3], [s / 2, h / 3]]
+		: [[0, 2 * h / 3], [-s / 2, -h / 3], [s / 2, -h / 3]];
 }
 
 /**
- * 近傍の並び（`hexNeighbors()` の戻り順）と、六角形の辺番号の対応
+ * 近傍の並び（`triNeighbors()` の戻り順）と、三角形の辺番号の対応
  *
- * @description 辺 k は頂点 k から頂点 k+1 までの線分で、その外向き法線は `-60 + 60k` 度。
- * `hexNeighbors()` は [左, 右, 上左, 上右, 下左, 下右] の順に返すので、
- * それぞれ法線 180° / 0° / -120° / -60° / 120° / 60° ＝ 辺 4 / 1 / 5 / 0 / 3 / 2 に対応する。
- * この対応があることで「別グループと接している辺だけ」を描ける（地図の国境のように見せる）。
+ * @description `triCorners()` の頂点順（尖り→左→右）で作った三角形は、
+ * 辺 0（頂点0→1）が左隣、辺 1（頂点1→2）が縦方向の隣、辺 2（頂点2→0）が右隣と接する。
+ * この対応は上向き・下向きのどちらでも共通（頂点順を尖り基準で揃えてあるため）。
+ * `triNeighbors()` は [左, 右, 縦] の順に返すので、それぞれ辺 0 / 2 / 1 に対応する。
  */
-const SIDE_OF_NEIGHBOR = Object.freeze([4, 1, 5, 0, 3, 2]);
+const SIDE_OF_NEIGHBOR = Object.freeze([0, 2, 1]);
+
 
 /** 背景レイヤーの再描画予約（rAF で 1 フレーム 1 回に間引く） */
 let boardFrame = 0;
@@ -1126,17 +1132,19 @@ function drawBoard() {
 	const zoom = cy.zoom();
 	const pan = cy.pan();
 	const p = palette();
-	const corners = hexCorners(CELL_SPACING * zoom);
+	// 三角セルは向き（上向き/下向き）で頂点が変わるので、2 パターンだけ先に作っておく
+	const cornersByOrient = [triCorners(CELL_SPACING * zoom, true), triCorners(CELL_SPACING * zoom, false)];
 
-	/** セル 1 つの六角形を経路へ積む。画面外なら何もしない */
+	/** セル 1 つの三角形を経路へ積む。画面外なら何もしない */
 	const addCell = (path, c) => {
 		const x = c.x * zoom + pan.x;
 		const y = c.y * zoom + pan.y;
 		// 画面外のセルは経路に積まない（大きな図でのパス長を抑える）
 		if (x < -CELL_SPACING * zoom || x > w + CELL_SPACING * zoom
 			|| y < -CELL_SPACING * zoom || y > h + CELL_SPACING * zoom) return false;
+		const corners = cornersByOrient[isTriUp(c.col, c.row) ? 0 : 1];
 		path.moveTo(x + corners[0][0], y + corners[0][1]);
-		for (let k = 1; k < 6; k += 1) path.lineTo(x + corners[k][0], y + corners[k][1]);
+		for (let k = 1; k < 3; k += 1) path.lineTo(x + corners[k][0], y + corners[k][1]);
 		path.closePath();
 		return true;
 	};
@@ -1180,13 +1188,14 @@ function drawBoard() {
 		if (x < -CELL_SPACING * zoom || x > w + CELL_SPACING * zoom
 			|| y < -CELL_SPACING * zoom || y > h + CELL_SPACING * zoom) continue;
 
-		const ns = hexNeighborsOf(c.col, c.row);
-		for (let i = 0; i < 6; i += 1) {
+		const ns = triNeighborsOf(c.col, c.row);
+		const corners = cornersByOrient[isTriUp(c.col, c.row) ? 0 : 1];
+		for (let i = 0; i < 3; i += 1) {
 			const other = byCell.get(`${ns[i].col},${ns[i].row}`);
 			if (other !== undefined && other === c.group) continue; // 同じグループ同士は描かない
 			const k = SIDE_OF_NEIGHBOR[i];
 			const a = corners[k];
-			const b = corners[(k + 1) % 6];
+			const b = corners[(k + 1) % 3];
 			const path = c.group === hover ? hoverEdge : (other === undefined ? outer : inner);
 			path.moveTo(x + a[0], y + a[1]);
 			path.lineTo(x + b[0], y + b[1]);
@@ -1253,7 +1262,7 @@ function setHoverLabel(group) {
 /**
  * 世界座標からマスのグループを引く
  *
- * @description `nearestCell()` の逆写像なので O(1)。
+ * @description `nearestTriCell()` の逆写像（3×3 候補の実距離比較）。
  * 背景をタップしたときに「どの区画を押したか」を判定するのに使う。
  * @param {{x: number, y: number}} modelPos - Cytoscape の model 座標
  * @returns {Object|null} `state.board.groups` の要素
@@ -1261,13 +1270,13 @@ function setHoverLabel(group) {
 function groupAtModelPos(modelPos) {
 	const board = state.board;
 	if (!board || !modelPos) return null;
-	const cell = nearestCell(modelPos.x, modelPos.y, CELL_SPACING);
+	const cell = nearestTriCell(modelPos.x, modelPos.y, CELL_SPACING);
 	const g = board.cellIndex.get(`${cell.col},${cell.row}`);
 	return g === undefined ? null : (board.groups[g] || null);
 }
 
 /**
- * 接続線を六角格子の辺に沿わせる
+ * 接続線を三角格子の辺に沿わせる
  *
  * @description ノードの座標が確定したあとに呼ぶ。
  * 各辺の折れ点を求めて `curveStyle` / `segW` / `segD` を data へ載せ、
@@ -1292,7 +1301,7 @@ function applyEdgeRouting(mode) {
 	const routes = routeEdges(
 		cy.edges().map(e => ({ id: e.id(), source: e.source().id(), target: e.target().id() })),
 		positions,
-		{ nodeRadius: mode === 'cells' ? CELL_SPACING * 0.6 : NODE_BASE_SIZE * 0.7 }
+		{ nodeRadius: mode === 'cells' ? CELL_SPACING * 0.6 : NODE_BASE_SIZE * 0.7, axes: TRI_AXES }
 	);
 
 	cy.batch(() => {
@@ -1387,7 +1396,7 @@ async function renderGraph() {
 		);
 		lastCrossingStats = { before: crossings, after: crossings, skipped: false, swaps: 0, placed: true };
 	} else {
-		// 力学レイアウトで相対位置を決めてから、六角格子へスナップして均等感を出す。
+		// 力学レイアウトで相対位置を決めてから、三角格子へスナップして均等感を出す。
 		// `cose` は 1 反復が O(n^2) なので、反復回数をノード数に反比例させないと
 		// ノードが増えたときに数十秒固まる（実測: 288 ノード × 800 反復で 30 秒超）。
 		// 最終的に格子へスナップするため、力学レイアウトには「大まかな相対位置」だけを求める。
@@ -1410,7 +1419,7 @@ async function renderGraph() {
 		// compound（囲い）は親子の入れ子を壊さないようスナップしない
 		const spacing = resolveSpacing({ nodeSize: NODE_BASE_SIZE, labelWidth: 96, gap: 26 });
 		const positions = cy.nodes().filter(n => !n.isParent()).map(n => ({ id: n.id(), ...n.position() }));
-		const snapped = snapToHexLattice(positions, { spacing });
+		const snapped = snapToTriLattice(positions, { spacing });
 
 		// 格子へ乗せ切ったあと、接続線の交差が減るようにノードの座標を入れ替える。
 		// 格子点は等価なので入れ替えても充填形は変わらず、交差だけが減る。
