@@ -14,8 +14,8 @@
 ## 段階計画
 
 1. ✅ `graph-layout.js` に三角格子のコア数学を追加（六角格子版と並行実装、既存コードは温存）
-2. ⬜ `graph-hexfill.js` のマス塗り割当ロジックを三角格子へ移植
-3. ⬜ `graph-edge-route.js` を三角格子の3方向スナップへ変更
+2. ✅ `graph-hexfill.js` を**格子アダプタ化**して三角格子も同じロジックで動くようにした（ファイル複製ではなく DI で対応）
+3. ✅ `graph-edge-route.js` の `HEX_AXES`（6方向）を軸集合として差し替え可能にし、三角格子用 `TRI_AXES` を追加
 4. ⬜ `graph-crossing.js` の三角格子対応確認・調整
 5. ⬜ `pages/relations.js` の盤面描画（`drawBoard()`）を三角形パスへ変更
 6. ⬜ キャラ単体フォーカスマップでの交差ゼロ描画を実装
@@ -38,10 +38,25 @@
 - テスト: `tests/graph.tri-layout.test.js`（18件、全通過）
 - 既存テスト（`graph.layout` / `graph.hexfill` / `graph.edge-route` / `graph.crossing`）に回帰なし（135件全通過）
 
+### 完了（追記）
+
+- `lib/graph/graph-hexfill.js` の成長アルゴリズム（`relaxSeeds` / `assignHexCellsAt` / `markBoundaryCells` / `pickAnchorCells` / `buildGroupAdjacency` / `buildHexFill`）をすべて `LatticeAdapter`（`point/nearestCell/neighbors/distance/spiralCells/cellPadding`）経由に変更。
+  - 既定は `HEX_LATTICE`（従来通り、既存テストは一切変更なしで全通過）。
+  - 新規 `TRI_LATTICE` を渡せば同じロジックが三角格子でも動く（ファイルを二重化させず DI で対応）。
+  - `cellPadding(spacing)` をアダプタに追加し、bounds の外接余白も格子種別にできるように（三角は重心→頂点の概算値、描画段階で詰める予定）。
+- テスト: `tests/graph.hexfill-tri-lattice.test.js`（新規5件）で `TRI_LATTICE` 経由の `assignHexCells`/`buildHexFill` の不変条件（セル数=人数・連結・座標一致）を確認。既存 `graph.hexfill.test.js` 含め回帰なし（140件全通過）。
+
+### 完了（追記 2）
+
+- `lib/graph/graph-edge-route.js` の `HEX_AXES`（6方向）0°始まり）を前提としていた関数群を、**軸配列を引数化**して一本化：
+  - `decomposeHexVector(dx, dy, axes = HEX_AXES)` / `hexBendPoints(from, to, axes = HEX_AXES)` が `axes[0]` の角度を基準に扇形を決めるよう一般化（既存呼び出しは引数省略で `HEX_AXES` のまま互換）。
+  - 新規 `TRI_AXES`（30°/90°/150°/210°/270°/330°の6本）を追加。三角タイル1個の隣接方向は上向き/下向きでそれぞれ3方向だが、両方を合わせると `HEX_AXES` を剧30°回転させたものと一致する（`triPoint`/`triNeighbors` で実際に数値検証済み）。
+  - `routeEdges(edges, positions, options)` に `options.axes`（既定 `HEX_AXES`）を追加し、`hexBendPoints` へ伝損。廈下（同一直線）判定の `lineKey()` も `axes[0]` の角度を基準に相対角で量子化するよう一般化（HEX/TRI どちらも 未割線3方向へ正しく畳み込める）。
+  - `graph-hexfill.js` と違い、軸分解の角度計算は浮動小数点誤差に敏感（軸そのものを渡す境界テストが実際に1回落ちた）なので、`%` を重ねる実装は避け、元の実装と同じ「加番1回だけで [0, TAU) に収める」方式に戻して修正済み。
+- テスト: `tests/graph.edge-route-tri-axes.test.js`（新規5件）で `TRI_AXES` の形状（60°間隔・HEX_AXESから30°回転）と、実際の三角格子近傍（`triPoint`/`triNeighbors`）で `decomposeHexVector`/`hexBendPoints`/`routeEdges` が正しく動くことを確認。既存 `graph.edge-route.test.js` 含め回帰なし（145件全通過）。
+
 ### 未着手（次回続き）
 
-- `graph-hexfill.js` のマス塗り割当（貪欲彩色・境界セル判定・アンカーセル選定）を三角格子向けに移植
-- `graph-edge-route.js` の `HEX_AXES`（6方向）を三角格子の3方向へ置き換え
 - `graph-crossing.js` の座標入れ替えロジックが三角格子でも成立するかの確認
 - `pages/relations.js` の `drawBoard()`（六角形パス描画・ホバー当たり判定）を三角形パスへ
 - キャラ単体フォーカスマップでの交差ゼロアルゴリズム（角度ソート＋重なり回避のファン状ルーティング）
@@ -50,8 +65,8 @@
 ## 影響範囲（想定）
 
 - `lib/graph/graph-layout.js`（追加のみ、既存の六角格子関数は変更なし）
-- `lib/graph/graph-hexfill.js`（今後、三角格子向けに大きく手を入れる予定）
-- `lib/graph/graph-edge-route.js`（今後）
+- `lib/graph/graph-hexfill.js`（格子アダプタ化済み、既存呼び出しは互換）
+- `lib/graph/graph-edge-route.js`（軸配列引数化済み、既存呼び出しは互換）
 - `lib/graph/graph-crossing.js`（今後、確認・微調整の可能性）
 - `pages/relations.js`（今後、描画・当たり判定）
 - `tests/graph.tri-layout.test.js`（新規）
