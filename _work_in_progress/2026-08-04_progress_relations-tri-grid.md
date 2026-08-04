@@ -185,6 +185,211 @@ User 指示「今日対応した内容の記録更新」「別ローカル環境
 
 ※ 補足: 作業ツリーには未追跡 `'_work_in_progress/2026-08-03_github-triage.md'` が残っているが、今回の確認対象外（このログ更新では未変更）。
 
+### 完了（追記 9・ベン図表記の改善：重なりを境界へ可視化し、複数所属キャラを各グループから選択可能に）
+
+User 指示「A∩B を独立 C マスではなく視覚的に重なりとして見せたい」「複数所属キャラを共通範囲専用ではなく各グループから選べるようにしたい」に対応。
+
+- **ドリルの絞り込みを変更**（`pages/relations.js`）:
+  - これまで: `comboKeyForValues(...) === picked`（A×B 専用グループ前提）
+  - 変更後: `values.includes(picked)`（未設定だけは `UNSET_GROUP_KEY` で `values.length===0` 判定）
+  - 効果: A/B 両方に属するキャラを、A 側・B 側のどちらを掘っても到達できる。
+
+- **集約段のグループ生成を変更**（`pages/relations.js`）:
+  - これまで: `groupNodesByFacet()` の組み合わせグループ（A×B）をそのままマス化。
+  - 変更後: 集約段のみ「各値グループ」へ所属させる方式に変更（多値ノードは複数グループへ所属）。
+  - これにより「A×B 専用 C 区画」に押し込められず、各グループから選択導線を持てる。
+
+- **重なりの可視化を追加**（`pages/relations.js`）:
+  - `collectOverlapPairs()` で多値ノードの組み合わせ（A∩B）の人数を集計。
+  - `buildOverlapMarkers()` で A/B のセル境界（隣接辺）の中点群から重心を取り、**A/B 境界上**に重なりマーカーを配置。
+  - `drawBoard()` で境界マーカー（A/B 2 色グラデーション + 人数）を描画。
+  - 意味: 独立した C 領域ではなく、A と B の接点に重なり人数を置くことで位置関係を直感化。
+
+- **テスト追従**:
+  - `tests/pages.relations.syntax.test.js` の `drilledNodes()` 検査を、`comboKey` 一致チェックから `includes` 判定チェックへ更新。
+
+- **検証**:
+  - `npm test -- tests/pages.relations.syntax.test.js tests/graph.facets.test.js` → **2 files / 76 tests すべて成功**。
+  - エディタ診断 (`get_errors`) で `pages/relations.js` / `tests/pages.relations.syntax.test.js` ともにエラーなし。
+  - ブラウザ実地で `g=Class` 切替後もページ更新・描画継続を確認。
+
+### 完了（追記 10・グループ階層で同端点エッジを 1 本化）
+
+User 指摘「グループ階層では同じ端点に多数の線が束になると見づらい」に対応。
+
+- **変更内容**（`pages/relations.js`）:
+  - 集約段（`buildAggregateElements()`）のエッジ集約キーを
+    - 変更前: `kind + source + target`
+    - 変更後: `source + target`
+      に変更し、**同一端点ペアを常に 1 本へ統合**。
+  - 統合エッジは `weight` に本数を合算（線幅で密度を維持）。
+  - 色（`kind`）は、その端点ペア内で最頻出の関係種別を代表として採用（同数時は `EDGE_STYLE.weight` の高い方を優先）。
+
+- **効果**:
+  - 束線（同端点への並列エッジ）が減り、グループ間の接続関係を読み取りやすくなる。
+
+- **検証**:
+  - `npm test -- tests/pages.relations.syntax.test.js tests/graph.edge-route.test.js` → **2 files / 52 tests すべて成功**。
+  - ブラウザ確認（`?g=Class`）で統計行が **229 本 → 221 本** へ減少し、同端点統合が反映されていることを確認。
+
+### 完了（追記 11・グループ内表示（最下段）の多値グルーピングをベン図ライクなマス塗りへ）
+
+User 指摘「グループ内表示だと、どのグループが他グループと関連しているかが読みにくい」に対応。
+
+- **変更内容**（`pages/relations.js`）:
+  - `buildCharacterElements()` で `grouping` 軸が **multiValued** の場合、
+    従来の `bridge`（軸ノード + 2部グラフ）ではなく、`buildAggregateElements()` を再利用した **cells（マス塗り）表示**へ切り替え。
+  - これにより、最下段でも以下を維持:
+    - グループごとのマス塗り
+    - グループ間の接続線（同端点集約済み）
+    - 境界重なりマーカー（A/B 境界上の重なり人数表示）
+  - `buildAggregateElements(..., options)` を追加し、`allowDrill:false` を渡せるようにした。
+    - 最下段のグループ内マップは俯瞰用のため、背景タップで `drill` が進まないよう制御。
+  - `wireGraphEvents()` の背景タップ処理に `state.board?.allowDrill === false` ガードを追加。
+
+- **効果**:
+  - これまでの小さな数値ノード群（橋ノード）より、
+    「どの値グループ同士が結び付きやすいか」を面と線で即座に読める表示になる。
+  - 誤タップでパンくずが増える挙動を防止。
+
+- **テスト/確認**:
+  - `tests/pages.relations.syntax.test.js` に静的検査を追加（multiValued 時の cells 切替 + drill 抑止ガードの存在）。
+  - `npm test -- tests/pages.relations.syntax.test.js tests/graph.edge-route.test.js` → **2 files / 53 tests すべて成功**。
+  - ブラウザ実地（`?d=#Works_NumberTales/百花繚乱研究所/1桁番(ユニデジッツ)&g=Class&lang=jp`）で
+    統計表示が `4 ノード / 4 本（マス塗り）` へ変化し、グループ内表示が cells 化されたことを確認。
+
+### 完了（追記 12・マス塗り上へのキャラクターノード重ね表示）
+
+User 要望「塗られたマップ上にキャラノードを置き、所属クラスを直接読めるようにしたい」に対応。
+
+- **変更内容**（`pages/relations.js`）:
+  - `buildAggregateElements()` に `options.showMembers` を追加。
+  - `showMembers:true` のとき、各グループのセル中心へキャラクターノードを重ねる。
+    - 多値所属キャラは所属グループごとに表示（同一キャラの複数表示を許容）。
+    - セル数を上回る場合は同心円オフセットで重なりを緩和。
+  - 最下段の multiValued grouping は `buildAggregateElements(nodes, facet, { allowDrill:false, showMembers:true })` で表示。
+  - `node[kind="node"][member=1]` スタイルを追加し、重ねノードを小さめ固定サイズで表示。
+
+- **効果**:
+  - 「どのキャラがどのクラス（グループ）に居るか」をマップ上で直接確認できる。
+  - 以前の橋ノード方式より、所属情報とグループ関係を同時に読めるため階層移動の必要が減る。
+
+- **テスト/確認**:
+  - `tests/pages.relations.syntax.test.js` に `showMembers:true` と `member=1` スタイルの静的検査を追加。
+  - `npm test -- tests/pages.relations.syntax.test.js tests/graph.edge-route.test.js` → **2 files / 53 tests すべて成功**。
+  - ブラウザ実地（同URL）で統計表示が `17 ノード / 4 本（マス塗り）` に増加（グループ 4 + キャラ重ね）し、
+    重ねノードをクリックしてインスペクタ（例: `4(モチ)`）が開くことを確認。
+
+### 完了（追記 13・共通人数マーカーを廃止し、共通部へキャラノードを直接配置）
+
+User 指摘「共通部分に①/②人数を書くより、複数グループ所属キャラそのものを置いた方が分かりやすい」に対応。
+
+- **変更内容**（`pages/relations.js`）:
+  - `buildAggregateElements()` の `showMembers:true` 時に、
+    「所属グループごとの重複ノード配置」を廃止し、**1キャラ1ノード**へ変更。
+  - 所属グループ集合（zone）ごとに配置位置を決定:
+    - 1グループ所属: そのグループのアンカー周辺
+    - 2グループ所属: 両グループ境界の重心（`findBoundaryCentroid`）
+    - 3グループ以上: 参加グループのアンカー重心
+  - zone 内で複数キャラが重なる場合は小さなリング状オフセットで分離。
+  - `showMembers:true` 時は `fill.overlaps`（人数マーカー）を生成しないようにし、
+    「人数」ではなく「キャラそのもの」を共通領域情報として提示する表示へ統一。
+
+- **効果**:
+  - これまで見づらかった「同じ番号が複数地点に分裂する」問題を解消。
+  - 共通部分が「何人か」ではなく「誰か」を直接示せるため、解釈コストが下がる。
+
+- **テスト/確認**:
+  - `npm test -- tests/pages.relations.syntax.test.js tests/graph.edge-route.test.js` → **2 files / 53 tests すべて成功**。
+  - ブラウザ実地（`?d=#Works_NumberTales/百花繚乱研究所/1桁番(ユニデジッツ)&g=Class&lang=jp`）で、
+    統計表示が `13 ノード / 4 本（マス塗り）`（グループ4 + キャラ9）となり、
+    共通部の人数マーカーなしでキャラノード直接表示に切り替わっていることを確認。
+  - 併せて `pages/relations.html` の `asset-version` を `2026.08.04.9` へ更新し、古いJSキャッシュによる pageError を解消。
+
+### 完了（追記 14・グループ内マップでの同階層グループ切替 + drill URL 自己修復）
+
+User 指摘「グループ内マップで他グループを選ぶと `1桁番(ユニデジッツ)` の配下へさらに `キャロルズ` を積んでしまい破綻する」に対応。
+
+- **変更内容**（`pages/relations.js`）:
+  - `wireGraphEvents()` の `tap node(kind=group)` 処理を分岐。
+    - 通常の集約段（`allowDrill=true`）: これまで通り `drill` を 1 段追加。
+    - グループ内マップ（`allowDrill=false`）: `drill` 末尾を選択グループへ**置換**（同階層切替）。
+  - `normalizeDrillPath()` を追加。
+    - 現在の `levels` とノード集合で成立しない `state.drill` を切り落として正規化。
+    - `onViewChanged()` / `popstate` / 初期化直後（`main`）で必ず実行し、
+      壊れた URL（余剰階層）を自動で自己修復する。
+
+- **効果**:
+  - グループ内マップで他グループを選んでも、階層を増やさず同レベルで移動できる。
+  - 既に壊れていた URL（例: `.../1桁番(ユニデジッツ)/キャロルズ`）も再読み込み時に正規形へ戻る。
+
+- **テスト/確認**:
+  - `npm test -- tests/pages.relations.syntax.test.js tests/graph.edge-route.test.js` → **2 files / 53 tests すべて成功**。
+  - ブラウザ確認で、問題 URL を読み込んだ状態からリロード後に
+    `.../1桁番(ユニデジッツ)` へ正規化されることを確認。
+
+### 完了（追記 15・同一グループ内メンバー重なりバグ修正）
+
+グループ内マップ（`showMembers`）で、同一グループに属するキャラクターが同一点に重なり、
+一部しかクリックできない重大不具合を修正。
+
+- **原因**:
+  - `pages/relations.js` のメンバー配置で `ring = Math.floor(i / 6)` を使っていたため、
+    `i=0..5` がすべて `ring=0` となり、最初の 6 ノードが同一点へ配置されていた。
+
+- **対応**:
+  - メンバー配置を「中心 1 ノード + 6 方向リング展開」に修正。
+    - `ring = i === 0 ? 0 : Math.floor((i - 1) / 6) + 1`
+    - `step = i === 0 ? 0 : (i - 1) % 6`
+    - `RING_STEP = 24`
+  - これにより同一ゾーン内での重なりを回避し、全メンバーを選択可能にした。
+
+- **回帰防止**:
+  - `tests/pages.relations.syntax.test.js` に、上記 ring/step 式の静的チェックを追加。
+
+- **テスト/確認**:
+  - `npm test -- tests/pages.relations.syntax.test.js tests/graph.edge-route.test.js` → **2 files / 54 tests すべて成功**。
+
+### 完了（追記 16・グループ内マップで他グループへ飛べない操作不具合の修正）
+
+User 指摘「この画面で他グループを選択しても飛ばない」に対応。
+
+- **原因**:
+  - `allowDrill=false`（グループ内マップ）時、背景タップの処理を早期 return していたため、
+    小さい group アンカーを正確に押さない限り切替が発火しない状態だった。
+
+- **対応**（`pages/relations.js`）:
+  - 背景タップ時も `groupAtModelPos()` の結果があれば同階層置換を実行するよう変更。
+    - `state.drill = [...state.drill.slice(0, -1), group.key]`
+  - これにより、区画そのものをクリックして他グループへ移動できる。
+
+- **回帰防止**:
+  - `tests/pages.relations.syntax.test.js` に、
+    「allowDrill=false 時の背景タップで同階層置換」を検査する静的チェックを追加。
+
+- **テスト/確認**:
+  - `npm test -- tests/pages.relations.syntax.test.js tests/graph.edge-route.test.js` → **2 files / 54 tests すべて成功**。
+  - ブラウザ実地で、`.../1桁番(ユニデジッツ)` からキャンバス上の他グループをクリックし、
+    URL が `.../キャロルズ` へ同階層切替されることを確認。
+
+### 完了（追記 17・ノードのドラッグ操作を無効化）
+
+User 要望「ノードはドラッグで動かせないようにする」に対応。
+
+- **対応**（`pages/relations.js`）:
+  - Cytoscape 初期化時に `autoungrabify: true` を指定。
+  - 再描画時（`cy` 再利用時）にも `cy.autoungrabify(true)` を再適用し、
+    描画更新後も常にドラッグ不能を維持。
+  - これにより、ノード位置はレイアウト結果として固定され、
+    ユーザー操作で座標が崩れない。
+
+- **回帰防止**:
+  - `tests/pages.relations.syntax.test.js` に
+    `autoungrabify: true` と `cy.autoungrabify(true)` の静的チェックを追加。
+
+- **テスト/確認**:
+  - `npm test -- tests/pages.relations.syntax.test.js tests/graph.edge-route.test.js` → **2 files / 55 tests すべて成功**。
+
 ## 影響範囲（想定）
 
 - `lib/graph/graph-layout.js`（追加のみ、既存の六角格子関数は変更なし）
