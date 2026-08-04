@@ -165,6 +165,26 @@ User から「フェーズ2でキャラ個体段のエッジ繋ぎ方は良く�
 - **検証**: `tests/graph.edge-route.test.js` + `tests/graph.edge-route-tri-axes.test.js` 計31件通過。`npm test` フル実行でも新規失敗なし（既存の対象外4件のみ）。ブラウザ実地確認で `1桁番(ユニデジッツ)` の個体マップの交差が解消されたことをスクリーンショットで確認済み。
 - `pages/relations.html` の `asset-version` を `2026.08.04.8` に更新。
 
+### 完了（追記 8・進捗ログ更新と別ローカル由来マージの確認）
+
+User 指示「今日対応した内容の記録更新」「別ローカル環境からマージ済みの創作DB更新確認」に対応。
+
+- **取り込み履歴の確認**:
+  - 現在ブランチ: `feature/relations-tri-grid`
+  - `git log --oneline --graph -n 30` で `678fc57`（`origin/develop` を取り込むマージ）を確認。
+  - 取り込み元の主要コミットは `1e29cb3`（`DB・Ui構造整備(ハンカクライブ)`）。
+- **マージで入った対象（データ系）**:
+  - `git show --name-status 1e29cb3` より、今回確認対象の創作DB更新は以下。
+    - `data/Works_UnibyteLive/DataBases/db_Primary.json`
+    - `data/Works_UnibyteLive/DataBases/db_PrimaryPerformer.json`
+  - `CHANGELOG.md` の更新も同時に取り込まれていることを確認。
+- **整合チェック（事実確認）**:
+  - `npm run data:order:check` 実行結果: **0/1310 レコード整列**（差分なし）。
+  - `npm test -- tests/data.field-order.test.js tests/pages.characters.ui-output.test.js` 実行結果: **2 files / 102 tests すべて成功**。
+  - 上記より、別ローカル由来で取り込まれた UnibyteLive の DB 更新は、少なくともキー順・主要 UI 出力テストの観点では破綻なしと判断。
+
+※ 補足: 作業ツリーには未追跡 `'_work_in_progress/2026-08-03_github-triage.md'` が残っているが、今回の確認対象外（このログ更新では未変更）。
+
 ## 影響範囲（想定）
 
 - `lib/graph/graph-layout.js`（追加のみ、既存の六角格子関数は変更なし）
