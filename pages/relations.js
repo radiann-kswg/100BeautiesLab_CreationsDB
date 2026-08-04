@@ -58,9 +58,9 @@ import {
 import { buildBadge, createDictCellLookup, getWorksCode } from '../lib/graph/graph-badge.js';
 import {
 	snapToTriLattice, resolveSpacing, boundsOf, shouldFitToViewport,
-	nearestTriCell, triNeighbors as triNeighborsOf, isTriUp
+	nearestCell as nearestHexCell, hexNeighbors as hexNeighborsOf
 } from '../lib/graph/graph-layout.js';
-import { buildHexFill, TRI_LATTICE } from '../lib/graph/graph-hexfill.js';
+import { buildHexFill } from '../lib/graph/graph-hexfill.js';
 import { buildPalette, createTokenReader } from '../lib/graph/graph-palette.js';
 import { reduceCrossings, countCrossings } from '../lib/graph/graph-crossing.js';
 import { routeEdges, TRI_AXES } from '../lib/graph/graph-edge-route.js';
@@ -609,13 +609,15 @@ function buildAggregateElements(nodes, level) {
 		return { a, b, weight };
 	});
 
-	// --- マス塗りの割当（人数分のセルを三角格子へ敷く） ---
+	// --- マス塗りの割当（人数分のセルを六角格子へ敷く） ---
 	//
+	// 三角セルだと輪郭が頂点ぶんだけ尖って鋭角の連続になる。六角セルは内角が常に 120°で鋭角を作らないため、
+	// 塊の輪郭を滑らかに読ませたいこの用途では六角のまま使う（ノード位置のスナップやエッジ経路は三角格子のまま）。
 	// グループの識別は「格子上の位置 + ラベル + 濃度段 + 境界の枠 + 左レール凡例」の多重符号化で行う。
 	// 色相を変える循環パレットは使わない（キャラシートに無い色が増えるため）。
 	const fill = buildHexFill(
 		entries.map(([value, g]) => ({ key: value, label: g.label, size: g.members.length })),
-		{ spacing: CELL_SPACING, shadeCount: palette().shades.length, links, lattice: TRI_LATTICE }
+		{ spacing: CELL_SPACING, shadeCount: palette().shades.length, links }
 	);
 	state.board = fill;
 
@@ -1061,31 +1063,28 @@ function buildCyStyle() {
    ======================================================================== */
 
 /**
- * 三角セルの外周 3 頂点。中心（重心）からの相対座標を先に作っておく
+ * 六角セルの外周 6 頂点。中心からの相対座標を先に作っておく
  *
- * @description `triPoint()` の重心オフセット（上向き = 2h/3, 下向き = h/3）から逆算した頂点座標。
- * 頂点の並びはどちらの向きでも `[頂点(向きの尖り側), 左側頂点, 右側頂点]` に揃えてあるので、
- * 辺番号（0=左辺, 1=底辺/上辺, 2=右辺）が上向き/下向きで共通になる（`SIDE_OF_NEIGHBOR` 参照）。
- * @param {number} spacing @param {boolean} up - 上向き（頂点が上）三角形かどうか
- * @returns {Array<[number, number]>} 常に 3 要素
+ * @description `hexPoint()` と同じ pointy-top（頂点が上下）の正六角形。内角は常に 120° なので、
+ * セルをそのまま塗って縁取っても尖った鋭角が出ない（三角セルだと頂点ぶん鋭く尖ってしまう）。
+ * @param {number} spacing @returns {Array<[number, number]>} 常に 6 要素（上から時計回り）
  */
-function triCorners(spacing, up) {
-	const s = spacing * Math.sqrt(3);
-	const h = s * (Math.sqrt(3) / 2);
-	return up
-		? [[0, -2 * h / 3], [-s / 2, h / 3], [s / 2, h / 3]]
-		: [[0, 2 * h / 3], [-s / 2, -h / 3], [s / 2, -h / 3]];
+function hexCorners(spacing) {
+	const r = spacing / Math.sqrt(3);
+	return [
+		[0, -r], [spacing / 2, -r / 2], [spacing / 2, r / 2],
+		[0, r], [-spacing / 2, r / 2], [-spacing / 2, -r / 2]
+	];
 }
 
 /**
- * 近傍の並び（`triNeighbors()` の戻り順）と、三角形の辺番号の対応
+ * 近傍の並び（`hexNeighbors()` の戻り順）と、六角形の辺番号の対応
  *
- * @description `triCorners()` の頂点順（尖り→左→右）で作った三角形は、
- * 辺 0（頂点0→1）が左隣、辺 1（頂点1→2）が縦方向の隣、辺 2（頂点2→0）が右隣と接する。
- * この対応は上向き・下向きのどちらでも共通（頂点順を尖り基準で揃えてあるため）。
- * `triNeighbors()` は [左, 右, 縦] の順に返すので、それぞれ辺 0 / 2 / 1 に対応する。
+ * @description `hexNeighbors()` は [左, 右, 左上, 右上, 左下, 右下] の順に返す。
+ * `hexCorners()` の頂点順（上→右上→右下→下→左下→左上）に対応する辺（頂点k→頂点k+1）は
+ * それぞれ 4 / 1 / 5 / 0 / 3 / 2 になる。
  */
-const SIDE_OF_NEIGHBOR = Object.freeze([0, 2, 1]);
+const SIDE_OF_NEIGHBOR = Object.freeze([4, 1, 5, 0, 3, 2]);
 
 
 /** 背景レイヤーの再描画予約（rAF で 1 フレーム 1 回に間引く） */
@@ -1132,19 +1131,17 @@ function drawBoard() {
 	const zoom = cy.zoom();
 	const pan = cy.pan();
 	const p = palette();
-	// 三角セルは向き（上向き/下向き）で頂点が変わるので、2 パターンだけ先に作っておく
-	const cornersByOrient = [triCorners(CELL_SPACING * zoom, true), triCorners(CELL_SPACING * zoom, false)];
+	const corners = hexCorners(CELL_SPACING * zoom);
 
-	/** セル 1 つの三角形を経路へ積む。画面外なら何もしない */
+	/** セル 1 つの六角形を経路へ積む。画面外なら何もしない */
 	const addCell = (path, c) => {
 		const x = c.x * zoom + pan.x;
 		const y = c.y * zoom + pan.y;
 		// 画面外のセルは経路に積まない（大きな図でのパス長を抑える）
 		if (x < -CELL_SPACING * zoom || x > w + CELL_SPACING * zoom
 			|| y < -CELL_SPACING * zoom || y > h + CELL_SPACING * zoom) return false;
-		const corners = cornersByOrient[isTriUp(c.col, c.row) ? 0 : 1];
 		path.moveTo(x + corners[0][0], y + corners[0][1]);
-		for (let k = 1; k < 3; k += 1) path.lineTo(x + corners[k][0], y + corners[k][1]);
+		for (let k = 1; k < 6; k += 1) path.lineTo(x + corners[k][0], y + corners[k][1]);
 		path.closePath();
 		return true;
 	};
@@ -1188,14 +1185,13 @@ function drawBoard() {
 		if (x < -CELL_SPACING * zoom || x > w + CELL_SPACING * zoom
 			|| y < -CELL_SPACING * zoom || y > h + CELL_SPACING * zoom) continue;
 
-		const ns = triNeighborsOf(c.col, c.row);
-		const corners = cornersByOrient[isTriUp(c.col, c.row) ? 0 : 1];
-		for (let i = 0; i < 3; i += 1) {
+		const ns = hexNeighborsOf(c.col, c.row);
+		for (let i = 0; i < 6; i += 1) {
 			const other = byCell.get(`${ns[i].col},${ns[i].row}`);
 			if (other !== undefined && other === c.group) continue; // 同じグループ同士は描かない
 			const k = SIDE_OF_NEIGHBOR[i];
 			const a = corners[k];
-			const b = corners[(k + 1) % 3];
+			const b = corners[(k + 1) % 6];
 			const path = c.group === hover ? hoverEdge : (other === undefined ? outer : inner);
 			path.moveTo(x + a[0], y + a[1]);
 			path.lineTo(x + b[0], y + b[1]);
@@ -1262,7 +1258,7 @@ function setHoverLabel(group) {
 /**
  * 世界座標からマスのグループを引く
  *
- * @description `nearestTriCell()` の逆写像（3×3 候補の実距離比較）。
+ * @description `nearestCell()`（六角格子）の逆写像。
  * 背景をタップしたときに「どの区画を押したか」を判定するのに使う。
  * @param {{x: number, y: number}} modelPos - Cytoscape の model 座標
  * @returns {Object|null} `state.board.groups` の要素
@@ -1270,7 +1266,7 @@ function setHoverLabel(group) {
 function groupAtModelPos(modelPos) {
 	const board = state.board;
 	if (!board || !modelPos) return null;
-	const cell = nearestTriCell(modelPos.x, modelPos.y, CELL_SPACING);
+	const cell = nearestHexCell(modelPos.x, modelPos.y, CELL_SPACING);
 	const g = board.cellIndex.get(`${cell.col},${cell.row}`);
 	return g === undefined ? null : (board.groups[g] || null);
 }

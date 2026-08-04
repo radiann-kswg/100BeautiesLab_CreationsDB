@@ -17,7 +17,7 @@
 2. ✅ `graph-hexfill.js` を**格子アダプタ化**して三角格子も同じロジックで動くようにした（ファイル複製ではなく DI で対応）
 3. ✅ `graph-edge-route.js` の `HEX_AXES`（6方向）を軸集合として差し替え可能にし、三角格子用 `TRI_AXES` を追加
 4. ✅ `graph-crossing.js` の三角格子対応を確認（コード変更なしで動作することを検証済み）
-5. ✅ `pages/relations.js` の盤面描画（`drawBoard()`）を三角形パスへ変更
+5. ✅ `pages/relations.js` の盤面描画（`drawBoard()`）を三角形パスへ変更 → その後「マス塗りの鋭角」指摘を受け六角格子へ差し戻し（詳細は追記4）
 6. ⬜ キャラ単体フォーカスマップでの交差ゼロ描画を実装
 7. ⬜ 全体テスト・ブラウザ実地確認
 8. ⬜ 六角格子版の扱い（残す/削除）を最終決定
@@ -73,13 +73,29 @@
 - キャラ単体フォーカスマップでの交差ゼロアルゴリズム（角度ソート＋重なり回避のファン状ルーティング）
 - ブラウザでの実地確認・スクリーンショット比較
 
+### 完了（追記 4・方針転換：マス塗りは六角格子へ差し戻し）
+
+- User からブラウザ実地確認で「輪郭がギザギザして見栄えが悪い」と指摘。三角セルは頂点が 60° の鋭角になるため、
+  境界セルの尖った頂点がそのまま輪郭に出て刺々しく見えるのが原因（幾何的に確認済み）。
+- 最初に「輪郭線分をループへ繋ぎ直し Chaikin の角切りで丸める」描画側の平滑化（`lib/graph/graph-board-outline.js`、`traceBoundaryLoops`/`smoothLoop`）を実装したが、
+  User から「角丸にしてほしいわけではなく、鋭角を作らないマスの取り方をしてほしい」と明確に訂正が入った。
+  → **描画トリックではなく、セル形状そのものを変える対応が必要**と判断し、平滑化コードは撤回（ファイル削除）。
+- 対応: **集約表示（マス塗り／`drawBoard()`）だけ六角格子へ差し戻した**。六角形は内角が常に 120°（鈍角）で鋭角が原理的に出ない。
+  - `pages/relations.js`: `buildHexFill(...)` 呼び出しの `lattice: TRI_LATTICE` を除去（既定の `HEX_LATTICE` に戻す）。
+  - `drawBoard()`: `triCorners(spacing, up)` / `SIDE_OF_NEIGHBOR=[0,2,1]` / `triNeighborsOf` を、`hexCorners(spacing)`（6頂点）/ `SIDE_OF_NEIGHBOR=[4,1,5,0,3,2]` / `hexNeighborsOf` に差し替え。塗り分け（濃度段ごとの `Path2D` + ホバー別経路）と国境描画（内側の仕切り／外周／ホバー縁取りの3種）は、追記3以前の三角版と同じ構造のまま六角形の頂点・近傍に合わせただけ。
+  - `groupAtModelPos()`: 当たり判定を `nearestTriCell` → `nearestCell`（六角格子）に差し替え。
+  - **ノード位置のスナップ（`snapToTriLattice`）とエッジ経路（`TRI_AXES`）は三角格子のまま維持**。今回の指摘は「マス塗りの見た目」に閉じた話で、ノード配置や線の折れ方は対象外と判断。
+  - `pages/relations.html` の `asset-version` を `2026.08.04.1` に更新（ブラウザ側の古い `relations.js` キャッシュ対策）。
+- 確認: `tests/pages.relations.syntax.test.js`（26件）・`tests/graph.hexfill.test.js`・`tests/graph.hexfill-tri-lattice.test.js`（既存互換の確認）全通過。ブラウザで「所属」「進捗」グルーピングを実地確認し、輪郭が六角形の鈍角のみで構成される滑らかな塊になったことをスクリーンショットで確認済み。
+- 全体テスト（`npm test`）は本件と無関係な既存の失敗（`tests/data.field-order.test.js` の `Works_UnibyteLive` データ順、`tests/graph.edge-route.test.js` の処理時間フレーキーテスト、`tests/pages.characters.ui-output.test.js` の複合インデックス解決）が残っているが、いずれも今回の変更対象外・未着手（別件として扱う）。
+
 ## 影響範囲（想定）
 
 - `lib/graph/graph-layout.js`（追加のみ、既存の六角格子関数は変更なし）
 - `lib/graph/graph-hexfill.js`（格子アダプタ化済み、既存呼び出しは互換）
 - `lib/graph/graph-edge-route.js`（軸配列引数化済み、既存呼び出しは互換）
 - `lib/graph/graph-crossing.js`（コード変更なしで三角格子対応を確認済み、ドキュメントのみ更新）
-- `pages/relations.js`（描画・ホバー当たり判定・レイアウト・スナップを三角格子側へ完全切り替え済み。六角格子側の関数は呼ばなくなった）
+- `pages/relations.js`（レイアウト・スナップ・エッジ経路は三角格子へ切り替え済み。マス塗り（`drawBoard()`／`buildHexFill()` 呼び出し／当たり判定）は追記4で六角格子へ差し戻し）
 - `tests/graph.tri-layout.test.js`（新規）
 - 既存 `tests/graph.*.test.js`（今後、三角格子移行に合わせて更新が必要になる見込み）
 
