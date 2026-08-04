@@ -285,20 +285,16 @@
   },
   {
     "Letter": { "Alphabet": "I", "AlphaGen": 2 },
-    "Progress": "notProceeded",
+    "Progress": "nowCreating",
     "Name_JP": "I:カーソル",
     "Name_EN": "I:Inact",
+    "Images": { "keycapper_PNGPath": ["I/emstk_keycapperUBL-Ig2-1.png"] },
     "FormalName_JP": "カーソル.インアクト 点指",
     "FormalName_JPReading": "カーソル.インアクト ポインティング",
     "FormalName_EN": "Inact I-Cursor.Pointing",
     "CodeName_JP": "点/カーソル(I)",
     "CodeName_EN": "I,Inactive/In Active,Cursor",
-    "Class": [
-      "現役アルベッツ",
-      "アルベッツ4期生",
-      "世代リーダー",
-      "UUITアンバサダー"
-    ],
+    "Class": ["現役アルベッツ", "アルベッツ4期生", "世代リーダー"],
     "Height_cm": 155,
     "BustSize": "A",
     "Age": 16,
@@ -309,6 +305,83 @@
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
     ],
+    "AppearanceDetail": [
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Hair"],
+        "Laterality": null,
+        "DesignElement": "#Element_AccessoryUnit",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "Value_JP": "i(小文字)の字状のアクセントカラーをした前髪とアホ毛",
+            "Value_EN": "Front hair and ahoge with accent color in the shape of a lowercase i"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Ear", "#BodyPart_Tail"],
+        "Laterality": null,
+        "DesignElement": "#Element_AccessoryUnit",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "Value_JP": "サメのような鰓と尾鰭のアクセサリーが全身でI(大文字)の形に見える",
+            "Value_EN": "Accessories resembling shark-like gills and tail fins form the shape of a capital I across the body"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "StreamingActivity": {
+      "StreamingCategory": [
+        {
+          "value_JP": "「ユニバイト・ユニバース」の広報活動",
+          "value_EN": "Public relations activities for 'Unibyte Universe'",
+          "about_JP": "メイン活動,「ユニバイト・ユニバース」外を中心に配信やCM投稿などで",
+          "about_EN": "Main activity, primarily outside of 'Unibyte Universe', through streaming and commercial postings"
+        },
+        {
+          "value_JP": "他メンバーとのコラボ配信",
+          "value_EN": "Collaboration with other members",
+          "about_JP": "サブ活動,「ユニバイト・ユニバース」内外を問わず展開",
+          "about_EN": "Sub activity, conducted both within and outside of 'Unibyte Universe'"
+        },
+        {
+          "value_JP": "「ユニバイト・ユニバース」海外サーバとの連携",
+          "value_EN": "Collaboration with overseas servers of 'Unibyte Universe'",
+          "about_JP": "演者個人としての活動(海外サーバからは国際公認アンバサダーである彼女が自らストリーマーになっていることを認知されている)",
+          "about_EN": "Activities as an individual performer (overseas servers recognize her as an internationally certified ambassador who has become a streamer herself)"
+        }
+      ],
+      "StreamingGreeting": [
+        {
+          "value_JP": "マウスオーバー、おれの台詞に注目！",
+          "value_EN": "Hover over, and focus mIne!",
+          "about_JP": "ちなみに「おれの台詞に注目」という部分の英訳は「focus mIne」としており、\"mIne\"の部分は自身のアルファベットの強調だけでなくカーソルが会話の上に乗っているような印象を与えるため敢えてこのような大文字表現にしている。",
+          "about_EN": "The part in Japanese of 'おれの台詞に注目' has been translated as \"focus mIne\", with the ‘mIne’ part used to convey the impression of her alphabet and cursor hovering over its conversation."
+        }
+      ],
+      "ListenerNickname": { "value_JP": "テキスタント", "value_EN": "Textant" },
+      "StreamingAwards": [
+        {
+          "value_JP": "「ユニバイト・ユニバース」国際公認アンバサダー",
+          "value_EN": "'Unibyte Universe' Internationally Trusted Ambassador"
+        },
+        {
+          "value_JP": "「ユニバイト・ユニバース」雄志結国公認アンバサダー",
+          "value_EN": "'Unibyte Universe' UH.Nation Trusted Ambassador"
+        }
+      ],
+      "StreamingSummary_JP": "ライブ配信では国際公認アンバサダーとしてもアルベッツ４期生リーダーとしても「ユニバイト・ユニバース」の広報活動に積極的で、VR界隈では彼女の活動名を知らない人はほぼいない。\n雄志結国在住のため他のアルベッツのメンバーとは原則遠隔での面識となっているが、そんな彼女を繋ぎとめる「ユニバイト・ユニバース」あってかコラボ配信にも積極的に乗じている。",
+      "StreamingSummary_EN": "She is actively engaged in public relations activities for 'Unibyte Universe' as both an Internationally Trusted Ambassador and the leader of the ALPBETS 4th Gen. In the VR community, there are almost no listeners who do not know her activity name.\nSince she resides in UH.Nation, she generally meets other ALPBETS members remotely, but thanks to 'Unibyte Universe', which connects her, she actively participates in collaborative streaming."
+    },
     "Relation": {
       "Related": [
         {
@@ -546,12 +619,7 @@
       "about_JP": "ただし実は……？",
       "about_EN": "However, in fact...?"
     },
-    "Class": [
-      "現役アルベッツ",
-      "アルベッツ6期生",
-      "世代リーダー",
-      "UUITアンバサダー"
-    ],
+    "Class": ["現役アルベッツ", "アルベッツ6期生", "世代リーダー"],
     "Height_cm": [
       {
         "about_JP": "可変\n(およそ160cmでいることが多く、キーキャッパーも同様に可変可能)",
@@ -748,6 +816,11 @@
             "AttrLabel": "#DesignAttr_Overview",
             "Value_JP": "Sの字状に波打ったポニーテール",
             "Value_EN": "S-shaped wavy ponytail"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "Value_JP": "Sの字状の大きな前髪",
+            "Value_EN": "S-shaped large bangs"
           }
         ],
         "img_PNGName": null,
@@ -777,7 +850,7 @@
           "value_JP": "リスナーとの交流",
           "value_EN": "Interaction with listeners",
           "about_JP": "メイン活動,「ユニバイト・ユニバース」内での活動",
-          "about_EN": "Main activity, activity within 'Unibyte Universe'"
+          "about_EN": "Main activity within 'Unibyte Universe'"
         },
         {
           "value_JP": "VRシェーダー制作",
@@ -788,8 +861,8 @@
         {
           "value_JP": "メタバース体験コンテンツ",
           "value_EN": "Metaverse experiential content",
-          "about_JP": "「ユニバイト・ユニバース」内・同人コンテンツ頒布および動画配信での活動",
-          "about_EN": "Activity within 'Unibyte Universe', doujin content distribution and video streaming"
+          "about_JP": "サブ活動,「ユニバイト・ユニバース」内・同人コンテンツ頒布および動画配信での活動",
+          "about_EN": "Sub activity within 'Unibyte Universe', doujin content distribution and video streaming"
         },
         {
           "value_JP": "ショートムービー",
@@ -800,8 +873,8 @@
         {
           "value_JP": "ゲーム配信：テトリス,レース,音ゲー",
           "value_EN": "Game streaming: Tetris, racing, rhythm games",
-          "about_JP": "動画配信またはライブ配信での活動,頻度は少な目",
-          "about_EN": "Video streaming or live streaming activity, relatively infrequent"
+          "about_JP": "動画配信またはライブ配信での活動(頻度は少な目)",
+          "about_EN": "Video streaming or live streaming activity (relatively infrequent)"
         }
       ],
       "StreamingGreeting": [
@@ -1109,6 +1182,11 @@
             "AttrLabel": "#DesignAttr_Overview",
             "Value_JP": "Zの字状に折り曲げられたポニーテール",
             "Value_EN": "Z-shaped bent ponytail"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "Value_JP": "Zの字状のアクセントカラーの前髪",
+            "Value_EN": "Z-shaped accent-colored bangs"
           }
         ],
         "img_PNGName": null,
@@ -1133,7 +1211,32 @@
       }
     ],
     "StreamingActivity": {
-      "StreamingCategory": [],
+      "StreamingCategory": [
+        {
+          "value_JP": "VRワールド制作",
+          "value_EN": "VR World Creation",
+          "about_JP": "メイン活動,「ユニバイト・ユニバース」内での活動",
+          "about_EN": "Main Activity within 'Unibyte Universe'"
+        },
+        {
+          "value_JP": "ゲーム配信：テトリス,サバイバル,サンドボックス,オープンワールド系",
+          "value_EN": "Game Commentary: Tetris, Survival, Sandbox, Open World",
+          "about_JP": "メイン活動,動画配信またはライブ配信での活動(時々エンジニアとしての技術的講評を挟む)",
+          "about_EN": "Main Activity, video streaming or live streaming activity (occasionally interspersed with technical commentary as an engineer)"
+        },
+        {
+          "value_JP": "ゲーム開発・VRアバター設定作業",
+          "value_EN": "Game development & avatar setting",
+          "about_JP": "サブ活動,作業配信もしくは演者個人での活動",
+          "about_EN": "Sub activity, work streaming or individual performer activity"
+        },
+        {
+          "value_JP": "メタバース体験コンテンツ",
+          "value_EN": "Metaverse experiential content",
+          "about_JP": "「ユニバイト・ユニバース」内・同人コンテンツ頒布および動画配信での活動",
+          "about_EN": "Activity within 'Unibyte Universe', doujin content distribution and video streaming"
+        }
+      ],
       "StreamingGreeting": [
         { "value_JP": "ジグザってるか〜！", "value_EN": "Are you zigzagging?" }
       ],
@@ -1141,8 +1244,18 @@
         "ListenerNickname_JP": "ノコギリ族",
         "ListenerNickname_EN": "Zigzaggers"
       },
-      "StreamingAwards": [],
-      "StreamingSummary_JP": ""
+      "StreamingAwards": [
+        {
+          "value_JP": "「ユニバイト・ユニバース」九蓮国サーバ公認クリエイター",
+          "value_EN": "'Unibyte Universe' LotusNinean Server trusted creator"
+        },
+        {
+          "value_JP": "ハッカソン・ゲームジャム参戦実績多数",
+          "value_EN": "Has a track record of participating in hackathons and game jams"
+        }
+      ],
+      "StreamingSummary_JP": "ライブ配信では演者の職を活かしたゲーム実況と講評をメインとしており、ノコギリ族(リスナー)を含め\"楽しいとは何か\"の造詣が深いコアなコミュニティを形成している。\n「ユニバイト・ユニバース」内では様々なアクションギミックを搭載したワールドを公開し、VRコンテンツの新しい魅力を創出しているクリエイターとしても名高い。\nまたアルベッツ４期生以後のライブ配信では裏方作業にも徹しているらしい。",
+      "StreamingSummary_EN": "In live streams, she mainly focuses on game commentary and reviews that leverage her profession, forming a core community with deep insights into 'what is fun', including the Zigzaggers (listeners).\nWithin 'Unibyte Universe', she has released worlds equipped with various action gimmicks, earning a reputation as a creator who brings new appeal to VR content.\nIt is also said that in live streams of the ALPBETS 4th and later Gens., she is dedicated to behind-the-scenes work."
     },
     "Relation": {
       "Related": [
