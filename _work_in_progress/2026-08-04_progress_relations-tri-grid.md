@@ -106,13 +106,54 @@
   - ブラウザ実地確認: キャラ単体マップ（`Num=78` フォーカス）で `segment-weights` が全て `[0.11〜0.88]` 程度の安全域に収まったことをデータで確認し、スクリーンショットで **12本全ての関係線が表示される**ことを確認済み。集約表示（六角マス塗り、グルーピング「所属」）も回帰なしを確認済み。
 - `pages/relations.js` の一時デバッグ用フック（`window.__debugCy = cy;`）は調査後に削除済み。`pages/relations.html` の `asset-version` を `2026.08.04.5` に更新。
 
+### 完了（追記 6・鉄道路線図スタイルへの大幅刷新／3フェーズ一括対応）
+
+User から「エッジは前の方（六角格子）が良かった、鉄道の路線図くらい分かりやすい配線にしてほしい」「グルーピングはベン図のように共通範囲が分かる構造にして、『その他』は撤去、マス数は対数比例にしてほしい」という指示を受け、以下 3 フェーズを一括で実施した（作業量・時間は問わない前提で着手）。
+
+#### フェーズ1: エッジ経路を六角格子オンリーへ戻す
+
+- `pages/relations.js`: `applyEdgeRouting()` の `routeEdges()` 呼び出しから `axes: TRI_AXES` を撤去（既定値の `HEX_AXES` を使う）。`TRI_AXES` の import も不要になったため削除。
+- `TRI_AXES` 自体は `lib/graph/graph-edge-route.js` に引き続き残す（三角格子軸の実装・テストは資産として保持。単に相関図側で使わなくなっただけ）。
+- 検証: `tests/graph.edge-route.test.js` ほか対象5ファイル 99件、`npm test` フル実行とも回帰なし。
+
+#### フェーズ2: 交差最小化の強化（路線図らしさの追求）
+
+- `lib/graph/graph-crossing.js` の `reduceCrossings()` に**曲がり（bend）を測る tie-break** を追加。
+  - 新規エクスポート `totalBendPenalty(posById, edges)`: 次数 2（乗り換えの無い駅）のノードについて、その 2 本の辺がなす角度を `1 + cosθ`（0=一直線、2=完全な折り返し）で測り合計する。
+  - `reduceCrossings()` の入れ替え採否判定に **交差数 → 曲がり → エッジ長** の優先順位を追加（交差数が同点のときだけ曲がりを見る。曲がりも同点なら従来通りエッジ長）。既存の「交差は増えない」「決定的」「占有セル不変」の不変条件はすべて維持（曲がりは交差と違い、交差数が悪化する側に転ぶケースがあるため「絶対に増えない」という一般不変条件は成立しない＝あくまで tie-break である点に注意）。
+  - テスト追加: `totalBendPenalty()` の単体テスト（一直線=0・直角=1・折り返し≈2・次数2以外は対象外・複数ノードの合算）、および「交差数・エッジ長が同点でも曲がりが小さい方を選ぶ」統合テスト（X-Z を焦点とする楕円上の2点を使い、エッジ長の合計を完全に一致させつつ曲がりだけ異なる状況を作って検証）。
+  - ブラウザ実地確認: 「1桁番(ユニデジッツ)」個体マップ（9ノード/21本）で、交差削減後の配置が路線図らしい直線的な形になることをスクリーンショットで確認。
+
+#### フェーズ3: グルーピングのベン図的重複表現＋対数比例セル数＋「その他」撤去
+
+最も規模の大きい変更。`lib/graph/graph-facets.js` の `groupNodesByFacet()` を全面刷新した。
+
+- **組み合わせグループ方式へ変更**: 複数値を持つノード（`Class` 等）を、従来の「該当する全グループへ重複配置（延べ人数）」から、**その組み合わせ専用の 1 グループへ 1 回だけ配置**する方式へ変更。新規エクスポート `comboKeyForValues(values)` が値を重複除去・ソートしてから `,` で結合したキー（例: `"A,B"`）を返し、`groupNodesByFacet()` はこのキーでグループを作る。ラベルは各値のラベルを `×` で結合（例: `"A×B"`）。これにより「1 キャラ = 1 マス」の原則を保ったまま、ベン図の重複領域のような専用区画として複数所属を表現できる。
+- **「その他」（`OTHER_GROUP_KEY`）を完全撤去**: `maxGroups` を超えた値を上位N＋その他へ丸める処理を削除。全ての組み合わせグループをそのまま表示する（実際に出現した組み合わせしか生成されないため、組み合わせ爆発の心配はない）。`collectFacets()` 側の `maxGroups` 宣言パース自体は後方互換のため残しているが、`groupNodesByFacet()` はもう参照しない（2026-08-04 時点で dead な互換フィールドである旨をコメントで明記）。
+- **セル数を対数比例に**: `lib/graph/graph-hexfill.js` に `logProportionalCellCount(memberCount, scale=8)` を追加（`cells = round(scale × log(1 + 人数))`）。呼び出し側の `pages/relations.js` で `buildHexFill()` に渡す `size` をこの関数の戻り値にし、実人数は別途 `count` として渡す（`buildHexFill()` は入力オブジェクトをスプレッドして出力にそのまま含めるため、`groups[i].count` として取り出せる）。マス塗りのホバー表示（`setHoverLabel()`）も `cellCount`（対数圧縮後の見た目のマス数）ではなく `count`（実人数）を表示するよう修正。
+  - 運命線探偵78 などで「1人のグループと数十人のグループが同居し、最大のグループが図の大半を占める」問題が対数比例により緩和される（係数 `scale=8` は見た目に応じて今後調整可能）。
+- **`pages/relations.js` の追従**:
+  - `currentLevels()`: 「その他を掘ったら同じ軸をもう一段挿す」特別処理を撤去し、`buildHierarchy()` の結果をそのまま返すだけに簡略化（組み合わせも 1 グループとして扱うため、掘るたびに必ず 1 段ずつ進む）。
+  - `drilledNodes()`: 「その他」専用の再照合ロジックを撤去し、`comboKeyForValues(facetValuesOf(n, level)) === picked` という 1 本の照合式に統一（単一値・複数値・未設定のすべてを同じ式で扱える）。
+  - `isBucket()`: `OTHER_GROUP_KEY` の判定を削除（`UNSET_GROUP_KEY` のみ）。
+  - パンくず（`renderBreadcrumb()`）: 組み合わせキー（`"A,B"`）を `,` で分解し、それぞれラベル解決してから `×` で結合する表示に変更（「その他」の特別表記も削除）。
+  - 統計行の「『その他』『(未設定)』の線は非表示」という文言から「その他」を削除。
+- **テスト更新**: `tests/graph.facets.test.js` を全面改修（「その他」丸めのテスト2件を削除し、組み合わせグループの構造・`comboKeyForValues()` 単体・重複配置なし不変条件などのテストを追加。計50件）。`tests/pages.relations.syntax.test.js` の「センチネル比較」テストを `comboKeyForValues()` ベースの照合チェックへ更新。
+- ブラウザ実地確認: 「クラス名」グルーピング（54グループ）で「デュアルキャリーズ×マスマ...」等の組み合わせ区画が独立した領域として描画され、「その他」バケットが完全に消えたことをスクリーンショットで確認。単一値グループ（「1桁番(ユニデジッツ)」）のドリルダウンも従来通り機能することを確認（ただし組み合わせを持つキャラは単一値グループのメンバーから外れるため、対象人数は変わる＝設計通り）。
+
+#### 検証（全フェーズ共通）
+
+- `npm test`: 1106 passed / 4 failed（63 ファイル中2ファイル）。失敗は全て今回変更対象外のファイル（`data/Works_UnibyteLive/DataBases/db_PrimaryPerformer.json` のフィールド順2件、`tests/pages.characters.ui-output.test.js` の演者セクション解決・英語表示2件）で、`git status --short` で確認した変更ファイル一覧に含まれないことを確認済み。
+- 変更ファイル: `lib/graph/graph-crossing.js` / `lib/graph/graph-facets.js` / `lib/graph/graph-hexfill.js` / `pages/relations.js` / `pages/relations.html`（`asset-version` → `2026.08.04.7`） / `tests/graph.crossing.test.js` / `tests/graph.facets.test.js` / `tests/pages.relations.syntax.test.js`
+
 ## 影響範囲（想定）
 
 - `lib/graph/graph-layout.js`（追加のみ、既存の六角格子関数は変更なし）
-- `lib/graph/graph-hexfill.js`（格子アダプタ化済み、既存呼び出しは互換）
-- `lib/graph/graph-edge-route.js`（軸配列引数化済み、既存呼び出しは互換）
-- `lib/graph/graph-crossing.js`（コード変更なしで三角格子対応を確認済み、ドキュメントのみ更新）
-- `pages/relations.js`（レイアウト・スナップ・エッジ経路は三角格子へ切り替え済み。マス塗り（`drawBoard()`／`buildHexFill()` 呼び出し／当たり判定）は追記4で六角格子へ差し戻し）
+- `lib/graph/graph-hexfill.js`（格子アダプタ化済み、既存呼び出しは互換／追記6で `logProportionalCellCount()` を追加）
+- `lib/graph/graph-edge-route.js`（軸配列引数化済み、既存呼び出しは互換。相関図からは追記6で `HEX_AXES`（既定）へ戻したが、関数自体は `TRI_AXES` を引き続きサポート）
+- `lib/graph/graph-crossing.js`（三角格子対応は既存のまま。追記6で曲がり tie-break を追加）
+- `lib/graph/graph-facets.js`（追記6で `groupNodesByFacet()` を組み合わせグループ方式へ全面刷新。`OTHER_GROUP_KEY` 撤去）
+- `pages/relations.js`（レイアウト・スナップ・エッジ経路は六角格子（追記6で最終決定）。マス塗りは六角格子＋対数比例セル数＋組み合わせグループ）
 - `tests/graph.tri-layout.test.js`（新規）
 - 既存 `tests/graph.*.test.js`（今後、三角格子移行に合わせて更新が必要になる見込み）
 

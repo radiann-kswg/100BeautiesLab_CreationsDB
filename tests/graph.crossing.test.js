@@ -5,7 +5,7 @@
  * 「交差が増えないこと」「格子の占有セルが変わらないこと」「決定的であること」が要。
  */
 import { describe, it, expect } from 'vitest';
-import { segmentsCross, countCrossings, reduceCrossings } from '../lib/graph/graph-crossing.js';
+import { segmentsCross, countCrossings, reduceCrossings, totalBendPenalty } from '../lib/graph/graph-crossing.js';
 import { hexPoint, hexNeighbors, hexDistance, snapToHexLattice } from '../lib/graph/graph-layout.js';
 
 const P = (x, y) => ({ x, y });
@@ -55,6 +55,50 @@ describe('countCrossings', () => {
 	});
 });
 
+describe('totalBendPenalty', () => {
+	it('一直線に並ぶ次数2ノードは 0（曲がりなし）', () => {
+		// a-b-c が一直線（b の 2 本が正反対を向く）
+		const pos = new Map([['a', P(0, 0)], ['b', P(10, 0)], ['c', P(20, 0)]]);
+		const edges = [{ source: 'a', target: 'b' }, { source: 'b', target: 'c' }];
+		expect(totalBendPenalty(pos, edges)).toBeCloseTo(0, 9);
+	});
+
+	it('直角に折れる次数2ノードは 1（一直線と完全折り返しの中間）', () => {
+		const pos = new Map([['a', P(0, 0)], ['b', P(10, 0)], ['c', P(10, 10)]]);
+		const edges = [{ source: 'a', target: 'b' }, { source: 'b', target: 'c' }];
+		expect(totalBendPenalty(pos, edges)).toBeCloseTo(1, 9);
+	});
+
+	it('完全に折り返す（行って戻る）次数2ノードは 2（最悪値）', () => {
+		const pos = new Map([['a', P(0, 0)], ['b', P(10, 0)], ['c', P(0, 0.0000001)]]);
+		// c をほぼ a と同じ位置に置き、b から見て両隣がほぼ同じ向き（完全な折り返し）になるようにする
+		const edges = [{ source: 'a', target: 'b' }, { source: 'b', target: 'c' }];
+		expect(totalBendPenalty(pos, edges)).toBeGreaterThan(1.9);
+	});
+
+	it('次数 2 以外（分岐・行き止まり）のノードは対象外', () => {
+		// b は次数 3（分岐駅）なので曲がりの評価から除外される
+		const pos = new Map([['a', P(0, 0)], ['b', P(10, 0)], ['c', P(20, 0)], ['d', P(10, 10)]]);
+		const edges = [
+			{ source: 'a', target: 'b' }, { source: 'b', target: 'c' }, { source: 'b', target: 'd' }
+		];
+		expect(totalBendPenalty(pos, edges)).toBe(0);
+	});
+
+	it('複数の次数2ノードの曲がりを合算する', () => {
+		// a-b-c（直角）と d-e-f（一直線）を両方含む
+		const pos = new Map([
+			['a', P(0, 0)], ['b', P(10, 0)], ['c', P(10, 10)],
+			['d', P(0, 100)], ['e', P(10, 100)], ['f', P(20, 100)]
+		]);
+		const edges = [
+			{ source: 'a', target: 'b' }, { source: 'b', target: 'c' },
+			{ source: 'd', target: 'e' }, { source: 'e', target: 'f' }
+		];
+		expect(totalBendPenalty(pos, edges)).toBeCloseTo(1, 9); // 直角(1) + 一直線(0)
+	});
+});
+
 describe('reduceCrossings', () => {
 	it('交差する 4 ノードの配置を入れ替えて交差を消す', () => {
 		// 正方形の 4 隅に置き、対角同士を結んでいる（＝ 1 交差）。
@@ -71,6 +115,52 @@ describe('reduceCrossings', () => {
 		expect(res.before).toBe(1);
 		expect(res.after).toBe(0);
 		expect(res.swaps).toBeGreaterThan(0);
+	});
+
+	it('交差数・エッジ長が同点でも、次数2ノードの曲がりが小さい方の配置を選ぶ', () => {
+		// X-Y-Z の 2 辺（Y は次数 2）と、辺を持たない自由ノード W を用意する。
+		// Y の初期位置と W の初期位置は「X, Z を焦点とする同じ楕円（＝辺の長さの合計が等しい）」上に置くことで、
+		// 交差数（自己ループ無しなので常に 0）とエッジ長の合計を完全に同点にし、
+		// 「次数2ノードの曲がり」だけが違う状況を作る（楕円上では焦点までの距離の和が一定になる性質を利用）。
+		const X = { x: -100, y: 0 };
+		const Z = { x: 100, y: 0 };
+		const a = 130; // 楕円の長半径（焦点間距離 200 の半分＝100 より大きい必要がある）
+		const b = Math.sqrt(a * a - 100 * 100);
+		const pointOnEllipse = (deg) => {
+			const rad = (deg * Math.PI) / 180;
+			return { x: a * Math.cos(rad), y: b * Math.sin(rad) };
+		};
+		const sharp = pointOnEllipse(45); // 曲がりが大きい（後述の実測値で確認済み）
+		const straight = pointOnEllipse(90); // 同じ楕円上でより一直線に近い
+
+		const positions = [
+			{ id: 'X', ...X },
+			{ id: 'Z', ...Z },
+			{ id: 'Y', ...sharp }, // 曲がりの大きい配置から開始（Y が X-Z を継ぐ次数2ノード）
+			{ id: 'W', ...straight } // 辺を持たない自由ノード（曲がりが小さい配置で待機）
+		];
+		const edges = [{ source: 'X', target: 'Y' }, { source: 'Y', target: 'Z' }];
+
+		// 前提確認：同じ楕円上なので長さの合計は一致し、曲がりだけ違う
+		const lenOf = (p) => Math.hypot(p.x - X.x, p.y - X.y) + Math.hypot(p.x - Z.x, p.y - Z.y);
+		expect(lenOf(sharp)).toBeCloseTo(lenOf(straight), 6);
+		const bendOf = (p) => totalBendPenalty(
+			new Map([['X', X], ['Z', Z], ['Y', p]]),
+			edges
+		);
+		expect(bendOf(sharp)).toBeGreaterThan(bendOf(straight));
+
+		const res = reduceCrossings(positions, edges);
+
+		// 交差もエッジ長も変わらない同点状況で、曲がりの総量（totalBendPenalty）は改善しているはず。
+		// ※ どのノードの入れ替えで改善するか（Y 自身を動かすか、隣接する X 側を動かすか）は
+		//   走査順に依存するため固定しない。「結果として曲がりが減っている」ことだけを保証する。
+		const finalPos = new Map(res.positions.map(p => [p.id, p]));
+		const finalBend = totalBendPenalty(finalPos, edges);
+		const initialBend = totalBendPenalty(new Map(positions.map(p => [p.id, p])), edges);
+		expect(finalBend).toBeLessThan(initialBend);
+		// 交差数・エッジ長そのものは同点のまま（曲がりの改善が交差やエッジ長を犠牲にしていない）
+		expect(res.after).toBe(res.before);
 	});
 
 	it('交差が増えることは無い', () => {

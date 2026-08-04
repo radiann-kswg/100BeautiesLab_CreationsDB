@@ -65,21 +65,19 @@ describe('相関図ページの構成', () => {
 		expect(html).toContain('id="adjacency-body"');
 	});
 
-	it('ドリルの絞り込みがセンチネルのグループキーを両方とも扱う', () => {
-		// `UNSET_GROUP_KEY`（未設定）と `OTHER_GROUP_KEY`（`maxGroups` を超えて丸めた分）は
-		// **レコードの値と直接照合できないセンチネル**。
-		// `OTHER_GROUP_KEY` の分岐が無いと `values.includes('\0other')` が必ず false になり、
-		// 「その他」を掘っても 0 件になる（実際にこの不具合が出た）。
+	it('ドリルの絞り込みは組み合わせキー（`comboKeyForValues()`）で照合する', () => {
+		// 2026-08-04 に「その他」（`OTHER_GROUP_KEY`）を撤去し、複数値は
+		// `groupNodesByFacet()` と同じ「組み合わせキー」（`comboKeyForValues()`）で 1 グループに
+		// まとまるようにした。ドリルの絞り込みもこの関数で選択値と照合しないと、
+		// 複数値のキャラを持つグループを掘っても 0 件になってしまう。
 		const js = read('pages/relations.js');
 		const start = js.indexOf('function drilledNodes');
 		expect(start).toBeGreaterThan(-1);
 		const body = js.slice(start, js.indexOf('\n}', start));
-		// 「識別子が出てくる」だけでは分岐を潰しても通ってしまうので、
-		// 選択値との比較そのものが在ることを見る
-		expect(body, 'drilledNodes() が UNSET_GROUP_KEY と比較していない')
-			.toMatch(/picked\s*===\s*UNSET_GROUP_KEY/);
-		expect(body, 'drilledNodes() が OTHER_GROUP_KEY と比較していない')
-			.toMatch(/picked\s*===\s*OTHER_GROUP_KEY/);
+		expect(body, 'drilledNodes() が comboKeyForValues() で照合していない')
+			.toMatch(/comboKeyForValues\(.*\)\s*===\s*picked/);
+		// 撤去済みの「その他」センチネルへの依存が残っていないこと
+		expect(body, 'OTHER_GROUP_KEY への依存が残っている').not.toMatch(/OTHER_GROUP_KEY/);
 	});
 });
 

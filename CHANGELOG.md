@@ -1,5 +1,16 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### refactor: 相関図を「鉄道路線図」スタイルへ刷新（エッジ経路を六角格子オンリーに統一・交差最小化を強化・グルーピングをベン図的な組み合わせグループ＋対数比例セル数へ変更） (2026-08-04)
+
+`_work_in_progress/2026-08-04_progress_relations-tri-grid.md` の作業を継続。「エッジは以前の六角格子の方が路線図らしく分かりやすい」「グルーピングはベン図のように共通範囲が分かる構造にし、『その他』は撤去、マス数は対数比例で偏りを抑えたい」という User 指示を受け、3 フェーズを一括で実施した。
+
+- **エッジ経路**: `pages/relations.js` の `applyEdgeRouting()` から `axes: TRI_AXES` の指定を撤去し、既定の `HEX_AXES`（六角格子）へ戻した。`TRI_AXES` 自体は `lib/graph/graph-edge-route.js` に資産として残す。
+- **交差最小化の強化**: `lib/graph/graph-crossing.js` の `reduceCrossings()` に、次数 2（乗り換え無しの駅）ノードの曲がり具合を測る `totalBendPenalty()` を追加し、**交差数 → 曲がり → エッジ長**の優先順位で入れ替えを採否する tie-break を実装。路線図の「通過駅は一直線」に近い配置を優先する。
+- **グルーピングの組み合わせグループ化**: `lib/graph/graph-facets.js` の `groupNodesByFacet()` を刷新し、複数値を持つノードを**その組み合わせ専用の 1 グループ**（例: `"A,B"`、ラベルは `"A×B"`）へ 1 回だけ配置する方式に変更（新規 `comboKeyForValues()`）。「その他」（`OTHER_GROUP_KEY`）による丸め込みを完全撤去。
+- **セル数の対数比例化**: `lib/graph/graph-hexfill.js` に `logProportionalCellCount(memberCount, scale=8)` を追加し、マス塗りの面積を人数に正比例させず対数比例にすることで、1 人のグループと数百人のグループが同居しても最大グループが図の大半を占める問題を緩和。実人数は `count` として別途保持し、ホバー表示はそちらを使う。
+- **影響範囲**: `lib/graph/graph-crossing.js` / `lib/graph/graph-facets.js` / `lib/graph/graph-hexfill.js` / `pages/relations.js` / `pages/relations.html`（`asset-version` → `2026.08.04.7`） / `tests/graph.crossing.test.js` / `tests/graph.facets.test.js` / `tests/pages.relations.syntax.test.js`。
+- **検証**: `npm test` で 1106 件成功・4 件失敗（失敗は全て `data/Works_UnibyteLive` のフィールド順・`pages/characters.js` の演者セクション解決に関する既存の赤で、本変更のファイルとは無関係。`git status --short` で確認済み）。Playwright によるブラウザ実地確認で、組み合わせグループの区画表示・「その他」撤去・単一値ドリルダウンの継続動作を確認済み。
+
 ### refactor: ハンカクライブ `StreamingActivity` の配列系フィールドを和英共有フィールドへ統一した (2026-08-04)
 
 `Works_UnibyteLive` の `StreamingActivity` は、同じ 1 セクションの中に和英の持ち方が **3 流儀** 混在していた（並列 `Field_JP`/`Field_EN` = `StreamingCategory` / `StreamingAwards` / `StreamingSummary`、bilingual wrapper = `StreamingGreeting` / `ListenerNickname`）。うち**配列**を JP/EN で 2 本立てにしていたフィールドは、要素数・順序の対応がデータ上どこにも保証されず（実際 Z:1 は `StreamingCategory_JP: []` だけで `_EN` キーが存在しない状態だった）、`tools/deepl/draft-translate.mjs` の下書き対象からも外れていた（同ツールは兄弟の JP 値が**文字列**のときだけ候補化するため、配列フィールドは丸ごと対象外）。「配列は共有フィールド、単一テキストは並列」という基準で揃えた。

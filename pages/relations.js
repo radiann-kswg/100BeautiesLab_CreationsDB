@@ -52,18 +52,18 @@ import {
 	extractFacetValues,
 	groupNodesByFacet,
 	selectUsableFacets,
-	UNSET_GROUP_KEY,
-	OTHER_GROUP_KEY
+	comboKeyForValues,
+	UNSET_GROUP_KEY
 } from '../lib/graph/graph-facets.js';
 import { buildBadge, createDictCellLookup, getWorksCode } from '../lib/graph/graph-badge.js';
 import {
 	snapToHexLattice, resolveSpacing, boundsOf, shouldFitToViewport,
 	nearestCell as nearestHexCell, hexNeighbors as hexNeighborsOf
 } from '../lib/graph/graph-layout.js';
-import { buildHexFill } from '../lib/graph/graph-hexfill.js';
+import { buildHexFill, logProportionalCellCount } from '../lib/graph/graph-hexfill.js';
 import { buildPalette, createTokenReader } from '../lib/graph/graph-palette.js';
 import { reduceCrossings, countCrossings } from '../lib/graph/graph-crossing.js';
-import { routeEdges, TRI_AXES } from '../lib/graph/graph-edge-route.js';
+import { routeEdges } from '../lib/graph/graph-edge-route.js';
 
 /* ========================================================================
    定数
@@ -423,27 +423,13 @@ function scopeWorkId() {
 /**
  * 現在のスコープに応じた階層の段を返す
  *
- * @description 宣言（`$display.facet.hierarchy`）から作った段に加えて、
- * **「その他」を掘ったときは同じ軸をもう一段挿す**。
- *
- * 「その他」は `maxGroups` に収まらなかった値の寄せ集めなので、
- * その中にはまだ何十種類もの値が入っている。ここで一気にキャラ個体まで落とすと
- * 「クラス名で見ていたのに、その他の中だけ急に 84 人がバラける」ことになり、
- * せっかくの分類が途切れてしまう。同じ軸で掘り直せば、残りの値が改めて上位 N ＋その他に分かれる。
+ * @description 宣言（`$display.facet.hierarchy`）から作った段をそのまま返す。
+ * 「その他」は 2026-08-04 に撤去したため、同じ軸をもう一段挿す特別扱いは無い
+ * （複数値の組み合わせも 1 グループとして扱うので、掘るたびに必ず 1 段ずつ進む）。
  * @returns {Array<Object>}
  */
 function currentLevels() {
-	const base = buildHierarchy(state.facets, { scope: scopeWorkId() });
-	const out = [];
-	for (let i = 0, d = 0; i < base.length || d < state.drill.length; d += 1) {
-		const level = base[Math.min(i, base.length - 1)];
-		if (!level) break;
-		out.push(level);
-		// 「その他」を選んだ段は、同じ軸をもう一度使う（段を進めない）
-		if (state.drill[d] !== OTHER_GROUP_KEY) i += 1;
-		if (i >= base.length && d >= state.drill.length) break;
-	}
-	return out;
+	return buildHierarchy(state.facets, { scope: scopeWorkId() });
 }
 
 /**
@@ -474,26 +460,10 @@ function drilledNodes() {
 			list = list.filter(n => n.workId === picked);
 			continue;
 		}
-		// 「その他」は `maxGroups` を超えた値をまとめた**センチネル**なので、
-		// レコードの値と直接照合できない（`values.includes('\0other')` は必ず false になる）。
-		// 束ね方を決めたのと同じ `groupNodesByFacet()` をこのスコープで再実行し、
-		// 実際に「その他」へ入ったメンバーを取り出す。
-		if (picked === OTHER_GROUP_KEY) {
-			const grouped = groupNodesByFacet(list, level, {
-				lookupDictCell: list[0]?._relmapLookup,
-				resolveLabel: (f, value) => resolveFacetLabelPack(f, value, list[0]?.record)
-			});
-			const other = grouped.groups.find(g => g.value === OTHER_GROUP_KEY);
-			const keep = new Set(other ? other.members : []);
-			list = list.filter(n => keep.has(n.key));
-			continue;
-		}
-
-		list = list.filter(n => {
-			const values = facetValuesOf(n, level);
-			if (picked === UNSET_GROUP_KEY) return values.length === 0;
-			return values.includes(picked);
-		});
+		// 束ね方を決めたのと同じ「組み合わせキー」（`comboKeyForValues()`）で照合する。
+		// 単一値なら値そのもの、複数値なら「A,B」のような組み合わせキーになる
+		// （`groupNodesByFacet()` が作るグループの `value` と同じ規則）。
+		list = list.filter(n => comboKeyForValues(facetValuesOf(n, level)) === picked);
 	}
 	return list;
 }
@@ -576,11 +546,10 @@ function buildAggregateElements(nodes, level) {
 
 	// --- 寄せ集めのグループは線を引かない ---
 	//
-	// 「その他」（`maxGroups` に収まらなかった値の寄せ集め）と「(未設定)」は、
-	// **実体のあるまとまりではない**。前者は数十人が 1 つに潰れているのでほぼ全てと繋がり、
-	// 図をハブの線で埋めてしまううえ、「その他と陣営 A が繋がっている」と言われても何も読めない。
-	// 区画（人数）は見せるが、線は引かない。
-	const isBucket = (value) => value === OTHER_GROUP_KEY || value === UNSET_GROUP_KEY;
+	// 「(未設定)」は**実体のあるまとまりではない**ため、区画（人数）は見せるが線は引かない。
+	// 「その他」は 2026-08-04 に撤去した（複数値の組み合わせは専用グループになったため、
+	// 巨大な寄せ集めバケット自体が発生しなくなった）。
+	const isBucket = (value) => value === UNSET_GROUP_KEY;
 	const bucketIds = new Set(entries.filter(([value]) => isBucket(value)).map(([value]) => `grp:${value}`));
 
 	// --- グループ間の繋がりの強さを先に測る ---
@@ -609,14 +578,19 @@ function buildAggregateElements(nodes, level) {
 		return { a, b, weight };
 	});
 
-	// --- マス塗りの割当（人数分のセルを六角格子へ敷く） ---
+	// --- マス塗りの割当（対数比例のマス数を六角格子へ敷く） ---
 	//
 	// 三角セルだと輪郭が頂点ぶんだけ尖って鋭角の連続になる。六角セルは内角が常に 120°で鋭角を作らないため、
 	// 塊の輪郭を滑らかに読ませたいこの用途では六角のまま使う（ノード位置のスナップやエッジ経路は三角格子のまま）。
 	// グループの識別は「格子上の位置 + ラベル + 濃度段 + 境界の枠 + 左レール凡例」の多重符号化で行う。
 	// 色相を変える循環パレットは使わない（キャラシートに無い色が増えるため）。
+	//
+	// **面積（マス数）は人数に正比例させず対数比例にする**（`logProportionalCellCount()`）。
+	// 1 人のグループと数百人のグループが同居すると、正比例では最大のグループが図の大半を占めて
+	// 他が埋もれてしまう問題が実データで出たため（2026-08-04）。実人数は `count` として別に持たせ、
+	// ホバー表示やラベルはそちらを使う（マス数はあくまで見た目の面積調整用）。
 	const fill = buildHexFill(
-		entries.map(([value, g]) => ({ key: value, label: g.label, size: g.members.length })),
+		entries.map(([value, g]) => ({ key: value, label: g.label, size: logProportionalCellCount(g.members.length), count: g.members.length })),
 		{ spacing: CELL_SPACING, shadeCount: palette().shades.length, links }
 	);
 	state.board = fill;
@@ -637,7 +611,7 @@ function buildAggregateElements(nodes, level) {
 	});
 
 	// 集約ノード間のエッジ（本数を太さで表す）。
-	// 寄せ集めのグループ（その他 / 未設定）に触れる線は引かない
+	// 寄せ集めのグループ（(未設定)）に触れる線は引かない
 	const edges = new Map();
 	let bucketEdges = 0;
 	for (const e of visibleEdges()) {
@@ -1252,7 +1226,8 @@ function setHoverLabel(group) {
 	if (!box) return;
 	if (!group) { box.hidden = true; box.textContent = ''; return; }
 	box.hidden = false;
-	box.textContent = `${group.label}（${group.cellCount}）`;
+	// マス数（`cellCount`）は対数比例で圧縮した見た目の面積なので、実人数（`count`）を出す
+	box.textContent = `${group.label}（${group.count ?? group.cellCount}）`;
 }
 
 /**
@@ -1272,16 +1247,16 @@ function groupAtModelPos(modelPos) {
 }
 
 /**
- * 接続線を三角格子の 6 方向へ沿わせる
+ * 接続線を六角格子の 6 方向へ沿わせる
  *
  * @description ノードの座標が確定したあとに呼ぶ。
  * 各辺の折れ点を求めて `curveStyle` / `segW` / `segD` を data へ載せ、
  * スタイル側の `edge[curveStyle = "..."]` セレクタが拾う。
  *
- * ノードの配置自体は六角格子（`snapToHexLattice`）のままでも、
- * `hexBendPoints()`（`decomposeHexVector`）は実座標のベクトルを軸分解するだけなので、
- * `axes` に `TRI_AXES` を渡せば向きの制約だけ三角格子基準にできる
- * （ノードの格子とエッジの軸は独立に選べる）。
+ * ノードの配置・エッジの軸とも六角格子（`HEX_AXES`、既定値）で統一する。
+ * 三角格子軸（`TRI_AXES`）はマス塗りの格子見栄えとエッジの向きが噛み合わず
+ * 鋭角が目立ったため撤回し、路線図らしい統一感を優先して六角格子オンリーに戻した
+ * （2026-08-04 追記6）。
  *
  * エゴネットワーク（中心 1 個 + 直接の相手）も対象。中心から複数方向へ伸びる辺が
  * 近い角度に集まると重なって見えるため、多重辺のレーン分離も含めてここで揃える。
@@ -1296,7 +1271,7 @@ function applyEdgeRouting(mode) {
 	const routes = routeEdges(
 		cy.edges().map(e => ({ id: e.id(), source: e.source().id(), target: e.target().id() })),
 		positions,
-		{ nodeRadius: mode === 'cells' ? CELL_SPACING * 0.6 : NODE_BASE_SIZE * 0.7, axes: TRI_AXES }
+		{ nodeRadius: mode === 'cells' ? CELL_SPACING * 0.6 : NODE_BASE_SIZE * 0.7 }
 	);
 
 	cy.batch(() => {
@@ -1606,8 +1581,8 @@ function renderStats(counts, mode) {
 		`表示: ${counts.nodes} ノード / ${counts.edges} 本（${modeLabel}）`,
 		` ・ 対象 ${counts.characters} キャラ`,
 		autoHidden ? ` ・ 密度により自動で非表示: ${autoHidden}` : '',
-		// 寄せ集めのグループの線は意図して引いていない。黙って消えたと見えないよう明示する
-		counts.bucketEdges ? ` ・ 「その他」「(未設定)」の線 ${counts.bucketEdges} 本は非表示（寄せ集めのため）` : '',
+		// 寄せ集めのグループ（(未設定)）の線は意図して引いていない。黙って消えたと見えないよう明示する
+		counts.bucketEdges ? ` ・ 「(未設定)」の線 ${counts.bucketEdges} 本は非表示（寄せ集めのため）` : '',
 		crossText,
 		` ・ 全体 ${s.nodeCount} キャラ / ${s.edgeCount} 本`
 	]);
@@ -1628,10 +1603,14 @@ function renderBreadcrumb() {
 		let label = value;
 		if (level?.kind === 'work') label = workTitle(value);
 		else if (value === UNSET_GROUP_KEY) label = '(未設定)';
-		else if (value === OTHER_GROUP_KEY) label = 'その他';
 		else if (level) {
-			const pack = resolveFacetLabelPack(level, value);
-			label = pickLang(pack?.jp, pack?.en) || value;
+			// 複数値の組み合わせグループは `"A,B"` のような組み合わせキー（`comboKeyForValues()` 参照）なので、
+			// 分解してそれぞれラベル解決してから × で結ぶ（単一値ならそのまま 1 件になる）
+			const parts = String(value).split(',').filter(Boolean);
+			label = parts.map(v => {
+				const pack = resolveFacetLabelPack(level, v);
+				return pickLang(pack?.jp, pack?.en) || v;
+			}).join('×') || value;
 		}
 		items.push(el('span', { class: 'relmap__crumb-sep', text: '›' }));
 		items.push(el('button', {
