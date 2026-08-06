@@ -77,7 +77,11 @@
           "hashTag_EN": "corefolder 3D Avatar"
         }
       ],
-      "$display": { "section": "other", "sectionWrapper": "vrmViewerSection", "tagSpace": "internal" },
+      "$display": {
+        "section": "other",
+        "sectionWrapper": "vrmViewerSection",
+        "tagSpace": "internal"
+      },
       "hashTag_JP": "3Dアバター",
       "hashTag_EN": "3D Avatars",
       "searchable": false
@@ -86,8 +90,16 @@
       "hashTag": "SameModels_DBLink",
       "$type": "$Def_DBLinkRef[]|#Null",
       "hashTag_JP": "同モデル",
+      "$alt": "VariantModels_DBLink",
       "$enrich": true,
       "hashTag_EN": "Same-Model"
+    },
+    {
+      "hashTag": "VariantModels_DBLink",
+      "$type": "$Def_DBLinkRef[]|#Null",
+      "hashTag_JP": "同モデル(バリアント)",
+      "$enrich": false,
+      "hashTag_EN": "Same-Model (Variant)"
     },
     {
       "hashTag": "SameMPSeries_DBLink",

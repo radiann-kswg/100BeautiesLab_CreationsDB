@@ -58,6 +58,7 @@
           "ConversationPattern",
           "VRMs",
           "SameModels_DBLink",
+          "VariantModels_DBLink",
           "SameMPSeries_DBLink",
           "AnotherVersions_DBLink",
           "AnotherRegions_DBLink"

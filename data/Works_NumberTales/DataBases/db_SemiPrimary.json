@@ -1049,38 +1049,35 @@
   },
   {
     "Num": 222,
-    "Num_Badge": "222A",
-    "Progress": "released",
+    "Num_Badge": "222",
+    "Progress": "unprofiled",
     "isTriple": false,
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": "222-mp" }
     ],
-    "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": "222-alt" }],
-    "Name_JP": "222(ペルゲン)\n222(ドッペルゲンズ)",
-    "Name_EN": "222(Pelgäns)\n222(Doppelgäns)",
+    "VariantModels_DBLink": [
+      { "_DB": "SemiPrimary", "Num": "222A" },
+      { "_DB": "SemiPrimary", "Num": "222B" }
+    ],
+    "Name_JP": "222(ドッペルゲンズ)",
+    "Name_EN": "222(Doppelgäns)",
     "Images": {
-      "concept_PNGName": "cnsp_imgNTS-222A",
-      "conceptAlt_PNGName": ["cnsp_imgNTS-222A,NTS-222B-orig"],
-      "corefolder_PNGPath": [
-        "222/emstk_corefolderNTS-222A-2a",
-        "222/emstk_corefolderNTS-222A,NTS-222B-1"
-      ],
-      "designAlt_PNGPath": ["chattingArt/chart_imgNTS-222A,NTS-222B-humanoidWBed"]
+      "concept_PNGName": "cnsp_imgNTS-222",
+      "corefolder_PNGPath": ["222/emstk_corefolderNTS-222A,NTS-222B-1"],
+      "designAlt_PNGPath": [
+        "chattingArt/chart_imgNTS-222A,NTS-222B-humanoidWBed"
+      ]
     },
-    "FormalName_JP": "ナンバーテールズ222番機(開発用オリジナル版3倍型2号機)",
-    "FormalName_EN": "NumberTales #222 (Original version for development of EXtended By.3 Type Unit.2)",
+    "FormalName_JP": "ナンバーテールズ222番機(開発用オリジナル版)",
+    "FormalName_EN": "NumberTales #222 (Original version for development)",
     "CodeName_JP": "二二二",
     "CodeName_EN": "Two-Two-Two",
     "SPCodeName_JP": "2×111",
     "SPCodeName_EN": "2×111, Cloned I-s",
-    "ModelNumber": "APHR-NT [x3]II\nAPHR-NT I+XI.2|[x3]II",
-    "ModelName_JP": "ナンバーテールズ3倍型2号機\nナンバーテールズ1+11号2倍機または3倍型2号機(222番機)",
-    "ModelName_EN": "NumberTales EXtended By.3 Type Unit.2\nNumberTales Unit.1+11 EXtended By.2 and EXtended By.3 Type Unit.2 (Mk.222)",
-    "GenderType": "FemaleNeutral",
+    "ModelNumber": "APHR-NT I+XI.2|[x3]II",
+    "ModelName_JP": "ナンバーテールズ1+11号2倍機または3倍型2号機(222番機)",
+    "ModelName_EN": "NumberTales Unit.1+11 EXtended By.2 and EXtended By.3 Type Unit.2 (Mk.222)",
     "Class": ["マスタートリプル"],
-    "Height_cm": 147,
-    "Weight_kg": 42,
-    "BustSize": "B",
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_CaudalFin",
@@ -1090,6 +1087,40 @@
         "Note_EN": null
       }
     ],
+    "Summary_JP": "量産販売型かつ3桁ゾロ目の数字を持つ「マスタートリプル」という高性能な特殊クラスの個体。\nそのうち222番機の開発専用オリジナル機は２体存在し、「222(ペルゲン)」は「バイナ」らの後続型、「222(ドッペル)」は「111(アイズ)」の後続型にあたる。\nどちらも「2(ツグ)」・「バイナ」や「22(フジ)」にも劣らず、「222(ペルゲン)」は周囲状況に対する配慮に秀でた\"優しいお姉さん\"のごとく、「222(ドッペル)」は仲介や縁づくりが得意で\"クラスのマドンナ\"のごとく周りに親しまれている。\n222番機こと腹違いの双子としてお互い同式扱いとなっている２人は、よく生活を共にすることから信頼の強さもみられており、「222(ドッペル)」が「222(ペルゲン)」によく甘えている義姉妹愛の溢れる様子も。",
+    "Summary_EN": "A high-performance special class unit called \"MasterTriple\" that is both mass-produced and assigned a three-digit repdigit number.\nFor Mk.222, two developer-original units exist: 222(Pelgäns) is a successor to Binor and related lines, while 222(Doppels) is a successor to 111(Ize).\nBoth rival 2(Twiny), Binor, and 22(Twin-twina): 222(Pelgäns) is loved as a considerate \"gentle big sister\", while 222(Doppels) is cherished like a \"class madonna\" for mediation and bond-building.\nThough treated under one model number as paternal half-twins, they often live together and show deep trust, with 222(Doppels) frequently leaning affectionately on 222(Pelgäns).",
+    "Backgrounds_JP": "1+11号2倍機が現「222(ドッペル)」、3倍型2号機が現「222(ペルゲン)」にあたりそれぞれ別個体として設計が進められていたが、開発の事情で最終的にひとつの型式として統合された。そのため開発用オリジナル機は、形式上1体として扱われる2体1式の個体となっている。",
+    "Backgrounds_EN": "The extended By.2 type of Unit.1+11 model became the current 222(Doppels), while the extended Unit.2 model as By.3 Type became the current 222(Pelgäns), and both were originally designed as separate units. Due to development circumstances, they were ultimately unified into a single model format. As a result, the developer-original configuration is formally treated as one model consisting of a two-unit pair.",
+    "NumerospecAbout_JP": "疎外感を解消し縁を育む",
+    "NumerospecAbout_EN": "Eases alienation and nurtures bonds"
+  },
+  {
+    "Num": "222A",
+    "Num_Badge": "222A",
+    "Progress": "released",
+    "isTriple": false,
+    "AnotherVersions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": "222-mp" }
+    ],
+    "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": 222 }],
+    "Name_JP": "222(ペルゲン)",
+    "Name_EN": "222(Pelgäns)",
+    "Images": {
+      "concept_PNGName": "cnsp_imgNTS-222A",
+      "corefolder_PNGPath": ["222/emstk_corefolderNTS-222A-2a"],
+      "designAlt_PNGPath": [
+        "chattingArt/chart_imgNTS-222A,NTS-222B-humanoidWBed"
+      ]
+    },
+    "FormalName_JP": "ナンバーテールズ222番機(開発用オリジナル版3倍型2号機)",
+    "FormalName_EN": "NumberTales #222 (Original version for development of EXtended By.3 Type Unit.2)",
+    "ModelNumber": "APHR-NT [x3]II",
+    "ModelName_JP": "ナンバーテールズ3倍型2号機",
+    "ModelName_EN": "NumberTales EXtended By.3 Type Unit.2",
+    "GenderType": "FemaleNeutral",
+    "Height_cm": 147,
+    "Weight_kg": 42,
+    "BustSize": "B",
     "ConceptAge": 16,
     "FirstPersonCalling_JP": "自分に対し：私(わたし)\nドッペルに対し：ドペさん",
     "FirstPersonCalling_EN": "to Pelgäns: I (fem. neutral)\nto Doppels: Doppy(Dope-san)",
@@ -1360,15 +1391,11 @@
         "Note_EN": null
       }
     ],
-    "Summary_JP": "量産販売型かつ3桁ゾロ目の数字を持つ「マスタートリプル」という高性能な特殊クラスの個体。\nそのうち222番機の開発専用オリジナル機は２体存在し、「222(ペルゲン)」は「バイナ」らの後続型、「222(ドッペル)」は「111(アイズ)」の後続型にあたる。\nどちらも「2(ツグ)」・「バイナ」や「22(フジ)」にも劣らず、「222(ペルゲン)」は周囲状況に対する配慮に秀でた\"優しいお姉さん\"のごとく、「222(ドッペル)」は仲介や縁づくりが得意で\"クラスのマドンナ\"のごとく周りに親しまれている。\n222番機こと腹違いの双子としてお互い同式扱いとなっている２人は、よく生活を共にすることから信頼の強さもみられており、「222(ドッペル)」が「222(ペルゲン)」によく甘えている義姉妹愛の溢れる様子も。",
-    "Summary_EN": "A high-performance special class unit called \"MasterTriple\" that is both mass-produced and assigned a three-digit repdigit number.\nFor Mk.222, two developer-original units exist: 222(Pelgäns) is a successor to Binor and related lines, while 222(Doppels) is a successor to 111(Ize).\nBoth rival 2(Twiny), Binor, and 22(Twin-twina): 222(Pelgäns) is loved as a considerate \"gentle big sister\", while 222(Doppels) is cherished like a \"class madonna\" for mediation and bond-building.\nThough treated under one model number as paternal half-twins, they often live together and show deep trust, with 222(Doppels) frequently leaning affectionately on 222(Pelgäns).",
-    "Backgrounds_JP": "1+11号2倍機が現「222(ドッペル)」、3倍型2号機が現「222(ペルゲン)」にあたりそれぞれ別個体として設計が進められていたが、開発の事情で最終的にひとつの型式として統合された。そのため開発用オリジナル機は、形式上1体として扱われる2体1式の個体となっている。",
-    "Backgrounds_EN": "The extended By.2 type of Unit.1+11 model became the current 222(Doppels), while the extended Unit.2 model as By.3 Type became the current 222(Pelgäns), and both were originally designed as separate units. Due to development circumstances, they were ultimately unified into a single model format. As a result, the developer-original configuration is formally treated as one model consisting of a two-unit pair.",
     "NumerospecAbout_JP": "疎外感を解消し縁を育む",
     "NumerospecAbout_EN": "Eases alienation and nurtures bonds"
   },
   {
-    "Num": "222-alt",
+    "Num": "222B",
     "Num_Badge": "222B",
     "Progress": "released",
     "isTriple": false,
@@ -1376,40 +1403,24 @@
       { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": "222-mp" }
     ],
     "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": 222 }],
-    "Name_JP": "222(ドッペル)\n222(ドッペルゲンズ)",
-    "Name_EN": "222(Doppels)\n222(Doppelgäns)",
+    "Name_JP": "222(ドッペル)",
+    "Name_EN": "222(Doppels)",
     "Images": {
       "concept_PNGName": "cnsp_imgNTS-222B",
-      "conceptAlt_PNGName": ["cnsp_imgNTS-222A,NTS-222B-orig"],
-      "corefolder_PNGPath": [
-        "222/emstk_corefolderNTS-222B-2b",
-        "222/emstk_corefolderNTS-222A,NTS-222B-1"
-      ],
-      "designAlt_PNGPath": ["chattingArt/chart_imgNTS-222A,NTS-222B-humanoidWBed"]
+      "corefolder_PNGPath": ["222/emstk_corefolderNTS-222B-2b"],
+      "designAlt_PNGPath": [
+        "chattingArt/chart_imgNTS-222A,NTS-222B-humanoidWBed"
+      ]
     },
     "FormalName_JP": "ナンバーテールズ222番機(開発用オリジナル版1+11号2倍機)",
     "FormalName_EN": "NumberTales #222 (Original version for development of Unit.1+11 EXtended By.2)",
-    "CodeName_JP": "二二二",
-    "CodeName_EN": "Two-Two-Two",
-    "SPCodeName_JP": "2×111",
-    "SPCodeName_EN": "2×111, Cloned I-s",
-    "ModelNumber": "APHR-NT I+XI.2\nAPHR-NT I+XI.2|[x3]II",
-    "ModelName_JP": "ナンバーテールズ1+11号2倍機\nナンバーテールズ1+11号2倍機または3倍型2号機(222番機)",
-    "ModelName_EN": "NumberTales Unit.1+11 EXtended By.2\nNumberTales Unit.1+11 EXtended By.2 and EXtended By.3 Type Unit.2 (Mk.222)",
+    "ModelNumber": "APHR-NT I+XI.2",
+    "ModelName_JP": "ナンバーテールズ1+11号2倍機",
+    "ModelName_EN": "NumberTales Unit.1+11 EXtended By.2",
     "GenderType": "FemaleNeutral",
-    "Class": ["マスタートリプル"],
     "Height_cm": 146,
     "Weight_kg": 43,
     "BustSize": "A",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_CaudalFin",
-        "Count": 3,
-        "Segment": 2,
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "ConceptAge": 16,
     "FirstPersonCalling_JP": "自分に対して：僕\nペルゲンに対して：ペーちゃん",
     "FirstPersonCalling_EN": "to Doppels: I (masc. casual)\nto Pelgäns: Pelly(Pe-chan)",
@@ -1848,7 +1859,7 @@
     "Num": 444,
     "Num_Badge": "444",
     "isTriple": false,
-    "Progress": "unreleased",
+    "Progress": "released",
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": "444-mp" }
     ],
@@ -2714,7 +2725,10 @@
     "Name_EN": "777(Lucky-sevens)\n777(Luckies)",
     "Images": {
       "concept_PNGName": "cnsp_imgNTS-777",
-      "conceptAlt_PNGName": ["cnsp_imgNTS-777,NTS-777JPC", "cnsp_imgNTS-777,NTS-777JP-orig"]
+      "conceptAlt_PNGName": [
+        "cnsp_imgNTS-777,NTS-777JPC",
+        "cnsp_imgNTS-777,NTS-777JP-orig"
+      ]
     },
     "FormalName_JP": "ナンバーテールズ777番機",
     "FormalName_EN": "NumberTales #777",
@@ -3005,7 +3019,10 @@
     "Name_EN": "777(Lucky-sevens)\n777(Luckies)",
     "Images": {
       "concept_PNGName": "cnsp_imgNTS-777JP",
-      "conceptAlt_PNGName": ["cnsp_imgNTS-777,NTS-777JPC", "cnsp_imgNTS-777,NTS-777JP-orig"]
+      "conceptAlt_PNGName": [
+        "cnsp_imgNTS-777,NTS-777JPC",
+        "cnsp_imgNTS-777,NTS-777JP-orig"
+      ]
     },
     "FormalName_JP": "ナンバーテールズ777番機-ジャックポット",
     "FormalName_EN": "NumberTales #777.Jackpot",
