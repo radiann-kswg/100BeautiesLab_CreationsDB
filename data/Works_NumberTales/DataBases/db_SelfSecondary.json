@@ -740,7 +740,8 @@
     "Progress": "notProceeded",
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 222 },
-      { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": "222-alt" }
+      { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": "222A" },
+      { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": "222B" }
     ],
     "sec_SeriesTitle": "量産型マスタートリプル",
     "sec_Category": null,
