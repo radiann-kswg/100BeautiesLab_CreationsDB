@@ -1859,7 +1859,7 @@
     "Num": 444,
     "Num_Badge": "444",
     "isTriple": false,
-    "Progress": "unreleased",
+    "Progress": "released",
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": "444-mp" }
     ],
