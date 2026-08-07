@@ -1714,6 +1714,9 @@
     "ModelNumber": "APHR-NT [MP]444-*****",
     "GenderType": "Neutral",
     "Class": ["量産型マスタートリプル"],
+    "Height_cm": 163,
+    "Weight_kg": 59,
+    "BustSize": "A",
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxSpecial",
@@ -1723,6 +1726,11 @@
         "Note_EN": null
       }
     ],
+    "ConceptAge": {
+      "value": 44,
+      "about_JP": "便宜上はこの値だが真偽が定かでない",
+      "about_EN": "Conveniently this value, but not confirmed"
+    },
     "AppearanceDetail": [
       {
         "Formation": "corefolder",
@@ -3671,20 +3679,20 @@
     "Num": "888-mp",
     "Num_Badge": "888MP",
     "Progress": "notProceeded",
-    "VariantModels_DBLink": [
-      { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 888 }
-    ],
     "sec_SeriesTitle": "量産型マスタートリプル",
     "sec_Category": null,
     "sec_DesignedBy": ["RadianN"],
+    "VariantModels_DBLink": [
+      { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 888 }
+    ],
     "Name_JP": "888(ヤバヤ)",
     "Name_EN": "888(Octachtate)",
+    "FormalName_JP": "量産型ナンバーテールズ888番機シリーズ",
+    "FormalName_EN": "NumberTales #888 Series Mass Production Version for Sales",
     "CodeName_JP": "八八八",
     "CodeName_EN": "Eight-Eight-Eight",
     "SPCodeName_JP": null,
     "SPCodeName_EN": null,
-    "FormalName_JP": "量産型ナンバーテールズ888番機シリーズ",
-    "FormalName_EN": "NumberTales #888 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]888-*****",
     "Class": ["量産型マスタートリプル"],
     "TailsUnit": [
@@ -3782,20 +3790,20 @@
     "Num": "999-mp",
     "Num_Badge": "999MP",
     "Progress": "notProceeded",
-    "VariantModels_DBLink": [
-      { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 999 }
-    ],
     "sec_SeriesTitle": "量産型マスタートリプル",
     "sec_Category": null,
     "sec_DesignedBy": ["RadianN"],
+    "VariantModels_DBLink": [
+      { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 999 }
+    ],
     "Name_JP": "999(ノヴエニーナ)",
     "Name_EN": "999(Nov'enina)",
+    "FormalName_JP": "量産型ナンバーテールズ999番機シリーズ",
+    "FormalName_EN": "NumberTales #999 Series Mass Production Version for Sales",
     "CodeName_JP": "九九九",
     "CodeName_EN": "Nine-Nine-Nine",
     "SPCodeName_JP": null,
     "SPCodeName_EN": null,
-    "FormalName_JP": "量産型ナンバーテールズ999番機シリーズ",
-    "FormalName_EN": "NumberTales #999 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]999-*****",
     "Class": ["量産型マスタートリプル"],
     "TailsUnit": [
@@ -3901,9 +3909,9 @@
     "Name_EN": "1122(Nekoma)",
     "FormalName_JP": "ナンバーテールズ仮設1122番機",
     "FormalName_EN": "NumberTales Tentative #1122",
+    "ModelNumber": "APHR-NT [xZ]I+II",
     "ModelName_JP": "ナンバーテールズ仮設最終1+2号機",
     "ModelName_EN": "NumberTales Tentative Final-Renovated Unit.1+2",
-    "ModelNumber": "APHR-NT [xZ]I+II",
     "Class": ["最終型ハイナンバーズ"],
     "TailsUnit": [
       {

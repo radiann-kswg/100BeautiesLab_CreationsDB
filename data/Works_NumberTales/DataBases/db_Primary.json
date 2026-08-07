@@ -37882,7 +37882,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Waist"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -37898,7 +37898,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Leg"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -38031,8 +38031,8 @@
     },
     "Backgrounds_JP": "最後の正規型個体\n数字表記は漢数字となっている\n加護については偶然の産物（以下略）",
     "Backgrounds_EN": "The final standard-type unit\nThe number is written in kanji form\nZir blessing is a product of coincidence — (details omitted)",
-    "NumerospecAbout_JP": "？？？？の記憶を持つ",
-    "NumerospecAbout_EN": "Holds the memories of ？？？？",
+    "NumerospecAbout_JP": "？？？の記憶を持つ",
+    "NumerospecAbout_EN": "Holds the memories of ????",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "hideText": "判定不能" },
