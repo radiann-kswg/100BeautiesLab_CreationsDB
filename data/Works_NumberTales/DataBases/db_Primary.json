@@ -7,7 +7,10 @@
     "Name_EN": "1(Unitta)",
     "Images": {
       "concept_PNGName": "cnsp_imgNTS-1",
-      "corefolder_PNGPath": ["1/emstk_corefolderNTS-1-1", "1/emstk_corefolderNTS-1-2"],
+      "corefolder_PNGPath": [
+        "1/emstk_corefolderNTS-1-1",
+        "1/emstk_corefolderNTS-1-2"
+      ],
       "arts_PNGPath": ["humanoids/2023/art_imgNTS-1-humanoid"]
     },
     "FormalName_JP": "ナンバーテールズ1番機",
@@ -558,7 +561,10 @@
     "Name_EN": "2(Twiny)",
     "Images": {
       "concept_PNGName": "cnsp_imgNTS-2",
-      "corefolder_PNGPath": ["2/emstk_corefolderNTS-2-1", "2/emstk_corefolderNTS-2-2"],
+      "corefolder_PNGPath": [
+        "2/emstk_corefolderNTS-2-1",
+        "2/emstk_corefolderNTS-2-2"
+      ],
       "arts_PNGPath": [
         "humanoids/art_numbertalesAniv2nd",
         "corefolders/2023/art_imgNTS-2-corefolderWinter"
@@ -975,7 +981,10 @@
     "Name_EN": "3(Treiya)",
     "Images": {
       "concept_PNGName": "cnsp_imgNTS-3",
-      "corefolder_PNGPath": ["3/emstk_corefolderNTS-3-1", "3/emstk_corefolderNTS-3-2"]
+      "corefolder_PNGPath": [
+        "3/emstk_corefolderNTS-3-1",
+        "3/emstk_corefolderNTS-3-2"
+      ]
     },
     "FormalName_JP": "ナンバーテールズ3番機",
     "FormalName_EN": "NumberTales #3",
@@ -1780,7 +1789,9 @@
         "5/emstk_corefolderNTS-5-3"
       ],
       "arts_PNGPath": ["humanoids/art_pmNTS-5game"],
-      "designAlt_PNGPath": ["chattingArt/chart_imgNTS-25,NTS-5-humanoidCoolerSeason"]
+      "designAlt_PNGPath": [
+        "chattingArt/chart_imgNTS-25,NTS-5-humanoidCoolerSeason"
+      ]
     },
     "FormalName_JP": "ナンバーテールズ5番機",
     "FormalName_EN": "NumberTales #5",
@@ -3441,7 +3452,10 @@
     "Name_EN": "9(Nina)",
     "Images": {
       "concept_PNGName": "cnsp_imgNTS-9",
-      "corefolder_PNGPath": ["9/emstk_corefolderNTS-9-1", "9/emstk_corefolderNTS-9-2"],
+      "corefolder_PNGPath": [
+        "9/emstk_corefolderNTS-9-1",
+        "9/emstk_corefolderNTS-9-2"
+      ],
       "arts_PNGPath": [
         "corefolders/sphericateDay/art_sphericateDay202309-imgNTS-9",
         "corefolders/sphericateDay/art_sphericateDay202403"
@@ -9962,7 +9976,9 @@
           }
         }
       ],
-      "designAlt_PNGPath": ["chattingArt/chart_imgNTS-25,NTS-5-humanoidCoolerSeason"]
+      "designAlt_PNGPath": [
+        "chattingArt/chart_imgNTS-25,NTS-5-humanoidCoolerSeason"
+      ]
     },
     "FormalName_JP": "ナンバーテールズ25番機",
     "FormalName_EN": "NumberTales #25",
@@ -11292,7 +11308,10 @@
     "Name_EN": "28(Tweighan)",
     "Images": {
       "concept_PNGName": "cnsp_imgNTS-28",
-      "conceptAlt_PNGName": ["cnsp_imgNTS-28-onBusiness", "cnsp_imgNTS-28-onPrivate"],
+      "conceptAlt_PNGName": [
+        "cnsp_imgNTS-28-onBusiness",
+        "cnsp_imgNTS-28-onPrivate"
+      ],
       "corefolder_PNGPath": ["28/emstk_corefolderNTS-28-1"],
       "arts_PNGPath": [
         {
@@ -22712,7 +22731,10 @@
     "Images": {
       "concept_PNGName": "cnsp_imgNTS-57",
       "catalog_PNGName": "chr-dsgn_catalogNTS-57",
-      "corefolder_PNGPath": ["57/emstk_corefolderNTS-57-1"],
+      "corefolder_PNGPath": [
+        "57/emstk_corefolderNTS-57-1",
+        "57/emstk_corefolderNTS-57-2"
+      ],
       "arts_PNGPath": [
         "humanoids/2023/art_imgNTS-57-humanoid",
         "corefolders/sphericateDay/art_sphericateDay202305-imgNTS-57"
@@ -30003,7 +30025,10 @@
     "Name_EN": "75(Sefievn)",
     "Images": {
       "concept_PNGName": "cnsp_imgNTS-75",
-      "corefolder_PNGPath": ["75/emstk_corefolderNTS-75-1"],
+      "corefolder_PNGPath": [
+        "75/emstk_corefolderNTS-75-1",
+        "75/emstk_corefolderNTS-75-2"
+      ],
       "arts_PNGPath": [
         "corefolders/sphericateDay/art_sphericateDay202305-imgNTS-75"
       ]
