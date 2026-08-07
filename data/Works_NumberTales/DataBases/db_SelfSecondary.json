@@ -111,7 +111,10 @@
     "sec_DesignedBy": ["RadianN"],
     "Name_JP": "量産型 111(アイズ)",
     "Name_EN": "Cloned 111(Ize)",
-    "Images": { "concept_PNGName": "cnsp_imgNTS-111MP" },
+    "Images": {
+      "concept_PNGName": "cnsp_imgNTS-111MP",
+      "corefolder_PNGPath": ["111/emstk_corefolderNTS-111MP-1"]
+    },
     "FormalName_JP": "量産型ナンバーテールズ111番機シリーズ",
     "FormalName_EN": "NumberTales #111 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]111-*****",
@@ -1704,7 +1707,7 @@
     "Name_EN": "Cloned 444(Quad-emperone)",
     "Images": {
       "concept_PNGName": "cnsp_imgNTS-444MP",
-      "corefolder_PNGPath": ["444/emstk_corefolderNTS-444MP1"]
+      "corefolder_PNGPath": ["444/emstk_corefolderNTS-444MP-1"]
     },
     "FormalName_JP": "量産型ナンバーテールズ444番機シリーズ",
     "FormalName_EN": "NumberTales #444 Series Mass Production Version for Sales",
@@ -2446,7 +2449,7 @@
     "Name_EN": "Cloned 666(Lilith)",
     "Images": {
       "concept_PNGName": "cnsp_imgNTS-666MP",
-      "corefolder_PNGPath": ["666/emstk_corefolderNTS-666MP1"]
+      "corefolder_PNGPath": ["666/emstk_corefolderNTS-666MP-1"]
     },
     "FormalName_JP": "量産型ナンバーテールズ666番機シリーズ",
     "FormalName_EN": "NumberTales #666 Series Mass Production Version for Sales",
