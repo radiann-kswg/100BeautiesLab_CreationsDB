@@ -3301,7 +3301,7 @@
     "Num_Badge": "888",
     "Progress": "nowCreating",
     "isTriple": false,
-    "AnotherVersions_DBLink": [
+    "VariantModels_DBLink": [
       { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": "888-mp" }
     ],
     "Name_JP": "888(ムゲン)",
@@ -3354,7 +3354,7 @@
     "Num_Badge": "999",
     "Progress": "notProceeded",
     "isTriple": false,
-    "AnotherVersions_DBLink": [
+    "VariantModels_DBLink": [
       { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": "999-mp" }
     ],
     "Name_JP": "999(カンスト)",

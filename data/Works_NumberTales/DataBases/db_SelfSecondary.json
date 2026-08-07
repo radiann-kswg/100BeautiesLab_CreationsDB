@@ -3671,18 +3671,31 @@
     "Num": "888-mp",
     "Num_Badge": "888MP",
     "Progress": "notProceeded",
-    "AnotherVersions_DBLink": [
+    "VariantModels_DBLink": [
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 888 }
     ],
     "sec_SeriesTitle": "量産型マスタートリプル",
     "sec_Category": null,
     "sec_DesignedBy": ["RadianN"],
-    "Name_JP": "量産型 888(ムゲン)",
-    "Name_EN": "Cloned 888(Infy)",
+    "Name_JP": "888(ヤバヤ)",
+    "Name_EN": "888(Octachtate)",
+    "CodeName_JP": "八八八",
+    "CodeName_EN": "Eight-Eight-Eight",
+    "SPCodeName_JP": null,
+    "SPCodeName_EN": null,
     "FormalName_JP": "量産型ナンバーテールズ888番機シリーズ",
     "FormalName_EN": "NumberTales #888 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]888-*****",
-    "Class": ["量産型マスタートリプル"]
+    "Class": ["量産型マスタートリプル"],
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxSpecial",
+        "Count": 8,
+        "Segment": 3,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ]
   },
   {
     "Num": 959,
@@ -3769,18 +3782,31 @@
     "Num": "999-mp",
     "Num_Badge": "999MP",
     "Progress": "notProceeded",
-    "AnotherVersions_DBLink": [
+    "VariantModels_DBLink": [
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 999 }
     ],
     "sec_SeriesTitle": "量産型マスタートリプル",
     "sec_Category": null,
     "sec_DesignedBy": ["RadianN"],
-    "Name_JP": "量産型 999(カンスト)",
-    "Name_EN": "Cloned 999(Counstop)",
+    "Name_JP": "999(ノヴエニーナ)",
+    "Name_EN": "999(Nov'enina)",
+    "CodeName_JP": "九九九",
+    "CodeName_EN": "Nine-Nine-Nine",
+    "SPCodeName_JP": null,
+    "SPCodeName_EN": null,
     "FormalName_JP": "量産型ナンバーテールズ999番機シリーズ",
     "FormalName_EN": "NumberTales #999 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]999-*****",
-    "Class": ["量産型マスタートリプル"]
+    "Class": ["量産型マスタートリプル"],
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxSpecial",
+        "Count": 9,
+        "Segment": 3,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ]
   },
   {
     "Num": 1000,
