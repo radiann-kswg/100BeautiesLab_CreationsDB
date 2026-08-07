@@ -433,7 +433,13 @@
     ],
     "Name_JP": "111(アイズ)",
     "Name_EN": "111(Ize)",
-    "Images": { "concept_PNGName": "cnsp_imgNTS-111" },
+    "Images": {
+      "concept_PNGName": "cnsp_imgNTS-111",
+      "corefolder_PNGPath": [
+        "111/emstk_corefolderNTS-111-1",
+        "111/emstk_corefolderNTS-111-2"
+      ]
+    },
     "FormalName_JP": "ナンバーテールズ111番機",
     "FormalName_EN": "NumberTales #111",
     "CodeName_JP": "一一一",

@@ -33584,7 +33584,10 @@
     "Images": {
       "concept_PNGName": "cnsp_imgNTS-57",
       "catalog_PNGName": "chr-dsgn_catalogNTS-57",
-      "corefolder_PNGPath": ["57/emstk_corefolderNTS-57-1"],
+      "corefolder_PNGPath": [
+        "57/emstk_corefolderNTS-57-1",
+        "57/emstk_corefolderNTS-57-2"
+      ],
       "arts_PNGPath": [
         "humanoids/2023/art_imgNTS-57-humanoid",
         "corefolders/sphericateDay/art_sphericateDay202305-imgNTS-57"
@@ -44366,7 +44369,10 @@
     "Name_EN": "75(Sefievn)",
     "Images": {
       "concept_PNGName": "cnsp_imgNTS-75",
-      "corefolder_PNGPath": ["75/emstk_corefolderNTS-75-1"],
+      "corefolder_PNGPath": [
+        "75/emstk_corefolderNTS-75-1",
+        "75/emstk_corefolderNTS-75-2"
+      ],
       "arts_PNGPath": [
         "corefolders/sphericateDay/art_sphericateDay202305-imgNTS-75"
       ]

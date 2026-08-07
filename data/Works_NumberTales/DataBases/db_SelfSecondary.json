@@ -102,7 +102,7 @@
   {
     "Num": "111-mp",
     "Num_Badge": "111MP",
-    "Progress": "released(beta)",
+    "Progress": "released",
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 111 }
     ],
@@ -111,7 +111,10 @@
     "sec_DesignedBy": ["RadianN"],
     "Name_JP": "量産型 111(アイズ)",
     "Name_EN": "Cloned 111(Ize)",
-    "Images": { "concept_PNGName": "cnsp_imgNTS-111MP" },
+    "Images": {
+      "concept_PNGName": "cnsp_imgNTS-111MP",
+      "corefolder_PNGPath": ["111/emstk_corefolderNTS-111MP-1"]
+    },
     "FormalName_JP": "量産型ナンバーテールズ111番機シリーズ",
     "FormalName_EN": "NumberTales #111 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]111-*****",
@@ -398,7 +401,9 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ]
+    ],
+    "Summary_JP": "3桁ゾロ目の数字を持つ特殊クラスロットの「量産型マスタートリプル」に属し、通常個体と引け目を取らない性能をもつ通常個体互換の量産型ナンバーテールズ。\n「1(ハジメ)」や「11(トウイチ)」の基本設計を踏襲し、同クラスロットの中の代表個体ともいえる強力な性能を有する。",
+    "Summary_EN": "A regular-unit-compatible mass-production NumberTales belonging to \"Cloned MasterTriples 9\", the special Class-Lot for units carrying three-digit repdigit numbers, with performance that rivals regular units.\nInheriting the basic design of '1(Unitta)' and '11(Elevan)', ze holds powerful performance that could well be called representative of the Class-Lot."
   },
   {
     "Num": "112-mp",
@@ -774,7 +779,7 @@
   {
     "Num": 223,
     "Num_Badge": "223",
-    "Progress": "released(beta)",
+    "Progress": "released",
     "sec_Category": "リクエストナンバー",
     "sec_DesignedBy": ["RadianN"],
     "SameMPSeries_DBLink": [
@@ -880,7 +885,9 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ]
+    ],
+    "Summary_JP": "クラスロット「キャロルズ」に属するデュオトリプル型量産ナンバーテールズ。\n223番機シリーズの代表個体で、「キャロル数」「オイラー素数」「幸福数」などといった数学的特徴をモチーフにしたカスタマイズがなされていることから、数学的および数秘的ポテンシャルの強い「22(フジ)」の影響を大きく受けた個体でもある。",
+    "Summary_EN": "A Duet-Triple-type mass-production NumberTales belonging to the Class-Lot \"Caroles\".\nAs the representative unit of the #223 series, ze carries customizations themed on mathematical traits such as \"Carol numbers\", \"Euler primes\", and \"happy numbers\", which also makes zir a unit strongly influenced by '22(Twin-twina)', whose mathematical and numerological potential runs strong."
   },
   {
     "Num": "223-jw",
@@ -1689,7 +1696,7 @@
   {
     "Num": "444-mp",
     "Num_Badge": "444MP",
-    "Progress": "released(beta)",
+    "Progress": "released",
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 444 }
     ],
@@ -1700,11 +1707,12 @@
     "Name_EN": "Cloned 444(Quad-emperone)",
     "Images": {
       "concept_PNGName": "cnsp_imgNTS-444MP",
-      "corefolder_PNGPath": ["444/emstk_corefolderNTS-444MP1"]
+      "corefolder_PNGPath": ["444/emstk_corefolderNTS-444MP-1"]
     },
     "FormalName_JP": "量産型ナンバーテールズ444番機シリーズ",
     "FormalName_EN": "NumberTales #444 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]444-*****",
+    "GenderType": "Neutral",
     "Class": ["量産型マスタートリプル"],
     "TailsUnit": [
       {
@@ -2057,7 +2065,9 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ]
+    ],
+    "Summary_JP": "3桁ゾロ目の数字を持つ特殊クラスロットの「量産型マスタートリプル」に属し、通常個体と引け目を取らない性能をもつ通常個体互換の量産型ナンバーテールズ。\n「4(モチ)」や「44(シトシ)」の基底設計を踏襲し、同クラスロットの中でも高い演算性能を持つ。",
+    "Summary_EN": "A regular-unit-compatible mass-production NumberTales belonging to \"Cloned MasterTriples 9\", the special Class-Lot for units carrying three-digit repdigit numbers, with performance that rivals regular units.\nInheriting the base design of '4(Forna)' and '44(Folfourn)', ze holds high computational performance even within the Class-Lot."
   },
   {
     "Num": 451,
@@ -2428,7 +2438,7 @@
   {
     "Num": "666-mp",
     "Num_Badge": "666MP",
-    "Progress": "released(beta)",
+    "Progress": "released",
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 666 }
     ],
@@ -2439,7 +2449,7 @@
     "Name_EN": "Cloned 666(Lilith)",
     "Images": {
       "concept_PNGName": "cnsp_imgNTS-666MP",
-      "corefolder_PNGPath": ["666/emstk_corefolderNTS-666MP1"]
+      "corefolder_PNGPath": ["666/emstk_corefolderNTS-666MP-1"]
     },
     "FormalName_JP": "量産型ナンバーテールズ666番機シリーズ",
     "FormalName_EN": "NumberTales #666 Series Mass Production Version for Sales",
@@ -2767,7 +2777,9 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ]
+    ],
+    "Summary_JP": "3桁ゾロ目の数字を持つ特殊クラスロットの「量産型マスタートリプル」に属し、通常個体と引け目を取らない性能をもつ通常個体互換の量産型ナンバーテールズ。\n「6(ムイ)」や「66(ムロク)」の美学的設計を踏襲し、同クラスロットの中でも優美な美貌を持つ。",
+    "Summary_EN": "A regular-unit-compatible mass-production NumberTales belonging to \"Cloned MasterTriples 9\", the special Class-Lot for units carrying three-digit repdigit numbers, with performance that rivals regular units.\nInheriting the aesthetic design of '6(Sics)' and '66(Sixis)', she possesses a graceful beauty that stands out even within the Class-Lot."
   },
   {
     "Num": 670,
@@ -2858,7 +2870,7 @@
   {
     "Num": 753,
     "Num_Badge": "753",
-    "Progress": "released(beta)",
+    "Progress": "released",
     "sec_Category": "リクエストナンバー",
     "sec_DesignedBy": ["RadianN"],
     "Name_JP": "753(ナゴミ)",
@@ -2966,7 +2978,9 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ]
+    ],
+    "Summary_JP": "クラスロット「ワノマチ」に属するトリプルシックスズ型量産ナンバーテールズ。\n753番機シリーズの代表個体で、どこかの世界の極東で催される7歳・5歳・3歳の子供に向けた祭事をモチーフにしたカスタマイズがなされていることから、同じ「ワノマチ」のクラスに仮所属する「35(ミコ)」やその弟/妹個体「53(イツゾウ)」の影響を大きく受けた個体でもある。",
+    "Summary_EN": "A Triple-Sum-6s-type mass-production NumberTales belonging to the Class-Lot \"Wa-no-Machi\".\nAs the representative unit of the #753 series, ze carries customizations themed on a festival held in the Far East of a certain world for children aged seven, five, and three, which also makes zir a unit strongly influenced by '35(Míko)', provisionally assigned to the same \"Wa-no-Machi\" class, and by that unit's younger sibling '53(Fifthren)'."
   },
   {
     "Num": 773,
@@ -3019,7 +3033,7 @@
   {
     "Num": "777-mp",
     "Num_Badge": "777MP",
-    "Progress": "released(beta)",
+    "Progress": "released",
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 777 }
     ],
@@ -3299,12 +3313,14 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ]
+    ],
+    "Summary_JP": "3桁ゾロ目の数字を持つ特殊クラスロットの「量産型マスタートリプル」に属し、通常個体と引け目を取らない性能をもつ通常個体互換の量産型ナンバーテールズ。\n「7(ナナ)」や「77(ナヅナ)」の学習設計を踏襲し、加えて「VII×3.R(ラッキーセブンアール)」型アドオンによる機能特化に秀でたアーキテクチャを持つ。",
+    "Summary_EN": "A regular-unit-compatible mass-production NumberTales belonging to \"Cloned MasterTriples 9\", the special Class-Lot for units carrying three-digit repdigit numbers, with performance that rivals regular units.\nInheriting the learning-oriented design of '7(Sevan)' and '77(Sefvens)', he further holds an architecture that excels at functional specialization through the \"VIIx3.R (Lucky Seven-R)\" type addon."
   },
   {
     "Num": "777.Jackpot-mp",
     "Num_Badge": "777JMP",
-    "Progress": "released(beta)",
+    "Progress": "released",
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 777 }
     ],
