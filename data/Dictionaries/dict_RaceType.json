@@ -295,6 +295,12 @@
     ]
   },
   {
+    "RaceType": "PortableHumanoid(PhoenixType)",
+    "RaceType_JP": "ポータブルヒューマノイド(不死鳥型)",
+    "RaceType_EN": "Portable Humanoid (Phoenix Appearance-Type)",
+    "basis": [{ "RaceType": "Humanoid" }, { "RaceType": "Birdman" }]
+  },
+  {
     "RaceType": "DeviatableHumanoid(TaleBeastType)",
     "RaceType_JP": "妖獣型ディビエイタブルヒューマノイド",
     "RaceType_EN": "Deviatable Humanoid (Tale-Beast Appearance-Type)",

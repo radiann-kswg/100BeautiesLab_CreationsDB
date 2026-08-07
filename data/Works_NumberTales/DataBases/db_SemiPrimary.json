@@ -3299,7 +3299,7 @@
   {
     "Num": 888,
     "Num_Badge": "888",
-    "Progress": "notProceeded",
+    "Progress": "nowCreating",
     "isTriple": false,
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": "888-mp" }
@@ -3312,11 +3312,24 @@
     "CodeName_EN": "Eight-Eight-Eight",
     "SPCodeName_JP": "（無限）",
     "SPCodeName_EN": "Infinity",
-    "ModelNumber": "APHR-NT [x3]VIII",
-    "ModelName_JP": "ナンバーテールズ3倍型8号機(888番機)",
-    "ModelName_EN": "NumberTales EXtended By.3 Type Unit.8 (Mk.888)",
+    "ModelNumber": "APHR-NT [RZ]VIII",
+    "ModelName_JP": "ナンバーテールズ最終型8号機(888番機)",
+    "ModelName_EN": "NumberTales Final-Renovated Type Unit.8 (Mk.888)",
+    "RaceType": "PortableHumanoid(PhoenixType)",
     "GenderType": "Neutral",
-    "Class": ["マスタートリプル"],
+    "Class": ["マスタートリプル", "最終型ハイナンバーズ"],
+    "Height_cm": 155,
+    "BustSize": "A",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_BirdTailOnly",
+        "Count": 1,
+        "Segment": 1,
+        "Note_JP": "左右の翼部と尾羽が3つの「8」のような模様をしている",
+        "Note_EN": "The left and right wings and tail feathers have a pattern resembling three '8's."
+      }
+    ],
+    "ConceptAge": 18,
     "ThisMasters": [
       {
         "value_JP": "八坂 兵汰/ヘクター.キロバスター/葉月（夜月機関 第8幹部）",
@@ -3326,6 +3339,13 @@
           "_DB": "Primary",
           "Lunar": "Hadzuki"
         }
+      }
+    ],
+    "AnivDay": [
+      {
+        "Day": { "Month": 12, "DayOfMonth": 22 },
+        "DayAbout_JP": "開発記念（最終型ハイナンバーズとして）",
+        "DayAbout_EN": "Development commemoration (as Final-Renovated Type High-Numbers)"
       }
     ]
   },
@@ -3346,22 +3366,30 @@
     "SPCodeName_JP": "終",
     "SPCodeName_EN": "Final",
     "ModelNumber": "APHR-NT [RZ]IX",
-    "ModelName_JP": "ナンバーテールズ改良最終型9号機(999番機)",
-    "ModelName_EN": "NumberTales Final Renovated Type Unit.9 (Mk.999)",
+    "ModelName_JP": "ナンバーテールズ最終型9号機(999番機)",
+    "ModelName_EN": "NumberTales Final-Renovated Type Unit.9 (Mk.999)",
+    "RaceType": "PortableHumanoid(PhoenixType)",
     "GenderType": "Neutral",
-    "Class": ["マスタートリプル"],
+    "Class": ["マスタートリプル", "最終型ハイナンバーズ"],
     "Height_cm": 155,
     "BustSize": "A",
     "TailsUnit": [
       {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 9,
-        "Segment": 3,
-        "Note_JP": null,
-        "Note_EN": null
+        "TailShapeType": "#TailShapeType_BirdTailOnly",
+        "Count": 1,
+        "Segment": 1,
+        "Note_JP": "左右の翼部と尾羽が3つの「9」のような模様をしている",
+        "Note_EN": "The left and right wings and tail feathers have a pattern resembling three '9's."
       }
     ],
     "ConceptAge": 14,
+    "AnivDay": [
+      {
+        "Day": { "Month": 12, "DayOfMonth": 31 },
+        "DayAbout_JP": "開発記念（最終型ハイナンバーズとして）",
+        "DayAbout_EN": "Development commemoration (as Final-Renovated Type High-Numbers)"
+      }
+    ],
     "FirstPersonCalling_JP": "わらわ",
     "FirstPersonCalling_EN": "I (warawa; fem. archaic)",
     "SecondPersonCalling_JP": "お主",
@@ -3397,7 +3425,7 @@
     "SPCodeName_JP": "(丗三)",
     "SPCodeName_EN": "Triple Eleven",
     "ModelNumber": "APHR-NT [Px]XI.3",
-    "ModelName_JP": "ナンバーテールズ仮説11号3倍機(3x11番機(仮称))",
+    "ModelName_JP": "ナンバーテールズ仮設11号3倍機(3x11番機(仮称))",
     "ModelName_EN": "NumberTales' Tentative Prototype: NumberTales Unit.11 EXtended By.3 (Mk.3x11(Tentative))",
     "GenderType": "FemaleNeutral",
     "Class": ["仮設型ハイナンバー"],
