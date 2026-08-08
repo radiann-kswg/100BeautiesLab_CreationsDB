@@ -191,6 +191,28 @@ export function __getStoryEraSummaryForTest(storyEra) {
 	return getStoryEraSummary(storyEra);
 }
 
+/**
+ * formatValueForDisplay から巻き上げた純粋ヘルパーのテスト用エクスポート
+ * - もとは関数内クロージャで直接検証できなかったもの
+ * @returns {Object} ヘルパー関数群
+ */
+export function __getValueFormatHelpersForTest() {
+	return {
+		toEnglishOrdinal,
+		applyDisplayUnit,
+		formatEnumCodeWithAbout,
+		normalizeEnumFormat,
+		pickEnumFormat,
+		pickAboutByLang,
+		extractEnumValueParts,
+		schemaTypeIncludes,
+		pickEnumNameFromSchemaType,
+		findNestedKey,
+		formatSearchPairs,
+		readListLinkDisplayOpt
+	};
+}
+
 export function __getIndexIdentifierFromRecordForTest(rec, indexDef, records = null) {
 	return getIndexIdentifierFromRecord(rec, indexDef, records);
 }
@@ -3094,6 +3116,433 @@ function normalizeVarsDefKey(k) {
 	return globalThis.TypeResolver.normalizeVarsDefKey(k);
 }
 
+/* ========================================================================
+   formatValueForDisplay の下請け（純粋関数）
+
+   もとは formatValueForDisplay の内部クロージャだったが、呼び出しごとに
+   再生成される必要がまったく無いためモジュールスコープへ巻き上げた。
+   ここに置くのは「外側の状態（value / opt / labelMap / workMeta /
+   globalDefType / 表示言語）をひとつも参照しない」ものだけに限る。
+   外側の状態を要るものは fvCtx を第1引数に取る形で下段にまとめてある。
+   ======================================================================== */
+
+/**
+ * 数値を英語の序数表記へ変換（$display.unit_EN_ordinal 用）
+ * @param {any} raw - 整数として解釈できる値
+ * @returns {string} 例: 1 → '1st' / 12 → '12th' / 23 → '23rd'。変換できない場合は空文字
+ */
+function toEnglishOrdinal(raw) {
+	if (raw === null || raw === undefined) return '';
+	const s = String(raw).trim();
+	if (!/^[-+]?\d+$/.test(s)) return '';
+	const n = Number(s);
+	if (!Number.isFinite(n)) return '';
+	const normalized = Math.trunc(n);
+	const abs = Math.abs(normalized);
+	const mod100 = abs % 100;
+	// 11th / 12th / 13th は 1st / 2nd / 3rd の例外
+	if (mod100 >= 11 && mod100 <= 13) return `${normalized}th`;
+	switch (abs % 10) {
+		case 1: return `${normalized}st`;
+		case 2: return `${normalized}nd`;
+		case 3: return `${normalized}rd`;
+		default: return `${normalized}th`;
+	}
+}
+
+/**
+ * schema の $type 文字列に定義型が含まれるか（簡易）
+ * @param {any} t - $type 値（文字列 / 配列 / { $type } オブジェクト）
+ * @param {string} needle - 探す型名の一部（例: '#Index' / '$EnumDef_'）
+ * @param {number} [depth=0] - 再帰深度（暴走防止に 6 で打ち切る）
+ * @returns {boolean}
+ */
+function schemaTypeIncludes(t, needle, depth = 0) {
+	if (!needle) return false;
+	if (depth > 6) return false;
+	if (t === null || t === undefined) return false;
+	if (typeof t === 'string') return t.includes(needle);
+	if (Array.isArray(t)) return t.some((x) => schemaTypeIncludes(x, needle, depth + 1));
+	if (typeof t === 'object') {
+		// よくある { $type: ... } 形式
+		if (Object.prototype.hasOwnProperty.call(t, '$type')) {
+			return schemaTypeIncludes(t.$type, needle, depth + 1);
+		}
+		// フォールバック: 値を走査（過剰な探索を避けるため深さ制限あり）
+		return Object.values(t).some((x) => schemaTypeIncludes(x, needle, depth + 1));
+	}
+	return false;
+}
+
+/**
+ * schemaType から $EnumDef_XXX の XXX を抽出
+ * @param {any} t - $type 値
+ * @returns {string} enum 名。抽出できない場合は空文字
+ */
+function pickEnumNameFromSchemaType(t) {
+	const s = (typeof t === 'string') ? t : '';
+	const m = s.match(/\$EnumDef_([A-Za-z0-9_]+)/);
+	const picked = (m && m[1]) ? String(m[1]).trim() : '';
+	// NOTE: '$EnumDef_withAbout' は「enum名」ではなく型バリアント。
+	// これを enumName='withAbout' と誤認すると、辞書解決が走らず raw（英語コード）に退避してしまう。
+	if (picked && picked.replace(/\s+/g, '').toLowerCase() === 'withabout') return '';
+	return picked;
+}
+
+/**
+ * $VarsDef のネストから指定キー（#ListLink_XXX 等）を探索
+ * @param {any} obj - 探索対象
+ * @param {string} key - 探すキー
+ * @param {number} [depth=0] - 再帰深度（6 で打ち切る）
+ * @returns {any} 見つかった値、無ければ null
+ */
+function findNestedKey(obj, key, depth = 0) {
+	if (!obj || typeof obj !== 'object') return null;
+	if (depth > 6) return null;
+	if (Object.prototype.hasOwnProperty.call(obj, key)) return obj[key];
+
+	if (Array.isArray(obj)) {
+		for (const it of obj) {
+			const found = findNestedKey(it, key, depth + 1);
+			if (found) return found;
+		}
+		return null;
+	}
+
+	for (const v of Object.values(obj)) {
+		if (!v || typeof v !== 'object') continue;
+		const found = findNestedKey(v, key, depth + 1);
+		if (found) return found;
+	}
+	return null;
+}
+
+/**
+ * $display の enum 表示形式指定の綴り揺れを吸収
+ * @param {any} f - 'alpha' / 'code' / 'label' / 'alphaLabel' / 'codeLabel' / 'labelAlpha' / 'labelCode'
+ * @returns {string} 正規化後の形式。未知の値は空文字
+ */
+function normalizeEnumFormat(f) {
+	const s = String(f ?? '').trim();
+	if (s === 'alpha' || s === 'code') return 'alpha';
+	if (s === 'label') return 'label';
+	if (s === 'alphaLabel' || s === 'codeLabel') return 'alphaLabel';
+	if (s === 'labelAlpha' || s === 'labelCode') return 'labelAlpha';
+	return '';
+}
+
+/**
+ * `_Search` などの {hashTag, key} 配列を表示用に整形
+ * @param {any} pairs - `_Search` 配列
+ * @returns {string} 例: 'DayAbout=誕生日'
+ */
+function formatSearchPairs(pairs) {
+	if (!Array.isArray(pairs) || pairs.length === 0) return '';
+	const parts = [];
+	for (const p of pairs) {
+		if (!isPlainObject(p)) continue;
+		const h = typeof p.hashTag === 'string' ? p.hashTag.trim() : '';
+		const k = (p.key === null || p.key === undefined) ? '' : String(p.key).trim();
+		if (!h && !k) continue;
+		if (h && k) parts.push(`${h}=${k}`);
+		else parts.push(h || k);
+	}
+	return parts.join(', ');
+}
+
+/**
+ * `$display` の unit 系宣言を表示テキストへ付与する
+ * - `unit`（旧・言語非依存）/ `unit_JP` / `unit_EN` / `unit_EN_ordinal`
+ * - JP は「値+単位」（例: `170cm`）、EN とその他は空白区切り（例: `170 cm`）
+ * @param {any} text - 単位を付ける前の表示テキスト
+ * @param {Object} display - `$display` オブジェクト
+ * @param {string} lang - 表示言語（'jp' / 'en' / 'mix'）
+ * @param {any} [rawForUnit=null] - 序数化に使う元の値（省略時は text を使う）
+ * @returns {string}
+ */
+function applyDisplayUnit(text, display, lang, rawForUnit = null) {
+	const base = String(text ?? '').trim();
+	if (!base) return '';
+
+	const d = (display && typeof display === 'object') ? display : {};
+	const unitLegacy = d.unit ? String(d.unit).trim() : '';
+	const unitJP = d.unit_JP ? String(d.unit_JP).trim() : '';
+	const unitEN = d.unit_EN ? String(d.unit_EN).trim() : '';
+
+	const unit = lang === 'en'
+		? (unitEN || unitLegacy)
+		: (lang === 'jp' ? (unitJP || unitLegacy) : unitLegacy);
+	if (!unit) return base;
+
+	// 英語のみ序数化する宣言（例: 「17th Arcanum」）
+	if (lang === 'en' && unitEN && d.unit_EN_ordinal === true) {
+		const ordinalBase = toEnglishOrdinal(rawForUnit ?? base);
+		if (ordinalBase) return `${ordinalBase} ${unit}`.trim();
+	}
+
+	if (lang === 'jp' && unitJP) return `${base}${unit}`.trim();
+
+	return `${base} ${unit}`.trim();
+}
+
+/**
+ * globalDefType から利用可能な Enum 名（`$EnumDef_XXX` の XXX）を抽出
+ * @param {Object} globalDefType - グローバル型定義
+ * @returns {string[]}
+ */
+function listAvailableEnumNamesOf(globalDefType) {
+	const varsDef = globalDefType?.General?.$VarsDef;
+	if (!varsDef || typeof varsDef !== 'object') return [];
+	const out = [];
+	for (const k of Object.keys(varsDef)) {
+		if (!k || typeof k !== 'string') continue;
+		const m = k.match(/^\$EnumDef_([A-Za-z0-9_]+)$/);
+		if (m && m[1]) out.push(m[1]);
+	}
+	return out;
+}
+
+/**
+ * `$EnumDef_XXX` の参照（`#XXX1` 等）を実コードへ解決
+ * @param {Object} globalDefType - グローバル型定義
+ * @param {string} enumName - enum 名（例: 'Rank'）
+ * @param {string} key - 参照キー（例: '#Rank1'）
+ * @returns {string} 解決したコード。解決できない場合は空文字
+ */
+function resolveEnumKeyFromDefType(globalDefType, enumName, key) {
+	const en = String(enumName || '').trim();
+	const k = String(key || '').trim();
+	if (!en || !k.startsWith('#')) return '';
+	const g = globalDefType?.General?.$VarsDef?.[`$EnumDef_${en}`];
+	const v = g && typeof g === 'object' ? g[k] : null;
+	const code = v && typeof v === 'object' ? v[en] : null;
+	return (typeof code === 'string' && code.trim()) ? code.trim() : '';
+}
+
+/**
+ * `#ListLink_XXX`（db_meta.json）から項目を逆引き
+ * @param {Object} workMeta - 作品メタ（`$VarsDef` を持つ）
+ * @param {string} listFieldName - 'EffectText' 等
+ * @param {string} rawValue - '絶大' 等
+ * @returns {Object|null} 一致した項目。無ければ null
+ */
+function resolveListLinkItemFromMeta(workMeta, listFieldName, rawValue) {
+	const fn = String(listFieldName || '').trim();
+	const rv = String(rawValue ?? '').trim();
+	if (!fn || !rv) return null;
+
+	const vars = workMeta?.General?.$VarsDef || workMeta?.$VarsDef;
+	if (!vars || typeof vars !== 'object') return null;
+
+	const listDef = findNestedKey(vars, `#ListLink_${fn}`);
+	if (!Array.isArray(listDef)) return null;
+
+	for (const item of listDef) {
+		if (!item || typeof item !== 'object') continue;
+		const v = item[fn];
+		if (typeof v === 'string' && v.trim() === rv) return item;
+	}
+	return null;
+}
+
+/**
+ * `$display` から enum の表示形式を決める
+ * - Rank / Rarity / Decave は専用キー（rankFormat 等）を優先し、無ければ enumFormat
+ * @param {Object} display - `$display` オブジェクト
+ * @param {string} enumName - enum 名
+ * @returns {string}
+ */
+function pickEnumFormat(display, enumName) {
+	const en = String(enumName || '').trim();
+	if (!display || typeof display !== 'object') return '';
+	if (en === 'Rank' && display.rankFormat) return display.rankFormat;
+	if (en === 'Rarity' && display.rarityFormat) return display.rarityFormat;
+	if (en === 'Decave' && display.decaveFormat) return display.decaveFormat;
+	return display.enumFormat || '';
+}
+
+/**
+ * `_Jump` オブジェクトを表示用に整形
+ * 例: `{ hashTag: 'AnivDay', _Search: [{hashTag:'DayAbout', key:'誕生日'}] }`
+ * @param {any} jump - `_Jump` の値
+ * @param {Object} labelMap - フィールドラベル対応表
+ * @param {Object} workMeta - 作品メタ
+ * @param {Object} globalDefType - グローバル型定義
+ * @returns {string}
+ */
+function formatJumpValue(jump, labelMap, workMeta, globalDefType) {
+	if (!isPlainObject(jump)) return '';
+	const rawTarget = typeof jump.hashTag === 'string' ? jump.hashTag.trim() : '';
+	const target = rawTarget
+		? getFieldLabel(rawTarget, labelMap, workMeta, globalDefType, rawTarget)
+		: '';
+	const q = formatSearchPairs(jump._Search);
+	if (target && q) return `${target}（${q}）`;
+	return target || q || '';
+}
+
+/**
+ * `about` / `about_JP` / `about_EN` から表示言語に合う注釈を選ぶ
+ * @param {any} obj - 注釈キーを持ちうるオブジェクト
+ * @param {string} lang - 表示言語（'jp' / 'en' / 'mix'）
+ * @returns {string} 見つからなければ空文字
+ */
+function pickAboutByLang(obj, lang) {
+	if (!isPlainObject(obj)) return '';
+	const picked = lang === 'en'
+		? (obj.about_EN || obj.about_JP || obj.about)
+		: (obj.about_JP || obj.about_EN || obj.about);
+	return picked ? String(picked) : '';
+}
+
+/**
+ * `hideText`（意図的なマスク値）を表示用に解決する
+ * - 辞書（`$VarsDef.hideText`）にラベルがあれば言語に応じて差し替える
+ * @param {any} maskedText - `hideText` の生値
+ * @param {{workMeta: Object, globalDefType: Object, schemaType: any, display: any, lang: string}} ctx
+ * @returns {string}
+ */
+function formatMaskedValue(maskedText, ctx) {
+	const rawMasked = (typeof maskedText === 'string') ? maskedText.trim() : '';
+	if (!rawMasked) return '';
+
+	const pack = resolveVarsDefLabelPack('hideText', rawMasked, ctx.globalDefType, ctx.workMeta, 'hideText');
+	if (ctx.lang === 'en') {
+		return (pack?.en || '').trim() || rawMasked;
+	}
+	if (ctx.lang === 'mix') {
+		// #ListLink / Enum 経路は「コード説明」として日英併記を維持し、
+		// 素の hideText（例: 体重の非公開希望）は JP 優先で表示する。
+		if (!schemaTypeIncludes(ctx.schemaType, '#ListLink') && !schemaTypeIncludes(ctx.schemaType, '$EnumDef')) {
+			return (pack?.jp || '').trim() || rawMasked;
+		}
+	}
+	return formatBilingualLabel(pack, rawMasked, ctx.display) || rawMasked;
+}
+
+/**
+ * Rank 表現を人間向け表示に正規化
+ * - `{ Rank: 'A' }` / `{ Rank: { hideText: '???' } }` / `{ Rank: { Rank: 'A', about: '...' } }`
+ * - `{ Rank: 'A', about: '...' }` のような「Rank + 注釈」も扱う
+ * @param {any} obj - Rank キーを持つオブジェクト
+ * @param {string} lang - 表示言語
+ * @param {Object} maskCtx - formatMaskedValue() へ渡す文脈
+ * @returns {string}
+ */
+function formatRankValue(obj, lang, maskCtx) {
+	if (!isPlainObject(obj)) return '';
+	if (!Object.prototype.hasOwnProperty.call(obj, 'Rank')) return '';
+
+	const rawRank = obj.Rank;
+	const about = pickAboutByLang(obj, lang);
+
+	// Rank がプリミティブ
+	if (typeof rawRank === 'string' || typeof rawRank === 'number' || typeof rawRank === 'boolean') {
+		const base = String(rawRank).trim();
+		if (!base) return '';
+		return about ? `${base}（${about}）` : base;
+	}
+
+	// Rank が { hideText: '...' }
+	if (isPlainObject(rawRank) && typeof rawRank.hideText === 'string' && rawRank.hideText.trim()) {
+		return formatMaskedValue(rawRank.hideText, maskCtx);
+	}
+
+	// Rank が { Rank: 'A', about: '...' } のようなネスト
+	if (isPlainObject(rawRank) && Object.prototype.hasOwnProperty.call(rawRank, 'Rank')) {
+		const nestedBaseRaw = rawRank.Rank;
+		const nestedAbout = pickAboutByLang(rawRank, lang);
+
+		if (typeof nestedBaseRaw === 'string' || typeof nestedBaseRaw === 'number' || typeof nestedBaseRaw === 'boolean') {
+			const base = String(nestedBaseRaw).trim();
+			if (!base) return '';
+			return nestedAbout ? `${base}（${nestedAbout}）` : base;
+		}
+		if (isPlainObject(nestedBaseRaw) && typeof nestedBaseRaw.hideText === 'string' && nestedBaseRaw.hideText.trim()) {
+			return formatMaskedValue(nestedBaseRaw.hideText, maskCtx);
+		}
+	}
+
+	return '';
+}
+
+/**
+ * `$EnumDef_*` 用の「値」と「注釈」を分離して抽出
+ * @param {any} obj - enum キーを持つオブジェクト
+ * @param {string} enumName - enum 名
+ * @param {string} lang - 表示言語
+ * @returns {{code: string, about?: string} | {hideText: string} | null}
+ */
+function extractEnumValueParts(obj, enumName, lang) {
+	const en = String(enumName || '').trim();
+	if (!en) return null;
+	if (!isPlainObject(obj)) return null;
+	if (!Object.prototype.hasOwnProperty.call(obj, en)) return null;
+
+	const aboutOuter = pickAboutByLang(obj, lang);
+	const raw = obj[en];
+
+	if (typeof raw === 'string' || typeof raw === 'number' || typeof raw === 'boolean') {
+		const code = String(raw).trim();
+		if (!code) return null;
+		return aboutOuter ? { code, about: aboutOuter } : { code };
+	}
+
+	if (isPlainObject(raw) && typeof raw.hideText === 'string' && raw.hideText.trim()) {
+		return { hideText: raw.hideText };
+	}
+
+	if (isPlainObject(raw) && Object.prototype.hasOwnProperty.call(raw, en)) {
+		const nested = raw[en];
+		const about = pickAboutByLang(raw, lang) || aboutOuter;
+		if (typeof nested === 'string' || typeof nested === 'number' || typeof nested === 'boolean') {
+			const code = String(nested).trim();
+			if (!code) return null;
+			return about ? { code, about } : { code };
+		}
+		if (isPlainObject(nested) && typeof nested.hideText === 'string' && nested.hideText.trim()) {
+			return { hideText: nested.hideText };
+		}
+	}
+	return null;
+}
+
+/**
+ * `#ListLink_*` の表示オプション（`$display`）を解釈
+ * @param {any} display - `$display` オブジェクト
+ * @returns {{showEnum: boolean, enumName: string}}
+ */
+function readListLinkDisplayOpt(display) {
+	const d = (display && typeof display === 'object') ? display : null;
+	return {
+		showEnum: (d && typeof d.listLinkShowEnum === 'boolean') ? d.listLinkShowEnum : true,
+		enumName: (d && typeof d.listLinkEnumName === 'string') ? d.listLinkEnumName.trim() : ''
+	};
+}
+
+/**
+ * enum のコードと注釈を `$display` の形式指定に従って結合する
+ * @param {string} code - enum コード（例: 'S'）
+ * @param {any} about - 注釈（ラベル）
+ * @param {string} format - `pickEnumFormat()` が返す形式
+ * @returns {string}
+ */
+function formatEnumCodeWithAbout(code, about, format) {
+	const c = String(code ?? '').trim();
+	if (!c) return '';
+	const a = (about === null || about === undefined) ? '' : String(about).trim();
+	const fmt = normalizeEnumFormat(format);
+
+	// 既定（互換）: about があれば alphaLabel 相当、なければ alpha
+	if (!fmt) return a ? `${c}（${a}）` : c;
+
+	if (fmt === 'alpha') return c;
+	if (fmt === 'label') return a || c;
+	if (fmt === 'alphaLabel') return a ? `${c}（${a}）` : c;
+	if (fmt === 'labelAlpha') return a ? `${a}（${c}）` : c;
+	return c;
+}
+
 /**
  * Format value for display with global definition type support
  * @param {any} value - Value to format
@@ -3112,232 +3561,23 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 	const _fvLang = getCurrentPageLanguage();
 
 	const displayHint = (opt?.display && typeof opt.display === 'object') ? opt.display : {};
-	const unitLegacy = displayHint?.unit ? String(displayHint.unit).trim() : '';
-	const unitJP = displayHint?.unit_JP ? String(displayHint.unit_JP).trim() : '';
-	const unitEN = displayHint?.unit_EN ? String(displayHint.unit_EN).trim() : '';
-	const unitENOrdinal = displayHint?.unit_EN_ordinal === true;
 
-	const pickUnitByLanguage = () => {
-		if (_fvLang === 'en') return unitEN || unitLegacy;
-		if (_fvLang === 'jp') return unitJP || unitLegacy;
-		return unitLegacy;
+	// 以降のローカルは「呼び出し固有の状態（value / opt / labelMap / workMeta /
+	// globalDefType / _fvLang）を束ねてモジュール関数へ渡すだけ」の薄いアダプタ。
+	// 実体はモジュールスコープ側に置いてあるので、ロジックを読むときはそちらを見ること。
+	const withUnit = (text, rawForUnit = null) => applyDisplayUnit(text, displayHint, _fvLang, rawForUnit);
+
+	// hideText 解決に必要な文脈（呼び出し中は不変）
+	const maskCtx = {
+		workMeta,
+		globalDefType,
+		schemaType: opt?.schemaType,
+		display: opt?.display,
+		lang: _fvLang
 	};
-
-	const toEnglishOrdinal = (raw) => {
-		if (raw === null || raw === undefined) return '';
-		const s = String(raw).trim();
-		if (!/^[-+]?\d+$/.test(s)) return '';
-		const n = Number(s);
-		if (!Number.isFinite(n)) return '';
-		const normalized = Math.trunc(n);
-		const abs = Math.abs(normalized);
-		const mod100 = abs % 100;
-		if (mod100 >= 11 && mod100 <= 13) return `${normalized}th`;
-		switch (abs % 10) {
-			case 1: return `${normalized}st`;
-			case 2: return `${normalized}nd`;
-			case 3: return `${normalized}rd`;
-			default: return `${normalized}th`;
-		}
-	};
-
-	const withUnit = (text, rawForUnit = null) => {
-		const base = String(text ?? '').trim();
-		if (!base) return '';
-
-		const unit = pickUnitByLanguage();
-		if (!unit) return base;
-
-		if (_fvLang === 'en' && unitEN && unitENOrdinal) {
-			const ordinalBase = toEnglishOrdinal(rawForUnit ?? base);
-			if (ordinalBase) return `${ordinalBase} ${unit}`.trim();
-		}
-
-		if (_fvLang === 'jp' && unitJP) {
-			return `${base}${unit}`.trim();
-		}
-
-		return `${base} ${unit}`.trim();
-	};
-
-	/**
-	 * 値が「配列ではないObject」かどうか
-	 * @param {any} v
-	 * @returns {boolean}
-	 */
-	const isPlainObject = (v) => !!v && typeof v === 'object' && !Array.isArray(v);
-
-	/**
-	 * Rank 表現を人間向け表示に正規化
-	 * - { Rank: 'A' } / { Rank: { hideText: '???' } } / { Rank: { Rank: 'A', about: '...' } }
-	 * - { Rank: 'A', about: '...' } のような「Rank + 注釈」も扱う
-	 * @param {any} obj
-	 * @returns {string}
-	 */
-	const formatRankLike = (obj) => {
-		if (!isPlainObject(obj)) return '';
-		if (!Object.prototype.hasOwnProperty.call(obj, 'Rank')) return '';
-
-		const rawRank = obj.Rank;
-		const about = _fvLang === 'en' ? (obj.about_EN || obj.about_JP || obj.about) : (obj.about_JP || obj.about_EN || obj.about);
-
-		// Rank がプリミティブ
-		if (typeof rawRank === 'string' || typeof rawRank === 'number' || typeof rawRank === 'boolean') {
-			const base = String(rawRank).trim();
-			if (!base) return '';
-			if (about) return `${base}（${about}）`;
-			return base;
-		}
-
-		// Rank が { hideText: '...' }
-		if (isPlainObject(rawRank) && typeof rawRank.hideText === 'string' && rawRank.hideText.trim()) {
-			return formatMaskedDisplayValue(rawRank.hideText);
-		}
-
-		// Rank が { Rank: 'A', about: '...' } のようなネスト
-		if (isPlainObject(rawRank) && Object.prototype.hasOwnProperty.call(rawRank, 'Rank')) {
-			const nestedBaseRaw = rawRank.Rank;
-			const nestedAbout = _fvLang === 'en' ? (rawRank.about_EN || rawRank.about_JP || rawRank.about) : (rawRank.about_JP || rawRank.about_EN || rawRank.about);
-
-			if (typeof nestedBaseRaw === 'string' || typeof nestedBaseRaw === 'number' || typeof nestedBaseRaw === 'boolean') {
-				const base = String(nestedBaseRaw).trim();
-				if (!base) return '';
-				if (nestedAbout) return `${base}（${nestedAbout}）`;
-				return base;
-			}
-			if (isPlainObject(nestedBaseRaw) && typeof nestedBaseRaw.hideText === 'string' && nestedBaseRaw.hideText.trim()) {
-				return formatMaskedDisplayValue(nestedBaseRaw.hideText);
-			}
-		}
-
-		return '';
-	};
-
-	/**
-	 * Rank 表現の「値」と「注釈」を分離して抽出
-	 * - enum参照（#Rank3 等）を先に解決してから about を付けるため
-	 * @param {any} obj
-	 * @returns {{ rank: string, about?: string } | { hideText: string } | null}
-	 */
-	const extractRankParts = (obj) => {
-		if (!isPlainObject(obj)) return null;
-		if (!Object.prototype.hasOwnProperty.call(obj, 'Rank')) return null;
-
-		const aboutOuter = _fvLang === 'en' ? (obj.about_EN || obj.about_JP || obj.about) : (obj.about_JP || obj.about_EN || obj.about);
-		const rawRank = obj.Rank;
-
-		// Rank がプリミティブ
-		if (typeof rawRank === 'string' || typeof rawRank === 'number' || typeof rawRank === 'boolean') {
-			const rank = String(rawRank).trim();
-			if (!rank) return null;
-			return aboutOuter ? { rank, about: String(aboutOuter) } : { rank };
-		}
-
-		// Rank が { hideText: '...' }
-		if (isPlainObject(rawRank) && typeof rawRank.hideText === 'string' && rawRank.hideText.trim()) {
-			return { hideText: rawRank.hideText };
-		}
-
-		// Rank が { Rank: 'A', about: '...' } のようなネスト
-		if (isPlainObject(rawRank) && Object.prototype.hasOwnProperty.call(rawRank, 'Rank')) {
-			const nestedBaseRaw = rawRank.Rank;
-			const aboutNested = _fvLang === 'en' ? (rawRank.about_EN || rawRank.about_JP || rawRank.about) : (rawRank.about_JP || rawRank.about_EN || rawRank.about);
-			const about = aboutNested || aboutOuter;
-
-			if (typeof nestedBaseRaw === 'string' || typeof nestedBaseRaw === 'number' || typeof nestedBaseRaw === 'boolean') {
-				const rank = String(nestedBaseRaw).trim();
-				if (!rank) return null;
-				return about ? { rank, about: String(about) } : { rank };
-			}
-			if (isPlainObject(nestedBaseRaw) && typeof nestedBaseRaw.hideText === 'string' && nestedBaseRaw.hideText.trim()) {
-				return { hideText: nestedBaseRaw.hideText };
-			}
-		}
-
-		return null;
-	};
-
-	/**
-	 * $EnumDef_* 用の「値」と「注釈」を分離して抽出
-	 * @param {any} obj
-	 * @param {string} enumName
-	 * @returns {{ code: string, about?: string } | { hideText: string } | null}
-	 */
-	const extractEnumParts = (obj, enumName) => {
-		const en = String(enumName || '').trim();
-		if (!en) return null;
-		if (!isPlainObject(obj)) return null;
-		if (!Object.prototype.hasOwnProperty.call(obj, en)) return null;
-
-		const aboutOuter = _fvLang === 'en' ? (obj.about_EN || obj.about_JP || obj.about) : (obj.about_JP || obj.about_EN || obj.about);
-		const raw = obj[en];
-
-		if (typeof raw === 'string' || typeof raw === 'number' || typeof raw === 'boolean') {
-			const code = String(raw).trim();
-			if (!code) return null;
-			return aboutOuter ? { code, about: String(aboutOuter) } : { code };
-		}
-
-		if (isPlainObject(raw) && typeof raw.hideText === 'string' && raw.hideText.trim()) {
-			return { hideText: raw.hideText };
-		}
-
-		if (isPlainObject(raw) && Object.prototype.hasOwnProperty.call(raw, en)) {
-			const nested = raw[en];
-			const aboutNested = _fvLang === 'en' ? (raw.about_EN || raw.about_JP || raw.about) : (raw.about_JP || raw.about_EN || raw.about);
-			const about = aboutNested || aboutOuter;
-			if (typeof nested === 'string' || typeof nested === 'number' || typeof nested === 'boolean') {
-				const code = String(nested).trim();
-				if (!code) return null;
-				return about ? { code, about: String(about) } : { code };
-			}
-			if (isPlainObject(nested) && typeof nested.hideText === 'string' && nested.hideText.trim()) {
-				return { hideText: nested.hideText };
-			}
-		}
-		return null;
-	};
-
-	/**
-	 * schema の $type 文字列に定義型が含まれるか（簡易）
-	 * @param {any} t
-	 * @param {string} needle
-	 */
-	const schemaTypeIncludes = (t, needle, depth = 0) => {
-		if (!needle) return false;
-		if (depth > 6) return false;
-		if (t === null || t === undefined) return false;
-		if (typeof t === 'string') return t.includes(needle);
-		if (Array.isArray(t)) return t.some(x => schemaTypeIncludes(x, needle, depth + 1));
-		if (typeof t === 'object') {
-			// よくある { $type: ... } 形式
-			if (Object.prototype.hasOwnProperty.call(t, '$type')) {
-				return schemaTypeIncludes(t.$type, needle, depth + 1);
-			}
-			// フォールバック: 値を走査（過剰な探索を避けるため深さ制限あり）
-			return Object.values(t).some(x => schemaTypeIncludes(x, needle, depth + 1));
-		}
-		return false;
-	};
-
-	const formatMaskedDisplayValue = (maskedText) => {
-		const rawMasked = (typeof maskedText === 'string') ? maskedText.trim() : '';
-		if (!rawMasked) return '';
-
-		const pack = resolveVarsDefLabelPack('hideText', rawMasked, globalDefType, workMeta, 'hideText');
-		const pageLang = getCurrentPageLanguage();
-		if (pageLang === 'en') {
-			return (pack?.en || '').trim() || rawMasked;
-		}
-		if (pageLang === 'mix') {
-			// #ListLink / Enum 経路は「コード説明」として日英併記を維持し、
-			// 素の hideText（例: 体重の非公開希望）は JP 優先で表示する。
-			if (!schemaTypeIncludes(opt?.schemaType, '#ListLink') && !schemaTypeIncludes(opt?.schemaType, '$EnumDef')) {
-				return (pack?.jp || '').trim() || rawMasked;
-			}
-		}
-		return formatBilingualLabel(pack, rawMasked, opt?.display) || rawMasked;
-	};
+	const formatMaskedDisplayValue = (maskedText) => formatMaskedValue(maskedText, maskCtx);
+	const formatRankLike = (obj) => formatRankValue(obj, _fvLang, maskCtx);
+	const extractEnumParts = (obj, enumName) => extractEnumValueParts(obj, enumName, _fvLang);
 
 	/**
 	* #Index 型の値を、作品ごとの $IndexDef（typedef）に合わせて整形
@@ -3383,135 +3623,12 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 		return label ? `${label}: ${text}` : text;
 	};
 
-	/**
-	 * globalDefType から利用可能な Enum 名（$EnumDef_XXX の XXX）を抽出
-	 * @returns {string[]}
-	 */
-	const listAvailableEnumNames = () => {
-		const varsDef = globalDefType?.General?.$VarsDef;
-		if (!varsDef || typeof varsDef !== 'object') return [];
-		const out = [];
-		for (const k of Object.keys(varsDef)) {
-			if (!k || typeof k !== 'string') continue;
-			const m = k.match(/^\$EnumDef_([A-Za-z0-9_]+)$/);
-			if (m && m[1]) out.push(m[1]);
-		}
-		return out;
-	};
+	const listAvailableEnumNames = () => listAvailableEnumNamesOf(globalDefType);
+	const resolveEnumKey = (enumName, key) => resolveEnumKeyFromDefType(globalDefType, enumName, key);
+	const resolveListLinkItem = (listFieldName, rawValue) => resolveListLinkItemFromMeta(workMeta, listFieldName, rawValue);
+	const getEnumFormatFor = (enumName) => pickEnumFormat(opt?.display, enumName);
 
-	/**
-	 * schemaType から $EnumDef_XXX を抽出
-	 * @param {any} t
-	 * @returns {string}
-	 */
-	const pickEnumNameFromSchemaType = (t) => {
-		const s = (typeof t === 'string') ? t : '';
-		const m = s.match(/\$EnumDef_([A-Za-z0-9_]+)/);
-		const picked = (m && m[1]) ? String(m[1]).trim() : '';
-		// NOTE: '$EnumDef_withAbout' は「enum名」ではなく型バリアント。
-		// これを enumName='withAbout' と誤認すると、辞書解決が走らず raw（英語コード）に退避してしまう。
-		if (picked && picked.replace(/\s+/g, '').toLowerCase() === 'withabout') return '';
-		return picked;
-	};
-
-	/**
-	 * $EnumDef_XXX の参照（#XXX1 等）を解決
-	 * @param {string} enumName
-	 * @param {string} key
-	 */
-	const resolveEnumKey = (enumName, key) => {
-		const en = String(enumName || '').trim();
-		const k = String(key || '').trim();
-		if (!en || !k.startsWith('#')) return '';
-		const g = globalDefType?.General?.$VarsDef?.[`$EnumDef_${en}`];
-		const v = g && typeof g === 'object' ? g[k] : null;
-		const code = v && typeof v === 'object' ? v[en] : null;
-		return (typeof code === 'string' && code.trim()) ? code.trim() : '';
-	};
-
-	/**
-	 * $VarsDef のネストから指定キー（#ListLink_XXX 等）を探索
-	 * @param {any} obj
-	 * @param {string} key
-	 * @param {number} depth
-	 * @returns {any}
-	 */
-	const findNestedKey = (obj, key, depth = 0) => {
-		if (!obj || typeof obj !== 'object') return null;
-		if (depth > 6) return null;
-		if (Object.prototype.hasOwnProperty.call(obj, key)) return obj[key];
-
-		if (Array.isArray(obj)) {
-			for (const it of obj) {
-				const found = findNestedKey(it, key, depth + 1);
-				if (found) return found;
-			}
-			return null;
-		}
-
-		for (const v of Object.values(obj)) {
-			if (!v || typeof v !== 'object') continue;
-			const found = findNestedKey(v, key, depth + 1);
-			if (found) return found;
-		}
-		return null;
-	};
-
-	/**
-	 * #ListLink_XXX（db_meta.json）から項目を逆引き
-	 * @param {string} listFieldName - 'EffectText' 等
-	 * @param {string} rawValue - '絶大' 等
-	 * @returns {any|null}
-	 */
-	const resolveListLinkItem = (listFieldName, rawValue) => {
-		const fn = String(listFieldName || '').trim();
-		const rv = String(rawValue ?? '').trim();
-		if (!fn || !rv) return null;
-
-		const vars = workMeta?.General?.$VarsDef || workMeta?.$VarsDef;
-		if (!vars || typeof vars !== 'object') return null;
-
-		const listKey = `#ListLink_${fn}`;
-		const listDef = findNestedKey(vars, listKey);
-		if (!Array.isArray(listDef)) return null;
-
-		for (const item of listDef) {
-			if (!item || typeof item !== 'object') continue;
-			const v = item[fn];
-			if (typeof v === 'string' && v.trim() === rv) return item;
-		}
-		return null;
-	};
-
-	const normalizeEnumFormat = (f) => {
-		const s = String(f ?? '').trim();
-		if (s === 'alpha' || s === 'code') return 'alpha';
-		if (s === 'label') return 'label';
-		if (s === 'alphaLabel' || s === 'codeLabel') return 'alphaLabel';
-		if (s === 'labelAlpha' || s === 'labelCode') return 'labelAlpha';
-		return '';
-	};
-
-	const getEnumFormatFor = (enumName) => {
-		const en = String(enumName || '').trim();
-		const d = opt?.display;
-		if (!d || typeof d !== 'object') return '';
-		if (en === 'Rank' && d.rankFormat) return d.rankFormat;
-		if (en === 'Rarity' && d.rarityFormat) return d.rarityFormat;
-		if (en === 'Decave' && d.decaveFormat) return d.decaveFormat;
-		return d.enumFormat || '';
-	};
-
-	/**
-	 * #ListLink_* の表示オプション（$display）を解釈
-	 * @returns {{ showEnum: boolean, enumName: string }}
-	 */
-	const getListLinkDisplayOpt = () => {
-		const d = opt?.display;
-		const showEnum = (d && typeof d === 'object' && typeof d.listLinkShowEnum === 'boolean') ? d.listLinkShowEnum : true;
-		const enumName = (d && typeof d === 'object' && typeof d.listLinkEnumName === 'string') ? d.listLinkEnumName.trim() : '';
-		return { showEnum, enumName };
-	};
+	const getListLinkDisplayOpt = () => readListLinkDisplayOpt(opt?.display);
 
 	/**
 	 * $EnumLink_${Field}（db_meta.json）から表示名を解決
@@ -3603,24 +3720,7 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 		return null;
 	};
 
-	const formatEnumWithAbout = (enumName, code, about) => {
-		const c = String(code ?? '').trim();
-		if (!c) return '';
-		const a = (about === null || about === undefined) ? '' : String(about).trim();
-		const fmt = normalizeEnumFormat(getEnumFormatFor(enumName));
-
-		// 既定（互換）: about があれば alphaLabel 相当、なければ alpha
-		if (!fmt) {
-			if (a) return `${c}（${a}）`;
-			return c;
-		}
-
-		if (fmt === 'alpha') return c;
-		if (fmt === 'label') return a || c;
-		if (fmt === 'alphaLabel') return a ? `${c}（${a}）` : c;
-		if (fmt === 'labelAlpha') return a ? `${a}（${c}）` : c;
-		return c;
-	};
+	const formatEnumWithAbout = (enumName, code, about) => formatEnumCodeWithAbout(code, about, getEnumFormatFor(enumName));
 
 	const wrapperTypeSources = [
 		globalTypeDefCache,
@@ -3758,77 +3858,7 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 		}
 	}
 
-	/**
-	 * `_Search` などの {hashTag, key} 配列を表示用に整形
-	 * @param {any} pairs
-	 * @returns {string}
-	 */
-	const formatSearchPairs = (pairs) => {
-		if (!Array.isArray(pairs) || pairs.length === 0) return '';
-		const parts = [];
-		for (const p of pairs) {
-			if (!isPlainObject(p)) continue;
-			const h = typeof p.hashTag === 'string' ? p.hashTag.trim() : '';
-			const k = (p.key === null || p.key === undefined) ? '' : String(p.key).trim();
-			if (!h && !k) continue;
-			if (h && k) parts.push(`${h}=${k}`);
-			else parts.push(h || k);
-		}
-		return parts.join(', ');
-	};
-
-	/**
-	 * `_Jump` オブジェクトを表示用に整形
-	 * 例: { hashTag: 'AnivDay', _Search: [{hashTag:'DayAbout', key:'誕生日'}] }
-	 * @param {any} jump
-	 * @returns {string}
-	 */
-	const formatJump = (jump) => {
-		if (!isPlainObject(jump)) return '';
-		const rawTarget = typeof jump.hashTag === 'string' ? jump.hashTag.trim() : '';
-		const target = rawTarget
-			? getFieldLabel(rawTarget, labelMap, workMeta, globalDefType, rawTarget)
-			: '';
-		const q = formatSearchPairs(jump._Search);
-		if (target && q) return `${target}（${q}）`;
-		return target || q || '';
-	};
-
-	const resolveTypeDefEntries = (defName) => {
-		const name = String(defName || '').trim();
-		if (!name) return [];
-
-		for (const source of wrapperTypeSources) {
-			const metaEntries = source?.$MetaType?.[name]?.$DefType;
-			if (Array.isArray(metaEntries)) return metaEntries;
-
-			const generalVarsEntries = source?.General?.$VarsDef?.[name]?.$DefType;
-			if (Array.isArray(generalVarsEntries)) return generalVarsEntries;
-
-			const varsEntries = source?.$VarsDef?.[name]?.$DefType;
-			if (Array.isArray(varsEntries)) return varsEntries;
-		}
-
-		return [];
-	};
-
-	const getRoleEntries = (defName, role) => {
-		const targetRole = String(role || '').trim();
-		if (!targetRole) return [];
-		return resolveTypeDefEntries(defName).filter((entry) => {
-			const entryRole = entry?.$display?.role;
-			return typeof entryRole === 'string' && entryRole.trim() === targetRole;
-		});
-	};
-
-	const getRoleRawValues = (obj, defName, role) => {
-		if (!isPlainObject(obj)) return [];
-		return getRoleEntries(defName, role)
-			.map((entry) => obj?.[entry?.hashTag])
-			.filter((raw) => raw !== undefined && raw !== null && raw !== '');
-	};
-
-	const pickRoleRawValue = (obj, defName, role) => getRoleRawValues(obj, defName, role)[0];
+	const formatJump = (jump) => formatJumpValue(jump, labelMap, workMeta, globalDefType);
 
 	/**
 	 * ネストObject/配列から表示可能なプリミティブ文字列を抽出
