@@ -1,5 +1,17 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### refactor: D1 マイグレーションの共通ヘルパーを `migrate-common.mjs` へ集約した (2026-08-08)
+
+`pkg/cloudflare/scripts/migrate.mjs` の引数パース・JSON 読み込み・SQL 整形・D1 投入は、拡張ブランチ側の `migrate-aihints.mjs` が**同じ実装をコピーして**持っている。しかも `d1Execute()` に後から入った 3 つの修正（`--config` による wrangler.toml の明示 / Windows の `shell: true` / SQL パスの相対化）はコピー側へ反映されておらず、**同一処理が 2 実装に分かれて片方だけ腐る**状態だった。SW 入口 3 本を `StandardServiceWorker` へ統合したのと同じ構図なので、同じ扱いで解消する。
+
+- **`pkg/cloudflare/scripts/migrate-common.mjs` の新設**: 純粋関数（`esc` / `resolveIdxKey` / `getByPath` / `findJsonFiles` / `readJson`）、DB 名の解決（`CONVENTIONAL_FILES` / `stripDbPrefix` / `capitalize`）、共通引数（`parseCommonArgs`）、D1 投入（`createD1Runner`）を集約した。`migrate.mjs` 527 → 374 行。
+- **wrangler の起動条件を 1 箇所へ**: `--config` / `SPAWN_OPTS_BASE` / 一時 SQL の相対パス化は `createD1Runner()` の内側だけに持たせた。`dryRun` / `dbId` / 出力先はスクリプトごとに違うためファクトリ引数にしている。R2 アップロード（`migrate.mjs` 固有）からも使う `WRANGLER_CMD` / `WRANGLER_BASE_ARGS` / `SPAWN_OPTS_BASE` は export で共有する。
+- **`CONVENTIONAL_FILES` / `stripDbPrefix` / `capitalize`**: `migrate.mjs` では STEP 4 の**ブロック内ローカル定義**だったものをトップレベルの共通 export へ移した。挙動は同じ。
+- **共通化しなかったもの**: `resolveWorkDirForMigrate` / `readWorkBaseFile` / `sleepSync` / R2 アップロード本体は `migrate.mjs` 固有で、対応物が他に無い。
+- **AIHints 側の追従**: `migrate-aihints.mjs` をこの共通モジュールへ寄せる作業は、ブランチ運用方針に従い `addon-ai-tag` で実施する（`develop` には AIHints 関連の実装を含めない）。
+- **影響範囲**: `pkg/cloudflare/scripts/migrate-common.mjs`（新規）/ `pkg/cloudflare/scripts/migrate.mjs` / `tests/migrate-common.test.js`（新規 20 件）。
+- **検証**: `node pkg/cloudflare/scripts/migrate.mjs --dry-run --repo-root .` の標準出力が**リファクタ前と完全一致**（427 行の差分ゼロ）。`npm test` 66 ファイル / **1171 件すべて成功**。
+
 ### fix: `/api/v1` `/svc/v1` の未知パスが 404 ではなくネットワークエラーになっていた (2026-08-08)
 
 `StandardEndpointHandlers.handleAdvancedEndpoints()` は未処理のパスに対して `null` を返す。`api/sw.js` と `svc/sw.js` の `routeApiRequest()` はこれをそのまま return していたため、`ServiceWorkerBase` の `event.respondWith(null)` が呼ばれ、`/api/v1/bogus` のような未知パスが **404 JSON ではなくネットワークエラー**になっていた。`.catch()` は reject しか拾わないため握り潰しもできていない。`pages/sw.js` だけが独自のオーバーライドで `ResponseUtils.notFound()` を返して回避していたため、この不具合は `/pages/v1` では再現しない。
