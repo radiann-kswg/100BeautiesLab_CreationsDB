@@ -195,6 +195,59 @@ export function capitalize(s) {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
+// 作品ディレクトリの解決
+// ─────────────────────────────────────────────────────────────────────────────
+
+/**
+ * 作品IDから物理ディレクトリ名を解決する（`Works_Dir` オーバーライド対応）。
+ * 物理ディレクトリ名が既定の `Works_<id>` と異なる作品（共通資料の疑似作品等）向け。
+ *
+ * @param {string} workKey - '#Works_XXX' 形式
+ * @param {object} creationWorksMap - グローバル CreationWorks
+ * @returns {string}
+ */
+export function resolveWorkDirForMigrate(workKey, creationWorksMap) {
+  const info = creationWorksMap?.[workKey];
+  const override = (info && typeof info.Works_Dir === "string") ? info.Works_Dir.trim() : "";
+  if (override) return override;
+  return workKey.replace(/^#Works_/, "Works_");
+}
+
+/**
+ * 作品ベースファイル（db_meta.json / db_type.json）を読み込む。
+ * `DataBases/` サブフォルダが無ければ直下の同名ファイルを試す
+ * （`Works_Dir` オーバーライドで `DataBases/` を持たない作品向け。未検出は想定内のため警告を出さない）。
+ *
+ * @param {string} dataDir - `data/` の絶対パス
+ * @param {string} workDir - 物理ディレクトリ名
+ * @param {string} filename - "db_meta.json" | "db_type.json"
+ * @param {string} [tag] - 警告ログの接頭辞
+ * @returns {object|null}
+ */
+export function readWorkBaseFile(dataDir, workDir, filename, tag = "migrate") {
+  const nestedPath = join(dataDir, workDir, "DataBases", filename);
+  if (existsSync(nestedPath)) return readJson(nestedPath, tag);
+  return readJson(join(dataDir, workDir, filename), tag);
+}
+
+/**
+ * DB ファイルを探す基準ディレクトリを解決する。
+ * `layer` が `workDir` 自身と一致する場合（`Works_Dir` オーバーライドで workDir と
+ * DB_Layer が同名になる共通資料の疑似作品等）はレイヤーセグメントを畳み込み、
+ * 二重ディレクトリ（`data/X/X/`）を避ける。
+ *
+ * @param {string} dataDir - `data/` の絶対パス
+ * @param {string} workDir - 物理ディレクトリ名
+ * @param {string} layer - `DB_Layer`（既定 "DataBases"）
+ * @returns {string}
+ */
+export function resolveDbBasePath(dataDir, workDir, layer) {
+  return (layer && layer !== workDir)
+    ? join(dataDir, workDir, layer)
+    : join(dataDir, workDir);
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
 // D1 投入ユーティリティ
 // ─────────────────────────────────────────────────────────────────────────────
 

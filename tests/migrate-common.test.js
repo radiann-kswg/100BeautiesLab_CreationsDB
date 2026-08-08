@@ -8,6 +8,7 @@
  */
 
 import { describe, it, expect, vi } from 'vitest';
+import { join } from 'node:path';
 import {
   parseCommonArgs,
   esc,
@@ -16,6 +17,8 @@ import {
   stripDbPrefix,
   capitalize,
   CONVENTIONAL_FILES,
+  resolveWorkDirForMigrate,
+  resolveDbBasePath,
   createD1Runner,
 } from '../pkg/cloudflare/scripts/migrate-common.mjs';
 
@@ -119,6 +122,36 @@ describe('DB 名の解決', () => {
     expect(CONVENTIONAL_FILES[capitalize(stripDbPrefix('#DB_SemiPrimary'))]).toBe('db_SemiPrimary.json');
     expect(CONVENTIONAL_FILES[capitalize(stripDbPrefix('#DB_semiPrimary'))]).toBe('db_SemiPrimary.json');
     expect(CONVENTIONAL_FILES[capitalize(stripDbPrefix('#Ref_Society'))]).toBeUndefined();
+  });
+});
+
+describe('作品ディレクトリの解決', () => {
+  it('Works_Dir オーバーライドが無ければ #Works_ を Works_ に置換する', () => {
+    expect(resolveWorkDirForMigrate('#Works_NumberTales', {})).toBe('Works_NumberTales');
+  });
+
+  it('Works_Dir オーバーライドがあればそれを優先する', () => {
+    const map = { '#Works_CommonReferences': { Works_Dir: 'References' } };
+    expect(resolveWorkDirForMigrate('#Works_CommonReferences', map)).toBe('References');
+  });
+
+  it('Works_Dir が空文字・空白のみなら既定へフォールバックする', () => {
+    const map = { '#Works_X': { Works_Dir: '   ' } };
+    expect(resolveWorkDirForMigrate('#Works_X', map)).toBe('Works_X');
+  });
+
+  it('DB_Layer が workDir と異なればレイヤーを足す', () => {
+    expect(resolveDbBasePath('/data', 'Works_NumberTales', 'DataBases'))
+      .toBe(join('/data', 'Works_NumberTales', 'DataBases'));
+  });
+
+  it('DB_Layer が workDir と同名なら畳み込んで二重ディレクトリを避ける', () => {
+    expect(resolveDbBasePath('/data', 'References', 'References'))
+      .toBe(join('/data', 'References'));
+  });
+
+  it('DB_Layer が空なら workDir 直下を返す', () => {
+    expect(resolveDbBasePath('/data', 'Works_X', '')).toBe(join('/data', 'Works_X'));
   });
 });
 
