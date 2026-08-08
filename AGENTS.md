@@ -335,7 +335,8 @@
 │       ├── RoleplayPrompts/  # 配布用ロールプレイプロンプト
 │       └── Images/        # 作品別画像（DB_*/ Ref_*/ General/）
 ├── pages/                 # キャラシート生成機能（メイン）
-│   ├── characters.html / .css / .sass / .js / characters_final.js
+│   ├── characters.html / .css / .sass / .js
+│   ├── relations.html / .css / .sass / .js  # 相関図ページ
 │   ├── vendor/            # 同梱外部ライブラリ（外部CDN非依存）
 │   └── sw.js              # Service Worker
 ├── api/                   # API 機能（レガシー）

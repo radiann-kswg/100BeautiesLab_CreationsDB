@@ -61,9 +61,11 @@ describe('belonging renderer ($Def_Faction)', () => {
 		expect(formatBelonging({ Faction: '百花繚乱研究所' })).toBe('百花繚乱研究所（九蓮国）');
 	});
 
+	// 補足を持つ辞書行を対象にする。'管理主' は 9938762「DB推敲(辞書解説周り)」で
+	// BaseAreaAbout_JP/_EN が削除されたため、補足が残っている 'デウスマキナ' へ差し替えた。
 	it('appends the area supplement declared on the dictionary row', () => {
-		expect(formatBelonging({ Faction: '管理主' }))
-			.toBe('管理主（超次元執筆空間(アトリエ)／第８界の管理を行っている）');
+		expect(formatBelonging({ Faction: 'デウスマキナ' }))
+			.toBe('デウスマキナ（紅雪連邦／名義上の所在地）');
 	});
 
 	it('renders english labels when the page language is en', () => {
