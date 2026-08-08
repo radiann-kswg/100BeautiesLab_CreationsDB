@@ -90,6 +90,29 @@
 - `lib/sw-common.js`: ルーティング、レスポンス生成、DB 読み込み、標準エンドポイントの共通実装
 - `lib/data-common.js`: 参照解決、enrich、typedef 駆動の正規化・検索・画像抽出の共通実装
 
+### 1.1 入口ファイルと `StandardServiceWorker`
+
+3 つの入口はルート表・依存の組み立て・事前キャッシュがすべて同一だったため、
+実装は `lib/sw-common.js` の **`StandardServiceWorker`**（`ServiceWorkerBase` を継承）に集約しています。
+入口ファイルはスコープ設定だけを持ち、`api/sw.js` と `svc/sw.js` は各 30 行程度です。
+
+スコープ差はコンストラクタ引数の 3 つだけです。
+
+| 引数 | api | svc | pages |
+| --- | --- | --- | --- |
+| `scope` | `'API'` | `'SVC'` | `'Pages'` |
+| `resolvePrefixes` | 省略（`API_PREFIX` のみ） | 省略（同左） | `/pages/v1` + `/svc/v1` + `/api/v1` の 3 本 |
+| `enrichDefault` | `false`（`?enrich=1` で opt-in） | `false`（同左） | `true`（常時 enrich） |
+
+固有エンドポイントを足す場合はサブクラスで **`routeExtraEndpoints(seg, url, resolve, debug, enrich)`** を実装します
+（現状の利用は `pages/sw.js` の `/pages/v1/enrich` のみ）。未処理なら `null` を返してください。
+
+> **未知パスの扱い（重要）**: `StandardEndpointHandlers.handleAdvancedEndpoints()` は未処理時に `null` を返します。
+> 共通ルート表はこれを受けて必ず `ResponseUtils.notFound()` へフォールバックします。
+> ここを素通しすると `event.respondWith(null)` となり、404 JSON ではなく**ネットワークエラー**になります
+> （統合前の `api/sw.js` / `svc/sw.js` に実在した不具合。2026-08-08 修正）。
+> 回帰は `tests/sw.routing.test.js` が守っています。
+
 ---
 
 ## 2. リクエスト処理の流れ

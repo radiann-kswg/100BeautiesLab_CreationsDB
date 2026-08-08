@@ -78,6 +78,9 @@
 
 判断基準:
 
+- **入口ファイル（`api/sw.js` / `svc/sw.js` / `pages/sw.js`）にルート表を書かない**。標準ルートは
+  `lib/sw-common.js` の `StandardServiceWorker` が持ちます。スコープ固有のエンドポイントだけを
+  サブクラスの `routeExtraEndpoints()` へ足してください（詳細は `docs/api-sw-spec.md` §1.1）
 - ルーティング差より先に、共通化できる処理は `StandardEndpointHandlers` と `EnrichmentProcessor` に寄せます
 - 作品別 `db_meta.json` は追加価値レイヤーなので、欠損しても DB 取得 / 検索 / enrich を落とさない方針を維持します
 - enum/list 辞書は `db_meta.json` と `db_type.json($VarsDef)` の合成を前提に扱います

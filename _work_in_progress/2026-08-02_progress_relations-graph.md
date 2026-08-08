@@ -883,8 +883,10 @@ python -m http.server 8080
 - **`lib/data-common.js` の同一作品 `$enrich:true` マージで `isForSecondary` フィルタが効いていない**
   （`fieldEntriesByKey` / `isSecondaryContext` が同一作品では null）— 現状データでは未顕在だが、
   SemiPrimary に `Relation` を書いた瞬間に SelfSecondary 12 件へ幽霊エッジが出る。
-- **`lib/frontend-common.js`（619 行）がリポジトリ全体で import 元ゼロのデッドコード**（ロード時に console.log する）。
-  削除可否は User 判断。
+- ~~**`lib/frontend-common.js`（619 行）がリポジトリ全体で import 元ゼロのデッドコード**（ロード時に console.log する）。
+  削除可否は User 判断。~~ → **2026-08-08 に削除済み**（`refactor/sw-ui-cleanup` ブランチ。
+  同時に `pages/characters_final.js`（12 行・参照元ゼロ）も削除。詳細は
+  `2026-08-08_progress_sw-ui-refactor.md`）。
 
 ### 解決済み
 
