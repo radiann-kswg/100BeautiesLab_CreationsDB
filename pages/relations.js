@@ -209,14 +209,17 @@ function el(tag, props = {}, children = []) {
 	return node;
 }
 
-/** 子要素をすべて入れ替える @param {HTMLElement|null} parent @param {Array} children */
+/**
+ * 子要素をすべて入れ替える
+ * 呼び出し側が `cond ? el(...) : null` の形で null / false を混ぜるため、
+ * それらを除いてから native の `Element.replaceChildren()` へ委譲する
+ * （native は文字列を自動でテキストノード化するので createTextNode は不要）。
+ * @param {HTMLElement|null} parent
+ * @param {Array} children
+ */
 function replaceChildren(parent, children) {
 	if (!parent) return;
-	parent.textContent = '';
-	for (const c of (Array.isArray(children) ? children : [children])) {
-		if (c === null || c === undefined || c === false) continue;
-		parent.appendChild(typeof c === 'string' ? document.createTextNode(c) : c);
-	}
+	parent.replaceChildren(...[].concat(children).filter((c) => c !== null && c !== undefined && c !== false));
 }
 
 /** 現在の言語で JP/EN を選ぶ @param {string} jp @param {string} en @returns {string} */
