@@ -1,5 +1,28 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### fix: `/api/v1` `/svc/v1` の未知パスが 404 ではなくネットワークエラーになっていた (2026-08-08)
+
+`StandardEndpointHandlers.handleAdvancedEndpoints()` は未処理のパスに対して `null` を返す。`api/sw.js` と `svc/sw.js` の `routeApiRequest()` はこれをそのまま return していたため、`ServiceWorkerBase` の `event.respondWith(null)` が呼ばれ、`/api/v1/bogus` のような未知パスが **404 JSON ではなくネットワークエラー**になっていた。`.catch()` は reject しか拾わないため握り潰しもできていない。`pages/sw.js` だけが独自のオーバーライドで `ResponseUtils.notFound()` を返して回避していたため、この不具合は `/pages/v1` では再現しない。
+
+- **修正**: 共通ルート表の末尾で `handleAdvancedEndpoints()` の結果が falsy なら `ResponseUtils.notFound('Unknown API path')` を返す。1 箇所で 3 スコープすべてに効く。
+- **あわせて**: `StandardEndpointHandlers.handleWorkVarsdefEndpoint()` へ不正 `works` の 400 検証を引き上げた。従来この検証は `pages/sw.js` のオーバーライド側にしか無く、`api` / `svc` は `workId = null` のまま処理を続けていた。
+- **影響範囲**: `lib/sw-common.js` / `api/sw.js` / `svc/sw.js` / `pages/sw.js` / `tests/sw.routing.test.js`（新規）/ `docs/api-sw-spec.md` §1.1。
+- **検証**: `tests/sw.routing.test.js` を新設（8 件）。`node:vm` で `sw-common.js` を読み込み、ルート振り分け・`enrich` 既定値・`resolve`・404 フォールバック・入力検証を検証した。**修正前のコードでは 3 件が落ちる**ことを確認済み。
+
+### refactor: SW 入口 3 本の重複統合と、巨大関数 2 本の分解・デッドコード削除 (2026-08-08)
+
+`lib/` `pages/` `api/` `svc/` の JS を対象に、機能追加ではなく削除・統合で解消できる負債をまとめて処理した。挙動変更は上記 404 バグの修正 1 点のみ。
+
+- **`StandardServiceWorker` の新設**: `api/sw.js` と `svc/sw.js` は正規化 diff でコメントとラベル文字列以外に差が無く、`pages/sw.js` もルート表が同一だった。実装を `lib/sw-common.js` へ集約し、スコープ差（プレフィックス / `enrich` 既定値 / 固有エンドポイント）だけをコンストラクタ引数と `routeExtraEndpoints()` へ追い出した。`api/sw.js` 150 → 29 行、`svc/sw.js` 151 → 29 行、`pages/sw.js` 245 → 115 行。
+- **デッドコード削除（計 725 行）**: `lib/frontend-common.js`（619 行・リポジトリ全体で import 元ゼロ）、`pages/characters_final.js`（12 行・どの HTML からも読まれず、スコープ外の `main()` を呼ぶ）、`formatValueForDisplay` 内の `extractRankParts` と `resolveTypeDefEntries → getRoleEntries → getRoleRawValues → pickRoleRawValue` の閉じた連鎖（約 90 行）、`renderDetail` 内の `normalizedBasicFieldKeySet` / `schemaKeySet` / `otherRows`、`isPlainObject` ×4 と `schemaTypeIncludes` ×1 の shadow 定義。
+- **`formatValueForDisplay` の分解**: 1211 → 792 行。内部クロージャのうち「呼び出し固有の状態を参照しない」10 本と「自然な引数で切り出せる」8 本をモジュールスコープへ移し、呼び出し側には 1 行のアダプタだけを残した（内部の呼び出し箇所は無改修）。
+- **`renderDetail` の前段抽出**: 2066 → 1950 行。境界を跨ぐ変数の数を実測し、薄い継ぎ目（12 個・14 個）だけを `loadDetailRenderContext()` / `buildDetailImageSection()` として抽出した。それ以降の境界は 20〜38 個が跨ぐ密結合のため分割していない。
+- **`replaceChildren()` を native 化**: `pages/relations.js` の手書き DOM ループを `Element.replaceChildren()` へ委譲（native は文字列を自動でテキストノード化する）。
+- **見送った統合**: `el()`（`characters.js` 版は `TRUSTED_EL_NODES` による XSS ガードを持ち、`relations.js` 版は許容側。どちらへ寄せてもガードを外すかノードが黙って消えるかになる）、`isSecondaryDbName()`（部分一致 + `semiprimary` 除外 vs 3 名の完全一致で意味論が違う）、言語ヘルパー（別の localStorage キーと別の別名許容範囲を持ち仕様判断が要る）。いずれも 3〜19 行の小関数で、共有モジュールを新設しても純減しない。
+- **性能について**: 当初「クロージャの毎回再生成が一覧描画のボトルネック」と見立てたが、実測したところ一覧描画 1 回相当（最大 DB の 795 レコード × 約 3 呼び出し）で **約 0.43ms** にすぎず、DOM 描画に対して無視できることが分かったため、この見立ては撤回した。本リファクタの目的は可読性に限定している。
+- **影響範囲**: `lib/sw-common.js` / `api/sw.js` / `svc/sw.js` / `pages/sw.js` / `pages/characters.js` / `pages/relations.js` / `AGENTS.md`（ディレクトリ図）/ `docs/api-sw-spec.md` / `docs/implementation-playbook.md` / `tests/sw.routing.test.js`（新規 8 件）/ `tests/pages.characters.value-format.test.js`（新規 27 件）/ `tests/faction.render.test.js`。
+- **検証**: `npm test` **65 ファイル / 1151 件すべて成功**。`agents:check` / `data:order:check` も緑。
+
 ### test: 残っていた赤 3 件を現行 DB へ追従させ、`db_PrimaryPerformer.json` のキー順を整列した (2026-08-04)
 
 ハンカクライブの DB 更新に対してテスト側の追従が漏れており、3 件が赤のまま残っていた（`CHANGELOG` 2026-08-03 / 2026-08-04 で「既存の赤」として据え置き記録していたもの）。`AGENTS.md`「データ更新時のテスト追従」に沿って、テスト期待値・フィクスチャを現行データへ合わせ、データ側のキー順は整列ツールで解消した。
