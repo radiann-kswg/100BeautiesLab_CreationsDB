@@ -1,5 +1,34 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### fix: `migrate-aihints.mjs` が `migrate.mjs` のコピーのまま 6 箇所で腐っていた (2026-08-08)
+
+`migrate-aihints.mjs` は `migrate.mjs` の前半 168 行を丸ごとコピーして持っており、コピー元へ**後から入った修正がひとつも反映されていなかった**。共通処理を `migrate-common.mjs`（`develop` で新設）の import へ置き換えることで、以下 6 点が同時に解消される。個別に直しても次のコピーでまた腐るため、根本を潰す形にした。
+
+| # | 乖離 | コピー側の状態 | 影響 |
+| --- | --- | --- | --- |
+| 1 | wrangler config の明示 | `--config` 無し | `cwd = REPO_ROOT` のため wrangler が `pkg/cloudflare/wrangler.toml` を自動探索できず `database_id` を解決できない |
+| 2 | Windows の shell 対応 | `SPAWN_OPTS_BASE` 無し | Windows / Node v22+ で `npx.cmd` を `execFileSync` が直接起動できない |
+| 3 | 一時 SQL パスの相対化 | 絶対パスのまま | 同上の環境でパス解釈が揺れる |
+| 4 | `idxKey` のフォールバック | `resolveIdxKey(dbSpecificType) \|\| defaultIdxKey` | **`resolveIdxKey()` は引数が無くても `"Num"` を返す**ため `defaultIdxKey` へ絶対フォールバックしない。ネスト型 `$IndexDef` の作品で `idx_value` が取れず AIHints が丸ごと投入されなくなる（`migrate.mjs` 側では同じバグを修正済みで、注釈にも残っていた） |
+| 5 | `workDir` の解決 | `workKey.replace(/^#Works_/, "Works_")` のみ | `Works_Dir` オーバーライド作品（共通資料の疑似作品等）を解決できない |
+| 6 | 作品メタの読み込み | `DataBases/` 固定 | `DataBases/` を持たない作品で読み込み失敗警告が出る |
+
+- **#4 は現状 latent**: AIHints を持つのは `NumberTales/Primary` のみで `$IndexDef` がフラット型のため顕在化していない。ネスト型の作品（`FLInvestigator78` 等）へ AIHints を広げる際に効く。
+- **影響範囲**: `pkg/cloudflare/scripts/migrate-aihints.mjs`（293 → 178 行）。
+- **検証**: `--dry-run` の出力差分は **2 行のみ**で、いずれも #6 の解消による読み込み失敗警告の消滅。投入件数（92 件）は不変。
+
+### refactor: AIHints 生成ツールの重複統合と巨大関数の前段抽出 (2026-08-08)
+
+`develop` の SW / UI リファクタリング（下記）と同じ規律を `tools/patch-aihints.mjs` へ適用した。挙動変更はなく、`--suggest` あり / なしの dry-run 出力はいずれもリファクタ前と**完全一致**する。
+
+- **同じ `db_meta.json` を 2 回読んでいた**: `main()` が AI_Optout ガードと `_Secondaries` 注入で別々に `readFileSync` + `JSON.parse` し、同じ `dbEntry` を 2 回導出していた。1 回に統合。
+- **重複統合**: `--apply-vision-results` の「TODO プレースホルダを解析結果へ差し替える」規則が **8 箇所**に手書きされていたため `replaceTodoEntries()` へ集約。`prompt_export` の生成規則 4 箇所を `joinConfirmedTags()` へ（`regenerateFormExports` のローカル `join` は注釈自体が「scaffold 生成時と同じ規則」と宣言していた）。`silhouette_notes` の適用 23 行 ×2 と `ai_tags` の適用 12 行 ×2、`buildHumanoidForm` / `buildSuggestedHumanoidForm` に完全一致で存在した `extraHumanoid` ループ 10 行 ×2 も同様。
+- **corefolder と humanoid の差は保持**: `immutable_constraints` / `negative_keywords` は corefolder が「末尾へ追記」（`COREFOLDER_DEFAULT_*` という構造的デフォルトを持つため）、humanoid が「TODO を置換」（TODO 1 行しか持たないため）。**意図的な差**なので `appendUniqueEntries()` / `replaceTodoEntries()` に割り当て、名前で意図が読めるようにした。
+- **巨大関数の前段抽出**: 切る位置は境界を跨ぐ変数の数を実測して決めた。`applyVisionResultsToAihints` は crossing 2〜5 で自然に割れるため 230 → 120 行、`main()` は crossing 4 の位置で `resolveDbTarget()`（ファイルを書き換えない前段）を抽出し 176 → 118 行。`buildAihintsFromAppearanceDetail`（最薄 14 だが中盤が 24 / 28 で密）と `patchFileText`（300 行のほぼ全部がループ本体で継ぎ目なし）は据え置いた。
+- **統合しなかったもの**: `buildScaffold` と `buildSuggestedScaffold`（骨格は似ているが分岐フラグを入れると「どちらのモードの値か」が読めなくなる）、`earShapeLabel → earAnimalWord` の 1 行導出 3 箇所（ヘルパー化しても純減しない）。
+- **影響範囲**: `tools/patch-aihints.mjs`（4311 → 4325 行。重複を消した分をヘルパー 5 本 + JSDoc が上回るため総行数は微増）/ `tests/patch-aihints.vision-apply.test.js`（新規 14 件）。
+- **検証**: `npm test` 75 ファイル / **1309 件すべて成功**。`agents:check` / `data:order:check` も緑。回帰テストは**リファクタ前に書いて現行実装で緑になることを確認してから**抽出しており、特に corefolder（追記）と humanoid（置換）の差を固定している。
+
 ### refactor: D1 マイグレーションの共通ヘルパーを `migrate-common.mjs` へ集約した (2026-08-08)
 
 `pkg/cloudflare/scripts/migrate.mjs` の引数パース・JSON 読み込み・SQL 整形・D1 投入は、拡張ブランチ側の `migrate-aihints.mjs` が**同じ実装をコピーして**持っている。しかも `d1Execute()` に後から入った 3 つの修正（`--config` による wrangler.toml の明示 / Windows の `shell: true` / SQL パスの相対化）はコピー側へ反映されておらず、**同一処理が 2 実装に分かれて片方だけ腐る**状態だった。SW 入口 3 本を `StandardServiceWorker` へ統合したのと同じ構図なので、同じ扱いで解消する。

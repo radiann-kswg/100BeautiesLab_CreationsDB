@@ -36,6 +36,7 @@
 
 | ログ                                                                                                                               | 主題                                                          | 状態                              |
 | ---------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- | --------------------------------- |
+| [2026-08-08_progress_aihints-refactor.md](./2026-08-08_progress_aihints-refactor.md)                                               | `develop` 取り込みマージ ＋ AIHints 固有コードの同種リファクタ | 🟢 現行（実地実行の確認が残る）   |
 | [2026-07-29_progress_addon-ai-tag-merge.md](./2026-07-29_progress_addon-ai-tag-merge.md)                                           | `develop` 取り込みマージ（`46a3845`）＋ 本ブランチの棚卸し     | 🟢 現行                           |
 | [2026-07-17_progress_aihints-scope-semiprimary-selfsecondary.md](./2026-07-17_progress_aihints-scope-semiprimary-selfsecondary.md) | AIHints の適用範囲（SemiPrimary / SelfSecondary）             | ⚠️ seed 本体ほか 4 件が継続       |
 | [2026-07-14_progress_addon-ai-tag-log-inventory.md](./2026-07-14_progress_addon-ai-tag-log-inventory.md)                           | 本ブランチのログ棚卸し記録＋**AIHints 残課題台帳（A1〜A11）** | 🟢 台帳（AIHints の残課題はここ） |

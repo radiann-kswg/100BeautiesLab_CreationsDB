@@ -1214,6 +1214,31 @@ function buildFormReferenceImages(conceptUrl, formSpecificUrl, formKey, extraArt
 }
 
 /**
+ * humanoid 形態の reference_images を組み立てる。
+ * 先頭を代表画像として採用し、2 件目以降は `label`（重複時は連番付与）で
+ * named slot として積む。`buildScaffold` / `buildSuggestedScaffold` の双方から使う。
+ *
+ * @param {Array<{url: string, label: string}>} images  humanoid 画像（1 件以上）
+ * @param {string|null} conceptUrl  concept 画像 URL（形態共通デザイン基準）
+ * @returns {Record<string, string>}
+ */
+function buildHumanoidReferenceImages(images, conceptUrl) {
+    const firstUrl = images[0].url;
+    /** @type {Record<string, string>} */
+    const extraHumanoid = {};
+    for (let k = 1; k < images.length; k++) {
+        const { url, label } = images[k];
+        let key = label || `variant${k}`;
+        if (extraHumanoid[key] !== undefined) key = `${key}_${k}`;
+        extraHumanoid[key] = url;
+    }
+    const refs = buildFormReferenceImages(conceptUrl, firstUrl, 'humanoid') ?? { main: firstUrl };
+    // 2件目以降の humanoid 画像を named slot として追記
+    for (const [k, v] of Object.entries(extraHumanoid)) refs[k] = v;
+    return refs;
+}
+
+/**
  * @param {number} num
  * @param {string} genderTag
  * @param {string} ageBand
@@ -1256,19 +1281,7 @@ function buildCorefolderForm(num, genderTag, ageBand, url, conceptUrl, artUrls) 
  * @param {string|null} conceptUrl  concept 画像 URL（形態共通デザイン基準）
  */
 function buildHumanoidForm(num, genderTag, ageBand, images, conceptUrl) {
-    // 先頭を代表画像として採用。variants は2件目以降を named slot で蓄積。
-    const firstUrl = images[0].url;
-    /** @type {Record<string, string>} */
-    const extraHumanoid = {};
-    for (let k = 1; k < images.length; k++) {
-        const { url, label } = images[k];
-        let key = label || `variant${k}`;
-        if (extraHumanoid[key] !== undefined) key = `${key}_${k}`;
-        extraHumanoid[key] = url;
-    }
-    const refs = buildFormReferenceImages(conceptUrl, firstUrl, 'humanoid') ?? { main: firstUrl };
-    // 2件目以降の humanoid 画像を named slot として追記
-    for (const [k, v] of Object.entries(extraHumanoid)) refs[k] = v;
+    const refs = buildHumanoidReferenceImages(images, conceptUrl);
     return {
         form_tags: ['humanoid form'],
         outfit_features: [
@@ -1565,9 +1578,8 @@ function buildSuggestedCorefolderForm(num, genderTag, ageBand, tu, url, record, 
     const negativeVisuals = buildNegativeVisuals(tu, 'corefolder', earAnimalWord);
 
     // 確定タグだけ prompt_export に先行生成（TODO は省く）
-    const confirmedTags = aiTags.filter(t => !t.startsWith('TODO:'));
-    const promptExport = confirmedTags.join(', ');
-    const negExport = negativeVisuals.filter(t => !t.startsWith('TODO:')).join(', ');
+    const promptExport = joinConfirmedTags(aiTags);
+    const negExport = joinConfirmedTags(negativeVisuals);
 
     // InStory からコアフォルダ形態の記述があれば翻訳ヒントとして提示
     const inStoryRaw = record.InStory;
@@ -1606,17 +1618,7 @@ function buildSuggestedCorefolderForm(num, genderTag, ageBand, tu, url, record, 
  * @returns {any}
  */
 function buildSuggestedHumanoidForm(num, genderTag, ageBand, tu, images, record, conceptUrl, earShapeLabel) {
-    const firstUrl = images[0].url;
-    /** @type {Record<string, string>} */
-    const extraHumanoid = {};
-    for (let k = 1; k < images.length; k++) {
-        const { url, label } = images[k];
-        let key = label || `variant${k}`;
-        if (extraHumanoid[key] !== undefined) key = `${key}_${k}`;
-        extraHumanoid[key] = url;
-    }
-    const refs = buildFormReferenceImages(conceptUrl, firstUrl, 'humanoid') ?? { main: firstUrl };
-    for (const [k, v] of Object.entries(extraHumanoid)) refs[k] = v;
+    const refs = buildHumanoidReferenceImages(images, conceptUrl);
 
     const tailDesc = buildTailDescription(tu);
     const earAnimalWord = earShapeLabel ? earShapeLabel.toLowerCase() : null;
@@ -1634,9 +1636,8 @@ function buildSuggestedHumanoidForm(num, genderTag, ageBand, tu, images, record,
     ];
     const negativeVisuals = buildNegativeVisuals(tu, 'humanoid', earAnimalWord);
 
-    const confirmedTags = aiTags.filter(t => !t.startsWith('TODO:'));
-    const promptExport = confirmedTags.join(', ');
-    const negExport = negativeVisuals.filter(t => !t.startsWith('TODO:')).join(', ');
+    const promptExport = joinConfirmedTags(aiTags);
+    const negExport = joinConfirmedTags(negativeVisuals);
 
     return {
         form_tags: ['humanoid form'],
@@ -2096,6 +2097,73 @@ function fixRefsInRecord(text, openIdx, closeIdx, imageInfo) {
 const VISUAL_TODO_PATTERN = /^TODO:/;
 
 /**
+ * TODO プレースホルダを除いたタグだけをカンマ区切りで結合する
+ * （`prompt_export` / `negative_prompt_export` の生成規則）。
+ *
+ * scaffold 生成（`buildSuggested*Form`）・視覚解析の適用（`applyVisionResultsToAihints`）・
+ * 再生成（`regenerateFormExports`）が同じ規則を必要とするため 1 本にまとめている。
+ * 規則を変えるときはここだけを直せば全経路に効く。
+ *
+ * @param {unknown[]} tags
+ * @returns {string}
+ */
+function joinConfirmedTags(tags) {
+    return (Array.isArray(tags) ? tags : [])
+        .filter(t => typeof t === 'string' && !VISUAL_TODO_PATTERN.test(t))
+        .join(', ');
+}
+
+/**
+ * 配列フィールド内の TODO プレースホルダを、視覚解析結果の値へ差し替える。
+ * TODO 1 行が複数要素へ展開されうるため flatMap で置換する。
+ *
+ * `--apply-vision-results` の適用規則そのもので、outfit_features /
+ * silhouette_notes / immutable_constraints など 8 箇所が同じ形を手書きしていた。
+ * 規則を変えるときはここだけを直す。
+ *
+ * @param {any} target      対象オブジェクト（配列を持つ親）
+ * @param {string} key      配列フィールド名
+ * @param {unknown[]|null|undefined} replacement  差し替える値（空・未指定なら何もしない）
+ * @returns {boolean} 置換が起きたか
+ */
+function replaceTodoEntries(target, key, replacement) {
+    const arr = target?.[key];
+    if (!Array.isArray(arr) || !replacement?.length) return false;
+    let changed = false;
+    target[key] = arr.flatMap(entry => {
+        if (typeof entry === 'string' && VISUAL_TODO_PATTERN.test(entry)) {
+            changed = true;
+            return replacement;
+        }
+        return [entry];
+    });
+    return changed;
+}
+
+/**
+ * 既存要素をそのまま残し、未収載の値だけを末尾へ追記する（重複は作らない）。
+ *
+ * corefolder 形態は `COREFOLDER_DEFAULT_IMMUTABLE_CONSTRAINTS` /
+ * `COREFOLDER_DEFAULT_NEGATIVE_KEYWORDS` という**構造的デフォルト**を持つため、
+ * TODO 置換（`replaceTodoEntries`）ではなくこちらで追記する。
+ * humanoid 形態はデフォルトが TODO 1 行なので置換側を使う。この差は意図的。
+ *
+ * @param {any} target      対象オブジェクト
+ * @param {string} key      配列フィールド名
+ * @param {unknown[]|null|undefined} additions  追記する値
+ * @returns {boolean} 追記が起きたか
+ */
+function appendUniqueEntries(target, key, additions) {
+    const arr = target?.[key];
+    if (!Array.isArray(arr) || !additions?.length) return false;
+    const existing = new Set(arr);
+    const fresh = additions.filter(v => !existing.has(v));
+    if (fresh.length === 0) return false;
+    arr.push(...fresh);
+    return true;
+}
+
+/**
  * palette スロットが「未入力」かを判定する。
  * `null` / 空文字 / `TODO:` 接頭辞のいずれも未入力として扱う。
  *
@@ -2313,17 +2381,12 @@ export function regenerateFormExports(form) {
     if (!form || typeof form !== 'object') return false;
     let changed = false;
 
-    /** TODO を除いて結合する（scaffold 生成時と同じ規則） */
-    const join = (arr) => (Array.isArray(arr) ? arr : [])
-        .filter(t => typeof t === 'string' && !t.startsWith('TODO:'))
-        .join(', ');
-
     if ('prompt_export' in form) {
-        const next = join(form.ai_tags);
+        const next = joinConfirmedTags(form.ai_tags);
         if (form.prompt_export !== next) { form.prompt_export = next; changed = true; }
     }
     if ('negative_prompt_export' in form) {
-        const next = join(form.negative_visuals);
+        const next = joinConfirmedTags(form.negative_visuals);
         if (form.negative_prompt_export !== next) { form.negative_prompt_export = next; changed = true; }
     }
     return changed;
@@ -2688,6 +2751,55 @@ export function applyColorPaletteToAihints(aihints, palette, opts = {}) {
     return { aihints: a, changed };
 }
 
+/**
+ * form.silhouette_notes へ視覚解析結果を流し込む。
+ * 2026-06-09 以降の object 形式 `{ body_description, attached_items }` と、
+ * それ以前の legacy flat array の両方に対応する（corefolder / humanoid で共通）。
+ *
+ * @param {any} form  forms.corefolder / forms.humanoid
+ * @param {string[]|undefined} bodyDescription  body_description 用の解析結果
+ * @param {string[]|undefined} silhouetteNotes  body_description の代替 + legacy flat array 用
+ * @param {string[]|undefined} attachedItems    attached_items 用の解析結果
+ * @returns {boolean} 変更が起きたか
+ */
+function applyVisionToSilhouetteNotes(form, bodyDescription, silhouetteNotes, attachedItems) {
+    const notes = form.silhouette_notes;
+    if (notes && !Array.isArray(notes) && typeof notes === 'object') {
+        // body_description は専用の解析結果を優先し、無ければ silhouette_notes 側で代替する
+        const bodyVals = bodyDescription?.length ? bodyDescription : silhouetteNotes;
+        let changed = replaceTodoEntries(notes, 'body_description', bodyVals);
+        if (replaceTodoEntries(notes, 'attached_items', attachedItems)) changed = true;
+        return changed;
+    }
+    // legacy: 旧型 flat array 互換
+    return replaceTodoEntries(form, 'silhouette_notes', silhouetteNotes);
+}
+
+/**
+ * form.ai_tags の hair / eye / outfit TODO スロットを置換し、`prompt_export` を再生成する。
+ * corefolder / humanoid で outfit の解析結果キーだけが違うため、そこだけ引数で受ける。
+ *
+ * @param {any} form  forms.corefolder / forms.humanoid
+ * @param {VisionResult} vr
+ * @param {string[]|undefined} outfitTags  当該形態の outfit 解析結果
+ * @returns {boolean} 変更が起きたか
+ */
+function applyVisionToAiTags(form, vr, outfitTags) {
+    if (!Array.isArray(form.ai_tags)) return false;
+    let changed = false;
+    const hairTag = vr.aiTagsHair ?? vr.silhouetteHair;
+    const eyeTag  = vr.aiTagsEye  ?? vr.silhouetteEye;
+    form.ai_tags = form.ai_tags.flatMap(t => {
+        if (typeof t !== 'string' || !VISUAL_TODO_PATTERN.test(t)) return [t];
+        if (/hair/i.test(t) && hairTag)               { changed = true; return [hairTag]; }
+        if (/eye/i.test(t)  && eyeTag)                { changed = true; return [eyeTag]; }
+        if (/outfit/i.test(t) && outfitTags?.length)  { changed = true; return outfitTags; }
+        return [t];
+    });
+    form.prompt_export = joinConfirmedTags(form.ai_tags);
+    return changed;
+}
+
 export function applyVisionResultsToAihints(aihints, vr) {
     // deep copy してから編集する
     const a = JSON.parse(JSON.stringify(aihints));
@@ -2718,7 +2830,7 @@ export function applyVisionResultsToAihints(aihints, vr) {
     // ── common.silhouette_features: hair / eye スロットを置換 ───────
     if (a.common?.silhouette_features) {
         a.common.silhouette_features = a.common.silhouette_features.flatMap(feat => {
-            if (typeof feat !== 'string' || !feat.startsWith('TODO:')) return [feat];
+            if (typeof feat !== 'string' || !VISUAL_TODO_PATTERN.test(feat)) return [feat];
             if (/hair/i.test(feat) && vr.silhouetteHair) { changed = true; return [vr.silhouetteHair]; }
             if (/eye/i.test(feat) && vr.silhouetteEye)  { changed = true; return [vr.silhouetteEye]; }
             return [feat]; // 未対応スロットはそのまま
@@ -2759,142 +2871,32 @@ export function applyVisionResultsToAihints(aihints, vr) {
     }
 
     // ── forms.corefolder ──────────────────────────────────────────
+    // immutable_constraints / negative_keywords だけは humanoid と扱いが違う。
+    // corefolder は構造的デフォルト（COREFOLDER_DEFAULT_*）を持つため「末尾へ追記」し、
+    // humanoid は TODO 1 行しか持たないため「置換」する。この差は意図的。
     if (a.forms?.corefolder) {
         const cf = a.forms.corefolder;
 
-        // outfit_features: 単一 TODO エントリ → 配列要素に展開
-        if (Array.isArray(cf.outfit_features) && vr.corefolderOutfit?.length) {
-            cf.outfit_features = cf.outfit_features.flatMap(f => {
-                if (typeof f === 'string' && f.startsWith('TODO:')) { changed = true; return vr.corefolderOutfit; }
-                return [f];
-            });
-        }
-
-        // silhouette_notes: TODO エントリをキャラ固有描写で置換（User 手動記入値を受ける）
-        // 2026-06-09 以降は silhouette_notes が object 形式 { body_description, attached_items } となるため、
-        //  - vr.corefolderSilhouetteNotes / vr.corefolderBodyDescription は body_description 側へ
-        //  - vr.corefolderAttachedItems は attached_items 側へ を心がける
-        if (cf.silhouette_notes && !Array.isArray(cf.silhouette_notes) && typeof cf.silhouette_notes === 'object') {
-            const bodyVals = vr.corefolderBodyDescription?.length
-                ? vr.corefolderBodyDescription
-                : (vr.corefolderSilhouetteNotes?.length ? vr.corefolderSilhouetteNotes : null);
-            if (bodyVals && Array.isArray(cf.silhouette_notes.body_description)) {
-                cf.silhouette_notes.body_description = cf.silhouette_notes.body_description.flatMap(f => {
-                    if (typeof f === 'string' && f.startsWith('TODO:')) { changed = true; return bodyVals; }
-                    return [f];
-                });
-            }
-            if (vr.corefolderAttachedItems?.length && Array.isArray(cf.silhouette_notes.attached_items)) {
-                cf.silhouette_notes.attached_items = cf.silhouette_notes.attached_items.flatMap(f => {
-                    if (typeof f === 'string' && f.startsWith('TODO:')) { changed = true; return vr.corefolderAttachedItems; }
-                    return [f];
-                });
-            }
-        } else if (Array.isArray(cf.silhouette_notes) && vr.corefolderSilhouetteNotes?.length) {
-            // legacy: 旧型 flat array 互換
-            cf.silhouette_notes = cf.silhouette_notes.flatMap(f => {
-                if (typeof f === 'string' && f.startsWith('TODO:')) { changed = true; return vr.corefolderSilhouetteNotes; }
-                return [f];
-            });
-        }
-
-        // immutable_constraints: 追加キャラ固有制約を末尾に追記（重複と structural default は変えない）
-        if (Array.isArray(cf.immutable_constraints) && vr.corefolderImmutableExtras?.length) {
-            const existing = new Set(cf.immutable_constraints);
-            const additions = vr.corefolderImmutableExtras.filter(s => !existing.has(s));
-            if (additions.length > 0) {
-                cf.immutable_constraints.push(...additions);
-                changed = true;
-            }
-        }
-
-        // negative_keywords: 追加キャラ固有NGキーワードを末尾に追記（重複除去）
-        if (Array.isArray(cf.negative_keywords) && vr.corefolderNegativeKeywords?.length) {
-            const existing = new Set(cf.negative_keywords);
-            const additions = vr.corefolderNegativeKeywords.filter(s => !existing.has(s));
-            if (additions.length > 0) {
-                cf.negative_keywords.push(...additions);
-                changed = true;
-            }
-        }
-
-        // ai_tags: hair / eye / outfit TODO スロットを置換して prompt_export を更新
-        if (Array.isArray(cf.ai_tags)) {
-            const hairTag = vr.aiTagsHair ?? vr.silhouetteHair;
-            const eyeTag  = vr.aiTagsEye  ?? vr.silhouetteEye;
-            cf.ai_tags = cf.ai_tags.flatMap(t => {
-                if (typeof t !== 'string' || !t.startsWith('TODO:')) return [t];
-                if (/hair/i.test(t) && hairTag)               { changed = true; return [hairTag]; }
-                if (/eye/i.test(t)  && eyeTag)                { changed = true; return [eyeTag]; }
-                if (/outfit/i.test(t) && vr.corefolderOutfit?.length) { changed = true; return vr.corefolderOutfit; }
-                return [t];
-            });
-            cf.prompt_export = cf.ai_tags.filter(t => !t.startsWith('TODO:')).join(', ');
-        }
+        if (replaceTodoEntries(cf, 'outfit_features', vr.corefolderOutfit)) changed = true;
+        if (applyVisionToSilhouetteNotes(
+            cf, vr.corefolderBodyDescription, vr.corefolderSilhouetteNotes, vr.corefolderAttachedItems,
+        )) changed = true;
+        if (appendUniqueEntries(cf, 'immutable_constraints', vr.corefolderImmutableExtras)) changed = true;
+        if (appendUniqueEntries(cf, 'negative_keywords', vr.corefolderNegativeKeywords)) changed = true;
+        if (applyVisionToAiTags(cf, vr, vr.corefolderOutfit)) changed = true;
     }
 
     // ── forms.humanoid ────────────────────────────────────────────
     if (a.forms?.humanoid) {
         const hu = a.forms.humanoid;
 
-        if (Array.isArray(hu.outfit_features) && vr.humanoidOutfit?.length) {
-            hu.outfit_features = hu.outfit_features.flatMap(f => {
-                if (typeof f === 'string' && f.startsWith('TODO:')) { changed = true; return vr.humanoidOutfit; }
-                return [f];
-            });
-        }
-
-        // silhouette_notes: 2026-06-09 以降は object 形式 { body_description, attached_items } を含むため
-        // 両形式に対応する
-        if (hu.silhouette_notes && !Array.isArray(hu.silhouette_notes) && typeof hu.silhouette_notes === 'object') {
-            const bodyVals = vr.humanoidBodyDescription?.length
-                ? vr.humanoidBodyDescription
-                : (vr.humanoidSilhouetteNotes?.length ? vr.humanoidSilhouetteNotes : null);
-            if (bodyVals && Array.isArray(hu.silhouette_notes.body_description)) {
-                hu.silhouette_notes.body_description = hu.silhouette_notes.body_description.flatMap(f => {
-                    if (typeof f === 'string' && f.startsWith('TODO:')) { changed = true; return bodyVals; }
-                    return [f];
-                });
-            }
-            if (vr.humanoidAttachedItems?.length && Array.isArray(hu.silhouette_notes.attached_items)) {
-                hu.silhouette_notes.attached_items = hu.silhouette_notes.attached_items.flatMap(f => {
-                    if (typeof f === 'string' && f.startsWith('TODO:')) { changed = true; return vr.humanoidAttachedItems; }
-                    return [f];
-                });
-            }
-        } else if (Array.isArray(hu.silhouette_notes) && vr.humanoidSilhouetteNotes?.length) {
-            hu.silhouette_notes = hu.silhouette_notes.flatMap(f => {
-                if (typeof f === 'string' && f.startsWith('TODO:')) { changed = true; return vr.humanoidSilhouetteNotes; }
-                return [f];
-            });
-        }
-
-        if (Array.isArray(hu.immutable_constraints) && vr.humanoidImmutableExtras?.length) {
-            hu.immutable_constraints = hu.immutable_constraints.flatMap(f => {
-                if (typeof f === 'string' && f.startsWith('TODO:')) { changed = true; return vr.humanoidImmutableExtras; }
-                return [f];
-            });
-        }
-
-        if (Array.isArray(hu.negative_keywords) && vr.humanoidNegativeKeywords?.length) {
-            hu.negative_keywords = hu.negative_keywords.flatMap(f => {
-                if (typeof f === 'string' && f.startsWith('TODO:')) { changed = true; return vr.humanoidNegativeKeywords; }
-                return [f];
-            });
-        }
-
-        if (Array.isArray(hu.ai_tags)) {
-            const hairTag = vr.aiTagsHair ?? vr.silhouetteHair;
-            const eyeTag  = vr.aiTagsEye  ?? vr.silhouetteEye;
-            hu.ai_tags = hu.ai_tags.flatMap(t => {
-                if (typeof t !== 'string' || !t.startsWith('TODO:')) return [t];
-                if (/hair/i.test(t) && hairTag)               { changed = true; return [hairTag]; }
-                if (/eye/i.test(t)  && eyeTag)                { changed = true; return [eyeTag]; }
-                if (/outfit/i.test(t) && vr.humanoidOutfit?.length) { changed = true; return vr.humanoidOutfit; }
-                return [t];
-            });
-            hu.prompt_export = hu.ai_tags.filter(t => !t.startsWith('TODO:')).join(', ');
-        }
+        if (replaceTodoEntries(hu, 'outfit_features', vr.humanoidOutfit)) changed = true;
+        if (applyVisionToSilhouetteNotes(
+            hu, vr.humanoidBodyDescription, vr.humanoidSilhouetteNotes, vr.humanoidAttachedItems,
+        )) changed = true;
+        if (replaceTodoEntries(hu, 'immutable_constraints', vr.humanoidImmutableExtras)) changed = true;
+        if (replaceTodoEntries(hu, 'negative_keywords', vr.humanoidNegativeKeywords)) changed = true;
+        if (applyVisionToAiTags(hu, vr, vr.humanoidOutfit)) changed = true;
     }
 
     return { aihints: a, changed };
@@ -4129,8 +4131,19 @@ function replaceAihintsInRecord(text, openIdx, closeIdx, block) {
 // エントリポイント
 // ────────────────────────────────────────────────────────────────────────────
 
-function main() {
-    const opts = parseArgs(process.argv.slice(2));
+/**
+ * 対象 DB のパスを解決し、db_meta.json 由来のゲート（AI_Optout）と
+ * 継承情報（`_Secondaries` / `_Commons`）を `opts` へ注入する。
+ *
+ * ファイルを一切書き換えない前段で、DB 本体を読む前に済ませられる処理をまとめている。
+ * メタ欠損・不正時はチェックをスキップして継続する
+ * （既存の DB_Hidden / Works_Hidden と同じ耐性設計）。
+ *
+ * @param {CliOptions} opts  `secondaryDefs` / `dbCommons` を書き込む（副作用あり）
+ * @returns {string} 対象 DB ファイルの絶対パス
+ * @throws プロセス終了: DB 未検出は exit(1)、AI_Optout 拒否は exit(2)
+ */
+function resolveDbTarget(opts) {
     const dbPath = path.join(
         REPO_ROOT, 'data', `Works_${opts.work}`, 'DataBases', `db_${opts.db}.json`,
     );
@@ -4139,32 +4152,37 @@ function main() {
         process.exit(1);
     }
 
-    // ---- AI_Optout ガード ----
-    // 同作品の db_meta.json を参照し、対象 DB に `AI_Optout: true` がある場合は
-    // 原則全モード（suggest / fill-todos / fix-refs / gen-vision-tasks / apply-vision-results）を拒否する。
-    // メタ欠損時はチェックをスキップ（既存の DB_Hidden / Works_Hidden と同じ耐性設計）。
-    // --force-ai-optout で明示的バイパス可能。
+    // db_meta.json は AI_Optout ガードと _Secondaries 注入の両方で使うため 1 回だけ読む
     const dbMetaPath = path.join(
         REPO_ROOT, 'data', `Works_${opts.work}`, 'DataBases', 'db_meta.json',
     );
+    /** @type {any} 対象 DB のメタエントリ。欠損・不正時は null（＝全チェックをスキップ） */
+    let dbEntry = null;
     if (fs.existsSync(dbMetaPath)) {
         try {
             const dbMeta = JSON.parse(fs.readFileSync(dbMetaPath, 'utf8'));
-            const dbEntry = dbMeta?.Databases?.[`#DB_${opts.db}`]
-                ?? dbMeta?.Databases?.[`#Ref_${opts.db}`];
-            if (dbEntry?.AI_Optout === true) {
-                if (opts.forceAiOptout) {
-                    console.warn(`[WARN] AI_Optout: true の DB を --force-ai-optout でバイパスします: ${path.relative(REPO_ROOT, dbPath)}`);
-                } else {
-                    console.error(`[ABORT] 対象 DB は AI_Optout: true が設定されています: ${path.relative(REPO_ROOT, dbPath)}`);
-                    console.error('  この DB への AI タグ生成・視覚解析適用・scaffold 作成は拒否されました。');
-                    console.error('  どうしても適用したい場合は --force-ai-optout を付与して再実行してください。');
-                    process.exit(2);
-                }
-            }
+            dbEntry = dbMeta?.Databases?.[`#DB_${opts.db}`]
+                ?? dbMeta?.Databases?.[`#Ref_${opts.db}`]
+                ?? null;
         } catch (e) {
-            // db_meta.json が不正な場合は警告だけ出して継続（止めるほどではない）
+            // db_meta.json が不正な場合は警告だけ出して継続（止めるほどではない）。
+            // AI_Optout チェックと _Secondaries / _Commons 継承がともにスキップされる。
             console.warn(`[WARN] db_meta.json の読み込みに失敗 (AI_Optout チェックをスキップ): ${e.message}`);
+        }
+    }
+
+    // ---- AI_Optout ガード ----
+    // 対象 DB に `AI_Optout: true` がある場合は原則全モード
+    // （suggest / fill-todos / fix-refs / gen-vision-tasks / apply-vision-results）を拒否する。
+    // --force-ai-optout で明示的バイパス可能。
+    if (dbEntry?.AI_Optout === true) {
+        if (opts.forceAiOptout) {
+            console.warn(`[WARN] AI_Optout: true の DB を --force-ai-optout でバイパスします: ${path.relative(REPO_ROOT, dbPath)}`);
+        } else {
+            console.error(`[ABORT] 対象 DB は AI_Optout: true が設定されています: ${path.relative(REPO_ROOT, dbPath)}`);
+            console.error('  この DB への AI タグ生成・視覚解析適用・scaffold 作成は拒否されました。');
+            console.error('  どうしても適用したい場合は --force-ai-optout を付与して再実行してください。');
+            process.exit(2);
         }
     }
 
@@ -4177,23 +4195,19 @@ function main() {
     //   sec_SeriesTitle が null の定義が複数ある DB（例: #DB_SelfSecondary は
     //   「リクエストナンバー(AI_Optout:false)」と catch-all(true) の 2 つが null）で、
     //   opt-in の定義まで既定 opt-out に巻き込んで弾いていた。
-    opts.secondaryDefs = null;
-    opts.dbCommons = null;
-    if (fs.existsSync(dbMetaPath)) {
-        try {
-            const dbMeta = JSON.parse(fs.readFileSync(dbMetaPath, 'utf8'));
-            const dbEntry = dbMeta?.Databases?.[`#DB_${opts.db}`]
-                ?? dbMeta?.Databases?.[`#Ref_${opts.db}`];
-            opts.secondaryDefs = dbEntry?._Secondaries ?? dbEntry?.Secondaries ?? null;
-            opts.dbCommons = dbEntry?._Commons ?? null;
-            const optoutCount = (opts.secondaryDefs ?? []).filter((s) => s?.AI_Optout === true).length;
-            if (optoutCount > 0) {
-                console.log(`[INFO] _Secondaries: ${opts.secondaryDefs.length} 定義中 ${optoutCount} 件が AI_Optout: true（レコード単位で判定）`);
-            }
-        } catch {
-            // db_meta.json 読み込み失敗時は per-category チェック・_Commons 継承ともスキップ
-        }
+    opts.secondaryDefs = dbEntry?._Secondaries ?? dbEntry?.Secondaries ?? null;
+    opts.dbCommons = dbEntry?._Commons ?? null;
+    const optoutCount = (opts.secondaryDefs ?? []).filter((s) => s?.AI_Optout === true).length;
+    if (optoutCount > 0) {
+        console.log(`[INFO] _Secondaries: ${opts.secondaryDefs.length} 定義中 ${optoutCount} 件が AI_Optout: true（レコード単位で判定）`);
     }
+
+    return dbPath;
+}
+
+function main() {
+    const opts = parseArgs(process.argv.slice(2));
+    const dbPath = resolveDbTarget(opts);
 
     const original = fs.readFileSync(dbPath, 'utf8');
 
