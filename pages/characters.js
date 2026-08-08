@@ -2439,7 +2439,6 @@ function buildFieldTypeMap(workTypeDef, globalTypeDef = {}) {
 		return null;
 	};
 
-	const isPlainObject = (v) => !!v && typeof v === 'object' && !Array.isArray(v);
 	const normalizeTypeText = (t) => (typeof t === 'string' ? t.trim() : '');
 
 	// 優先度: work → global（同一キーは上書きしない）
@@ -2513,8 +2512,6 @@ function buildFieldDisplayMap(workTypeDef, globalTypeDef = {}) {
 		if (Array.isArray(def?.global)) return def.global;
 		return null;
 	};
-
-	const isPlainObject = (v) => !!v && typeof v === 'object' && !Array.isArray(v);
 
 	/**
 	 * items（$DefType 由来）を再帰走査して $display を抽出する
@@ -5617,6 +5614,156 @@ function kvTable(obj, entries) {
  * @param {Object} rec - すべてのデータフィールドを含むキャラクターレコード
  * @returns {Promise<void>} 詳細ビューのDOMを更新する非同期関数
  */
+/**
+ * 詳細表示に必要な schema / meta 文脈をまとめて解決する
+ *
+ * @description
+ * `renderDetail()` の前段。作品別 typedef・グローバル typedef・`$DefType`・作品メタ・
+ * グローバルメタを並列取得し、DB のレイヤ（`DB_Layer`）があれば shared / work-local の
+ * typedef と meta も合流させたうえで、フィールドの label / type / display マップまで組み立てる。
+ * DOM には一切触れないので、描画順に依存せず単体で追える。
+ *
+ * @param {string} workId - 作品キー（例: '#Works_NumberTales'）
+ * @param {string} dbName - DB 名（例: 'Primary'）
+ * @param {{workTypeDef?: Object, globalTypeDef?: Object, workMeta?: Object}} [cached={}] - `__CHAR_STATE__` 由来のキャッシュ
+ * @returns {Promise<Object>} 描画文脈（workTypeDef / globalTypeDef / globalDefType / workMeta /
+ *   globalMeta / metaForLookup / layeredTypeDef / currentLayerName / fieldLabelMap /
+ *   fieldTypeMap / fieldDisplayMap / secondaryMetaFieldContext）
+ */
+async function loadDetailRenderContext(workId, dbName, cached = {}) {
+	// Use cached data when available, otherwise fetch
+	const [rawWorkTypeDef, globalTypeDef, globalDefType, workMeta, globalMeta] = await Promise.all([
+		cached.workTypeDef || fetchWorkTypeDef(workId),
+		cached.globalTypeDef || fetchGlobalTypeDef(),
+		fetchGlobalDefType(),
+		cached.workMeta || fetchWorkMeta(workId),
+		fetchGlobalMeta()
+	]);
+
+	const dbCatalogEntry = findDbCatalogEntry(workMeta, dbName);
+	const currentLayerName = String(dbCatalogEntry?.DB_Layer || '').trim();
+	const [sharedLayerTypeDef, workLayerTypeDef, sharedLayerMeta] = currentLayerName
+		? await Promise.all([
+			fetchSharedLayerTypeDef(currentLayerName),
+			fetchWorkLayerTypeDef(workId, currentLayerName),
+			fetchSharedLayerMeta(currentLayerName)
+		])
+		: [{}, {}, {}];
+	const layeredTypeDef = mergeTypeDefSources(workLayerTypeDef, sharedLayerTypeDef);
+	const workTypeDef = mergeTypeDefSources(rawWorkTypeDef, layeredTypeDef);
+
+	// workMeta / globalMeta の $VarsDef を統合（EnumLink / ListLink の共通辞書を参照しやすくする）
+	// shared layer の db_meta.json.$VarsDef も合流する（例: References の $EnumDef_Category）
+	const metaForLookup = (() => {
+		const wm = workMeta && typeof workMeta === 'object' ? workMeta : {};
+		const gm = globalMeta && typeof globalMeta === 'object' ? globalMeta : {};
+		const lm = sharedLayerMeta && typeof sharedLayerMeta === 'object' ? sharedLayerMeta : {};
+
+		const gmGeneral = (gm.General && typeof gm.General === 'object') ? gm.General : {};
+		const wmGeneral = (wm.General && typeof wm.General === 'object') ? wm.General : {};
+		const lmGeneral = (lm.General && typeof lm.General === 'object') ? lm.General : {};
+
+		const gmVars = (gmGeneral.$VarsDef && typeof gmGeneral.$VarsDef === 'object') ? gmGeneral.$VarsDef : {};
+		const wmVars = (wmGeneral.$VarsDef && typeof wmGeneral.$VarsDef === 'object') ? wmGeneral.$VarsDef : {};
+		const lmVars = (lmGeneral.$VarsDef && typeof lmGeneral.$VarsDef === 'object') ? lmGeneral.$VarsDef : {};
+
+		// $VarsDef は「配列concat・objectは浅いマージ」で合成する（gm.Dictionaries.#Dict_* が
+		// 宣言する scopeField の解決先を潰さないよう、Dictionaries カタログ自体も同様に合成する）
+		const mergedGeneral = { ...gmGeneral, ...lmGeneral, ...wmGeneral, $VarsDef: mergeVarsDefLayers(gmVars, lmVars, wmVars) };
+		const mergedDictionaries = mergeVarsDefLayers(gm.Dictionaries, lm.Dictionaries, wm.Dictionaries);
+		return {
+			...gm,
+			...lm,
+			...wm,
+			General: mergedGeneral,
+			...(Object.keys(mergedDictionaries).length ? { Dictionaries: mergedDictionaries } : {})
+		};
+	})();
+
+	return {
+		workTypeDef,
+		globalTypeDef,
+		globalDefType,
+		workMeta,
+		globalMeta,
+		metaForLookup,
+		layeredTypeDef,
+		currentLayerName,
+		// Build comprehensive field label mapping with global fallbacks
+		fieldLabelMap: buildFieldLabelMap(workTypeDef, globalTypeDef),
+		// Build field path → $type / $display maps (typedef-driven formatting)
+		fieldTypeMap: buildFieldTypeMap(workTypeDef, globalTypeDef),
+		fieldDisplayMap: buildFieldDisplayMap(workTypeDef, globalTypeDef),
+		secondaryMetaFieldContext: buildMetaTypeFieldContext(globalTypeDef, '$Def_SecondaryMeta')
+	};
+}
+
+/**
+ * 詳細ビュー左側のポスター + 画像ギャラリーを組み立てる
+ *
+ * @param {string} workId - 作品キー
+ * @param {Object} rec - キャラクターレコード
+ * @param {string} dbName - DB 名
+ * @param {Array} imageFields - `extractImageFields()` の結果
+ * @param {Object} ctx - `loadDetailRenderContext()` の戻り値
+ * @returns {Promise<{left: HTMLElement, posterEl: HTMLElement|null, galleryEl: HTMLElement|null}>}
+ */
+async function buildDetailImageSection(workId, rec, dbName, imageFields, ctx) {
+	const { currentLayerName, fieldLabelMap, metaForLookup, globalDefType, workMeta } = ctx;
+
+	// Enhanced poster image with dynamic resolution
+	const poster = await imageFromRecord(workId, rec, dbName, imageFields, currentLayerName);
+
+	// Build image gallery with enhanced dynamic resolution
+	const galleryImages = await buildImageGallery(workId, rec, imageFields, dbName, currentLayerName);
+
+	console.log('🖼️ Detail view images:', {
+		poster,
+		galleryCount: galleryImages.length,
+		imageFieldCount: imageFields.length
+	});
+
+	// Create left section with poster and gallery - optimized loading
+	const imageSection = [
+		poster ? el('img', {
+			class: 'poster',
+			src: poster,
+			alt: `${getRecordPrimaryTitle(rec) || 'Character'} poster`,
+			loading: 'lazy'
+		}) : el('div', { class: 'poster placeholder' }, ['画像なし']),
+		galleryImages.length > 0 ? el('div', { class: 'image-gallery' }, [
+			el('h4', {}, [getFieldLabel('Gallery', fieldLabelMap, metaForLookup, globalDefType, '画像ギャラリー')]),
+			el('div', { class: 'image-grid' }, galleryImages.slice(0, 6).map(imgData => // Limit initial images for performance
+				createGalleryImageItem(imgData)
+			).concat(
+				galleryImages.length > 6 ? [
+					el('div', { class: 'image-more', style: 'text-align: center; padding: 10px;' }, [
+						el('button', {
+							type: 'button',
+							onclick: () => {
+								loadMoreImages(workId, rec, imageFields, dbName, fieldLabelMap, workMeta, globalDefType, currentLayerName)
+									.catch((e) => console.warn('⚠️ Failed to load more images:', e));
+							}
+						}, [`さらに ${galleryImages.length - 6} 枚の画像を表示`])
+					])
+				] : []
+			))
+		]) : el('div', { class: 'image-gallery' }, [
+			el('h4', {}, ['画像ギャラリー']),
+			el('div', { class: 'no-images', style: 'padding: 20px; text-align: center; color: var(--muted);' }, [
+				'画像データがありません'
+			])
+		])
+	].filter(Boolean);
+
+	return {
+		left: el('div', {}, imageSection),
+		// ヒーロー帯用にポスター/ギャラリーを個別参照（imageSection[0]=poster, [1]=gallery）
+		posterEl: imageSection[0] || null,
+		galleryEl: imageSection[1] || null
+	};
+}
+
 export async function renderDetail(workId, rec) {
 	// レコード未指定時は、現在ステートの先頭レコードへフォールバックする
 	// （テスト/直リンク遷移の揺れで undefined が渡っても、即時「非公開」扱いにしない）
@@ -5665,65 +5812,20 @@ export async function renderDetail(workId, rec) {
 			style: 'padding: 20px; text-align: center; color: var(--muted);'
 		}, ['詳細情報を読み込んでいます...']));
 
-		// Use cached data when available, otherwise fetch
-		const [rawWorkTypeDef, globalTypeDef, globalDefType, workMeta, globalMeta] = await Promise.all([
-			cachedWorkTypeDef || fetchWorkTypeDef(workId),
-			cachedGlobalTypeDef || fetchGlobalTypeDef(),
-			fetchGlobalDefType(),
-			cachedWorkMeta || fetchWorkMeta(workId),
-			fetchGlobalMeta()
-		]);
-
-		const dbCatalogEntry = findDbCatalogEntry(workMeta, dbName);
-		const currentLayerName = String(dbCatalogEntry?.DB_Layer || '').trim();
-		const [sharedLayerTypeDef, workLayerTypeDef, sharedLayerMeta] = currentLayerName
-			? await Promise.all([
-				fetchSharedLayerTypeDef(currentLayerName),
-				fetchWorkLayerTypeDef(workId, currentLayerName),
-				fetchSharedLayerMeta(currentLayerName)
-			])
-			: [{}, {}, {}];
-		const layeredTypeDef = mergeTypeDefSources(workLayerTypeDef, sharedLayerTypeDef);
-		const workTypeDef = mergeTypeDefSources(rawWorkTypeDef, layeredTypeDef);
-
-		// workMeta / globalMeta の $VarsDef を統合（EnumLink / ListLink の共通辞書を参照しやすくする）
-		// shared layer の db_meta.json.$VarsDef も合流する（例: References の $EnumDef_Category）
-		const metaForLookup = (() => {
-			const wm = workMeta && typeof workMeta === 'object' ? workMeta : {};
-			const gm = globalMeta && typeof globalMeta === 'object' ? globalMeta : {};
-			const lm = sharedLayerMeta && typeof sharedLayerMeta === 'object' ? sharedLayerMeta : {};
-
-			const gmGeneral = (gm.General && typeof gm.General === 'object') ? gm.General : {};
-			const wmGeneral = (wm.General && typeof wm.General === 'object') ? wm.General : {};
-			const lmGeneral = (lm.General && typeof lm.General === 'object') ? lm.General : {};
-
-			const gmVars = (gmGeneral.$VarsDef && typeof gmGeneral.$VarsDef === 'object') ? gmGeneral.$VarsDef : {};
-			const wmVars = (wmGeneral.$VarsDef && typeof wmGeneral.$VarsDef === 'object') ? wmGeneral.$VarsDef : {};
-			const lmVars = (lmGeneral.$VarsDef && typeof lmGeneral.$VarsDef === 'object') ? lmGeneral.$VarsDef : {};
-
-			// $VarsDef は「配列concat・objectは浅いマージ」で合成する（gm.Dictionaries.#Dict_* が
-			// 宣言する scopeField の解決先を潰さないよう、Dictionaries カタログ自体も同様に合成する）
-			const mergedGeneral = { ...gmGeneral, ...lmGeneral, ...wmGeneral, $VarsDef: mergeVarsDefLayers(gmVars, lmVars, wmVars) };
-			const mergedDictionaries = mergeVarsDefLayers(gm.Dictionaries, lm.Dictionaries, wm.Dictionaries);
-			return {
-				...gm,
-				...lm,
-				...wm,
-				General: mergedGeneral,
-				...(Object.keys(mergedDictionaries).length ? { Dictionaries: mergedDictionaries } : {})
-			};
-		})();
+		// 描画に必要な typedef / meta / 各種マップをまとめて解決する（DOM 非依存・前段）
+		const renderCtx = await loadDetailRenderContext(workId, dbName, {
+			workTypeDef: cachedWorkTypeDef,
+			globalTypeDef: cachedGlobalTypeDef,
+			workMeta: cachedWorkMeta
+		});
+		const {
+			workTypeDef, globalTypeDef, globalDefType, workMeta, globalMeta,
+			metaForLookup, layeredTypeDef, currentLayerName,
+			fieldLabelMap, fieldTypeMap, fieldDisplayMap, secondaryMetaFieldContext
+		} = renderCtx;
 
 		// Clear loading message
 		mount.textContent = '';
-
-		// Build comprehensive field label mapping with global fallbacks
-		const fieldLabelMap = buildFieldLabelMap(workTypeDef, globalTypeDef);
-
-		// Build field path → $type / $display maps (typedef-driven formatting)
-		const fieldTypeMap = buildFieldTypeMap(workTypeDef, globalTypeDef);
-		const fieldDisplayMap = buildFieldDisplayMap(workTypeDef, globalTypeDef);
-		const secondaryMetaFieldContext = buildMetaTypeFieldContext(globalTypeDef, '$Def_SecondaryMeta');
 
 		// GenderType の辞書解決が効いているかの最小診断（表示が変わらない場合の切り分け用）
 		// - 通常時はログを出さない（デバッグチェック時のみ）
@@ -5747,55 +5849,7 @@ export async function renderDetail(workId, rec) {
 			? cachedImageFields
 			: extractImageFields(workTypeDef, globalTypeDef);
 
-		// Enhanced poster image with dynamic resolution
-		const poster = await imageFromRecord(workId, rec, dbName, imageFields, currentLayerName);
-
-		// Build image gallery with enhanced dynamic resolution
-		const galleryImages = await buildImageGallery(workId, rec, imageFields, dbName, currentLayerName);
-
-		console.log('🖼️ Detail view images:', {
-			poster,
-			galleryCount: galleryImages.length,
-			imageFieldCount: imageFields.length
-		});
-
-		// Create left section with poster and gallery - optimized loading
-		const imageSection = [
-			poster ? el('img', {
-				class: 'poster',
-				src: poster,
-				alt: `${getRecordPrimaryTitle(rec) || 'Character'} poster`,
-				loading: 'lazy'
-			}) : el('div', { class: 'poster placeholder' }, ['画像なし']),
-			galleryImages.length > 0 ? el('div', { class: 'image-gallery' }, [
-				el('h4', {}, [getFieldLabel('Gallery', fieldLabelMap, metaForLookup, globalDefType, '画像ギャラリー')]),
-				el('div', { class: 'image-grid' }, galleryImages.slice(0, 6).map(imgData => // Limit initial images for performance
-					createGalleryImageItem(imgData)
-				).concat(
-					galleryImages.length > 6 ? [
-						el('div', { class: 'image-more', style: 'text-align: center; padding: 10px;' }, [
-							el('button', {
-								type: 'button',
-								onclick: () => {
-									loadMoreImages(workId, rec, imageFields, dbName, fieldLabelMap, workMeta, globalDefType, currentLayerName)
-										.catch((e) => console.warn('⚠️ Failed to load more images:', e));
-								}
-							}, [`さらに ${galleryImages.length - 6} 枚の画像を表示`])
-						])
-					] : []
-				))
-			]) : el('div', { class: 'image-gallery' }, [
-				el('h4', {}, ['画像ギャラリー']),
-				el('div', { class: 'no-images', style: 'padding: 20px; text-align: center; color: var(--muted);' }, [
-					'画像データがありません'
-				])
-			])
-		].filter(Boolean);
-
-		const left = el('div', {}, imageSection);
-		// ヒーロー帯用にポスター/ギャラリーを個別参照（imageSection[0]=poster, [1]=gallery）
-		const posterEl = imageSection[0] || null;
-		const galleryEl = imageSection[1] || null;
+		const { left, posterEl, galleryEl } = await buildDetailImageSection(workId, rec, dbName, imageFields, renderCtx);
 
 		// トップレベルの `$display` / `$alt` を map 化（work 優先）
 		const topLevelDisplayMap = buildTopLevelDisplayMap(workTypeDef, globalTypeDef);
@@ -6232,7 +6286,6 @@ export async function renderDetail(workId, rec) {
 
 		const normalizedBasicFieldKeys = normalizeBasicFieldKeys(basicFieldKeys)
 			.filter((key) => !isPromotedSubFieldKey(key));
-		const normalizedBasicFieldKeySet = new Set(normalizedBasicFieldKeys);
 
 		/**
 		 * 基本情報テーブル用の値解決
@@ -6462,31 +6515,8 @@ export async function renderDetail(workId, rec) {
 		// Abilities / Effect / Safety（typedef-driven）
 		// - JS 側に特定の JSON キー名を極力持たせず、実データ＋typedef（fieldTypeMap/fieldDisplayMap）から推定して表示する
 
-		/**
-		 * 値が「配列ではないObject」かどうか
-		 * @param {any} v
-		 */
-		const isPlainObject = (v) => !!v && typeof v === 'object' && !Array.isArray(v);
-
-		/**
-		 * schema の $type 文字列に needle が含まれるか（簡易）
-		 * @param {any} t
-		 * @param {string} needle
-		 */
-		const schemaTypeIncludes = (t, needle, depth = 0) => {
-			if (!needle) return false;
-			if (depth > 6) return false;
-			if (t === null || t === undefined) return false;
-			if (typeof t === 'string') return t.includes(needle);
-			if (Array.isArray(t)) return t.some(x => schemaTypeIncludes(x, needle, depth + 1));
-			if (typeof t === 'object') {
-				if (Object.prototype.hasOwnProperty.call(t, '$type')) {
-					return schemaTypeIncludes(t.$type, needle, depth + 1);
-				}
-				return Object.values(t).some(x => schemaTypeIncludes(x, needle, depth + 1));
-			}
-			return false;
-		};
+		// NOTE: isPlainObject / schemaTypeIncludes はモジュールスコープの共通実装を使う
+		// （以前はここに同一実装のローカル定義があり、外側を shadow していた）
 
 		/**
 		 * typedef の存在に基づき、最も妥当な schemaPath を選ぶ
@@ -6752,7 +6782,6 @@ export async function renderDetail(workId, rec) {
 
 		// db_type.json 由来の表示順（トップレベル）
 		const schemaFields = extractTopLevelSchemaFields(workTypeDef, globalTypeDef, { dbName, detailLayout });
-		const schemaKeySet = new Set(schemaFields.map(f => f.key));
 
 		// スキーマから #Summary（長文）系を抽出し、プロフィールセクションに回す
 		const isSummaryType = (t) => {
@@ -7451,7 +7480,9 @@ export async function renderDetail(workId, rec) {
 			})
 			.filter(Boolean);
 
-		const otherRows = buildKvRows(sectionBuckets.other.filter((it) => !isNestedUnderPromotedSubField(it?.key)));
+		// NOTE: sectionBuckets.other は「分類できなかった項目」の受け皿として残すが、行は組まない。
+		// AGENTS.md の「表示完結の原則」により、schema 外のトップレベル項目は
+		// 「その他の項目」として自動表示しないため（従来も組んだ行を捨てていた）。
 		const specRows = buildKvRows(sectionBuckets.spec.filter((it) => !isNestedUnderPromotedSubField(it?.key)));
 		const basicExtraRows = buildKvRows(sectionBuckets.basic.filter((it) => !isNestedUnderPromotedSubField(it?.key)));
 		const subFieldItemMap = new Map(sectionBuckets.sub.map((it) => [it.key, it]));
