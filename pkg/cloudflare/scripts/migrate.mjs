@@ -22,61 +22,44 @@
  * @version 1.1.0
  */
 
-import { readFileSync, readdirSync, statSync, existsSync, writeFileSync, mkdirSync } from "node:fs";
-import { resolve, join, relative, dirname } from "node:path";
-import { fileURLToPath } from "node:url";
+import { existsSync } from "node:fs";
+import { join, relative } from "node:path";
 import { execFileSync } from "node:child_process";
 
 // D1 の is_private 列は Worker と同一ロジックで算出する必要があるため、
 // worker.js の実装をそのまま再利用する（ロジックの二重実装による乖離を避ける）
 import { applyCommons, isPublicRecord } from "../worker.js";
 
-// ─────────────────────────────────────────────────────────────────────────────
-// 定数・設定
-// ─────────────────────────────────────────────────────────────────────────────
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname  = dirname(__filename);
-
-/** D1 バッチ INSERT の最大行数。1 ファイル=1 SQL 文にする単位。
- *  レコード JSON は大きいため SQLITE_TOOBIG 回避で 1 レコード 1 INSERT にしており、
- *  この値は SQL ファイル 1 本あたりの文数（= レコード数）の上限。 */
-const D1_BATCH_SIZE = 10;
-
-/** wrangler 実行コマンド。
- *  Windows (Node v22+) では .cmd を execFileSync で直接起動できないため
- *  shell オプションを使用する（WRANGLER_CMD は "npx" のまま、shell: true で解決）。 */
-const WRANGLER_CMD = "npx";
-const WRANGLER_BASE_ARGS = ["wrangler"];
-/** Windows では shell: true が必要（.cmd 解決 + パスのスペース対応） */
-const SPAWN_OPTS_BASE = process.platform === "win32" ? { shell: true } : {};
-/** D1 操作時に wrangler.toml の場所を明示するための相対パス（REPO_ROOT 基準）。
- *  cwd を REPO_ROOT に固定しているため wrangler が pkg/cloudflare/ を自動探索できず、
- *  database_id（UUID）を解決できない問題を防ぐ。 */
-const WRANGLER_CONFIG_REL = "pkg/cloudflare/wrangler.toml";
+// 引数パース・JSON 読み込み・SQL 整形・D1 投入は migrate-aihints.mjs と共通。
+// コピーで乖離させないため migrate-common.mjs へ集約している。
+import {
+  parseCommonArgs,
+  readJson,
+  findJsonFiles,
+  esc,
+  resolveIdxKey,
+  getByPath,
+  CONVENTIONAL_FILES,
+  stripDbPrefix,
+  capitalize,
+  createD1Runner,
+  WRANGLER_CMD,
+  WRANGLER_BASE_ARGS,
+  SPAWN_OPTS_BASE,
+} from "./migrate-common.mjs";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // 引数パース
 // ─────────────────────────────────────────────────────────────────────────────
 
 const args = process.argv.slice(2);
+const { getArg, dryRun: DRY_RUN, clean: CLEAN, dbId: DB_ID, repoRoot: REPO_ROOT } = parseCommonArgs(args);
 
-/** @returns {string|undefined} */
-function getArg(name) {
-  const idx = args.indexOf(name);
-  return idx !== -1 ? args[idx + 1] : undefined;
-}
-
-const DRY_RUN  = args.includes("--dry-run");
 const R2_ONLY  = args.includes("--r2-only");
 const D1_ONLY  = args.includes("--d1-only");
-const CLEAN    = args.includes("--clean");
-const DB_ID    = getArg("--db-id") ?? "creationsdb-d1";
 const BUCKET   = getArg("--bucket") ?? "creationsdb-data";
 
-// リポジトリルート: --repo-root 引数 → scripts/ の 3 階層上
-const REPO_ROOT = resolve(getArg("--repo-root") ?? join(__dirname, "../../.."));
-const DATA_DIR  = join(REPO_ROOT, "data");
+const DATA_DIR = join(REPO_ROOT, "data");
 
 console.log(`[migrate] REPO_ROOT = ${REPO_ROOT}`);
 console.log(`[migrate] D1 DB_ID  = ${DB_ID}`);
@@ -85,86 +68,8 @@ if (DRY_RUN) console.log("[migrate] ⚠️  DRY RUN モード（実際の投入�
 if (CLEAN)   console.log("[migrate] 🗑️  CLEAN モード（D1 既存データを削除してから投入）");
 
 // ─────────────────────────────────────────────────────────────────────────────
-// ユーティリティ
+// ユーティリティ（migrate.mjs 固有。共通分は migrate-common.mjs）
 // ─────────────────────────────────────────────────────────────────────────────
-
-/**
- * JSON ファイルを読み込んでパース。失敗時は null を返す。
- * @param {string} filepath
- * @returns {unknown}
- */
-function readJson(filepath) {
-  try {
-    return JSON.parse(readFileSync(filepath, "utf8"));
-  } catch {
-    console.warn(`[migrate] ⚠️  JSON 読み込み失敗: ${filepath}`);
-    return null;
-  }
-}
-
-/**
- * ディレクトリを再帰的に探索して .json ファイルを列挙する。
- * @param {string} dir
- * @param {string[]} result
- * @returns {string[]}
- */
-function findJsonFiles(dir, result = []) {
-  if (!existsSync(dir)) return result;
-  for (const entry of readdirSync(dir)) {
-    const full = join(dir, entry);
-    const st = statSync(full);
-    if (st.isDirectory()) {
-      findJsonFiles(full, result);
-    } else if (entry.endsWith(".json")) {
-      result.push(full);
-    }
-  }
-  return result;
-}
-
-/**
- * SQL 文字列エスケープ（シングルクォートを重ねる）
- * @param {string|null|undefined} s
- * @returns {string}
- */
-function esc(s) {
-  if (s == null) return "NULL";
-  return `'${String(s).replace(/'/g, "''")}'`;
-}
-
-/**
- * $IndexDef から主インデックスキー（ドット記法）を解決する。
- * フラット型: hashTag そのもの
- * ネスト型（$type が配列）: #IndexListKey > #Number > 先頭要素 の優先順で子を選択
- * @param {object|undefined} indexDef
- * @returns {string}
- */
-function resolveIdxKey(indexDef) {
-  if (!indexDef) return "Num";
-  const root  = indexDef.hashTag ?? "Num";
-  const types = indexDef.$type;
-
-  if (!Array.isArray(types)) return root;  // フラット型
-
-  // ネスト型: 子要素から主インデックスを選ぶ
-  const findChild = (pred) => types.find((t) => typeof t.$type === "string" && pred(t.$type));
-  const primary =
-    findChild((t) => t.includes("#IndexListKey")) ??
-    findChild((t) => t.includes("#Number"))       ??
-    types[0];
-
-  return primary ? `${root}.${primary.hashTag}` : root;
-}
-
-/**
- * ドット記法でオブジェクトから値を取得する。
- * @param {object} obj
- * @param {string} path - 例: "Card.Num", "Num"
- * @returns {unknown}
- */
-function getByPath(obj, path) {
-  return path.split(".").reduce((cur, k) => cur?.[k], obj);
-}
 
 /**
  * 作品IDから物理ディレクトリ名を解決する（`Works_Dir` オーバーライド対応）。
@@ -198,53 +103,12 @@ function readWorkBaseFile(workDir, filename) {
 // D1 投入ユーティリティ
 // ─────────────────────────────────────────────────────────────────────────────
 
-/** 一時 SQL ファイルのパス */
-const TMP_SQL_DIR = join(REPO_ROOT, ".cache", "migrate");
-
-/**
- * SQL ファイルを wrangler d1 execute で実行する。
- * @param {string} label - ログ表示用ラベル
- * @param {string} sql
- */
-function d1Execute(label, sql) {
-  if (!sql.trim()) return;
-  if (DRY_RUN) {
-    console.log(`[D1 dry-run] ${label}\n${sql.slice(0, 200)}...`);
-    return;
-  }
-  mkdirSync(TMP_SQL_DIR, { recursive: true });
-  const tmpFile = join(TMP_SQL_DIR, `${label.replace(/\W+/g, "_")}.sql`);
-  writeFileSync(tmpFile, sql, "utf8");
-  try {
-    execFileSync(
-      WRANGLER_CMD,
-      [...WRANGLER_BASE_ARGS, "--config", WRANGLER_CONFIG_REL, "d1", "execute", DB_ID, "--file", relative(REPO_ROOT, tmpFile).replace(/\\/g, "/"), "--remote", "--yes"],
-      { stdio: "inherit", cwd: REPO_ROOT, ...SPAWN_OPTS_BASE }
-    );
-    console.log(`[D1] ✓ ${label}`);
-  } catch (err) {
-    console.error(`[D1] ✗ ${label}: ${err.message}`);
-    throw err;
-  }
-}
-
-/**
- * INSERT 文を BATCH_SIZE 行ごとに分割して実行する。
- * @param {string} table
- * @param {string} columns
- * @param {string[]} valueParts - 各行の VALUES(...) 部分
- * @param {string} labelPrefix
- */
-function d1BatchInsert(table, columns, valueParts, labelPrefix) {
-  for (let i = 0; i < valueParts.length; i += D1_BATCH_SIZE) {
-    const chunk = valueParts.slice(i, i + D1_BATCH_SIZE);
-    // レコード JSON は大きいため SQLITE_TOOBIG 回避で 1 レコード 1 INSERT 文にする
-    const sql = chunk
-      .map((v) => `INSERT OR REPLACE INTO ${table} (${columns}) VALUES\n${v};`)
-      .join("\n");
-    d1Execute(`${labelPrefix} [${i + 1}-${i + chunk.length}]`, sql);
-  }
-}
+const { d1Execute, d1BatchInsert } = createD1Runner({
+  repoRoot: REPO_ROOT,
+  dbId: DB_ID,
+  dryRun: DRY_RUN,
+  tmpDirName: "migrate",
+});
 
 // ─────────────────────────────────────────────────────────────────────────────
 // メインデータ読み込み
@@ -403,23 +267,6 @@ if (!R2_ONLY) {
   // ─────────────────────────────────────────────────────────────────────────
 
   console.log("\n[D1] records テーブルを構築...");
-
-  /** DB ファイル名候補（resolveAndFetchDb と同じ優先順） */
-  const CONVENTIONAL_FILES = {
-    Primary:       "db_Primary.json",
-    Secondary:     "db_Secondary.json",
-    SemiPrimary:   "db_SemiPrimary.json",
-    SelfSecondary: "db_SelfSecondary.json",
-    Proxy:         "db_Proxy.json",
-    Mobs:          "db_Mobs.json",
-  };
-
-  function stripDbPrefix(s) {
-    return (s || "").replace(/^#?(DB|Ref)_/i, "").replace(/^#/, "");
-  }
-  function capitalize(s) {
-    return s ? s[0].toUpperCase() + s.slice(1) : s;
-  }
 
   let totalRecords = 0;
 
