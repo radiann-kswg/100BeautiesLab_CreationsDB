@@ -2402,6 +2402,7 @@
     "Num": "1122-numberize",
     "Num_Badge": "1122RZ",
     "sec_SeriesTitle": "ナンバーテールズ化企画",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 1122 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
     "Images": { "concept_PNGName": "numberize/cnsp_imgNTS-1122RZ" },

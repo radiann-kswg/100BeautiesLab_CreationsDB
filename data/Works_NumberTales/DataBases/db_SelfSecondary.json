@@ -1714,6 +1714,9 @@
     "ModelNumber": "APHR-NT [MP]444-*****",
     "GenderType": "Neutral",
     "Class": ["量産型マスタートリプル"],
+    "Height_cm": 163,
+    "Weight_kg": 59,
+    "BustSize": "A",
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxSpecial",
@@ -1723,6 +1726,11 @@
         "Note_EN": null
       }
     ],
+    "ConceptAge": {
+      "value": 44,
+      "about_JP": "便宜上はこの値だが真偽が定かでない",
+      "about_EN": "Conveniently this value, but not confirmed"
+    },
     "AppearanceDetail": [
       {
         "Formation": "corefolder",
@@ -3671,18 +3679,31 @@
     "Num": "888-mp",
     "Num_Badge": "888MP",
     "Progress": "notProceeded",
-    "AnotherVersions_DBLink": [
-      { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 888 }
-    ],
     "sec_SeriesTitle": "量産型マスタートリプル",
     "sec_Category": null,
     "sec_DesignedBy": ["RadianN"],
-    "Name_JP": "量産型 888(ムゲン)",
-    "Name_EN": "Cloned 888(Infy)",
+    "VariantModels_DBLink": [
+      { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 888 }
+    ],
+    "Name_JP": "888(ヤバヤ)",
+    "Name_EN": "888(Octachtate)",
     "FormalName_JP": "量産型ナンバーテールズ888番機シリーズ",
     "FormalName_EN": "NumberTales #888 Series Mass Production Version for Sales",
+    "CodeName_JP": "八八八",
+    "CodeName_EN": "Eight-Eight-Eight",
+    "SPCodeName_JP": null,
+    "SPCodeName_EN": null,
     "ModelNumber": "APHR-NT [MP]888-*****",
-    "Class": ["量産型マスタートリプル"]
+    "Class": ["量産型マスタートリプル"],
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxSpecial",
+        "Count": 8,
+        "Segment": 3,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ]
   },
   {
     "Num": 959,
@@ -3769,17 +3790,150 @@
     "Num": "999-mp",
     "Num_Badge": "999MP",
     "Progress": "notProceeded",
-    "AnotherVersions_DBLink": [
-      { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 999 }
-    ],
     "sec_SeriesTitle": "量産型マスタートリプル",
     "sec_Category": null,
     "sec_DesignedBy": ["RadianN"],
-    "Name_JP": "量産型 999(カンスト)",
-    "Name_EN": "Cloned 999(Counstop)",
+    "VariantModels_DBLink": [
+      { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 999 }
+    ],
+    "Name_JP": "999(ノヴエニーナ)",
+    "Name_EN": "999(Nov'enina)",
     "FormalName_JP": "量産型ナンバーテールズ999番機シリーズ",
     "FormalName_EN": "NumberTales #999 Series Mass Production Version for Sales",
+    "CodeName_JP": "九九九",
+    "CodeName_EN": "Nine-Nine-Nine",
+    "SPCodeName_JP": null,
+    "SPCodeName_EN": null,
     "ModelNumber": "APHR-NT [MP]999-*****",
-    "Class": ["量産型マスタートリプル"]
+    "Class": ["量産型マスタートリプル"],
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxSpecial",
+        "Count": 9,
+        "Segment": 3,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ]
+  },
+  {
+    "Num": 1000,
+    "Num_Badge": "1000",
+    "Progress": "notProceeded",
+    "isTriple": false,
+    "Name_JP": "1000(チヨ)",
+    "Name_EN": "1000(Killoy)",
+    "FormalName_JP": "ナンバーテールズ仮設1000番機",
+    "FormalName_EN": "NumberTales Tentative Mk.1000",
+    "CodeName_JP": "千",
+    "CodeName_EN": "Thousand",
+    "ModelNumber": "APHR-NT 0+[RZ]X",
+    "ModelName_JP": "ナンバーテールズ最終型0+10号機(仮設1000番機)",
+    "ModelName_EN": "NumberTales (Tentative Mk.1000)",
+    "GenderType": "Neutral",
+    "Class": ["最終型ハイナンバーズ"],
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Cat",
+        "Count": 1,
+        "Segment": 1,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "AnivDay": [
+      {
+        "Day": { "Month": 9, "DayOfMonth": 30 },
+        "DayAbout_JP": "開発記念（最終型ハイナンバーズとして）",
+        "DayAbout_EN": "Development commemoration (as Final-Renovated Type High-Numbers)"
+      },
+      {
+        "Day": { "Month": 10, "DayOfMonth": 10 },
+        "DayAbout_JP": "開発記念（10号機型設計において）",
+        "DayAbout_EN": "Development commemoration (as Unit.10 lineages)"
+      },
+      {
+        "Day": { "Month": 12, "DayOfMonth": 15 },
+        "DayAbout_JP": "？？？",
+        "DayAbout_EN": "????"
+      }
+    ]
+  },
+  {
+    "Num": 1111,
+    "Num_Badge": "1111",
+    "Progress": "notProceeded",
+    "isTriple": false,
+    "Name_JP": "1111(アイデン)",
+    "Name_EN": "1111(Identit)",
+    "FormalName_JP": "ナンバーテールズ仮設1111番機",
+    "FormalName_EN": "NumberTales Tentative Mk.1111",
+    "CodeName_JP": "一一 一一",
+    "CodeName_EN": "Eleven Eleven",
+    "SPCodeName_JP": "(「identity」という単語には「i」と「t」が2つずつ交互に含まれており、二つの「11」とみれる)",
+    "SPCodeName_EN": "(The word 'identity' contains two 'i's and two 't's alternately, which can be seen as two '11's)",
+    "ModelNumber": "APHR-NT [RZ]XI",
+    "ModelName_JP": "ナンバーテールズ最終型11号機(仮設1111番機)",
+    "ModelName_EN": "NumberTales Final-Renovated Type Unit.11 (Tentative Mk.1111)",
+    "RaceType": "PortableHumanoid(PhoenixType)",
+    "GenderType": "Neutral",
+    "Class": ["最終型ハイナンバーズ"],
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_BirdTailOnly",
+        "Count": 1,
+        "Segment": 1,
+        "Note_JP": "翼部と尾羽でそれぞれ2つの「1」のような模様をしている",
+        "Note_EN": "The wings and tail feathers each have a pattern resembling two '1's."
+      }
+    ],
+    "AnivDay": [
+      {
+        "Day": { "Month": 11, "DayOfMonth": 11 },
+        "DayAbout_JP": "開発記念（最終型ハイナンバーズおよび11号機型として）",
+        "DayAbout_EN": "Development commemoration (as Final-Renovated Type High-Numbers and Unit.11 lineages)"
+      }
+    ]
+  },
+  {
+    "Num": 1122,
+    "Num_Badge": "1122",
+    "Progress": "notProceeded",
+    "AnotherVersions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Secondary", "Num": "1122-numberize" }
+    ],
+    "sec_SeriesTitle": null,
+    "sec_Category": null,
+    "sec_DesignedBy": ["RadianN"],
+    "Name_JP": "1122(ネコマ)",
+    "Name_EN": "1122(Nekoma)",
+    "FormalName_JP": "ナンバーテールズ仮設1122番機",
+    "FormalName_EN": "NumberTales Tentative #1122",
+    "ModelNumber": "APHR-NT [xZ]I+II",
+    "ModelName_JP": "ナンバーテールズ仮設最終1+2号機",
+    "ModelName_EN": "NumberTales Tentative Final-Renovated Unit.1+2",
+    "Class": ["最終型ハイナンバーズ"],
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Nekomata",
+        "Count": 2,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 2,
+        "Segment": 2,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "AnivDay": [
+      {
+        "Day": { "Month": 11, "DayOfMonth": 22 },
+        "DayAbout_JP": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
+    ]
   }
 ]

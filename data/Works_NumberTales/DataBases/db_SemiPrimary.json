@@ -3299,24 +3299,359 @@
   {
     "Num": 888,
     "Num_Badge": "888",
-    "Progress": "notProceeded",
+    "Progress": "released",
     "isTriple": false,
-    "AnotherVersions_DBLink": [
+    "VariantModels_DBLink": [
       { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": "888-mp" }
     ],
     "Name_JP": "888(ムゲン)",
     "Name_EN": "888(Infy)",
+    "Images": {
+      "concept_PNGName": "cnsp_imgNTS-888"
+    },
     "FormalName_JP": "ナンバーテールズ888番機",
     "FormalName_EN": "NumberTales #888",
     "CodeName_JP": "八八八",
     "CodeName_EN": "Eight-Eight-Eight",
     "SPCodeName_JP": "（無限）",
     "SPCodeName_EN": "Infinity",
-    "ModelNumber": "APHR-NT [x3]VIII",
-    "ModelName_JP": "ナンバーテールズ3倍型8号機(888番機)",
-    "ModelName_EN": "NumberTales EXtended By.3 Type Unit.8 (Mk.888)",
+    "ModelNumber": "APHR-NT [RZ]VIII",
+    "ModelName_JP": "ナンバーテールズ最終型8号機(888番機)",
+    "ModelName_EN": "NumberTales Final-Renovated Type Unit.8 (Mk.888)",
+    "RaceType": "PortableHumanoid(PhoenixType)",
     "GenderType": "Neutral",
-    "Class": ["マスタートリプル"],
+    "Class": ["マスタートリプル", "最終型ハイナンバーズ"],
+    "Height_cm": 156,
+    "Weight_kg": { "hideText": "？？？" },
+    "BustSize": "A",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_BirdTailOnly",
+        "Count": 1,
+        "Segment": 1,
+        "Note_JP": "左右の翼部と尾羽が3つの「8」のような模様をしている",
+        "Note_EN": "The left and right wings and tail feathers have a pattern resembling three '8's."
+      }
+    ],
+    "ConceptAge": 18,
+    "AnivDay": [
+      {
+        "Day": { "Month": 12, "DayOfMonth": 22 },
+        "DayAbout_JP": "開発記念（最終型ハイナンバーズとして）",
+        "DayAbout_EN": "Development commemoration (as Final-Renovated Type High-Numbers)"
+      }
+    ],
+    "FirstPersonCalling_JP": "妾(わたし)",
+    "FirstPersonCalling_EN": "I (archaic/elevated fem.; Japanese: 妾)",
+    "SecondPersonCalling_JP": "其方(あなた)",
+    "SecondPersonCalling_EN": "thou (archaic/elevated fem; Japanese: 其方)",
+    "ThirdPersonCalling_JP": "*の者;[※名前呼び]",
+    "ThirdPersonCalling_EN": "that one (as personal); [*by name]",
+    "ForMasterCalling_JP": "主君",
+    "ForMasterCalling_EN": "my lord",
+    "Character_JP": "基本傲慢で強欲な性格だが、主人に対する誠意は一人前",
+    "Character_EN": "Basically arrogant and greedy, but sincere towards the master",
+    "Hobby_JP": "成し遂げること",
+    "Hobby_EN": "Accomplishing things",
+    "SpecialSkill_JP": "宝探し",
+    "SpecialSkill_EN": "Treasure hunting",
+    "Favor_JP": "龍天国の開運術",
+    "Favor_EN": "LóngTiān's fortune-telling technique",
+    "Unlike_JP": "不規則な文字列・パスワード",
+    "Unlike_EN": "Irregular strings/passwords",
+    "AppearanceDetail": [
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_FaceMaking"],
+        "Laterality": null,
+        "DesignElement": "#Element_NumberMark",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "額に大きく",
+            "value_EN": "Large on the forehead"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "朱色",
+            "value_EN": "vermilion"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Notation",
+            "value_JP": "「8∞8」",
+            "value_EN": "'8∞8'"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Ear"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Ear",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "EarShapeType_Wing",
+            "about_JP": "橙色の翼部のような耳",
+            "about_EN": "ears resembling the orange wing sections"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Hair"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "薄桃色のインテークロングヘア",
+            "value_EN": "light pink intake long hair"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_FaceMaking"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "薄桃色の太く大きい眉",
+            "value_EN": "thick and large light pink eyebrows"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Eye"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "朱色の細目",
+            "value_EN": "narrow vermilion eyes"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "「8∞8」を両目で分けたような瞳孔",
+            "value_EN": "pupils divided like '8∞8'"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Wing", "#BodyPart_Tail"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "「8」の字のような模様が描かれた不死鳥のような朱色と橙色の尾羽",
+            "value_EN": "tail feathers resembling a phoenix in vermilion and orange with a pattern like the character '8'"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Chest"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "朱色のインナーセーター",
+            "value_EN": "vermilion inner sweater"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Arm", "#BodyPart_Shoulder"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "羽織のようでカジュアルな赤紫色のアウターウェア",
+            "value_EN": "casual reddish-purple outerwear resembling a haori"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Leg"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "薄橙色のスラックス",
+            "value_EN": "light orange slacks"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Foot"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "朱色の下駄",
+            "value_EN": "vermilion geta"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "薄桃色の靴下",
+            "value_EN": "light pink socks"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#FFA79B",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Arm"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#FFA276",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_FaceMaking",
+          "#BodyPart_Eye",
+          "#BodyPart_Wing",
+          "#BodyPart_Chest",
+          "#BodyPart_Foot"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#AD496B",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Hair",
+          "#BodyPart_FaceMaking",
+          "#BodyPart_Foot"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#E8593A",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_FaceMaking",
+          "#BodyPart_Eye",
+          "#BodyPart_Wing",
+          "#BodyPart_Chest",
+          "#BodyPart_Arm",
+          "#BodyPart_Foot"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#D75340",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Arm"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#FFC4A3",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_FaceMaking",
+          "#BodyPart_Eye",
+          "#BodyPart_Wing",
+          "#BodyPart_Chest",
+          "#BodyPart_Leg",
+          "#BodyPart_Foot"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#010000",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "Summary_JP": "――他と違う？何を今更。尻尾はどうした？何を今更。\n\"妾(わたし)\"は最終型ハイナンバーぞ、求める設計なら此処にある。\n\"無限の888番機\"ぞ、足らぬもの等あらぬ。\n「マスタートリプル」最後で崇高な設計である\"妾(わたし)\"の絶大な\"加護(ちから)\"を、今ここで試してみるか－－？",
+    "Summary_EN": "— Different from the others? How belated a question. What became of the tails? How belated a question.\n\"I\" am a Final-Renovated Type High-Number; if it is a design thou seekest, it is here.\n\"I\" am the \"Mk.888 of Infinity\"; there is nothing that I lack.\nWilt thou test, here and now, the immense \"blessing power\" of \"I\", the last and most sublime design among the \"MasterTriple\" —?",
+    "AbilityStats": {
+      "Speed": { "Rank": "S" },
+      "Communication": { "hideText": "判定不能" },
+      "Leading": { "hideText": "非公開" },
+      "Precision": { "Rank": "S" },
+      "Technic": { "Rank": "D" },
+      "Actuation": { "Rank": "S" }
+    },
+    "Backgrounds_JP": "最初の最終型ハイナンバーズで、量産型888番機の「888(ヤバヤ)」とは別の型式となっている。\n加護については偶然の産物（以下略）",
+    "Backgrounds_EN": "The first Final-Renovated Type High-Numbers unit, and a different model type from the mass-production Mk.888, '888(Octachtate)'.\nZir blessing is a product of coincidence — (details omitted)",
+    "NumerospecAbout_JP": "富を？？？",
+    "NumerospecAbout_EN": "Manage wealth to ????",
     "ThisMasters": [
       {
         "value_JP": "八坂 兵汰/ヘクター.キロバスター/葉月（夜月機関 第8幹部）",
@@ -3334,7 +3669,7 @@
     "Num_Badge": "999",
     "Progress": "notProceeded",
     "isTriple": false,
-    "AnotherVersions_DBLink": [
+    "VariantModels_DBLink": [
       { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": "999-mp" }
     ],
     "Name_JP": "999(カンスト)",
@@ -3346,22 +3681,30 @@
     "SPCodeName_JP": "終",
     "SPCodeName_EN": "Final",
     "ModelNumber": "APHR-NT [RZ]IX",
-    "ModelName_JP": "ナンバーテールズ改良最終型9号機(999番機)",
-    "ModelName_EN": "NumberTales Final Renovated Type Unit.9 (Mk.999)",
+    "ModelName_JP": "ナンバーテールズ最終型9号機(999番機)",
+    "ModelName_EN": "NumberTales Final-Renovated Type Unit.9 (Mk.999)",
+    "RaceType": "PortableHumanoid(PhoenixType)",
     "GenderType": "Neutral",
-    "Class": ["マスタートリプル"],
+    "Class": ["マスタートリプル", "最終型ハイナンバーズ"],
     "Height_cm": 155,
     "BustSize": "A",
     "TailsUnit": [
       {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 9,
-        "Segment": 3,
-        "Note_JP": null,
-        "Note_EN": null
+        "TailShapeType": "#TailShapeType_BirdTailOnly",
+        "Count": 1,
+        "Segment": 1,
+        "Note_JP": "左右の翼部と尾羽が3つの「9」のような模様をしている",
+        "Note_EN": "The left and right wings and tail feathers have a pattern resembling three '9's."
       }
     ],
     "ConceptAge": 14,
+    "AnivDay": [
+      {
+        "Day": { "Month": 12, "DayOfMonth": 31 },
+        "DayAbout_JP": "開発記念（最終型ハイナンバーズとして）",
+        "DayAbout_EN": "Development commemoration (as Final-Renovated Type High-Numbers)"
+      }
+    ],
     "FirstPersonCalling_JP": "わらわ",
     "FirstPersonCalling_EN": "I (warawa; fem. archaic)",
     "SecondPersonCalling_JP": "お主",
@@ -3397,7 +3740,7 @@
     "SPCodeName_JP": "(丗三)",
     "SPCodeName_EN": "Triple Eleven",
     "ModelNumber": "APHR-NT [Px]XI.3",
-    "ModelName_JP": "ナンバーテールズ仮説11号3倍機(3x11番機(仮称))",
+    "ModelName_JP": "ナンバーテールズ仮設11号3倍機(3x11番機(仮称))",
     "ModelName_EN": "NumberTales' Tentative Prototype: NumberTales Unit.11 EXtended By.3 (Mk.3x11(Tentative))",
     "GenderType": "FemaleNeutral",
     "Class": ["仮設型ハイナンバー"],

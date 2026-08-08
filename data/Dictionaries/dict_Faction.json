@@ -227,9 +227,7 @@
     "Faction": "管理主",
     "Faction_EN": "Regioministrators",
     "FactionsBaseArea": {
-      "Area": "超次元執筆空間(アトリエ)",
-      "BaseAreaAbout_JP": "第８界の管理を行っている",
-      "BaseAreaAbout_EN": "Managing #REGION.8"
+      "Area": "超次元執筆空間(アトリエ)"
     },
     "isForSecondary": false,
     "isMaker": false

@@ -452,6 +452,11 @@
           "TailShapeType": "Reptile",
           "TailShapeType_JP": "爬虫類型",
           "TailShapeType_EN": "Reptile-type"
+        },
+        "#TailShapeType_BirdTailOnly": {
+          "TailShapeType": "BirdTailOnly",
+          "TailShapeType_JP": "尾羽のみ(翼部形状と併せて設計)",
+          "TailShapeType_EN": "Tail feathers only (designed in conjunction with wing shape)"
         }
       },
       "$EnumDef_EarShapeType": {
@@ -464,6 +469,11 @@
           "EarShapeType": "Cat",
           "EarShapeType_JP": "猫の耳",
           "EarShapeType_EN": "Cat"
+        },
+        "#EarShapeType_Wing": {
+          "EarShapeType": "Wing",
+          "EarShapeType_JP": "翼の形状",
+          "EarShapeType_EN": "Wing"
         }
       },
       "$Def_TailsUnit": {
