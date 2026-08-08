@@ -26,9 +26,9 @@ Phase1〜5）を `addon-ai-tag` へ取り込み、**AIHints 固有コードに�
 
 | # | 乖離 | `migrate.mjs`（現行） | コピー側 | 影響 |
 | --- | --- | --- | --- | --- |
-| 1 | wrangler config | `"--config", WRANGLER_CONFIG_REL` | 無し | `cwd = REPO_ROOT` のため wrangler が `wrangler.toml` を自動探索できず `database_id` を解決できない |
-| 2 | Windows shell | `...SPAWN_OPTS_BASE`（`{shell:true}`） | 無し | Windows / Node v22+ で `npx.cmd` を `execFileSync` が起動できない |
-| 3 | SQL パス | `relative(REPO_ROOT, tmpFile)` + `/` 正規化 | 絶対パスのまま | 同上の環境でパス解釈が揺れる |
+| 1 | wrangler config | `"--config", WRANGLER_CONFIG_REL` | 無し | **実測では実害なし**（後述「実機確認」）。`migrate.mjs` の注釈が記録する問題は本環境で再現せず、予防的措置として扱う |
+| 2 | Windows shell | `...SPAWN_OPTS_BASE`（`{shell:true}`） | 無し | **実バグ**。Windows / Node v22+ で `npx.cmd` を `execFileSync` が起動できず `spawnSync npx ENOENT` で即死する |
+| 3 | SQL パス | `relative(REPO_ROOT, tmpFile)` + `/` 正規化 | 絶対パスのまま | **実バグ**。#2 を直しても、`shell: true` 経由でスペースを含む絶対パスが分割され `Unknown arguments` で失敗する |
 | 4 | `idxKey` の解決 | `dbSpecificType ? resolveIdxKey(...) : defaultIdxKey` | `resolveIdxKey(...) \|\| defaultIdxKey` | **`resolveIdxKey()` は引数が無くても `"Num"` を返す**ため defaultIdxKey へ絶対フォールバックしない。ネスト型 `$IndexDef` の作品で `idx_value` が取れず AIHints が丸ごと投入されない |
 | 5 | `workDir` の解決 | `resolveWorkDirForMigrate()`（`Works_Dir` 対応） | `workKey.replace()` のみ | `Works_Dir` オーバーライド作品を解決できない |
 | 6 | メタ読み込み | `readWorkBaseFile()`（`DataBases/` が無ければ直下） | `DataBases/` 固定 | `Works_CommonReferences` で読み込み失敗警告が出ていた |
@@ -161,6 +161,38 @@ npm.cmd run data:order:check  → 緑（0/1314 レコード）
 `Works_CommonReferences/DataBases/db_meta.json` の**読み込み失敗警告が出なくなった**もの。
 投入件数（92 件）は変わらない。**意図した改善**。
 
+### 実機確認 — wrangler 経由の D1 投入（実施済み）
+
+**乖離 #1〜#3 の切り分け**（`.cache/verify-d1-wrangler.mjs` / `.cache/verify-d1-isolate.mjs`。
+いずれも `SELECT COUNT(*)` のみの**読み取り SQL で書き込みゼロ**）:
+
+| 検証 | 起動条件 | 結果 |
+| --- | --- | --- |
+| (A) 現行実装 `createD1Runner` | `--config` / shell / 相対パス すべてあり | **OK**（92 rows read, 0 rows written） |
+| (B) 旧 `migrate-aihints.mjs` の再現 | すべて無し | **FAILED** — `spawnSync npx ENOENT` |
+| (C) `--config` だけ落とす | shell / 相対パス あり | **OK** |
+| (D) SQL パスだけ絶対パスに戻す | `--config` / shell あり | **FAILED** — `Unknown arguments: Code, Userfile\100BeautiesLab_CreationsDB\...` |
+| (E) 対照群（現行と同条件を直接起動） | すべてあり | **OK** |
+
+- **#2 は実バグと確定**（B）。旧実装は**この Windows 環境では一度も起動できていない**。
+  D1 に 92 件が入っていたのは CI（`cf-api-sync.yml` の Linux ランナー）経由の投入によるもので、
+  Linux では `shell: true` が不要なため顕在化しなかった。
+- **#3 も実バグと確定**（D）。`shell: true` を足しただけでは不十分で、リポジトリの絶対パスに
+  スペース（`VisualStudio Code Userfile`）が含まれるため wrangler の引数が分割される。
+  **#2 と #3 は両方直して初めてローカル実行が通る。**
+- **#1 は実害なしと判明**（C）。`--config` を落としても DB 名 `creationsdb-d1` から解決できた。
+  `migrate.mjs` の注釈が記録する「`database_id` を解決できない」状況は本環境では再現しない。
+  害はないので予防的措置として残すが、**当初「実バグ」と書いたのは誤りだったので訂正する**。
+
+**実投入**（`node pkg/cloudflare/scripts/migrate-aihints.mjs --repo-root .`）:
+
+- `--clean` は**使っていない**（`DELETE FROM aihints` を避け、`INSERT OR REPLACE` のみの冪等な実行にした）。
+  CI は `--clean` 付きで実行する（`cf-api-sync.yml`）。
+- 10 バッチすべて `[D1] ✓`、**92 件投入して完了**。
+- 投入後の D1 確認: `SELECT work_key, db_name, idx_key, COUNT(*) FROM aihints GROUP BY ...`
+  → `#Works_NumberTales` / `Primary` / `idx_key = "Num"` / **92 件**。
+  `NumberTales` の `$IndexDef` はフラット型なので `"Num"` が正しく、**乖離 #4 が latent である裏付け**にもなった。
+
 ### テストが実際にリグレッションを捕まえる状態
 
 `applyVisionResultsToAihints` は既存テスト（`patch-aihints.palette.test.js`）が palette 中心で、
@@ -175,11 +207,13 @@ npm.cmd run data:order:check  → 緑（0/1314 レコード）
 
 - **`--apply-vision-results` の実データ実行は未検証**。自動テストは合成データまでで、
   実際に `.cache/vision-results.json` を用意した実行は行っていない（Agent の画像解析セッションが必要）。
-- **wrangler 経由の D1 投入は未実行**。乖離 #1〜#3 の解消はコードパスの共通化までで、
-  実際の `wrangler d1 execute` は走らせていない。次回の `migrate-aihints.mjs` 実行時に確認すること。
 - **乖離 #4 の顕在化条件**: 現在 AIHints を持つのは `NumberTales/Primary` のみで `$IndexDef` が
-  フラット型のため、このバグは latent だった。ネスト型 `$IndexDef` の作品（`FLInvestigator78` 等）へ
-  AIHints を広げる際に効いてくる。
+  フラット型のため、このバグは latent（実機確認でも `idx_key = "Num"` が正しいことを確認済み）。
+  ネスト型 `$IndexDef` の作品（`FLInvestigator78` 等）へ AIHints を広げる際に効いてくる。
+- **`--clean` 付きの実行は未検証**。今回は `INSERT OR REPLACE` のみの冪等な実行に留めた。
+  CI（`cf-api-sync.yml`）は `--clean` 付きで走るが、`DELETE FROM aihints` を伴うためローカルでは試していない。
+- **`migrate.mjs` 本体（records / works / dbs + R2）の実投入も未実施**。共通化の影響を受けるが、
+  dry-run 出力の完全一致と、同じ `createD1Runner` を通る `migrate-aihints.mjs` の実投入成功までで確認を止めている。
 
 ### `develop` から引き継いだ未確認事項
 

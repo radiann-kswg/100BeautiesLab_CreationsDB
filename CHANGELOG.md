@@ -6,16 +6,17 @@
 
 | # | 乖離 | コピー側の状態 | 影響 |
 | --- | --- | --- | --- |
-| 1 | wrangler config の明示 | `--config` 無し | `cwd = REPO_ROOT` のため wrangler が `pkg/cloudflare/wrangler.toml` を自動探索できず `database_id` を解決できない |
-| 2 | Windows の shell 対応 | `SPAWN_OPTS_BASE` 無し | Windows / Node v22+ で `npx.cmd` を `execFileSync` が直接起動できない |
-| 3 | 一時 SQL パスの相対化 | 絶対パスのまま | 同上の環境でパス解釈が揺れる |
+| 1 | wrangler config の明示 | `--config` 無し | **実測では実害なし**。`--config` を落としても DB 名から解決できた（予防的措置として残す） |
+| 2 | Windows の shell 対応 | `SPAWN_OPTS_BASE` 無し | **実バグ**。Windows / Node v22+ で `npx.cmd` を `execFileSync` が起動できず `spawnSync npx ENOENT` で即死する |
+| 3 | 一時 SQL パスの相対化 | 絶対パスのまま | **実バグ**。#2 を直しても、`shell: true` 経由でスペースを含む絶対パスが分割され `Unknown arguments` で失敗する |
 | 4 | `idxKey` のフォールバック | `resolveIdxKey(dbSpecificType) \|\| defaultIdxKey` | **`resolveIdxKey()` は引数が無くても `"Num"` を返す**ため `defaultIdxKey` へ絶対フォールバックしない。ネスト型 `$IndexDef` の作品で `idx_value` が取れず AIHints が丸ごと投入されなくなる（`migrate.mjs` 側では同じバグを修正済みで、注釈にも残っていた） |
 | 5 | `workDir` の解決 | `workKey.replace(/^#Works_/, "Works_")` のみ | `Works_Dir` オーバーライド作品（共通資料の疑似作品等）を解決できない |
 | 6 | 作品メタの読み込み | `DataBases/` 固定 | `DataBases/` を持たない作品で読み込み失敗警告が出る |
 
+- **#2 と #3 は実機で確定**: 読み取り SQL（書き込みゼロ）で起動条件を 1 つずつ切り分けたところ、旧実装の再現は `spawnSync npx ENOENT` で即死し（#2）、`shell: true` を足しても SQL の絶対パスに含まれるスペースで引数が分割されて失敗した（#3）。**両方直して初めてローカル実行が通る。** D1 に既存の 92 件が入っていたのは CI（Linux ランナー）経由の投入によるもので、Linux では `shell: true` が不要なため顕在化していなかった。
 - **#4 は現状 latent**: AIHints を持つのは `NumberTales/Primary` のみで `$IndexDef` がフラット型のため顕在化していない。ネスト型の作品（`FLInvestigator78` 等）へ AIHints を広げる際に効く。
 - **影響範囲**: `pkg/cloudflare/scripts/migrate-aihints.mjs`（293 → 178 行）。
-- **検証**: `--dry-run` の出力差分は **2 行のみ**で、いずれも #6 の解消による読み込み失敗警告の消滅。投入件数（92 件）は不変。
+- **検証**: `--dry-run` の出力差分は **2 行のみ**で、いずれも #6 の解消による読み込み失敗警告の消滅。あわせて**実投入も実施**（`--clean` 無しの `INSERT OR REPLACE` のみ）し、10 バッチすべて成功・92 件投入・投入後の `idx_key` が `"Num"` であることを D1 側から確認した。
 
 ### refactor: AIHints 生成ツールの重複統合と巨大関数の前段抽出 (2026-08-08)
 
