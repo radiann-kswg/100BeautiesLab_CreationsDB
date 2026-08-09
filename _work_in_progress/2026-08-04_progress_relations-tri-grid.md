@@ -18,9 +18,9 @@
 3. ✅ `graph-edge-route.js` の `HEX_AXES`（6方向）を軸集合として差し替え可能にし、三角格子用 `TRI_AXES` を追加
 4. ✅ `graph-crossing.js` の三角格子対応を確認（コード変更なしで動作することを検証済み）
 5. ✅ `pages/relations.js` の盤面描画（`drawBoard()`）を三角形パスへ変更 → その後「マス塗りの鋭角」指摘を受け六角格子へ差し戻し（詳細は追記4）
-6. ⬜ キャラ単体フォーカスマップでの交差ゼロ描画を実装
-7. ⬜ 全体テスト・ブラウザ実地確認
-8. ⬜ 六角格子版の扱い（残す/削除）を最終決定
+6. ✅ キャラ単体フォーカスマップでの交差低減を実装（交差ゼロは非平面制約のため「最小化」へ方針確定）
+7. ✅ 全体テスト・ブラウザ実地確認
+8. ✅ 六角格子版の扱い（残す/削除）を最終決定（相関図本体は六角格子運用）
 
 ## 現在の状態（2026-08-04 時点）
 
@@ -389,6 +389,45 @@ User 要望「ノードはドラッグで動かせないようにする」に対
 
 - **テスト/確認**:
   - `npm test -- tests/pages.relations.syntax.test.js tests/graph.edge-route.test.js` → **2 files / 55 tests すべて成功**。
+
+### 完了（追記 18・完走確認 / 2026-08-09）
+
+- 仕上げ確認として相関図関連の主要テストと全体テストを再実行。
+  - `npm test -- tests/pages.relations.syntax.test.js tests/graph.edge-route.test.js tests/graph.crossing.test.js tests/graph.facets.test.js`
+    - **4 files / 135 tests すべて成功**
+  - `npm test`
+    - **66 files / 1177 tests すべて成功**
+- ブラウザ実地確認（`pages/relations.html?lang=jp`）で、
+  - グルーピング切替（例: クラス名）
+  - 統計表示の更新
+  - ドリル導線の表示
+    が正常に継続することを確認。
+- 本ログ中の「未着手」記述（追記3付近）は当時時点の履歴であり、現時点では追記4〜追記17および本追記により完了扱い。
+
+### 完了（追記 19・Phase 3-D / 4 仕上げ更新）
+
+User 指示「手順書の残タスク（3-D/3-E/4）を継続」に対応し、遷移・導線・記録を最小差分で仕上げた。
+
+- **3-D: drill遷移のモジュール化と接続**
+  - `lib/graph/graph-transition.js` を新設。
+    - `planZoomInto` / `planZoomOut` / `computeFrame` / `commitFrame` / `staggerDelays` を実装。
+    - `prefers-reduced-motion` 時は duration 0（即時反映）。
+  - `pages/relations.js` に接続。
+    - `renderGraph()` で `prevViewport` と `targetViewport` を比較し、drill 深度の増減で in/out を切替。
+    - `requestAnimationFrame` 補間中も `scheduleBoardDraw()` を呼び、マス塗り表示と同期。
+
+- **4: 導線と仕様メモ**
+  - `index.html` に `相関図UI` ボタンを追加。
+  - `pages/characters.html` に `相関図を開く` リンクを追加。
+  - `docs/relations-graph.md` を新設（URLパラメータ・遷移方針・運用メモ）。
+
+- **キャッシュバージョン**
+  - `pages/relations.html` の `asset-version` を `2026.08.08.2` に更新。
+
+- **テスト結果**
+  - `npm test -- tests/graph.transition.test.js tests/pages.relations.syntax.test.js tests/graph.edge-route.test.js tests/graph.crossing.test.js tests/graph.facets.test.js`
+    - **5 files / 139 tests すべて成功**。
+  - `get_errors`（`graph-transition.js` / `relations.js` / `graph.transition.test.js`）でエラー 0 件を確認。
 
 ## 影響範囲（想定）
 

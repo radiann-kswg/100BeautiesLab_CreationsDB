@@ -1,5 +1,17 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### feat: 相関図に drill 遷移（zoom/pan 補間）を導入し、導線と仕様メモを追加した (2026-08-08)
+
+`pages/relations.js` の再描画時に viewport が即時ジャンプしていたため、drill in/out の前後関係を追いづらかった。`lib/graph/graph-transition.js` を新設して、`from -> to` の zoom/pan を短時間で補間する共通関数へ切り出し、相関図側へ接続した。合わせて導線と記録を整備した。
+
+- **遷移モジュールの新設**: `lib/graph/graph-transition.js` に `planZoomInto` / `planZoomOut` / `computeFrame` / `commitFrame` / `staggerDelays` を追加。DOM 非依存の純関数中心にして、反映だけを `commitFrame` へ分離。
+- **`prefers-reduced-motion` の尊重**: `reduced` 時は `duration=0` で即時反映。通常時のみ `requestAnimationFrame` で補間。
+- **相関図への接続**: `pages/relations.js` の `renderGraph()` で `prevViewport` と `targetViewport` を比較し、drill 深度の増減に応じて in/out プランを選択。補間中も `scheduleBoardDraw()` を呼んでマス塗り表示を同期。
+- **導線追加**: `index.html` に `相関図UI` ボタンを追加。`pages/characters.html` に `相関図を開く` リンクを追加。
+- **仕様メモ追加**: `docs/relations-graph.md` を新設（URL パラメータ、遷移方針、運用メモ）。
+- **キャッシュ更新**: `pages/relations.html` の `asset-version` を `2026.08.08.2` に更新。
+- **検証**: `npm test -- tests/graph.transition.test.js tests/pages.relations.syntax.test.js tests/graph.edge-route.test.js tests/graph.crossing.test.js tests/graph.facets.test.js` で **5 files / 139 tests** 成功。
+
 ### refactor: D1 マイグレーションの共通ヘルパーを `migrate-common.mjs` へ集約した (2026-08-08)
 
 `pkg/cloudflare/scripts/migrate.mjs` の引数パース・JSON 読み込み・SQL 整形・D1 投入は、拡張ブランチ側の `migrate-aihints.mjs` が**同じ実装をコピーして**持っている。しかも `d1Execute()` に後から入った 3 つの修正（`--config` による wrangler.toml の明示 / Windows の `shell: true` / SQL パスの相対化）はコピー側へ反映されておらず、**同一処理が 2 実装に分かれて片方だけ腐る**状態だった。SW 入口 3 本を `StandardServiceWorker` へ統合したのと同じ構図なので、同じ扱いで解消する。

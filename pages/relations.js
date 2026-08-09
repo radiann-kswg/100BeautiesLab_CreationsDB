@@ -63,6 +63,12 @@ import { buildHexFill, logProportionalCellCount } from '../lib/graph/graph-hexfi
 import { buildPalette, createTokenReader } from '../lib/graph/graph-palette.js';
 import { reduceCrossings, countCrossings } from '../lib/graph/graph-crossing.js';
 import { routeEdges } from '../lib/graph/graph-edge-route.js';
+import {
+	planZoomInto,
+	planZoomOut,
+	computeFrame,
+	commitFrame
+} from '../lib/graph/graph-transition.js';
 
 /* ========================================================================
    定数
@@ -1673,11 +1679,35 @@ function fitToBounds(bounds, viewport, padding = 24) {
 		(viewport.height - padding * 2) / bounds.height
 	);
 	const z = Math.max(cy.minZoom(), Math.min(cy.maxZoom(), zoom));
-	cy.zoom(z);
-	cy.pan({
+	const pan = {
 		x: viewport.width / 2 - ((bounds.minX + bounds.maxX) / 2) * z,
 		y: viewport.height / 2 - ((bounds.minY + bounds.maxY) / 2) * z
-	});
+	};
+	cy.zoom(z);
+	cy.pan(pan);
+}
+
+/**
+ * 外接矩形を画面へ収める target viewport を返す
+ * @param {{minX:number,minY:number,maxX:number,maxY:number,width:number,height:number}} bounds
+ * @param {{width:number,height:number}} viewport
+ * @param {number} [padding=24]
+ * @returns {{zoom:number, pan:{x:number,y:number}}|null}
+ */
+function fitViewportForBounds(bounds, viewport, padding = 24) {
+	if (!cy || !bounds?.width || !bounds?.height || !viewport?.width || !viewport?.height) return null;
+	const zoom = Math.min(
+		(viewport.width - padding * 2) / bounds.width,
+		(viewport.height - padding * 2) / bounds.height
+	);
+	const z = Math.max(cy.minZoom(), Math.min(cy.maxZoom(), zoom));
+	return {
+		zoom: z,
+		pan: {
+			x: viewport.width / 2 - ((bounds.minX + bounds.maxX) / 2) * z,
+			y: viewport.height / 2 - ((bounds.minY + bounds.maxY) / 2) * z
+		}
+	};
 }
 
 /** @returns {boolean} */
@@ -1688,6 +1718,9 @@ function prefersReducedMotion() {
 /** グラフを描き直す */
 async function renderGraph() {
 	const cytoscape = await loadCytoscape();
+	const prevViewport = cy
+		? { zoom: cy.zoom(), pan: { x: cy.pan().x, y: cy.pan().y } }
+		: null;
 	applyEdgeDensityPolicy();
 	const { elements, counts, mode } = buildElements();
 	const container = $('canvas');
@@ -1790,13 +1823,49 @@ async function renderGraph() {
 		: boundsOf(cy.nodes().map(n => n.position()), 60);
 	const viewport = { width: container.clientWidth, height: container.clientHeight };
 	const { fits } = shouldFitToViewport(bounds, viewport, 0.45);
+	let targetViewport = null;
 	if (fits) {
-		if (mode === 'cells') fitToBounds(bounds, viewport, 24);
-		else cy.fit(undefined, 32);
+		if (mode === 'cells') {
+			targetViewport = fitViewportForBounds(bounds, viewport, 24);
+			if (!targetViewport) fitToBounds(bounds, viewport, 24);
+		} else {
+			targetViewport = cy.getFitViewport(cy.elements(), 32);
+			if (!targetViewport) cy.fit(undefined, 32);
+		}
 	} else {
-		cy.zoom(0.75);
-		cy.center();
+		targetViewport = {
+			zoom: 0.75,
+			pan: {
+				x: viewport.width / 2 - ((bounds.minX + bounds.maxX) / 2) * 0.75,
+				y: viewport.height / 2 - ((bounds.minY + bounds.maxY) / 2) * 0.75
+			}
+		};
 	}
+
+	if (targetViewport) {
+		if (!prevViewport || prefersReducedMotion()) {
+			commitFrame(cy, targetViewport);
+		} else {
+			const nextDepth = state.drill.length + (state.focusKey ? 1 : 0);
+			const prevDepth = Number.isFinite(renderGraph.__lastDepth) ? renderGraph.__lastDepth : nextDepth;
+			const plan = (nextDepth < prevDepth)
+				? planZoomOut(prevViewport, targetViewport, { reducedMotion: false })
+				: planZoomInto(prevViewport, targetViewport, { reducedMotion: false });
+
+			await new Promise((resolve) => {
+				const start = performance.now();
+				const step = (now) => {
+					const frame = computeFrame(plan, now - start);
+					commitFrame(cy, frame);
+					scheduleBoardDraw();
+					if (frame.done) resolve();
+					else requestAnimationFrame(step);
+				};
+				requestAnimationFrame(step);
+			});
+		}
+	}
+	renderGraph.__lastDepth = state.drill.length + (state.focusKey ? 1 : 0);
 	// 座標が確定してから接続線を格子の辺へ沿わせる
 	applyEdgeRouting(mode);
 	// マス塗りでは線を既定で隠す（ポインタを乗せた区画の線だけ出す）
