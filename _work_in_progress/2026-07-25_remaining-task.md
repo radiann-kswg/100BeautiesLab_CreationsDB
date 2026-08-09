@@ -174,35 +174,6 @@
   `pages/characters.js`（`getWorkIndexAliasDefs` 他）/ `docs/schema-meta-processing.md` /
   キー順テスト（`/#Index\b/` は `#IndexAlt` にマッチしないため判定の明示的拡張が必要）
 
-### T-13 ✅ キャラクター相関図ページ（`pages/relations.html`）の新設 — **完了**（2026-08-09）
-
-- **関連ログ**: `2026-08-02_progress_relations-graph.md` / `2026-08-04_progress_relations-tri-grid.md`
-- **完了状態（2026-08-09 時点）**:
-  - Phase 3-D（drill遷移アニメーション）を `lib/graph/graph-transition.js` + `pages/relations.js` 接続で完了
-  - Phase 3-E/4（導線・記録）を完了（`index.html` / `pages/characters.html` 導線、`docs/relations-graph.md`、`CHANGELOG.md`）
-  - 開発環境での実動作確認（表示・グルーピング切替・言語切替・導線遷移）を実施
-  - テスト: `npm test` **67 files / 1181 tests** 成功
-- **内容**: `Relation` / `RelationTo_*` / `*_DBLink`（全 7 種）/ `ThisMasters[]._DBLink` を
-  スキーマ駆動で拾い、全創作タイトルのキャラ間関係をグラフ表示する新規ページ。
-  スコープ（全体／作品／DB）× グルーピング（作品／DB／所属／クラス／出身／種族）の直交 2 軸
-- **実装の前提（着手前の実測検証で確定）**:
-  - `/pages/v1/bootstrap` は実ネットワークで 2105 リクエスト / 25.46 MiB / 30〜60 秒級 →
-    **Phase 0 で `DataFetcher` メモ化**（約 180 リクエスト / 2.57 MiB へ）。既存キャラシートにも効く
-  - ノードキーは「単一 `keyPath:value` 対」では 5 作品 8 DB で衝突する →
-    DBスコープ済み `$IndexDef` の**全サブキーをキー名昇順ソート**して連結（公開 1312 件で 100% 一意）
-  - `Relation` 実データは**ナンバーテールズ単独**。5 作品は作品内エッジ 0 →
-    エッジ密度 < 1.0 の作品はグルーピング軸を実ノード化した 2 部グラフへ自動フォールバック
-  - `Relation` は 4 作品すべてが `$display.sectionWrapper: "relationSection"` を宣言済みのため
-    **`data/` 変更なしでスキーマ駆動が成立する**（typedef 改修は不要と判断）
-- **影響範囲**: `lib/sw-common.js`（メモ化）/ `lib/viewer-locator.js`・`lib/page-api-bridge.js`（切り出し・新規）/
-  `lib/graph/*.js`（新規）/ `pages/relations.{html,js,sass,css}`（新規）/ `pages/characters.js`（アダプタ化）/
-  `pages/vendor/cytoscape/`（Cytoscape.js 同梱）/ `tests/` 6 本 / `docs/relations-graph.md`（新規）＋既存 docs 4 本 /
-  `AGENTS.md` → `npm run agents:build` / `index.html` / `CHANGELOG.md`
-- **T-05 との関係**: `$VersDef` / `$VarsDef` の綴り揺れは本作業では**是正しない**
-  （`graph-model.js` は両方を根に積むので相関図の表示には影響しない）
-
----
-
 ## B. User の判断・入力を待っているもの（Claude 側の準備は完了）
 
 「滞留」は 2026-07-25 時点で当該ログが動いていない日数。**放置しても壊れないが、長いものは
@@ -346,10 +317,10 @@
 | --- | --- | --- | --- |
 | [2026-07-25_remaining-task.md](./2026-07-25_remaining-task.md) | **本ファイル**（残タスクの起点） | — | 🟢 現行 |
 | [2026-08-04_progress_unibytelive-streaming-bilingual.md](./2026-08-04_progress_unibytelive-streaming-bilingual.md) | ハンカクライブ `StreamingActivity` の配列系を和英共有フィールドへ統一 | — | ✅ 完了（残は `SUMMARY_KEYS` の schema 駆動化と既存の赤 3 件） |
-| [2026-08-02_progress_relations-graph.md](./2026-08-02_progress_relations-graph.md) | キャラクター相関図ページ（`pages/relations.html`）の新設（初期計画） | **T-13** | ✅ 完了（詳細は 2026-08-04 ログへ引継） |
-| [2026-08-04_progress_relations-tri-grid.md](./2026-08-04_progress_relations-tri-grid.md) | 相関図の実装完走ログ（tri-grid/route/UX/遷移/導線） | **T-13** | 🟢 現行（追記20: 開発環境確認・棚卸まで完了） |
+| [.completed/2026-08-02_progress_relations-graph.md](./.completed/2026-08-02_progress_relations-graph.md) | キャラクター相関図ページ（`pages/relations.html`）の新設（初期計画） | **T-13** | ✅ 完了・退避済み |
+| [.completed/2026-08-04_progress_relations-tri-grid.md](./.completed/2026-08-04_progress_relations-tri-grid.md) | 相関図の実装完走ログ（tri-grid/route/UX/遷移/導線） | **T-13** | ✅ 完了・退避済み |
 | [2026-08-02_progress_image-rename-index-badge.md](./2026-08-02_progress_image-rename-index-badge.md) | 画像ファイル名をインデックスバッジ（作品コード付き）へ一括改名（640 ファイル） | — | ✅ 完了（独立監査で受入可。指摘 8 件は相関図側の「前段」で解消済み） |
-| [2026-07-29_github-triage.md](./2026-07-29_github-triage.md) | GitHub 未解決問題の日次トリアージ | **T-25** | 🟢 現行（未解決は Issue #13 のみ。CI 失敗・Dependabot・PR は全て解決済み） |
+| [2026-08-08_github-triage.md](./2026-08-08_github-triage.md) | GitHub 未解決問題の日次トリアージ | **T-25** | 🟢 現行（未解決は Issue #13 のみ） |
 | [2026-07-29_progress_belonging-faction-typedef.md](./2026-07-29_progress_belonging-faction-typedef.md) | `Belonging` の `$Def_Faction[]` 化・`$dictRef` 参照解決 | **T-33** | ⚠️ 実装完了・実機目視と Workers 側判断が残 |
 | [2026-07-22_progress_issue13-numerology-skinship.md](./2026-07-22_progress_issue13-numerology-skinship.md) | Issue #13 の要件整理 | **T-25** | 📝 設計判断待ち |
 | [2026-07-18_progress_roleplay-prompt-en-phase4.md](./2026-07-18_progress_roleplay-prompt-en-phase4.md) | ロールプレイプロンプト EN 版の着手前調査 | **T-06** | 📝 着手条件は User 確認 2 件 |

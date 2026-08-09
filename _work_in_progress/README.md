@@ -51,6 +51,18 @@
 
 以下のファイルは実装・検証が完了し、`_work_in_progress/.completed/` へ移動済みです（Git 管轄外）。
 
+### 2026-08-09 棚卸しで追加退避（6件）
+
+完了済みの相関図ログ 2 件と、世代交代済みの日次 triage ログ 4 件を退避。
+直下 26 件 → 20 件（README 含む）に整理。
+
+- `2026-08-02_progress_relations-graph.md`（相関図の初期計画ログ。実装完走ログへ引き継ぎ済み）
+- `2026-08-04_progress_relations-tri-grid.md`（相関図の実装完走ログ。`T-13` 完了につき退避）
+- `2026-07-29_github-triage.md`（日次 triage。現行は `2026-08-08_github-triage.md`）
+- `2026-08-01_github-triage.md`（日次 triage。現行は `2026-08-08_github-triage.md`）
+- `2026-08-03_github-triage.md`（日次 triage。現行は `2026-08-08_github-triage.md`）
+- `2026-08-05_github-triage.md`（日次 triage。現行は `2026-08-08_github-triage.md`）
+
 ### 2026-07-29 棚卸しで追加退避（4件）
 
 `npm test` / `agents:check` / `data:order:check` / `roleplay:check` の定点観測に加え、
