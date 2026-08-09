@@ -1,56 +1,55 @@
 <!doctype html>
 <html lang="ja">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>100BeautiesLab. Creations DB (Web)</title>
 
-    <!--
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>100BeautiesLab. Creations DB (Web)</title>
+
+	<!--
       pages/characters.html と同じデザインシステム（CSS変数）を流用します。
       新規の配色・フォント定義を増やさず、トップ導線を最小限で提供するためです。
     -->
-    <link rel="stylesheet" href="./pages/characters.css" />
-  </head>
+	<link rel="stylesheet" href="./pages/characters.css" />
+</head>
 
-  <body>
-    <header class="site-header">
-      <div class="container">
-        <h1>100BeautiesLab. Creations DB (Web)</h1>
-        <p class="lead">GitHub Pages 上で動作するキャラクターDB（UI / pseudo-API）</p>
-      </div>
-    </header>
+<body>
+	<header class="site-header">
+		<div class="container">
+			<h1>100BeautiesLab. Creations DB (Web)</h1>
+			<p class="lead">GitHub Pages 上で動作するキャラクターDB（UI / pseudo-API）</p>
+		</div>
+	</header>
 
-    <main class="container" style="padding: var(--spacing-xl) 0;">
-      <section class="card" aria-labelledby="top-links">
-        <h2 id="top-links">まず見る</h2>
-        <p class="sub">閲覧者向けの入口です。</p>
-        <div class="control-row" style="margin-top: var(--spacing-md);">
-          <a class="btn btn-primary btn-lg" href="./pages/characters.html">キャラシートUI</a>
-          <a class="btn btn-secondary btn-lg" href="./api/">API（GUI）</a>
-          <a
-            class="btn btn-ghost btn-lg"
-            href="https://github.com/radiann-kswg/100BeautiesLab_CreationsDB/blob/develop/guideline.md"
-            rel="noreferrer"
-            >ガイドライン（JP）</a
-          >
-          <a
-            class="btn btn-ghost btn-lg"
-            href="https://github.com/radiann-kswg/100BeautiesLab_CreationsDB/blob/develop/guideline.en.md"
-            rel="noreferrer"
-            >Guidelines (EN)</a
-          >
-        </div>
-      </section>
+	<main class="container" style="padding: var(--spacing-xl) 0;">
+		<section class="card" aria-labelledby="top-links">
+			<h2 id="top-links">まず見る</h2>
+			<p class="sub">閲覧者向けの入口です。</p>
+			<div class="control-row" style="margin-top: var(--spacing-md);">
+				<a class="btn btn-primary btn-lg" href="./pages/characters.html">キャラシートUI</a>
+				<a class="btn btn-secondary btn-lg" href="./pages/relations.html">相関図UI</a>
+				<a class="btn btn-secondary btn-lg" href="./api/">API（GUI）</a>
+				<a
+					class="btn btn-ghost btn-lg"
+					href="https://github.com/radiann-kswg/100BeautiesLab_CreationsDB/blob/develop/guideline.md"
+					rel="noreferrer">ガイドライン（JP）</a>
+				<a
+					class="btn btn-ghost btn-lg"
+					href="https://github.com/radiann-kswg/100BeautiesLab_CreationsDB/blob/develop/guideline.en.md"
+					rel="noreferrer">Guidelines (EN)</a>
+			</div>
+		</section>
 
-      <section class="card" aria-labelledby="api-links">
-        <h2 id="api-links">擬似 API（代表例）</h2>
-        <p class="sub">JSON DB を取得するエンドポイントです。</p>
-        <ul style="margin: var(--spacing-md) 0 0; padding-left: 1.2em;">
-          <li><a href="/api/v1/index">/api/v1/index</a></li>
-          <li><a href="/api/v1/works">/api/v1/works</a></li>
-          <li><a href="/pages/v1/works">/pages/v1/works</a></li>
-        </ul>
-      </section>
-    </main>
-  </body>
+		<section class="card" aria-labelledby="api-links">
+			<h2 id="api-links">擬似 API（代表例）</h2>
+			<p class="sub">JSON DB を取得するエンドポイントです。</p>
+			<ul style="margin: var(--spacing-md) 0 0; padding-left: 1.2em;">
+				<li><a href="/api/v1/index">/api/v1/index</a></li>
+				<li><a href="/api/v1/works">/api/v1/works</a></li>
+				<li><a href="/pages/v1/works">/pages/v1/works</a></li>
+			</ul>
+		</section>
+	</main>
+</body>
+
 </html>

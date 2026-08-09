@@ -34,12 +34,12 @@
 
 統合母艦は `develop` 由来のため、**AIHints 関連の固有ログは母艦の索引に載りません**。本節が索引を兼ねます。
 
-| ログ                                                                                                                               | 主題                                                          | 状態                              |
-| ---------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- | --------------------------------- |
+| ログ                                                                                                                               | 主題                                                           | 状態                              |
+| ---------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- | --------------------------------- |
 | [2026-08-08_progress_aihints-refactor.md](./2026-08-08_progress_aihints-refactor.md)                                               | `develop` 取り込みマージ ＋ AIHints 固有コードの同種リファクタ | 🟢 現行（実地実行の確認が残る）   |
 | [2026-07-29_progress_addon-ai-tag-merge.md](./2026-07-29_progress_addon-ai-tag-merge.md)                                           | `develop` 取り込みマージ（`46a3845`）＋ 本ブランチの棚卸し     | 🟢 現行                           |
-| [2026-07-17_progress_aihints-scope-semiprimary-selfsecondary.md](./2026-07-17_progress_aihints-scope-semiprimary-selfsecondary.md) | AIHints の適用範囲（SemiPrimary / SelfSecondary）             | ⚠️ seed 本体ほか 4 件が継続       |
-| [2026-07-14_progress_addon-ai-tag-log-inventory.md](./2026-07-14_progress_addon-ai-tag-log-inventory.md)                           | 本ブランチのログ棚卸し記録＋**AIHints 残課題台帳（A1〜A11）** | 🟢 台帳（AIHints の残課題はここ） |
+| [2026-07-17_progress_aihints-scope-semiprimary-selfsecondary.md](./2026-07-17_progress_aihints-scope-semiprimary-selfsecondary.md) | AIHints の適用範囲（SemiPrimary / SelfSecondary）              | ⚠️ seed 本体ほか 4 件が継続       |
+| [2026-07-14_progress_addon-ai-tag-log-inventory.md](./2026-07-14_progress_addon-ai-tag-log-inventory.md)                           | 本ブランチのログ棚卸し記録＋**AIHints 残課題台帳（A1〜A11）**  | 🟢 台帳（AIHints の残課題はここ） |
 
 > **AIHints の残課題は統合母艦ではなく `2026-07-14_progress_addon-ai-tag-log-inventory.md` の
 > 「AIHints 残課題台帳」に集約**しています。母艦は `develop` と共通のファイルであり、AIHints 固有の項目を
@@ -82,6 +82,34 @@
 ## 完了（.completed へ退避済み）
 
 以下のファイルは実装・検証が完了し、`_work_in_progress/.completed/` へ移動済みです（Git 管轄外）。
+
+### 2026-08-09 棚卸しで追加退避（6件）
+
+完了済みの相関図ログ 2 件と、世代交代済みの日次 triage ログ 4 件を退避。
+直下 26 件 → 20 件（README 含む）に整理。
+
+- `2026-08-02_progress_relations-graph.md`（相関図の初期計画ログ。実装完走ログへ引き継ぎ済み）
+- `2026-08-04_progress_relations-tri-grid.md`（相関図の実装完走ログ。`T-13` 完了につき退避）
+- `2026-07-29_github-triage.md`（日次 triage。現行は `2026-08-08_github-triage.md`）
+- `2026-08-01_github-triage.md`（日次 triage。現行は `2026-08-08_github-triage.md`）
+- `2026-08-03_github-triage.md`（日次 triage。現行は `2026-08-08_github-triage.md`）
+- `2026-08-05_github-triage.md`（日次 triage。現行は `2026-08-08_github-triage.md`）
+
+### 2026-07-29 addon-ai-tag マージ棚卸しで追加退避（1件・本ブランチ固有）
+
+- `2026-07-25_progress_addon-ai-tag-merge.md`（前回のマージ + 棚卸し作業ログ本体。未完了だった
+  「本棚卸しの成果は未コミット」は着地済み、最重要の申し送り「`develop` 側で母艦 T-02 を訂正」も
+  **`develop` 側で完了**して台帳 A10 がクローズ。`2026-07-29_progress_addon-ai-tag-merge.md` へ世代交代）
+
+完了済みの相関図ログ 2 件と、世代交代済みの日次 triage ログ 4 件を退避。
+直下 26 件 → 20 件（README 含む）に整理。
+
+- `2026-08-02_progress_relations-graph.md`（相関図の初期計画ログ。実装完走ログへ引き継ぎ済み）
+- `2026-08-04_progress_relations-tri-grid.md`（相関図の実装完走ログ。`T-13` 完了につき退避）
+- `2026-07-29_github-triage.md`（日次 triage。現行は `2026-08-08_github-triage.md`）
+- `2026-08-01_github-triage.md`（日次 triage。現行は `2026-08-08_github-triage.md`）
+- `2026-08-03_github-triage.md`（日次 triage。現行は `2026-08-08_github-triage.md`）
+- `2026-08-05_github-triage.md`（日次 triage。現行は `2026-08-08_github-triage.md`）
 
 ### 2026-07-29 addon-ai-tag マージ棚卸しで追加退避（1件・本ブランチ固有）
 

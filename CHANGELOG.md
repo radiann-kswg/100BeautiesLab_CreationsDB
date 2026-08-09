@@ -1,17 +1,29 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### feat: 相関図に drill 遷移（zoom/pan 補間）を導入し、導線と仕様メモを追加した (2026-08-08)
+
+`pages/relations.js` の再描画時に viewport が即時ジャンプしていたため、drill in/out の前後関係を追いづらかった。`lib/graph/graph-transition.js` を新設して、`from -> to` の zoom/pan を短時間で補間する共通関数へ切り出し、相関図側へ接続した。合わせて導線と記録を整備した。
+
+- **遷移モジュールの新設**: `lib/graph/graph-transition.js` に `planZoomInto` / `planZoomOut` / `computeFrame` / `commitFrame` / `staggerDelays` を追加。DOM 非依存の純関数中心にして、反映だけを `commitFrame` へ分離。
+- **`prefers-reduced-motion` の尊重**: `reduced` 時は `duration=0` で即時反映。通常時のみ `requestAnimationFrame` で補間。
+- **相関図への接続**: `pages/relations.js` の `renderGraph()` で `prevViewport` と `targetViewport` を比較し、drill 深度の増減に応じて in/out プランを選択。補間中も `scheduleBoardDraw()` を呼んでマス塗り表示を同期。
+- **導線追加**: `index.html` に `相関図UI` ボタンを追加。`pages/characters.html` に `相関図を開く` リンクを追加。
+- **仕様メモ追加**: `docs/relations-graph.md` を新設（URL パラメータ、遷移方針、運用メモ）。
+- **キャッシュ更新**: `pages/relations.html` の `asset-version` を `2026.08.08.2` に更新。
+- **検証**: `npm test -- tests/graph.transition.test.js tests/pages.relations.syntax.test.js tests/graph.edge-route.test.js tests/graph.crossing.test.js tests/graph.facets.test.js` で **5 files / 139 tests** 成功。
+
 ### fix: `migrate-aihints.mjs` が `migrate.mjs` のコピーのまま 6 箇所で腐っていた (2026-08-08)
 
 `migrate-aihints.mjs` は `migrate.mjs` の前半 168 行を丸ごとコピーして持っており、コピー元へ**後から入った修正がひとつも反映されていなかった**。共通処理を `migrate-common.mjs`（`develop` で新設）の import へ置き換えることで、以下 6 点が同時に解消される。個別に直しても次のコピーでまた腐るため、根本を潰す形にした。
 
-| # | 乖離 | コピー側の状態 | 影響 |
-| --- | --- | --- | --- |
-| 1 | wrangler config の明示 | `--config` 無し | **実測では実害なし**。`--config` を落としても DB 名から解決できた（予防的措置として残す） |
-| 2 | Windows の shell 対応 | `SPAWN_OPTS_BASE` 無し | **実バグ**。Windows / Node v22+ で `npx.cmd` を `execFileSync` が起動できず `spawnSync npx ENOENT` で即死する |
-| 3 | 一時 SQL パスの相対化 | 絶対パスのまま | **実バグ**。#2 を直しても、`shell: true` 経由でスペースを含む絶対パスが分割され `Unknown arguments` で失敗する |
-| 4 | `idxKey` のフォールバック | `resolveIdxKey(dbSpecificType) \|\| defaultIdxKey` | **`resolveIdxKey()` は引数が無くても `"Num"` を返す**ため `defaultIdxKey` へ絶対フォールバックしない。ネスト型 `$IndexDef` の作品で `idx_value` が取れず AIHints が丸ごと投入されなくなる（`migrate.mjs` 側では同じバグを修正済みで、注釈にも残っていた） |
-| 5 | `workDir` の解決 | `workKey.replace(/^#Works_/, "Works_")` のみ | `Works_Dir` オーバーライド作品（共通資料の疑似作品等）を解決できない |
-| 6 | 作品メタの読み込み | `DataBases/` 固定 | `DataBases/` を持たない作品で読み込み失敗警告が出る |
+| #   | 乖離                      | コピー側の状態                                     | 影響                                                                                                                                                                                                                                                      |
+| --- | ------------------------- | -------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | wrangler config の明示    | `--config` 無し                                    | **実測では実害なし**。`--config` を落としても DB 名から解決できた（予防的措置として残す）                                                                                                                                                                 |
+| 2   | Windows の shell 対応     | `SPAWN_OPTS_BASE` 無し                             | **実バグ**。Windows / Node v22+ で `npx.cmd` を `execFileSync` が起動できず `spawnSync npx ENOENT` で即死する                                                                                                                                             |
+| 3   | 一時 SQL パスの相対化     | 絶対パスのまま                                     | **実バグ**。#2 を直しても、`shell: true` 経由でスペースを含む絶対パスが分割され `Unknown arguments` で失敗する                                                                                                                                            |
+| 4   | `idxKey` のフォールバック | `resolveIdxKey(dbSpecificType) \|\| defaultIdxKey` | **`resolveIdxKey()` は引数が無くても `"Num"` を返す**ため `defaultIdxKey` へ絶対フォールバックしない。ネスト型 `$IndexDef` の作品で `idx_value` が取れず AIHints が丸ごと投入されなくなる（`migrate.mjs` 側では同じバグを修正済みで、注釈にも残っていた） |
+| 5   | `workDir` の解決          | `workKey.replace(/^#Works_/, "Works_")` のみ       | `Works_Dir` オーバーライド作品（共通資料の疑似作品等）を解決できない                                                                                                                                                                                      |
+| 6   | 作品メタの読み込み        | `DataBases/` 固定                                  | `DataBases/` を持たない作品で読み込み失敗警告が出る                                                                                                                                                                                                       |
 
 - **#2 と #3 は実機で確定**: 読み取り SQL（書き込みゼロ）で起動条件を 1 つずつ切り分けたところ、旧実装の再現は `spawnSync npx ENOENT` で即死し（#2）、`shell: true` を足しても SQL の絶対パスに含まれるスペースで引数が分割されて失敗した（#3）。**両方直して初めてローカル実行が通る。** D1 に既存の 92 件が入っていたのは CI（Linux ランナー）経由の投入によるもので、Linux では `shell: true` が不要なため顕在化していなかった。
 - **#4 は現状 latent**: AIHints を持つのは `NumberTales/Primary` のみで `$IndexDef` がフラット型のため顕在化していない。ネスト型の作品（`FLInvestigator78` 等）へ AIHints を広げる際に効く。
@@ -498,10 +510,10 @@ AIHints 再ビルド問題の**最後の 2 点**。当初 User から相談さ�
 - **構造ソース**: `Num` / `GenderType` / `ConceptAge` / `Height_cm` / `TailsUnit` / `AppearanceDetail` / `ColorPalette`。これらのハッシュが前回と一致すれば **no-op**（実測: 2 回目の実行は全 92 件が `resync-unchanged`）。
 - **再同期の対象外**（人手・視覚由来のため触らない）: `outfit_features` / `silhouette_notes` / `natural_language_description` / `reference_images`。`palette_priority` は `ColorPalette` から導出するが、**既存の確定値は保護**する。
 - **効果（実データで実証）**: Num 1 に「人が書いたタグ」を 2 件足し、構造ソース（`Height_cm` 146 → 152）を変えて両モードを比較した。
-  |                               | 人が書いたタグ | 構造タグ（身長） |
+  | | 人が書いたタグ | 構造タグ（身長） |
   | ----------------------------- | -------------- | ---------------- |
-  | 旧 `--apply-appearancedetail` | **消える**     | 152cm へ更新     |
-  | 新 `--resync-structural`      | **残る**       | 152cm へ更新     |
+  | 旧 `--apply-appearancedetail` | **消える** | 152cm へ更新 |
+  | 新 `--resync-structural` | **残る** | 152cm へ更新 |
 - **実データ**: NumberTales / Primary の **92 件**に `_meta` を投入（ブートストラップ）。警告 0 件（= 現データはすべてツール生成物であり、人の手が入る前に provenance を入れられた）。
 - **`tests/patch-aihints.resync.test.js`（新規、15 件）**: 人が書いたタグが消えないこと、構造ソースの変化で構造タグが最新化されること、変化が無ければ no-op になること、人が編集したツール由来文字列を上書きせず警告すること、`palette_priority` の確定値を保護すること等を固定。
 - **残る課題**: `--suggest --force` そのものは依然として全面上書き（TODO 雛形への巻き戻し）。`--resync-structural` はその安全な代替として使う。`prompt_export` はタグ変更後も再生成されないため、別途対応が必要。
