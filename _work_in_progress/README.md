@@ -37,7 +37,7 @@
 | ログ                                                                                                                               | 主題                                                           | 状態                              |
 | ---------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- | --------------------------------- |
 | [2026-08-08_progress_aihints-refactor.md](./2026-08-08_progress_aihints-refactor.md)                                               | `develop` 取り込みマージ ＋ AIHints 固有コードの同種リファクタ | 🟢 現行（実地実行の確認が残る）   |
-| [2026-07-29_progress_addon-ai-tag-merge.md](./2026-07-29_progress_addon-ai-tag-merge.md)                                           | `develop` 取り込みマージ（`46a3845`）＋ 本ブランチの棚卸し     | 🟢 現行                           |
+| [.completed/2026-07-29_progress_addon-ai-tag-merge.md](./.completed/2026-07-29_progress_addon-ai-tag-merge.md)                     | `develop` 取り込みマージ（`46a3845`）＋ 本ブランチの棚卸し     | ✅ 完了・退避済み                 |
 | [2026-07-17_progress_aihints-scope-semiprimary-selfsecondary.md](./2026-07-17_progress_aihints-scope-semiprimary-selfsecondary.md) | AIHints の適用範囲（SemiPrimary / SelfSecondary）              | ⚠️ seed 本体ほか 4 件が継続       |
 | [2026-07-14_progress_addon-ai-tag-log-inventory.md](./2026-07-14_progress_addon-ai-tag-log-inventory.md)                           | 本ブランチのログ棚卸し記録＋**AIHints 残課題台帳（A1〜A11）**  | 🟢 台帳（AIHints の残課題はここ） |
 
@@ -95,21 +95,9 @@
 - `2026-08-03_github-triage.md`（日次 triage。現行は `2026-08-08_github-triage.md`）
 - `2026-08-05_github-triage.md`（日次 triage。現行は `2026-08-08_github-triage.md`）
 
-### 2026-07-29 addon-ai-tag マージ棚卸しで追加退避（1件・本ブランチ固有）
+### 2026-08-09 addon-ai-tag 棚卸しで追加退避（1件・本ブランチ固有）
 
-- `2026-07-25_progress_addon-ai-tag-merge.md`（前回のマージ + 棚卸し作業ログ本体。未完了だった
-  「本棚卸しの成果は未コミット」は着地済み、最重要の申し送り「`develop` 側で母艦 T-02 を訂正」も
-  **`develop` 側で完了**して台帳 A10 がクローズ。`2026-07-29_progress_addon-ai-tag-merge.md` へ世代交代）
-
-完了済みの相関図ログ 2 件と、世代交代済みの日次 triage ログ 4 件を退避。
-直下 26 件 → 20 件（README 含む）に整理。
-
-- `2026-08-02_progress_relations-graph.md`（相関図の初期計画ログ。実装完走ログへ引き継ぎ済み）
-- `2026-08-04_progress_relations-tri-grid.md`（相関図の実装完走ログ。`T-13` 完了につき退避）
-- `2026-07-29_github-triage.md`（日次 triage。現行は `2026-08-08_github-triage.md`）
-- `2026-08-01_github-triage.md`（日次 triage。現行は `2026-08-08_github-triage.md`）
-- `2026-08-03_github-triage.md`（日次 triage。現行は `2026-08-08_github-triage.md`）
-- `2026-08-05_github-triage.md`（日次 triage。現行は `2026-08-08_github-triage.md`）
+- `2026-07-29_progress_addon-ai-tag-merge.md`（`develop` 取り込みマージ（`46a3845`）と棚卸し作業ログ。未完了タスクなしで役割完了）
 
 ### 2026-07-29 addon-ai-tag マージ棚卸しで追加退避（1件・本ブランチ固有）
 
@@ -365,6 +353,11 @@
 
 ## 整理履歴
 
+- **2026-08-09、addon-ai-tag 側の追補棚卸しとして 1件 を `.completed/` へ退避しました。**
+  対象は `2026-07-29_progress_addon-ai-tag-merge.md`（未完了タスクなしで役割完了）。
+  これに合わせて本 README の「本ブランチ固有の進捗ログ」表を更新し、同ログの参照を
+  `.completed/2026-07-29_progress_addon-ai-tag-merge.md` へ切り替えました。あわせて「完了」節に
+  重複していた 2026-08-09（6件）/ 2026-07-29（1件）の重複ブロックを整理し、リンク切れと二重記載を解消しています。
 - **2026-07-29、`develop`（`a4ee3c9`）を本ブランチへ取り込みマージし（`46a3845`）、1件 を `.completed/` へ退避しました。**
   コンフリクトは **5 ファイル**（`db_meta.json` ×3 / `docs/api-sw-spec.md` / 本 README）で、いずれも**両取り**で解消。
   データ 3 件は「`develop` の `_Commons` 更新（`Belonging` の構造化・`FromArea`・`_ListLinkIf_Suit`）」と
@@ -376,7 +369,7 @@
   あわせて今回のマージが含む `dict_Faction.json` の構造変更が AIHints に波及しないことを、
   `--resync-structural` / `--apply-colorpalette` の dry-run（**いずれも `No changes to write.`**）と
   実データ（AIHints 92 / `palette_priority` 確定 91・不変）で裏取り。台帳は **A4 / A10 をクローズ**し、
-  状態一覧の表（A1〜A11）を新設しました。詳細は `2026-07-29_progress_addon-ai-tag-merge.md` を参照。
+  状態一覧の表（A1〜A11）を新設しました。詳細は `.completed/2026-07-29_progress_addon-ai-tag-merge.md` を参照。
 - **2026-07-29 の棚卸しで、4件 を `.completed/` へ退避し、直下を 17件 → 13件（+ 母艦・+README）に整理しました。**
   今回は定点観測（`npm test` 46 files / **627 件全緑** ・`agents:check` 0/2 ・`data:order:check` 0/1287 ・
   `roleplay:check` changed=0）に加えて、**本番実 API を curl で叩いてデプロイ状態まで裏取り**しています。
@@ -394,7 +387,7 @@
   （`46a3845`）を実施し、**T-10 も 0 / 116** へ。マージでは衝突 5 ファイル（`db_meta.json` ×3 は
   `_Commons` × `AI_Optout` の隣接行衝突）を**両取り**で解消し、`develop` 由来のテストが `addon-ai-tag` で
   404 になる問題（**T-08 項目 8** として登録）も向こう側で解消しています。詳細は `addon-ai-tag` の
-  `2026-07-29_progress_addon-ai-tag-merge.md` を参照。
+  `.completed/2026-07-29_progress_addon-ai-tag-merge.md` を参照。
 - **2026-07-25、`addon-ai-tag` への一方向マージ（`6f68df3`）の結果を `develop` 側へ反映しました。**
   マージ作業中に **統合母艦の T-02（AIHints への配色導出）が「未実装」と誤記されている**ことが判明したため、
   `develop` 側で訂正しています。実際は `addon-ai-tag` で `--apply-colorpalette` が実装・適用済みで、
