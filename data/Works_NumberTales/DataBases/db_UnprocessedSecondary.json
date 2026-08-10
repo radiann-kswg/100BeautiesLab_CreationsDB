@@ -780,18 +780,6 @@
     "Class": ["トリプルシックスズ"]
   },
   {
-    "Num": 196,
-    "Num_Badge": "196",
-    "Progress": "notProceeded",
-    "FormalName_JP": "量産型ナンバーテールズ196番機シリーズ",
-    "FormalName_EN": "NumberTales #196 Series Mass Production Version for Sales",
-    "CodeName_JP": "一九六",
-    "CodeName_EN": "One-Nine-Six",
-    "ModelNumber": "APHR-NT [MP]196-*****",
-    "GenderType": "Neutral",
-    "Class": ["トリプルセブンズ"]
-  },
-  {
     "Num": 197,
     "Num_Badge": "197",
     "Progress": "notProceeded",
@@ -1716,18 +1704,6 @@
     "Class": ["デュオトリプル9型"]
   },
   {
-    "Num": 289,
-    "Num_Badge": "289",
-    "Progress": "notProceeded",
-    "FormalName_JP": "量産型ナンバーテールズ289番機シリーズ",
-    "FormalName_EN": "NumberTales #289 Series Mass Production Version for Sales",
-    "CodeName_JP": "二八九",
-    "CodeName_EN": "Two-Eight-Nine",
-    "ModelNumber": "APHR-NT [MP]289-*****",
-    "GenderType": "Neutral",
-    "Class": ["トリプルキャリーズ"]
-  },
-  {
     "Num": 290,
     "Num_Badge": "290",
     "Progress": "notProceeded",
@@ -2098,18 +2074,6 @@
     "ModelNumber": "APHR-NT [MP]323-*****",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル8型"]
-  },
-  {
-    "Num": 324,
-    "Num_Badge": "324",
-    "Progress": "notProceeded",
-    "FormalName_JP": "量産型ナンバーテールズ324番機シリーズ",
-    "FormalName_EN": "NumberTales #324 Series Mass Production Version for Sales",
-    "CodeName_JP": "三二四",
-    "CodeName_EN": "Three-Two-Four",
-    "ModelNumber": "APHR-NT [MP]324-*****",
-    "GenderType": "Neutral",
-    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 325,

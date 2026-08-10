@@ -1502,10 +1502,6 @@
           { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 2 },
           { "Laterality": "#Lat_Lower", "TailCount": 2, "ClusterCount": 1 }
         ],
-        "LayoutDirection": {
-          "LayoutFrom": "#Lat_Center",
-          "LayoutTo": "#Lat_Periphery"
-        },
         "Note_JP": null,
         "Note_EN": null
       }
@@ -1821,9 +1817,9 @@
         "TailShapeType": "#TailShapeType_FoxBranched",
         "Count": 7,
         "Branches": [
-          { "Laterality": null, "TailCount": 3, "ClusterCount": 3 },
+          { "Laterality": null, "TailCount": 1, "ClusterCount": 1 },
           { "Laterality": "#Lat_Upper", "TailCount": 3, "ClusterCount": 2 },
-          { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 1 }
+          { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 3 }
         ],
         "LayoutDirection": {
           "LayoutFrom": "#Lat_Center",
@@ -1880,9 +1876,9 @@
         "TailShapeType": "#TailShapeType_FoxBranched",
         "Count": 8,
         "Branches": [
-          { "Laterality": null, "TailCount": 3, "ClusterCount": 3 },
+          { "Laterality": null, "TailCount": 1, "ClusterCount": 1 },
           { "Laterality": "#Lat_Upper", "TailCount": 4, "ClusterCount": 2 },
-          { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 1 }
+          { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 3 }
         ],
         "LayoutDirection": {
           "LayoutFrom": "#Lat_Center",
@@ -2039,10 +2035,6 @@
           { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 1 },
           { "Laterality": "#Lat_Lower", "TailCount": 2, "ClusterCount": 2 }
         ],
-        "LayoutDirection": {
-          "LayoutFrom": "#Lat_Center",
-          "LayoutTo": "#Lat_Periphery"
-        },
         "Note_JP": null,
         "Note_EN": null
       }
@@ -2208,8 +2200,8 @@
         "Count": 6,
         "Branches": [
           { "Laterality": null, "TailCount": 2, "ClusterCount": 3 },
-          { "Laterality": "#Lat_Upper", "TailCount": 3, "ClusterCount": 2 },
-          { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 1 }
+          { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 1 }
         ],
         "LayoutDirection": {
           "LayoutFrom": "#Lat_Center",
@@ -2386,10 +2378,6 @@
           { "Laterality": "#Lat_Center", "TailCount": 7, "ClusterCount": 3 },
           { "Laterality": "#Lat_Periphery", "TailCount": 2, "ClusterCount": 2 }
         ],
-        "LayoutDirection": {
-          "LayoutFrom": "#Lat_Center",
-          "LayoutTo": "#Lat_Periphery"
-        },
         "Note_JP": null,
         "Note_EN": null
       }

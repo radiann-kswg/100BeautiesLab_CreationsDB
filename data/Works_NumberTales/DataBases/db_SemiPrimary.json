@@ -906,9 +906,9 @@
     "Num": "121-sq",
     "Num_Badge": "121SQ",
     "Progress": "notProceeded",
-    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 121 }],
-    "Name_JP": "121(エルフェルト)\n11²(キャレオンズ)",
-    "Name_EN": "121(Elf-elvent)\n11²(Carréonze)",
+    "AnotherVersions_DBLink": [{ "_DB": "SelfSecondary", "Num": 121 }],
+    "Name_JP": "121(エルフェルト)\n11²(エルフェルト)",
+    "Name_EN": "121(Elf-elvent)\n11²(Elf-elvent)",
     "FormalName_JP": "ナンバーテールズ キャレ-オンズ(同位異格121番機)",
     "FormalName_EN": "NumberTales Unit.Carré-11 (Isotope of Mk.121)",
     "CodeName_JP": "一二一, 11²",
@@ -927,7 +927,7 @@
     "Num": "125-cub",
     "Num_Badge": "125KZ",
     "Progress": "notProceeded",
-    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 125 }],
+    "AnotherVersions_DBLink": [{ "_DB": "SelfSecondary", "Num": 125 }],
     "Name_JP": "125(イブコ)\n5³(リツコ)",
     "Name_EN": "125(Ontwive)\n5³(Künf)",
     "FormalName_JP": "ナンバーテールズ キュビクザール-フュンフ(同位異格125番機)",
@@ -946,7 +946,7 @@
     "Num": "144-sq",
     "Num_Badge": "144SQ",
     "Progress": "notProceeded",
-    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 144 }],
+    "AnotherVersions_DBLink": [{ "_DB": "SelfSecondary", "Num": 144 }],
     "Name_JP": "144(グロス)\n12²(グロス)",
     "Name_EN": "144(Groß)\n12²(Groß)",
     "FormalName_JP": "ナンバーテールズ キャレ-ドゥーズ(同位異格144番機)",
@@ -971,7 +971,9 @@
     "Num": "169-sq",
     "Num_Badge": "169SQ",
     "Progress": "notProceeded",
-    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 169 }],
+    "AnotherVersions_DBLink": [{ "_DB": "SelfSecondary", "Num": 169 }],
+    "Name_JP": "169(ワイドアスペクツ)\n13²(キャトレズ)",
+    "Name_EN": "169(Wide-Aspects)\n13²(Cartreize)",
     "FormalName_JP": "ナンバーテールズ キャレ-トレーズ(同位異格169番機)",
     "FormalName_EN": "NumberTales Unit.Carré-13 (Isotope of Mk.169)",
     "ModelNumber": "APHR-NT SQ.XIII",
@@ -986,7 +988,7 @@
     "Num": "196-sq",
     "Num_Badge": "196SQ",
     "Progress": "notProceeded",
-    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 196 }],
+    "AnotherVersions_DBLink": [{ "_DB": "SelfSecondary", "Num": 196 }],
     "FormalName_JP": "ナンバーテールズ キャレ-カトルズ(同位異格196番機)",
     "FormalName_EN": "NumberTales Unit.Carré-14 (Isotope of Mk.196)",
     "ModelNumber": "APHR-NT SQ.XIV",
@@ -1031,8 +1033,8 @@
   {
     "Num": "216-cub",
     "Num_Badge": "216KZ",
-    "Progress": "notProceeded",
-    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 216 }],
+    "Progress": "nowCreating",
+    "AnotherVersions_DBLink": [{ "_DB": "SelfSecondary", "Num": 216 }],
     "Name_JP": "216(ニイロ)\n6³(リク)",
     "Name_EN": "216(Biunosect)\n6³(Secubie)",
     "FormalName_JP": "ナンバーテールズ キュビクザール-ゼクス(同位異格216番機)",
@@ -1050,8 +1052,25 @@
       "バーチャリティテールズ",
       "キュビクザール型ハイナンバーズ"
     ],
-    "Backgrounds_JP": "6の乗数であることから、6(ムイ)や36(ミトム)と関連が深い。",
-    "Backgrounds_EN": "As a multiple of 6, this unit has strong ties to 6(Sics) and 36(Trisixa)."
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 6,
+        "Branches": [
+          { "Laterality": null, "TailCount": 1, "ClusterCount": 3 },
+          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 4, "ClusterCount": 1 }
+        ],
+        "LayoutDirection": {
+          "LayoutFrom": "#Lat_Center",
+          "LayoutTo": "#Lat_Periphery"
+        },
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "Backgrounds_JP": "6の乗数であることから、「6(ムイ)」や「36(ミトム)」と関連が深い。\nシンフォニー.XVI(ゼクズィン)の部署内では設計業務に勤める「錦野舞」やその専属契約個体「78(ナナハ)」を気に掛ける様子も見られる。",
+    "Backgrounds_EN": "As a multiple of 6, this unit has strong ties to \"6(Sics)\" and \"36(Trisixa).\"\nWithin the Symphony.XVI(Sechzehn) department, it is also seen to take an interest in \"Dancy Actressilk,\" who works in design, and her exclusive contract unit \"78(Seveights).\""
   },
   {
     "Num": 222,
@@ -1731,7 +1750,7 @@
     "Num": "289-sq",
     "Num_Badge": "289SQ",
     "Progress": "notProceeded",
-    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 289 }],
+    "AnotherVersions_DBLink": [{ "_DB": "SelfSecondary", "Num": 289 }],
     "FormalName_JP": "ナンバーテールズ キャレ-ディセット(同位異格289番機)",
     "FormalName_EN": "NumberTales Unit.Carré-17 (Isotope of Mk.289)",
     "ModelNumber": "APHR-NT SQ.XVII",
@@ -1819,12 +1838,13 @@
     "Num": "400-sq",
     "Num_Badge": "400SQ",
     "Progress": "notProceeded",
+    "AnotherVersions_DBLink": [{ "_DB": "SelfSecondary", "Num": 400 }],
     "SameMPSeries_DBLink": [
-      { "_DB": "SelfSecondary", "Num": "400-gc" },
-      { "_DB": "SemiPrimary", "Num": 400 }
+      { "_DB": "SemiPrimary", "Num": "400-dev" },
+      { "_DB": "SelfSecondary", "Num": "400-gc" }
     ],
-    "Name_JP": "400(ヴィンティ-ヴィンティ)\n20²(ヴィンティ-ヴィンティ)",
-    "Name_EN": "400(Vingt-vingtee)\n20²(Vingt-vingtee)",
+    "Name_JP": "400(カトリーチェ)\n20²(ヴィンティ-ヴィンティ)",
+    "Name_EN": "400(Quatricent)\n20²(Vingt-vingtee)",
     "FormalName_JP": "ナンバーテールズ キャレ-ヴィント(同位異格400番機)",
     "FormalName_EN": "NumberTales Unit.Carré-20 (Isotope of Mk.400)",
     "CodeName_JP": "四〇〇, 20²",
@@ -1840,11 +1860,14 @@
     "Class": ["百倍番(ハンドレッズデジッツ)", "キャレ型ハイナンバーズ"]
   },
   {
-    "Num": 400,
-    "Num_Badge": "400",
+    "Num": "400-dev",
+    "Num_Badge": "400B",
     "Progress": "notProceeded",
     "AnotherVersions_DBLink": [{ "_DB": "SelfSecondary", "Num": "400-gc" }],
-    "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": "400-sq" }],
+    "SameMPSeries_DBLink": [
+      { "_DB": "SelfSecondary", "Num": 400 },
+      { "_DB": "SemiPrimary", "Num": "400-sq" }
+    ],
     "Name_JP": "400(マタウルウ)",
     "Name_EN": "400(Leap-againer)",
     "FormalName_JP": "ナンバーテールズ400番機",
@@ -1854,7 +1877,7 @@
     "SPCodeName_JP": "閏周期",
     "SPCodeName_EN": "Leap Term(by years)",
     "ModelNumber": "APHR-NT [GP]IV.R",
-    "ModelName_JP": "ナンバーテールズ汎用型4号機改(開発用400番機)",
+    "ModelName_JP": "ナンバーテールズ汎用型4号機改(試験開発用400番機)",
     "ModelName_EN": "NumberTales General-Purpose Type Unit.4 (Development Mk.400)",
     "GenderType": "Neutral",
     "Class": ["百倍番(ハンドレッズデジッツ)", "カレンド"],
