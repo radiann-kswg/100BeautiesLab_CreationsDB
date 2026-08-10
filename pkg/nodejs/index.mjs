@@ -240,15 +240,16 @@ function resolveIdxKeyFromIndexDef(indexDef) {
 
 /**
  * `_Commons` 適用時の空値判定。
- * undefined だけでなく null / 空文字 / 空配列 / 空オブジェクトも未設定扱いにする。
+ * undefined だけでなく null / 空文字 / 空オブジェクトも未設定扱いにする。
  * `{ hideText: '...' }` は意図的マスクなので空扱いしない。
+ * `[]` は「該当なし」の明示宣言（例: `Belonging: []` = 無所属）なので空扱いしない。
  * @param {any} v
  * @returns {boolean}
  */
 function isEmptyForCommons(v) {
   if (v === null || typeof v === 'undefined') return true;
   if (v === '') return true;
-  if (Array.isArray(v)) return v.length === 0;
+  if (Array.isArray(v)) return false;
   if (isObject(v)) {
     if (typeof v.hideText === 'string' && v.hideText) return false;
     return Object.keys(v).length === 0;
