@@ -56086,7 +56086,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:746731b551fa13f2c5ebd7bd85d282c5e15102345da7af2c7cc921b319feca45",
+        "structuralSourceHash": "sha256:f7f5a14d770659e15c016877e3a7dae574c91d6f172659da5714ad0b921d5197",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox (with crimson accent color tips)",
@@ -56164,7 +56164,7 @@
             "bound by rope"
           ]
         },
-        "lastStructuralResync": "2026-08-02"
+        "lastStructuralResync": "2026-08-10"
       }
     }
   },
@@ -57039,7 +57039,11 @@
         "immutable_traits": null,
         "expression_tendency": null,
         "age_appearance": "teenager",
-        "palette_priority": null,
+        "palette_priority": {
+          "primary": "#5F676F",
+          "secondary": "#81494A",
+          "accent": "#293B3A"
+        },
         "natural_language_description": null,
         "reference_images": null
       },
@@ -57115,7 +57119,7 @@
       },
       "alt_modes": null,
       "_meta": {
-        "structuralSourceHash": "sha256:b9dec54cf09adcf4bec2d7dda073bcd02e57090bb49a36c5eb904ea061915a32",
+        "structuralSourceHash": "sha256:c209ecd89f5a5509d181e606611a5c1af4be2f3468717873c007f45fc5712802",
         "structuralEntries": {
           "common.silhouette_features": ["fox 10 tails"],
           "forms.corefolder.form_tags": ["corefolder form"],
@@ -57152,7 +57156,7 @@
             "bound by rope"
           ]
         },
-        "lastStructuralResync": "2026-08-02"
+        "lastStructuralResync": "2026-08-10"
       }
     }
   },
