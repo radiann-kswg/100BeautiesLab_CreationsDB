@@ -1025,6 +1025,191 @@ export function resolveImageSources(record, imagesRoot) {
     return out;
 }
 
+/**
+ * 作品の `db_type.json` から `Images` 配下の画像フィールドを列挙する。
+ *
+ * フィールド名をツール側へ書かないための入口。`corefolder_PNGPath`（ナンバーテールズ）と
+ * `keycapper_PNGPath`（ハンカクライブ）のように作品ごとに名前が違うため、
+ * スキーマ宣言を正として読み取る（`AGENTS.md`「field 名依存の分岐を足さない」）。
+ *
+ * フォルダ名は `_PNGName` / `_PNGPath` サフィックスを除いた部分とする規約
+ * （`corefolder_PNGPath` → `corefolder/`、`concept_PNGName` → `concept/`）。
+ *
+ * `$palette.source` は「そのフィールドの画像を配色検出のどの入力として使うか」の宣言。
+ * 現在解釈するのは `"artwork"`（透過キャラクター単体イラスト = 色分布からの抽出）のみ。
+ * 宣言が無い作品では、呼び出し側が全フィールドを候補にして透過率で選り分ける。
+ *
+ * @param {string} workDir  `data/Works_<work>` の絶対パス
+ * @returns {Array<{ field: string, folder: string, isList: boolean, paletteSource: string|null }>} 宣言順
+ */
+export function listImageFields(workDir) {
+    const typePath = path.join(workDir, 'DataBases', 'db_type.json');
+    if (!fs.existsSync(typePath)) return [];
+    /** @type {any} */
+    let typedef;
+    try {
+        typedef = JSON.parse(fs.readFileSync(typePath, 'utf8'));
+    } catch {
+        return [];
+    }
+    const imagesDef = (typedef?.$DefType ?? []).find(d => d?.hashTag === 'Images');
+    if (!Array.isArray(imagesDef?.$type)) return [];
+
+    /** @type {Array<{field: string, folder: string, isList: boolean, paletteSource: string|null}>} */
+    const out = [];
+    for (const child of imagesDef.$type) {
+        const field = child?.hashTag;
+        if (typeof field !== 'string') continue;
+        const m = /^(.+)_PNG(?:Name|Path)$/.exec(field);
+        if (!m) continue;
+        const source = child?.$palette?.source;
+        out.push({
+            field,
+            folder: m[1],
+            isList: String(child?.$type ?? '').includes('[]'),
+            paletteSource: typeof source === 'string' ? source : null,
+        });
+    }
+    return out;
+}
+
+/**
+ * 作品の `db_meta.json` に宣言された共通造形色（`$EnumDef_CommonColor`）を読む。
+ *
+ * ナンバーテールズの肌・舌・コアフォルダの毛のように、**全キャラで共通の色**は
+ * キャラ固有の配色ではないため、透過イラストからの抽出では除外する。
+ * この宣言はカタログ画像（`Images/General/catalog/`）に印字された色コードの転記であり、
+ * 宣言が無い作品では除外を行わない。
+ *
+ * @param {string} workDir  `data/Works_<work>` の絶対パス
+ * @returns {string[]} `#RRGGBB` の配列（宣言が無ければ空配列）
+ */
+export function readCommonColors(workDir) {
+    const metaPath = path.join(workDir, 'DataBases', 'db_meta.json');
+    if (!fs.existsSync(metaPath)) return [];
+    /** @type {any} */
+    let meta;
+    try {
+        meta = JSON.parse(fs.readFileSync(metaPath, 'utf8'));
+    } catch {
+        return [];
+    }
+    const def = meta?.General?.$VarsDef?.$EnumDef_CommonColor;
+    if (!def || typeof def !== 'object') return [];
+    return Object.values(def)
+        .map(entry => entry?.Hex)
+        .filter(hex => typeof hex === 'string' && /^#[0-9A-Fa-f]{6}$/.test(hex))
+        .map(hex => hex.toUpperCase());
+}
+
+/**
+ * 画像が「背景を透過したキャラクター単体イラスト」かを透過率で判定する。
+ *
+ * コアフォルダ / キーキャッパーの透過率は実測 26〜36%、背景付きの設定画（concept）や
+ * 清書イラストは 0%。フィールド名で分岐せずに素材を選り分けられる。
+ *
+ * @param {DecodedImage} img
+ * @param {number} [threshold]  この割合以上が透過なら透過素材とみなす
+ * @returns {boolean}
+ */
+export function isTransparentArtwork(img, threshold = 0.1) {
+    const n = img.width * img.height;
+    if (!n) return false;
+    let transparent = 0;
+    for (let i = 0; i < n; i++) {
+        if (img.data[i * 4 + 3] < 128) transparent++;
+    }
+    return transparent / n >= threshold;
+}
+
+// ────────────────────────────────────────────────────────────────────────────
+// 透過キャラクター単体イラストからの配色抽出
+// ────────────────────────────────────────────────────────────────────────────
+
+/**
+ * 背景を透過したキャラクター単体イラストから配色を抽出する。
+ *
+ * 設定画のカラーチップが無いレコードのための経路。対象がべた塗り（アニメ塗り）である
+ * ことを利用し、**完全一致の色ヒストグラム**で作者の使用色そのものを取り出す。
+ * `medianCut()` は複数色の平均を作るため、実在しない中間色になってしまい使えない
+ * （実測: Num 1 は本方式だとチップ由来の値と**距離 0** で一致する）。
+ *
+ * `buildForegroundMask()` も使わない。あちらは紙面付きの設定画を想定して外周の
+ * フラッドフィルと背景色推定を行うため、透過画像では不要なうえ、キャラクターの
+ * **白い塗りを紙面と誤判定して落として**しまう。
+ *
+ * 除外するもの:
+ *   - 純黒（`v < 0.08`）… 輪郭線。面積 5〜9% を占めるが配色ではない
+ *   - `exclude` に渡された共通造形色 … 肌・舌・コアフォルダの毛など全キャラ共通の色。
+ *     除外するとチップ由来パレットとの一致率が 60.8% → 82.3% に上がる（実測 89 件）
+ *   - 面積比が `minRatio` 未満の色 … 影・ハイライト・アンチエイリアスの残り
+ *
+ * @param {DecodedImage[]} images  同一キャラの透過イラスト（複数枚は合算する）
+ * @param {{ alphaMin?: number, dropBlack?: number|boolean, exclude?: string[],
+ *           excludeTol?: number, mergeTol?: number, minRatio?: number, top?: number }} [opt]
+ * @returns {Array<{ hex: string, ratio: number, count: number }>} 面積比の降順
+ */
+export function extractSolidColors(images, opt = {}) {
+    // 半透明の縁（アンチエイリアス）は塗りの色ではないので、ほぼ不透明な画素だけを数える。
+    const alphaMin = opt.alphaMin ?? 250;
+    const dropBlack = opt.dropBlack ?? true;
+    const exclude = (opt.exclude ?? []).map(h => h.toUpperCase());
+    const excludeTol = opt.excludeTol ?? 6;
+    const mergeTol = opt.mergeTol ?? 10;
+    const minRatio = opt.minRatio ?? 0.02;
+    const top = opt.top ?? 8;
+
+    /** @type {Map<number, number>} 24bit RGB → 画素数 */
+    const hist = new Map();
+    let counted = 0;
+
+    for (const img of images) {
+        const n = img.width * img.height;
+        for (let i = 0; i < n; i++) {
+            if (img.data[i * 4 + 3] < alphaMin) continue;
+            const r = img.data[i * 4], g = img.data[i * 4 + 1], b = img.data[i * 4 + 2];
+            if (dropBlack) {
+                const { s, v } = rgbToHsv(r, g, b);
+                // 彩度条件を添えるのは、濃い有彩色（深緑・濃紺など）を輪郭線と誤って
+                // 落とさないため。輪郭線は無彩色の黒で引かれる。
+                if (v < 0.08 && s < 0.5) continue;
+            }
+            counted++;
+            const key = (r << 16) | (g << 8) | b;
+            hist.set(key, (hist.get(key) ?? 0) + 1);
+        }
+    }
+    if (!counted) return [];
+
+    const dist = (a, b) => {
+        const [r1, g1, b1] = hexToRgb(a);
+        const [r2, g2, b2] = hexToRgb(b);
+        return Math.sqrt((r1 - r2) ** 2 + (g1 - g2) ** 2 + (b1 - b2) ** 2);
+    };
+
+    const rows = [...hist]
+        .sort((a, b) => b[1] - a[1])
+        .map(([key, count]) => ({ hex: toHex((key >> 16) & 255, (key >> 8) & 255, key & 255), count }))
+        .filter(row => !exclude.some(e => dist(e, row.hex) <= excludeTol));
+
+    // 同じ塗りのアンチエイリアス縁を、面積の大きい色へ吸収する（面積降順に貪欲マージ）
+    /** @type {Array<{hex: string, count: number}>} */
+    const merged = [];
+    for (const row of rows) {
+        const dup = merged.find(m => dist(m.hex, row.hex) <= mergeTol);
+        if (dup) dup.count += row.count;
+        else merged.push({ ...row });
+    }
+
+    // マージで順位が入れ替わるため、必ず再ソートする。Role（Primary/Secondary/…）は
+    // この並びで決まるので、忘れると主従が狂う。
+    return merged
+        .sort((a, b) => b.count - a.count)
+        .filter(m => m.count / counted >= minRatio)
+        .slice(0, top)
+        .map(m => ({ hex: m.hex, ratio: Number((m.count / counted).toFixed(4)), count: m.count }));
+}
+
 // ────────────────────────────────────────────────────────────────────────────
 // ColorPalette 下書きの生成
 // ────────────────────────────────────────────────────────────────────────────

@@ -52,6 +52,78 @@
     "Favor_EN": "Chibified spherification, fluffy beastkin and futons, numbers",
     "Unlike_JP": { "hideText": "非公開希望" },
     "Unlike_EN": { "hideText": "Non-Public at Pleasure" },
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#A5B4BD",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#A1C5D2",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#EDDF4E",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#41B08B",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#B8D0D5",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#FFFFFF",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#FEF6DD",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "Backgrounds_JP": "作者の現実や性格を忠実にキャラ化した代理のため、日常や思考を代弁したりする分で作者としても代理としての動かしやすさが保証されている",
     "Backgrounds_EN": "As a proxy that faithfully characterizes the author's reality and personality, its ease of use as both the author's and the proxy's representative is guaranteed by its role in voicing daily life and thoughts",
     "InStory_JP": "日常や思考を代弁するなどといった正なる意味の代理として登場する(という名目だが、作者はこの代理という自分の写し身をあまり良くは思ってないので、実際は作者の特権でパロディや雑コラなどへ煩雑に使われることが多い)",
@@ -65,7 +137,10 @@
     "Images": {
       "design_PNGName": "dsgn_imgDFR-G3",
       "designAlt_PNGPath": ["dsgn_imgDFR-G3-onCostume"],
-      "weakening_PNGPath": ["emstk_weakeningDFR-G3-1", "emstk_weakeningDFR-G3-2"],
+      "weakening_PNGPath": [
+        "emstk_weakeningDFR-G3-1",
+        "emstk_weakeningDFR-G3-2"
+      ],
       "arts_PNGPath": [
         "chattingArt/chart_imgDFR-G3-regularTooManyTasks",
         "chattingArt/chart_imgDFR-G3-orbify",
@@ -126,6 +201,68 @@
     "Favor_EN": "Round, soothing forms (of people who have been spherified), fluffy beds, talking about creative works",
     "Unlike_JP": "精神的に負担となるもの全般",
     "Unlike_EN": "Anything that creates mental strain in general",
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#5EBFFF",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#A7C6DB",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#82C2ED",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#FF615E",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#FFFFFF",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#FFF8DE",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConversationPattern": {
       "TalkingTone_JP": "どこか垢ぬけたように中性的で明るく活発・溌剌と話す。どこかお馬鹿でオーバーリアクションな部分がある。やや猫語口調で文脈に寄り「な」が「にゃ」になるが、重要な文脈では一貫して「な」が変わることがない。",
       "TalkingTone_EN": "Speaks in a somewhat polished yet gender-neutral, bright, lively, and spirited manner. Has a slightly goofy and over-reactive quality. Speech takes on a slightly cat-like inflection at times, with 'na' becoming 'nya' in casual contexts, but this never happens in important ones.",

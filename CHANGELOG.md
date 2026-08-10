@@ -1,5 +1,19 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### feat: 透過キャラクター単体イラストからの配色検出と、配色検出対象の typedef 宣言 (2026-08-10)
+
+`ColorPalette` の抽出は設定画に描き込まれた**カラーチップ**だけを入力にしていたため、チップの無いレコードは配色を取り込めなかった。一方でこのリポジトリには、背景を透過したキャラクター単体イラスト（ナンバーテールズの `corefolder_PNGPath`、ハンカクライブの `keycapper_PNGPath`、運命線狐の記録の `weakening_PNGPath`）という配色抽出に最適な素材がある。ここから配色を読めるようにし、あわせて**どの画像を配色検出の入力にするかを typedef で宣言**できるようにした。
+
+- **`extractSolidColors()`（`tools/extract-palette.mjs`）**: 透過素材から**完全一致の色ヒストグラム**で配色を取る。対象がべた塗りなので、これで作者の使用色そのものが得られる（`medianCut()` は複数色の平均を作るため実在しない中間色になり不適）。`buildForegroundMask()` も使わない — あちらは紙面付きの設定画向けで、透過画像では**キャラクターの白い塗りを紙面と誤判定して落として**しまう。除外するのは (1) 純黒（`v < 0.08 && s < 0.5`＝輪郭線。面積 5〜9% を占めるが配色ではない）、(2) 宣言された共通造形色、(3) 面積比が `minRatio`（既定 2%）未満の色。近似色のマージ後は**必ず面積で再ソート**する（Role の主従がこの並びで決まるため）。
+- **`$palette` 宣言（`db_type.json` の `Images` 配下）**: `{ "source": "swatch" }` は設定画のカラーチップ検出、`{ "source": "artwork" }` は透過イラストからの色分布抽出の入力を表す。`patch-colorpalette.mjs` にあった `SWATCH_SOURCES`（`concept` / `catalog` のハードコード）は宣言が優先され、宣言の無い作品のフォールバックとして残る。衣装差分（`designAlt_PNGPath`）のように「透過だが配色の基準にしたくない」画像を宣言で外せるのが利点で、実際これにより照合精度が 80.1% → **82.3%** へ改善し、照合の実行時間も 15 秒 → 3.4 秒に縮んだ。宣言が無い作品では従来どおり全フィールドを候補にし、**透過率**（透過キャラ単体は 26〜36%、背景付きは 0%）で選り分ける。
+- **`$EnumDef_CommonColor` 宣言（作品別 `db_meta.json` の `General.$VarsDef`）**: 全キャラ共通の造形色を宣言し、透過イラスト抽出から除外する。ナンバーテールズは `Images/General/catalog/chr-dsgn_NTsCatalog-Summary.png` の「Common Colors & Color Codes」に印字された値（肌 `#FFFDF1` / 舌 `#FF9669` / 電脳躯体 `#FDFFF7`・`#FFCAB3` / コアフォルダの毛 `#FFFFFF`）の転記。**コアフォルダの白は「肌色（毛）」という共通色であってキャラ固有の配色ではない**ため、除外するとチップ由来パレットとの一致率が 60.8% → 82.3% に上がる（配色が空になるレコードは 0 件）。ハンカクライブは User 提供の `#FFFFFF` / `#CEC7B6` / `#F3F1E4`（モチーフアクセサリーの主色・副色・アクセントカラー）。宣言の無い作品では除外を行わない。
+- **`--from-artwork` / `--min-ratio` / `--verify-artwork`（`tools/patch-colorpalette.mjs`）**: 透過イラスト経路は**オプトイン**。作者指定の値と機械推定を混ぜないという既存の設計原則（`--drop-unresolved` と同じ理由）に従う。チップが `--min-chips` に満たないときだけ透過素材へ回り、面積比をそのまま被覆率として `Role` を決める。`--verify-artwork` は**チップ由来で確定済みの `ColorPalette` と突き合わせて精度だけを報告**する読み取り専用モード。
+- **挿入アンカーのフォールバック**: `upsertColorPaletteInRecord()` は `AppearanceDetail` をアンカーにしていたが、これを持たないレコード（NumberTales SemiPrimary の `222` ほか）では例外で落ちていた。アンカーが無ければ末尾へ追記（`appended`）し、正準順への整列は `npm run data:order:write`（`$DefType` が正）へ委ねる。
+- **適用結果（10 件）**: NumberTales `Primary` の `10-alt` / `SemiPrimary` の `100`・`222` / UnibyteLive `Primary` の `I`・`S`・`Z` / DestinyFoxRecords `Primary` の 2 件・`Proxy` の 2 件。うち `222` と DestinyFoxRecords `Primary` の 1 件は**設定画のチップが見つかったのでチップ経路**で入っている（作者指定を優先）。`ColorName_*` / `Formation` / `Note_*` は創作内容のため `null` のまま。
+- **既存データは不変**: `--force` を使っていないため、チップ由来で確定済みの `ColorPalette` は 1 件も変更していない（削除された `Hex` 行 0 件を `git diff` で確認）。
+- **影響範囲**: `tools/extract-palette.mjs` / `tools/patch-colorpalette.mjs` / `tests/patch-colorpalette.test.js` / 各作品の `db_type.json`・`db_meta.json` / `data/Works_NumberTales/DataBases/db_Primary.json`・`db_SemiPrimary.json` / `data/Works_UnibyteLive/DataBases/db_Primary.json` / `data/Works_DestinyFoxRecords/DataBases/db_Primary.json`・`db_Proxy.json`。
+- **検証**: `npm test` **67 files / 1204 件すべて成功**（`tests/patch-colorpalette.test.js` は 21 → 44 件）。`npm run data:order:check` 0/1315 のズレなし。回帰テストは**チップ由来パレットを正解として使い**、一致率 75% 未満でアルゴリズム劣化を検知する。
+
 ### fix: 設定画のカラーチップ検出が手描きメッセージに負けていた／二次創作 31 件へ `ColorPalette` を追加 (2026-08-10)
 
 `tools/patch-colorpalette.mjs` を `Works_NumberTales` の `Secondary` へ回すと、ナンバーテールズ化企画絵 **26 件すべてが検出 0〜1 チップ**で落ちていた。原因は設定画の作りの違いで、企画参加者の絵には「thank you for reaction!」のような**手描きメッセージがカラーチップと同じ色で大きく書き込まれている**。`detectSwatchChips()` の第1段（パレット領域の特定）はストロークも `strict` 判定で通してしまい、文字の方が数も広がりも大きいため領域を見失っていた。あわせて成分の代表色の取り方にも誤りが見つかった。
@@ -12,8 +26,6 @@
 - **未解決**: `0xFF`（ヘキサデミカル・テールズ）は設定画にチップが無く未検出のまま。`Primary` は既存値を温存しており（`--force` を使っていない）、**26 レコードが縁色のまま残っている**。再生成するかは別途 User 判断。
 - **影響範囲**: `tools/extract-palette.mjs` / `data/Works_NumberTales/DataBases/db_Secondary.json`。
 - **検証**: `npm test` **67 files / 1181 件すべて成功**（`tests/patch-colorpalette.test.js` 21 件を含む）。`npm run data:order:check` 0/1315 のズレなし。`Primary --all --force` の dry-run 差分で退行が無いことを確認済み。
-
-
 
 ### feat: 相関図に drill 遷移（zoom/pan 補間）を導入し、導線と仕様メモを追加した (2026-08-08)
 

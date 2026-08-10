@@ -29,12 +29,14 @@
         {
           "hashTag": "concept_PNGName",
           "$type": "#PNGFileName",
+          "$palette": { "source": "swatch" },
           "hashTag_JP": "設定原画",
           "hashTag_EN": "Concept Art"
         },
         {
           "hashTag": "catalog_PNGName",
           "$type": "#PNGFileName",
+          "$palette": { "source": "swatch" },
           "hashTag_JP": "設定資料",
           "hashTag_EN": "Catalog Art"
         },
@@ -47,6 +49,7 @@
         {
           "hashTag": "corefolder_PNGPath",
           "$type": "#PNGFilePath[]",
+          "$palette": { "source": "artwork" },
           "hashTag_JP": "コアフォルダ画像",
           "hashTag_EN": "corefolder Images"
         },

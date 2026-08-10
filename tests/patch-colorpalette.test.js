@@ -30,6 +30,10 @@ import {
     measurePaletteCoverage,
     hexToRgb,
     scanTopLevelRecords,
+    extractSolidColors,
+    isTransparentArtwork,
+    listImageFields,
+    readCommonColors,
 } from '../tools/extract-palette.mjs';
 import {
     buildColorPaletteValue,
@@ -38,10 +42,17 @@ import {
     upsertColorPaletteInRecord,
     parseChipList,
     detectChipsForRecord,
+    resolveArtworkSources,
+    resolvePaletteImageFields,
+    detectArtworkColorsForRecord,
+    verifyArtworkAgainstChips,
+    recordLabel,
 } from '../tools/patch-colorpalette.mjs';
 
 const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const IMAGES = path.join(REPO_ROOT, 'data', 'Works_NumberTales', 'Images', 'DB_Primary');
+const NTS_WORK = path.join(REPO_ROOT, 'data', 'Works_NumberTales');
+const UBL_WORK = path.join(REPO_ROOT, 'data', 'Works_UnibyteLive');
 
 /** Num 4 のカタログ画像に **文字として印字されている** 配色（＝作者が定めた正解） */
 const NUM4_PRINTED_CODES = ['#00B6D9', '#8DE8ED', '#7CD8EF', '#67BDBD', '#0097C9'];
@@ -257,5 +268,212 @@ describe('parseChipList / 手入力チップ — 自動検出できないレコ�
         // corefolder 画像では #67BDBD の方が広く使われている
         expect(ordered[0].hex).toBe('#67BDBD');
         expect(ordered[0].coverage).toBeGreaterThan(ordered[1].coverage);
+    });
+});
+
+// ────────────────────────────────────────────────────────────────────────────
+// 透過キャラクター単体イラストからの配色抽出
+//
+// 設定画のカラーチップが無いレコード向けの経路。正しさの基準は「チップ由来で
+// 確定済みの ColorPalette と一致するか」に置く（チップは作者の指定値そのもの）。
+// ────────────────────────────────────────────────────────────────────────────
+
+/** Num 1 のコアフォルダ画像（透過・べた塗り） */
+const COREFOLDER_1 = path.join(IMAGES, 'corefolder', '1', 'emstk_corefolderNTS-1-1.png');
+
+describe('extractSolidColors — 透過イラストからの配色抽出', () => {
+    it('チップ由来で確定済みの配色を、距離 0（完全一致）で拾う', () => {
+        const img = decodePng(fs.readFileSync(COREFOLDER_1));
+        const colors = extractSolidColors([img], { exclude: readCommonColors(NTS_WORK) });
+        const hexes = colors.map(c => c.hex);
+        // Num 1 のチップ由来パレットに含まれる色。べた塗りなので階調のずれ無く一致する
+        for (const expected of ['#ED5D47', '#FF8682', '#FFBFA7', '#FFAC8F']) {
+            expect(hexes).toContain(expected);
+        }
+    });
+
+    it('面積の降順で返す（Role の主従はこの並びで決まる）', () => {
+        const img = decodePng(fs.readFileSync(COREFOLDER_1));
+        const colors = extractSolidColors([img], { exclude: readCommonColors(NTS_WORK) });
+        expect(colors.length).toBeGreaterThan(1);
+        // 近似色のマージ後に再ソートしていないと、ここで順序が崩れる
+        for (let i = 1; i < colors.length; i++) {
+            expect(colors[i - 1].ratio).toBeGreaterThanOrEqual(colors[i].ratio);
+        }
+    });
+
+    it('輪郭線の純黒を配色に含めない', () => {
+        const img = decodePng(fs.readFileSync(COREFOLDER_1));
+        // corefolder-1 では #000000 が面積 7.5% を占めるが、これは線画であって配色ではない
+        const colors = extractSolidColors([img], { exclude: readCommonColors(NTS_WORK) });
+        expect(colors.map(c => c.hex)).not.toContain('#000000');
+    });
+
+    it('共通造形色（コアフォルダの毛 #FFFFFF）を除外する', () => {
+        const img = decodePng(fs.readFileSync(COREFOLDER_1));
+        const common = readCommonColors(NTS_WORK);
+        expect(common).toContain('#FFFFFF');
+
+        const withCommon = extractSolidColors([img], {}).map(c => c.hex);
+        const without = extractSolidColors([img], { exclude: common }).map(c => c.hex);
+        expect(withCommon).toContain('#FFFFFF');
+        expect(without).not.toContain('#FFFFFF');
+    });
+
+    it('白が主体のキャラでも共通色除外で配色が空にならない（SemiPrimary 222）', () => {
+        const file = path.join(
+            REPO_ROOT, 'data', 'Works_NumberTales', 'Images', 'DB_SemiPrimary',
+            'corefolder', '222', 'emstk_corefolderNTS-222A,NTS-222B-1.png',
+        );
+        const img = decodePng(fs.readFileSync(file));
+        const colors = extractSolidColors([img], { exclude: readCommonColors(NTS_WORK) });
+        expect(colors.length).toBeGreaterThan(0);
+        expect(colors.map(c => c.hex)).not.toContain('#FFFFFF');
+    });
+
+    it('面積比が下限未満の色は落とす（影・ハイライトの混入防止）', () => {
+        const img = decodePng(fs.readFileSync(COREFOLDER_1));
+        const loose = extractSolidColors([img], { minRatio: 0 });
+        const strict = extractSolidColors([img], { minRatio: 0.05 });
+        expect(strict.length).toBeLessThan(loose.length);
+        for (const c of strict) expect(c.ratio).toBeGreaterThanOrEqual(0.05);
+    });
+});
+
+describe('isTransparentArtwork — 素材の自動判別', () => {
+    it('コアフォルダ（透過キャラ単体）を透過素材と認識する', () => {
+        expect(isTransparentArtwork(decodePng(fs.readFileSync(COREFOLDER_1)))).toBe(true);
+    });
+
+    it('キーキャッパー（別作品の透過キャラ単体）も認識する', () => {
+        const file = path.join(
+            UBL_WORK, 'Images', 'DB_Primary', 'keycapper', 'I', 'emstk_keycapperUBL-Ig2-1.png',
+        );
+        expect(isTransparentArtwork(decodePng(fs.readFileSync(file)))).toBe(true);
+    });
+
+    it('背景付きの設定画は透過素材と認識しない', () => {
+        const img = decodePng(fs.readFileSync(path.join(IMAGES, 'concept', 'cnsp_imgNTS-1.png')));
+        expect(isTransparentArtwork(img)).toBe(false);
+    });
+});
+
+describe('listImageFields / readCommonColors — スキーマ由来の宣言読み取り', () => {
+    it('作品別 db_type.json の Images 宣言からフォルダ名を導く', () => {
+        const nts = listImageFields(NTS_WORK);
+        expect(nts).toContainEqual({
+            field: 'corefolder_PNGPath', folder: 'corefolder', isList: true, paletteSource: 'artwork',
+        });
+        expect(nts).toContainEqual({
+            field: 'concept_PNGName', folder: 'concept', isList: false, paletteSource: 'swatch',
+        });
+
+        // 作品ごとにフィールド名が違っても、ツール側に名前を書かずに扱える
+        expect(listImageFields(UBL_WORK).map(f => f.field)).toContain('keycapper_PNGPath');
+    });
+
+    it('db_meta.json の $EnumDef_CommonColor から共通色の HEX を読む', () => {
+        expect(readCommonColors(NTS_WORK)).toEqual(
+            expect.arrayContaining(['#FFFDF1', '#FF9669', '#FFFFFF']),
+        );
+        expect(readCommonColors(UBL_WORK)).toEqual(
+            expect.arrayContaining(['#FFFFFF', '#CEC7B6', '#F3F1E4']),
+        );
+    });
+
+    it('宣言の無い作品では空配列（除外なしで動く）', () => {
+        expect(readCommonColors(path.join(REPO_ROOT, 'data', 'Works_ShouArRiders'))).toEqual([]);
+    });
+});
+
+describe('resolvePaletteImageFields — 検出対象の typedef 宣言', () => {
+    it('$palette.source = "swatch" のフィールドをチップ検出の入力にする', () => {
+        const fields = resolvePaletteImageFields(NTS_WORK, 'swatch');
+        expect(fields.map(f => f.key)).toEqual(['concept_PNGName', 'catalog_PNGName']);
+        // 順序は db_type.json の宣言順＝作者が意図した優先順
+        expect(fields[0].dir).toBe('concept');
+    });
+
+    it('$palette.source = "artwork" のフィールドを透過抽出の入力にする', () => {
+        expect(resolvePaletteImageFields(NTS_WORK, 'artwork').map(f => f.key))
+            .toEqual(['corefolder_PNGPath']);
+        expect(resolvePaletteImageFields(UBL_WORK, 'artwork').map(f => f.key))
+            .toEqual(['keycapper_PNGPath']);
+    });
+
+    it('宣言の無い作品ではフォールバックをそのまま返す（既存作品の挙動を変えない）', () => {
+        const fallback = [{ role: 'concept', dir: 'concept', key: 'concept_PNGName' }];
+        const noDecl = path.join(REPO_ROOT, 'data', 'Works_ShouArRiders');
+        expect(resolvePaletteImageFields(noDecl, 'swatch', fallback)).toEqual(fallback);
+        expect(resolvePaletteImageFields(null, 'swatch', fallback)).toEqual(fallback);
+    });
+
+    it('衣装差分など宣言されていない透過画像は配色の入力にしない', () => {
+        // designAlt_PNGPath / arts_PNGPath は $palette 宣言を持たないので候補から外れる
+        const record = {
+            Images: {
+                corefolder_PNGPath: ['1/emstk_corefolderNTS-1-1'],
+                designAlt_PNGPath: ['dummy/not-a-palette-source'],
+            },
+        };
+        const sources = resolveArtworkSources(record, NTS_WORK, IMAGES);
+        expect(sources.every(s => s.folder === 'corefolder')).toBe(true);
+    });
+});
+
+describe('resolveArtworkSources — 拡張子の有無を吸収する', () => {
+    it('拡張子なしのパス（corefolder_PNGPath）を解決する', () => {
+        const record = { Images: { corefolder_PNGPath: ['1/emstk_corefolderNTS-1-1'] } };
+        const sources = resolveArtworkSources(record, NTS_WORK, IMAGES);
+        expect(sources.map(s => path.basename(s.path))).toContain('emstk_corefolderNTS-1-1.png');
+    });
+
+    it('拡張子込みのパス（keycapper_PNGPath）でも二重に付けない', () => {
+        const record = { Images: { keycapper_PNGPath: ['I/emstk_keycapperUBL-Ig2-1.png'] } };
+        const sources = resolveArtworkSources(record, UBL_WORK, path.join(UBL_WORK, 'Images', 'DB_Primary'));
+        expect(sources).toHaveLength(1);
+        expect(sources[0].path).toMatch(/emstk_keycapperUBL-Ig2-1\.png$/);
+        expect(sources[0].path).not.toMatch(/\.png\.png$/);
+    });
+});
+
+describe('detectArtworkColorsForRecord — レコード単位の抽出', () => {
+    it('透過イラストを持つレコードから配色と出典を返す', () => {
+        const record = { Images: { corefolder_PNGPath: ['1/emstk_corefolderNTS-1-1'] } };
+        const { colors, source } = detectArtworkColorsForRecord(record, NTS_WORK, IMAGES, {
+            exclude: readCommonColors(NTS_WORK),
+        });
+        expect(colors.length).toBeGreaterThan(0);
+        expect(source).toContain('artwork:');
+    });
+
+    it('透過イラストを持たないレコードでは空を返す（設定画だけでは抽出しない）', () => {
+        const record = { Images: { concept_PNGName: 'cnsp_imgNTS-1' } };
+        const { colors, source } = detectArtworkColorsForRecord(record, NTS_WORK, IMAGES, {});
+        expect(colors).toEqual([]);
+        expect(source).toBeNull();
+    });
+});
+
+describe('verifyArtworkAgainstChips — チップ由来パレットとの照合（精度の回帰）', () => {
+    it('NumberTales Primary の抽出色が、作者指定のチップ色と高い割合で一致する', () => {
+        const { totals } = verifyArtworkAgainstChips({ work: 'NumberTales', db: 'Primary', minRatio: 0.02 });
+        expect(totals.records).toBeGreaterThan(50);
+
+        // 実測 80.1%。作者がチップに載せていない色（影・小物）は不一致に数えられるため
+        // 100% にはならない。閾値割れは抽出アルゴリズムの劣化を示す。
+        const rate = totals.hit / totals.colors;
+        expect(rate).toBeGreaterThan(0.75);
+    }, 60000); // 89 件ぶんの PNG をデコードするため既定の 5 秒では足りない
+});
+
+describe('recordLabel — Num を持たない作品の表示', () => {
+    it('Num があればそれを使う', () => {
+        expect(recordLabel({ Num: 57 })).toBe('57');
+        expect(recordLabel({ Num: '10-alt' })).toBe('10-alt');
+    });
+
+    it('Num が無ければ先頭のインデックス項目を使う（ハンカクライブの Letter）', () => {
+        expect(recordLabel({ Letter: { Alphabet: 'I', AlphaGen: 2 } })).toBe('Letter:I/2');
     });
 });

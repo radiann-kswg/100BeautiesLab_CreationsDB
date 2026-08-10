@@ -20,5 +20,40 @@
       }
     }
   },
-  "General": { "$VarsDef": {} }
+  "General": {
+    "$VarsDef": {
+      "$EnumDef_CommonColor": {
+        "#CommonColor_MotifMain": {
+          "CommonColor": "MotifMain",
+          "Hex": "#6A707F",
+          "CommonColor_JP": "主色（フィジカル９制服）",
+          "CommonColor_EN": "Primary Color (PHYSICAL.9 Uniform)"
+        },
+        "#CommonColor_MotifGray2": {
+          "CommonColor": "MotifGray2",
+          "Hex": "#878C99",
+          "CommonColor_JP": "副色（フィジカル９制服）",
+          "CommonColor_EN": "Secondary Color (PHYSICAL.9 Uniform)"
+        },
+        "#CommonColor_MotifGray1": {
+          "CommonColor": "MotifGray1",
+          "Hex": "#A2A7B3",
+          "CommonColor_JP": "捕色（フィジカル９制服）",
+          "CommonColor_EN": "Tertiary Color (PHYSICAL.9 Uniform)"
+        },
+        "#CommonColor_UniformWhite": {
+          "CommonColor": "UniformWhite",
+          "Hex": "#FFFFFF",
+          "CommonColor_JP": "アクセントカラー（フィジカル９制服）",
+          "CommonColor_EN": "Accent Color (PHYSICAL.9 Uniform)"
+        },
+        "#CommonColor_UniformNavy": {
+          "CommonColor": "UniformNavy",
+          "Hex": "#3C414C",
+          "CommonColor_JP": "アクセントカラー（フィジカル９制服）",
+          "CommonColor_EN": "Accent Color (PHYSICAL.9 Uniform)"
+        }
+      }
+    }
+  }
 }

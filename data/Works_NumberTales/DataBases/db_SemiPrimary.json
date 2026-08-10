@@ -172,6 +172,28 @@
         "Note_EN": null
       }
     ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#81494A",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Eye"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#F3D8DB",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Eye"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConversationPattern": {
       "TalkingTone_JP": "やや男性的で少し不器用な一面がありながらも、先輩思いで親しみやすい話し方をする。他のナンバーテールズの話題になると、慕う気持ちがふとした所作に表れることがある。",
       "TalkingTone_EN": "Speaks in a somewhat masculine, slightly clumsy yet approachable manner that shows consideration for her seniors. When the topic turns to the other NumberTales, her deep admiration for them sometimes shows through in small ways.",
@@ -1108,6 +1130,78 @@
         "TailShapeType": "#TailShapeType_CaudalFin",
         "Count": 3,
         "Segment": 2,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#FFD07D",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#FFA79B",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#EAE5D6",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#FFE1C7",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#FFF4E4",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#F7F5EA",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#E7E9E3",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       }

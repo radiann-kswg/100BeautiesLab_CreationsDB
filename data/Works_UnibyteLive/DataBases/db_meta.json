@@ -56,6 +56,26 @@
           "DesignElement_EN": "Accessory Units inspired by the Key-Letter"
         }
       },
+      "$EnumDef_CommonColor": {
+        "#CommonColor_MotifWhite": {
+          "CommonColor": "MotifWhite",
+          "Hex": "#FFFFFF",
+          "CommonColor_JP": "主色（モチーフアクセサリー）",
+          "CommonColor_EN": "Primary Color (Accessory Units)"
+        },
+        "#CommonColor_MotifBeige": {
+          "CommonColor": "MotifBeige",
+          "Hex": "#CEC7B6",
+          "CommonColor_JP": "副色（モチーフアクセサリー）",
+          "CommonColor_EN": "Secondary Color (Accessory Units)"
+        },
+        "#CommonColor_MotifIvory": {
+          "CommonColor": "MotifIvory",
+          "Hex": "#F3F1E4",
+          "CommonColor_JP": "アクセントカラー（モチーフアクセサリー）",
+          "CommonColor_EN": "Accent Color (Accessory Units)"
+        }
+      },
       "$Def_Relations": {
         "#List_RelationLabel": [
           {
