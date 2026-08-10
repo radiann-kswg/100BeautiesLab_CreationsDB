@@ -60,6 +60,7 @@
         {
           "hashTag": "weakening_PNGPath",
           "$type": "#PNGFilePath[]",
+          "$palette": { "source": "artwork" },
           "hashTag_JP": "弱体球体化画像",
           "hashTag_EN": "Weakening-spherification Image"
         },

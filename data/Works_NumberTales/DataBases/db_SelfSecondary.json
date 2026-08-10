@@ -522,11 +522,11 @@
     "Num": 121,
     "Num_Badge": "121",
     "Progress": "notProceeded",
-    "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": "121-sq" }],
+    "AnotherVersions_DBLink": [{ "_DB": "SemiPrimary", "Num": "121-sq" }],
     "Name_JP": "121(エルフェルト)",
     "Name_EN": "121(Elf-elvent)",
-    "FormalName_JP": "量産型ナンバーテールズ121番機シリーズ",
-    "FormalName_EN": "NumberTales #121 Series Mass Production Version for Sales",
+    "FormalName_JP": "量産型ナンバーテールズ121番機SQシリーズ(ナンバーテールズ121番機)",
+    "FormalName_EN": "NumberTales #121-SQ Series Mass Production Version for Sales (NumberTales #121)",
     "CodeName_JP": "一二一",
     "CodeName_EN": "One-Two-One",
     "SPCodeName_JP": "11×11",
@@ -553,12 +553,14 @@
     "Num": 125,
     "Num_Badge": "125",
     "Progress": "notProceeded",
-    "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": "125-cub" }],
-    "FormalName_JP": "量産型ナンバーテールズ125番機シリーズ",
-    "FormalName_EN": "NumberTales #125 Series Mass Production Version for Sales",
+    "AnotherVersions_DBLink": [{ "_DB": "SemiPrimary", "Num": "125-cub" }],
+    "Name_JP": "125(イブコ)",
+    "Name_EN": "125(Ontwive)",
+    "FormalName_JP": "量産型ナンバーテールズ125番機KZシリーズ(ナンバーテールズ125番機)",
+    "FormalName_EN": "NumberTales #125-KZ Series Mass Production Version for Sales (NumberTales #125)",
     "CodeName_JP": "一二五",
     "CodeName_EN": "One-Two-Five",
-    "ModelNumber": "APHR-NT [MP]125-*****",
+    "ModelNumber": "APHR-NT [MP]125-KZ***",
     "GenderType": "Neutral",
     "Class": ["トリプルエイツ"]
   },
@@ -582,11 +584,11 @@
     "Num": 144,
     "Num_Badge": "144",
     "Progress": "notProceeded",
-    "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": "144-sq" }],
+    "AnotherVersions_DBLink": [{ "_DB": "SemiPrimary", "Num": "144-sq" }],
     "Name_JP": "144(グロス)",
     "Name_EN": "144(Groß)",
-    "FormalName_JP": "量産型ナンバーテールズ144番機シリーズ",
-    "FormalName_EN": "NumberTales #144 Series Mass Production Version for Sales",
+    "FormalName_JP": "量産型ナンバーテールズ144番機SQシリーズ(ナンバーテールズ144番機)",
+    "FormalName_EN": "NumberTales #144-SQ Series Mass Production Version for Sales (NumberTales #144)",
     "CodeName_JP": "一四四",
     "CodeName_EN": "One-Four-Four",
     "SPCodeName_JP": "グロス",
@@ -678,18 +680,31 @@
     "Num": 169,
     "Num_Badge": "169",
     "Progress": "notProceeded",
-    "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": "169-sq" }],
+    "AnotherVersions_DBLink": [{ "_DB": "SemiPrimary", "Num": "169-sq" }],
     "Name_JP": "169(ワイドアスペクツ)",
     "Name_EN": "169(Wide-Aspects)",
-    "FormalName_JP": "量産型ナンバーテールズ169番機UMシリーズ",
-    "FormalName_EN": "NumberTales #169-UM Series Mass Production Version for Sales",
+    "FormalName_JP": "量産型ナンバーテールズ169番機SQシリーズ(ナンバーテールズ169番機)",
+    "FormalName_EN": "NumberTales #169-SQ Series Mass Production Version for Sales (NumberTales #169)",
     "CodeName_JP": "一六九",
     "CodeName_EN": "One-Six-Nine",
     "SPCodeName_JP": "ワイドスクリーンのアスペクト比(16:9)",
     "SPCodeName_EN": "Wide-Screen Aspect Ratio (16:9)",
-    "ModelNumber": "APHR-NT [MP]169-UM***",
+    "ModelNumber": "APHR-NT [MP]169-SQ***",
     "GenderType": "Neutral",
     "Class": ["トリプルセブンズ", "インターフェイスコンストレイント"]
+  },
+  {
+    "Num": 196,
+    "Num_Badge": "196",
+    "Progress": "notProceeded",
+    "AnotherVersions_DBLink": [{ "_DB": "SemiPrimary", "Num": "196-sq" }],
+    "FormalName_JP": "量産型ナンバーテールズ196番機SQシリーズ(ナンバーテールズ196番機)",
+    "FormalName_EN": "NumberTales #196-SQ Series Mass Production Version for Sales (NumberTales #196)",
+    "CodeName_JP": "一九六",
+    "CodeName_EN": "One-Nine-Six",
+    "ModelNumber": "APHR-NT [MP]196-SQ***",
+    "GenderType": "Neutral",
+    "Class": ["トリプルセブンズ"]
   },
   {
     "Num": 200,
@@ -725,15 +740,15 @@
   {
     "Num": 216,
     "Num_Badge": "216",
-    "Progress": "notProceeded",
-    "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": "216-cub" }],
+    "Progress": "nowCreating",
+    "AnotherVersions_DBLink": [{ "_DB": "SemiPrimary", "Num": "216-cub" }],
     "Name_JP": "216(ニイロ)",
     "Name_EN": "216(Biunosect)",
-    "FormalName_JP": "量産型ナンバーテールズ216番機UMシリーズ",
-    "FormalName_EN": "NumberTales #216-UM Series Mass Production Version for Sales",
+    "FormalName_JP": "量産型ナンバーテールズ216番機KZシリーズ(ナンバーテールズ216番機)",
+    "FormalName_EN": "NumberTales #216-KZ Series Mass Production Version for Sales (NumberTales #216)",
     "CodeName_JP": "二一六",
     "CodeName_EN": "Two-One-Six",
-    "ModelNumber": "APHR-NT [MP]216-UM***",
+    "ModelNumber": "APHR-NT [MP]216-KZ***",
     "GenderType": "Neutral",
     "Class": ["トリプルナインズ", "インターフェイスコンストレイント"],
     "Backgrounds_JP": "ちなみに、三原色を1Byteで平均的に扱う際に取れる最大の色数でもある",
@@ -744,9 +759,7 @@
     "Num_Badge": "222MP",
     "Progress": "notProceeded",
     "AnotherVersions_DBLink": [
-      { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 222 },
-      { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": "222A" },
-      { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": "222B" }
+      { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 222 }
     ],
     "sec_SeriesTitle": "量産型マスタートリプル",
     "sec_Category": null,
@@ -1051,10 +1064,6 @@
           { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 2 },
           { "Laterality": "#Lat_Lower", "TailCount": 2, "ClusterCount": 1 }
         ],
-        "LayoutDirection": {
-          "LayoutFrom": "#Lat_Center",
-          "LayoutTo": "#Lat_Periphery"
-        },
         "Note_JP": null,
         "Note_EN": null
       }
@@ -1208,6 +1217,19 @@
     "AppearanceDetail": null
   },
   {
+    "Num": 289,
+    "Num_Badge": "289",
+    "Progress": "notProceeded",
+    "AnotherVersions_DBLink": [{ "_DB": "SemiPrimary", "Num": "289-sq" }],
+    "FormalName_JP": "量産型ナンバーテールズ289番機SQシリーズ(ナンバーテールズ289番機)",
+    "FormalName_EN": "NumberTales #289-SQ Series Mass Production Version for Sales (NumberTales #289)",
+    "CodeName_JP": "二八九",
+    "CodeName_EN": "Two-Eight-Nine",
+    "ModelNumber": "APHR-NT [MP]289-SQ***",
+    "GenderType": "Neutral",
+    "Class": ["トリプルキャリーズ"]
+  },
+  {
     "Num": 294,
     "Num_Badge": "294",
     "Progress": "stillTentative",
@@ -1286,6 +1308,19 @@
     "Class": ["トリプルエイツ", "レイディアントコンストレイント"],
     "Backgrounds_JP": "円周率(3.14)から由来",
     "Backgrounds_EN": "Derived from the value of π(pi) (3.14)."
+  },
+  {
+    "Num": 324,
+    "Num_Badge": "324",
+    "Progress": "notProceeded",
+    "AnotherVersions_DBLink": [{ "_DB": "SemiPrimary", "Num": "324-sq" }],
+    "FormalName_JP": "量産型ナンバーテールズ324番機SQシリーズ (ナンバーテールズ324番機)",
+    "FormalName_EN": "NumberTales #324-SQ Series Mass Production Version for Sales (NumberTales #324)",
+    "CodeName_JP": "三二四",
+    "CodeName_EN": "Three-Two-Four",
+    "ModelNumber": "APHR-NT [MP]324-SQ***",
+    "GenderType": "Neutral",
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": "333-mp",
@@ -1477,9 +1512,9 @@
         "TailShapeType": "#TailShapeType_FoxBranched",
         "Count": 7,
         "Branches": [
-          { "Laterality": null, "TailCount": 3, "ClusterCount": 3 },
+          { "Laterality": null, "TailCount": 1, "ClusterCount": 1 },
           { "Laterality": "#Lat_Upper", "TailCount": 3, "ClusterCount": 2 },
-          { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 1 }
+          { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 3 }
         ],
         "LayoutDirection": {
           "LayoutFrom": "#Lat_Center",
@@ -1537,9 +1572,9 @@
         "TailShapeType": "#TailShapeType_FoxBranched",
         "Count": 8,
         "Branches": [
-          { "Laterality": null, "TailCount": 3, "ClusterCount": 3 },
+          { "Laterality": null, "TailCount": 1, "ClusterCount": 1 },
           { "Laterality": "#Lat_Upper", "TailCount": 4, "ClusterCount": 2 },
-          { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 1 }
+          { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 3 }
         ],
         "LayoutDirection": {
           "LayoutFrom": "#Lat_Center",
@@ -1552,15 +1587,39 @@
     "AppearanceDetail": null
   },
   {
+    "Num": 400,
+    "Num_Badge": "400A",
+    "Progress": "notProceeded",
+    "AnotherVersions_DBLink": [{ "_DB": "SemiPrimary", "Num": "400-sq" }],
+    "SameMPSeries_DBLink": [
+      { "_DB": "SemiPrimary", "Num": "400-dev" },
+      { "_DB": "SemiPrimary", "Num": "400-gc" }
+    ],
+    "Name_JP": "400(カトリーチェ)",
+    "Name_EN": "400(Quatricent)",
+    "FormalName_JP": "量産型ナンバーテールズ400番機SQシリーズ(ナンバーテールズ400番機甲)",
+    "FormalName_EN": "NumberTales #400-SQ Series Mass Production Version for Sales (NumberTales #400 valiant.A)",
+    "CodeName_JP": "四〇〇",
+    "CodeName_EN": "Four-Zero-Zero",
+    "SPCodeName_JP": "四百",
+    "SPCodeName_EN": "Four Hundred",
+    "ModelNumber": "APHR-NT [MP]400-SQ***",
+    "GenderType": "Neutral",
+    "Class": ["百倍番(ハンドレッズデジッツ)"]
+  },
+  {
     "Num": "400-gc",
     "Num_Badge": "400GC",
     "Progress": "notProceeded",
-    "AnotherVersions_DBLink": [{ "_DB": "SemiPrimary", "Num": 400 }],
-    "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": "400-sq" }],
+    "AnotherVersions_DBLink": [{ "_DB": "SemiPrimary", "Num": "400-dev" }],
+    "SameMPSeries_DBLink": [
+      { "_DB": "SemiPrimary", "Num": 400 },
+      { "_DB": "SemiPrimary", "Num": "400-sq" }
+    ],
     "Name_JP": "400(マタウルウ)",
     "Name_EN": "400(Leap-againer)",
-    "FormalName_JP": "量産型ナンバーテールズ400番機GCシリーズ",
-    "FormalName_EN": "NumberTales #400-GC Series Mass Production Version for Sales",
+    "FormalName_JP": "量産型ナンバーテールズ400番機GCシリーズ(ナンバーテールズ400番機乙)",
+    "FormalName_EN": "NumberTales #400-GC Series Mass Production Version for Sales (NumberTales #400 valiant.B)",
     "CodeName_JP": "四〇〇",
     "CodeName_EN": "Four-Zero-Zero",
     "SPCodeName_JP": "閏周期",
@@ -1683,10 +1742,6 @@
           { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 1 },
           { "Laterality": "#Lat_Lower", "TailCount": 2, "ClusterCount": 2 }
         ],
-        "LayoutDirection": {
-          "LayoutFrom": "#Lat_Center",
-          "LayoutTo": "#Lat_Periphery"
-        },
         "Note_JP": null,
         "Note_EN": null
       }
@@ -2385,8 +2440,8 @@
         "Count": 6,
         "Branches": [
           { "Laterality": null, "TailCount": 2, "ClusterCount": 3 },
-          { "Laterality": "#Lat_Upper", "TailCount": 3, "ClusterCount": 2 },
-          { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 1 }
+          { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 1 }
         ],
         "LayoutDirection": {
           "LayoutFrom": "#Lat_Center",
@@ -3776,10 +3831,6 @@
           { "Laterality": "#Lat_Center", "TailCount": 7, "ClusterCount": 3 },
           { "Laterality": "#Lat_Periphery", "TailCount": 2, "ClusterCount": 2 }
         ],
-        "LayoutDirection": {
-          "LayoutFrom": "#Lat_Center",
-          "LayoutTo": "#Lat_Periphery"
-        },
         "Note_JP": null,
         "Note_EN": null
       }

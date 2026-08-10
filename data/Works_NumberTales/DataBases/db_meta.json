@@ -253,6 +253,38 @@
           "DesignElement_EN": "Number Mark"
         }
       },
+      "$EnumDef_CommonColor": {
+        "#CommonColor_HumanoidSkin": {
+          "CommonColor": "HumanoidSkin",
+          "Hex": "#FFFDF1",
+          "CommonColor_JP": "肌色（ヒューマノイド形態(実体躯体) / コアフォルダの耳）",
+          "CommonColor_EN": "Skin (Humanoid Form (Existing Body) / Corefolder ears)"
+        },
+        "#CommonColor_HumanoidTongue": {
+          "CommonColor": "HumanoidTongue",
+          "Hex": "#FF9669",
+          "CommonColor_JP": "舌色（ヒューマノイド形態(実体躯体) / コアフォルダ）",
+          "CommonColor_EN": "Tongue (Humanoid Form (Existing Body) / Corefolder)"
+        },
+        "#CommonColor_CyberSkin": {
+          "CommonColor": "CyberSkin",
+          "Hex": "#FDFFF7",
+          "CommonColor_JP": "肌色（電脳躯体）",
+          "CommonColor_EN": "Skin (Cyber Body)"
+        },
+        "#CommonColor_CyberTongue": {
+          "CommonColor": "CyberTongue",
+          "Hex": "#FFCAB3",
+          "CommonColor_JP": "舌色（電脳躯体）",
+          "CommonColor_EN": "Tongue (Cyber Body)"
+        },
+        "#CommonColor_CoreFolderFur": {
+          "CommonColor": "CoreFolderFur",
+          "Hex": "#FFFFFF",
+          "CommonColor_JP": "体毛の色（コアフォルダ）",
+          "CommonColor_EN": "Fur Skin (Corefolder)"
+        }
+      },
       "$Def_NumerospecStats": {
         "$Def_EffectStats": {
           "#ListLink_EffectText": [

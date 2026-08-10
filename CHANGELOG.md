@@ -1,5 +1,45 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### refactor: 配色検出コードの重複統合と旧 CLI の削除（挙動変更なし） (2026-08-10)
+
+配色検出まわりは同日中に 3 度拡張した（チップ検出の修正 → 透過イラスト抽出 → typedef 宣言駆動）ため、`tools/extract-palette.mjs` に**役目を終えた旧 CLI** と、2 ファイルにまたがる重複定義が残っていた。削除だけで解消し、**挙動は 1 箇所も変えていない**。
+
+- **旧 CLI の削除（約 500 行）**: `extract-palette.mjs` は median-cut で配色を推定し `.cache/` へ候補を出力、`.private/` へ下書きを書き、`--apply` で DB を更新する独立した CLI を持っていた。現在は `patch-colorpalette.mjs` が上位互換（作者指定のチップを読む → 透過イラストから抽出 → 直接パッチ）で、`package.json` の npm script にも未登録だった。median-cut 推定そのものが「複数色の平均＝実在しない中間色を作る」と同日の検証で判明している。削除したのは `annotateCandidates` / `extractPaletteFromImage` / `COLOR_ROLES` / `buildColorPaletteDraft` / `buildDraftDocument` / `insertColorPaletteIntoRecord` / `applyColorPaletteToDb` と CLI 本体（`main` / `printHelpAndExit` / `parseRecordSpec`）、および CLI 専用だった `REPO_ROOT` / `__dirname` / `fileURLToPath` の import。**`extract-palette.mjs` は純粋なライブラリになった**（ヘッダ JSDoc もその旨へ更新）。
+- **色語 → HSV 範囲テーブルの一本化**: `patch-colorpalette.mjs` の `colorWordMatchesHex()` が持っていた 13 色のインラインテーブルは、`extract-palette.mjs` の `COLOR_WORD_RANGES` + `matchesColorWord()` と**値まで同一**だった（`red` の色相 345-360/0-12、`brown` の 10-45 など全項目を突き合わせ済み）。`colorWordMatchesHex(word, hex)` を `extract-palette.mjs` 側へ移して export し、`COLOR_WORD_RANGES` を唯一の正にした。
+- **RGB 距離の一本化**: 同じ式が 4 箇所に散っていた（`refineChips` のマージ判定 / `isPaperWhite` / `extractSolidColors` のローカル `dist` / patch 側の `colorDistance`）。`colorDistance(hexA, hexB)` を 1 つだけ export して置換。**ピクセル走査ループ内のインライン計算（5 箇所）は意図的に残す** — 数十万画素を回すため関数呼び出しに置き換える意味がなく、差分も増える。その旨を JSDoc に明記した。
+- **`parseRecordSpec` の重複**: 両ファイルにあった同名関数は、extract 側が CLI と一緒に消えたことで自動的に解消。
+- **テストの追従**: `tests/extract-palette.test.js` から削除機能のテスト（`buildColorPaletteDraft` 8 件 / `insertColorPaletteIntoRecord` 4 件）を除去。統合した `colorDistance` / `colorWordMatchesHex` には新規テストを足していない — 既存の `tests/patch-colorpalette.test.js`「色語（red orange）の色相域に入る色にだけ BodyPart を転記する」が判定経路を通しており、値が変われば落ちる。
+- **行数**: `extract-palette.mjs` 1,746 → 1,248 / `patch-colorpalette.mjs` 866 → 823 / `tests/extract-palette.test.js` 367 → 226。差分は **53 insertions / 735 deletions**。
+- **検証**: リファクタ前後で `patch-colorpalette.mjs` の 3 コマンド（`--all --force -v` / `--verify-artwork -v` / UnibyteLive の `--from-artwork`）の出力 259 行が**完全一致**（`diff` が空）。チップ経路・透過経路・Role 割当・照合精度 82.3% がすべて同一であることを確認済み。`npm test` **67 files / 1192 件すべて成功**（削除した 12 件ぶん減）。`data/` は 1 行も変更していない。
+- **`tools/` に prettier をかけないこと**: 作業中に一度 `npx prettier --write tools/*.mjs` を実行して全体が再フォーマットされ（1,998 insertions / 2,191 deletions）、削除だけのはずの差分が埋もれた。`tools/*.mjs` は他のファイル（`normalize-field-order.mjs` 等）も prettier 非準拠であり、**このリポジトリでは `tools/` を prettier の対象にしていない**。`git checkout` で戻して再実行した。
+
+### feat: 透過キャラクター単体イラストからの配色検出と、配色検出対象の typedef 宣言 (2026-08-10)
+
+`ColorPalette` の抽出は設定画に描き込まれた**カラーチップ**だけを入力にしていたため、チップの無いレコードは配色を取り込めなかった。一方でこのリポジトリには、背景を透過したキャラクター単体イラスト（ナンバーテールズの `corefolder_PNGPath`、ハンカクライブの `keycapper_PNGPath`、運命線狐の記録の `weakening_PNGPath`）という配色抽出に最適な素材がある。ここから配色を読めるようにし、あわせて**どの画像を配色検出の入力にするかを typedef で宣言**できるようにした。
+
+- **`extractSolidColors()`（`tools/extract-palette.mjs`）**: 透過素材から**完全一致の色ヒストグラム**で配色を取る。対象がべた塗りなので、これで作者の使用色そのものが得られる（`medianCut()` は複数色の平均を作るため実在しない中間色になり不適）。`buildForegroundMask()` も使わない — あちらは紙面付きの設定画向けで、透過画像では**キャラクターの白い塗りを紙面と誤判定して落として**しまう。除外するのは (1) 純黒（`v < 0.08 && s < 0.5`＝輪郭線。面積 5〜9% を占めるが配色ではない）、(2) 宣言された共通造形色、(3) 面積比が `minRatio`（既定 2%）未満の色。近似色のマージ後は**必ず面積で再ソート**する（Role の主従がこの並びで決まるため）。
+- **`$palette` 宣言（`db_type.json` の `Images` 配下）**: `{ "source": "swatch" }` は設定画のカラーチップ検出、`{ "source": "artwork" }` は透過イラストからの色分布抽出の入力を表す。`patch-colorpalette.mjs` にあった `SWATCH_SOURCES`（`concept` / `catalog` のハードコード）は宣言が優先され、宣言の無い作品のフォールバックとして残る。衣装差分（`designAlt_PNGPath`）のように「透過だが配色の基準にしたくない」画像を宣言で外せるのが利点で、実際これにより照合精度が 80.1% → **82.3%** へ改善し、照合の実行時間も 15 秒 → 3.4 秒に縮んだ。宣言が無い作品では従来どおり全フィールドを候補にし、**透過率**（透過キャラ単体は 26〜36%、背景付きは 0%）で選り分ける。
+- **`$EnumDef_CommonColor` 宣言（作品別 `db_meta.json` の `General.$VarsDef`）**: 全キャラ共通の造形色を宣言し、透過イラスト抽出から除外する。ナンバーテールズは `Images/General/catalog/chr-dsgn_NTsCatalog-Summary.png` の「Common Colors & Color Codes」に印字された値（肌 `#FFFDF1` / 舌 `#FF9669` / 電脳躯体 `#FDFFF7`・`#FFCAB3` / コアフォルダの毛 `#FFFFFF`）の転記。**コアフォルダの白は「肌色（毛）」という共通色であってキャラ固有の配色ではない**ため、除外するとチップ由来パレットとの一致率が 60.8% → 82.3% に上がる（配色が空になるレコードは 0 件）。ハンカクライブは User 提供の `#FFFFFF` / `#CEC7B6` / `#F3F1E4`（モチーフアクセサリーの主色・副色・アクセントカラー）。宣言の無い作品では除外を行わない。
+- **`--from-artwork` / `--min-ratio` / `--verify-artwork`（`tools/patch-colorpalette.mjs`）**: 透過イラスト経路は**オプトイン**。作者指定の値と機械推定を混ぜないという既存の設計原則（`--drop-unresolved` と同じ理由）に従う。チップが `--min-chips` に満たないときだけ透過素材へ回り、面積比をそのまま被覆率として `Role` を決める。`--verify-artwork` は**チップ由来で確定済みの `ColorPalette` と突き合わせて精度だけを報告**する読み取り専用モード。
+- **挿入アンカーのフォールバック**: `upsertColorPaletteInRecord()` は `AppearanceDetail` をアンカーにしていたが、これを持たないレコード（NumberTales SemiPrimary の `222` ほか）では例外で落ちていた。アンカーが無ければ末尾へ追記（`appended`）し、正準順への整列は `npm run data:order:write`（`$DefType` が正）へ委ねる。
+- **適用結果（10 件）**: NumberTales `Primary` の `10-alt` / `SemiPrimary` の `100`・`222` / UnibyteLive `Primary` の `I`・`S`・`Z` / DestinyFoxRecords `Primary` の 2 件・`Proxy` の 2 件。うち `222` と DestinyFoxRecords `Primary` の 1 件は**設定画のチップが見つかったのでチップ経路**で入っている（作者指定を優先）。`ColorName_*` / `Formation` / `Note_*` は創作内容のため `null` のまま。
+- **既存データは不変**: `--force` を使っていないため、チップ由来で確定済みの `ColorPalette` は 1 件も変更していない（削除された `Hex` 行 0 件を `git diff` で確認）。
+- **影響範囲**: `tools/extract-palette.mjs` / `tools/patch-colorpalette.mjs` / `tests/patch-colorpalette.test.js` / 各作品の `db_type.json`・`db_meta.json` / `data/Works_NumberTales/DataBases/db_Primary.json`・`db_SemiPrimary.json` / `data/Works_UnibyteLive/DataBases/db_Primary.json` / `data/Works_DestinyFoxRecords/DataBases/db_Primary.json`・`db_Proxy.json`。
+- **検証**: `npm test` **67 files / 1204 件すべて成功**（`tests/patch-colorpalette.test.js` は 21 → 44 件）。`npm run data:order:check` 0/1315 のズレなし。回帰テストは**チップ由来パレットを正解として使い**、一致率 75% 未満でアルゴリズム劣化を検知する。
+
+### fix: 設定画のカラーチップ検出が手描きメッセージに負けていた／二次創作 31 件へ `ColorPalette` を追加 (2026-08-10)
+
+`tools/patch-colorpalette.mjs` を `Works_NumberTales` の `Secondary` へ回すと、ナンバーテールズ化企画絵 **26 件すべてが検出 0〜1 チップ**で落ちていた。原因は設定画の作りの違いで、企画参加者の絵には「thank you for reaction!」のような**手描きメッセージがカラーチップと同じ色で大きく書き込まれている**。`detectSwatchChips()` の第1段（パレット領域の特定）はストロークも `strict` 判定で通してしまい、文字の方が数も広がりも大きいため領域を見失っていた。あわせて成分の代表色の取り方にも誤りが見つかった。
+
+- **領域特定を円形成分に限定**: 第1段のクラスタリング候補を `strict && round`（べた塗り・円形）に絞った。チップは必ず円で描かれるのに対し手描きストロークは `fill` が低く歪むため、これだけで文字が落ちる。副次的に、従来 `--chips` の手入力が必要だった `Primary` の Num 40 が自動検出できるようになった（検出値はヘルプに載っている手入力例とほぼ一致）。
+- **近接しきい値の段階的な絞り込み**: 手描き文字の**閉じた字画**（"o" / "a" の丸）はチップと同色・同サイズで残る。既定の「半径 × 7」ではチップ列と 1 つの塊に融合し、「9 個以上 = チップ列ではない」と棄却されていた。`pickSwatchCluster()` へ切り出し、`7 → 5 → 3.5` と狭めながら最初に成立した分割を採る。これで 263RZ / 467RZ が復帰。
+- **成分の代表色を最頻色へ**: `rescanPaletteRegion()` は連結成分の色を**起点ピクセル**で決めていた。走査は上から始まるためチップ上端のアンチエイリアス縁が起点になりやすく、**縁の色がチップの色として登録されていた**（実測: Num 8 は塗り `#FFA3A2` 22,375px に対し登録値 `#FFA9A8` は 374px、Num 19 は塗り `#874545` 33,918px に対し登録値 `#854F50` は 253px）。最頻色に変更した。同一チップが縁色と塗り色の 2 エントリに割れる重複も解消する。
+- **`Works_NumberTales` / `Secondary` への適用**: ナンバーテールズ化企画 **31 件すべて**が `ColorPalette` を持つ状態になった（新規 26 件 + 既存 4 件の再生成 + 一致していた 337RZ）。`Hex` は設定画のカラーチップそのもの、`Role` は面積順で Primary / Secondary / Accent / Sub。`ColorName_*` / `Formation` / `Note_*` は創作内容のため **null のまま**（User が記入する）。
+- **既存 4 件の再生成（User 判断）**: 227RZ / 387RZ / 411RZ / 625RZ は 3〜4 色しか入っておらず、設定画には 6〜7 色描かれていたため画像基準へ揃えた。387RZ は再生成で黒 `#010101` が落ちる副作用があるが、User の判断で許容。
+- **未解決**: `0xFF`（ヘキサデミカル・テールズ）は設定画にチップが無く未検出のまま。`Primary` は既存値を温存しており（`--force` を使っていない）、**26 レコードが縁色のまま残っている**。再生成するかは別途 User 判断。
+- **影響範囲**: `tools/extract-palette.mjs` / `data/Works_NumberTales/DataBases/db_Secondary.json`。
+- **検証**: `npm test` **67 files / 1181 件すべて成功**（`tests/patch-colorpalette.test.js` 21 件を含む）。`npm run data:order:check` 0/1315 のズレなし。`Primary --all --force` の dry-run 差分で退行が無いことを確認済み。
+
 ### feat: 相関図に drill 遷移（zoom/pan 補間）を導入し、導線と仕様メモを追加した (2026-08-08)
 
 `pages/relations.js` の再描画時に viewport が即時ジャンプしていたため、drill in/out の前後関係を追いづらかった。`lib/graph/graph-transition.js` を新設して、`from -> to` の zoom/pan を短時間で補間する共通関数へ切り出し、相関図側へ接続した。合わせて導線と記録を整備した。
