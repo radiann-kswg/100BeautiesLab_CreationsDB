@@ -502,25 +502,52 @@ export function detectSwatchChips(img, opt = {}) {
         });
     }
 
-    const strict = chips.filter(c => c.strict);
+    // 領域特定に使うのは「大きくて円形」の成分だけに絞る。
+    // 手描きメッセージ（例: 二次創作の「thank you for reaction!」）はチップと同じ色で
+    // 書かれることが多く、ストロークが strict 判定を通ってしまう。これを混ぜたまま
+    // 空間クラスタリングすると、文字の方が数も広がりも大きいためパレット領域を
+    // 見失う（実測: Works_NumberTales/Secondary のナンバーテールズ化企画絵 26 件が
+    // 全滅）。チップは必ずべた塗りの円なので、円形条件で文字を落とせる。
+    const strict = chips.filter(c => c.strict && c.round);
     if (!strict.length) return [];
 
-    // ── 第1段: 確実なチップだけで空間クラスタリングし、パレット領域を特定する
-    const used = new Array(strict.length).fill(false);
-    /** @type {Array<typeof strict>} */
+    // ── 第1段: 確実なチップだけで空間クラスタリングし、パレット領域を特定する。
+    //
+    // 近接しきい値（半径の何倍まで同じ列とみなすか）は段階的に狭める。既定の 7 倍だと、
+    // 手描き文字の「閉じた字画」（"o" / "a" の丸）がチップと同色・同サイズで拾われ、
+    // チップ列と 1 つの塊に融合して「9 個以上 = チップ列ではない」と棄却されてしまう
+    // （実測: Secondary 263RZ / 467RZ）。緩い方から試し、最初に成立した分割を採る。
+    for (const gapFactor of [7, 5, 3.5]) {
+        const best = pickSwatchCluster(strict, gapFactor);
+        if (best.length) return refineChips(img, best, { minPxLoose, mergeTol });
+    }
+    return [];
+}
+
+/**
+ * チップ候補を空間クラスタリングし、「配色見本らしい」クラスタを 1 つ選ぶ。
+ *
+ * @param {Array<{cx: number, cy: number, rad: number}>} candidates
+ * @param {number} gapFactor  半径の何倍まで離れていても同じクラスタとみなすか
+ * @returns {Array<any>} 選ばれたクラスタ（見つからなければ空配列）
+ */
+function pickSwatchCluster(candidates, gapFactor) {
+    const used = new Array(candidates.length).fill(false);
+    /** @type {Array<Array<any>>} */
     const clusters = [];
-    for (let i = 0; i < strict.length; i++) {
+    for (let i = 0; i < candidates.length; i++) {
         if (used[i]) continue;
-        const cluster = [strict[i]];
+        const cluster = [candidates[i]];
         used[i] = true;
         let grew = true;
         while (grew) {
             grew = false;
-            for (let j = 0; j < strict.length; j++) {
+            for (let j = 0; j < candidates.length; j++) {
                 if (used[j]) continue;
                 const near = cluster.some(c =>
-                    Math.hypot(c.cx - strict[j].cx, c.cy - strict[j].cy) < Math.max(c.rad, strict[j].rad) * 7);
-                if (near) { cluster.push(strict[j]); used[j] = true; grew = true; }
+                    Math.hypot(c.cx - candidates[j].cx, c.cy - candidates[j].cy)
+                    < Math.max(c.rad, candidates[j].rad) * gapFactor);
+                if (near) { cluster.push(candidates[j]); used[j] = true; grew = true; }
             }
         }
         clusters.push(cluster);
@@ -547,7 +574,19 @@ export function detectSwatchChips(img, opt = {}) {
         const score = kept.length * 10 - spread;
         if (score > bestScore) { bestScore = score; best = kept; }
     }
-    if (!best.length) return [];
+    return best;
+}
+
+/**
+ * 特定したパレット領域を再捜査し、同一チップの分割検出を統合して返す。
+ *
+ * @param {DecodedImage} img
+ * @param {Array<any>} best  第1段で選ばれたチップ列
+ * @param {{ minPxLoose: number, mergeTol: number }} opt
+ * @returns {Array<{ hex: string, count: number, cx: number, cy: number }>}
+ */
+function refineChips(img, best, { minPxLoose, mergeTol }) {
+    const { width: W, height: H } = img;
 
     // ── 第2段: 特定したパレット領域の**中だけ**を、前処理の色分類を外して再捜査する。
     //
@@ -623,10 +662,19 @@ export function rescanPaletteRegion(img, region, opt = {}) {
             const stack = [[x, y]];
             label[li] = id;
             let count = 0, minX = x, maxX = x, minY = y, maxY = y, touchesEdge = false;
+            // 成分の代表色は起点ピクセルではなく**最頻色**で決める。走査は上から始まるため、
+            // 起点はチップ上端のアンチエイリアス縁になりやすく、そのままだと縁の色が
+            // チップの色として登録されてしまう（実測: Secondary 263RZ のピンクが
+            // 塗り #FFCEED ではなく縁 #FFD7F0 になっていた）。
+            /** @type {Map<number, number>} */
+            const colorCount = new Map();
 
             while (stack.length) {
                 const [cx, cy] = stack.pop();
                 count++;
+                const pi = (cy * W + cx) * 4;
+                const key = (data[pi] << 16) | (data[pi + 1] << 8) | data[pi + 2];
+                colorCount.set(key, (colorCount.get(key) ?? 0) + 1);
                 if (cx < minX) minX = cx;
                 if (cx > maxX) maxX = cx;
                 if (cy < minY) minY = cy;
@@ -648,12 +696,17 @@ export function rescanPaletteRegion(img, region, opt = {}) {
             }
 
             const bw = maxX - minX + 1, bh = maxY - minY + 1;
+            let modeKey = (r0 << 16) | (g0 << 8) | b0, modeCount = -1;
+            for (const [k, c] of colorCount) {
+                if (c > modeCount) { modeCount = c; modeKey = k; }
+            }
+            const [mr, mg, mb] = [(modeKey >> 16) & 255, (modeKey >> 8) & 255, modeKey & 255];
             comps.push({
-                hex: toHex(r0, g0, b0), count, touchesEdge,
+                hex: toHex(mr, mg, mb), count, touchesEdge,
                 cx: (minX + maxX) / 2, cy: (minY + maxY) / 2,
                 fill: count / (bw * bh), aspect: bw / bh,
                 rad: Math.sqrt(count / Math.PI),
-                isWhite: rgbToHsv(r0, g0, b0).v > 0.93 && rgbToHsv(r0, g0, b0).s < 0.05,
+                isWhite: rgbToHsv(mr, mg, mb).v > 0.93 && rgbToHsv(mr, mg, mb).s < 0.05,
             });
         }
     }
