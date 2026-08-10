@@ -619,6 +619,16 @@
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#FFFFFF",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
       }
     ],
     "StreamingActivity": {
