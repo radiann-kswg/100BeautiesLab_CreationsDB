@@ -1,43 +1,36 @@
 /**
- * extract-palette.mjs - キャラクター画像からの配色候補抽出ツール
+ * extract-palette.mjs - 配色検出のライブラリ（CLI は持たない）
  *
  * @description
- *   `data/Works_<work>/Images/` 配下の既存 PNG から、キャラクターの主要色を
- *   決定論的に抽出し、`ColorPalette` フィールドの **入力候補** を生成する。
+ *   `data/Works_<work>/Images/` 配下の PNG から配色を読み取る関数群。入力の種類ごとに
+ *   2 系統ある:
  *
- *   目的は「User が `ColorPalette` を手入力する際の候補提示」であり、
- *   **確定値を自動生成することではない**。抽出結果は `.cache/` へ書き出すのみで、
- *   `data/` 配下の実データは一切変更しない。
+ *   - **カラーチップ検出**（`detectSwatchChips`）… 設定画に描き込まれた配色見本の丸を読む。
+ *     作者が指定した色そのものなので、取れるならこちらが正。
+ *   - **透過イラストからの色分布**（`extractSolidColors`）… コアフォルダ / キーキャッパーのような
+ *     背景を透過したキャラクター単体イラストを、べた塗り前提の色ヒストグラムで読む。
+ *
+ *   スキーマ宣言を読む入口も持つ（`listImageFields` が `db_type.json` の `$palette.source`、
+ *   `readCommonColors` が `db_meta.json` の `$EnumDef_CommonColor`）。
+ *
+ *   **実行可能なツールは `tools/patch-colorpalette.mjs` 側にある。** 本ファイルはそこと
+ *   `tests/` から import される純粋なライブラリで、`data/` へは書き込まない。
  *
  * 設計原則（CLAUDE.md 準拠）:
- * - **創作内容の自動生成はしない。** 本ツールが行うのは (1) 既存画像アセットの
- *   機械的計測（ピクセルの色分布）と、(2) 既存 `AppearanceDetail` フィールドに
- *   書かれた色語との照合だけ。新しいキャラクター設定は生成しない。
+ * - **創作内容の自動生成はしない。** 行うのは (1) 既存画像アセットの機械的計測と、
+ *   (2) 既存 `AppearanceDetail` に書かれた色語との照合だけ。
  *   色名・部位名・最終的な HEX の採否は User が決める。
  * - **依存追加ゼロ。** PNG デコードは Node 標準 `zlib` のみで自前実装する
  *   （`sharp` 等のネイティブ依存を持ち込まない）。
- * - **`data/` へ書かない。** 出力先は `.cache/`（Git 管轄外）。
- *
- * CLI 使い方:
- *   node tools/extract-palette.mjs --work NumberTales --db Primary --records 1
- *   node tools/extract-palette.mjs --work NumberTales --db Primary --all
- *   node tools/extract-palette.mjs --work NumberTales --db Primary --all --top 6
- *
- * 出力:
- *   .cache/palette-candidates.json   全対象レコードの抽出結果
  *
  * @author 100BeautiesLab.
- * @version 0.1.0
+ * @version 0.2.0
  * @dependencies node:zlib, node:fs, node:path（すべて標準モジュール）
  */
 
 import fs from 'node:fs';
 import path from 'node:path';
 import zlib from 'node:zlib';
-import { fileURLToPath } from 'node:url';
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const REPO_ROOT = path.resolve(__dirname, '..');
 
 // ────────────────────────────────────────────────────────────────────────────
 // PNG デコーダ（Node 標準 zlib のみ / 依存追加ゼロ）
@@ -612,11 +605,7 @@ function refineChips(img, best, { minPxLoose, mergeTol }) {
     /** @type {Array<{hex: string, count: number, cx: number, cy: number}>} */
     const merged = [];
     for (const chip of pool.slice().sort((a, b) => b.count - a.count)) {
-        const dup = merged.find(m => {
-            const [r1, g1, b1] = hexToRgb(m.hex);
-            const [r2, g2, b2] = hexToRgb(chip.hex);
-            return Math.sqrt((r1 - r2) ** 2 + (g1 - g2) ** 2 + (b1 - b2) ** 2) <= mergeTol;
-        });
+        const dup = merged.find(m => colorDistance(m.hex, chip.hex) <= mergeTol);
         if (dup) dup.count += chip.count;
         else merged.push({ hex: chip.hex, count: chip.count, cx: chip.cx, cy: chip.cy });
     }
@@ -714,10 +703,7 @@ export function rescanPaletteRegion(img, region, opt = {}) {
     // 紙面の白を除外する。純白（#FFFFFF ごく近傍）だけを落とし、**淡い色のチップは残す**
     // （カタログの中間色には `0xf4fae8` のようなほぼ白の色が実在するため、
     //  「明るい＝背景」で足切りすると正規のチップまで消えてしまう）。
-    const isPaperWhite = (hex) => {
-        const [r, g, b] = hexToRgb(hex);
-        return Math.sqrt((255 - r) ** 2 + (255 - g) ** 2 + (255 - b) ** 2) < 10;
-    };
+    const isPaperWhite = (hex) => colorDistance(hex, '#FFFFFF') < 10;
 
     // 形状条件は緩めに取る。チップが密に重なって描かれていると、隠れていない部分が
     // 三日月形になり、厳しい円形条件では弾かれてしまう（例: Num 40）。
@@ -744,6 +730,22 @@ export function hexToRgb(hex) {
     if (!m) return [0, 0, 0];
     const v = parseInt(m[1], 16);
     return [(v >> 16) & 255, (v >> 8) & 255, v & 255];
+}
+
+/**
+ * 2 色の RGB 距離（ユークリッド）。近似色の統合・除外・照合すべての判定で使う。
+ *
+ * ピクセル走査ループの内側では、この関数を呼ばず式を展開したままにしている
+ * （数十万画素を回すため）。ここは HEX 同士を比べる用途に限る。
+ *
+ * @param {string} a #RRGGBB
+ * @param {string} b #RRGGBB
+ * @returns {number}
+ */
+export function colorDistance(a, b) {
+    const [r1, g1, b1] = hexToRgb(a);
+    const [r2, g2, b2] = hexToRgb(b);
+    return Math.sqrt((r1 - r2) ** 2 + (g1 - g2) ** 2 + (b1 - b2) ** 2);
 }
 
 /**
@@ -885,6 +887,21 @@ function matchesColorWord(hsv, def) {
 }
 
 /**
+ * 色語（AppearanceDetail 由来）と HEX が対応しそうかを判定する。
+ * 判定範囲は COLOR_WORD_RANGES を唯一の正とする。
+ *
+ * @param {string} word 色語（例: 'red orange'）
+ * @param {string} hex  #RRGGBB
+ * @returns {boolean} 未知の色語なら false
+ */
+export function colorWordMatchesHex(word, hex) {
+    const def = COLOR_WORD_RANGES.find(d => d.key === word);
+    if (!def) return false;
+    const [r, g, b] = hexToRgb(hex);
+    return matchesColorWord(rgbToHsv(r, g, b), def);
+}
+
+/**
  * レコードの `AppearanceDetail` から色語のヒントを収集する。
  * `#DesignAttr_Color` の `value_JP` / `value_EN` と、`#DesignAttr_Overview`
  * （例: "red orange hair"）に含まれる色語を拾う。
@@ -916,77 +933,6 @@ export function collectColorHints(record) {
         }
     }
     return hints;
-}
-
-/**
- * 抽出クラスタに、`AppearanceDetail` 由来の色語ヒントを紐付ける。
- * 「この HEX は hair の 'red orange' に対応しそう」という根拠を候補へ付与する。
- *
- * @param {Array<{ hex: string, ratio: number, hsv: {h:number,s:number,v:number} }>} candidates
- * @param {ReturnType<typeof collectColorHints>} hints
- * @returns {Array<any>} matchedHints を付与した候補
- */
-export function annotateCandidates(candidates, hints) {
-    return candidates.map(c => {
-        const matched = hints.filter(hint => {
-            const def = COLOR_WORD_RANGES.find(d => d.key === hint.word);
-            return def ? matchesColorWord(c.hsv, def) : false;
-        });
-        return { ...c, matchedHints: matched };
-    });
-}
-
-// ────────────────────────────────────────────────────────────────────────────
-// 1 画像からの候補抽出
-// ────────────────────────────────────────────────────────────────────────────
-
-/**
- * 画像ファイル 1 枚から配色候補を抽出する。
- *
- * @param {string} imagePath  PNG の絶対パス
- * @param {{ top?: number, sampleStep?: number }} [opts]
- *        top: 返す候補色の最大数 / sampleStep: ピクセルの間引き幅（1 = 全ピクセル）
- * @returns {{ candidates: Array<{hex: string, ratio: number, hsv: any}>, foregroundRatio: number, width: number, height: number }}
- */
-export function extractPaletteFromImage(imagePath, opts = {}) {
-    const top = opts.top ?? 6;
-    const sampleStep = opts.sampleStep ?? 2;
-
-    const img = decodePng(fs.readFileSync(imagePath));
-    const mask = buildForegroundMask(img);
-
-    /** @type {Array<[number,number,number]>} */
-    const fg = [];
-    for (let y = 0; y < img.height; y += sampleStep) {
-        for (let x = 0; x < img.width; x += sampleStep) {
-            const i = y * img.width + x;
-            if (!mask[i]) continue;
-            fg.push([img.data[i * 4], img.data[i * 4 + 1], img.data[i * 4 + 2]]);
-        }
-    }
-
-    const sampled = Math.ceil(img.width / sampleStep) * Math.ceil(img.height / sampleStep);
-    if (!fg.length) {
-        return { candidates: [], foregroundRatio: 0, width: img.width, height: img.height };
-    }
-
-    const clusters = medianCut(fg, top);
-    const total = fg.length;
-    const candidates = clusters.map(c => {
-        const hsv = rgbToHsv(c.r, c.g, c.b);
-        return {
-            hex: toHex(c.r, c.g, c.b),
-            ratio: Number((c.count / total).toFixed(4)),
-            hsv: { h: Math.round(hsv.h), s: Number(hsv.s.toFixed(3)), v: Number(hsv.v.toFixed(3)) },
-        };
-    });
-
-    return {
-        candidates,
-        foregroundRatio: Number((total / sampled).toFixed(4)),
-        width: img.width,
-        height: img.height,
-    };
 }
 
 // ────────────────────────────────────────────────────────────────────────────
@@ -1181,22 +1127,16 @@ export function extractSolidColors(images, opt = {}) {
     }
     if (!counted) return [];
 
-    const dist = (a, b) => {
-        const [r1, g1, b1] = hexToRgb(a);
-        const [r2, g2, b2] = hexToRgb(b);
-        return Math.sqrt((r1 - r2) ** 2 + (g1 - g2) ** 2 + (b1 - b2) ** 2);
-    };
-
     const rows = [...hist]
         .sort((a, b) => b[1] - a[1])
         .map(([key, count]) => ({ hex: toHex((key >> 16) & 255, (key >> 8) & 255, key & 255), count }))
-        .filter(row => !exclude.some(e => dist(e, row.hex) <= excludeTol));
+        .filter(row => !exclude.some(e => colorDistance(e, row.hex) <= excludeTol));
 
     // 同じ塗りのアンチエイリアス縁を、面積の大きい色へ吸収する（面積降順に貪欲マージ）
     /** @type {Array<{hex: string, count: number}>} */
     const merged = [];
     for (const row of rows) {
-        const dup = merged.find(m => dist(m.hex, row.hex) <= mergeTol);
+        const dup = merged.find(m => colorDistance(m.hex, row.hex) <= mergeTol);
         if (dup) dup.count += row.count;
         else merged.push({ ...row });
     }
@@ -1208,135 +1148,6 @@ export function extractSolidColors(images, opt = {}) {
         .filter(m => m.count / counted >= minRatio)
         .slice(0, top)
         .map(m => ({ hex: m.hex, ratio: Number((m.count / counted).toFixed(4)), count: m.count }));
-}
-
-// ────────────────────────────────────────────────────────────────────────────
-// ColorPalette 下書きの生成
-// ────────────────────────────────────────────────────────────────────────────
-
-/** 占有率の高い順に割り当てる配色役割 */
-const COLOR_ROLES = ['#ColorRole_Primary', '#ColorRole_Secondary', '#ColorRole_Accent'];
-
-/**
- * 抽出結果 1 レコード分から `ColorPalette` フィールドの下書きを組み立てる。
- *
- * **埋めるのは機械的に決まる項目だけ**:
- *   - `Role`  : 占有率の降順で Primary / Secondary / Accent を仮割当（要 User 確認）
- *   - `Hex`   : 画像から抽出した代表色
- *   - `AppliesTo`: 抽出色と色語が一致した `AppearanceDetail` の `BodyPart` を**転記**
- *
- * **埋めない項目**（創作内容のため User が入力する）:
- *   - `ColorName_JP` / `ColorName_EN` / `Formation` / `Note_JP` / `Note_EN` は `null` のまま。
- *     判断材料は同レコードの `_evidence` に添える。
- *
- * @param {any} result  `.cache/palette-candidates.json` の results[] の 1 要素
- * @param {number} [maxColors]  下書きに載せる色数（既定 3 = Primary/Secondary/Accent）
- * @returns {{ ColorPalette: any[], _evidence: any } | null}
- */
-export function buildColorPaletteDraft(result, maxColors = COLOR_ROLES.length) {
-    const images = Array.isArray(result?.images) ? result.images.filter(im => !im.error && im.candidates?.length) : [];
-    if (!images.length) return null;
-
-    // 主ソースは resolveImageSources() の優先順（arts → corefolder → concept）に従う。
-    // 前景比率の大小で選ぶと、単色のコアフォルダ形態（球体）が humanoid の清書イラストを
-    // 押しのけてしまい、髪・衣装・小物を含む配色が取れなくなる。
-    // ただし背景除去に失敗して前景がほとんど残らなかった画像は避ける。
-    const MIN_FOREGROUND = 0.03;
-    const primarySource =
-        images.find(im => (im.foregroundRatio ?? 0) >= MIN_FOREGROUND)
-        ?? images.slice().sort((a, b) => (b.foregroundRatio ?? 0) - (a.foregroundRatio ?? 0))[0];
-    const picks = primarySource.candidates.slice(0, maxColors);
-
-    const palette = picks.map((c, i) => {
-        // 色語が一致した BodyPart を転記（重複除去）。既存 AppearanceDetail からの転記であり、
-        // 新しい設定を作っているわけではない。
-        const bodyParts = [...new Set(
-            (c.matchedHints ?? []).map(h => h.bodyPart).filter(Boolean),
-        )];
-        return {
-            Role: COLOR_ROLES[i] ?? null,
-            Hex: c.hex,
-            ColorName_JP: null,
-            ColorName_EN: null,
-            AppliesTo: bodyParts.length ? bodyParts : null,
-            Formation: null,
-            Note_JP: null,
-            Note_EN: null,
-        };
-    });
-
-    return {
-        ColorPalette: palette,
-        _evidence: {
-            source: `${primarySource.role} (${primarySource.file})`,
-            foregroundRatio: primarySource.foregroundRatio,
-            picks: picks.map((c, i) => ({
-                role: COLOR_ROLES[i] ?? null,
-                hex: c.hex,
-                ratio: c.ratio,
-                hsv: c.hsv,
-                matchedColorWords: [...new Set((c.matchedHints ?? []).map(h => h.word))],
-                matchedSources: [...new Set((c.matchedHints ?? []).map(h => h.source))],
-            })),
-            otherCandidates: primarySource.candidates.slice(maxColors).map(c => ({ hex: c.hex, ratio: c.ratio })),
-            otherImages: images.filter(im => im !== primarySource).map(im => ({
-                role: im.role,
-                file: im.file,
-                top: im.candidates.slice(0, 3).map(c => ({ hex: c.hex, ratio: c.ratio })),
-            })),
-            appearanceDetailColorWords: (result.hints ?? []).map(h => ({
-                word: h.word,
-                bodyPart: h.bodyPart,
-                source: h.source,
-            })),
-        },
-    };
-}
-
-/**
- * 全レコード分の下書きをまとめて `.private/` 向けの JSON 構造へ組み立てる。
- *
- * @param {any} extraction  `.cache/palette-candidates.json` の中身
- * @returns {any}
- */
-export function buildDraftDocument(extraction) {
-    /** @type {Record<string, any>} */
-    const records = {};
-    /** @type {Array<string|number>} */
-    const skipped = [];
-
-    for (const result of extraction.results ?? []) {
-        const draft = buildColorPaletteDraft(result);
-        if (!draft) { skipped.push(result.num); continue; }
-        records[String(result.num)] = draft;
-    }
-
-    return {
-        _README: [
-            'これは data/Works_' + extraction.work + '/DataBases/db_' + extraction.db + '.json へ',
-            '`ColorPalette` フィールドを追記するための「下書きメモ」です（Git 管轄外 / .private）。',
-            'tools/extract-palette.mjs が既存画像から機械的に抽出した候補であり、確定値ではありません。',
-        ].join('\n'),
-        _howToUse: [
-            '1. 各レコードの `_evidence` を見て、Hex / Role の妥当性を確認する。',
-            '2. `ColorName_JP` / `ColorName_EN` / `Formation` / `Note_*` は空のままなので、User が記入する。',
-            '   （これらは創作内容にあたるため、ツールは埋めません）',
-            '3. `AppliesTo` は AppearanceDetail の BodyPart からの転記。誤りがあれば修正する。',
-            '4. 確定したら `ColorPalette` オブジェクトだけを本体 DB の該当レコードへ貼り付ける',
-            '   （`_evidence` は貼り付けない）。',
-        ].join('\n'),
-        _schema: {
-            typedef: 'data/db_meta.json → General.$VarsDef.$Def_ColorPalette',
-            field: 'data/db_type.json → $DefType[hashTag=ColorPalette]',
-            roleEnum: 'data/db_meta.json → General.$VarsDef.$EnumDef_ColorRole',
-            hexType: '#Hexcode_Color（#RRGGBB / #RRGGBBAA）',
-        },
-        _generatedBy: 'tools/extract-palette.mjs',
-        _work: extraction.work,
-        _db: extraction.db,
-        _skippedRecords: skipped,
-        records,
-    };
 }
 
 // ────────────────────────────────────────────────────────────────────────────
@@ -1435,312 +1246,3 @@ export function findValueEnd(text, colonIdx) {
     throw new Error('スカラー値の終端を特定できません');
 }
 
-/**
- * レコードの `AppearanceDetail` の直後へ `ColorPalette` を挿入したテキストを返す。
- *
- * `$DefType` 上のフィールド順（`AppearanceDetail` → `ColorPalette`）に合わせるため、
- * `AppearanceDetail` の値の直後をアンカーとする。
- *
- * @param {string} text        ファイル全体のテキスト
- * @param {[number, number]} span  対象レコードの範囲
- * @param {any[]} colorPalette 挿入する ColorPalette の値
- * @returns {{ text: string, delta: number }} 挿入後のテキストと、増えた文字数
- * @throws {Error} アンカー（AppearanceDetail）が見つからない場合
- */
-export function insertColorPaletteIntoRecord(text, span, colorPalette) {
-    const [start, end] = span;
-    const record = text.slice(start, end);
-
-    const keyIdx = record.indexOf('"AppearanceDetail"');
-    if (keyIdx < 0) throw new Error('AppearanceDetail が見つかりません（挿入位置を決められません）');
-
-    const colonIdx = record.indexOf(':', keyIdx + '"AppearanceDetail"'.length);
-    if (colonIdx < 0) throw new Error('AppearanceDetail の : が見つかりません');
-
-    const valueEnd = findValueEnd(record, colonIdx); // レコード内の相対オフセット
-
-    // 値の直後に `,` があるか（後続キーがあるか）で挿入形を変える
-    let cursor = valueEnd;
-    while (cursor < record.length && /\s/.test(record[cursor])) cursor++;
-    const hasTrailingComma = record[cursor] === ',';
-
-    const json = JSON.stringify(colorPalette, null, 2)
-        .split('\n')
-        .map((line, i) => (i === 0 ? line : `    ${line}`))
-        .join('\n');
-
-    // 最終的な整形は prettier に任せる（このファイルは prettier クリーン）
-    const insertion = hasTrailingComma
-        ? `\n    "ColorPalette": ${json},`
-        : `,\n    "ColorPalette": ${json}`;
-
-    const insertAt = start + (hasTrailingComma ? cursor + 1 : valueEnd);
-    return {
-        text: text.slice(0, insertAt) + insertion + text.slice(insertAt),
-        delta: insertion.length,
-    };
-}
-
-/**
- * 抽出結果を実データ（`db_<db>.json`）へ `ColorPalette` として追記する。
- *
- * **書き込むのは機械的に決まる項目だけ**（`Role` / `Hex` / `AppliesTo`）。
- * `ColorName_JP` / `ColorName_EN` / `Formation` / `Note_*` は創作内容にあたるため
- * `null` のまま残し、User が記入する。
- *
- * @param {string} dbPath       db_*.json の絶対パス
- * @param {any} extraction      抽出結果（`{ results: [...] }`）
- * @param {{ apply?: boolean, force?: boolean }} [opts]
- *        apply: true で書き込む（既定 false = dry-run）/ force: 既存 ColorPalette も上書き
- * @returns {{ applied: Array<any>, skippedExisting: Array<any>, skippedNoImage: Array<any>, errors: Array<{num: any, message: string}> }}
- */
-export function applyColorPaletteToDb(dbPath, extraction, opts = {}) {
-    const original = fs.readFileSync(dbPath, 'utf8');
-    const db = JSON.parse(original);
-    const spans = scanTopLevelRecords(original);
-    if (spans.length !== db.length) {
-        throw new Error(`レコード走査に失敗しました（テキスト ${spans.length} 件 / パース ${db.length} 件）`);
-    }
-
-    const draftByNum = new Map();
-    for (const result of extraction.results ?? []) {
-        const draft = buildColorPaletteDraft(result);
-        if (draft) draftByNum.set(String(result.num), draft.ColorPalette);
-    }
-
-    const applied = [], skippedExisting = [], skippedNoImage = [], errors = [];
-
-    // 末尾のレコードから挿入する（前方のオフセットが変わらないようにするため）
-    let text = original;
-    for (let i = db.length - 1; i >= 0; i--) {
-        const record = db[i];
-        const num = String(record.Num);
-        const palette = draftByNum.get(num);
-
-        if (!palette) { skippedNoImage.push(record.Num); continue; }
-        if ('ColorPalette' in record && !opts.force) { skippedExisting.push(record.Num); continue; }
-        if ('ColorPalette' in record && opts.force) {
-            errors.push({ num: record.Num, message: '既存 ColorPalette の上書きは未対応です（手動で削除してください）' });
-            continue;
-        }
-
-        try {
-            const res = insertColorPaletteIntoRecord(text, spans[i], palette);
-            text = res.text;
-            applied.push(record.Num);
-        } catch (err) {
-            errors.push({ num: record.Num, message: err.message });
-        }
-    }
-
-    applied.reverse(); // 走査は逆順だったので表示順を戻す
-
-    if (opts.apply && applied.length) {
-        JSON.parse(text); // 壊れた JSON を書かないための最終ガード
-        fs.writeFileSync(dbPath, text, 'utf8');
-    }
-
-    return { applied, skippedExisting, skippedNoImage, errors };
-}
-
-// ────────────────────────────────────────────────────────────────────────────
-// CLI
-// ────────────────────────────────────────────────────────────────────────────
-
-/** ヘルプを表示して終了する。 */
-function printHelpAndExit() {
-    console.log(`
-extract-palette.mjs — キャラクター画像からの配色候補抽出（入力補助）
-
-使い方:
-  node tools/extract-palette.mjs --work <Work> --db <Db> [--records 1,2 | --all] [オプション]
-
-オプション:
-  --work <name>     作品名（既定: NumberTales）
-  --db <name>       DB 名（既定: Primary）
-  --records <list>  対象 Num（カンマ区切り / 範囲 "1-20" 可）
-  --all             全レコードを対象にする
-  --top <n>         1 画像あたりの候補色数（既定: 6）
-  --out <path>      抽出結果の出力先 JSON（既定: .cache/palette-candidates.json）
-  --draft <path>    ColorPalette 追記用の下書きメモを出力する
-                    （例: --draft data/Works_NumberTales/DataBases/.private/ColorPalette-draft_db_Primary.json）
-  --apply           抽出結果を実データ（db_<db>.json）へ ColorPalette として追記する
-                    未指定時は dry-run（何件追記されるかを表示するだけ）
-  -v, --verbose     各候補色を標準出力にも表示
-  -h, --help        このヘルプ
-
---apply が書き込む項目（機械的に決まるもの）:
-  Role       占有率の降順で Primary / Secondary / Accent を仮割当（要 User 確認）
-  Hex        画像から抽出した代表色（#Hexcode_Color）
-  AppliesTo  色語が一致した AppearanceDetail の BodyPart を転記
-
---apply が書き込まない項目（創作内容のため User が記入する）:
-  ColorName_JP / ColorName_EN / Formation / Note_JP / Note_EN は null のまま
-
-注意:
-  既存フォーマットを壊さないようテキスト挿入で追記します（AppearanceDetail の直後）。
-  既に ColorPalette を持つレコードはスキップします。
-`);
-    process.exit(0);
-}
-
-/**
- * `--records 1,3,5-8` 形式を Set<number|string> へ展開する。
- * @param {string} spec
- * @returns {Set<any>}
- */
-function parseRecordSpec(spec) {
-    const set = new Set();
-    for (const part of spec.split(',')) {
-        const t = part.trim();
-        if (!t) continue;
-        const m = t.match(/^(\d+)-(\d+)$/);
-        if (m) {
-            for (let i = Number(m[1]); i <= Number(m[2]); i++) set.add(i);
-        } else if (/^\d+$/.test(t)) {
-            set.add(Number(t));
-        } else {
-            set.add(t); // "2-alt" / "000" 等の特殊 Num
-        }
-    }
-    return set;
-}
-
-/** CLI エントリポイント。 */
-function main() {
-    const argv = process.argv.slice(2);
-    if (argv.includes('-h') || argv.includes('--help')) printHelpAndExit();
-
-    let work = 'NumberTales';
-    let db = 'Primary';
-    let records = null;
-    let all = false;
-    let top = 6;
-    let outPath = path.join(REPO_ROOT, '.cache', 'palette-candidates.json');
-    let draftPath = null;
-    let verbose = false;
-    let apply = false;
-
-    for (let i = 0; i < argv.length; i++) {
-        switch (argv[i]) {
-            case '--work': work = argv[++i]; break;
-            case '--db': db = argv[++i]; break;
-            case '--records': records = parseRecordSpec(argv[++i]); break;
-            case '--all': all = true; break;
-            case '--top': top = Number(argv[++i]); break;
-            case '--out': outPath = path.resolve(REPO_ROOT, argv[++i]); break;
-            case '--draft': draftPath = path.resolve(REPO_ROOT, argv[++i]); break;
-            case '--apply': apply = true; break;
-            case '-v': case '--verbose': verbose = true; break;
-            default:
-                if (argv[i].startsWith('-')) { console.error(`未知のオプション: ${argv[i]}`); process.exit(1); }
-        }
-    }
-    if (!all && !records) {
-        console.error('--records か --all を指定してください（--help でヘルプ）');
-        process.exit(1);
-    }
-
-    // 入力検証（pkg/ と同じ安全トークン規約に合わせる）
-    if (!/^[A-Za-z0-9_]+$/.test(work) || !/^[A-Za-z0-9_]+$/.test(db)) {
-        console.error('work / db は英数字とアンダースコアのみ許可されます');
-        process.exit(1);
-    }
-
-    const dbPath = path.join(REPO_ROOT, 'data', `Works_${work}`, 'DataBases', `db_${db}.json`);
-    const imagesRoot = path.join(REPO_ROOT, 'data', `Works_${work}`, 'Images', `DB_${db}`);
-    if (!fs.existsSync(dbPath)) { console.error(`DB が見つかりません: ${dbPath}`); process.exit(1); }
-
-    const raw = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
-    const allRecords = Object.values(raw).filter(r => r && typeof r === 'object' && r.Num !== undefined);
-
-    const results = [];
-    let noImage = 0;
-
-    for (const record of allRecords) {
-        const num = record.Num;
-        if (!all && !records.has(num)) continue;
-
-        const sources = resolveImageSources(record, imagesRoot);
-        if (!sources.length) {
-            noImage++;
-            results.push({ num, sources: [], hints: collectColorHints(record), images: [], note: 'no image asset' });
-            continue;
-        }
-
-        const hints = collectColorHints(record);
-        const images = [];
-        for (const src of sources.slice(0, 3)) { // 1 レコードあたり最大 3 枚まで
-            try {
-                const ext = extractPaletteFromImage(src.path, { top });
-                images.push({
-                    role: src.role,
-                    file: path.relative(REPO_ROOT, src.path).split(path.sep).join('/'),
-                    foregroundRatio: ext.foregroundRatio,
-                    candidates: annotateCandidates(ext.candidates, hints),
-                });
-            } catch (err) {
-                images.push({
-                    role: src.role,
-                    file: path.relative(REPO_ROOT, src.path).split(path.sep).join('/'),
-                    error: err.message,
-                });
-            }
-        }
-        results.push({ num, hints, images });
-
-        if (verbose) {
-            console.log(`#${num}`);
-            for (const im of images) {
-                if (im.error) { console.log(`  [${im.role}] ERROR: ${im.error}`); continue; }
-                const top3 = im.candidates.slice(0, 3)
-                    .map(c => `${c.hex}(${Math.round(c.ratio * 100)}%)`).join(' ');
-                console.log(`  [${im.role}] fg=${Math.round(im.foregroundRatio * 100)}% ${top3}`);
-            }
-        }
-    }
-
-    const extraction = { work, db, generatedFrom: 'tools/extract-palette.mjs', results };
-
-    fs.mkdirSync(path.dirname(outPath), { recursive: true });
-    fs.writeFileSync(outPath, JSON.stringify(extraction, null, 2), 'utf8');
-
-    const withImages = results.filter(r => r.images?.length).length;
-    console.log(`\n対象 ${results.length} 件 / 画像あり ${withImages} 件 / 画像なし ${noImage} 件`);
-    console.log(`出力: ${path.relative(REPO_ROOT, outPath).split(path.sep).join('/')}`);
-
-    if (draftPath) {
-        const draft = buildDraftDocument(extraction);
-        fs.mkdirSync(path.dirname(draftPath), { recursive: true });
-        fs.writeFileSync(draftPath, JSON.stringify(draft, null, 2), 'utf8');
-        const drafted = Object.keys(draft.records).length;
-        console.log(`下書き: ${path.relative(REPO_ROOT, draftPath).split(path.sep).join('/')}（${drafted} 件 / 画像なしでスキップ ${draft._skippedRecords.length} 件）`);
-    }
-
-    // 実データへの追記（既定は dry-run）
-    const res = applyColorPaletteToDb(dbPath, extraction, { apply });
-    console.log(`\n[ColorPalette 追記${apply ? '' : ' / dry-run'}]`);
-    console.log(`  追記: ${res.applied.length} 件`);
-    console.log(`  スキップ（画像なし）: ${res.skippedNoImage.length} 件${res.skippedNoImage.length ? ` → ${res.skippedNoImage.join(', ')}` : ''}`);
-    if (res.skippedExisting.length) {
-        console.log(`  スキップ（既に ColorPalette あり）: ${res.skippedExisting.length} 件`);
-    }
-    if (res.errors.length) {
-        console.log(`  エラー: ${res.errors.length} 件`);
-        for (const e of res.errors) console.log(`    #${e.num}: ${e.message}`);
-    }
-    if (apply && res.applied.length) {
-        console.log(`  → ${path.relative(REPO_ROOT, dbPath).split(path.sep).join('/')} を更新しました`);
-        console.log('  ※ 仕上げに `npx prettier --write` を実行してください。');
-    } else if (!apply) {
-        console.log('  （--apply を付けると実際に書き込みます）');
-    }
-
-    console.log('\n※ Hex は画像からの機械計測値、Role は占有率順の仮割当です。');
-    console.log('※ 色名（ColorName_*）・Formation・Note は創作内容のため null のままです。User が記入してください。');
-}
-
-// 直接実行されたときだけ CLI を動かす（テストからの import では実行しない）
-if (process.argv[1] && path.resolve(process.argv[1]) === path.resolve(fileURLToPath(import.meta.url))) {
-    main();
-}

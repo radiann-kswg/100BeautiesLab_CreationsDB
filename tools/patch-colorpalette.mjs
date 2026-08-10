@@ -48,8 +48,8 @@ import {
     resolveImageSources,
     scanTopLevelRecords,
     findValueEnd,
-    hexToRgb,
-    rgbToHsv,
+    colorDistance,
+    colorWordMatchesHex,
     extractSolidColors,
     isTransparentArtwork,
     listImageFields,
@@ -268,37 +268,6 @@ export function buildColorPaletteValue(ordered, hints) {
             Note_EN: null,
         };
     });
-}
-
-/**
- * 色語（`AppearanceDetail` 由来）と HEX が対応しそうかを判定する。
- * `extract-palette.mjs` の照合表と同じ考え方だが、こちらは HEX 単体を対象にする。
- *
- * @param {string} word  色語（例: 'red orange'）
- * @param {string} hex
- * @returns {boolean}
- */
-function colorWordMatchesHex(word, hex) {
-    const [r, g, b] = hexToRgb(hex);
-    const { h, s, v } = rgbToHsv(r, g, b);
-    /** @type {Record<string, (hsv: {h: number, s: number, v: number}) => boolean>} */
-    const table = {
-        'red': (c) => (c.h >= 345 || c.h <= 12) && c.s >= 0.35 && c.v >= 0.25,
-        'red orange': (c) => c.h >= 8 && c.h <= 25 && c.s >= 0.35 && c.v >= 0.3,
-        'orange': (c) => c.h >= 20 && c.h <= 42 && c.s >= 0.35 && c.v >= 0.35,
-        'yellow': (c) => c.h >= 43 && c.h <= 68 && c.s >= 0.3 && c.v >= 0.4,
-        'green': (c) => c.h >= 69 && c.h <= 165 && c.s >= 0.2 && c.v >= 0.2,
-        'cyan': (c) => c.h >= 166 && c.h <= 200 && c.s >= 0.2 && c.v >= 0.3,
-        'blue': (c) => c.h >= 201 && c.h <= 255 && c.s >= 0.2 && c.v >= 0.15,
-        'purple': (c) => c.h >= 256 && c.h <= 300 && c.s >= 0.15 && c.v >= 0.2,
-        'pink': (c) => c.h >= 301 && c.h <= 344 && c.s >= 0.12 && c.v >= 0.45,
-        'brown': (c) => c.h >= 10 && c.h <= 45 && c.s >= 0.2 && c.v >= 0.15 && c.v <= 0.6,
-        'white': (c) => c.s <= 0.14 && c.v >= 0.82,
-        'black': (c) => c.s <= 0.3 && c.v <= 0.22,
-        'gray': (c) => c.s <= 0.14 && c.v >= 0.22 && c.v <= 0.82,
-    };
-    const fn = table[word];
-    return fn ? fn({ h, s, v }) : false;
 }
 
 // ────────────────────────────────────────────────────────────────────────────
@@ -623,18 +592,6 @@ export function recordLabel(record) {
     const value = record?.[firstKey];
     if (value && typeof value === 'object') return `${firstKey}:${Object.values(value).join('/')}`;
     return String(value ?? '?');
-}
-
-/**
- * 2 色の RGB 距離。
- * @param {string} a
- * @param {string} b
- * @returns {number}
- */
-function colorDistance(a, b) {
-    const [r1, g1, b1] = hexToRgb(a);
-    const [r2, g2, b2] = hexToRgb(b);
-    return Math.sqrt((r1 - r2) ** 2 + (g1 - g2) ** 2 + (b1 - b2) ** 2);
 }
 
 // ────────────────────────────────────────────────────────────────────────────

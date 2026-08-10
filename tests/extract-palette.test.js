@@ -29,11 +29,9 @@ import {
     toHex,
     medianCut,
     collectColorHints,
-    buildColorPaletteDraft,
     resolveImageSources,
     scanTopLevelRecords,
     findValueEnd,
-    insertColorPaletteIntoRecord,
 } from '../tools/extract-palette.mjs';
 
 const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -188,99 +186,6 @@ describe('resolveImageSources — 画像ソースの優先順', () => {
     });
 });
 
-describe('buildColorPaletteDraft — ColorPalette 下書きの生成', () => {
-    /** arts / corefolder の 2 枚を持つ抽出結果のフィクスチャ */
-    const extractionResult = {
-        num: 1,
-        hints: [
-            { word: 'red orange', bodyPart: '#BodyPart_Hair', element: '#Element_Motif', source: '#DesignAttr_Overview: red orange hair' },
-        ],
-        images: [
-            {
-                role: 'arts',
-                file: 'data/.../art_imgNTS-1-humanoid.png',
-                foregroundRatio: 0.22, // corefolder より低いが、優先順で先に来る
-                candidates: [
-                    { hex: '#FFA195', ratio: 0.5, hsv: { h: 7, s: 0.42, v: 1 }, matchedHints: [{ word: 'red orange', bodyPart: '#BodyPart_Hair', source: 'x' }] },
-                    { hex: '#F68A6F', ratio: 0.13, hsv: { h: 12, s: 0.55, v: 0.97 }, matchedHints: [] },
-                    { hex: '#CC575C', ratio: 0.13, hsv: { h: 357, s: 0.58, v: 0.8 }, matchedHints: [] },
-                    { hex: '#844547', ratio: 0.06, hsv: { h: 357, s: 0.48, v: 0.52 }, matchedHints: [] },
-                ],
-            },
-            {
-                role: 'corefolder',
-                file: 'data/.../emstk_corefolderNTS-1-1.png',
-                foregroundRatio: 0.28, // こちらの方が前景比率は高い
-                candidates: [
-                    { hex: '#FFB69E', ratio: 0.25, hsv: { h: 15, s: 0.38, v: 1 }, matchedHints: [] },
-                ],
-            },
-        ],
-    };
-
-    it('前景比率が低くても arts を主ソースにする（単色コアフォルダに負けない）', () => {
-        const draft = buildColorPaletteDraft(extractionResult);
-        expect(draft._evidence.source).toContain('arts');
-        expect(draft.ColorPalette[0].Hex).toBe('#FFA195');
-    });
-
-    it('占有率の降順で Primary / Secondary / Accent を割り当てる', () => {
-        const draft = buildColorPaletteDraft(extractionResult);
-        expect(draft.ColorPalette.map(c => c.Role)).toEqual([
-            '#ColorRole_Primary',
-            '#ColorRole_Secondary',
-            '#ColorRole_Accent',
-        ]);
-    });
-
-    it('AppliesTo は AppearanceDetail の BodyPart を転記する', () => {
-        const draft = buildColorPaletteDraft(extractionResult);
-        expect(draft.ColorPalette[0].AppliesTo).toEqual(['#BodyPart_Hair']);
-        expect(draft.ColorPalette[1].AppliesTo).toBeNull(); // 一致する色語が無ければ null
-    });
-
-    it('創作内容にあたる項目（色名 / Formation / Note）は埋めない', () => {
-        const draft = buildColorPaletteDraft(extractionResult);
-        for (const entry of draft.ColorPalette) {
-            expect(entry.ColorName_JP).toBeNull();
-            expect(entry.ColorName_EN).toBeNull();
-            expect(entry.Formation).toBeNull();
-            expect(entry.Note_JP).toBeNull();
-            expect(entry.Note_EN).toBeNull();
-        }
-    });
-
-    it('採用しなかった候補・他画像・色語を根拠として添える', () => {
-        const draft = buildColorPaletteDraft(extractionResult);
-        expect(draft._evidence.otherCandidates).toEqual([{ hex: '#844547', ratio: 0.06 }]);
-        expect(draft._evidence.otherImages[0].role).toBe('corefolder');
-        expect(draft._evidence.appearanceDetailColorWords[0].word).toBe('red orange');
-    });
-
-    it('前景がほとんど残らなかった画像は主ソースにしない', () => {
-        const degraded = {
-            ...extractionResult,
-            images: [
-                { ...extractionResult.images[0], foregroundRatio: 0.005 }, // 背景除去に失敗
-                extractionResult.images[1],
-            ],
-        };
-        const draft = buildColorPaletteDraft(degraded);
-        expect(draft._evidence.source).toContain('corefolder');
-    });
-
-    it('画像が無いレコードでは null を返す（下書きを作らない）', () => {
-        expect(buildColorPaletteDraft({ num: 38, hints: [], images: [] })).toBeNull();
-    });
-
-    it('デコードに失敗した画像しか無ければ null を返す', () => {
-        expect(buildColorPaletteDraft({
-            num: 5, hints: [],
-            images: [{ role: 'arts', file: 'x.png', error: 'broken' }],
-        })).toBeNull();
-    });
-});
-
 describe('scanTopLevelRecords / findValueEnd — テキスト走査（書式非破壊の追記に使う）', () => {
     it('トップレベル配列の各レコード範囲を返す', () => {
         const text = '[\n  { "Num": 1 },\n  { "Num": 2 }\n]\n';
@@ -317,51 +222,5 @@ describe('scanTopLevelRecords / findValueEnd — テキスト走査（書式非�
             const end = findValueEnd(text, colon);
             expect(text.slice(colon + 2, end)).toBe(expected);
         }
-    });
-});
-
-describe('insertColorPaletteIntoRecord — 既存フォーマットを壊さない追記', () => {
-    const palette = [{ Role: '#ColorRole_Primary', Hex: '#E8543A', ColorName_JP: null, ColorName_EN: null, AppliesTo: ['#BodyPart_Hair'], Formation: null, Note_JP: null, Note_EN: null }];
-
-    it('AppearanceDetail の直後に ColorPalette を挿入する（$DefType のフィールド順に一致）', () => {
-        const text = '[\n  {\n    "Num": 1,\n    "AppearanceDetail": [{ "BodyPart": ["#BodyPart_Hair"] }],\n    "Summary_JP": "x"\n  }\n]\n';
-        const spans = scanTopLevelRecords(text);
-        const { text: out } = insertColorPaletteIntoRecord(text, spans[0], palette);
-
-        const record = JSON.parse(out)[0];
-        const keys = Object.keys(record);
-        expect(keys.indexOf('ColorPalette')).toBe(keys.indexOf('AppearanceDetail') + 1);
-        expect(record.ColorPalette[0].Hex).toBe('#E8543A');
-        // 既存フィールドは保持される
-        expect(record.Num).toBe(1);
-        expect(record.Summary_JP).toBe('x');
-    });
-
-    it('AppearanceDetail が末尾キーでも壊れない JSON を生成する', () => {
-        const text = '[\n  {\n    "Num": 1,\n    "AppearanceDetail": []\n  }\n]\n';
-        const spans = scanTopLevelRecords(text);
-        const { text: out } = insertColorPaletteIntoRecord(text, spans[0], palette);
-        expect(() => JSON.parse(out)).not.toThrow();
-        expect(JSON.parse(out)[0].ColorPalette).toHaveLength(1);
-    });
-
-    it('挿入した箇所以外のテキストを 1 文字も書き換えない', () => {
-        const text = '[\n  {\n    "Num": 1,\n    "Inline": ["a", "b"],\n    "AppearanceDetail": [],\n    "Summary_JP": "x"\n  }\n]\n';
-        const spans = scanTopLevelRecords(text);
-        const { text: out, delta } = insertColorPaletteIntoRecord(text, spans[0], palette);
-
-        // 挿入分を取り除くと元テキストに完全一致する（= 既存行は無改変）
-        expect(out.length).toBe(text.length + delta);
-        const insertAt = out.indexOf('\n    "ColorPalette"');
-        const restored = out.slice(0, insertAt) + out.slice(insertAt + delta);
-        expect(restored).toBe(text);
-        // prettier が 1 行に畳んでいる短い配列が展開されていない
-        expect(out).toContain('"Inline": ["a", "b"]');
-    });
-
-    it('AppearanceDetail が無いレコードでは例外を投げる（黙って別位置へ入れない）', () => {
-        const text = '[\n  { "Num": 1 }\n]\n';
-        const spans = scanTopLevelRecords(text);
-        expect(() => insertColorPaletteIntoRecord(text, spans[0], palette)).toThrow(/AppearanceDetail/);
     });
 });

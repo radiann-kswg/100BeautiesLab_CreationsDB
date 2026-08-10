@@ -1,5 +1,18 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### refactor: 配色検出コードの重複統合と旧 CLI の削除（挙動変更なし） (2026-08-10)
+
+配色検出まわりは同日中に 3 度拡張した（チップ検出の修正 → 透過イラスト抽出 → typedef 宣言駆動）ため、`tools/extract-palette.mjs` に**役目を終えた旧 CLI** と、2 ファイルにまたがる重複定義が残っていた。削除だけで解消し、**挙動は 1 箇所も変えていない**。
+
+- **旧 CLI の削除（約 500 行）**: `extract-palette.mjs` は median-cut で配色を推定し `.cache/` へ候補を出力、`.private/` へ下書きを書き、`--apply` で DB を更新する独立した CLI を持っていた。現在は `patch-colorpalette.mjs` が上位互換（作者指定のチップを読む → 透過イラストから抽出 → 直接パッチ）で、`package.json` の npm script にも未登録だった。median-cut 推定そのものが「複数色の平均＝実在しない中間色を作る」と同日の検証で判明している。削除したのは `annotateCandidates` / `extractPaletteFromImage` / `COLOR_ROLES` / `buildColorPaletteDraft` / `buildDraftDocument` / `insertColorPaletteIntoRecord` / `applyColorPaletteToDb` と CLI 本体（`main` / `printHelpAndExit` / `parseRecordSpec`）、および CLI 専用だった `REPO_ROOT` / `__dirname` / `fileURLToPath` の import。**`extract-palette.mjs` は純粋なライブラリになった**（ヘッダ JSDoc もその旨へ更新）。
+- **色語 → HSV 範囲テーブルの一本化**: `patch-colorpalette.mjs` の `colorWordMatchesHex()` が持っていた 13 色のインラインテーブルは、`extract-palette.mjs` の `COLOR_WORD_RANGES` + `matchesColorWord()` と**値まで同一**だった（`red` の色相 345-360/0-12、`brown` の 10-45 など全項目を突き合わせ済み）。`colorWordMatchesHex(word, hex)` を `extract-palette.mjs` 側へ移して export し、`COLOR_WORD_RANGES` を唯一の正にした。
+- **RGB 距離の一本化**: 同じ式が 4 箇所に散っていた（`refineChips` のマージ判定 / `isPaperWhite` / `extractSolidColors` のローカル `dist` / patch 側の `colorDistance`）。`colorDistance(hexA, hexB)` を 1 つだけ export して置換。**ピクセル走査ループ内のインライン計算（5 箇所）は意図的に残す** — 数十万画素を回すため関数呼び出しに置き換える意味がなく、差分も増える。その旨を JSDoc に明記した。
+- **`parseRecordSpec` の重複**: 両ファイルにあった同名関数は、extract 側が CLI と一緒に消えたことで自動的に解消。
+- **テストの追従**: `tests/extract-palette.test.js` から削除機能のテスト（`buildColorPaletteDraft` 8 件 / `insertColorPaletteIntoRecord` 4 件）を除去。統合した `colorDistance` / `colorWordMatchesHex` には新規テストを足していない — 既存の `tests/patch-colorpalette.test.js`「色語（red orange）の色相域に入る色にだけ BodyPart を転記する」が判定経路を通しており、値が変われば落ちる。
+- **行数**: `extract-palette.mjs` 1,746 → 1,248 / `patch-colorpalette.mjs` 866 → 823 / `tests/extract-palette.test.js` 367 → 226。差分は **53 insertions / 735 deletions**。
+- **検証**: リファクタ前後で `patch-colorpalette.mjs` の 3 コマンド（`--all --force -v` / `--verify-artwork -v` / UnibyteLive の `--from-artwork`）の出力 259 行が**完全一致**（`diff` が空）。チップ経路・透過経路・Role 割当・照合精度 82.3% がすべて同一であることを確認済み。`npm test` **67 files / 1192 件すべて成功**（削除した 12 件ぶん減）。`data/` は 1 行も変更していない。
+- **`tools/` に prettier をかけないこと**: 作業中に一度 `npx prettier --write tools/*.mjs` を実行して全体が再フォーマットされ（1,998 insertions / 2,191 deletions）、削除だけのはずの差分が埋もれた。`tools/*.mjs` は他のファイル（`normalize-field-order.mjs` 等）も prettier 非準拠であり、**このリポジトリでは `tools/` を prettier の対象にしていない**。`git checkout` で戻して再実行した。
+
 ### feat: 透過キャラクター単体イラストからの配色検出と、配色検出対象の typedef 宣言 (2026-08-10)
 
 `ColorPalette` の抽出は設定画に描き込まれた**カラーチップ**だけを入力にしていたため、チップの無いレコードは配色を取り込めなかった。一方でこのリポジトリには、背景を透過したキャラクター単体イラスト（ナンバーテールズの `corefolder_PNGPath`、ハンカクライブの `keycapper_PNGPath`、運命線狐の記録の `weakening_PNGPath`）という配色抽出に最適な素材がある。ここから配色を読めるようにし、あわせて**どの画像を配色検出の入力にするかを typedef で宣言**できるようにした。
