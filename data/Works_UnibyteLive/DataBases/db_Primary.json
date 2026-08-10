@@ -448,6 +448,12 @@
           "Letter": { "Alphabet": "T", "AlphaGen": 1 },
           "RelationLabel": ["trusted"]
         }
+      ],
+      "Commented": [
+        {
+          "Letter": { "Alphabet": "N", "AlphaGen": 1 },
+          "RelationLabel": ["classmate"]
+        }
       ]
     }
   },
@@ -475,7 +481,7 @@
     "Relation": {
       "Related": [
         {
-          "Letter": { "Alphabet": "J", "AlphaGen": 1 },
+          "Letter": { "Alphabet": "L", "AlphaGen": 1 },
           "RelationLabel": ["classmate", "accompanying"]
         },
         {
@@ -509,15 +515,20 @@
   },
   {
     "Letter": { "Alphabet": "L", "AlphaGen": 1 },
-    "Progress": "notProceeded",
+    "Progress": "nowCreating",
+    "ThisPerformer_DBLink": {
+      "_DB": "PrimaryPerformer",
+      "Letter": { "Alphabet": "L", "AlphaGen": 1 }
+    },
     "Name_JP": "L:コナー",
     "Name_EN": "L:Lracket",
+    "Images": { "keycapper_PNGPath": ["L/emstk_keycapperUBL-Lg1-1.png"] },
     "FormalName_JP": "列柱コナー",
     "FormalName_JPReading": "れっちゅうコナー",
     "FormalName_EN": "Lracket L-Column",
     "CodeName_JP": "列(L),コーナー",
     "CodeName_EN": "L,L(Corner)-Bracket,Column",
-    "Class": ["アルベッツ2期生"],
+    "Class": ["アルベッツ2期生", "地域密着型配信者", "ベータテスト参加者"],
     "Height_cm": 157,
     "BustSize": "AA",
     "ConceptAge": 18,
@@ -528,11 +539,144 @@
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
     ],
+    "AppearanceDetail": [
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Hair"],
+        "Laterality": null,
+        "DesignElement": "#Element_AccessoryUnit",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "Value_JP": "Lの字状のアクセントカラーをした前髪",
+            "Value_EN": "Front hair with accent color in the shape of an L"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Ear", "#BodyPart_Wing", "#BodyPart_Tail"],
+        "Laterality": null,
+        "DesignElement": "#Element_AccessoryUnit",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "Value_JP": "耳・翼部・尾羽のどれか2つで左右にそれぞれ大きくLの字状に見える",
+            "Value_EN": "Two of the ears, wings, and tail feathers appear in the shape of a large L on each side"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Eye"],
+        "Laterality": "#Lat_Left",
+        "DesignElement": "#Element_AccessoryUnit",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "Value_JP": "筆記体の「ℓ」のようなチャームが付いた左目(Left eye)のモノクル",
+            "Value_EN": "Monocle on the Left eye with a charm resembling a cursive 'ℓ'"
+          }
+        ],
+        "img_PNGName": "attr_accessoryUnitUBL-Lg1-monocle",
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#FFC4A3",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#FF8726",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#FF9E68",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "StreamingActivity": {
+      "StreamingCategory": [
+        {
+          "value_JP": "「ユニバイト・ユニバース」ワールド観光",
+          "value_EN": "'Unibyte Universe' World Tour",
+          "about_JP": "メイン活動,「ユニバイト・ユニバース」内での活動",
+          "about_EN": "Main activity within 'Unibyte Universe'"
+        },
+        {
+          "value_JP": "商店街観光・街歩き",
+          "value_EN": "Shopping Street Tours & Strolling",
+          "about_JP": "サブ活動,「ユニバイト・ユニバース」外および演者個人での活動",
+          "about_EN": "Sub activity outside of 'Unibyte Universe' and as an individual performer"
+        },
+        {
+          "value_JP": "お絵かき配信・絵チャット",
+          "value_EN": "Drawing Streams & Art Chats",
+          "about_JP": "サブ活動,「ユニバイト・ユニバーズ」内外を問わず展開（左利きであることが知られている）",
+          "about_EN": "Sub activity, conducted both within and outside of 'Unibyte Universe' (known to be left-handed)"
+        },
+        {
+          "value_JP": "作業配信：ゲームエンジンを使用したオリジナルOS開発・フィジカルコンピューティング・自作CPU制作",
+          "value_EN": "Work Streams: Original OS Development Using Game Engine, Physical Computing, Custom CPU Creation",
+          "about_JP": "同人コンテンツ頒布および動画投稿、またはライブ配信での活動(頻度は少な目)",
+          "about_EN": "Distribution of doujin content, video posting, or live streaming activity (relatively infrequent)"
+        }
+      ],
+      "StreamingGreeting": [
+        {
+          "value_JP": "左右ヨシ、四隅ヨシ！コナーも良好！",
+          "value_EN": "Left is right, bracket is my corner! L:Lracket is fine!"
+        }
+      ],
+      "ListenerNickname": { "value_JP": "左くるー", "value_EN": "Lefter crew" },
+      "StreamingAwards": [
+        {
+          "value_JP": "「ユニバイト・ユニバース」九蓮国サーバ公認テスター",
+          "value_EN": "'Unibyte Universe' LotusNinean Server Trusted Tester"
+        },
+        {
+          "value_JP": "地域密着型イベント運営経験あり",
+          "value_EN": "Experience in managing community-based events"
+        }
+      ],
+      "StreamingSummary_JP": "「ユニバイト・ユニバース」が九蓮国へベータリリースされた頃からの熟練ユーザで、様々なワールドを渡り初心者から常連者まで楽しめるVR巡りを提供している。\nまた演者が3年間の半導体製造業務とその後個人で整備士をしている経験を有していることや、「ユニバイト・ユニバース」と九蓮国の地域が提携したイベントの運営も行っていることから、リアル空間での活動や物販も積極的に行っている。\n時に、自作のVRトラッカーを用いて彼女が電子工作をしている様子をメタバース空間内で再現した動画は、VRユーザだけでなく技術者からもかなりの注目を浴びたとか。",
+      "StreamingSummary_EN": "She has been an experienced user since 'Unibyte Universe' was beta-released in LotusNinean, providing VR tours that can be enjoyed by both beginners and regulars across various worlds.\nAdditionally, due to her experience in semiconductor manufacturing for three years and later as a personal mechanic, as well as her involvement in managing events in collaboration with 'Unibyte Universe' and the LotusNinean region, she actively engages in real-world activities and merchandise sales.\nAt times, videos recreating her electronics work using a self-made VR tracker within the metaverse space have garnered significant attention not only from VR users but also from engineers."
+    },
     "Relation": {
       "Related": [
         {
           "Letter": { "Alphabet": "J", "AlphaGen": 1 },
           "RelationLabel": ["classmate", "accompanying"]
+        },
+        {
+          "Letter": { "Alphabet": "Z", "AlphaGen": 1 },
+          "RelationLabel": ["classmate", "trusted"]
         }
       ]
     }
@@ -595,8 +739,12 @@
     "Relation": {
       "Related": [
         {
+          "Letter": { "Alphabet": "I", "AlphaGen": 2 },
+          "RelationLabel": ["classmate", "trusted"]
+        },
+        {
           "Letter": { "Alphabet": "S", "AlphaGen": 2 },
-          "RelationLabel": ["interested", "trusted_maybe"]
+          "RelationLabel": ["interested"]
         }
       ],
       "Commented": [
@@ -959,20 +1107,20 @@
         {
           "value_JP": "メタバース体験コンテンツ",
           "value_EN": "Metaverse experiential content",
-          "about_JP": "サブ活動,「ユニバイト・ユニバース」内・同人コンテンツ頒布および動画配信での活動",
-          "about_EN": "Sub activity within 'Unibyte Universe', doujin content distribution and video streaming"
+          "about_JP": "サブ活動,「ユニバイト・ユニバース」内・同人コンテンツ頒布および動画投稿での活動",
+          "about_EN": "Sub activity within 'Unibyte Universe', doujin content distribution and movie activity"
         },
         {
           "value_JP": "ショートムービー",
           "value_EN": "Short movies",
-          "about_JP": "動画配信での活動",
-          "about_EN": "Video streaming activity"
+          "about_JP": "動画投稿での活動",
+          "about_EN": "Movies activity"
         },
         {
           "value_JP": "ゲーム配信：テトリス,レース,音ゲー",
           "value_EN": "Game streaming: Tetris, racing, rhythm games",
-          "about_JP": "動画配信またはライブ配信での活動(頻度は少な目)",
-          "about_EN": "Video streaming or live streaming activity (relatively infrequent)"
+          "about_JP": "動画投稿またはライブ配信での活動(頻度は少な目)",
+          "about_EN": "Movies or live streaming activity (relatively infrequent)"
         }
       ],
       "StreamingGreeting": [
@@ -1371,8 +1519,8 @@
         {
           "value_JP": "ゲーム配信：テトリス,サバイバル,サンドボックス,オープンワールド系",
           "value_EN": "Game Commentary: Tetris, Survival, Sandbox, Open World",
-          "about_JP": "メイン活動,動画配信またはライブ配信での活動(時々エンジニアとしての技術的講評を挟む)",
-          "about_EN": "Main Activity, video streaming or live streaming activity (occasionally interspersed with technical commentary as an engineer)"
+          "about_JP": "メイン活動,動画投稿またはライブ配信での活動(時々エンジニアとしての技術的講評を挟む)",
+          "about_EN": "Main Activity, movies or live streaming activity (occasionally interspersed with technical commentary as an engineer)"
         },
         {
           "value_JP": "ゲーム開発・VRアバター設定作業",
@@ -1383,8 +1531,8 @@
         {
           "value_JP": "メタバース体験コンテンツ",
           "value_EN": "Metaverse experiential content",
-          "about_JP": "「ユニバイト・ユニバース」内・同人コンテンツ頒布および動画配信での活動",
-          "about_EN": "Activity within 'Unibyte Universe', doujin content distribution and video streaming"
+          "about_JP": "「ユニバイト・ユニバース」内・同人コンテンツ頒布および動画投稿での活動",
+          "about_EN": "Activity within 'Unibyte Universe', doujin content distribution and movies activity"
         }
       ],
       "StreamingGreeting": [
@@ -1409,6 +1557,10 @@
     },
     "Relation": {
       "Related": [
+        {
+          "Letter": { "Alphabet": "L", "AlphaGen": 1 },
+          "RelationLabel": ["classmate", "wellMatched"]
+        },
         {
           "Letter": { "Alphabet": "S", "AlphaGen": 2 },
           "RelationLabel": ["accompanying", "sugar"]

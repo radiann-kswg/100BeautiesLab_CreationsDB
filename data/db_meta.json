@@ -827,8 +827,8 @@
           },
           "#Rank2adv": {
             "Rank": "S+",
-            "AbilityText": "強化済",
-            "AbilityText_EN": "Extended"
+            "AbilityText": "訓練済/強化済",
+            "AbilityText_EN": "Trained/Extended"
           },
           "#Rank2": {
             "Rank": "S",
