@@ -203,13 +203,16 @@ def _resolve_idx_key_from_index_def(index_def: Any) -> str:
 
 
 def _is_empty_for_commons(v: Any) -> bool:
-    """_Commons 適用時の空値判定（None / '' / [] / {} は空、hideText は空扱いしない）"""
+    """_Commons 適用時の空値判定（None / '' / {} は空、hideText は空扱いしない）
+
+    `[]` は「該当なし」の明示宣言（例: Belonging: [] = 無所属）なので空扱いしない。
+    """
     if v is None:
         return True
     if v == '':
         return True
     if isinstance(v, list):
-        return len(v) == 0
+        return False
     if isinstance(v, dict):
         if v.get('hideText'):
             return False  # 意図的マスクは空扱いしない

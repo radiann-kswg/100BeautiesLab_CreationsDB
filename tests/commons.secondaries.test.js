@@ -272,4 +272,35 @@ describe('CommonsProcessor secondary series commons', () => {
     expect(out0.Belonging).toEqual([{ Faction: '百花繚乱研究所' }]);
     expect(out0.RaceType).toBe('PortableHumanoid(TaleBeastType)');
   });
+
+  // レコードに明示的に書かれた `[]` は「該当なし」の宣言（例: `Belonging: []` = 無所属）であり、
+  // `_Commons` の既定値で塗り潰してはいけない。既定値が欲しいレコードはキー自体を書かない。
+  it('keeps an explicit empty array instead of filling it from _Commons', () => {
+    const ctx = loadSwCommonIntoContext();
+    const meta = loadJSON('data/Works_UnibyteLive/DataBases/db_meta.json');
+    const records = loadJSON('data/Works_UnibyteLive/DataBases/db_Primary.json');
+
+    // 無所属キャラ（`Belonging: []` を明示）と、未入力キャラ（キー自体が無い）の両方を通す
+    const declaredNone = records.find((record) => Array.isArray(record.Belonging) && record.Belonging.length === 0);
+    const notDeclared = records.find((record) => typeof record.Belonging === 'undefined');
+    expect(declaredNone).toBeTruthy();
+    expect(notDeclared).toBeTruthy();
+
+    const outJson = vm.runInNewContext(
+      `(() => {
+        const meta = ${JSON.stringify(meta)};
+        const recs = ${JSON.stringify([declaredNone, notDeclared])};
+        return JSON.stringify(self.CommonsProcessor.applyCommonsToRecords(recs, meta, 'Primary'));
+      })()`
+      ,
+      ctx,
+      { filename: 'tests/commons.secondaries.test.js#explicit_empty_array' }
+    );
+    const [outNone, outDefault] = JSON.parse(outJson);
+
+    expect(outNone.Belonging).toEqual([]);
+    expect(outDefault.Belonging).toEqual([{ Faction: 'アルベッツ' }]);
+    // 配列以外の空値（キー未入力）は従来どおり既定値で埋まる
+    expect(outNone.GenderType).toBe('FemaleNeutral');
+  });
 });

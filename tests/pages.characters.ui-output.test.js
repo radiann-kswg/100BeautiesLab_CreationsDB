@@ -819,10 +819,15 @@ describe('pages/characters.js UI output', () => {
 		expect(performerSection).not.toBeNull();
 
 		// 同DB参照: S/2 は S:ナーミィ。Alphabet を落とすと A:エイリ（A/2）へ誤爆する
-		const relationLink = relationSection.querySelector('a');
-		expect(relationLink?.textContent?.trim()).toBe('S:ナーミィ');
-		expect(new URL(relationLink.href).searchParams.get('c'))
-			.toBe('UnibyteLive/Primary/Alphabet:S,AlphaGen:2');
+		// （Related は複数件あり得るので、先頭ではなく S/2 を指すリンクを拾う）
+		const relationLinks = Array.from(relationSection.querySelectorAll('a')).map((anchor) => ({
+			text: anchor.textContent?.trim(),
+			c: new URL(anchor.href).searchParams.get('c')
+		}));
+		expect(relationLinks).toContainEqual({
+			text: 'S:ナーミィ',
+			c: 'UnibyteLive/Primary/Alphabet:S,AlphaGen:2'
+		});
 
 		// 別DB参照: レコード取得前のプレースホルダに JSON ペイロードを出さず、直リンクは複合条件で組む
 		const performerLink = performerSection.querySelector('a');

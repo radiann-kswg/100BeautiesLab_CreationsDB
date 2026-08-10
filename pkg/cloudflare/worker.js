@@ -533,7 +533,7 @@ async function getAihintFromD1(env, workKey, dbName, idxValue, form = null) {
  */
 function isEmptyForCommons(v) {
   if (v === undefined || v === null || v === "") return true;
-  if (Array.isArray(v)) return v.length === 0;
+  if (Array.isArray(v)) return false; // `[]` は「該当なし」の明示宣言なので既定値で埋めない
   if (typeof v === "object") {
     if (v.hideText !== undefined) return false; // hideText は意図的マスク
     return Object.keys(v).length === 0;

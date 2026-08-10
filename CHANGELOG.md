@@ -1,5 +1,15 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### fix: レコードが明示した空配列 `[]` を `_Commons` の既定値で上書きしないようにした (2026-08-10)
+
+`_Commons` の空値判定（`isEmptyForCommons()`）が**空配列を「未設定」扱い**にしていたため、レコード側に `Belonging: []`（＝無所属）と明示的に書いても、DB 既定値の `[{ Faction: "アルベッツ" }]` で塗り潰されていた。「キーを書かない＝既定値が欲しい」「`[]` を書く＝該当なしの宣言」を区別できるよう、**空配列は空扱いしない**へ変更した。
+
+- **判定の変更点**: `null` / `undefined` / `''` / `{}` は従来どおり未設定扱い、`{ hideText: '...' }` は従来どおり意図的マスクとして尊重。**変わるのは `[]` だけ**で、既定値が欲しいレコードはキー自体を書かないことで表現する。
+- **実データへの影響は 5 件**: 全 21 ファイル 1,316 レコードを新旧ロジックで突き合わせた結果、値が変わるのは `Works_UnibyteLive` / `Primary` の Q:レンズ・R:リャク・T:クギィ・P:フィッシュ・S:ツェット の `Belonging` のみ（`[{ Faction: "アルベッツ" }]` → `[]`）。他作品に「`[]` を書いて `_Commons` に埋めてもらう」運用は存在しなかった。`data/` 自体は 1 行も変更していない。
+- **4 実装の同期**: 同じ判定は `pkg/` の移植版にも複製されているため、`lib/sw-common.js`（正）に加えて `pkg/cloudflare/worker.js` / `pkg/nodejs/index.mjs` / `pkg/python/creationsdb/client.py` / `pkg/csharp/CreationsDBClient.cs` を同時に更新した（`pkg/mcp/server.mjs` は nodejs 版、`pkg/cloudflare/scripts/migrate.mjs` は worker.js を import しているため追従不要）。
+- **影響範囲**: `lib/sw-common.js` / `pkg/cloudflare/worker.js` / `pkg/nodejs/index.mjs` / `pkg/python/creationsdb/client.py` / `pkg/csharp/CreationsDBClient.cs` / `tests/commons.secondaries.test.js`。
+- **検証**: `npm test` **67 files / 1193 件すべて成功**。回帰テストは実データ（`Works_UnibyteLive` / `Primary`）から「`Belonging: []` を明示したレコード」と「キー自体が無いレコード」を拾い、前者が `[]` のまま・後者が既定値で埋まることの両方を守る。
+
 ### refactor: 配色検出コードの重複統合と旧 CLI の削除（挙動変更なし） (2026-08-10)
 
 配色検出まわりは同日中に 3 度拡張した（チップ検出の修正 → 透過イラスト抽出 → typedef 宣言駆動）ため、`tools/extract-palette.mjs` に**役目を終えた旧 CLI** と、2 ファイルにまたがる重複定義が残っていた。削除だけで解消し、**挙動は 1 箇所も変えていない**。

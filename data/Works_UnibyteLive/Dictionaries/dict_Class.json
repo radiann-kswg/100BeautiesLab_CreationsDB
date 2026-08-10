@@ -15,6 +15,11 @@
     "Class_EN": "ALPBETS 1st Gen. (S3 Vocational School Metaverse Club)"
   },
   {
+    "Class": "ベータテスト参加者",
+    "Class_JP": "「ユニバイト・ユニバース」ベータテスト参加者",
+    "Class_EN": "'Unibyte Universe' Beta Tester"
+  },
+  {
     "Class": "現役アルベッツ",
     "Class_JP": "現役アルベッツ",
     "Class_EN": "Current ALPBETS"
@@ -68,6 +73,11 @@
     "Class": "ゲームエンジン技術者",
     "Class_JP": "ゲームエンジン技術者",
     "Class_EN": "Game Engine Engineer"
+  },
+  {
+    "Class": "地域密着型配信者",
+    "Class_JP": "地域密着型配信者",
+    "Class_EN": "Community-focused Streamer"
   },
   {
     "Class": "アルベッツの？？？",

@@ -241,7 +241,10 @@ namespace CreationsDB
         public static bool IsPublicRecord(JObj? record)
             => record == null || !IsTrue(record["isPrivate"]);
 
-        /// <summary>_Commons 適用時の空値判定（hideText は空扱いしない）</summary>
+        /// <summary>
+        /// _Commons 適用時の空値判定（hideText は空扱いしない）。
+        /// `[]` は「該当なし」の明示宣言（例: Belonging: [] = 無所属）なので空扱いしない。
+        /// </summary>
         public static bool IsEmptyForCommons(JNode? v)
         {
             if (v == null) return true;
@@ -251,7 +254,7 @@ namespace CreationsDB
                 if (jval.TryGetValue<string>(out var s)) return s == "";
                 return false;
             }
-            if (v is JArr arr) return arr.Count == 0;
+            if (v is JArr) return false;
             if (v is JObj obj)
             {
                 if (obj["hideText"] != null) return false;
@@ -260,7 +263,7 @@ namespace CreationsDB
 #else
             if (v.Type == JTokenType.Null) return true;
             if (v.Type == JTokenType.String) return ((string)v!) == "";
-            if (v.Type == JTokenType.Array) return !((JArr)v).HasValues;
+            if (v.Type == JTokenType.Array) return false;
             if (v.Type == JTokenType.Object)
             {
                 var obj = (JObj)v;

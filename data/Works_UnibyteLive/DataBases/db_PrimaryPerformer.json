@@ -68,6 +68,12 @@
           "Letter": { "Alphabet": "A", "AlphaGen": 1 },
           "RelationLabel": ["support"]
         }
+      ],
+      "Commented": [
+        {
+          "Letter": { "Alphabet": "I", "AlphaGen": 2 },
+          "RelationLabel": ["successor", "following", "trusted"]
+        }
       ]
     }
   },
@@ -102,11 +108,46 @@
     "Relation": {
       "Related": [
         {
+          "Letter": { "Alphabet": "N", "AlphaGen": 1 },
+          "RelationLabel": ["classmate", "support"]
+        },
+        {
           "Letter": { "Alphabet": "O", "AlphaGen": 2 },
           "RelationLabel": ["awkward_aBit", "trusted"]
         }
+      ],
+      "Commented": [
+        {
+          "Letter": { "Alphabet": "I", "AlphaGen": 1 },
+          "RelationLabel": ["pioneer", "follower"]
+        }
       ]
     }
+  },
+  {
+    "Letter": { "Alphabet": "L", "AlphaGen": 1 },
+    "Progress": "notProceeded",
+    "OwningAvatar_DBLink": {
+      "_DB": "Primary",
+      "Letter": { "Alphabet": "L", "AlphaGen": 1 }
+    },
+    "FormalName_JP": "角田 佐有里",
+    "FormalName_JPReading": "すみだ さゆり",
+    "FormalName_EN": "Sayuri Corneris",
+    "Height_cm": 160,
+    "BustSize": "AA",
+    "Age": 37,
+    "BirthDay": { "Day": { "Month": 7, "DayOfMonth": 11 } },
+    "AppearanceDetail": null,
+    "AbilityStats": {
+      "Speed": { "Rank": "B" },
+      "Communication": { "Rank": "S" },
+      "Leading": { "Rank": "S" },
+      "Precision": { "Rank": "Z" },
+      "Technic": { "Rank": "S+" },
+      "Actuation": { "Rank": "B" }
+    },
+    "Relation": {}
   },
   {
     "Letter": { "Alphabet": "N", "AlphaGen": 1 },
@@ -141,6 +182,12 @@
         {
           "Letter": { "Alphabet": "S", "AlphaGen": 2 },
           "RelationLabel": ["following", "trusted_maybe"]
+        }
+      ],
+      "Commented": [
+        {
+          "Letter": { "Alphabet": "I", "AlphaGen": 2 },
+          "RelationLabel": ["classmate", "trusted"]
         }
       ]
     }
