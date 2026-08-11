@@ -2172,7 +2172,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": ["#BodyPart_Halo"],
+        "BodyPart": ["#BodyPart_Head", "#BodyPart_Back"],
         "Laterality": null,
         "DesignElement": "#Element_Halo",
         "Attrs": [
@@ -2629,7 +2629,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": ["#BodyPart_Halo"],
+        "BodyPart": ["#BodyPart_Head", "#BodyPart_Back"],
         "Laterality": null,
         "DesignElement": "#Element_Halo",
         "Attrs": [

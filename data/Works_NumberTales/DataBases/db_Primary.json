@@ -8910,9 +8910,9 @@
       },
       {
         "Formation": null,
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Neck", "#BodyPart_Back"],
         "Laterality": null,
-        "DesignElement": "#Element_Motif",
+        "DesignElement": "#Element_Halo",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
@@ -38044,7 +38044,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": ["#BodyPart_Head"],
+        "BodyPart": ["#BodyPart_Halo"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
