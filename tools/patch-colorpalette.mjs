@@ -37,32 +37,32 @@
  * @dependencies tools/extract-palette.mjs（PNG デコード / チップ検出 / 被覆率実測）
  */
 
-import fs from 'node:fs';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 
 import {
-    decodePng,
-    hexToRgb,
-    buildForegroundMask,
-    openRecordsFile,
-    writeRecordsFile,
-    detectSwatchChips,
-    measurePaletteCoverage,
-    collectColorHints,
-    resolveImageSources,
-    findValueEnd,
-    colorDistance,
-    colorWordMatchesHex,
-    extractSolidColors,
-    isTransparentArtwork,
-    listImageFields,
-    readCommonColors,
-} from './extract-palette.mjs';
-import { readBodyPartEnum } from './patch-appearance-bodypart.mjs';
+  decodePng,
+  hexToRgb,
+  buildForegroundMask,
+  openRecordsFile,
+  writeRecordsFile,
+  detectSwatchChips,
+  measurePaletteCoverage,
+  collectColorHints,
+  resolveImageSources,
+  findValueEnd,
+  colorDistance,
+  colorWordMatchesHex,
+  extractSolidColors,
+  isTransparentArtwork,
+  listImageFields,
+  readCommonColors,
+} from "./extract-palette.mjs";
+import { readBodyPartEnum } from "./patch-appearance-bodypart.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const REPO_ROOT = path.resolve(__dirname, '..');
+const REPO_ROOT = path.resolve(__dirname, "..");
 
 /**
  * 作品名 / DB 名から、この作品のパス一式を組み立てる。
@@ -75,17 +75,21 @@ const REPO_ROOT = path.resolve(__dirname, '..');
  * @returns {{ workDir: string, dbPath: string, imagesRoot: string }}
  */
 function resolveDbPaths(work, db) {
-    const workDir = path.join(REPO_ROOT, 'data', `Works_${work}`);
-    return {
-        workDir,
-        dbPath: path.join(workDir, 'DataBases', `db_${db}.json`),
-        imagesRoot: path.join(workDir, 'Images', `DB_${db}`),
-    };
+  const workDir = path.join(REPO_ROOT, "data", `Works_${work}`);
+  return {
+    workDir,
+    dbPath: path.join(workDir, "DataBases", `db_${db}.json`),
+    imagesRoot: path.join(workDir, "Images", `DB_${db}`),
+  };
 }
 
 /** 被覆率の降順で割り当てる配色役割。4 色目以降はすべて Sub。 */
-const ROLE_ORDER = ['#ColorRole_Primary', '#ColorRole_Secondary', '#ColorRole_Accent'];
-const ROLE_REST = '#ColorRole_Sub';
+const ROLE_ORDER = [
+  "#ColorRole_Primary",
+  "#ColorRole_Secondary",
+  "#ColorRole_Accent",
+];
+const ROLE_REST = "#ColorRole_Sub";
 
 /**
  * チップ検出に使う設定画の優先順（concept を正とし、無ければ catalog）。
@@ -94,8 +98,8 @@ const ROLE_REST = '#ColorRole_Sub';
  * 宣言されていればそちらが優先され、この表は宣言が無い作品のフォールバックとして残る。
  */
 const SWATCH_SOURCES = [
-    { role: 'concept', dir: 'concept', key: 'concept_PNGName' },
-    { role: 'catalog', dir: 'catalog', key: 'catalog_PNGName' },
+  { role: "concept", dir: "concept", key: "concept_PNGName" },
+  { role: "catalog", dir: "catalog", key: "catalog_PNGName" },
 ];
 
 /**
@@ -110,10 +114,12 @@ const SWATCH_SOURCES = [
  * @returns {Array<{role: string, dir: string, key: string}>}
  */
 export function resolvePaletteImageFields(workDir, source, fallback = []) {
-    if (!workDir) return fallback;
-    const declared = listImageFields(workDir).filter(f => f.paletteSource === source);
-    if (!declared.length) return fallback;
-    return declared.map(f => ({ role: f.folder, dir: f.folder, key: f.field }));
+  if (!workDir) return fallback;
+  const declared = listImageFields(workDir).filter(
+    (f) => f.paletteSource === source,
+  );
+  if (!declared.length) return fallback;
+  return declared.map((f) => ({ role: f.folder, dir: f.folder, key: f.field }));
 }
 
 // ────────────────────────────────────────────────────────────────────────────
@@ -129,34 +135,43 @@ export function resolvePaletteImageFields(workDir, source, fallback = []) {
  * @param {string|null} [workDir]  `$palette.source` 宣言の解決用。null なら既定の表へフォールバック
  * @returns {{ chips: Array<{hex: string, count: number}>, source: string|null }}
  */
-export function detectChipsForRecord(record, imagesRoot, manualChips = null, workDir = null) {
-    // 手入力されたカラーコードがあれば、検出より優先する。
-    // 設定画のチップが小さく・淡く・密に重なっているなどの理由で自動検出できない
-    // レコード（例: NumberTales Num 40）で、User が読み取った値を渡すための経路。
-    // 検出結果と同じ扱いで被覆率ランキング・AppliesTo 転記に載る。
-    if (Array.isArray(manualChips) && manualChips.length) {
-        return {
-            chips: manualChips.map(hex => ({ hex, count: 0 })),
-            source: 'manual',
-        };
-    }
+export function detectChipsForRecord(
+  record,
+  imagesRoot,
+  manualChips = null,
+  workDir = null,
+) {
+  // 手入力されたカラーコードがあれば、検出より優先する。
+  // 設定画のチップが小さく・淡く・密に重なっているなどの理由で自動検出できない
+  // レコード（例: NumberTales Num 40）で、User が読み取った値を渡すための経路。
+  // 検出結果と同じ扱いで被覆率ランキング・AppliesTo 転記に載る。
+  if (Array.isArray(manualChips) && manualChips.length) {
+    return {
+      chips: manualChips.map((hex) => ({ hex, count: 0 })),
+      source: "manual",
+    };
+  }
 
-    for (const src of resolvePaletteImageFields(workDir, 'swatch', SWATCH_SOURCES)) {
-        const name = record?.Images?.[src.key];
-        if (typeof name !== 'string' || !name) continue;
-        const file = path.join(imagesRoot, src.dir, `${name}.png`);
-        if (!fs.existsSync(file)) continue;
-        let chips = [];
-        try {
-            chips = detectSwatchChips(decodePng(fs.readFileSync(file)));
-        } catch {
-            continue;
-        }
-        if (chips.length) {
-            return { chips, source: `${src.role}/${name}.png` };
-        }
+  for (const src of resolvePaletteImageFields(
+    workDir,
+    "swatch",
+    SWATCH_SOURCES,
+  )) {
+    const name = record?.Images?.[src.key];
+    if (typeof name !== "string" || !name) continue;
+    const file = path.join(imagesRoot, src.dir, `${name}.png`);
+    if (!fs.existsSync(file)) continue;
+    let chips = [];
+    try {
+      chips = detectSwatchChips(decodePng(fs.readFileSync(file)));
+    } catch {
+      continue;
     }
-    return { chips: [], source: null };
+    if (chips.length) {
+      return { chips, source: `${src.role}/${name}.png` };
+    }
+  }
+  return { chips: [], source: null };
 }
 
 /**
@@ -174,22 +189,34 @@ export function detectChipsForRecord(record, imagesRoot, manualChips = null, wor
  * @returns {Array<{ folder: string, path: string }>} 実在するファイルのみ
  */
 export function resolveArtworkSources(record, workDir, imagesRoot) {
-    const images = record?.Images ?? {};
-    const anyField = listImageFields(workDir).map(f => ({ role: f.folder, dir: f.folder, key: f.field }));
-    /** @type {Array<{folder: string, path: string}>} */
-    const out = [];
-    for (const { dir: folder, key: field } of resolvePaletteImageFields(workDir, 'artwork', anyField)) {
-        const value = images[field];
-        const rels = Array.isArray(value) ? value : (typeof value === 'string' && value ? [value] : []);
-        for (const rel of rels) {
-            if (typeof rel !== 'string' || !rel) continue;
-            // `keycapper_PNGPath` は拡張子込み、`corefolder_PNGPath` は拡張子なしで記録されている
-            const name = rel.toLowerCase().endsWith('.png') ? rel : `${rel}.png`;
-            const p = path.join(imagesRoot, folder, ...name.split('/'));
-            if (fs.existsSync(p)) out.push({ folder, path: p });
-        }
+  const images = record?.Images ?? {};
+  const anyField = listImageFields(workDir).map((f) => ({
+    role: f.folder,
+    dir: f.folder,
+    key: f.field,
+  }));
+  /** @type {Array<{folder: string, path: string}>} */
+  const out = [];
+  for (const { dir: folder, key: field } of resolvePaletteImageFields(
+    workDir,
+    "artwork",
+    anyField,
+  )) {
+    const value = images[field];
+    const rels = Array.isArray(value)
+      ? value
+      : typeof value === "string" && value
+        ? [value]
+        : [];
+    for (const rel of rels) {
+      if (typeof rel !== "string" || !rel) continue;
+      // `keycapper_PNGPath` は拡張子込み、`corefolder_PNGPath` は拡張子なしで記録されている
+      const name = rel.toLowerCase().endsWith(".png") ? rel : `${rel}.png`;
+      const p = path.join(imagesRoot, folder, ...name.split("/"));
+      if (fs.existsSync(p)) out.push({ folder, path: p });
     }
-    return out;
+  }
+  return out;
 }
 
 /**
@@ -204,27 +231,32 @@ export function resolveArtworkSources(record, workDir, imagesRoot) {
  * @param {{ exclude?: string[], minRatio?: number }} [opt]
  * @returns {{ colors: Array<{hex: string, ratio: number}>, source: string|null }}
  */
-export function detectArtworkColorsForRecord(record, workDir, imagesRoot, opt = {}) {
-    /** @type {import('./extract-palette.mjs').DecodedImage[]} */
-    const decoded = [];
-    /** @type {string[]} */
-    const used = [];
+export function detectArtworkColorsForRecord(
+  record,
+  workDir,
+  imagesRoot,
+  opt = {},
+) {
+  /** @type {import('./extract-palette.mjs').DecodedImage[]} */
+  const decoded = [];
+  /** @type {string[]} */
+  const used = [];
 
-    for (const src of resolveArtworkSources(record, workDir, imagesRoot)) {
-        let img;
-        try {
-            img = decodePng(fs.readFileSync(src.path));
-        } catch {
-            continue;
-        }
-        if (!isTransparentArtwork(img)) continue; // 背景付きの画像は配色抽出に使わない
-        decoded.push(img);
-        used.push(`${src.folder}/${path.basename(src.path)}`);
+  for (const src of resolveArtworkSources(record, workDir, imagesRoot)) {
+    let img;
+    try {
+      img = decodePng(fs.readFileSync(src.path));
+    } catch {
+      continue;
     }
-    if (!decoded.length) return { colors: [], source: null };
+    if (!isTransparentArtwork(img)) continue; // 背景付きの画像は配色抽出に使わない
+    decoded.push(img);
+    used.push(`${src.folder}/${path.basename(src.path)}`);
+  }
+  if (!decoded.length) return { colors: [], source: null };
 
-    const colors = extractSolidColors(decoded, opt);
-    return { colors, source: colors.length ? `artwork:${used.join('+')}` : null };
+  const colors = extractSolidColors(decoded, opt);
+  return { colors, source: colors.length ? `artwork:${used.join("+")}` : null };
 }
 
 /**
@@ -244,30 +276,37 @@ export function detectArtworkColorsForRecord(record, workDir, imagesRoot, opt = 
  * @returns {{ ordered: Array<{hex: string, coverage: number|null}>, measuredOn: string|null }}
  */
 export function rankChipsByCoverage(chips, record, workDir, imagesRoot) {
-    const hexes = chips.map(c => c.hex);
-    const sources = resolveImageSources(record, workDir, imagesRoot)
-        .filter(s => s.source !== 'swatch'); // 設定画は注釈だらけなので被覆率の測定には使わない
+  const hexes = chips.map((c) => c.hex);
+  const sources = resolveImageSources(record, workDir, imagesRoot).filter(
+    (s) => s.source !== "swatch",
+  ); // 設定画は注釈だらけなので被覆率の測定には使わない
 
-    for (const src of sources) {
-        let coverage;
-        try {
-            coverage = measurePaletteCoverage(decodePng(fs.readFileSync(src.path)), hexes);
-        } catch {
-            continue;
-        }
-        if (!coverage.some(c => c > 0)) continue;
-        const ordered = hexes
-            .map((hex, i) => ({ hex, coverage: coverage[i] }))
-            .sort((a, b) => b.coverage - a.coverage);
-        return { ordered, measuredOn: path.relative(REPO_ROOT, src.path).split(path.sep).join('/') };
+  for (const src of sources) {
+    let coverage;
+    try {
+      coverage = measurePaletteCoverage(
+        decodePng(fs.readFileSync(src.path)),
+        hexes,
+      );
+    } catch {
+      continue;
     }
+    if (!coverage.some((c) => c > 0)) continue;
+    const ordered = hexes
+      .map((hex, i) => ({ hex, coverage: coverage[i] }))
+      .sort((a, b) => b.coverage - a.coverage);
+    return {
+      ordered,
+      measuredOn: path.relative(REPO_ROOT, src.path).split(path.sep).join("/"),
+    };
+  }
 
-    // フォールバック: 設定画上でのチップの大きさ順
-    const ordered = chips
-        .slice()
-        .sort((a, b) => b.count - a.count)
-        .map(c => ({ hex: c.hex, coverage: null }));
-    return { ordered, measuredOn: null };
+  // フォールバック: 設定画上でのチップの大きさ順
+  const ordered = chips
+    .slice()
+    .sort((a, b) => b.count - a.count)
+    .map((c) => ({ hex: c.hex, coverage: null }));
+  return { ordered, measuredOn: null };
 }
 
 /**
@@ -282,17 +321,24 @@ export function rankChipsByCoverage(chips, record, workDir, imagesRoot) {
  * @param {{role: string, hex: string, nameJP?: string|null, nameEN?: string|null, appliesTo?: string[]|null, base?: any}} src
  * @returns {any}
  */
-function makePaletteRow({ role, hex, nameJP = null, nameEN = null, appliesTo = null, base = {} }) {
-    return {
-        Role: role,
-        Hex: hex,
-        ColorName_JP: nameJP,
-        ColorName_EN: nameEN,
-        AppliesTo: Array.isArray(appliesTo) && appliesTo.length ? appliesTo : null,
-        Formation: base.Formation ?? null,
-        Note_JP: base.Note_JP ?? null,
-        Note_EN: base.Note_EN ?? null,
-    };
+function makePaletteRow({
+  role,
+  hex,
+  nameJP = null,
+  nameEN = null,
+  appliesTo = null,
+  base = {},
+}) {
+  return {
+    Role: role,
+    Hex: hex,
+    ColorName_JP: nameJP,
+    ColorName_EN: nameEN,
+    AppliesTo: Array.isArray(appliesTo) && appliesTo.length ? appliesTo : null,
+    Formation: base.Formation ?? null,
+    Note_JP: base.Note_JP ?? null,
+    Note_EN: base.Note_EN ?? null,
+  };
 }
 
 /**
@@ -306,16 +352,20 @@ function makePaletteRow({ role, hex, nameJP = null, nameEN = null, appliesTo = n
  * @returns {any[]}
  */
 export function buildColorPaletteValue(ordered, hints) {
-    return ordered.map((entry, i) => makePaletteRow({
-        role: ROLE_ORDER[i] ?? ROLE_REST,
-        hex: entry.hex,
-        appliesTo: [...new Set(
-            hints
-                .filter(h => colorWordMatchesHex(h.word, entry.hex))
-                .map(h => h.bodyPart)
-                .filter(Boolean),
-        )],
-    }));
+  return ordered.map((entry, i) =>
+    makePaletteRow({
+      role: ROLE_ORDER[i] ?? ROLE_REST,
+      hex: entry.hex,
+      appliesTo: [
+        ...new Set(
+          hints
+            .filter((h) => colorWordMatchesHex(h.word, entry.hex))
+            .map((h) => h.bodyPart)
+            .filter(Boolean),
+        ),
+      ],
+    }),
+  );
 }
 
 // ────────────────────────────────────────────────────────────────────────────
@@ -337,26 +387,71 @@ export function buildColorPaletteValue(ordered, hints) {
  * @type {ReadonlyArray<{key: string, nameJP: string, nameEN: string, role: string, annotate?: boolean}>}
  */
 export const COLOR_SLOTS = [
-    { key: 'primary', nameJP: '主色', nameEN: 'Primary Color', role: '#ColorRole_Primary' },
-    { key: 'primaryCostume', nameJP: '主色(衣装)', nameEN: 'Primary Color (Costume)', role: '#ColorRole_Primary' },
-    { key: 'secondary', nameJP: '副色', nameEN: 'Secondary Color', role: '#ColorRole_Secondary' },
-    { key: 'accentMain', nameJP: 'メインアクセントカラー', nameEN: 'Main Accent Color', role: '#ColorRole_Accent', annotate: true },
-    { key: 'accentSub', nameJP: 'サブアクセントカラー', nameEN: 'Sub Accent Color', role: '#ColorRole_Accent', annotate: true },
-    { key: 'secondaryCostume', nameJP: '副色（衣装）', nameEN: 'Secondary Color (Costume)', role: '#ColorRole_Sub' },
-    { key: 'auxiliary', nameJP: '補助色', nameEN: 'Auxiliary Color', role: '#ColorRole_Sub' },
+  {
+    key: "primary",
+    nameJP: "主色",
+    nameEN: "Primary Color",
+    role: "#ColorRole_Primary",
+  },
+  {
+    key: "primaryCostume",
+    nameJP: "主色(衣装)",
+    nameEN: "Primary Color (Costume)",
+    role: "#ColorRole_Primary",
+  },
+  {
+    key: "secondary",
+    nameJP: "副色",
+    nameEN: "Secondary Color",
+    role: "#ColorRole_Secondary",
+  },
+  {
+    key: "accentMain",
+    nameJP: "メインアクセントカラー",
+    nameEN: "Main Accent Color",
+    role: "#ColorRole_Accent",
+    annotate: true,
+  },
+  {
+    key: "accentSub",
+    nameJP: "サブアクセントカラー",
+    nameEN: "Sub Accent Color",
+    role: "#ColorRole_Accent",
+    annotate: true,
+  },
+  {
+    key: "secondaryCostume",
+    nameJP: "副色（衣装）",
+    nameEN: "Secondary Color (Costume)",
+    role: "#ColorRole_Sub",
+  },
+  {
+    key: "auxiliary",
+    nameJP: "補助色",
+    nameEN: "Auxiliary Color",
+    role: "#ColorRole_Sub",
+  },
 ];
 
 /** 地毛（髪・耳・尻尾）とみなす部位。共通配色以外の体毛はここに含める。 */
-const BASE_PARTS = new Set(['#BodyPart_Hair', '#BodyPart_Ear', '#BodyPart_Tail']);
+const BASE_PARTS = new Set([
+  "#BodyPart_Hair",
+  "#BodyPart_Ear",
+  "#BodyPart_Tail",
+]);
 /** アクセント（瞳）とみなす部位。色名の注記（「瞳」か「アクセサリー」か）の分岐に使う。 */
-const ACCENT_PARTS = new Set(['#BodyPart_Eye']);
+const ACCENT_PARTS = new Set(["#BodyPart_Eye"]);
 /**
  * 衣装が覆う部位。`#BodyPart_Neck` / `Hand` / `Foot` / `Head` は襟・手袋・靴・帽子といった
  * **小物**にもなるため、ここには入れない（それらはアクセサリー扱い）。
  */
 const COSTUME_PARTS = new Set([
-    '#BodyPart_Chest', '#BodyPart_Waist', '#BodyPart_Leg',
-    '#BodyPart_Shoulder', '#BodyPart_Arm', '#BodyPart_Back',
+  "#BodyPart_Chest",
+  "#BodyPart_Waist",
+  "#BodyPart_Leg",
+  "#BodyPart_Shoulder",
+  "#BodyPart_Arm",
+  "#BodyPart_Back",
 ]);
 
 /**
@@ -370,13 +465,13 @@ const COSTUME_PARTS = new Set([
  * @returns {{ base: boolean, costume: boolean, accessory: boolean, empty: boolean }}
  */
 export function classifyParts(parts) {
-    const list = Array.isArray(parts) ? parts : [];
-    return {
-        base: list.some(p => BASE_PARTS.has(p)),
-        costume: list.some(p => COSTUME_PARTS.has(p)),
-        accessory: list.some(p => !BASE_PARTS.has(p) && !COSTUME_PARTS.has(p)),
-        empty: list.length === 0,
-    };
+  const list = Array.isArray(parts) ? parts : [];
+  return {
+    base: list.some((p) => BASE_PARTS.has(p)),
+    costume: list.some((p) => COSTUME_PARTS.has(p)),
+    accessory: list.some((p) => !BASE_PARTS.has(p) && !COSTUME_PARTS.has(p)),
+    empty: list.length === 0,
+  };
 }
 
 /**
@@ -392,17 +487,23 @@ export function classifyParts(parts) {
  * @returns {{ jp: string, en: string }}
  */
 export function buildSlotColorName(slot, appliesTo) {
-    const parts = Array.isArray(appliesTo) ? appliesTo : [];
-    if (!slot.annotate || !parts.length) return { jp: slot.nameJP, en: slot.nameEN };
+  const parts = Array.isArray(appliesTo) ? appliesTo : [];
+  if (!slot.annotate || !parts.length)
+    return { jp: slot.nameJP, en: slot.nameEN };
 
-    const hasEye = parts.some(p => ACCENT_PARTS.has(p));
-    const hasOther = parts.some(p => !ACCENT_PARTS.has(p));
-    const jp = [hasEye ? '瞳' : null, hasOther ? 'アクセサリー' : null].filter(Boolean);
-    const en = [hasEye ? 'Eye Color' : null, hasOther ? 'Accessory Color' : null].filter(Boolean);
-    return {
-        jp: `${slot.nameJP}（${jp.join(', ')}）`,
-        en: `${slot.nameEN} (${en.join(', ')})`,
-    };
+  const hasEye = parts.some((p) => ACCENT_PARTS.has(p));
+  const hasOther = parts.some((p) => !ACCENT_PARTS.has(p));
+  const jp = [hasEye ? "瞳" : null, hasOther ? "アクセサリー" : null].filter(
+    Boolean,
+  );
+  const en = [
+    hasEye ? "Eye Color" : null,
+    hasOther ? "Accessory Color" : null,
+  ].filter(Boolean);
+  return {
+    jp: `${slot.nameJP}（${jp.join(", ")}）`,
+    en: `${slot.nameEN} (${en.join(", ")})`,
+  };
 }
 
 /**
@@ -418,14 +519,14 @@ export function buildSlotColorName(slot, appliesTo) {
  * @returns {boolean} 生成形なら true（＝上書きしてよい）
  */
 function isGeneratedColorName(slot, nameJP) {
-    if (!nameJP) return true; // 未記入は埋めてよい
-    if (!slot.annotate) return nameJP === slot.nameJP;
-    return [
-        slot.nameJP,
-        `${slot.nameJP}（瞳）`,
-        `${slot.nameJP}（アクセサリー）`,
-        `${slot.nameJP}（瞳, アクセサリー）`,
-    ].includes(nameJP);
+  if (!nameJP) return true; // 未記入は埋めてよい
+  if (!slot.annotate) return nameJP === slot.nameJP;
+  return [
+    slot.nameJP,
+    `${slot.nameJP}（瞳）`,
+    `${slot.nameJP}（アクセサリー）`,
+    `${slot.nameJP}（瞳, アクセサリー）`,
+  ].includes(nameJP);
 }
 
 /**
@@ -444,49 +545,54 @@ function isGeneratedColorName(slot, nameJP) {
  * @throws {Error} 割当に未知のスロット名、または既存パレットに無い Hex が含まれる場合
  */
 export function applySlotAssignment(palette, assignment) {
-    const rows = new Map();
-    for (const row of Array.isArray(palette) ? palette : []) {
-        if (typeof row?.Hex === 'string') rows.set(row.Hex.toUpperCase(), row);
-    }
+  const rows = new Map();
+  for (const row of Array.isArray(palette) ? palette : []) {
+    if (typeof row?.Hex === "string") rows.set(row.Hex.toUpperCase(), row);
+  }
 
-    const slotIndex = new Map(COLOR_SLOTS.map((s, i) => [s.key, i]));
-    /** @type {Array<{order: number, seq: number, row: any}>} */
-    const out = [];
-    const used = new Set();
+  const slotIndex = new Map(COLOR_SLOTS.map((s, i) => [s.key, i]));
+  /** @type {Array<{order: number, seq: number, row: any}>} */
+  const out = [];
+  const used = new Set();
 
-    assignment.forEach((entry, seq) => {
-        const order = slotIndex.get(entry.slot);
-        if (order === undefined) throw new Error(`未知のスロット名です: ${entry.slot}`);
-        const hex = String(entry.hex ?? '').toUpperCase();
-        const base = rows.get(hex);
-        if (!base) throw new Error(`既存の ColorPalette に無い Hex です: ${entry.hex}`);
+  assignment.forEach((entry, seq) => {
+    const order = slotIndex.get(entry.slot);
+    if (order === undefined)
+      throw new Error(`未知のスロット名です: ${entry.slot}`);
+    const hex = String(entry.hex ?? "").toUpperCase();
+    const base = rows.get(hex);
+    if (!base)
+      throw new Error(`既存の ColorPalette に無い Hex です: ${entry.hex}`);
 
-        const slot = COLOR_SLOTS[order];
-        const appliesTo = entry.appliesTo === undefined ? base.AppliesTo : entry.appliesTo;
-        // 手で書き換えられた注記は残す（生成形と違う名前＝人が書いたもの）
-        const keepName = !isGeneratedColorName(slot, base.ColorName_JP);
-        const name = keepName
-            ? { jp: base.ColorName_JP, en: base.ColorName_EN ?? null }
-            : buildSlotColorName(slot, appliesTo);
+    const slot = COLOR_SLOTS[order];
+    const appliesTo =
+      entry.appliesTo === undefined ? base.AppliesTo : entry.appliesTo;
+    // 手で書き換えられた注記は残す（生成形と違う名前＝人が書いたもの）
+    const keepName = !isGeneratedColorName(slot, base.ColorName_JP);
+    const name = keepName
+      ? { jp: base.ColorName_JP, en: base.ColorName_EN ?? null }
+      : buildSlotColorName(slot, appliesTo);
 
-        used.add(hex);
-        out.push({
-            order,
-            seq,
-            row: makePaletteRow({
-                role: slot.role,
-                hex: base.Hex,
-                nameJP: name.jp,
-                nameEN: name.en,
-                appliesTo,
-                base,
-            }),
-        });
+    used.add(hex);
+    out.push({
+      order,
+      seq,
+      row: makePaletteRow({
+        role: slot.role,
+        hex: base.Hex,
+        nameJP: name.jp,
+        nameEN: name.en,
+        appliesTo,
+        base,
+      }),
     });
+  });
 
-    out.sort((a, b) => a.order - b.order || a.seq - b.seq);
-    const unassigned = [...rows.keys()].filter(h => !used.has(h)).map(h => rows.get(h).Hex);
-    return { value: out.map(o => o.row), unassigned };
+  out.sort((a, b) => a.order - b.order || a.seq - b.seq);
+  const unassigned = [...rows.keys()]
+    .filter((h) => !used.has(h))
+    .map((h) => rows.get(h).Hex);
+  return { value: out.map((o) => o.row), unassigned };
 }
 
 /**
@@ -501,20 +607,20 @@ export function applySlotAssignment(palette, assignment) {
  * @returns {string|null} 見つからなければ null
  */
 export function indexBadgeFromImages(record) {
-    const num = String(record?.Num ?? '');
-    if (!num) return null;
-    const images = record?.Images ?? {};
-    const names = Object.values(images)
-        .flatMap(v => (Array.isArray(v) ? v : [v]))
-        .filter(v => typeof v === 'string' && v);
-    const escaped = num.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    // 作品コードは大文字（`NTS`）で書かれる規約。`cnsp_imgNTS-57` から `imgNTS-57` ではなく
-    // `NTS-57` を取ること。前者だと `art_pmNTS-57game.png` のような別記法を取り逃がす。
-    for (const name of names) {
-        const m = name.match(new RegExp(`([A-Z]+-${escaped})(?![0-9])`));
-        if (m) return m[1];
-    }
-    return null;
+  const num = String(record?.Num ?? "");
+  if (!num) return null;
+  const images = record?.Images ?? {};
+  const names = Object.values(images)
+    .flatMap((v) => (Array.isArray(v) ? v : [v]))
+    .filter((v) => typeof v === "string" && v);
+  const escaped = num.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  // 作品コードは大文字（`NTS`）で書かれる規約。`cnsp_imgNTS-57` から `imgNTS-57` ではなく
+  // `NTS-57` を取ること。前者だと `art_pmNTS-57game.png` のような別記法を取り逃がす。
+  for (const name of names) {
+    const m = name.match(new RegExp(`([A-Z]+-${escaped})(?![0-9])`));
+    if (m) return m[1];
+  }
+  return null;
 }
 
 /**
@@ -537,10 +643,11 @@ export function indexBadgeFromImages(record) {
  * @returns {Array<{ role: string, source: string|null, path: string }>}
  */
 export function resolveSoloArtSources(record, workDir, imagesRoot) {
-    const badge = indexBadgeFromImages(record);
-    if (!badge) return [];
-    return resolveImageSources(record, workDir, imagesRoot)
-        .filter(s => s.source === 'illustration' && path.basename(s.path).includes(badge));
+  const badge = indexBadgeFromImages(record);
+  if (!badge) return [];
+  return resolveImageSources(record, workDir, imagesRoot).filter(
+    (s) => s.source === "illustration" && path.basename(s.path).includes(badge),
+  );
 }
 
 /**
@@ -575,55 +682,61 @@ export function resolveSoloArtSources(record, workDir, imagesRoot) {
  * @returns {Array<{hex: string, covBall: number, covArt: number, bands: number[], appliesTo: string[], hints: Array<{word: string, bodyPart: string|null, element: string|null, source: string}>}>}
  */
 export function collectSlotEvidence(record, workDir, imagesRoot) {
-    const palette = Array.isArray(record?.ColorPalette) ? record.ColorPalette : [];
-    const hexes = palette.map(c => c?.Hex).filter(h => typeof h === 'string');
-    if (!hexes.length) return [];
-    // Hex → AppliesTo。同じ Hex が 2 行ある壊れたデータでも落ちないよう先勝ちで引く
-    const partsByHex = new Map();
-    for (const row of palette) {
-        const key = String(row?.Hex ?? '').toUpperCase();
-        if (!key || partsByHex.has(key)) continue;
-        partsByHex.set(key, Array.isArray(row.AppliesTo) ? row.AppliesTo : []);
+  const palette = Array.isArray(record?.ColorPalette)
+    ? record.ColorPalette
+    : [];
+  const hexes = palette.map((c) => c?.Hex).filter((h) => typeof h === "string");
+  if (!hexes.length) return [];
+  // Hex → AppliesTo。同じ Hex が 2 行ある壊れたデータでも落ちないよう先勝ちで引く
+  const partsByHex = new Map();
+  for (const row of palette) {
+    const key = String(row?.Hex ?? "").toUpperCase();
+    if (!key || partsByHex.has(key)) continue;
+    partsByHex.set(key, Array.isArray(row.AppliesTo) ? row.AppliesTo : []);
+  }
+
+  /**
+   * 複数枚ある場合は**宣言順の先頭**（＝基本形態）だけを使う。
+   *
+   * 色ごとに別画像の最大値を拾うとシェアが別々の画像由来になって順位が壊れる。
+   * かといって平均も正しくない: 球体型姿には**衣装付きの差分**があり
+   * （Num 1 の 2 枚目はパーカーが 58% を占める）、混ぜると衣装色が主色を追い越す。
+   * `Images` の配列順は作者が並べたものなので、先頭を基本形態とみなす。
+   */
+  const firstShare = (files) => {
+    for (const file of files) {
+      try {
+        return profileColorBands(decodePng(fs.readFileSync(file)), hexes);
+      } catch {
+        continue;
+      }
     }
+    return hexes.map(() => ({ share: 0, bands: [0, 0, 0, 0, 0] }));
+  };
 
-    /**
-     * 複数枚ある場合は**宣言順の先頭**（＝基本形態）だけを使う。
-     *
-     * 色ごとに別画像の最大値を拾うとシェアが別々の画像由来になって順位が壊れる。
-     * かといって平均も正しくない: 球体型姿には**衣装付きの差分**があり
-     * （Num 1 の 2 枚目はパーカーが 58% を占める）、混ぜると衣装色が主色を追い越す。
-     * `Images` の配列順は作者が並べたものなので、先頭を基本形態とみなす。
-     */
-    const firstShare = (files) => {
-        for (const file of files) {
-            try {
-                return profileColorBands(decodePng(fs.readFileSync(file)), hexes);
-            } catch {
-                continue;
-            }
-        }
-        return hexes.map(() => ({ share: 0, bands: [0, 0, 0, 0, 0] }));
-    };
+  const ballFiles = resolveArtworkSources(record, workDir, imagesRoot).map(
+    (s) => s.path,
+  );
+  const artFiles = resolveSoloArtSources(record, workDir, imagesRoot).map(
+    (s) => s.path,
+  );
 
-    const ballFiles = resolveArtworkSources(record, workDir, imagesRoot).map(s => s.path);
-    const artFiles = resolveSoloArtSources(record, workDir, imagesRoot).map(s => s.path);
+  const ball = firstShare(ballFiles);
+  const art = firstShare(artFiles);
+  const allHints = collectColorHints(record);
 
-    const ball = firstShare(ballFiles);
-    const art = firstShare(artFiles);
-    const allHints = collectColorHints(record);
-
-    return hexes.map((hex, i) => ({
-        hex,
-        covBall: ball[i].share,
-        covArt: art[i].share,
-        bands: ball[i].share ? ball[i].bands : art[i].bands,
-        appliesTo: partsByHex.get(hex.toUpperCase()) ?? [],
-        hints: allHints.filter(h => colorWordMatchesHex(h.word, hex)),
-    }));
+  return hexes.map((hex, i) => ({
+    hex,
+    covBall: ball[i].share,
+    covArt: art[i].share,
+    bands: ball[i].share ? ball[i].bands : art[i].bands,
+    appliesTo: partsByHex.get(hex.toUpperCase()) ?? [],
+    hints: allHints.filter((h) => colorWordMatchesHex(h.word, hex)),
+  }));
 }
 
 /** 帯ラベル（前景の外接矩形を縦 5 等分した目盛り。部位そのものではない） */
-export const BAND_LABELS = ['頭', '上', '中', '下', '足'];
+export const BAND_LABELS = ["頭", "上", "中", "下", "足"];
 
 /**
  * 前景の各画素を最近傍の配色へ割り当てて走査する。
@@ -643,28 +756,35 @@ export const BAND_LABELS = ['頭', '上', '中', '下', '足'];
  * @param {(x: number, y: number, k: number) => void} onPixel  k は hexes の添字
  */
 function scanAssignedPixels(img, hexes, opt, onPixel) {
-    const maxDist = opt.maxDist ?? 45;
-    const step = opt.step ?? 2;
-    const limit = maxDist * maxDist;
-    const rgbs = hexes.map(hexToRgb);
-    const fg = isTransparentArtwork(img) ? null : buildForegroundMask(img);
+  const maxDist = opt.maxDist ?? 45;
+  const step = opt.step ?? 2;
+  const limit = maxDist * maxDist;
+  const rgbs = hexes.map(hexToRgb);
+  const fg = isTransparentArtwork(img) ? null : buildForegroundMask(img);
 
-    for (let y = 0; y < img.height; y += step) {
-        for (let x = 0; x < img.width; x += step) {
-            const i = y * img.width + x;
-            if (img.data[i * 4 + 3] < 128) continue;
-            if (fg && !fg[i]) continue;
-            const r = img.data[i * 4], g = img.data[i * 4 + 1], b = img.data[i * 4 + 2];
-            if (r > 245 && g > 245 && b > 245) continue; // 紙面
-            if (r < 60 && g < 60 && b < 60) continue;    // 線画
-            let best = -1, bestD = Infinity;
-            for (let k = 0; k < rgbs.length; k++) {
-                const d = (r - rgbs[k][0]) ** 2 + (g - rgbs[k][1]) ** 2 + (b - rgbs[k][2]) ** 2;
-                if (d < bestD) { bestD = d; best = k; }
-            }
-            if (best >= 0 && bestD <= limit) onPixel(x, y, best);
+  for (let y = 0; y < img.height; y += step) {
+    for (let x = 0; x < img.width; x += step) {
+      const i = y * img.width + x;
+      if (img.data[i * 4 + 3] < 128) continue;
+      if (fg && !fg[i]) continue;
+      const r = img.data[i * 4],
+        g = img.data[i * 4 + 1],
+        b = img.data[i * 4 + 2];
+      if (r > 245 && g > 245 && b > 245) continue; // 紙面
+      if (r < 60 && g < 60 && b < 60) continue; // 線画
+      let best = -1,
+        bestD = Infinity;
+      for (let k = 0; k < rgbs.length; k++) {
+        const d =
+          (r - rgbs[k][0]) ** 2 + (g - rgbs[k][1]) ** 2 + (b - rgbs[k][2]) ** 2;
+        if (d < bestD) {
+          bestD = d;
+          best = k;
         }
+      }
+      if (best >= 0 && bestD <= limit) onPixel(x, y, best);
     }
+  }
 }
 
 /**
@@ -680,27 +800,30 @@ function scanAssignedPixels(img, hexes, opt, onPixel) {
  * @returns {Array<{ share: number, bands: number[] }>} hexes と同じ並び。bands の合計は 1
  */
 export function profileColorBands(img, hexes, opt = {}) {
-    /** @type {Array<{y: number, k: number}>} */
-    const hits = [];
-    let minY = Infinity, maxY = -Infinity;
-    scanAssignedPixels(img, hexes, opt, (_x, y, k) => {
-        if (y < minY) minY = y;
-        if (y > maxY) maxY = y;
-        hits.push({ y, k });
-    });
+  /** @type {Array<{y: number, k: number}>} */
+  const hits = [];
+  let minY = Infinity,
+    maxY = -Infinity;
+  scanAssignedPixels(img, hexes, opt, (_x, y, k) => {
+    if (y < minY) minY = y;
+    if (y > maxY) maxY = y;
+    hits.push({ y, k });
+  });
 
-    const out = hexes.map(() => ({ share: 0, bands: [0, 0, 0, 0, 0] }));
-    if (!hits.length || maxY <= minY) return out;
+  const out = hexes.map(() => ({ share: 0, bands: [0, 0, 0, 0, 0] }));
+  if (!hits.length || maxY <= minY) return out;
 
-    const span = (maxY - minY) + 1;
-    for (const h of hits) {
-        out[h.k].bands[Math.min(4, Math.floor(((h.y - minY) / span) * 5))]++;
-        out[h.k].share++;
-    }
-    return out.map(o => ({
-        share: Number((o.share / hits.length).toFixed(3)),
-        bands: o.share ? o.bands.map(b => Number((b / o.share).toFixed(2))) : [0, 0, 0, 0, 0],
-    }));
+  const span = maxY - minY + 1;
+  for (const h of hits) {
+    out[h.k].bands[Math.min(4, Math.floor(((h.y - minY) / span) * 5))]++;
+    out[h.k].share++;
+  }
+  return out.map((o) => ({
+    share: Number((o.share / hits.length).toFixed(3)),
+    bands: o.share
+      ? o.bands.map((b) => Number((b / o.share).toFixed(2)))
+      : [0, 0, 0, 0, 0],
+  }));
 }
 
 /**
@@ -746,37 +869,40 @@ export function profileColorBands(img, hexes, opt = {}) {
  * @returns {{ assignment: Array<{slot: string, hex: string}>, unassigned: string[] }}
  */
 export function proposeSlotAssignment(evidence) {
-    /** @type {Array<{slot: string, hex: string}>} */
-    const assignment = [];
-    /** @type {string[]} */
-    const unassigned = [];
-    if (!evidence.length) return { assignment, unassigned };
+  /** @type {Array<{slot: string, hex: string}>} */
+  const assignment = [];
+  /** @type {string[]} */
+  const unassigned = [];
+  if (!evidence.length) return { assignment, unassigned };
 
-    // 球体型姿が無いレコードでは人姿のシェアで代用する。両方無ければ全色が未割当。
-    const hasBall = evidence.some(ev => ev.covBall > 0);
-    const share = (ev) => (hasBall ? ev.covBall : ev.covArt);
+  // 球体型姿が無いレコードでは人姿のシェアで代用する。両方無ければ全色が未割当。
+  const hasBall = evidence.some((ev) => ev.covBall > 0);
+  const share = (ev) => (hasBall ? ev.covBall : ev.covArt);
 
-    const ranked = [...evidence].sort((a, b) => share(b) - share(a));
+  const ranked = [...evidence].sort((a, b) => share(b) - share(a));
 
-    // 主色はシェア最大の色。地毛で絞ると `AppliesTo` の抜けに巻き込まれる
-    // （Num 9 の `#A1A9BF` は球体型姿の 71.8% を占める髪だが `AppliesTo` が空）。
-    const primary = share(ranked[0] ?? {}) > 0 ? ranked[0] : null;
-    if (primary) assignment.push({ slot: 'primary', hex: primary.hex });
+  // 主色はシェア最大の色。地毛で絞ると `AppliesTo` の抜けに巻き込まれる
+  // （Num 9 の `#A1A9BF` は球体型姿の 71.8% を占める髪だが `AppliesTo` が空）。
+  const primary = share(ranked[0] ?? {}) > 0 ? ranked[0] : null;
+  if (primary) assignment.push({ slot: "primary", hex: primary.hex });
 
-    // 副色は**地毛の色のうち 2 番目**。ここは絞りが要る: Num 1 のパーカー `#FF8682`（衣装 33.2%）は
-    // 耳・尻尾の `#FFAC8F`（11.4%）よりシェアが大きいが副色ではない。
-    // 部位が 1 つも判っていないレコードでは絞りようが無いので全色を候補にする。
-    const known = evidence.some(ev => ev.appliesTo?.length);
-    const secondary = ranked.find(ev => ev !== primary
-        && (!known || classifyParts(ev.appliesTo).base)
-        // シェアが小さすぎる色は別物（小物の差し色など）なので副色にしない
-        && share(ev) >= 0.03);
-    if (secondary) assignment.push({ slot: 'secondary', hex: secondary.hex });
+  // 副色は**地毛の色のうち 2 番目**。ここは絞りが要る: Num 1 のパーカー `#FF8682`（衣装 33.2%）は
+  // 耳・尻尾の `#FFAC8F`（11.4%）よりシェアが大きいが副色ではない。
+  // 部位が 1 つも判っていないレコードでは絞りようが無いので全色を候補にする。
+  const known = evidence.some((ev) => ev.appliesTo?.length);
+  const secondary = ranked.find(
+    (ev) =>
+      ev !== primary &&
+      (!known || classifyParts(ev.appliesTo).base) &&
+      // シェアが小さすぎる色は別物（小物の差し色など）なので副色にしない
+      share(ev) >= 0.03,
+  );
+  if (secondary) assignment.push({ slot: "secondary", hex: secondary.hex });
 
-    const used = new Set(assignment.map(a => a.hex));
-    for (const ev of evidence) if (!used.has(ev.hex)) unassigned.push(ev.hex);
+  const used = new Set(assignment.map((a) => a.hex));
+  for (const ev of evidence) if (!used.has(ev.hex)) unassigned.push(ev.hex);
 
-    return { assignment, unassigned };
+  return { assignment, unassigned };
 }
 
 // ────────────────────────────────────────────────────────────────────────────
@@ -796,67 +922,67 @@ export function proposeSlotAssignment(evidence) {
  * @throws {Error} 挿入位置（AppearanceDetail）が見つからない場合
  */
 export function upsertColorPaletteInRecord(text, span, colorPalette) {
-    const [start, end] = span;
-    const record = text.slice(start, end);
+  const [start, end] = span;
+  const record = text.slice(start, end);
 
-    const json = JSON.stringify(colorPalette, null, 2)
-        .split('\n')
-        .map((line, i) => (i === 0 ? line : `    ${line}`))
-        .join('\n');
+  const json = JSON.stringify(colorPalette, null, 2)
+    .split("\n")
+    .map((line, i) => (i === 0 ? line : `    ${line}`))
+    .join("\n");
 
-    // ── 既存の ColorPalette があれば値だけ差し替える
-    const existingKey = record.indexOf('"ColorPalette"');
-    if (existingKey >= 0) {
-        const colon = record.indexOf(':', existingKey + '"ColorPalette"'.length);
-        const valueStartRel = (() => {
-            let i = colon + 1;
-            while (i < record.length && /\s/.test(record[i])) i++;
-            return i;
-        })();
-        const valueEndRel = findValueEnd(record, colon);
-        const before = text.slice(0, start + valueStartRel);
-        const after = text.slice(start + valueEndRel);
-        const delta = json.length - (valueEndRel - valueStartRel);
-        return { text: before + json + after, delta, mode: 'replaced' };
-    }
+  // ── 既存の ColorPalette があれば値だけ差し替える
+  const existingKey = record.indexOf('"ColorPalette"');
+  if (existingKey >= 0) {
+    const colon = record.indexOf(":", existingKey + '"ColorPalette"'.length);
+    const valueStartRel = (() => {
+      let i = colon + 1;
+      while (i < record.length && /\s/.test(record[i])) i++;
+      return i;
+    })();
+    const valueEndRel = findValueEnd(record, colon);
+    const before = text.slice(0, start + valueStartRel);
+    const after = text.slice(start + valueEndRel);
+    const delta = json.length - (valueEndRel - valueStartRel);
+    return { text: before + json + after, delta, mode: "replaced" };
+  }
 
-    // ── 無ければ AppearanceDetail の直後へ挿入
-    const anchorKey = record.indexOf('"AppearanceDetail"');
-    if (anchorKey < 0) {
-        // `AppearanceDetail` を持たないレコード（例: NumberTales SemiPrimary の Num 222）。
-        // ここで挿入位置を推測せず末尾へ足し、正準順への整列は
-        // `npm run data:order:write`（$DefType が正）へ委ねる。
-        const closing = record.lastIndexOf('}');
-        if (closing < 0) throw new Error('レコードの終端 } が見つかりません');
-        let cursor = closing - 1;
-        while (cursor > 0 && /\s/.test(record[cursor])) cursor--;
-        const insertion = `,\n    "ColorPalette": ${json}`;
-        const insertAt = start + cursor + 1;
-        return {
-            text: text.slice(0, insertAt) + insertion + text.slice(insertAt),
-            delta: insertion.length,
-            mode: 'appended',
-        };
-    }
-
-    const colon = record.indexOf(':', anchorKey + '"AppearanceDetail"'.length);
-    if (colon < 0) throw new Error('AppearanceDetail の : が見つかりません');
-    const valueEnd = findValueEnd(record, colon);
-
-    let cursor = valueEnd;
-    while (cursor < record.length && /\s/.test(record[cursor])) cursor++;
-    const hasTrailingComma = record[cursor] === ',';
-
-    const insertion = hasTrailingComma
-        ? `\n    "ColorPalette": ${json},`
-        : `,\n    "ColorPalette": ${json}`;
-    const insertAt = start + (hasTrailingComma ? cursor + 1 : valueEnd);
-
+  // ── 無ければ AppearanceDetail の直後へ挿入
+  const anchorKey = record.indexOf('"AppearanceDetail"');
+  if (anchorKey < 0) {
+    // `AppearanceDetail` を持たないレコード（例: NumberTales SemiPrimary の Num 222）。
+    // ここで挿入位置を推測せず末尾へ足し、正準順への整列は
+    // `npm run data:order:write`（$DefType が正）へ委ねる。
+    const closing = record.lastIndexOf("}");
+    if (closing < 0) throw new Error("レコードの終端 } が見つかりません");
+    let cursor = closing - 1;
+    while (cursor > 0 && /\s/.test(record[cursor])) cursor--;
+    const insertion = `,\n    "ColorPalette": ${json}`;
+    const insertAt = start + cursor + 1;
     return {
-        text: text.slice(0, insertAt) + insertion + text.slice(insertAt),
-        delta: insertion.length,
-        mode: 'inserted',
+      text: text.slice(0, insertAt) + insertion + text.slice(insertAt),
+      delta: insertion.length,
+      mode: "appended",
     };
+  }
+
+  const colon = record.indexOf(":", anchorKey + '"AppearanceDetail"'.length);
+  if (colon < 0) throw new Error("AppearanceDetail の : が見つかりません");
+  const valueEnd = findValueEnd(record, colon);
+
+  let cursor = valueEnd;
+  while (cursor < record.length && /\s/.test(record[cursor])) cursor++;
+  const hasTrailingComma = record[cursor] === ",";
+
+  const insertion = hasTrailingComma
+    ? `\n    "ColorPalette": ${json},`
+    : `,\n    "ColorPalette": ${json}`;
+  const insertAt = start + (hasTrailingComma ? cursor + 1 : valueEnd);
+
+  return {
+    text: text.slice(0, insertAt) + insertion + text.slice(insertAt),
+    delta: insertion.length,
+    mode: "inserted",
+  };
 }
 
 /**
@@ -871,33 +997,33 @@ export function upsertColorPaletteInRecord(text, span, colorPalette) {
  * @returns {{ text: string, delta: number } | null} 既存が無ければ null
  */
 export function removeColorPaletteFromRecord(text, span) {
-    const [start, end] = span;
-    const record = text.slice(start, end);
+  const [start, end] = span;
+  const record = text.slice(start, end);
 
-    const keyIdx = record.indexOf('"ColorPalette"');
-    if (keyIdx < 0) return null;
+  const keyIdx = record.indexOf('"ColorPalette"');
+  if (keyIdx < 0) return null;
 
-    const colon = record.indexOf(':', keyIdx + '"ColorPalette"'.length);
-    const valueEnd = findValueEnd(record, colon);
+  const colon = record.indexOf(":", keyIdx + '"ColorPalette"'.length);
+  const valueEnd = findValueEnd(record, colon);
 
-    // キーの直前（改行・インデント）から、値の直後のカンマまでを削除する
-    let from = keyIdx;
-    while (from > 0 && /[ \t]/.test(record[from - 1])) from--;
-    if (from > 0 && record[from - 1] === '\n') from--;
+  // キーの直前（改行・インデント）から、値の直後のカンマまでを削除する
+  let from = keyIdx;
+  while (from > 0 && /[ \t]/.test(record[from - 1])) from--;
+  if (from > 0 && record[from - 1] === "\n") from--;
 
-    let to = valueEnd;
-    while (to < record.length && /\s/.test(record[to])) to++;
-    if (record[to] === ',') to++;
-    else {
-        // 末尾キーだった場合は直前のカンマを取り除く
-        let back = from;
-        while (back > 0 && /\s/.test(record[back - 1])) back--;
-        if (record[back - 1] === ',') from = back - 1;
-        to = valueEnd;
-    }
+  let to = valueEnd;
+  while (to < record.length && /\s/.test(record[to])) to++;
+  if (record[to] === ",") to++;
+  else {
+    // 末尾キーだった場合は直前のカンマを取り除く
+    let back = from;
+    while (back > 0 && /\s/.test(record[back - 1])) back--;
+    if (record[back - 1] === ",") from = back - 1;
+    to = valueEnd;
+  }
 
-    const delta = -(to - from);
-    return { text: text.slice(0, start + from) + text.slice(start + to), delta };
+  const delta = -(to - from);
+  return { text: text.slice(0, start + from) + text.slice(start + to), delta };
 }
 
 // ────────────────────────────────────────────────────────────────────────────
@@ -926,103 +1052,122 @@ export function removeColorPaletteFromRecord(text, span) {
  * @returns {{ results: Array<any>, applied: number, dbPath: string }}
  */
 export function patchColorPalette(opts) {
-    const { workDir, dbPath, imagesRoot } = resolveDbPaths(opts.work, opts.db);
+  const { workDir, dbPath, imagesRoot } = resolveDbPaths(opts.work, opts.db);
 
-    // 共通造形色（肌・舌・コアフォルダの毛など）は透過イラスト抽出でだけ除外する。
-    // 宣言が無い作品では空配列になり、除外は行われない。
-    const commonColors = opts.fromArtwork ? readCommonColors(workDir) : [];
+  // 共通造形色（肌・舌・コアフォルダの毛など）は透過イラスト抽出でだけ除外する。
+  // 宣言が無い作品では空配列になり、除外は行われない。
+  const commonColors = opts.fromArtwork ? readCommonColors(workDir) : [];
 
-    const { original, records: db, spans } = openRecordsFile(dbPath);
+  const { original, records: db, spans } = openRecordsFile(dbPath);
 
-    /** @type {Array<any>} */
-    const results = [];
-    let text = original;
+  /** @type {Array<any>} */
+  const results = [];
+  let text = original;
 
-    // 末尾から処理する（先頭側のオフセットが変わらないようにするため）
-    for (let i = db.length - 1; i >= 0; i--) {
-        const record = db[i];
-        // 絞り込みは Num で行い、表示は Num を持たない作品でも読めるラベルにする
-        const num = record.Num ?? recordLabel(record);
-        if (opts.records && !opts.records.has(record.Num)) continue;
+  // 末尾から処理する（先頭側のオフセットが変わらないようにするため）
+  for (let i = db.length - 1; i >= 0; i--) {
+    const record = db[i];
+    // 絞り込みは Num で行い、表示は Num を持たない作品でも読めるラベルにする
+    const num = record.Num ?? recordLabel(record);
+    if (opts.records && !opts.records.has(record.Num)) continue;
 
-        const hasExisting = 'ColorPalette' in record;
-        if (hasExisting && !opts.force) {
-            results.push({ num, status: 'skipped-existing' });
-            continue;
-        }
-
-        const { chips, source } = detectChipsForRecord(record, imagesRoot, opts.manualChips, workDir);
-
-        /** @type {Array<{hex: string, coverage: number|null}>|null} */
-        let ordered = null;
-        let measuredOn = null;
-        let usedSource = source;
-        let origin = 'chips';
-
-        if (chips.length >= opts.minChips) {
-            ({ ordered, measuredOn } = rankChipsByCoverage(chips, record, workDir, imagesRoot));
-        } else if (opts.fromArtwork) {
-            // チップが取れないレコードの受け皿。透過キャラ単体イラストの面積比が
-            // そのまま被覆率なので、rankChipsByCoverage() は通さない。
-            const art = detectArtworkColorsForRecord(record, workDir, imagesRoot, {
-                exclude: commonColors,
-                minRatio: opts.minRatio,
-            });
-            if (art.colors.length) {
-                ordered = art.colors.map(c => ({ hex: c.hex, coverage: c.ratio }));
-                measuredOn = art.source;
-                usedSource = art.source;
-                origin = 'artwork';
-            }
-        }
-
-        if (!ordered) {
-            // 配色を確定できなかったレコードに過去の推測値が残っていると、
-            // 「作者指定の正確な値」と混在してしまう。--drop-unresolved で取り除く。
-            if (opts.dropUnresolved && hasExisting) {
-                const removed = removeColorPaletteFromRecord(text, spans[i]);
-                if (removed) {
-                    text = removed.text;
-                    results.push({ num, status: 'dropped-unresolved', chips: chips.length, source });
-                    continue;
-                }
-            }
-            results.push({
-                num,
-                status: chips.length ? 'skipped-too-few-chips' : 'skipped-no-chips',
-                chips: chips.length,
-                source,
-            });
-            continue;
-        }
-
-        const palette = buildColorPaletteValue(ordered, collectColorHints(record));
-
-        try {
-            const res = upsertColorPaletteInRecord(text, spans[i], palette);
-            text = res.text;
-            results.push({
-                num,
-                status: res.mode,
-                origin,
-                chips: chips.length,
-                source: usedSource,
-                measuredOn,
-                palette: ordered,
-            });
-        } catch (err) {
-            results.push({ num, status: 'error', message: err.message });
-        }
+    const hasExisting = "ColorPalette" in record;
+    if (hasExisting && !opts.force) {
+      results.push({ num, status: "skipped-existing" });
+      continue;
     }
 
-    results.reverse();
-    const applied = results.filter(r =>
-        r.status === 'inserted' || r.status === 'replaced'
-        || r.status === 'appended' || r.status === 'dropped-unresolved').length;
+    const { chips, source } = detectChipsForRecord(
+      record,
+      imagesRoot,
+      opts.manualChips,
+      workDir,
+    );
 
-    if (opts.apply && applied) writeRecordsFile(dbPath, text);
+    /** @type {Array<{hex: string, coverage: number|null}>|null} */
+    let ordered = null;
+    let measuredOn = null;
+    let usedSource = source;
+    let origin = "chips";
 
-    return { results, applied, dbPath };
+    if (chips.length >= opts.minChips) {
+      ({ ordered, measuredOn } = rankChipsByCoverage(
+        chips,
+        record,
+        workDir,
+        imagesRoot,
+      ));
+    } else if (opts.fromArtwork) {
+      // チップが取れないレコードの受け皿。透過キャラ単体イラストの面積比が
+      // そのまま被覆率なので、rankChipsByCoverage() は通さない。
+      const art = detectArtworkColorsForRecord(record, workDir, imagesRoot, {
+        exclude: commonColors,
+        minRatio: opts.minRatio,
+      });
+      if (art.colors.length) {
+        ordered = art.colors.map((c) => ({ hex: c.hex, coverage: c.ratio }));
+        measuredOn = art.source;
+        usedSource = art.source;
+        origin = "artwork";
+      }
+    }
+
+    if (!ordered) {
+      // 配色を確定できなかったレコードに過去の推測値が残っていると、
+      // 「作者指定の正確な値」と混在してしまう。--drop-unresolved で取り除く。
+      if (opts.dropUnresolved && hasExisting) {
+        const removed = removeColorPaletteFromRecord(text, spans[i]);
+        if (removed) {
+          text = removed.text;
+          results.push({
+            num,
+            status: "dropped-unresolved",
+            chips: chips.length,
+            source,
+          });
+          continue;
+        }
+      }
+      results.push({
+        num,
+        status: chips.length ? "skipped-too-few-chips" : "skipped-no-chips",
+        chips: chips.length,
+        source,
+      });
+      continue;
+    }
+
+    const palette = buildColorPaletteValue(ordered, collectColorHints(record));
+
+    try {
+      const res = upsertColorPaletteInRecord(text, spans[i], palette);
+      text = res.text;
+      results.push({
+        num,
+        status: res.mode,
+        origin,
+        chips: chips.length,
+        source: usedSource,
+        measuredOn,
+        palette: ordered,
+      });
+    } catch (err) {
+      results.push({ num, status: "error", message: err.message });
+    }
+  }
+
+  results.reverse();
+  const applied = results.filter(
+    (r) =>
+      r.status === "inserted" ||
+      r.status === "replaced" ||
+      r.status === "appended" ||
+      r.status === "dropped-unresolved",
+  ).length;
+
+  if (opts.apply && applied) writeRecordsFile(dbPath, text);
+
+  return { results, applied, dbPath };
 }
 
 // ────────────────────────────────────────────────────────────────────────────
@@ -1045,70 +1190,97 @@ export function patchColorPalette(opts) {
  * @returns {{ results: Array<any>, applied: number, dbPath: string }}
  */
 export function addColorsToPalette(opts) {
-    const { workDir, dbPath } = resolveDbPaths(opts.work, opts.db);
-    const { original, records: db, spans } = openRecordsFile(dbPath);
-    const minDistance = opts.minDistance ?? 10;
-    const commonColors = readCommonColors(workDir);
+  const { workDir, dbPath } = resolveDbPaths(opts.work, opts.db);
+  const { original, records: db, spans } = openRecordsFile(dbPath);
+  const minDistance = opts.minDistance ?? 10;
+  const commonColors = readCommonColors(workDir);
 
-    /** レコードごとにまとめる（1 レコード 1 回の書き換えで済ませる） */
-    const byNum = new Map();
-    for (const c of opts.colors) {
-        const key = String(c.num);
-        if (!byNum.has(key)) byNum.set(key, []);
-        byNum.get(key).push(c);
+  /** レコードごとにまとめる（1 レコード 1 回の書き換えで済ませる） */
+  const byNum = new Map();
+  for (const c of opts.colors) {
+    const key = String(c.num);
+    if (!byNum.has(key)) byNum.set(key, []);
+    byNum.get(key).push(c);
+  }
+
+  /** @type {Array<any>} */
+  const results = [];
+  let text = original;
+
+  // 末尾から処理する（先頭側のオフセットが変わらないようにするため）
+  for (let i = db.length - 1; i >= 0; i--) {
+    const record = db[i];
+    const num = String(record.Num ?? recordLabel(record));
+    const wanted = byNum.get(num);
+    if (!wanted) continue;
+
+    const existing = Array.isArray(record.ColorPalette)
+      ? record.ColorPalette
+      : [];
+    const value = existing.slice();
+    const added = [];
+
+    for (const c of wanted) {
+      const hex = String(c.hex ?? "").toUpperCase();
+      if (!/^#[0-9A-F]{6}$/.test(hex)) {
+        results.push({
+          num,
+          hex: c.hex,
+          status: "error",
+          message: "カラーコードの形式が不正です",
+        });
+        continue;
+      }
+      const near = value
+        .map((v) => v.Hex)
+        .filter(Boolean)
+        .reduce((min, h) => Math.min(min, colorDistance(h, hex)), Infinity);
+      if (near < minDistance) {
+        results.push({
+          num,
+          hex,
+          status: "skipped-duplicate",
+          message: `既存の色に近い（距離 ${near.toFixed(1)}）`,
+        });
+        continue;
+      }
+      const nearCommon = commonColors.reduce(
+        (min, h) => Math.min(min, colorDistance(h, hex)),
+        Infinity,
+      );
+      if (nearCommon < minDistance) {
+        results.push({
+          num,
+          hex,
+          status: "skipped-common",
+          message: `共通造形色に一致（距離 ${nearCommon.toFixed(1)}）`,
+        });
+        continue;
+      }
+      const row = makePaletteRow({
+        role: c.role ?? ROLE_REST,
+        hex,
+        appliesTo: c.appliesTo ?? null,
+      });
+      value.push(row);
+      added.push(row);
     }
 
-    /** @type {Array<any>} */
-    const results = [];
-    let text = original;
-
-    // 末尾から処理する（先頭側のオフセットが変わらないようにするため）
-    for (let i = db.length - 1; i >= 0; i--) {
-        const record = db[i];
-        const num = String(record.Num ?? recordLabel(record));
-        const wanted = byNum.get(num);
-        if (!wanted) continue;
-
-        const existing = Array.isArray(record.ColorPalette) ? record.ColorPalette : [];
-        const value = existing.slice();
-        const added = [];
-
-        for (const c of wanted) {
-            const hex = String(c.hex ?? '').toUpperCase();
-            if (!/^#[0-9A-F]{6}$/.test(hex)) {
-                results.push({ num, hex: c.hex, status: 'error', message: 'カラーコードの形式が不正です' });
-                continue;
-            }
-            const near = value.map(v => v.Hex).filter(Boolean)
-                .reduce((min, h) => Math.min(min, colorDistance(h, hex)), Infinity);
-            if (near < minDistance) {
-                results.push({ num, hex, status: 'skipped-duplicate', message: `既存の色に近い（距離 ${near.toFixed(1)}）` });
-                continue;
-            }
-            const nearCommon = commonColors
-                .reduce((min, h) => Math.min(min, colorDistance(h, hex)), Infinity);
-            if (nearCommon < minDistance) {
-                results.push({ num, hex, status: 'skipped-common', message: `共通造形色に一致（距離 ${nearCommon.toFixed(1)}）` });
-                continue;
-            }
-            const row = makePaletteRow({ role: c.role ?? ROLE_REST, hex, appliesTo: c.appliesTo ?? null });
-            value.push(row);
-            added.push(row);
-        }
-
-        if (!added.length) continue;
-        try {
-            text = upsertColorPaletteInRecord(text, spans[i], value).text;
-            results.push({ num, status: 'added', added });
-        } catch (err) {
-            results.push({ num, status: 'error', message: err.message });
-        }
+    if (!added.length) continue;
+    try {
+      text = upsertColorPaletteInRecord(text, spans[i], value).text;
+      results.push({ num, status: "added", added });
+    } catch (err) {
+      results.push({ num, status: "error", message: err.message });
     }
+  }
 
-    results.reverse();
-    const applied = results.filter(r => r.status === 'added').reduce((n, r) => n + r.added.length, 0);
-    if (opts.apply && applied) writeRecordsFile(dbPath, text);
-    return { results, applied, dbPath };
+  results.reverse();
+  const applied = results
+    .filter((r) => r.status === "added")
+    .reduce((n, r) => n + r.added.length, 0);
+  if (opts.apply && applied) writeRecordsFile(dbPath, text);
+  return { results, applied, dbPath };
 }
 
 /**
@@ -1127,58 +1299,67 @@ export function addColorsToPalette(opts) {
  * @returns {{ results: Array<any>, applied: number, dbPath: string }}
  */
 export function setAppliesTo(opts) {
-    const { dbPath } = resolveDbPaths(opts.work, opts.db);
-    const { original, records: db, spans } = openRecordsFile(dbPath);
-    const enumKeys = readBodyPartEnum();
+  const { dbPath } = resolveDbPaths(opts.work, opts.db);
+  const { original, records: db, spans } = openRecordsFile(dbPath);
+  const enumKeys = readBodyPartEnum();
 
-    const byNum = new Map();
-    for (const r of opts.appliesTo) {
-        const key = String(r.num);
-        if (!byNum.has(key)) byNum.set(key, []);
-        byNum.get(key).push(r);
-    }
+  const byNum = new Map();
+  for (const r of opts.appliesTo) {
+    const key = String(r.num);
+    if (!byNum.has(key)) byNum.set(key, []);
+    byNum.get(key).push(r);
+  }
 
-    /** @type {Array<any>} */
-    const results = [];
-    let text = original;
+  /** @type {Array<any>} */
+  const results = [];
+  let text = original;
 
-    // 末尾から処理する（先頭側のオフセットが変わらないようにするため）
-    for (let i = db.length - 1; i >= 0; i--) {
-        const record = db[i];
-        const num = String(record.Num ?? recordLabel(record));
-        const wanted = byNum.get(num);
-        if (!wanted || !Array.isArray(record.ColorPalette)) continue;
+  // 末尾から処理する（先頭側のオフセットが変わらないようにするため）
+  for (let i = db.length - 1; i >= 0; i--) {
+    const record = db[i];
+    const num = String(record.Num ?? recordLabel(record));
+    const wanted = byNum.get(num);
+    if (!wanted || !Array.isArray(record.ColorPalette)) continue;
 
-        const wantByHex = new Map(wanted.map(r => [String(r.hex).toUpperCase(), r.appliesTo]));
-        let changed = 0;
-        const value = record.ColorPalette.map(row => {
-            const parts = wantByHex.get(String(row.Hex ?? '').toUpperCase());
-            if (!parts) return row;
-            const bad = parts.filter(p => !enumKeys.has(p));
-            if (bad.length) {
-                results.push({ num, hex: row.Hex, status: 'error', message: `未知の部位: ${bad.join(', ')}` });
-                return row;
-            }
-            const before = JSON.stringify(row.AppliesTo ?? null);
-            const after = parts.length ? parts : null;
-            if (JSON.stringify(after) === before) return row;
-            changed++;
-            return { ...row, AppliesTo: after };
+    const wantByHex = new Map(
+      wanted.map((r) => [String(r.hex).toUpperCase(), r.appliesTo]),
+    );
+    let changed = 0;
+    const value = record.ColorPalette.map((row) => {
+      const parts = wantByHex.get(String(row.Hex ?? "").toUpperCase());
+      if (!parts) return row;
+      const bad = parts.filter((p) => !enumKeys.has(p));
+      if (bad.length) {
+        results.push({
+          num,
+          hex: row.Hex,
+          status: "error",
+          message: `未知の部位: ${bad.join(", ")}`,
         });
+        return row;
+      }
+      const before = JSON.stringify(row.AppliesTo ?? null);
+      const after = parts.length ? parts : null;
+      if (JSON.stringify(after) === before) return row;
+      changed++;
+      return { ...row, AppliesTo: after };
+    });
 
-        if (!changed) continue;
-        try {
-            text = upsertColorPaletteInRecord(text, spans[i], value).text;
-            results.push({ num, status: 'updated', changed });
-        } catch (err) {
-            results.push({ num, status: 'error', message: err.message });
-        }
+    if (!changed) continue;
+    try {
+      text = upsertColorPaletteInRecord(text, spans[i], value).text;
+      results.push({ num, status: "updated", changed });
+    } catch (err) {
+      results.push({ num, status: "error", message: err.message });
     }
+  }
 
-    results.reverse();
-    const applied = results.filter(r => r.status === 'updated').reduce((n, r) => n + r.changed, 0);
-    if (opts.apply && applied) writeRecordsFile(dbPath, text);
-    return { results, applied, dbPath };
+  results.reverse();
+  const applied = results
+    .filter((r) => r.status === "updated")
+    .reduce((n, r) => n + r.changed, 0);
+  if (opts.apply && applied) writeRecordsFile(dbPath, text);
+  return { results, applied, dbPath };
 }
 
 // ────────────────────────────────────────────────────────────────────────────
@@ -1199,44 +1380,231 @@ export function setAppliesTo(opts) {
  * @returns {{ results: Array<any>, applied: number, dbPath: string }}
  */
 export function patchColorPaletteSlots(opts) {
-    const { workDir, dbPath, imagesRoot } = resolveDbPaths(opts.work, opts.db);
-    const { original, records: db, spans } = openRecordsFile(dbPath);
+  const { workDir, dbPath, imagesRoot } = resolveDbPaths(opts.work, opts.db);
+  const { original, records: db, spans } = openRecordsFile(dbPath);
 
-    /** @type {Array<any>} */
-    const results = [];
-    let text = original;
+  /** @type {Array<any>} */
+  const results = [];
+  let text = original;
 
-    // 末尾から処理する（先頭側のオフセットが変わらないようにするため）
-    for (let i = db.length - 1; i >= 0; i--) {
-        const record = db[i];
-        const num = record.Num ?? recordLabel(record);
-        if (opts.records && !opts.records.has(record.Num) && !opts.records.has(String(num))) continue;
-        if (!Array.isArray(record.ColorPalette) || !record.ColorPalette.length) continue;
+  // 末尾から処理する（先頭側のオフセットが変わらないようにするため）
+  for (let i = db.length - 1; i >= 0; i--) {
+    const record = db[i];
+    const num = record.Num ?? recordLabel(record);
+    if (
+      opts.records &&
+      !opts.records.has(record.Num) &&
+      !opts.records.has(String(num))
+    )
+      continue;
+    if (!Array.isArray(record.ColorPalette) || !record.ColorPalette.length)
+      continue;
 
-        const given = opts.slots?.[String(num)];
-        const source = given ? 'slots' : 'draft';
-        try {
-            const assignment = Array.isArray(given)
-                ? given
-                : proposeSlotAssignment(collectSlotEvidence(record, workDir, imagesRoot)).assignment;
-            const { value, unassigned } = applySlotAssignment(record.ColorPalette, assignment);
+    const given = opts.slots?.[String(num)];
+    const source = given ? "slots" : "draft";
+    try {
+      const assignment = Array.isArray(given)
+        ? given
+        : proposeSlotAssignment(
+            collectSlotEvidence(record, workDir, imagesRoot),
+          ).assignment;
+      const { value, unassigned } = applySlotAssignment(
+        record.ColorPalette,
+        assignment,
+      );
 
-            // 7 枠のどれとも判定できない色が残るレコードは書き込まない（User へ確認するため）
-            if (unassigned.length) {
-                results.push({ num, status: 'skipped-unassigned', unassigned, source });
-                continue;
-            }
-            text = upsertColorPaletteInRecord(text, spans[i], value).text;
-            results.push({ num, status: 'slotted', source, value });
-        } catch (err) {
-            results.push({ num, status: 'error', message: err.message });
-        }
+      // 7 枠のどれとも判定できない色が残るレコードは書き込まない（User へ確認するため）
+      if (unassigned.length) {
+        results.push({ num, status: "skipped-unassigned", unassigned, source });
+        continue;
+      }
+      text = upsertColorPaletteInRecord(text, spans[i], value).text;
+      results.push({ num, status: "slotted", source, value });
+    } catch (err) {
+      results.push({ num, status: "error", message: err.message });
     }
+  }
 
-    results.reverse();
-    const applied = results.filter(r => r.status === 'slotted').length;
-    if (opts.apply && applied) writeRecordsFile(dbPath, text);
-    return { results, applied, dbPath };
+  results.reverse();
+  const applied = results.filter((r) => r.status === "slotted").length;
+  if (opts.apply && applied) writeRecordsFile(dbPath, text);
+  return { results, applied, dbPath };
+}
+
+// ────────────────────────────────────────────────────────────────────────────
+// 設定画からの人姿切り出しと帯分布（--figure-bands）
+// ────────────────────────────────────────────────────────────────────────────
+
+/** 塗り（紙面でも線画でもない画素）とみなす判定。設定画・イラスト共通 */
+function isInkPixel(img, i) {
+  if (img.data[i * 4 + 3] < 128) return false;
+  const r = img.data[i * 4],
+    g = img.data[i * 4 + 1],
+    b = img.data[i * 4 + 2];
+  if (r > 240 && g > 240 && b > 240) return false; // 紙面
+  if (r < 70 && g < 70 && b < 70) return false; // 線画
+  return true;
+}
+
+/**
+ * 設定画から**塗られている塊**を面積の大きい順に取り出す。
+ *
+ * 設定画には人姿・球体型姿・表情差分・注釈文字が同居しているため、被覆率をそのまま測ると
+ * 全部が混ざる。連結成分に分ければ人姿だけを対象にできる。
+ *
+ * **膨張が要る理由**: 白い襟・手袋・靴下・タイツは紙面として落ちるので、そのまま繋げると
+ * 人姿が上下に分断され、頭が別の塊になってしまう（実測: Num 2 / Num 17）。
+ *
+ * @param {import('./extract-palette.mjs').DecodedImage} img
+ * @param {{step?: number, dilate?: number, minCells?: number, limit?: number}} [opt]
+ * @returns {Array<{ box: [number, number, number, number], cells: number, aspect: number }>}
+ *   `box` は元画像の座標系。`aspect` は縦/横（2 以上なら人姿、1 前後なら球体型姿や上半身の抜き）
+ */
+export function findFigureBlobs(img, opt = {}) {
+  const step = opt.step ?? 3;
+  const radius = opt.dilate ?? 3;
+  const w = Math.ceil(img.width / step),
+    h = Math.ceil(img.height / step);
+
+  const mask = new Uint8Array(w * h);
+  for (let y = 0; y < h; y++) {
+    for (let x = 0; x < w; x++) {
+      if (isInkPixel(img, y * step * img.width + x * step)) mask[y * w + x] = 1;
+    }
+  }
+  const grown = new Uint8Array(w * h);
+  for (let y = 0; y < h; y++) {
+    for (let x = 0; x < w; x++) {
+      if (!mask[y * w + x]) continue;
+      for (let dy = -radius; dy <= radius; dy++) {
+        for (let dx = -radius; dx <= radius; dx++) {
+          const ny = y + dy,
+            nx = x + dx;
+          if (ny >= 0 && ny < h && nx >= 0 && nx < w) grown[ny * w + nx] = 1;
+        }
+      }
+    }
+  }
+
+  const seen = new Uint8Array(w * h);
+  const stack = [];
+  const blobs = [];
+  for (let seed = 0; seed < w * h; seed++) {
+    if (!grown[seed] || seen[seed]) continue;
+    stack.push(seed);
+    seen[seed] = 1;
+    let cells = 0,
+      x0 = w,
+      x1 = 0,
+      y0 = h,
+      y1 = 0;
+    while (stack.length) {
+      const p = stack.pop();
+      cells++;
+      const px = p % w,
+        py = (p / w) | 0;
+      if (px < x0) x0 = px;
+      if (px > x1) x1 = px;
+      if (py < y0) y0 = py;
+      if (py > y1) y1 = py;
+      for (const q of [
+        px > 0 ? p - 1 : -1,
+        px < w - 1 ? p + 1 : -1,
+        py > 0 ? p - w : -1,
+        py < h - 1 ? p + w : -1,
+      ]) {
+        if (q >= 0 && grown[q] && !seen[q]) {
+          seen[q] = 1;
+          stack.push(q);
+        }
+      }
+    }
+    blobs.push({
+      box: [
+        x0 * step,
+        y0 * step,
+        Math.min(img.width - 1, x1 * step),
+        Math.min(img.height - 1, y1 * step),
+      ],
+      cells,
+      aspect: (y1 - y0 + 1) / (x1 - x0 + 1),
+    });
+  }
+  return blobs
+    .filter((b) => b.cells >= (opt.minCells ?? 600))
+    .sort((a, b) => b.cells - a.cells)
+    .slice(0, opt.limit ?? 3);
+}
+
+/**
+ * 塊の外接矩形を**縦 5 帯**に割り、帯ごとの配色シェアを返す。
+ *
+ * 「頭＝髪、上＝上衣、中＝胴、下＝下衣、足＝靴」として読む。
+ * **被覆率では潰れる衣装枠の順序がここで分かれる**のが要点で、これが無いと
+ * 主色(衣装) と 副色（衣装）を取り違える（確定 5 件でシェア順は 3/5。Num 24 は
+ * 青灰 `#AEB8DB` のカーディガンが主だが、シェアでは藤色 `#C680AF` が上回る）。
+ *
+ * 肌・舌などの共通造形色は `ColorPalette` に載らないため、除外しないと最近傍の配色へ
+ * 吸われて胴の帯が埋まる。
+ *
+ * @param {import('./extract-palette.mjs').DecodedImage} img
+ * @param {string[]} hexes
+ * @param {[number, number, number, number]} box
+ * @param {{common?: string[], maxDist?: number, step?: number, minShare?: number}} [opt]
+ * @returns {Array<Array<{hex: string, share: number}>>} 帯ごと（頭/上/中/下/足）の降順リスト
+ */
+export function measureFigureBands(img, hexes, box, opt = {}) {
+  const maxDist = opt.maxDist ?? 45;
+  const step = opt.step ?? 2;
+  const rgbs = hexes.map(hexToRgb);
+  const commons = (opt.common ?? []).map(hexToRgb);
+  const bands = Array.from({ length: 5 }, () =>
+    new Array(hexes.length).fill(0),
+  );
+  const totals = new Array(5).fill(0);
+  const [x0, y0, x1, y1] = box;
+  const span = y1 - y0 + 1;
+
+  for (let y = y0; y <= y1; y += step) {
+    for (let x = x0; x <= x1; x += step) {
+      const i = y * img.width + x;
+      if (!isInkPixel(img, i)) continue;
+      const r = img.data[i * 4],
+        g = img.data[i * 4 + 1],
+        b = img.data[i * 4 + 2];
+      let best = -1,
+        bestD = Infinity;
+      for (let k = 0; k < rgbs.length; k++) {
+        const d =
+          (r - rgbs[k][0]) ** 2 + (g - rgbs[k][1]) ** 2 + (b - rgbs[k][2]) ** 2;
+        if (d < bestD) {
+          bestD = d;
+          best = k;
+        }
+      }
+      if (best < 0 || bestD > maxDist * maxDist) continue;
+      if (
+        commons.some(
+          (c) => (r - c[0]) ** 2 + (g - c[1]) ** 2 + (b - c[2]) ** 2 < bestD,
+        )
+      )
+        continue;
+      const bi = Math.min(4, Math.floor(((y - y0) / span) * 5));
+      bands[bi][best]++;
+      totals[bi]++;
+    }
+  }
+
+  const minShare = opt.minShare ?? 0.06;
+  return bands.map((counts, i) =>
+    counts
+      .map((n, k) => ({
+        hex: hexes[k],
+        share: totals[i] ? Number((n / totals[i]).toFixed(3)) : 0,
+      }))
+      .filter((t) => t.share >= minShare)
+      .sort((a, b) => b.share - a.share),
+  );
 }
 
 /**
@@ -1259,30 +1627,36 @@ export function patchColorPaletteSlots(opts) {
  * @returns {string[]} 行ごとの文字列
  */
 export function renderColorMap(img, hexes, opt = {}) {
-    const cols = opt.cols ?? 56;
-    const rows = opt.rows ?? 40;
-    const cellW = img.width / cols, cellH = img.height / rows;
+  const cols = opt.cols ?? 56;
+  const rows = opt.rows ?? 40;
+  const cellW = img.width / cols,
+    cellH = img.height / rows;
 
-    // セルごとの多数決。セル数 × 色数の票箱を先に作って 1 回の走査で埋める
-    const votes = Array.from({ length: rows * cols }, () => new Array(hexes.length).fill(0));
-    scanAssignedPixels(img, hexes, opt, (x, y, k) => {
-        const cell = Math.min(rows - 1, Math.floor(y / cellH)) * cols + Math.min(cols - 1, Math.floor(x / cellW));
-        votes[cell][k]++;
-    });
+  // セルごとの多数決。セル数 × 色数の票箱を先に作って 1 回の走査で埋める
+  const votes = Array.from({ length: rows * cols }, () =>
+    new Array(hexes.length).fill(0),
+  );
+  scanAssignedPixels(img, hexes, opt, (x, y, k) => {
+    const cell =
+      Math.min(rows - 1, Math.floor(y / cellH)) * cols +
+      Math.min(cols - 1, Math.floor(x / cellW));
+    votes[cell][k]++;
+  });
 
-    /** @type {string[]} */
-    const out = [];
-    for (let ry = 0; ry < rows; ry++) {
-        let line = '';
-        for (let rx = 0; rx < cols; rx++) {
-            const v = votes[ry * cols + rx];
-            let top = -1;
-            for (let k = 0; k < v.length; k++) if (v[k] > 0 && (top < 0 || v[k] > v[top])) top = k;
-            line += top < 0 ? '.' : String.fromCharCode(top < 9 ? 49 + top : 88); // 1-9 のあと X
-        }
-        out.push(line);
+  /** @type {string[]} */
+  const out = [];
+  for (let ry = 0; ry < rows; ry++) {
+    let line = "";
+    for (let rx = 0; rx < cols; rx++) {
+      const v = votes[ry * cols + rx];
+      let top = -1;
+      for (let k = 0; k < v.length; k++)
+        if (v[k] > 0 && (top < 0 || v[k] > v[top])) top = k;
+      line += top < 0 ? "." : String.fromCharCode(top < 9 ? 49 + top : 88); // 1-9 のあと X
     }
-    return out;
+    out.push(line);
+  }
+  return out;
 }
 
 /**
@@ -1295,25 +1669,31 @@ export function renderColorMap(img, hexes, opt = {}) {
  * @returns {{ draft: Record<string, any[]>, rows: Array<any> }}
  */
 export function reportSlotEvidence(opts) {
-    const { workDir, dbPath, imagesRoot } = resolveDbPaths(opts.work, opts.db);
-    const db = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
+  const { workDir, dbPath, imagesRoot } = resolveDbPaths(opts.work, opts.db);
+  const db = JSON.parse(fs.readFileSync(dbPath, "utf8"));
 
-    /** @type {Record<string, any[]>} */
-    const draft = {};
-    /** @type {Array<any>} */
-    const rows = [];
+  /** @type {Record<string, any[]>} */
+  const draft = {};
+  /** @type {Array<any>} */
+  const rows = [];
 
-    for (const record of db) {
-        const num = record.Num ?? recordLabel(record);
-        if (opts.records && !opts.records.has(record.Num) && !opts.records.has(String(num))) continue;
-        if (!Array.isArray(record.ColorPalette) || !record.ColorPalette.length) continue;
+  for (const record of db) {
+    const num = record.Num ?? recordLabel(record);
+    if (
+      opts.records &&
+      !opts.records.has(record.Num) &&
+      !opts.records.has(String(num))
+    )
+      continue;
+    if (!Array.isArray(record.ColorPalette) || !record.ColorPalette.length)
+      continue;
 
-        const evidence = collectSlotEvidence(record, workDir, imagesRoot);
-        const { assignment, unassigned } = proposeSlotAssignment(evidence);
-        draft[String(num)] = assignment;
-        rows.push({ num, evidence, assignment, unassigned });
-    }
-    return { draft, rows };
+    const evidence = collectSlotEvidence(record, workDir, imagesRoot);
+    const { assignment, unassigned } = proposeSlotAssignment(evidence);
+    draft[String(num)] = assignment;
+    rows.push({ num, evidence, assignment, unassigned });
+  }
+  return { draft, rows };
 }
 
 // ────────────────────────────────────────────────────────────────────────────
@@ -1331,35 +1711,42 @@ export function reportSlotEvidence(opts) {
  * @returns {{ records: Array<any>, totals: { records: number, colors: number, hit: number } }}
  */
 export function verifyArtworkAgainstChips(opts) {
-    const { workDir, dbPath, imagesRoot } = resolveDbPaths(opts.work, opts.db);
-    if (!fs.existsSync(dbPath)) throw new Error(`DB が見つかりません: ${dbPath}`);
-    const db = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
-    const commonColors = readCommonColors(workDir);
+  const { workDir, dbPath, imagesRoot } = resolveDbPaths(opts.work, opts.db);
+  if (!fs.existsSync(dbPath)) throw new Error(`DB が見つかりません: ${dbPath}`);
+  const db = JSON.parse(fs.readFileSync(dbPath, "utf8"));
+  const commonColors = readCommonColors(workDir);
 
-    /** @type {Array<any>} */
-    const records = [];
-    let colors = 0, hit = 0;
+  /** @type {Array<any>} */
+  const records = [];
+  let colors = 0,
+    hit = 0;
 
-    for (const record of db) {
-        if (!Array.isArray(record?.ColorPalette) || !record.ColorPalette.length) continue;
-        const art = detectArtworkColorsForRecord(record, workDir, imagesRoot, {
-            exclude: commonColors,
-            minRatio: opts.minRatio,
-        });
-        if (!art.colors.length) continue;
+  for (const record of db) {
+    if (!Array.isArray(record?.ColorPalette) || !record.ColorPalette.length)
+      continue;
+    const art = detectArtworkColorsForRecord(record, workDir, imagesRoot, {
+      exclude: commonColors,
+      minRatio: opts.minRatio,
+    });
+    if (!art.colors.length) continue;
 
-        const chipHexes = record.ColorPalette.map(c => c.Hex).filter(Boolean);
-        const matched = art.colors.map(c => ({
-            hex: c.hex,
-            ratio: c.ratio,
-            nearest: Math.min(...chipHexes.map(h => colorDistance(c.hex, h))),
-        }));
-        colors += matched.length;
-        hit += matched.filter(m => m.nearest < 10).length;
-        records.push({ num: recordLabel(record), source: art.source, matched, chipHexes });
-    }
+    const chipHexes = record.ColorPalette.map((c) => c.Hex).filter(Boolean);
+    const matched = art.colors.map((c) => ({
+      hex: c.hex,
+      ratio: c.ratio,
+      nearest: Math.min(...chipHexes.map((h) => colorDistance(c.hex, h))),
+    }));
+    colors += matched.length;
+    hit += matched.filter((m) => m.nearest < 10).length;
+    records.push({
+      num: recordLabel(record),
+      source: art.source,
+      matched,
+      chipHexes,
+    });
+  }
 
-    return { records, totals: { records: records.length, colors, hit } };
+  return { records, totals: { records: records.length, colors, hit } };
 }
 
 /**
@@ -1373,11 +1760,12 @@ export function verifyArtworkAgainstChips(opts) {
  * @returns {string}
  */
 export function recordLabel(record) {
-    if (record?.Num !== undefined) return String(record.Num);
-    const firstKey = Object.keys(record ?? {})[0];
-    const value = record?.[firstKey];
-    if (value && typeof value === 'object') return `${firstKey}:${Object.values(value).join('/')}`;
-    return String(value ?? '?');
+  if (record?.Num !== undefined) return String(record.Num);
+  const firstKey = Object.keys(record ?? {})[0];
+  const value = record?.[firstKey];
+  if (value && typeof value === "object")
+    return `${firstKey}:${Object.values(value).join("/")}`;
+  return String(value ?? "?");
 }
 
 // ────────────────────────────────────────────────────────────────────────────
@@ -1386,7 +1774,7 @@ export function recordLabel(record) {
 
 /** ヘルプを表示して終了する。 */
 function printHelpAndExit() {
-    console.log(`
+  console.log(`
 patch-colorpalette.mjs — 設定画のカラーチップから ColorPalette を追記する
 
 使い方:
@@ -1424,6 +1812,10 @@ patch-colorpalette.mjs — 設定画のカラーチップから ColorPalette を
   --slot-report     スロット判定の根拠を表示し、割当ファイルの下書きを .cache/ へ出す
   --color-map       各配色が画像のどこに出ているかを粗いテキストマップで描く
                     （近似色を目視で分離できないときの判断材料。データは変更しない）
+  --figure-bands    設定画から人姿を切り出し、縦 5 帯（頭/上/中/下/足）の配色分布を出す
+                    衣装枠（主色(衣装) / 副色（衣装））の順序を決める主材料。
+                    被覆率は「どれだけ」しか言わないため、これが無いと上衣と下衣を
+                    取り違える（確定 5 件でシェア順は 3/5）。データは変更しない
   -v, --verbose     レコードごとの検出内容を表示
   -h, --help        このヘルプ
 
@@ -1470,7 +1862,7 @@ patch-colorpalette.mjs — 設定画のカラーチップから ColorPalette を
   AppearanceDetail を持たないレコードは末尾へ追記されるため、
   \`npm run data:order:write\` でキー順を整えてください。
 `);
-    process.exit(0);
+  process.exit(0);
 }
 
 /**
@@ -1484,17 +1876,20 @@ patch-colorpalette.mjs — 設定画のカラーチップから ColorPalette を
  * @returns {Set<any>}
  */
 function parseRecordSpec(spec) {
-    const set = new Set();
-    const addNum = (t) => { set.add(Number(t)); set.add(t); };
-    for (const part of spec.split(',')) {
-        const t = part.trim();
-        if (!t) continue;
-        const m = t.match(/^(\d+)-(\d+)$/);
-        if (m) for (let i = Number(m[1]); i <= Number(m[2]); i++) addNum(String(i));
-        else if (/^\d+$/.test(t)) addNum(t);
-        else set.add(t); // "2-alt" / "444-mp" 等の特殊 Num
-    }
-    return set;
+  const set = new Set();
+  const addNum = (t) => {
+    set.add(Number(t));
+    set.add(t);
+  };
+  for (const part of spec.split(",")) {
+    const t = part.trim();
+    if (!t) continue;
+    const m = t.match(/^(\d+)-(\d+)$/);
+    if (m) for (let i = Number(m[1]); i <= Number(m[2]); i++) addNum(String(i));
+    else if (/^\d+$/.test(t)) addNum(t);
+    else set.add(t); // "2-alt" / "444-mp" 等の特殊 Num
+  }
+  return set;
 }
 
 /**
@@ -1506,11 +1901,12 @@ function parseRecordSpec(spec) {
  * @throws {Error} `#RRGGBB` 形式でない値が含まれる場合
  */
 export function parseChipList(spec) {
-    return spec.split(',').map(part => {
-        const t = part.trim().replace(/^#/, '');
-        if (!/^[0-9A-Fa-f]{6}$/.test(t)) throw new Error(`カラーコードの形式が不正です: ${part.trim()}`);
-        return `#${t.toUpperCase()}`;
-    });
+  return spec.split(",").map((part) => {
+    const t = part.trim().replace(/^#/, "");
+    if (!/^[0-9A-Fa-f]{6}$/.test(t))
+      throw new Error(`カラーコードの形式が不正です: ${part.trim()}`);
+    return `#${t.toUpperCase()}`;
+  });
 }
 
 /**
@@ -1518,29 +1914,42 @@ export function parseChipList(spec) {
  * @param {{ work: string, db: string, minRatio: number, verbose: boolean }} opts
  */
 function printArtworkVerification(opts) {
-    const { records, totals } = verifyArtworkAgainstChips(opts);
+  const { records, totals } = verifyArtworkAgainstChips(opts);
 
-    console.log(`[透過イラスト抽出の照合] ${opts.work} / ${opts.db}（min-ratio ${opts.minRatio}）`);
-    if (!totals.records) {
-        console.log('  チップ由来 ColorPalette と透過イラストの両方を持つレコードがありません。');
-        return;
+  console.log(
+    `[透過イラスト抽出の照合] ${opts.work} / ${opts.db}（min-ratio ${opts.minRatio}）`,
+  );
+  if (!totals.records) {
+    console.log(
+      "  チップ由来 ColorPalette と透過イラストの両方を持つレコードがありません。",
+    );
+    return;
+  }
+
+  if (opts.verbose) {
+    for (const r of records) {
+      const cols = r.matched
+        .map(
+          (m) =>
+            `${m.hex}(${Math.round(m.ratio * 100)}%,d=${m.nearest.toFixed(0)})`,
+        )
+        .join(" ");
+      console.log(`  #${String(r.num).padEnd(7)} ${cols}`);
     }
+    console.log("");
+  }
 
-    if (opts.verbose) {
-        for (const r of records) {
-            const cols = r.matched
-                .map(m => `${m.hex}(${Math.round(m.ratio * 100)}%,d=${m.nearest.toFixed(0)})`)
-                .join(' ');
-            console.log(`  #${String(r.num).padEnd(7)} ${cols}`);
-        }
-        console.log('');
-    }
-
-    const rate = (totals.hit / totals.colors) * 100;
-    console.log(`  照合レコード: ${totals.records} 件 / 抽出色: ${totals.colors} 色`);
-    console.log(`  チップ由来の色と一致（RGB 距離 < 10）: ${totals.hit} 色（${rate.toFixed(1)}%）`);
-    console.log('\n※ このモードはデータを変更しません。作者がチップに載せていない色（影・小物など）は');
-    console.log('  不一致として数えられるため、100% にはなりません。');
+  const rate = (totals.hit / totals.colors) * 100;
+  console.log(
+    `  照合レコード: ${totals.records} 件 / 抽出色: ${totals.colors} 色`,
+  );
+  console.log(
+    `  チップ由来の色と一致（RGB 距離 < 10）: ${totals.hit} 色（${rate.toFixed(1)}%）`,
+  );
+  console.log(
+    "\n※ このモードはデータを変更しません。作者がチップに載せていない色（影・小物など）は",
+  );
+  console.log("  不一致として数えられるため、100% にはなりません。");
 }
 
 /**
@@ -1553,49 +1962,151 @@ function printArtworkVerification(opts) {
  * @param {{work: string, db: string, records: Set<any>|null}} opts
  */
 function printColorMap(opts) {
-    const { workDir, dbPath, imagesRoot } = resolveDbPaths(opts.work, opts.db);
-    const db = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
+  const { workDir, dbPath, imagesRoot } = resolveDbPaths(opts.work, opts.db);
+  const db = JSON.parse(fs.readFileSync(dbPath, "utf8"));
 
-    for (const record of db) {
-        const num = record.Num ?? recordLabel(record);
-        if (opts.records && !opts.records.has(record.Num) && !opts.records.has(String(num))) continue;
-        const hexes = (Array.isArray(record.ColorPalette) ? record.ColorPalette : [])
-            .map(c => c?.Hex).filter(Boolean);
-        if (!hexes.length) continue;
+  for (const record of db) {
+    const num = record.Num ?? recordLabel(record);
+    if (
+      opts.records &&
+      !opts.records.has(record.Num) &&
+      !opts.records.has(String(num))
+    )
+      continue;
+    const hexes = (
+      Array.isArray(record.ColorPalette) ? record.ColorPalette : []
+    )
+      .map((c) => c?.Hex)
+      .filter(Boolean);
+    if (!hexes.length) continue;
 
-        console.log(`\n=== #${num} ===`);
-        hexes.forEach((h, i) => console.log(`  ${i + 1} = ${h}`));
+    console.log(`\n=== #${num} ===`);
+    hexes.forEach((h, i) => console.log(`  ${i + 1} = ${h}`));
 
-        // 清書イラストは `resolveSoloArtSources()` で絞る。素通しだと合同絵が混ざり、
-        // 他キャラの色が図に描かれてしまう（判定材料の `collectSlotEvidence()` と同じ理由）。
-        const files = [
-            ...resolveArtworkSources(record, workDir, imagesRoot).map(s => ({ role: s.folder, path: s.path })),
-            ...resolveSoloArtSources(record, workDir, imagesRoot).map(s => ({ role: 'solo', path: s.path })),
-        ];
-        if (!files.length) { console.log('  （画像なし）'); continue; }
-
-        for (const f of files) {
-            let lines;
-            try {
-                lines = renderColorMap(decodePng(fs.readFileSync(f.path)), hexes);
-            } catch (err) {
-                console.log(`  ${f.role}: 読み込み失敗 (${err.message})`);
-                continue;
-            }
-            console.log(`  -- ${f.role}/${path.basename(f.path)}`);
-            // 図が描かれている範囲だけを帯の対象にする（上下の空行は数えない）
-            const filled = lines.map((l, i) => (/[^.]/.test(l) ? i : -1)).filter(i => i >= 0);
-            const top = filled[0] ?? 0;
-            const span = ((filled[filled.length - 1] ?? 0) - top) + 1;
-            lines.forEach((line, i) => {
-                const rel = (i - top) / span;
-                const band = rel >= 0 && rel < 1 ? BAND_LABELS[Math.min(4, Math.floor(rel * 5))] : '　';
-                console.log(`  ${band} ${line}`);
-            });
-        }
+    // 清書イラストは `resolveSoloArtSources()` で絞る。素通しだと合同絵が混ざり、
+    // 他キャラの色が図に描かれてしまう（判定材料の `collectSlotEvidence()` と同じ理由）。
+    const files = [
+      ...resolveArtworkSources(record, workDir, imagesRoot).map((s) => ({
+        role: s.folder,
+        path: s.path,
+      })),
+      ...resolveSoloArtSources(record, workDir, imagesRoot).map((s) => ({
+        role: "solo",
+        path: s.path,
+      })),
+    ];
+    if (!files.length) {
+      console.log("  （画像なし）");
+      continue;
     }
-    console.log('\n※ 高さ帯は外接矩形の 5 等分目盛りで、部位の判定ではありません。');
-    console.log('  尻尾・耳は姿によって帯をまたぐため、設定画と併せて判断してください。');
+
+    for (const f of files) {
+      let lines;
+      try {
+        lines = renderColorMap(decodePng(fs.readFileSync(f.path)), hexes);
+      } catch (err) {
+        console.log(`  ${f.role}: 読み込み失敗 (${err.message})`);
+        continue;
+      }
+      console.log(`  -- ${f.role}/${path.basename(f.path)}`);
+      // 図が描かれている範囲だけを帯の対象にする（上下の空行は数えない）
+      const filled = lines
+        .map((l, i) => (/[^.]/.test(l) ? i : -1))
+        .filter((i) => i >= 0);
+      const top = filled[0] ?? 0;
+      const span = (filled[filled.length - 1] ?? 0) - top + 1;
+      lines.forEach((line, i) => {
+        const rel = (i - top) / span;
+        const band =
+          rel >= 0 && rel < 1
+            ? BAND_LABELS[Math.min(4, Math.floor(rel * 5))]
+            : "　";
+        console.log(`  ${band} ${line}`);
+      });
+    }
+  }
+  console.log(
+    "\n※ 高さ帯は外接矩形の 5 等分目盛りで、部位の判定ではありません。",
+  );
+  console.log(
+    "  尻尾・耳は姿によって帯をまたぐため、設定画と併せて判断してください。",
+  );
+}
+
+/**
+ * 設定画から人姿を切り出し、縦 5 帯の配色分布を表示する（データは変更しない）。
+ *
+ * 衣装枠（主色(衣装) / 副色（衣装））の順序を決めるための主材料。被覆率は
+ * 「どれだけ使われているか」しか言わないので、これが無いと上衣と下衣を取り違える。
+ *
+ * @param {{work: string, db: string, records: Set<any>|null}} opts
+ */
+function printFigureBands(opts) {
+  const { workDir, dbPath, imagesRoot } = resolveDbPaths(opts.work, opts.db);
+  const db = JSON.parse(fs.readFileSync(dbPath, "utf8"));
+  const common = readCommonColors(workDir);
+
+  console.log(`[人姿の帯分布] ${opts.work} / ${opts.db}`);
+  for (const record of db) {
+    const num = record.Num ?? recordLabel(record);
+    if (
+      opts.records &&
+      !opts.records.has(record.Num) &&
+      !opts.records.has(String(num))
+    )
+      continue;
+    const hexes = (
+      Array.isArray(record.ColorPalette) ? record.ColorPalette : []
+    )
+      .map((c) => c?.Hex)
+      .filter(Boolean);
+    if (!hexes.length) continue;
+
+    // 設定画（`$palette.source: "swatch"`）が対象。人姿と球体型姿が並んでいるのが前提
+    const src = resolveImageSources(record, workDir, imagesRoot).find(
+      (s) => s.source === "swatch",
+    );
+    console.log(`\n  #${num}`);
+    if (!src) {
+      console.log("    （設定画なし）");
+      continue;
+    }
+
+    let img;
+    try {
+      img = decodePng(fs.readFileSync(src.path));
+    } catch (err) {
+      console.log(`    読み込み失敗: ${err.message}`);
+      continue;
+    }
+    const blobs = findFigureBlobs(img);
+    if (!blobs.length) {
+      console.log("    （塊が見つかりません）");
+      continue;
+    }
+
+    blobs.forEach((blob, i) => {
+      console.log(
+        `    [塊${i + 1}] ${blob.box.join(",")}  縦横比 ${blob.aspect.toFixed(1)}`,
+      );
+      measureFigureBands(img, hexes, blob.box, { common }).forEach(
+        (band, bi) => {
+          const cells =
+            band
+              .map((t) => `${t.hex}:${(t.share * 100).toFixed(0)}%`)
+              .join(" ") || "-";
+          console.log(`      ${BAND_LABELS[bi]} ${cells}`);
+        },
+      );
+    });
+  }
+  console.log(
+    "\n※ 縦横比 2 以上なら人姿、1 前後なら球体型姿や上半身の抜きです。",
+  );
+  console.log(
+    "  帯は「頭＝髪 / 上＝上衣 / 中＝胴 / 下＝下衣 / 足＝靴」として読んでください。",
+  );
+  console.log("  肌などの共通造形色は除外済みです。");
 }
 
 /**
@@ -1603,42 +2114,67 @@ function printColorMap(opts) {
  * @param {{work: string, db: string, records: Set<any>|null, verbose: boolean}} opts
  */
 function printSlotReport(opts) {
-    const { draft, rows } = reportSlotEvidence(opts);
+  const { draft, rows } = reportSlotEvidence(opts);
 
-    console.log(`[スロット判定の根拠] ${opts.work} / ${opts.db}`);
-    for (const r of rows) {
-        const slotOf = new Map(r.assignment.map(a => [a.hex.toUpperCase(), a.slot]));
-        console.log(`\n  #${r.num}`);
-        console.log(`    ${'HEX'.padEnd(9)}${'球体%'.padStart(6)}${'人姿%'.padStart(7)}  ${BAND_LABELS.join('')}  クラス  スロット      部位`);
-        for (const ev of r.evidence) {
-            const slot = slotOf.get(ev.hex.toUpperCase()) ?? '-';
-            // `AppliesTo`（issue #21 由来の確定値）が正。無いときだけ色語照合を `~` 付きで見せる
-            const fallback = [...new Set(ev.hints.map(h => h.bodyPart).filter(Boolean))];
-            const parts = ev.appliesTo?.length ? ev.appliesTo : fallback;
-            const label = (ev.appliesTo?.length ? '' : parts.length ? '~' : '')
-                + (parts.map(p => p.replace('#BodyPart_', '')).join(',') || '-');
-            // 全角 1 文字＝2 桁で数えるため、無いクラスは全角スペースで埋めて桁を揃える
-            const c = classifyParts(ev.appliesTo);
-            const cls = `${c.base ? '地' : '　'}${c.costume ? '衣' : '　'}${c.accessory ? '飾' : '　'}`;
-            // 帯は「その色がどこに出ているか」。近似色は被覆率では潰れるがここで分かれる
-            const bands = (ev.bands ?? []).map(v => (v >= 0.4 ? '#' : v >= 0.15 ? '+' : v > 0.02 ? '.' : ' ')).join('');
-            console.log(`    ${ev.hex}${(ev.covBall * 100).toFixed(1).padStart(6)}%${(ev.covArt * 100).toFixed(1).padStart(6)}%  ${bands}  ${cls}  ${slot.padEnd(12)} ${label}`);
-        }
-        if (r.unassigned.length) console.log(`    → 未割当: ${r.unassigned.join(', ')}`);
+  console.log(`[スロット判定の根拠] ${opts.work} / ${opts.db}`);
+  for (const r of rows) {
+    const slotOf = new Map(
+      r.assignment.map((a) => [a.hex.toUpperCase(), a.slot]),
+    );
+    console.log(`\n  #${r.num}`);
+    console.log(
+      `    ${"HEX".padEnd(9)}${"球体%".padStart(6)}${"人姿%".padStart(7)}  ${BAND_LABELS.join("")}  クラス  スロット      部位`,
+    );
+    for (const ev of r.evidence) {
+      const slot = slotOf.get(ev.hex.toUpperCase()) ?? "-";
+      // `AppliesTo`（issue #21 由来の確定値）が正。無いときだけ色語照合を `~` 付きで見せる
+      const fallback = [
+        ...new Set(ev.hints.map((h) => h.bodyPart).filter(Boolean)),
+      ];
+      const parts = ev.appliesTo?.length ? ev.appliesTo : fallback;
+      const label =
+        (ev.appliesTo?.length ? "" : parts.length ? "~" : "") +
+        (parts.map((p) => p.replace("#BodyPart_", "")).join(",") || "-");
+      // 全角 1 文字＝2 桁で数えるため、無いクラスは全角スペースで埋めて桁を揃える
+      const c = classifyParts(ev.appliesTo);
+      const cls = `${c.base ? "地" : "　"}${c.costume ? "衣" : "　"}${c.accessory ? "飾" : "　"}`;
+      // 帯は「その色がどこに出ているか」。近似色は被覆率では潰れるがここで分かれる
+      const bands = (ev.bands ?? [])
+        .map((v) => (v >= 0.4 ? "#" : v >= 0.15 ? "+" : v > 0.02 ? "." : " "))
+        .join("");
+      console.log(
+        `    ${ev.hex}${(ev.covBall * 100).toFixed(1).padStart(6)}%${(ev.covArt * 100).toFixed(1).padStart(6)}%  ${bands}  ${cls}  ${slot.padEnd(12)} ${label}`,
+      );
     }
+    if (r.unassigned.length)
+      console.log(`    → 未割当: ${r.unassigned.join(", ")}`);
+  }
 
-    const outDir = path.join(REPO_ROOT, '.cache');
-    fs.mkdirSync(outDir, { recursive: true });
-    const outPath = path.join(outDir, `colorpalette-slots-${opts.work}-${opts.db}.json`);
-    fs.writeFileSync(outPath, `${JSON.stringify(draft, null, 2)}\n`, 'utf8');
+  const outDir = path.join(REPO_ROOT, ".cache");
+  fs.mkdirSync(outDir, { recursive: true });
+  const outPath = path.join(
+    outDir,
+    `colorpalette-slots-${opts.work}-${opts.db}.json`,
+  );
+  fs.writeFileSync(outPath, `${JSON.stringify(draft, null, 2)}\n`, "utf8");
 
-    const done = rows.filter(r => !r.unassigned.length).length;
-    console.log(`\n  下書き: ${done} / ${rows.length} 件が全色割当済み`);
-    console.log(`  ${path.relative(REPO_ROOT, outPath).split(path.sep).join('/')} へ下書きを書き出しました。`);
-    console.log('\n※ クラスは AppliesTo の部位から: 地=髪/耳/尻尾 衣=胸/腰/脚/肩/腕/背中 飾=それ以外（瞳・首・手・足など）');
-    console.log('  部位の `~` 印は AppliesTo が空で色語照合にフォールバックしたもの（精度 3 割前後）。');
-    console.log('\n※ この下書きが埋めるのは主色・副色だけです。衣装枠の順序はシェアでは決まらないため');
-    console.log('  （確定 5 件で 3/5）、設定画を見て割当ファイルを作ってから --slots で適用してください。');
+  const done = rows.filter((r) => !r.unassigned.length).length;
+  console.log(`\n  下書き: ${done} / ${rows.length} 件が全色割当済み`);
+  console.log(
+    `  ${path.relative(REPO_ROOT, outPath).split(path.sep).join("/")} へ下書きを書き出しました。`,
+  );
+  console.log(
+    "\n※ クラスは AppliesTo の部位から: 地=髪/耳/尻尾 衣=胸/腰/脚/肩/腕/背中 飾=それ以外（瞳・首・手・足など）",
+  );
+  console.log(
+    "  部位の `~` 印は AppliesTo が空で色語照合にフォールバックしたもの（精度 3 割前後）。",
+  );
+  console.log(
+    "\n※ この下書きが埋めるのは主色・副色だけです。衣装枠の順序はシェアでは決まらないため",
+  );
+  console.log(
+    "  （確定 5 件で 3/5）、設定画を見て割当ファイルを作ってから --slots で適用してください。",
+  );
 }
 
 /**
@@ -1646,36 +2182,52 @@ function printSlotReport(opts) {
  * @param {{work: string, db: string, records: Set<any>|null, apply: boolean, slots: any, verbose: boolean}} opts
  */
 function printSlotPatch(opts) {
-    const { results, applied, dbPath } = patchColorPaletteSlots(opts);
+  const { results, applied, dbPath } = patchColorPaletteSlots(opts);
 
-    if (opts.verbose) {
-        for (const r of results) {
-            if (r.status === 'slotted') {
-                console.log(`  #${String(r.num).padEnd(7)} slotted (${r.source})  ${r.value.map(v => `${v.ColorName_JP}:${v.Hex}`).join(' ')}`);
-            } else if (r.status === 'skipped-unassigned') {
-                console.log(`  #${String(r.num).padEnd(7)} 未割当あり → スキップ: ${r.unassigned.join(', ')}`);
-            } else {
-                console.log(`  #${String(r.num).padEnd(7)} ${r.status}${r.message ? `: ${r.message}` : ''}`);
-            }
-        }
-        console.log('');
+  if (opts.verbose) {
+    for (const r of results) {
+      if (r.status === "slotted") {
+        console.log(
+          `  #${String(r.num).padEnd(7)} slotted (${r.source})  ${r.value.map((v) => `${v.ColorName_JP}:${v.Hex}`).join(" ")}`,
+        );
+      } else if (r.status === "skipped-unassigned") {
+        console.log(
+          `  #${String(r.num).padEnd(7)} 未割当あり → スキップ: ${r.unassigned.join(", ")}`,
+        );
+      } else {
+        console.log(
+          `  #${String(r.num).padEnd(7)} ${r.status}${r.message ? `: ${r.message}` : ""}`,
+        );
+      }
     }
+    console.log("");
+  }
 
-    const tally = {};
-    for (const r of results) tally[r.status] = (tally[r.status] ?? 0) + 1;
-    console.log(`[スロット確定${opts.apply ? '' : ' / dry-run'}] ${opts.work} / ${opts.db}`);
-    for (const [status, count] of Object.entries(tally)) console.log(`  ${status}: ${count} 件`);
+  const tally = {};
+  for (const r of results) tally[r.status] = (tally[r.status] ?? 0) + 1;
+  console.log(
+    `[スロット確定${opts.apply ? "" : " / dry-run"}] ${opts.work} / ${opts.db}`,
+  );
+  for (const [status, count] of Object.entries(tally))
+    console.log(`  ${status}: ${count} 件`);
 
-    const pending = results.filter(r => r.status === 'skipped-unassigned').map(r => r.num);
-    if (pending.length) console.log(`  → 要確認（未割当の色が残る）: ${pending.join(', ')}`);
+  const pending = results
+    .filter((r) => r.status === "skipped-unassigned")
+    .map((r) => r.num);
+  if (pending.length)
+    console.log(`  → 要確認（未割当の色が残る）: ${pending.join(", ")}`);
 
-    if (opts.apply && applied) {
-        console.log(`\n  ${path.relative(REPO_ROOT, dbPath).split(path.sep).join('/')} を更新しました（${applied} 件）`);
-        console.log('  ※ 仕上げに `npx prettier --write` を実行してください。');
-    } else if (!opts.apply) {
-        console.log('\n  （--apply を付けると実際に書き込みます）');
-    }
-    console.log('\n※ Hex / Formation / Note は既存値のまま。Role と ColorName はスロット表から確定します。');
+  if (opts.apply && applied) {
+    console.log(
+      `\n  ${path.relative(REPO_ROOT, dbPath).split(path.sep).join("/")} を更新しました（${applied} 件）`,
+    );
+    console.log("  ※ 仕上げに `npx prettier --write` を実行してください。");
+  } else if (!opts.apply) {
+    console.log("\n  （--apply を付けると実際に書き込みます）");
+  }
+  console.log(
+    "\n※ Hex / Formation / Note は既存値のまま。Role と ColorName はスロット表から確定します。",
+  );
 }
 
 /**
@@ -1683,27 +2235,34 @@ function printSlotPatch(opts) {
  * @param {{work: string, db: string, appliesTo: any[], apply: boolean, verbose: boolean}} opts
  */
 function printAppliesTo(opts) {
-    const { results, applied, dbPath } = setAppliesTo(opts);
+  const { results, applied, dbPath } = setAppliesTo(opts);
 
-    if (opts.verbose) {
-        for (const r of results) {
-            console.log(`  #${String(r.num).padEnd(8)} ${r.status}${r.changed ? ` ${r.changed} 色` : ''}${r.message ? ` — ${r.message}` : ''}`);
-        }
-        console.log('');
+  if (opts.verbose) {
+    for (const r of results) {
+      console.log(
+        `  #${String(r.num).padEnd(8)} ${r.status}${r.changed ? ` ${r.changed} 色` : ""}${r.message ? ` — ${r.message}` : ""}`,
+      );
     }
+    console.log("");
+  }
 
-    const tally = {};
-    for (const r of results) tally[r.status] = (tally[r.status] ?? 0) + 1;
-    console.log(`[AppliesTo の差し替え${opts.apply ? '' : ' / dry-run'}] ${opts.work} / ${opts.db}`);
-    for (const [status, count] of Object.entries(tally)) console.log(`  ${status}: ${count} 件`);
-    console.log(`  更新した色: ${applied} 色`);
+  const tally = {};
+  for (const r of results) tally[r.status] = (tally[r.status] ?? 0) + 1;
+  console.log(
+    `[AppliesTo の差し替え${opts.apply ? "" : " / dry-run"}] ${opts.work} / ${opts.db}`,
+  );
+  for (const [status, count] of Object.entries(tally))
+    console.log(`  ${status}: ${count} 件`);
+  console.log(`  更新した色: ${applied} 色`);
 
-    if (opts.apply && applied) {
-        console.log(`\n  ${path.relative(REPO_ROOT, dbPath).split(path.sep).join('/')} を更新しました。`);
-        console.log('  ※ 仕上げに `npx prettier --write` を実行してください。');
-    } else if (!opts.apply) {
-        console.log('\n  （--apply を付けると実際に書き込みます）');
-    }
+  if (opts.apply && applied) {
+    console.log(
+      `\n  ${path.relative(REPO_ROOT, dbPath).split(path.sep).join("/")} を更新しました。`,
+    );
+    console.log("  ※ 仕上げに `npx prettier --write` を実行してください。");
+  } else if (!opts.apply) {
+    console.log("\n  （--apply を付けると実際に書き込みます）");
+  }
 }
 
 /**
@@ -1711,180 +2270,295 @@ function printAppliesTo(opts) {
  * @param {{work: string, db: string, colors: any[], apply: boolean, verbose: boolean}} opts
  */
 function printAddColors(opts) {
-    const { results, applied, dbPath } = addColorsToPalette(opts);
+  const { results, applied, dbPath } = addColorsToPalette(opts);
 
-    if (opts.verbose) {
-        for (const r of results) {
-            if (r.status === 'added') {
-                console.log(`  #${String(r.num).padEnd(8)} +${r.added.length} 色  ${r.added.map(a => `${a.Hex}[${(a.AppliesTo ?? []).map(p => p.replace('#BodyPart_', '')).join(',') || '-'}]`).join(' ')}`);
-            } else {
-                console.log(`  #${String(r.num).padEnd(8)} ${r.hex ?? ''} ${r.status}${r.message ? ` — ${r.message}` : ''}`);
-            }
-        }
-        console.log('');
+  if (opts.verbose) {
+    for (const r of results) {
+      if (r.status === "added") {
+        console.log(
+          `  #${String(r.num).padEnd(8)} +${r.added.length} 色  ${r.added.map((a) => `${a.Hex}[${(a.AppliesTo ?? []).map((p) => p.replace("#BodyPart_", "")).join(",") || "-"}]`).join(" ")}`,
+        );
+      } else {
+        console.log(
+          `  #${String(r.num).padEnd(8)} ${r.hex ?? ""} ${r.status}${r.message ? ` — ${r.message}` : ""}`,
+        );
+      }
     }
+    console.log("");
+  }
 
-    const tally = {};
-    for (const r of results) tally[r.status] = (tally[r.status] ?? 0) + 1;
-    console.log(`[色の追加${opts.apply ? '' : ' / dry-run'}] ${opts.work} / ${opts.db}`);
-    for (const [status, count] of Object.entries(tally)) console.log(`  ${status}: ${count} 件`);
-    console.log(`  追加した色: ${applied} 色`);
+  const tally = {};
+  for (const r of results) tally[r.status] = (tally[r.status] ?? 0) + 1;
+  console.log(
+    `[色の追加${opts.apply ? "" : " / dry-run"}] ${opts.work} / ${opts.db}`,
+  );
+  for (const [status, count] of Object.entries(tally))
+    console.log(`  ${status}: ${count} 件`);
+  console.log(`  追加した色: ${applied} 色`);
 
-    if (opts.apply && applied) {
-        console.log(`\n  ${path.relative(REPO_ROOT, dbPath).split(path.sep).join('/')} を更新しました。`);
-        console.log('  ※ 仕上げに `npx prettier --write` を実行してください。');
-        console.log('  ※ Role は仮値（補助色）です。主従は --assign-slots で確定してください。');
-    } else if (!opts.apply) {
-        console.log('\n  （--apply を付けると実際に書き込みます）');
-    }
+  if (opts.apply && applied) {
+    console.log(
+      `\n  ${path.relative(REPO_ROOT, dbPath).split(path.sep).join("/")} を更新しました。`,
+    );
+    console.log("  ※ 仕上げに `npx prettier --write` を実行してください。");
+    console.log(
+      "  ※ Role は仮値（補助色）です。主従は --assign-slots で確定してください。",
+    );
+  } else if (!opts.apply) {
+    console.log("\n  （--apply を付けると実際に書き込みます）");
+  }
 }
 
 /** CLI エントリポイント。 */
 function main() {
-    const argv = process.argv.slice(2);
-    if (argv.includes('-h') || argv.includes('--help')) printHelpAndExit();
+  const argv = process.argv.slice(2);
+  if (argv.includes("-h") || argv.includes("--help")) printHelpAndExit();
 
-    /** @type {PatchOptions} */
-    const opts = {
-        work: 'NumberTales', db: 'Primary', records: null,
-        apply: false, force: false, dropUnresolved: false, minChips: 3,
-        manualChips: null, fromArtwork: false, minRatio: 0.02, verbose: false,
-    };
-    let all = false;
-    let verifyArtwork = false;
-    let assignSlots = false;
-    let slotReport = false;
-    let colorMap = false;
-    let slotsFile = null;
-    let addColorsFile = null;
-    let appliesToFile = null;
+  /** @type {PatchOptions} */
+  const opts = {
+    work: "NumberTales",
+    db: "Primary",
+    records: null,
+    apply: false,
+    force: false,
+    dropUnresolved: false,
+    minChips: 3,
+    manualChips: null,
+    fromArtwork: false,
+    minRatio: 0.02,
+    verbose: false,
+  };
+  let all = false;
+  let verifyArtwork = false;
+  let assignSlots = false;
+  let slotReport = false;
+  let colorMap = false;
+  let figureBands = false;
+  let slotsFile = null;
+  let addColorsFile = null;
+  let appliesToFile = null;
 
-    for (let i = 0; i < argv.length; i++) {
-        switch (argv[i]) {
-            case '--assign-slots': assignSlots = true; break;
-            case '--add-colors': addColorsFile = argv[++i]; break;
-            case '--applies-to': appliesToFile = argv[++i]; break;
-            case '--slot-report': slotReport = true; break;
-            case '--color-map': colorMap = true; break;
-            case '--slots': slotsFile = argv[++i]; break;
-            case '--work': opts.work = argv[++i]; break;
-            case '--db': opts.db = argv[++i]; break;
-            case '--records': opts.records = parseRecordSpec(argv[++i]); break;
-            case '--all': all = true; break;
-            case '--apply': opts.apply = true; break;
-            case '--force': opts.force = true; break;
-            case '--drop-unresolved': opts.dropUnresolved = true; break;
-            case '--min-chips': opts.minChips = Number(argv[++i]); break;
-            case '--chips': opts.manualChips = parseChipList(argv[++i]); break;
-            case '--from-artwork': opts.fromArtwork = true; break;
-            case '--min-ratio': opts.minRatio = Number(argv[++i]); break;
-            case '--verify-artwork': verifyArtwork = true; break;
-            case '-v': case '--verbose': opts.verbose = true; break;
-            default:
-                if (argv[i].startsWith('-')) { console.error(`未知のオプション: ${argv[i]}`); process.exit(1); }
+  for (let i = 0; i < argv.length; i++) {
+    switch (argv[i]) {
+      case "--assign-slots":
+        assignSlots = true;
+        break;
+      case "--add-colors":
+        addColorsFile = argv[++i];
+        break;
+      case "--applies-to":
+        appliesToFile = argv[++i];
+        break;
+      case "--slot-report":
+        slotReport = true;
+        break;
+      case "--color-map":
+        colorMap = true;
+        break;
+      case "--figure-bands":
+        figureBands = true;
+        break;
+      case "--slots":
+        slotsFile = argv[++i];
+        break;
+      case "--work":
+        opts.work = argv[++i];
+        break;
+      case "--db":
+        opts.db = argv[++i];
+        break;
+      case "--records":
+        opts.records = parseRecordSpec(argv[++i]);
+        break;
+      case "--all":
+        all = true;
+        break;
+      case "--apply":
+        opts.apply = true;
+        break;
+      case "--force":
+        opts.force = true;
+        break;
+      case "--drop-unresolved":
+        opts.dropUnresolved = true;
+        break;
+      case "--min-chips":
+        opts.minChips = Number(argv[++i]);
+        break;
+      case "--chips":
+        opts.manualChips = parseChipList(argv[++i]);
+        break;
+      case "--from-artwork":
+        opts.fromArtwork = true;
+        break;
+      case "--min-ratio":
+        opts.minRatio = Number(argv[++i]);
+        break;
+      case "--verify-artwork":
+        verifyArtwork = true;
+        break;
+      case "-v":
+      case "--verbose":
+        opts.verbose = true;
+        break;
+      default:
+        if (argv[i].startsWith("-")) {
+          console.error(`未知のオプション: ${argv[i]}`);
+          process.exit(1);
         }
     }
-    // 入力検証（pkg/ と同じ安全トークン規約に合わせる）
-    if (!/^[A-Za-z0-9_]+$/.test(opts.work) || !/^[A-Za-z0-9_]+$/.test(opts.db)) {
-        console.error('work / db は英数字とアンダースコアのみ許可されます');
-        process.exit(1);
-    }
-    if (!(opts.minRatio >= 0 && opts.minRatio < 1)) {
-        console.error('--min-ratio は 0 以上 1 未満で指定してください');
-        process.exit(1);
-    }
+  }
+  // 入力検証（pkg/ と同じ安全トークン規約に合わせる）
+  if (!/^[A-Za-z0-9_]+$/.test(opts.work) || !/^[A-Za-z0-9_]+$/.test(opts.db)) {
+    console.error("work / db は英数字とアンダースコアのみ許可されます");
+    process.exit(1);
+  }
+  if (!(opts.minRatio >= 0 && opts.minRatio < 1)) {
+    console.error("--min-ratio は 0 以上 1 未満で指定してください");
+    process.exit(1);
+  }
 
-    // ── 照合レポート（データは変更しない）
-    if (verifyArtwork) {
-        printArtworkVerification(opts);
-        return;
-    }
+  // ── 照合レポート（データは変更しない）
+  if (verifyArtwork) {
+    printArtworkVerification(opts);
+    return;
+  }
 
-    // ── 配色マップ（データは変更しない）
-    if (colorMap) {
-        printColorMap(opts);
-        return;
-    }
+  // ── 人姿の帯分布（データは変更しない）
+  if (figureBands) {
+    printFigureBands(opts);
+    return;
+  }
 
-    // ── スロット判定の根拠レポート（データは変更しない）
-    if (slotReport) {
-        printSlotReport(opts);
-        return;
-    }
+  // ── 配色マップ（データは変更しない）
+  if (colorMap) {
+    printColorMap(opts);
+    return;
+  }
 
-    // ── AppliesTo の差し替え
-    if (appliesToFile) {
-        printAppliesTo({ ...opts, appliesTo: JSON.parse(fs.readFileSync(appliesToFile, 'utf8')) });
-        return;
-    }
+  // ── スロット判定の根拠レポート（データは変更しない）
+  if (slotReport) {
+    printSlotReport(opts);
+    return;
+  }
 
-    // ── 色の追加（既存行は触らない）
-    if (addColorsFile) {
-        printAddColors({ ...opts, colors: JSON.parse(fs.readFileSync(addColorsFile, 'utf8')) });
-        return;
-    }
+  // ── AppliesTo の差し替え
+  if (appliesToFile) {
+    printAppliesTo({
+      ...opts,
+      appliesTo: JSON.parse(fs.readFileSync(appliesToFile, "utf8")),
+    });
+    return;
+  }
 
-    // ── スロット確定（並べ替え + Role / ColorName）
-    if (assignSlots) {
-        const slots = slotsFile ? JSON.parse(fs.readFileSync(slotsFile, 'utf8')) : null;
-        printSlotPatch({ ...opts, slots });
-        return;
-    }
+  // ── 色の追加（既存行は触らない）
+  if (addColorsFile) {
+    printAddColors({
+      ...opts,
+      colors: JSON.parse(fs.readFileSync(addColorsFile, "utf8")),
+    });
+    return;
+  }
 
-    if (!all && !opts.records) {
-        console.error('--records か --all を指定してください（--help でヘルプ）');
-        process.exit(1);
-    }
+  // ── スロット確定（並べ替え + Role / ColorName）
+  if (assignSlots) {
+    const slots = slotsFile
+      ? JSON.parse(fs.readFileSync(slotsFile, "utf8"))
+      : null;
+    printSlotPatch({ ...opts, slots });
+    return;
+  }
 
-    const { results, applied, dbPath } = patchColorPalette(opts);
+  if (!all && !opts.records) {
+    console.error("--records か --all を指定してください（--help でヘルプ）");
+    process.exit(1);
+  }
 
-    if (opts.verbose) {
-        for (const r of results) {
-            if (r.status === 'inserted' || r.status === 'replaced' || r.status === 'appended') {
-                const cols = r.palette
-                    .map(p => `${p.hex}${p.coverage !== null ? `(${Math.round(p.coverage * 100)}%)` : ''}`)
-                    .join(' ');
-                const from = r.origin === 'artwork' ? `${r.palette.length}colors` : `${r.chips}chips`;
-                console.log(`  #${String(r.num).padEnd(7)} ${r.status.padEnd(8)} ${from} [${r.source}] ${cols}`);
-            } else {
-                console.log(`  #${String(r.num).padEnd(7)} ${r.status}${r.chips !== undefined ? ` (${r.chips} chips)` : ''}`);
-            }
-        }
-        console.log('');
-    }
+  const { results, applied, dbPath } = patchColorPalette(opts);
 
-    /** ステータス別の件数を数える */
-    const tally = {};
-    for (const r of results) tally[r.status] = (tally[r.status] ?? 0) + 1;
+  if (opts.verbose) {
+    for (const r of results) {
+      if (
+        r.status === "inserted" ||
+        r.status === "replaced" ||
+        r.status === "appended"
+      ) {
+        const cols = r.palette
+          .map(
+            (p) =>
+              `${p.hex}${p.coverage !== null ? `(${Math.round(p.coverage * 100)}%)` : ""}`,
+          )
+          .join(" ");
+        const from =
+          r.origin === "artwork"
+            ? `${r.palette.length}colors`
+            : `${r.chips}chips`;
+        console.log(
+          `  #${String(r.num).padEnd(7)} ${r.status.padEnd(8)} ${from} [${r.source}] ${cols}`,
+        );
+      } else {
+        console.log(
+          `  #${String(r.num).padEnd(7)} ${r.status}${r.chips !== undefined ? ` (${r.chips} chips)` : ""}`,
+        );
+      }
+    }
+    console.log("");
+  }
 
-    console.log(`[ColorPalette パッチ${opts.apply ? '' : ' / dry-run'}] ${opts.work} / ${opts.db}`);
-    for (const [status, count] of Object.entries(tally)) {
-        console.log(`  ${status}: ${count} 件`);
-    }
-    const tooFew = results.filter(r => r.status === 'skipped-too-few-chips' || r.status === 'skipped-no-chips');
-    if (tooFew.length) {
-        console.log(`  → チップ不足/未検出: ${tooFew.map(r => r.num).join(', ')}`);
-    }
+  /** ステータス別の件数を数える */
+  const tally = {};
+  for (const r of results) tally[r.status] = (tally[r.status] ?? 0) + 1;
 
-    if (opts.apply && applied) {
-        console.log(`\n  ${path.relative(REPO_ROOT, dbPath).split(path.sep).join('/')} を更新しました（${applied} 件）`);
-        console.log('  ※ 仕上げに `npx prettier --write` を実行してください。');
-        if (results.some(r => r.status === 'appended')) {
-            console.log('  ※ AppearanceDetail を持たないレコードへ末尾追記しました。');
-            console.log('     `npm run data:order:write` でキー順を整えてください。');
-        }
-    } else if (!opts.apply) {
-        console.log('\n  （--apply を付けると実際に書き込みます）');
+  console.log(
+    `[ColorPalette パッチ${opts.apply ? "" : " / dry-run"}] ${opts.work} / ${opts.db}`,
+  );
+  for (const [status, count] of Object.entries(tally)) {
+    console.log(`  ${status}: ${count} 件`);
+  }
+  const tooFew = results.filter(
+    (r) =>
+      r.status === "skipped-too-few-chips" || r.status === "skipped-no-chips",
+  );
+  if (tooFew.length) {
+    console.log(
+      `  → チップ不足/未検出: ${tooFew.map((r) => r.num).join(", ")}`,
+    );
+  }
+
+  if (opts.apply && applied) {
+    console.log(
+      `\n  ${path.relative(REPO_ROOT, dbPath).split(path.sep).join("/")} を更新しました（${applied} 件）`,
+    );
+    console.log("  ※ 仕上げに `npx prettier --write` を実行してください。");
+    if (results.some((r) => r.status === "appended")) {
+      console.log(
+        "  ※ AppearanceDetail を持たないレコードへ末尾追記しました。",
+      );
+      console.log("     `npm run data:order:write` でキー順を整えてください。");
     }
-    const artworkCount = results.filter(r => r.origin === 'artwork').length;
-    console.log('\n※ Hex は設定画のカラーチップ（作者指定色）、Role は実測被覆率の降順です。');
-    if (artworkCount) {
-        console.log(`※ うち ${artworkCount} 件は透過キャラクター単体イラストの色分布から抽出しました`);
-        console.log('  （輪郭線の純黒と db_meta.json の $EnumDef_CommonColor を除外済み）。');
-    }
-    console.log('※ 色名（ColorName_*）・Formation・Note は創作内容のため null のままです。');
+  } else if (!opts.apply) {
+    console.log("\n  （--apply を付けると実際に書き込みます）");
+  }
+  const artworkCount = results.filter((r) => r.origin === "artwork").length;
+  console.log(
+    "\n※ Hex は設定画のカラーチップ（作者指定色）、Role は実測被覆率の降順です。",
+  );
+  if (artworkCount) {
+    console.log(
+      `※ うち ${artworkCount} 件は透過キャラクター単体イラストの色分布から抽出しました`,
+    );
+    console.log(
+      "  （輪郭線の純黒と db_meta.json の $EnumDef_CommonColor を除外済み）。",
+    );
+  }
+  console.log(
+    "※ 色名（ColorName_*）・Formation・Note は創作内容のため null のままです。",
+  );
 }
 
-if (process.argv[1] && path.resolve(process.argv[1]) === path.resolve(fileURLToPath(import.meta.url))) {
-    main();
+if (
+  process.argv[1] &&
+  path.resolve(process.argv[1]) === path.resolve(fileURLToPath(import.meta.url))
+) {
+  main();
 }
