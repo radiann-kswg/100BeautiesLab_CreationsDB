@@ -1,5 +1,38 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### feat: 実測 HEX からの配色補完（`--add-colors`）と、issue #20 補完案の検算 (2026-08-11)
+
+`100BeautiesLab_GeneratorsAI` の充足性レビュー（[issue #20](https://github.com/radiann-kswg/100BeautiesLab_CreationsDB/issues/20)）が出した 3 つの提案を実データで検算し、**効果が測れたものだけ**を取り込んだ。
+
+- **`--add-colors`（新規モード）**: 既存 `ColorPalette` へ**色を足す**（既存行は 1 つも触らない）。`Hex` と `AppliesTo` だけを書き、`Role` は仮値の `#ColorRole_Sub`（主従はスロット確定の仕事）。既存の色・共通造形色と RGB 距離 10 未満なら重複として飛ばす。
+- **実測 HEX 45 件のうち 44 件を投入**（`db_Primary` 39 / `db_SemiPrimary` 4 / `db_SelfSecondary` 1）。1 件は共通造形色に一致（距離 9.5）したため除外。`git diff --numstat` は **440 行追加 / 0 行削除**で、User が確定させた Num 1/5/6/8/24 のスロットは無傷。
+- **設定画のチップ再検出で新規 2 色**: 「`ColorPalette` に見当たらない色 84 件」は User の見立てでは `concept` へ後から足した色だったが、チップを全 151 レコードで再検出したところ**新規は 3 色だけ**（うち 1 色は輪郭線の黒で除外）。実際に追加したのは Num 444 / 444-mp の `#64A6C2`（384〜500px、既存 8 色との最短距離 64.7）。
+- **色語 275 件の補完案は見送り**: 提案どおり `Attrs` へ色語を足した状態を確定済み 5 件（正解の部位 59 個）で再現したところ、拾えた部位は 18 → 24 に増えるが余計に付く部位が 40 → 58 に増え、**適合率は 31% → 29% と下がる**。原因は提案側ではなく転記の仕組みで、1 つの色語がその色相域の**全色**へ部位を配るため（Num 4 の `cyan` はパレット 5 色すべてに一致し、耳の部位が衣装色にも付く）。「最も近い 1 色だけへ結び付ける」変種も試したが 34% → 31% で再現が半減し、**このルートの上限は 3 割前後**だった。
+- **「見当たらない色 84 件」の内訳**: 55 件は隣接する色語なら既存パレットに一致する**語のズレ**（Num 1 の耳を `orange` と読んだが実際は `red orange`）。残り 29 件も、チップ再検出で新規が 2 色しか出なかったことから大半は同種と見られる。
+- **影響範囲**: `tools/patch-colorpalette.mjs` / `data/Works_NumberTales/DataBases/db_{Primary,SemiPrimary,SelfSecondary}.json`。
+- **検証**: `npm test` **68 files / 1,222 件すべて成功**。追加は純粋な追記（削除 0 行）。
+
+### refactor: 配色検出コードの重複統合・死蔵削除と、手入力色名の保護 (2026-08-11)
+
+配色スロットと分布計測を短期間に足したため、同じ処理が複数箇所に散っていた。**挙動は変えず**、重複を 1 本化して死蔵を削った（3 ファイルのコード行 1,857 → 1,791）。6 エージェントのレビュー（観点別スキャン → 反証）で洗い出し、反証を通った指摘だけを適用している。
+
+- **ピクセル走査の 1 本化**: `profileColorBands()` と `renderColorMap()` は「透過判定 → 前景マスク → 紙面/線画の除外 → 最近傍割当」が行単位で同一だった。`scanAssignedPixels()` へ寄せ、両者は集計だけを持つ形にした。**しきい値を触るときはここ 1 箇所**を見ればよい。
+- **JSON 走査の 1 本化**: `scanTopLevelRecords()` と `patch-appearance-bodypart.mjs` の `scanArrayElements()` は同じ状態機械だった。汎用な後者を `extract-palette.mjs` へ置き、前者はトップレベル配列への薄いラッパにした。
+- **書式非破壊パッチの共通土台**: 「読む → 走査 → 件数照合 → 壊れた JSON を書かないガード」が 3 つのパッチ関数に重複していた。`openRecordsFile()` / `writeRecordsFile()` へ集約。件数照合は走査ミスで**別のレコードを書き換える**事故を防ぐ安全弁なので、共通化してどの経路でも必ず通るようにした。
+- **`ColorPalette` 1 行の形の 1 本化**: 8 キーのリテラルが `buildColorPaletteValue()` と `applySlotAssignment()` に別々にあった。`makePaletteRow()` へ集約（`Role` の出所は別のまま — 抽出直後は `ROLE_ORDER` の仮値、スロット確定後が `COLOR_SLOTS`）。
+- **パス組み立ての 1 本化**: `resolveDbPaths()`。`--work` / `--db` で他作品へ使えるという前提がここに集約された。
+- **死蔵の削除**: `COLOR_SLOTS[].group`（誰も読まない）、`COSTUME_ELEMENTS` と `hasEye` / `isCostumeWord`（衣装・アクセント推定の撤去で不要に）、`patchColorPaletteSlots` の `applySlotAssignment` 二重実行。
+- **渡されないノブを定数へ**: `buildForegroundMask` の 5 つ、`detectSwatchChips` の 5 つ、`extractSolidColors` の 5 つ、`measurePaletteCoverage` の 2 つ。実測で詰めた根拠コメントは定数側へ移した。`extractSolidColors` の統合距離（10）はチップ検出（6）と別物なので分けてある。
+- **手入力色名の保護（挙動追加）**: `applySlotAssignment()` は、ツールが生成しうる形（`（瞳）`/`（アクセサリー）`/`（瞳, アクセサリー）`）**以外**の色名を人の手によるものとみなして残す。Num 5 の `メインアクセントカラー（瞳, 衣装補足色）` が再実行のたびに機械の言い回しへ戻る問題への対処。
+- **`tests/patch-appearance-bodypart.test.js`（新規 / 10 件）**: `data/` をテキスト置換で直接書き換える唯一の未検証経路だった。実際この整理の途中で import が壊れたが、テストが無いため全 1,219 件が緑のまま通ってしまった。
+- **陳腐化した注釈の修正**: ファイルヘッダと CLI ヘルプの「`ColorName_*` は null のまま」（`--assign-slots` で確定するようになった）、`proposeSlotAssignment` の判定順リスト（撤去済みの手順を説明していた）、`rankChipsByCoverage` の測定対象（`concept` は除外済み）、`listImageFields` の「解釈するのは artwork のみ」（`swatch` も解釈する）、チップクラスタの「3〜8 個」（実装は 2〜8 個）ほか。
+- **画像ソース解決の typedef 駆動化（挙動変更）**: `resolveImageSources()` が `arts_PNGPath` / `corefolder_PNGPath` / `concept_PNGName` をハードコードしており、スキーマ駆動の `listImageFields()` と二重になっていた。作品ごとに名前が違ううえ**同種の単体絵が今後も別名で増える**ため、`$palette.source` の宣言を正とする形へ寄せた。
+  - `$palette.source` に **`"illustration"`（清書イラスト）** を追加し、`arts_PNGPath` へ宣言（NumberTales / DestinyFoxRecords）。優先順は `illustration` → `artwork` → 宣言なし → `swatch`（設定画は注釈だらけなので被覆率の測定に使わない）。
+  - 呼び出し側はフィールド名ではなく宣言値で絞る（`rankChipsByCoverage` は `swatch` 以外、`resolveSoloArtSources` は `illustration`）。`workDir` を引数に追加。
+  - **効果**: UnibyteLive は `keycapper_PNGPath` しか持たないため従来は画像が 1 枚も解決されず、`rankChipsByCoverage` がチップ面積順のフォールバックに落ちていた。宣言駆動になったことで**実測被覆率で並ぶ**ようになった（4 レコードすべてで測定成功）。NumberTales は宣言が従来の優先順と一致するため挙動不変。
+  - 新しい画像フィールドを足したら `$palette.source` を宣言すること。宣言が無いフィールドは最下位で拾われる（消えはしない）。
+- **検証**: `npm test` **68 files / 1,222 件すべて成功**。挙動不変の確認として、`--verify-artwork`（90 件 / 277 色 / 一致率 82.7%）、`--all` dry-run のチップ未検出リスト、スロット下書きの正解率（80%）、`--slot-report` の主色・副色提案数（92/96）がリファクタ前後で完全一致することを確認した。`data/` の変更は `db_type.json` 2 ファイルへの `$palette` 宣言 2 行のみ。
+
 ### fix: 色語判定の誤爆修正と `AppearanceDetail.BodyPart` 51 件の補完（issue #20 対応） (2026-08-11)
 
 `100BeautiesLab_GeneratorsAI` の `verify_appearance_detail` が出した充足性レビュー（[issue #20](https://github.com/radiann-kswg/100BeautiesLab_CreationsDB/issues/20)）への対応。「`BodyPart` 欠落 71 件 / 根拠なし色 197 色」の内訳を実データで裏取りしたところ、**71 = 本当に欠落 67 件 + 色語判定の誤爆 4 件**だった。

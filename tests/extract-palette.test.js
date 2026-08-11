@@ -10,10 +10,8 @@
  *   - `medianCut()`: 色量子化が占有ピクセル数の降順で代表色を返すこと。
  *   - `collectColorHints()`: `AppearanceDetail` の `#DesignAttr_Color` /
  *     `#DesignAttr_Overview` から色語を拾えること。
- *   - `buildColorPaletteDraft()`: 下書き生成。**主ソースは resolveImageSources() の
- *     優先順（arts → corefolder → concept）に従う**という回帰を固定する
- *     （前景比率で選ぶと単色のコアフォルダ球体が humanoid 清書イラストを押しのけてしまう）。
- *     あわせて「創作内容（色名・Formation・Note）は埋めない」ことも検証する。
+ *   - `resolveImageSources()`: 画像ソースの優先順（arts → corefolder → concept）。
+ *   - `scanTopLevelRecords()` / `findValueEnd()`: 書式非破壊の追記に使うテキスト走査。
  *
  * @see _work_in_progress/2026-07-13_progress_colorpalette-schema.md
  */
@@ -219,16 +217,19 @@ describe('collectColorHints — AppearanceDetail からの色語収集', () => {
     });
 });
 
-describe('resolveImageSources — 画像ソースの優先順', () => {
+describe('resolveImageSources — 画像ソースの優先順（$palette.source 駆動）', () => {
+    const NTS_WORK_DIR = path.join(REPO_ROOT, 'data', 'Works_NumberTales');
+    const NTS_IMAGES = path.join(NTS_WORK_DIR, 'Images', 'DB_Primary');
+
     it('存在しないファイルは返さない', () => {
         const sources = resolveImageSources(
             { Images: { arts_PNGPath: ['does/not/exist'], concept_PNGName: 'nope' } },
-            path.join(REPO_ROOT, 'data', 'Works_NumberTales', 'Images', 'DB_Primary'),
+            NTS_WORK_DIR, NTS_IMAGES,
         );
         expect(sources).toEqual([]);
     });
 
-    it('arts を corefolder より先に返す（清書イラストを優先）', () => {
+    it('illustration → artwork → swatch の順に返す', () => {
         const sources = resolveImageSources(
             {
                 Images: {
@@ -237,9 +238,25 @@ describe('resolveImageSources — 画像ソースの優先順', () => {
                     arts_PNGPath: ['humanoids/2023/art_imgNTS-1-humanoid'],
                 },
             },
-            path.join(REPO_ROOT, 'data', 'Works_NumberTales', 'Images', 'DB_Primary'),
+            NTS_WORK_DIR, NTS_IMAGES,
         );
         expect(sources.map(s => s.role)).toEqual(['arts', 'corefolder', 'concept']);
+        expect(sources.map(s => s.source)).toEqual(['illustration', 'artwork', 'swatch']);
+    });
+
+    /**
+     * フィールド名は作品ごとに違う（`corefolder_PNGPath` / `keycapper_PNGPath` /
+     * `weakening_PNGPath`）。宣言だけで解決できることを、実データの別作品で確かめる。
+     */
+    it('作品ごとに違うフィールド名でも宣言だけで解決する（ハンカクライブ）', () => {
+        const ublWorkDir = path.join(REPO_ROOT, 'data', 'Works_UnibyteLive');
+        const db = JSON.parse(fs.readFileSync(path.join(ublWorkDir, 'DataBases', 'db_Primary.json'), 'utf8'));
+        const record = db.find(r => (r.Images?.keycapper_PNGPath ?? []).length);
+        expect(record).toBeTruthy();
+
+        const sources = resolveImageSources(record, ublWorkDir, path.join(ublWorkDir, 'Images', 'DB_Primary'));
+        expect(sources.length).toBeGreaterThan(0);
+        expect(sources[0].source).toBe('artwork'); // keycapper。illustration の宣言は無い
     });
 });
 

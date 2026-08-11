@@ -2127,6 +2127,26 @@
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#A4DAEF",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Tail"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#64A6C2",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
       }
     ],
     "Summary_JP": "3桁ゾロ目の数字を持つ特殊クラスロットの「量産型マスタートリプル」に属し、通常個体と引け目を取らない性能をもつ通常個体互換の量産型ナンバーテールズ。\n「4(モチ)」や「44(シトシ)」の基底設計を踏襲し、同クラスロットの中でも高い演算性能を持つ。",
@@ -3570,7 +3590,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Interchangeable", "#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [

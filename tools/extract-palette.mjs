@@ -253,6 +253,41 @@ export function toHex(r, g, b) {
 // 前景マスク（背景・線画・紙面の除去）
 // ────────────────────────────────────────────────────────────────────────────
 
+/** 設定画のカラーチップ検出のしきい値（実測で詰めた固定値） */
+const CHIP_TOL = 12;          // 同色とみなす色差
+const CHIP_MIN_PX = 30;       // チップとみなす最小面積
+const CHIP_MIN_PX_LOOSE = 8;  // 配色領域を特定したあとの再捜査で使う緩い下限
+const CHIP_MERGE_TOL = 6;     // 近すぎるチップを 1 つに畳む色差
+const CHIP_ERODE = 2;         // ノイズを削る収縮回数
+
+/** 配色領域の再捜査（rescanPaletteRegion）のしきい値 */
+const RESCAN_TOL = 10;
+const RESCAN_FILL_MIN = 0.35;   // 外接矩形に対する塗りつぶし率の下限（三日月形チップ対策）
+const RESCAN_ASPECT_MIN = 0.35;
+const RESCAN_ASPECT_MAX = 3.0;
+
+/** 透過イラストからの色ヒストグラム抽出のしきい値 */
+const SOLID_ALPHA_MIN = 250;    // 半透明の縁（アンチエイリアス）は塗りの色ではない
+const SOLID_EXCLUDE_TOL = 6;    // 共通造形色とみなす色差
+const SOLID_MERGE_TOL = 10;     // 近似色を 1 つに畳む色差（チップ検出より緩い）
+const SOLID_TOP = 8;            // 返す色数の上限
+
+/** 被覆率計測のしきい値。分布計測（profileColorBands）より緩いのは、
+ *  チップ由来の色を陰影込みで拾うため。 */
+const COVERAGE_MAX_DIST = 60;
+/** ピクセル走査の間引き幅。全関数で共通。 */
+const SAMPLE_STEP = 2;
+
+/** 外周フラッドフィルの伸長しきい値（隣接ピクセルとの色差）。線画で止まる値。 */
+const FLOOD_TOLERANCE = 40;
+/** 外周から推定した背景色とみなす色差。arts の二層背景を落とすための第 3 段。 */
+const BG_TOLERANCE = 38;
+/** 線画の黒とみなす明度の上限。 */
+const DARK_V = 0.16;
+/** 紙・白飛びとみなす彩度の上限と明度の下限。 */
+const PALE_S = 0.10;
+const PALE_V = 0.90;
+
 /**
  * 前景（キャラクター本体）と思われるピクセルのマスクを構築する。
  *
@@ -267,18 +302,14 @@ export function toHex(r, g, b) {
  *      画像ごとに最適なフラッドフィルのしきい値が異なる問題も、この段で吸収する。
  *   4. 残ったピクセルから、線画の黒（明度が極端に低い）と紙・白飛び（低彩度かつ高明度）を除く
  *
+ * しきい値は実測で詰めた固定値。引数で差し替えられるようにしていたが、呼び出し元が
+ * 一度も渡さないまま残っていたので定数へ畳んだ（作品ごとに変える必要が出たら戻す）。
+ *
  * @param {DecodedImage} img
- * @param {{ floodTolerance?: number, bgTolerance?: number, darkV?: number, paleS?: number, paleV?: number }} [opts]
  * @returns {Uint8Array} 1 = 前景, 0 = 背景（長さ width*height）
  */
-export function buildForegroundMask(img, opts = {}) {
+export function buildForegroundMask(img) {
     const { width, height, data } = img;
-    const floodTolerance = opts.floodTolerance ?? 40;
-    const bgTolerance = opts.bgTolerance ?? 38;
-    const darkV = opts.darkV ?? 0.16;
-    const paleS = opts.paleS ?? 0.10;
-    const paleV = opts.paleV ?? 0.90;
-
     const n = width * height;
     const mask = new Uint8Array(n).fill(1);
 
@@ -287,7 +318,7 @@ export function buildForegroundMask(img, opts = {}) {
         if (data[i * 4 + 3] < 128) mask[i] = 0;
     }
 
-    // 2. 外周からのフラッドフィル（色差が floodTolerance 未満の間だけ伸長）
+    // 2. 外周からのフラッドフィル（色差が FLOOD_TOLERANCE 未満の間だけ伸長）
     const visited = new Uint8Array(n);
     /** @type {number[]} */ const queue = [];
     const pushSeed = (x, y) => {
@@ -317,7 +348,7 @@ export function buildForegroundMask(img, opts = {}) {
         for (const j of neighbors) {
             if (j < 0 || visited[j]) continue;
             // 透過は無条件で背景扱い、それ以外は色差がしきい値未満のときだけ伸長
-            if (data[j * 4 + 3] < 128 || colorDist(i, j) < floodTolerance) {
+            if (data[j * 4 + 3] < 128 || colorDist(i, j) < FLOOD_TOLERANCE) {
                 visited[j] = 1;
                 mask[j] = 0;
                 queue.push(j);
@@ -348,7 +379,7 @@ export function buildForegroundMask(img, opts = {}) {
                 const dr = data[i * 4] - bg.r;
                 const dg = data[i * 4 + 1] - bg.g;
                 const db = data[i * 4 + 2] - bg.b;
-                if (Math.sqrt(dr * dr + dg * dg + db * db) < bgTolerance) { mask[i] = 0; break; }
+                if (Math.sqrt(dr * dr + dg * dg + db * db) < BG_TOLERANCE) { mask[i] = 0; break; }
             }
         }
     }
@@ -357,8 +388,8 @@ export function buildForegroundMask(img, opts = {}) {
     for (let i = 0; i < n; i++) {
         if (!mask[i]) continue;
         const { s, v } = rgbToHsv(data[i * 4], data[i * 4 + 1], data[i * 4 + 2]);
-        if (v < darkV) mask[i] = 0;              // 線画・影の黒
-        else if (s < paleS && v > paleV) mask[i] = 0; // 紙面・ハイライトの白
+        if (v < DARK_V) mask[i] = 0;              // 線画・影の黒
+        else if (s < PALE_S && v > PALE_V) mask[i] = 0; // 紙面・ハイライトの白
     }
 
     return mask;
@@ -384,32 +415,25 @@ export function buildForegroundMask(img, opts = {}) {
  *   3. 線画に接する成分を捨てる（キャラクター本体は必ず黒で輪郭線が引かれているため、
  *      これだけで本体の塗りを除外できる）。
  *   4. 収縮（erosion）で消える細い成分を捨てる（手描き注釈のストロークを除去）。
- *   5. 残った成分を空間クラスタリングし、「サイズの揃った 3〜8 個が密集している」
+ *   5. 残った成分を空間クラスタリングし、「サイズの揃った 2〜8 個が密集している」
  *      クラスタをチップ列として採用する。
  *
  * @param {DecodedImage} img
- * @param {{ tol?: number, minPx?: number, mergeTol?: number, erode?: number }} [opt]
- *        tol: 同色とみなす RGB 距離 / minPx: 最小面積 / mergeTol: 同色チップの統合距離 /
  *        erode: 細い手描きストロークを落とす収縮回数
  * @returns {Array<{ hex: string, count: number, cx: number, cy: number }>} 検出したチップ（0 個なら空配列）
  */
-export function detectSwatchChips(img, opt = {}) {
+export function detectSwatchChips(img) {
     const { width: W, height: H, data } = img;
     const n = W * H;
-    const tol = opt.tol ?? 12;
     // 既定 30px（半径 ~3px）。作品によってはカラーチップの丸が小さく描かれており、
     // これを大きくすると小さいチップを取りこぼす（実測: 64px だと Num 68/86/94 が検出 0 になる）。
-    const minPx = opt.minPx ?? 30;
     // 領域内での救済に使う下限。第2段（パレット領域の再捜査）でのみ効く。
     // 領域を絞ったうえでの下限なので、かなり小さく取ってよい（作品によってはチップの丸が
     // 非常に小さく描かれる。実測: 14 → 8 で検出できるレコードが 92 → 93 件に増える）。
-    const minPxLoose = opt.minPxLoose ?? 8;
     // 「同じチップが重なり・アンチエイリアスで分割検出されたもの」を統合するための距離。
     // 分割された断片はべた塗りゆえ **色が完全一致** するので、しきい値は小さくてよい。
     // 大きくすると、淡い配色（色空間で互いに近い）で **別々のチップを 1 つに潰してしまう**
     // （実測: 12 だと Num 12/21 の #FEF3D9 が #FFEFE4 と統合されて消える。両者の距離は 11.75）。
-    const mergeTol = opt.mergeTol ?? 6;
-    const erode = opt.erode ?? 2;
 
     const BG = 0, DARK = 1, COLOR = 2;
     const kind = new Uint8Array(n);
@@ -448,16 +472,16 @@ export function detectSwatchChips(img, opt = {}) {
                 if (kind[q] === DARK) { touchesDark = true; continue; }
                 if (kind[q] !== COLOR || label[q] >= 0) continue;
                 const dr = data[q * 4] - r0, dg = data[q * 4 + 1] - g0, db = data[q * 4 + 2] - b0;
-                if (Math.sqrt(dr * dr + dg * dg + db * db) > tol) continue; // 色が変わる境界で切る
+                if (Math.sqrt(dr * dr + dg * dg + db * db) > CHIP_TOL) continue; // 色が変わる境界で切る
                 label[q] = id;
                 stack.push(q);
             }
         }
 
-        if (touchesDark || px.length < minPxLoose) continue;
+        if (touchesDark || px.length < CHIP_MIN_PX_LOOSE) continue;
 
         // 成分を 2 段階に格付けする:
-        //   strict … 収縮 `erode` 回に耐える十分な大きさの塊。パレット領域の特定に使う。
+        //   strict … 収縮 `CHIP_ERODE` 回に耐える十分な大きさの塊。パレット領域の特定に使う。
         //   round  … 収縮 1 回に耐え、円形でべた塗り。領域内に限り小さなチップとして救う。
         // カラーチップは大小が不揃いに描かれることがあり（例: Num 75 は大きい黄色が半径 11.8px、
         // 青が 3.7px）、収縮回数だけで足切りすると小さいチップを取りこぼす。一方で収縮を一律に
@@ -469,7 +493,7 @@ export function detectSwatchChips(img, opt = {}) {
 
         let cur = new Set(px);
         let survived = 0;
-        for (let k = 0; k < erode && cur.size; k++) {
+        for (let k = 0; k < CHIP_ERODE && cur.size; k++) {
             const next = new Set();
             for (const p of cur) {
                 const x = p % W, y = (p / W) | 0;
@@ -480,7 +504,7 @@ export function detectSwatchChips(img, opt = {}) {
             if (cur.size) survived = k + 1;
         }
 
-        const strict = survived >= erode && px.length >= minPx;
+        const strict = survived >= CHIP_ERODE && px.length >= CHIP_MIN_PX;
         const rescuable = survived >= 1 && round;
         if (!strict && !rescuable) continue;
 
@@ -512,7 +536,7 @@ export function detectSwatchChips(img, opt = {}) {
     // （実測: Secondary 263RZ / 467RZ）。緩い方から試し、最初に成立した分割を採る。
     for (const gapFactor of [7, 5, 3.5]) {
         const best = pickSwatchCluster(strict, gapFactor);
-        if (best.length) return refineChips(img, best, { minPxLoose, mergeTol });
+        if (best.length) return refineChips(img, best);
     }
     return [];
 }
@@ -546,7 +570,7 @@ function pickSwatchCluster(candidates, gapFactor) {
         clusters.push(cluster);
     }
 
-    // 「チップらしい」クラスタを選ぶ: 3〜8 個が密集している
+    // 「チップらしい」クラスタを選ぶ: 2〜8 個が密集している
     let best = [], bestScore = -1;
     for (const cluster of clusters) {
         const radii = cluster.map(c => c.rad).sort((a, b) => a - b);
@@ -575,10 +599,9 @@ function pickSwatchCluster(candidates, gapFactor) {
  *
  * @param {DecodedImage} img
  * @param {Array<any>} best  第1段で選ばれたチップ列
- * @param {{ minPxLoose: number, mergeTol: number }} opt
  * @returns {Array<{ hex: string, count: number, cx: number, cy: number }>}
  */
-function refineChips(img, best, { minPxLoose, mergeTol }) {
+function refineChips(img, best) {
     const { width: W, height: H } = img;
 
     // ── 第2段: 特定したパレット領域の**中だけ**を、前処理の色分類を外して再捜査する。
@@ -598,14 +621,14 @@ function refineChips(img, best, { minPxLoose, mergeTol }) {
     const y0 = Math.max(0, Math.round(Math.min(...best.map(c => c.cy)) - margin));
     const y1 = Math.min(H - 1, Math.round(Math.max(...best.map(c => c.cy)) + margin));
 
-    const rescanned = rescanPaletteRegion(img, { x0, x1, y0, y1 }, { minPx: minPxLoose });
+    const rescanned = rescanPaletteRegion(img, { x0, x1, y0, y1 }, { CHIP_MIN_PX: CHIP_MIN_PX_LOOSE });
     const pool = rescanned.length >= best.length ? rescanned : best;
 
     // 同一チップが分割検出された場合（重なり・アンチエイリアス）に近似色を統合する
     /** @type {Array<{hex: string, count: number, cx: number, cy: number}>} */
     const merged = [];
     for (const chip of pool.slice().sort((a, b) => b.count - a.count)) {
-        const dup = merged.find(m => colorDistance(m.hex, chip.hex) <= mergeTol);
+        const dup = merged.find(m => colorDistance(m.hex, chip.hex) <= CHIP_MERGE_TOL);
         if (dup) dup.count += chip.count;
         else merged.push({ hex: chip.hex, count: chip.count, cx: chip.cx, cy: chip.cy });
     }
@@ -623,12 +646,11 @@ function refineChips(img, best, { minPxLoose, mergeTol }) {
  *
  * @param {DecodedImage} img
  * @param {{x0: number, x1: number, y0: number, y1: number}} region
- * @param {{ tol?: number, minPx?: number }} [opt]
+ * @param {{ CHIP_TOL?: number, CHIP_MIN_PX?: number }} [opt]
  * @returns {Array<{ hex: string, count: number, cx: number, cy: number, rad: number }>}
  */
 export function rescanPaletteRegion(img, region, opt = {}) {
     const { width: W, data } = img;
-    const tol = opt.tol ?? 10;
     const minPx = opt.minPx ?? 14;
     const { x0, x1, y0, y1 } = region;
     const rw = x1 - x0 + 1, rh = y1 - y0 + 1;
@@ -678,7 +700,7 @@ export function rescanPaletteRegion(img, region, opt = {}) {
                     const np = (ny * W + nx) * 4;
                     if (data[np + 3] < 128) { label[nli] = -2; continue; }
                     const dr = data[np] - r0, dg = data[np + 1] - g0, db = data[np + 2] - b0;
-                    if (Math.sqrt(dr * dr + dg * dg + db * db) > tol) continue;
+                    if (Math.sqrt(dr * dr + dg * dg + db * db) > RESCAN_TOL) continue;
                     label[nli] = id;
                     stack.push([nx, ny]);
                 }
@@ -709,14 +731,11 @@ export function rescanPaletteRegion(img, region, opt = {}) {
     // 三日月形になり、厳しい円形条件では弾かれてしまう（例: Num 40）。
     // パレット領域はすでに特定済みで、中にはチップと紙面しか無いため、
     // ここで条件を緩めても手描き注釈などを拾う危険は小さい。
-    const fillMin = opt.fillMin ?? 0.35;
-    const aspectMin = opt.aspectMin ?? 0.35;
-    const aspectMax = opt.aspectMax ?? 3.0;
 
     return comps
         .filter(c => !isPaperWhite(c.hex))
         .filter(c => c.count >= minPx)
-        .filter(c => c.fill >= fillMin && c.aspect >= aspectMin && c.aspect <= aspectMax)
+        .filter(c => c.fill >= RESCAN_FILL_MIN && c.aspect >= RESCAN_ASPECT_MIN && c.aspect <= RESCAN_ASPECT_MAX)
         .sort((a, b) => b.count - a.count);
 }
 
@@ -761,16 +780,14 @@ export function colorDistance(a, b) {
  *        maxDist: この距離より遠い画素はどの色にも数えない
  * @returns {number[]} paletteHexes と同じ並びの被覆率（合計は 1 以下）
  */
-export function measurePaletteCoverage(img, paletteHexes, opt = {}) {
-    const maxDist = opt.maxDist ?? 60;
-    const sampleStep = opt.sampleStep ?? 2;
+export function measurePaletteCoverage(img, paletteHexes) {
     const mask = buildForegroundMask(img);
     const rgbs = paletteHexes.map(hexToRgb);
     const counts = new Array(paletteHexes.length).fill(0);
     let total = 0;
 
-    for (let y = 0; y < img.height; y += sampleStep) {
-        for (let x = 0; x < img.width; x += sampleStep) {
+    for (let y = 0; y < img.height; y += SAMPLE_STEP) {
+        for (let x = 0; x < img.width; x += SAMPLE_STEP) {
             const i = y * img.width + x;
             if (!mask[i]) continue;
             total++;
@@ -780,7 +797,7 @@ export function measurePaletteCoverage(img, paletteHexes, opt = {}) {
                 const d = Math.sqrt((r - rgbs[k][0]) ** 2 + (g - rgbs[k][1]) ** 2 + (b - rgbs[k][2]) ** 2);
                 if (d < bestDist) { bestDist = d; bestIdx = k; }
             }
-            if (bestIdx >= 0 && bestDist <= maxDist) counts[bestIdx]++;
+            if (bestIdx >= 0 && bestDist <= COVERAGE_MAX_DIST) counts[bestIdx]++;
         }
     }
     if (!total) return counts.map(() => 0);
@@ -970,33 +987,48 @@ export function collectColorHints(record) {
 // ────────────────────────────────────────────────────────────────────────────
 
 /**
- * レコードの `Images` から、配色抽出に使う画像を優先順に解決する。
+ * 配色検出における画像の優先順。`$palette.source` の宣言値で決まる。
  *
- * 優先順: `arts_PNGPath`（清書イラスト。最も色が確定している）
- *       → `corefolder_PNGPath`（コアフォルダ形態。カバレッジ最大）
- *       → `concept_PNGName`（設定画。手書き注釈・白紙面のノイズが多く最後の手段）
+ * - `illustration` … 清書イラスト。最も色が確定しているので最優先
+ * - `artwork`      … 透過キャラクター単体絵（コアフォルダ / キーキャッパー等）。被覆率が最大
+ * - `null`         … 宣言の無いフィールド（衣装差分など）。使えなくはないので最後に回す
+ * - `swatch`       … 設定画。手書き注釈・白紙面のノイズが多く、被覆率の測定には使えない
+ *
+ * @type {ReadonlyArray<string|null>}
+ */
+const PALETTE_SOURCE_ORDER = ['illustration', 'artwork', null, 'swatch'];
+
+/**
+ * レコードの `Images` から、配色検出に使う画像を優先順に解決する。
+ *
+ * フィールド名をここへ書かないための入口。作品ごとに名前が違ううえ
+ * （`arts_PNGPath` / `keycapper_PNGPath` / `weakening_PNGPath`）、
+ * **同種の単体絵が今後も別名で増える**前提なので、`db_type.json` の
+ * `$palette.source` 宣言を正とする。新しい画像フィールドを足したら、
+ * そこへ `illustration` / `artwork` / `swatch` のいずれかを宣言すること。
  *
  * @param {any} record
+ * @param {string} workDir     `data/Works_<work>` の絶対パス
  * @param {string} imagesRoot  `data/Works_<work>/Images/DB_<db>` の絶対パス
- * @returns {Array<{ role: string, path: string }>} 実在するファイルのみ
+ * @returns {Array<{ role: string, source: string|null, path: string }>} 実在するファイルのみ
  */
-export function resolveImageSources(record, imagesRoot) {
-    /** @type {Array<{role: string, path: string}>} */
-    const out = [];
+export function resolveImageSources(record, workDir, imagesRoot) {
     const images = record?.Images ?? {};
-    const push = (role, rel) => {
-        const p = path.join(imagesRoot, ...`${rel}.png`.split('/'));
-        if (fs.existsSync(p)) out.push({ role, path: p });
-    };
+    /** @type {Array<{role: string, source: string|null, path: string}>} */
+    const out = [];
 
-    for (const rel of (Array.isArray(images.arts_PNGPath) ? images.arts_PNGPath : [])) {
-        push('arts', `arts/${rel}`);
-    }
-    for (const rel of (Array.isArray(images.corefolder_PNGPath) ? images.corefolder_PNGPath : [])) {
-        push('corefolder', `corefolder/${rel}`);
-    }
-    if (typeof images.concept_PNGName === 'string' && images.concept_PNGName) {
-        push('concept', `concept/${images.concept_PNGName}`);
+    for (const f of listImageFields(workDir).slice().sort(
+        (a, b) => PALETTE_SOURCE_ORDER.indexOf(a.paletteSource) - PALETTE_SOURCE_ORDER.indexOf(b.paletteSource),
+    )) {
+        const value = images[f.field];
+        const rels = Array.isArray(value) ? value : (typeof value === 'string' && value ? [value] : []);
+        for (const rel of rels) {
+            if (typeof rel !== 'string' || !rel) continue;
+            // `keycapper_PNGPath` は拡張子込み、`corefolder_PNGPath` は拡張子なしで記録されている
+            const name = rel.toLowerCase().endsWith('.png') ? rel : `${rel}.png`;
+            const p = path.join(imagesRoot, f.folder, ...name.split('/'));
+            if (fs.existsSync(p)) out.push({ role: f.folder, source: f.paletteSource, path: p });
+        }
     }
     return out;
 }
@@ -1012,7 +1044,8 @@ export function resolveImageSources(record, imagesRoot) {
  * （`corefolder_PNGPath` → `corefolder/`、`concept_PNGName` → `concept/`）。
  *
  * `$palette.source` は「そのフィールドの画像を配色検出のどの入力として使うか」の宣言。
- * 現在解釈するのは `"artwork"`（透過キャラクター単体イラスト = 色分布からの抽出）のみ。
+ * `"artwork"`（透過キャラクター単体イラスト = 色分布からの抽出）と
+ * `"swatch"`（設定画のカラーチップ検出）を解釈する。
  * 宣言が無い作品では、呼び出し側が全フィールドを候補にして透過率で選り分ける。
  *
  * @param {string} workDir  `data/Works_<work>` の絶対パス
@@ -1121,19 +1154,13 @@ export function isTransparentArtwork(img, threshold = 0.1) {
  *   - 面積比が `minRatio` 未満の色 … 影・ハイライト・アンチエイリアスの残り
  *
  * @param {DecodedImage[]} images  同一キャラの透過イラスト（複数枚は合算する）
- * @param {{ alphaMin?: number, dropBlack?: number|boolean, exclude?: string[],
- *           excludeTol?: number, mergeTol?: number, minRatio?: number, top?: number }} [opt]
+ * @param {{ exclude?: string[], minRatio?: number }} [opt]
+ *        exclude: 除外する共通造形色 / minRatio: 採用する面積比の下限
  * @returns {Array<{ hex: string, ratio: number, count: number }>} 面積比の降順
  */
 export function extractSolidColors(images, opt = {}) {
-    // 半透明の縁（アンチエイリアス）は塗りの色ではないので、ほぼ不透明な画素だけを数える。
-    const alphaMin = opt.alphaMin ?? 250;
-    const dropBlack = opt.dropBlack ?? true;
     const exclude = (opt.exclude ?? []).map(h => h.toUpperCase());
-    const excludeTol = opt.excludeTol ?? 6;
-    const mergeTol = opt.mergeTol ?? 10;
     const minRatio = opt.minRatio ?? 0.02;
-    const top = opt.top ?? 8;
 
     /** @type {Map<number, number>} 24bit RGB → 画素数 */
     const hist = new Map();
@@ -1142,14 +1169,12 @@ export function extractSolidColors(images, opt = {}) {
     for (const img of images) {
         const n = img.width * img.height;
         for (let i = 0; i < n; i++) {
-            if (img.data[i * 4 + 3] < alphaMin) continue;
+            if (img.data[i * 4 + 3] < SOLID_ALPHA_MIN) continue;
             const r = img.data[i * 4], g = img.data[i * 4 + 1], b = img.data[i * 4 + 2];
-            if (dropBlack) {
-                const { s, v } = rgbToHsv(r, g, b);
-                // 彩度条件を添えるのは、濃い有彩色（深緑・濃紺など）を輪郭線と誤って
-                // 落とさないため。輪郭線は無彩色の黒で引かれる。
-                if (v < 0.08 && s < 0.5) continue;
-            }
+            // 輪郭線の純黒を落とす。彩度条件を添えるのは、濃い有彩色（深緑・濃紺など）を
+            // 輪郭線と誤って落とさないため。輪郭線は無彩色の黒で引かれる。
+            const { s, v } = rgbToHsv(r, g, b);
+            if (v < 0.08 && s < 0.5) continue;
             counted++;
             const key = (r << 16) | (g << 8) | b;
             hist.set(key, (hist.get(key) ?? 0) + 1);
@@ -1160,13 +1185,13 @@ export function extractSolidColors(images, opt = {}) {
     const rows = [...hist]
         .sort((a, b) => b[1] - a[1])
         .map(([key, count]) => ({ hex: toHex((key >> 16) & 255, (key >> 8) & 255, key & 255), count }))
-        .filter(row => !exclude.some(e => colorDistance(e, row.hex) <= excludeTol));
+        .filter(row => !exclude.some(e => colorDistance(e, row.hex) <= SOLID_EXCLUDE_TOL));
 
     // 同じ塗りのアンチエイリアス縁を、面積の大きい色へ吸収する（面積降順に貪欲マージ）
     /** @type {Array<{hex: string, count: number}>} */
     const merged = [];
     for (const row of rows) {
-        const dup = merged.find(m => colorDistance(m.hex, row.hex) <= mergeTol);
+        const dup = merged.find(m => colorDistance(m.hex, row.hex) <= SOLID_MERGE_TOL);
         if (dup) dup.count += row.count;
         else merged.push({ ...row });
     }
@@ -1176,13 +1201,51 @@ export function extractSolidColors(images, opt = {}) {
     return merged
         .sort((a, b) => b.count - a.count)
         .filter(m => m.count / counted >= minRatio)
-        .slice(0, top)
+        .slice(0, SOLID_TOP)
         .map(m => ({ hex: m.hex, ratio: Number((m.count / counted).toFixed(4)), count: m.count }));
 }
 
 // ────────────────────────────────────────────────────────────────────────────
 // 実データへの ColorPalette 追記（テキスト挿入 / 書式非破壊）
 // ────────────────────────────────────────────────────────────────────────────
+
+/**
+ * 書式非破壊パッチのために DB ファイルを開く。
+ *
+ * 「テキストとして読む → `JSON.parse` でレコードを得る → `scanTopLevelRecords()` で
+ * 各レコードの範囲を取る → 件数が合っているか確かめる」までは、どのパッチツールでも同じ。
+ * 件数照合は走査ミスに気づくための安全弁で、ここを省くと**別のレコードを書き換える**。
+ *
+ * @param {string} dbPath  `db_*.json` の絶対パス
+ * @returns {{ original: string, records: any[], spans: Array<[number, number]> }}
+ * @throws {Error} ファイルが無い / トップレベルが配列でない / 走査件数が合わない場合
+ */
+export function openRecordsFile(dbPath) {
+    if (!fs.existsSync(dbPath)) throw new Error(`DB が見つかりません: ${dbPath}`);
+    const original = fs.readFileSync(dbPath, 'utf8');
+    const records = JSON.parse(original);
+    if (!Array.isArray(records)) throw new Error(`トップレベルが配列ではありません: ${dbPath}`);
+    const spans = scanTopLevelRecords(original);
+    if (spans.length !== records.length) {
+        throw new Error(`レコード走査に失敗しました（テキスト ${spans.length} 件 / パース ${records.length} 件）: ${dbPath}`);
+    }
+    return { original, records, spans };
+}
+
+/**
+ * パッチ結果を書き戻す。書き込み前に必ず `JSON.parse` を通す。
+ *
+ * テキスト置換で組み立てた文字列は、位置計算を 1 つ間違えるだけで壊れた JSON になる。
+ * ここで弾けば、壊れたまま `data/` へ書き出す事故を防げる。
+ *
+ * @param {string} dbPath
+ * @param {string} text
+ * @throws {SyntaxError} 組み立てた結果が JSON として壊れている場合
+ */
+export function writeRecordsFile(dbPath, text) {
+    JSON.parse(text);
+    fs.writeFileSync(dbPath, text, 'utf8');
+}
 
 /**
  * JSON テキストを走査し、トップレベル配列の各要素（レコード）の範囲を返す。
@@ -1196,10 +1259,28 @@ export function extractSolidColors(images, opt = {}) {
  * @returns {Array<[number, number]>} 各レコードの [開始, 終了) オフセット（配列順）
  */
 export function scanTopLevelRecords(text) {
+    return scanArrayElements(text, text.indexOf('['));
+}
+
+/**
+ * JSON 配列テキストの各要素の範囲を、文字列リテラルを踏まないように走査して返す。
+ *
+ * `findValueEnd()` は「キーのコロンから値の終端まで」しか返さないため、
+ * `AppearanceDetail[9]` のように**添字で要素を狙う**にはこちらが要る。
+ * `scanTopLevelRecords()` はトップレベル配列に対する薄いラッパ。
+ *
+ * @param {string} text
+ * @param {number} openBracket  対象の `[` の位置
+ * @returns {Array<[number, number]>} 各要素の [開始, 終了) オフセット（配列順）
+ * @throws {Error} 開始位置が `[` でない / 配列が閉じていない場合
+ */
+export function scanArrayElements(text, openBracket) {
+    if (text[openBracket] !== '[') throw new Error(`配列の開始 [ ではありません: ${openBracket}`);
     /** @type {Array<[number, number]>} */
     const spans = [];
     let depth = 0, inString = false, escaped = false, start = -1;
-    for (let i = 0; i < text.length; i++) {
+
+    for (let i = openBracket; i < text.length; i++) {
         const ch = text[i];
         if (inString) {
             if (escaped) escaped = false;
@@ -1208,18 +1289,18 @@ export function scanTopLevelRecords(text) {
             continue;
         }
         if (ch === '"') { inString = true; continue; }
-        if (ch === '{' || ch === '[') {
+
+        if (ch === '[' || ch === '{') {
             depth++;
-            if (depth === 2 && ch === '{') start = i;
-        } else if (ch === '}' || ch === ']') {
-            if (depth === 2 && ch === '}' && start >= 0) {
-                spans.push([start, i + 1]);
-                start = -1;
-            }
+            if (depth === 2 && start < 0) start = i;
+        } else if (ch === ']' || ch === '}') {
             depth--;
+            if (depth === 1 && start >= 0) { spans.push([start, i + 1]); start = -1; }
+            if (depth === 0) return spans; // 対象の配列が閉じた
         }
+        // プリミティブ要素（数値・true/null 等）は書き換え対象にならないので拾わない
     }
-    return spans;
+    throw new Error('配列が閉じていません');
 }
 
 /**
