@@ -393,53 +393,114 @@ export function applySlotAssignment(palette, assignment) {
 }
 
 /**
+ * レコードのインデックスバッジ（`NTS-57` のような識別子）を、そのレコード自身の
+ * 画像名から取り出す。
+ *
+ * バッジ文字列を作品ごとにツールへ書かないための入口。設定画・球体型姿の画像名は
+ * `cnsp_imgNTS-57` / `57/emstk_corefolderNTS-57-1` のようにバッジを含むので、
+ * `<英字>-<Num>` の形で拾えば作品名を知らなくても取り出せる。
+ *
+ * @param {any} record
+ * @returns {string|null} 見つからなければ null
+ */
+export function indexBadgeFromImages(record) {
+    const num = String(record?.Num ?? '');
+    if (!num) return null;
+    const images = record?.Images ?? {};
+    const names = Object.values(images)
+        .flatMap(v => (Array.isArray(v) ? v : [v]))
+        .filter(v => typeof v === 'string' && v);
+    const escaped = num.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    // 作品コードは大文字（`NTS`）で書かれる規約。`cnsp_imgNTS-57` から `imgNTS-57` ではなく
+    // `NTS-57` を取ること。前者だと `art_pmNTS-57game.png` のような別記法を取り逃がす。
+    for (const name of names) {
+        const m = name.match(new RegExp(`([A-Z]+-${escaped})(?![0-9])`));
+        if (m) return m[1];
+    }
+    return null;
+}
+
+/**
+ * 配色の判定に使える**単独絵**だけを返す。
+ *
+ * `arts_PNGPath` には合同絵（`art_sphericateDay202302r1.png` のように複数キャラが写る絵）も
+ * 入っている。合同絵で被覆率を測ると他キャラの色を自分の色として数えてしまい、
+ * 「衣装色か地毛色か」の判定が崩れる。パレット被覆率の合計では判別できない
+ * （実測: 合同絵 87.3% > 単独絵 76.5% の例がある）ため、**ファイル名のバッジ**で絞る。
+ *
+ * バッジが取れないレコードでは合同絵を使わず空を返す。誤った材料で埋めるより、
+ * 未割当として残して人が判断するほうが安全（`AGENTS.md` の「推測値と実測値を混ぜない」）。
+ *
+ * @param {any} record
+ * @param {string} imagesRoot
+ * @returns {Array<{ role: string, path: string }>}
+ */
+export function resolveSoloArtSources(record, imagesRoot) {
+    const arts = resolveImageSources(record, imagesRoot).filter(s => s.role === 'arts');
+    const badge = indexBadgeFromImages(record);
+    if (!badge) return [];
+    return arts.filter(s => path.basename(s.path).includes(badge));
+}
+
+/**
  * 1 レコード分の判定材料を集める。
  *
  * スロットは画像を見ないと決まらないため、ここでは**根拠だけ**を揃えて返す:
- * - `covBall` … 球体型姿（`$palette.source: artwork`。コアフォルダ / キーキャッパー等）での被覆率
- * - `covArt`  … 人姿イラスト（`arts`）での被覆率
+ * - `covBall` … 球体型姿（`$palette.source: artwork`。コアフォルダ / キーキャッパー等）でのシェア
+ * - `covArt`  … 人姿の単独絵でのシェア
+ * - `bands`   … 球体型姿での高さ帯分布（頭/上/中/下/足）
  * - `hints`   … `AppearanceDetail` の色語が一致した部位・DesignElement
  *
- * 球体型姿は原則として衣装を含まないため、`covBall` と `covArt` の差が
- * 「地毛か衣装か」の一次判定になる（ただし近似色が競合すると外れるので確定材料にはしない）。
+ * 球体型姿は原則として衣装を含まないため、そこでのシェア順が「地毛で何番目に多い色か」に
+ * ほぼ対応する。確定済みレコードでの実測は主色 5/5・副色 4/5。
+ *
+ * **シェアの測り方**: `measurePaletteCoverage()` ではなく `profileColorBands()` を使う。
+ * 前者は透過画像にも `buildForegroundMask()` をかけるため、**淡い色を紙面と誤判定して
+ * 落として**しまう（耳・尻尾の先端は主色の淡い版であることが多く、まさにここで消える）。
+ * 実測でも Num 24 の `#FCE8EC` が 2.9% → 29% と大きく変わり、副色の判定が 0/5 → 4/5 になった。
+ * 同じ理由は `extractSolidColors()` の注釈にも書かれている。
  *
  * @param {any} record
  * @param {string} workDir
  * @param {string} imagesRoot
- * @returns {Array<{hex: string, covBall: number, covArt: number, hints: Array<{word: string, bodyPart: string|null, element: string|null, source: string}>}>}
+ * @returns {Array<{hex: string, covBall: number, covArt: number, bands: number[], hints: Array<{word: string, bodyPart: string|null, element: string|null, source: string}>}>}
  */
 export function collectSlotEvidence(record, workDir, imagesRoot) {
     const hexes = (Array.isArray(record?.ColorPalette) ? record.ColorPalette : [])
         .map(c => c?.Hex).filter(h => typeof h === 'string');
     if (!hexes.length) return [];
 
-    /** 複数枚ある場合は最大値を採る（衣装差分等で片方にしか出ない色を落とさないため） */
-    const maxCoverage = (files) => {
-        const best = new Array(hexes.length).fill(0);
+    /**
+     * 複数枚ある場合は**宣言順の先頭**（＝基本形態）だけを使う。
+     *
+     * 色ごとに別画像の最大値を拾うとシェアが別々の画像由来になって順位が壊れる。
+     * かといって平均も正しくない: 球体型姿には**衣装付きの差分**があり
+     * （Num 1 の 2 枚目はパーカーが 58% を占める）、混ぜると衣装色が主色を追い越す。
+     * `Images` の配列順は作者が並べたものなので、先頭を基本形態とみなす。
+     */
+    const firstShare = (files) => {
         for (const file of files) {
-            let cov;
             try {
-                cov = measurePaletteCoverage(decodePng(fs.readFileSync(file)), hexes);
+                return profileColorBands(decodePng(fs.readFileSync(file)), hexes);
             } catch {
                 continue;
             }
-            cov.forEach((c, i) => { if (c > best[i]) best[i] = c; });
         }
-        return best;
+        return hexes.map(() => ({ share: 0, bands: [0, 0, 0, 0, 0] }));
     };
 
     const ballFiles = resolveArtworkSources(record, workDir, imagesRoot).map(s => s.path);
-    const artFiles = resolveImageSources(record, imagesRoot)
-        .filter(s => s.role === 'arts').map(s => s.path);
+    const artFiles = resolveSoloArtSources(record, imagesRoot).map(s => s.path);
 
-    const covBall = maxCoverage(ballFiles);
-    const covArt = maxCoverage(artFiles);
+    const ball = firstShare(ballFiles);
+    const art = firstShare(artFiles);
     const allHints = collectColorHints(record);
 
     return hexes.map((hex, i) => ({
         hex,
-        covBall: covBall[i],
-        covArt: covArt[i],
+        covBall: ball[i].share,
+        covArt: art[i].share,
+        bands: ball[i].share ? ball[i].bands : art[i].bands,
         hints: allHints.filter(h => colorWordMatchesHex(h.word, hex)),
     }));
 }
@@ -525,39 +586,56 @@ export function profileColorBands(img, hexes, opt = {}) {
  * @returns {{ assignment: Array<{slot: string, hex: string, appliesTo: string[]|null}>, unassigned: string[] }}
  */
 export function proposeSlotAssignment(evidence) {
-    /** @type {Record<string, Array<{hex: string, rank: number, parts: string[]}>>} */
-    const groups = { base: [], costume: [], accent: [] };
-    /** @type {string[]} */
-    const unassigned = [];
-
-    for (const ev of evidence) {
-        const parts = [...new Set(ev.hints.map(h => h.bodyPart).filter(Boolean))];
-        const group =
-            parts.some(p => ACCENT_PARTS.has(p)) ? 'accent'
-                : ev.hints.some(h => COSTUME_ELEMENTS.has(h.element)) ? 'costume'
-                    : parts.some(p => BASE_PARTS.has(p)) ? 'base'
-                        : null;
-        if (!group) { unassigned.push(ev.hex); continue; }
-
-        // base は球体型姿、costume/accent は人姿での見え方を主にランク付けする
-        const rank = group === 'base' ? Math.max(ev.covBall, ev.covArt) : Math.max(ev.covArt, ev.covBall);
-        const scoped = group === 'base' ? parts.filter(p => BASE_PARTS.has(p))
-            : group === 'costume' ? parts.filter(p => !ACCENT_PARTS.has(p))
-                : parts;
-        groups[group].push({ hex: ev.hex, rank, parts: scoped });
-    }
-
     /** @type {Array<{slot: string, hex: string, appliesTo: string[]|null}>} */
     const assignment = [];
-    /** グループごとの割当先スロット。溢れた分は判断が要るので unassigned へ回す。 */
-    const slotsFor = { base: ['primary', 'secondary'], costume: ['primaryCostume', 'secondaryCostume'], accent: ['accentMain', 'accentSub'] };
+    /** @type {string[]} */
+    const unassigned = [];
+    if (!evidence.length) return { assignment, unassigned };
 
-    for (const [group, slots] of Object.entries(slotsFor)) {
-        groups[group].sort((a, b) => b.rank - a.rank).forEach((item, i) => {
-            if (i >= slots.length) { unassigned.push(item.hex); return; }
-            assignment.push({ slot: slots[i], hex: item.hex, appliesTo: item.parts.length ? item.parts : null });
+    /** その色に色語で紐づいた部位（重複除去） */
+    const partsOf = (ev) => [...new Set(ev.hints.map(h => h.bodyPart).filter(Boolean))];
+
+    const pool = evidence.map(ev => ({
+        hex: ev.hex,
+        covBall: ev.covBall,
+        covArt: ev.covArt,
+        parts: partsOf(ev),
+        hasEye: partsOf(ev).some(p => ACCENT_PARTS.has(p)),
+        isCostumeWord: ev.hints.some(h => COSTUME_ELEMENTS.has(h.element)),
+    }));
+    const take = (item, slot, scope) => {
+        assignment.push({
+            slot,
+            hex: item.hex,
+            appliesTo: scope && scope.length ? scope : (item.parts.length ? item.parts : null),
         });
+        item.used = true;
+    };
+    const hasBall = pool.some(p => p.covBall > 0);
+    const share = (p) => (hasBall ? p.covBall : p.covArt);
+
+    // 球体型姿（コアフォルダ等）は衣装をほとんど着ないため、そこでのシェア順が
+    // 「地毛で何番目に多い色か」とほぼ一致する。確定済みレコードで実測したところ
+    // **主色 5/5・副色 4/5** で当たった。衣装・アクセントの推定はこの水準に届かなかった
+    // （35〜40%）ため、下書きでは埋めずに未割当として残す（後述）。
+    const ranked = [...pool].sort((a, b) => share(b) - share(a));
+
+    if (ranked[0] && share(ranked[0]) > 0) {
+        take(ranked[0], 'primary', ranked[0].parts.filter(p => BASE_PARTS.has(p)));
     }
+    if (ranked[1] && share(ranked[1]) >= 0.03) {
+        take(ranked[1], 'secondary', ranked[1].parts.filter(p => BASE_PARTS.has(p)));
+    }
+
+    // 衣装色・アクセント色は推定しない。
+    //
+    // 「人姿では出るが球体型姿では出ない色＝衣装」「面積が小さく瞳に紐づく色＝アクセント」
+    // という規則を実装して確定済みレコードで測ったが、正解率は 35〜40% にとどまった
+    // （近似色の競合、前景マスクが淡いグレーを落とすこと、合同絵の混入が主因）。
+    // 半分外す下書きは、レビューする側を誤った答えに引きずるぶん無いより悪い。
+    // ここは `--slot-report` が出す帯分布・被覆率を見て人が決める。
+    for (const p of pool.filter(x => !x.used)) unassigned.push(p.hex);
+
     return { assignment, unassigned };
 }
 
@@ -1267,11 +1345,14 @@ function printSlotReport(opts) {
     for (const r of rows) {
         const slotOf = new Map(r.assignment.map(a => [a.hex.toUpperCase(), a.slot]));
         console.log(`\n  #${r.num}`);
+        console.log(`    ${'HEX'.padEnd(9)}${'球体%'.padStart(6)}${'人姿%'.padStart(7)}  ${BAND_LABELS.join('')}  スロット / 色語の部位`);
         for (const ev of r.evidence) {
             const slot = slotOf.get(ev.hex.toUpperCase()) ?? '（未割当）';
-            const parts = [...new Set(ev.hints.map(h => h.bodyPart).filter(Boolean))].join(',') || '-';
-            const elems = [...new Set(ev.hints.map(h => h.element).filter(Boolean))].join(',') || '-';
-            console.log(`    ${ev.hex}  球体${(ev.covBall * 100).toFixed(1).padStart(5)}%  人姿${(ev.covArt * 100).toFixed(1).padStart(5)}%  ${slot.padEnd(17)} ${parts} / ${elems}`);
+            const parts = [...new Set(ev.hints.map(h => h.bodyPart).filter(Boolean))]
+                .map(p => p.replace('#BodyPart_', '')).join(',') || '-';
+            // 帯は「その色がどこに出ているか」。近似色は被覆率では潰れるがここで分かれる
+            const bands = (ev.bands ?? []).map(v => (v >= 0.4 ? '#' : v >= 0.15 ? '+' : v > 0.02 ? '.' : ' ')).join('');
+            console.log(`    ${ev.hex}${(ev.covBall * 100).toFixed(1).padStart(6)}%${(ev.covArt * 100).toFixed(1).padStart(6)}%  ${bands}  ${slot.padEnd(11)} ${parts}`);
         }
         if (r.unassigned.length) console.log(`    → 未割当: ${r.unassigned.join(', ')}`);
     }

@@ -549,23 +549,48 @@ describe('applySlotAssignment — 配色スロットの確定（並び順 / Role
     });
 });
 
-describe('proposeSlotAssignment — 下書き（検証前提）', () => {
-    it('色語が地毛・衣装・瞳のどれにも当たらない色は unassigned に残す', () => {
-        const { assignment, unassigned } = proposeSlotAssignment([
-            { hex: '#ED5D47', covBall: 0.68, covArt: 0.17, hints: [{ word: 'red', bodyPart: '#BodyPart_Hair', element: '#Element_Motif' }] },
-            { hex: '#FFBFA7', covBall: 0.21, covArt: 0.09, hints: [] },
-        ]);
-        expect(assignment).toEqual([
-            { slot: 'primary', hex: '#ED5D47', appliesTo: ['#BodyPart_Hair'] },
-        ]);
-        expect(unassigned).toEqual(['#FFBFA7']);
+describe('proposeSlotAssignment — 下書き（主色・副色のみ）', () => {
+    /**
+     * 下書きが埋めるのは**球体型姿でのシェア順で決まる主色・副色だけ**。
+     * 衣装色・アクセント色の推定は確定済みレコードでの実測が 35〜40% にとどまり、
+     * 半分外す下書きはレビューを誤った答えへ引きずるため出さない。
+     */
+    const hair = (hex, ball, art = 0) => ({
+        hex, covBall: ball, covArt: art, bands: [0, 0, 0, 0, 0],
+        hints: [{ word: 'red', bodyPart: '#BodyPart_Hair', element: '#Element_Motif' }],
     });
 
-    it('同じグループが枠数を超えたら溢れた色を unassigned に回す', () => {
-        const hair = (hex, cov) => ({ hex, covBall: cov, covArt: 0, hints: [{ word: 'red', bodyPart: '#BodyPart_Hair', element: null }] });
-        const { assignment, unassigned } = proposeSlotAssignment([hair('#111111', 0.5), hair('#222222', 0.3), hair('#333333', 0.1)]);
-        expect(assignment.map(a => a.slot)).toEqual(['primary', 'secondary']);
+    it('球体型姿のシェア順で主色・副色を割り当て、残りは unassigned にする', () => {
+        const { assignment, unassigned } = proposeSlotAssignment([
+            hair('#333333', 0.10), hair('#111111', 0.50), hair('#222222', 0.30),
+        ]);
+        expect(assignment).toEqual([
+            { slot: 'primary', hex: '#111111', appliesTo: ['#BodyPart_Hair'] },
+            { slot: 'secondary', hex: '#222222', appliesTo: ['#BodyPart_Hair'] },
+        ]);
         expect(unassigned).toEqual(['#333333']);
+    });
+
+    it('衣装色・アクセント色は推定しない（未割当のまま返す）', () => {
+        const { assignment } = proposeSlotAssignment([
+            hair('#111111', 0.60),
+            hair('#222222', 0.20),
+            { hex: '#333333', covBall: 0.01, covArt: 0.40, bands: [0, 0, 0, 0, 0], hints: [{ word: 'blue', bodyPart: '#BodyPart_Chest', element: '#Element_CostumeItem' }] },
+            { hex: '#444444', covBall: 0.01, covArt: 0.01, bands: [0, 0, 0, 0, 0], hints: [{ word: 'green', bodyPart: '#BodyPart_Eye', element: '#Element_Motif' }] },
+        ]);
+        expect(assignment.map(a => a.slot)).toEqual(['primary', 'secondary']);
+    });
+
+    it('シェアが小さすぎる 2 番手は副色にしない', () => {
+        const { assignment, unassigned } = proposeSlotAssignment([hair('#111111', 0.9), hair('#222222', 0.01)]);
+        expect(assignment.map(a => a.slot)).toEqual(['primary']);
+        expect(unassigned).toEqual(['#222222']);
+    });
+
+    it('球体型姿が無い場合は人姿のシェアで代用する', () => {
+        const art = (hex, share) => ({ hex, covBall: 0, covArt: share, bands: [0, 0, 0, 0, 0], hints: [] });
+        const { assignment } = proposeSlotAssignment([art('#111111', 0.2), art('#222222', 0.6)]);
+        expect(assignment.map(a => [a.slot, a.hex])).toEqual([['primary', '#222222'], ['secondary', '#111111']]);
     });
 });
 

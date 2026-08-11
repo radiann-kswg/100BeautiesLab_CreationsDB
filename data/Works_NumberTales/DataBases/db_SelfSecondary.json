@@ -302,7 +302,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Leg"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -3294,7 +3294,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Leg"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -3602,7 +3602,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Leg"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
