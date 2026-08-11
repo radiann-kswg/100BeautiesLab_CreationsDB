@@ -1001,7 +1001,7 @@
         },
         "#ColorRole_Secondary": {
           "ColorRole": "Secondary",
-          "ColorRole_JP": "補助色",
+          "ColorRole_JP": "副色",
           "ColorRole_EN": "Secondary"
         },
         "#ColorRole_Accent": {
@@ -1011,7 +1011,7 @@
         },
         "#ColorRole_Sub": {
           "ColorRole": "Sub",
-          "ColorRole_JP": "副色",
+          "ColorRole_JP": "補助色",
           "ColorRole_EN": "Sub"
         }
       },

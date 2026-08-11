@@ -42,6 +42,8 @@ import { fileURLToPath } from 'node:url';
 
 import {
     decodePng,
+    hexToRgb,
+    buildForegroundMask,
     detectSwatchChips,
     measurePaletteCoverage,
     collectColorHints,
@@ -268,6 +270,295 @@ export function buildColorPaletteValue(ordered, hints) {
             Note_EN: null,
         };
     });
+}
+
+// ────────────────────────────────────────────────────────────────────────────
+// 配色スロット（並び順・Role・色名の確定）
+// ────────────────────────────────────────────────────────────────────────────
+
+/**
+ * 配色スロット表。**この並びがそのまま `ColorPalette` の出力順**になる。
+ *
+ * `Hex`（作者指定色）は既に確定しているが、「その色がキャラクターの何を担っているか」は
+ * 画像を見ないと決まらない。スロットはその担当を 7 枠に固定したもので、枠が決まれば
+ * `Role` と `ColorName_JP/EN` は機械的に定まる（＝創作内容の生成にあたらない）。
+ *
+ * 基準は NumberTales の Num 1（`NTS-1`）。User の確定により:
+ * - 「主色(衣装)」の Role は `#ColorRole_Primary`（スロット名と Role が 1:1 対応する）
+ * - 「副色(衣装) @Secondary」の枠は**運用しない**。衣装のセカンダリは常に
+ *   `secondaryCostume`（`#ColorRole_Sub`）へ入れる
+ *
+ * @type {ReadonlyArray<{key: string, nameJP: string, nameEN: string, role: string, group: string, annotate?: boolean}>}
+ */
+export const COLOR_SLOTS = [
+    { key: 'primary', nameJP: '主色', nameEN: 'Primary Color', role: '#ColorRole_Primary', group: 'base' },
+    { key: 'primaryCostume', nameJP: '主色(衣装)', nameEN: 'Primary Color (Costume)', role: '#ColorRole_Primary', group: 'costume' },
+    { key: 'secondary', nameJP: '副色', nameEN: 'Secondary Color', role: '#ColorRole_Secondary', group: 'base' },
+    { key: 'accentMain', nameJP: 'メインアクセントカラー', nameEN: 'Main Accent Color', role: '#ColorRole_Accent', group: 'accent', annotate: true },
+    { key: 'accentSub', nameJP: 'サブアクセントカラー', nameEN: 'Sub Accent Color', role: '#ColorRole_Accent', group: 'accent', annotate: true },
+    { key: 'secondaryCostume', nameJP: '副色（衣装）', nameEN: 'Secondary Color (Costume)', role: '#ColorRole_Sub', group: 'costume' },
+    { key: 'auxiliary', nameJP: '補助色', nameEN: 'Auxiliary Color', role: '#ColorRole_Sub', group: 'aux' },
+];
+
+/** 地毛（髪・耳・尻尾）とみなす部位。共通造形色以外の体毛はここに含める。 */
+const BASE_PARTS = new Set(['#BodyPart_Hair', '#BodyPart_Ear', '#BodyPart_Tail']);
+/** アクセント（瞳）とみなす部位。 */
+const ACCENT_PARTS = new Set(['#BodyPart_Eye']);
+/** 衣装とみなす DesignElement。 */
+const COSTUME_ELEMENTS = new Set(['#Element_CostumeItem']);
+
+/**
+ * スロットの色名を組み立てる。
+ *
+ * アクセント枠だけは NTS-1 に倣って部位注記を付ける
+ * （`メインアクセントカラー（瞳, アクセサリー）` / `Main Accent Color (Eye Color, Accessory Color)`）。
+ * 注記の中身は `AppliesTo` から機械的に決まる: 瞳が含まれれば「瞳」、
+ * 瞳以外の部位が含まれれば「アクセサリー」。
+ *
+ * @param {{nameJP: string, nameEN: string, annotate?: boolean}} slot
+ * @param {string[]|null|undefined} appliesTo
+ * @returns {{ jp: string, en: string }}
+ */
+export function buildSlotColorName(slot, appliesTo) {
+    const parts = Array.isArray(appliesTo) ? appliesTo : [];
+    if (!slot.annotate || !parts.length) return { jp: slot.nameJP, en: slot.nameEN };
+
+    const hasEye = parts.some(p => ACCENT_PARTS.has(p));
+    const hasOther = parts.some(p => !ACCENT_PARTS.has(p));
+    const jp = [hasEye ? '瞳' : null, hasOther ? 'アクセサリー' : null].filter(Boolean);
+    const en = [hasEye ? 'Eye Color' : null, hasOther ? 'Accessory Color' : null].filter(Boolean);
+    return {
+        jp: `${slot.nameJP}（${jp.join(', ')}）`,
+        en: `${slot.nameEN} (${en.join(', ')})`,
+    };
+}
+
+/**
+ * スロット割当に従って `ColorPalette` を並べ替え、`Role` と `ColorName_JP/EN` を確定する。
+ *
+ * **`Hex` / `Formation` / `Note_JP` / `Note_EN` は既存値をそのまま持ち越す**
+ * （作者指定色と創作内容には触らない）。`AppliesTo` は割当側が指定したときだけ差し替える。
+ *
+ * 割当に載っていない色は **黙って補助色へ流さず** `unassigned` として返す。
+ * 「7 枠のどれに当てはまるか判らない色は User に聞く」という運用のための返り値で、
+ * 呼び出し側はこれが空でないレコードをスキップする。
+ *
+ * @param {any[]} palette  既存の `ColorPalette`（`Hex` が同一性の鍵）
+ * @param {Array<{slot: string, hex: string, appliesTo?: string[]|null}>} assignment
+ * @returns {{ value: any[], unassigned: string[] }}
+ * @throws {Error} 割当に未知のスロット名、または既存パレットに無い Hex が含まれる場合
+ */
+export function applySlotAssignment(palette, assignment) {
+    const rows = new Map();
+    for (const row of Array.isArray(palette) ? palette : []) {
+        if (typeof row?.Hex === 'string') rows.set(row.Hex.toUpperCase(), row);
+    }
+
+    const slotIndex = new Map(COLOR_SLOTS.map((s, i) => [s.key, i]));
+    /** @type {Array<{order: number, seq: number, row: any}>} */
+    const out = [];
+    const used = new Set();
+
+    assignment.forEach((entry, seq) => {
+        const order = slotIndex.get(entry.slot);
+        if (order === undefined) throw new Error(`未知のスロット名です: ${entry.slot}`);
+        const hex = String(entry.hex ?? '').toUpperCase();
+        const base = rows.get(hex);
+        if (!base) throw new Error(`既存の ColorPalette に無い Hex です: ${entry.hex}`);
+
+        const slot = COLOR_SLOTS[order];
+        const appliesTo = entry.appliesTo === undefined ? base.AppliesTo : entry.appliesTo;
+        const name = buildSlotColorName(slot, appliesTo);
+
+        used.add(hex);
+        out.push({
+            order,
+            seq,
+            row: {
+                Role: slot.role,
+                Hex: base.Hex,
+                ColorName_JP: name.jp,
+                ColorName_EN: name.en,
+                AppliesTo: Array.isArray(appliesTo) && appliesTo.length ? appliesTo : null,
+                Formation: base.Formation ?? null,
+                Note_JP: base.Note_JP ?? null,
+                Note_EN: base.Note_EN ?? null,
+            },
+        });
+    });
+
+    out.sort((a, b) => a.order - b.order || a.seq - b.seq);
+    const unassigned = [...rows.keys()].filter(h => !used.has(h)).map(h => rows.get(h).Hex);
+    return { value: out.map(o => o.row), unassigned };
+}
+
+/**
+ * 1 レコード分の判定材料を集める。
+ *
+ * スロットは画像を見ないと決まらないため、ここでは**根拠だけ**を揃えて返す:
+ * - `covBall` … 球体型姿（`$palette.source: artwork`。コアフォルダ / キーキャッパー等）での被覆率
+ * - `covArt`  … 人姿イラスト（`arts`）での被覆率
+ * - `hints`   … `AppearanceDetail` の色語が一致した部位・DesignElement
+ *
+ * 球体型姿は原則として衣装を含まないため、`covBall` と `covArt` の差が
+ * 「地毛か衣装か」の一次判定になる（ただし近似色が競合すると外れるので確定材料にはしない）。
+ *
+ * @param {any} record
+ * @param {string} workDir
+ * @param {string} imagesRoot
+ * @returns {Array<{hex: string, covBall: number, covArt: number, hints: Array<{word: string, bodyPart: string|null, element: string|null, source: string}>}>}
+ */
+export function collectSlotEvidence(record, workDir, imagesRoot) {
+    const hexes = (Array.isArray(record?.ColorPalette) ? record.ColorPalette : [])
+        .map(c => c?.Hex).filter(h => typeof h === 'string');
+    if (!hexes.length) return [];
+
+    /** 複数枚ある場合は最大値を採る（衣装差分等で片方にしか出ない色を落とさないため） */
+    const maxCoverage = (files) => {
+        const best = new Array(hexes.length).fill(0);
+        for (const file of files) {
+            let cov;
+            try {
+                cov = measurePaletteCoverage(decodePng(fs.readFileSync(file)), hexes);
+            } catch {
+                continue;
+            }
+            cov.forEach((c, i) => { if (c > best[i]) best[i] = c; });
+        }
+        return best;
+    };
+
+    const ballFiles = resolveArtworkSources(record, workDir, imagesRoot).map(s => s.path);
+    const artFiles = resolveImageSources(record, imagesRoot)
+        .filter(s => s.role === 'arts').map(s => s.path);
+
+    const covBall = maxCoverage(ballFiles);
+    const covArt = maxCoverage(artFiles);
+    const allHints = collectColorHints(record);
+
+    return hexes.map((hex, i) => ({
+        hex,
+        covBall: covBall[i],
+        covArt: covArt[i],
+        hints: allHints.filter(h => colorWordMatchesHex(h.word, hex)),
+    }));
+}
+
+/** 帯ラベル（前景の外接矩形を縦 5 等分した目盛り。部位そのものではない） */
+export const BAND_LABELS = ['頭', '上', '中', '下', '足'];
+
+/**
+ * 各配色が前景の**どの高さ帯**に分布しているかを測る。
+ *
+ * `renderColorMap()` の図を数値へ畳んだもの。図は 1 件あたり 40 行あって読む側の負担が
+ * 大きいが、帯ごとの割合だけなら 1 色 1 行で足りる。髪は `頭` に偏り、尻尾の先端は
+ * `下`〜`足`、衣装は `上`〜`中`、靴は `足` に出る、という読み方をする。
+ *
+ * 被覆率（`measurePaletteCoverage()`）が「どれだけ使われているか」なのに対し、
+ * こちらは「どこに使われているか」。近似色は前者では潰れるが後者では分かれる。
+ *
+ * @param {import('./extract-palette.mjs').DecodedImage} img
+ * @param {string[]} hexes
+ * @param {{maxDist?: number}} [opt]
+ * @returns {Array<{ share: number, bands: number[] }>} hexes と同じ並び。bands の合計は 1
+ */
+export function profileColorBands(img, hexes, opt = {}) {
+    const maxDist = opt.maxDist ?? 45;
+    const rgbs = hexes.map(hexToRgb);
+    const fg = isTransparentArtwork(img) ? null : buildForegroundMask(img);
+
+    /** @type {Array<{y: number, k: number}>} */
+    const hits = [];
+    let minY = Infinity, maxY = -Infinity;
+    for (let y = 0; y < img.height; y += 2) {
+        for (let x = 0; x < img.width; x += 2) {
+            const i = y * img.width + x;
+            if (img.data[i * 4 + 3] < 128) continue;
+            if (fg && !fg[i]) continue;
+            const r = img.data[i * 4], g = img.data[i * 4 + 1], b = img.data[i * 4 + 2];
+            if (r > 245 && g > 245 && b > 245) continue; // 紙面
+            if (r < 60 && g < 60 && b < 60) continue;    // 線画
+            if (y < minY) minY = y;
+            if (y > maxY) maxY = y;
+            let best = -1, bestD = Infinity;
+            for (let k = 0; k < rgbs.length; k++) {
+                const d = (r - rgbs[k][0]) ** 2 + (g - rgbs[k][1]) ** 2 + (b - rgbs[k][2]) ** 2;
+                if (d < bestD) { bestD = d; best = k; }
+            }
+            if (best >= 0 && bestD <= maxDist * maxDist) hits.push({ y, k: best });
+        }
+    }
+
+    const out = hexes.map(() => ({ share: 0, bands: [0, 0, 0, 0, 0] }));
+    if (!hits.length || maxY <= minY) return out;
+
+    const span = (maxY - minY) + 1;
+    for (const h of hits) {
+        out[h.k].bands[Math.min(4, Math.floor(((h.y - minY) / span) * 5))]++;
+        out[h.k].share++;
+    }
+    return out.map(o => ({
+        share: Number((o.share / hits.length).toFixed(3)),
+        bands: o.share ? o.bands.map(b => Number((b / o.share).toFixed(2))) : [0, 0, 0, 0, 0],
+    }));
+}
+
+/**
+ * 判定材料からスロット割当の**下書き**を作る。
+ *
+ * 確定ではなく、User / エージェントが画像を見て直すための叩き台。
+ * 判定できなかった色は `auxiliary` へ流さず `unassigned` に残す
+ * （「どれに当てはまるか判らない色は聞く」運用のため）。
+ *
+ * 判定順（上ほど強い根拠）:
+ *   1. 色語が瞳（`#BodyPart_Eye`）に一致 → accent
+ *   2. 色語が衣装（`#Element_CostumeItem`）に一致 → costume
+ *   3. 色語が地毛（髪・耳・尻尾）に一致 → base
+ *   4. どれでもない → unassigned
+ * 各グループ内は被覆率の降順（base は球体型姿、costume は人姿を優先して見る）。
+ *
+ * **信頼度について**: 根拠に使う `AppearanceDetail` の `BodyPart` / `DesignElement` 自体が
+ * 画像を見て手動修正された経緯を持つため、この下書きを検証なしで適用しないこと。
+ * 近似色が競合すると被覆率も入れ替わる（NTS-1 の `#FFAC8F` / `#FFBFA7` が実例）。
+ *
+ * @param {ReturnType<typeof collectSlotEvidence>} evidence
+ * @returns {{ assignment: Array<{slot: string, hex: string, appliesTo: string[]|null}>, unassigned: string[] }}
+ */
+export function proposeSlotAssignment(evidence) {
+    /** @type {Record<string, Array<{hex: string, rank: number, parts: string[]}>>} */
+    const groups = { base: [], costume: [], accent: [] };
+    /** @type {string[]} */
+    const unassigned = [];
+
+    for (const ev of evidence) {
+        const parts = [...new Set(ev.hints.map(h => h.bodyPart).filter(Boolean))];
+        const group =
+            parts.some(p => ACCENT_PARTS.has(p)) ? 'accent'
+                : ev.hints.some(h => COSTUME_ELEMENTS.has(h.element)) ? 'costume'
+                    : parts.some(p => BASE_PARTS.has(p)) ? 'base'
+                        : null;
+        if (!group) { unassigned.push(ev.hex); continue; }
+
+        // base は球体型姿、costume/accent は人姿での見え方を主にランク付けする
+        const rank = group === 'base' ? Math.max(ev.covBall, ev.covArt) : Math.max(ev.covArt, ev.covBall);
+        const scoped = group === 'base' ? parts.filter(p => BASE_PARTS.has(p))
+            : group === 'costume' ? parts.filter(p => !ACCENT_PARTS.has(p))
+                : parts;
+        groups[group].push({ hex: ev.hex, rank, parts: scoped });
+    }
+
+    /** @type {Array<{slot: string, hex: string, appliesTo: string[]|null}>} */
+    const assignment = [];
+    /** グループごとの割当先スロット。溢れた分は判断が要るので unassigned へ回す。 */
+    const slotsFor = { base: ['primary', 'secondary'], costume: ['primaryCostume', 'secondaryCostume'], accent: ['accentMain', 'accentSub'] };
+
+    for (const [group, slots] of Object.entries(slotsFor)) {
+        groups[group].sort((a, b) => b.rank - a.rank).forEach((item, i) => {
+            if (i >= slots.length) { unassigned.push(item.hex); return; }
+            assignment.push({ slot: slots[i], hex: item.hex, appliesTo: item.parts.length ? item.parts : null });
+        });
+    }
+    return { assignment, unassigned };
 }
 
 // ────────────────────────────────────────────────────────────────────────────
@@ -528,6 +819,173 @@ export function patchColorPalette(opts) {
 }
 
 // ────────────────────────────────────────────────────────────────────────────
+// スロット確定モード（--assign-slots）
+// ────────────────────────────────────────────────────────────────────────────
+
+/**
+ * 既存の `ColorPalette` を**スロット順へ並べ替え**、`Role` / `ColorName_JP/EN` を確定する。
+ *
+ * `Hex` は作者指定色なので触らない。既に抽出済みのレコードに対して「どの色が何を担うか」
+ * だけを後から確定させるための経路で、`--slots` に確定済みの割当ファイルを渡す運用が本筋。
+ * ファイルが無い場合は下書き（`proposeSlotAssignment()`）で埋めるが、**下書きは要検証**。
+ *
+ * 7 枠のどれとも判定できない色が 1 つでも残るレコードは**書き込まずスキップ**し、
+ * `unassigned` として報告する（User に確認するため）。
+ *
+ * @param {{work: string, db: string, records: Set<any>|null, apply: boolean, slots: Record<string, any[]>|null, verbose: boolean}} opts
+ * @returns {{ results: Array<any>, applied: number, dbPath: string }}
+ */
+export function patchColorPaletteSlots(opts) {
+    const workDir = path.join(REPO_ROOT, 'data', `Works_${opts.work}`);
+    const dbPath = path.join(workDir, 'DataBases', `db_${opts.db}.json`);
+    const imagesRoot = path.join(workDir, 'Images', `DB_${opts.db}`);
+    if (!fs.existsSync(dbPath)) throw new Error(`DB が見つかりません: ${dbPath}`);
+
+    const original = fs.readFileSync(dbPath, 'utf8');
+    const db = JSON.parse(original);
+    const spans = scanTopLevelRecords(original);
+    if (spans.length !== db.length) {
+        throw new Error(`レコード走査に失敗しました（テキスト ${spans.length} 件 / パース ${db.length} 件）`);
+    }
+
+    /** @type {Array<any>} */
+    const results = [];
+    let text = original;
+
+    // 末尾から処理する（先頭側のオフセットが変わらないようにするため）
+    for (let i = db.length - 1; i >= 0; i--) {
+        const record = db[i];
+        const num = record.Num ?? recordLabel(record);
+        if (opts.records && !opts.records.has(record.Num) && !opts.records.has(String(num))) continue;
+        if (!Array.isArray(record.ColorPalette) || !record.ColorPalette.length) continue;
+
+        const given = opts.slots?.[String(num)];
+        let assignment, unassigned;
+        if (Array.isArray(given)) {
+            ({ unassigned } = applySlotAssignment(record.ColorPalette, given));
+            assignment = given;
+        } else {
+            ({ assignment, unassigned } = proposeSlotAssignment(
+                collectSlotEvidence(record, workDir, imagesRoot),
+            ));
+        }
+
+        if (unassigned.length) {
+            results.push({ num, status: 'skipped-unassigned', unassigned, source: given ? 'slots' : 'draft' });
+            continue;
+        }
+
+        try {
+            const { value } = applySlotAssignment(record.ColorPalette, assignment);
+            const res = upsertColorPaletteInRecord(text, spans[i], value);
+            text = res.text;
+            results.push({ num, status: 'slotted', source: given ? 'slots' : 'draft', value });
+        } catch (err) {
+            results.push({ num, status: 'error', message: err.message });
+        }
+    }
+
+    results.reverse();
+    const applied = results.filter(r => r.status === 'slotted').length;
+    if (opts.apply && applied) {
+        JSON.parse(text); // 壊れた JSON を書かないための最終ガード
+        fs.writeFileSync(dbPath, text, 'utf8');
+    }
+    return { results, applied, dbPath };
+}
+
+/**
+ * 配色の分布を粗いテキストマップで描く。
+ *
+ * 近似色（NTS-1 の `#FFAC8F` / `#FFBFA7` のように RGB 距離が 30 程度しかない組）は
+ * 設定画を目で見ても分離できない。「どの色がどの領域に割り当てられたか」を図にすれば、
+ * その色が髪なのか尻尾なのか衣装なのかが読み取れる。
+ *
+ * 各セルは、そこに最も多く割り当てられた配色の番号（1 始まり）。`.` は地。
+ * 割当は `measurePaletteCoverage()` と同じ最近傍で、陰影・アンチエイリアスを吸収する。
+ * 背景付きの画像（清書イラスト・設定画）は `buildForegroundMask()` で地を落とすが、
+ * 淡いグレーが紙面として一緒に落ちることがあるため、**足元や小物は欠けることがある**。
+ *
+ * @param {import('./extract-palette.mjs').DecodedImage} img
+ * @param {string[]} hexes
+ * @param {{cols?: number, rows?: number, maxDist?: number}} [opt]
+ * @returns {string[]} 行ごとの文字列
+ */
+export function renderColorMap(img, hexes, opt = {}) {
+    const cols = opt.cols ?? 56;
+    const rows = opt.rows ?? 40;
+    const maxDist = opt.maxDist ?? 45;
+    const rgbs = hexes.map(hexToRgb);
+    const fg = isTransparentArtwork(img) ? null : buildForegroundMask(img);
+    const cellW = img.width / cols, cellH = img.height / rows;
+
+    /** @type {string[]} */
+    const out = [];
+    for (let ry = 0; ry < rows; ry++) {
+        let line = '';
+        for (let rx = 0; rx < cols; rx++) {
+            const votes = new Array(hexes.length).fill(0);
+            let seen = 0;
+            for (let y = Math.floor(ry * cellH); y < Math.floor((ry + 1) * cellH); y += 2) {
+                for (let x = Math.floor(rx * cellW); x < Math.floor((rx + 1) * cellW); x += 2) {
+                    const i = y * img.width + x;
+                    if (img.data[i * 4 + 3] < 128) continue;
+                    if (fg && !fg[i]) continue;
+                    const r = img.data[i * 4], g = img.data[i * 4 + 1], b = img.data[i * 4 + 2];
+                    if (r > 245 && g > 245 && b > 245) continue; // 紙面
+                    if (r < 60 && g < 60 && b < 60) continue;    // 線画
+                    let best = -1, bestD = Infinity;
+                    for (let k = 0; k < rgbs.length; k++) {
+                        const d = (r - rgbs[k][0]) ** 2 + (g - rgbs[k][1]) ** 2 + (b - rgbs[k][2]) ** 2;
+                        if (d < bestD) { bestD = d; best = k; }
+                    }
+                    if (best >= 0 && bestD <= maxDist * maxDist) { votes[best]++; seen++; }
+                }
+            }
+            if (!seen) { line += '.'; continue; }
+            let top = 0;
+            for (let k = 1; k < votes.length; k++) if (votes[k] > votes[top]) top = k;
+            line += String.fromCharCode(top < 9 ? 49 + top : 88); // 1-9 のあと X
+        }
+        out.push(line);
+    }
+    return out;
+}
+
+/**
+ * スロット判定の根拠を、レコードごとに標準出力へ出す（データは変更しない）。
+ *
+ * 画像を見て割当を決めるときの手掛かり一覧。`--slots` へ渡す割当ファイルの下書きも
+ * 同時に返すので、これを直してから `--slots` で適用する運用になる。
+ *
+ * @param {{work: string, db: string, records: Set<any>|null}} opts
+ * @returns {{ draft: Record<string, any[]>, rows: Array<any> }}
+ */
+export function reportSlotEvidence(opts) {
+    const workDir = path.join(REPO_ROOT, 'data', `Works_${opts.work}`);
+    const dbPath = path.join(workDir, 'DataBases', `db_${opts.db}.json`);
+    const imagesRoot = path.join(workDir, 'Images', `DB_${opts.db}`);
+    const db = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
+
+    /** @type {Record<string, any[]>} */
+    const draft = {};
+    /** @type {Array<any>} */
+    const rows = [];
+
+    for (const record of db) {
+        const num = record.Num ?? recordLabel(record);
+        if (opts.records && !opts.records.has(record.Num) && !opts.records.has(String(num))) continue;
+        if (!Array.isArray(record.ColorPalette) || !record.ColorPalette.length) continue;
+
+        const evidence = collectSlotEvidence(record, workDir, imagesRoot);
+        const { assignment, unassigned } = proposeSlotAssignment(evidence);
+        draft[String(num)] = assignment;
+        rows.push({ num, evidence, assignment, unassigned });
+    }
+    return { draft, rows };
+}
+
+// ────────────────────────────────────────────────────────────────────────────
 // 照合レポート（透過イラスト抽出 vs 設定画チップ）
 // ────────────────────────────────────────────────────────────────────────────
 
@@ -625,8 +1083,36 @@ patch-colorpalette.mjs — 設定画のカラーチップから ColorPalette を
   --min-ratio <n>   透過イラスト抽出で採用する面積比の下限（既定: 0.02）
   --verify-artwork  透過イラスト抽出を、チップ由来で確定済みの ColorPalette と
                     突き合わせて精度だけ報告する（データは変更しない）
+  --assign-slots    既存 ColorPalette をスロット順へ並べ替え、Role と ColorName を確定する
+                    （Hex は触らない。--slots を併用しなければ下書き判定になる）
+  --slots <file>    スロット割当ファイル（JSON）を読み込んで確定値として使う
+  --slot-report     スロット判定の根拠を表示し、割当ファイルの下書きを .cache/ へ出す
+  --color-map       各配色が画像のどこに出ているかを粗いテキストマップで描く
+                    （近似色を目視で分離できないときの判断材料。データは変更しない）
   -v, --verbose     レコードごとの検出内容を表示
   -h, --help        このヘルプ
+
+配色スロット（--assign-slots / --slots の枠。並びがそのまま出力順）:
+  primary           主色 / Primary Color                  #ColorRole_Primary   地毛で最も多い色
+  primaryCostume    主色(衣装) / Primary Color (Costume)   #ColorRole_Primary   衣装で最も多い色
+  secondary         副色 / Secondary Color                 #ColorRole_Secondary 地毛で二番目の色
+  accentMain        メインアクセントカラー / Main Accent    #ColorRole_Accent    瞳の主色・強い差し色
+  accentSub         サブアクセントカラー / Sub Accent       #ColorRole_Accent    瞳の副色・靴/手袋
+  secondaryCostume  副色（衣装） / Secondary (Costume)      #ColorRole_Sub       衣装の二番目・本体との調停色
+  auxiliary         補助色 / Auxiliary Color               #ColorRole_Sub       全体のバランス色
+
+  ※ 7 枠のどれとも判定できない色が残るレコードは書き込まずスキップします
+     （黙って補助色へ流さない）。--slot-report で根拠を見て割当ファイルを作ってください。
+
+--slots ファイルの形式（キーは Num、値は割当の配列）:
+  {
+    "1": [
+      { "slot": "primary", "hex": "#ED5D47",
+        "appliesTo": ["#BodyPart_Hair", "#BodyPart_Ear", "#BodyPart_Tail"] },
+      { "slot": "primaryCostume", "hex": "#FF8682",
+        "appliesTo": ["#BodyPart_Chest", "#BodyPart_Shoulder"] }
+    ]
+  }
 
 書き込む項目（機械的に決まるもの）:
   Role       キャラ画像での実測被覆率の降順に Primary / Secondary / Accent / Sub
@@ -715,6 +1201,131 @@ function printArtworkVerification(opts) {
     console.log('  不一致として数えられるため、100% にはなりません。');
 }
 
+/**
+ * レコードの各画像について配色マップを描画して表示する（データは変更しない）。
+ *
+ * 行頭に前景の高さ帯（`頭`/`上`/`中`/`下`/`足`）を添える。これは外接矩形を 5 等分した
+ * **単なる目盛り**であって部位の判定ではない。姿（人姿 / 球体型姿）とポーズで
+ * 実際の部位はずれる（特に尻尾・耳は帯をまたぐ）ため、最終判断は設定画を見て行うこと。
+ *
+ * @param {{work: string, db: string, records: Set<any>|null}} opts
+ */
+function printColorMap(opts) {
+    const workDir = path.join(REPO_ROOT, 'data', `Works_${opts.work}`);
+    const imagesRoot = path.join(workDir, 'Images', `DB_${opts.db}`);
+    const db = JSON.parse(fs.readFileSync(path.join(workDir, 'DataBases', `db_${opts.db}.json`), 'utf8'));
+    const BANDS = ['頭', '上', '中', '下', '足'];
+
+    for (const record of db) {
+        const num = record.Num ?? recordLabel(record);
+        if (opts.records && !opts.records.has(record.Num) && !opts.records.has(String(num))) continue;
+        const hexes = (Array.isArray(record.ColorPalette) ? record.ColorPalette : [])
+            .map(c => c?.Hex).filter(Boolean);
+        if (!hexes.length) continue;
+
+        console.log(`\n=== #${num} ===`);
+        hexes.forEach((h, i) => console.log(`  ${i + 1} = ${h}`));
+
+        const files = [
+            ...resolveArtworkSources(record, workDir, imagesRoot).map(s => ({ role: s.folder, path: s.path })),
+            ...resolveImageSources(record, imagesRoot).filter(s => s.role === 'arts'),
+        ];
+        if (!files.length) { console.log('  （画像なし）'); continue; }
+
+        for (const f of files) {
+            let lines;
+            try {
+                lines = renderColorMap(decodePng(fs.readFileSync(f.path)), hexes);
+            } catch (err) {
+                console.log(`  ${f.role}: 読み込み失敗 (${err.message})`);
+                continue;
+            }
+            console.log(`  -- ${f.role}/${path.basename(f.path)}`);
+            // 図が描かれている範囲だけを帯の対象にする（上下の空行は数えない）
+            const filled = lines.map((l, i) => (/[^.]/.test(l) ? i : -1)).filter(i => i >= 0);
+            const top = filled[0] ?? 0;
+            const span = ((filled[filled.length - 1] ?? 0) - top) + 1;
+            lines.forEach((line, i) => {
+                const rel = (i - top) / span;
+                const band = rel >= 0 && rel < 1 ? BANDS[Math.min(4, Math.floor(rel * 5))] : '　';
+                console.log(`  ${band} ${line}`);
+            });
+        }
+    }
+    console.log('\n※ 高さ帯は外接矩形の 5 等分目盛りで、部位の判定ではありません。');
+    console.log('  尻尾・耳は姿によって帯をまたぐため、設定画と併せて判断してください。');
+}
+
+/**
+ * スロット判定の根拠を表示し、割当ファイルの下書きを `.cache/` へ書き出す。
+ * @param {{work: string, db: string, records: Set<any>|null, verbose: boolean}} opts
+ */
+function printSlotReport(opts) {
+    const { draft, rows } = reportSlotEvidence(opts);
+
+    console.log(`[スロット判定の根拠] ${opts.work} / ${opts.db}`);
+    for (const r of rows) {
+        const slotOf = new Map(r.assignment.map(a => [a.hex.toUpperCase(), a.slot]));
+        console.log(`\n  #${r.num}`);
+        for (const ev of r.evidence) {
+            const slot = slotOf.get(ev.hex.toUpperCase()) ?? '（未割当）';
+            const parts = [...new Set(ev.hints.map(h => h.bodyPart).filter(Boolean))].join(',') || '-';
+            const elems = [...new Set(ev.hints.map(h => h.element).filter(Boolean))].join(',') || '-';
+            console.log(`    ${ev.hex}  球体${(ev.covBall * 100).toFixed(1).padStart(5)}%  人姿${(ev.covArt * 100).toFixed(1).padStart(5)}%  ${slot.padEnd(17)} ${parts} / ${elems}`);
+        }
+        if (r.unassigned.length) console.log(`    → 未割当: ${r.unassigned.join(', ')}`);
+    }
+
+    const outDir = path.join(REPO_ROOT, '.cache');
+    fs.mkdirSync(outDir, { recursive: true });
+    const outPath = path.join(outDir, `colorpalette-slots-${opts.work}-${opts.db}.json`);
+    fs.writeFileSync(outPath, `${JSON.stringify(draft, null, 2)}\n`, 'utf8');
+
+    const done = rows.filter(r => !r.unassigned.length).length;
+    console.log(`\n  下書き: ${done} / ${rows.length} 件が全色割当済み`);
+    console.log(`  ${path.relative(REPO_ROOT, outPath).split(path.sep).join('/')} へ下書きを書き出しました。`);
+    console.log('\n※ この下書きは検証前です。根拠に使う AppearanceDetail の BodyPart / DesignElement は');
+    console.log('  画像を見て手動修正された経緯があり、近似色が競合すると被覆率も入れ替わります。');
+    console.log('  画像で確認して直してから --slots で適用してください。');
+}
+
+/**
+ * スロット確定の実行結果を表示する。
+ * @param {{work: string, db: string, records: Set<any>|null, apply: boolean, slots: any, verbose: boolean}} opts
+ */
+function printSlotPatch(opts) {
+    const { results, applied, dbPath } = patchColorPaletteSlots(opts);
+
+    if (opts.verbose) {
+        for (const r of results) {
+            if (r.status === 'slotted') {
+                console.log(`  #${String(r.num).padEnd(7)} slotted (${r.source})  ${r.value.map(v => `${v.ColorName_JP}:${v.Hex}`).join(' ')}`);
+            } else if (r.status === 'skipped-unassigned') {
+                console.log(`  #${String(r.num).padEnd(7)} 未割当あり → スキップ: ${r.unassigned.join(', ')}`);
+            } else {
+                console.log(`  #${String(r.num).padEnd(7)} ${r.status}${r.message ? `: ${r.message}` : ''}`);
+            }
+        }
+        console.log('');
+    }
+
+    const tally = {};
+    for (const r of results) tally[r.status] = (tally[r.status] ?? 0) + 1;
+    console.log(`[スロット確定${opts.apply ? '' : ' / dry-run'}] ${opts.work} / ${opts.db}`);
+    for (const [status, count] of Object.entries(tally)) console.log(`  ${status}: ${count} 件`);
+
+    const pending = results.filter(r => r.status === 'skipped-unassigned').map(r => r.num);
+    if (pending.length) console.log(`  → 要確認（未割当の色が残る）: ${pending.join(', ')}`);
+
+    if (opts.apply && applied) {
+        console.log(`\n  ${path.relative(REPO_ROOT, dbPath).split(path.sep).join('/')} を更新しました（${applied} 件）`);
+        console.log('  ※ 仕上げに `npx prettier --write` を実行してください。');
+    } else if (!opts.apply) {
+        console.log('\n  （--apply を付けると実際に書き込みます）');
+    }
+    console.log('\n※ Hex / Formation / Note は既存値のまま。Role と ColorName はスロット表から確定します。');
+}
+
 /** CLI エントリポイント。 */
 function main() {
     const argv = process.argv.slice(2);
@@ -728,9 +1339,17 @@ function main() {
     };
     let all = false;
     let verifyArtwork = false;
+    let assignSlots = false;
+    let slotReport = false;
+    let colorMap = false;
+    let slotsFile = null;
 
     for (let i = 0; i < argv.length; i++) {
         switch (argv[i]) {
+            case '--assign-slots': assignSlots = true; break;
+            case '--slot-report': slotReport = true; break;
+            case '--color-map': colorMap = true; break;
+            case '--slots': slotsFile = argv[++i]; break;
             case '--work': opts.work = argv[++i]; break;
             case '--db': opts.db = argv[++i]; break;
             case '--records': opts.records = parseRecordSpec(argv[++i]); break;
@@ -761,6 +1380,25 @@ function main() {
     // ── 照合レポート（データは変更しない）
     if (verifyArtwork) {
         printArtworkVerification(opts);
+        return;
+    }
+
+    // ── 配色マップ（データは変更しない）
+    if (colorMap) {
+        printColorMap(opts);
+        return;
+    }
+
+    // ── スロット判定の根拠レポート（データは変更しない）
+    if (slotReport) {
+        printSlotReport(opts);
+        return;
+    }
+
+    // ── スロット確定（並べ替え + Role / ColorName）
+    if (assignSlots) {
+        const slots = slotsFile ? JSON.parse(fs.readFileSync(slotsFile, 'utf8')) : null;
+        printSlotPatch({ ...opts, slots });
         return;
     }
 
