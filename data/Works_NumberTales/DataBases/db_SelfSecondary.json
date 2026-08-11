@@ -336,16 +336,29 @@
     "ColorPalette": [
       {
         "Role": "#ColorRole_Primary",
+        "Hex": "#FFD58F",
+        "ColorName_JP": "主色",
+        "ColorName_EN": "Primary Color",
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Primary",
         "Hex": "#D75341",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
+        "ColorName_JP": "主色(衣装)",
+        "ColorName_EN": "Primary Color (Costume)",
         "AppliesTo": [
-          "#BodyPart_Wing",
-          "#BodyPart_FaceMaking",
-          "#BodyPart_Eye",
           "#BodyPart_Head",
+          "#BodyPart_Eye",
+          "#BodyPart_Chest",
           "#BodyPart_Back",
-          "#BodyPart_Foot"
+          "#BodyPart_Waist",
+          "#BodyPart_Leg",
+          "#BodyPart_Foot",
+          "#BodyPart_Wing",
+          "#BodyPart_FaceMaking"
         ],
         "Formation": null,
         "Note_JP": null,
@@ -353,9 +366,19 @@
       },
       {
         "Role": "#ColorRole_Secondary",
-        "Hex": "#FFAC8F",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
+        "Hex": "#E7E9E3",
+        "ColorName_JP": "副色",
+        "ColorName_EN": "Secondary Color",
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Chest", "#BodyPart_Tail"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#FCBD47",
+        "ColorName_JP": "メインアクセントカラー",
+        "ColorName_EN": "Main Accent Color",
         "AppliesTo": null,
         "Formation": null,
         "Note_JP": null,
@@ -364,8 +387,8 @@
       {
         "Role": "#ColorRole_Accent",
         "Hex": "#CDCBC5",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
+        "ColorName_JP": "サブアクセントカラー",
+        "ColorName_EN": "Sub Accent Color",
         "AppliesTo": null,
         "Formation": null,
         "Note_JP": null,
@@ -373,30 +396,10 @@
       },
       {
         "Role": "#ColorRole_Sub",
-        "Hex": "#E7E9E3",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
-        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Chest"],
-        "Formation": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Role": "#ColorRole_Sub",
-        "Hex": "#FCBD47",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
-        "AppliesTo": null,
-        "Formation": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Role": "#ColorRole_Sub",
-        "Hex": "#FFD58F",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
-        "AppliesTo": null,
+        "Hex": "#FFAC8F",
+        "ColorName_JP": "副色（衣装）",
+        "ColorName_EN": "Secondary Color (Costume)",
+        "AppliesTo": ["#BodyPart_Back", "#BodyPart_Wing"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -840,9 +843,19 @@
     "ColorPalette": [
       {
         "Role": "#ColorRole_Primary",
-        "Hex": "#64A6C2",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
+        "Hex": "#EAE5D6",
+        "ColorName_JP": "主色",
+        "ColorName_EN": "Primary Color",
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#49768F",
+        "ColorName_JP": "主色(衣装)",
+        "ColorName_EN": "Primary Color (Costume)",
         "AppliesTo": null,
         "Formation": null,
         "Note_JP": null,
@@ -850,9 +863,9 @@
       },
       {
         "Role": "#ColorRole_Secondary",
-        "Hex": "#FFDCAE",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
+        "Hex": "#FFEE60",
+        "ColorName_JP": "副色",
+        "ColorName_EN": "Secondary Color",
         "AppliesTo": null,
         "Formation": null,
         "Note_JP": null,
@@ -860,39 +873,29 @@
       },
       {
         "Role": "#ColorRole_Accent",
-        "Hex": "#FFEE60",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
-        "AppliesTo": null,
-        "Formation": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Role": "#ColorRole_Sub",
-        "Hex": "#EAE5D6",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
-        "AppliesTo": null,
-        "Formation": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Role": "#ColorRole_Sub",
-        "Hex": "#49768F",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
-        "AppliesTo": null,
-        "Formation": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Role": "#ColorRole_Sub",
         "Hex": "#FFCE2B",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
+        "ColorName_JP": "メインアクセントカラー",
+        "ColorName_EN": "Main Accent Color",
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#64A6C2",
+        "ColorName_JP": "サブアクセントカラー",
+        "ColorName_EN": "Sub Accent Color",
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#FFDCAE",
+        "ColorName_JP": "副色（衣装）",
+        "ColorName_EN": "Secondary Color (Costume)",
         "AppliesTo": null,
         "Formation": null,
         "Note_JP": null,
@@ -1930,7 +1933,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": ["#BodyPart_Halo"],
+        "BodyPart": ["#BodyPart_Head", "#BodyPart_Back"],
         "Laterality": null,
         "DesignElement": "#Element_Halo",
         "Attrs": [
@@ -2064,19 +2067,9 @@
     "ColorPalette": [
       {
         "Role": "#ColorRole_Primary",
-        "Hex": "#FFD47A",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
-        "AppliesTo": null,
-        "Formation": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Role": "#ColorRole_Secondary",
         "Hex": "#94CDD5",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
+        "ColorName_JP": "主色",
+        "ColorName_EN": "Primary Color",
         "AppliesTo": [
           "#BodyPart_FaceMaking",
           "#BodyPart_Eye",
@@ -2089,30 +2082,70 @@
         "Note_EN": null
       },
       {
-        "Role": "#ColorRole_Accent",
-        "Hex": "#B5AD9C",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
-        "AppliesTo": ["#BodyPart_Waist", "#BodyPart_Eye"],
+        "Role": "#ColorRole_Primary",
+        "Hex": "#C1A072",
+        "ColorName_JP": "主色(衣装)",
+        "ColorName_EN": "Primary Color (Costume)",
+        "AppliesTo": [
+          "#BodyPart_Neck",
+          "#BodyPart_Chest",
+          "#BodyPart_Back",
+          "#BodyPart_Foot"
+        ],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       },
       {
-        "Role": "#ColorRole_Sub",
-        "Hex": "#C1A072",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#A4DAEF",
+        "ColorName_JP": "副色",
+        "ColorName_EN": "Secondary Color",
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Tail"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#64A6C2",
+        "ColorName_JP": "副色",
+        "ColorName_EN": "Secondary Color",
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Ear"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#FFD47A",
+        "ColorName_JP": "メインアクセントカラー",
+        "ColorName_EN": "Main Accent Color",
         "AppliesTo": null,
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       },
       {
-        "Role": "#ColorRole_Sub",
+        "Role": "#ColorRole_Accent",
         "Hex": "#C9CDCB",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
+        "ColorName_JP": "サブアクセントカラー（瞳, アクセサリー）",
+        "ColorName_EN": "Sub Accent Color (Eye Color, Accessory Color)",
+        "AppliesTo": [
+          "#BodyPart_Head",
+          "#BodyPart_Eye",
+          "#BodyPart_Back",
+          "#BodyPart_Waist"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#B5AD9C",
+        "ColorName_JP": "副色（衣装）",
+        "ColorName_EN": "Secondary Color (Costume)",
         "AppliesTo": ["#BodyPart_Waist", "#BodyPart_Eye"],
         "Formation": null,
         "Note_JP": null,
@@ -2121,28 +2154,8 @@
       {
         "Role": "#ColorRole_Sub",
         "Hex": "#020202",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
-        "AppliesTo": null,
-        "Formation": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Role": "#ColorRole_Sub",
-        "Hex": "#A4DAEF",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
-        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Tail"],
-        "Formation": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Role": "#ColorRole_Sub",
-        "Hex": "#64A6C2",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
+        "ColorName_JP": "補助色",
+        "ColorName_EN": "Auxiliary Color",
         "AppliesTo": null,
         "Formation": null,
         "Note_JP": null,
@@ -2654,7 +2667,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": ["#BodyPart_Halo"],
+        "BodyPart": ["#BodyPart_Head", "#BodyPart_Back"],
         "Laterality": null,
         "DesignElement": "#Element_Halo",
         "Attrs": [
@@ -2804,20 +2817,48 @@
     "ColorPalette": [
       {
         "Role": "#ColorRole_Primary",
-        "Hex": "#E0B0BC",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
-        "AppliesTo": null,
+        "Hex": "#BC8797",
+        "ColorName_JP": "主色",
+        "ColorName_EN": "Primary Color",
+        "AppliesTo": [
+          "#BodyPart_Halo",
+          "#BodyPart_FaceMaking",
+          "#BodyPart_Neck"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#F26383",
+        "ColorName_JP": "主色(衣装)",
+        "ColorName_EN": "Primary Color (Costume)",
+        "AppliesTo": ["#BodyPart_Eye", "#BodyPart_Wing", "#BodyPart_Foot"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       },
       {
         "Role": "#ColorRole_Secondary",
-        "Hex": "#F26383",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
-        "AppliesTo": ["#BodyPart_Eye", "#BodyPart_Wing", "#BodyPart_Foot"],
+        "Hex": "#E0B0BC",
+        "ColorName_JP": "副色",
+        "ColorName_EN": "Secondary Color",
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#A95D8D",
+        "ColorName_JP": "メインアクセントカラー（アクセサリー）",
+        "ColorName_EN": "Main Accent Color (Accessory Color)",
+        "AppliesTo": [
+          "#BodyPart_Halo",
+          "#BodyPart_FaceMaking",
+          "#BodyPart_Neck"
+        ],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -2825,37 +2866,9 @@
       {
         "Role": "#ColorRole_Accent",
         "Hex": "#C84557",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
+        "ColorName_JP": "サブアクセントカラー（瞳, アクセサリー）",
+        "ColorName_EN": "Sub Accent Color (Eye Color, Accessory Color)",
         "AppliesTo": ["#BodyPart_Eye", "#BodyPart_Wing", "#BodyPart_Foot"],
-        "Formation": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Role": "#ColorRole_Sub",
-        "Hex": "#A95D8D",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
-        "AppliesTo": [
-          "#BodyPart_Halo",
-          "#BodyPart_FaceMaking",
-          "#BodyPart_Neck"
-        ],
-        "Formation": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Role": "#ColorRole_Sub",
-        "Hex": "#BC8797",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
-        "AppliesTo": [
-          "#BodyPart_Halo",
-          "#BodyPart_FaceMaking",
-          "#BodyPart_Neck"
-        ],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -3003,9 +3016,19 @@
     "ColorPalette": [
       {
         "Role": "#ColorRole_Primary",
+        "Hex": "#FFC4A3",
+        "ColorName_JP": "主色",
+        "ColorName_EN": "Primary Color",
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Primary",
         "Hex": "#FF9F6A",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
+        "ColorName_JP": "主色(衣装)",
+        "ColorName_EN": "Primary Color (Costume)",
         "AppliesTo": null,
         "Formation": null,
         "Note_JP": null,
@@ -3013,9 +3036,9 @@
       },
       {
         "Role": "#ColorRole_Secondary",
-        "Hex": "#FFEE63",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
+        "Hex": "#F7FFB9",
+        "ColorName_JP": "副色",
+        "ColorName_EN": "Secondary Color",
         "AppliesTo": null,
         "Formation": null,
         "Note_JP": null,
@@ -3023,29 +3046,19 @@
       },
       {
         "Role": "#ColorRole_Accent",
-        "Hex": "#FFC4A3",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
-        "AppliesTo": null,
-        "Formation": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Role": "#ColorRole_Sub",
-        "Hex": "#E8F152",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
-        "AppliesTo": null,
-        "Formation": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Role": "#ColorRole_Sub",
         "Hex": "#4378C3",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
+        "ColorName_JP": "メインアクセントカラー",
+        "ColorName_EN": "Main Accent Color",
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#E8F152",
+        "ColorName_JP": "サブアクセントカラー",
+        "ColorName_EN": "Sub Accent Color",
         "AppliesTo": null,
         "Formation": null,
         "Note_JP": null,
@@ -3053,9 +3066,9 @@
       },
       {
         "Role": "#ColorRole_Sub",
-        "Hex": "#F7FFB9",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
+        "Hex": "#FFEE63",
+        "ColorName_JP": "補助色",
+        "ColorName_EN": "Auxiliary Color",
         "AppliesTo": null,
         "Formation": null,
         "Note_JP": null,
@@ -3349,8 +3362,18 @@
       {
         "Role": "#ColorRole_Primary",
         "Hex": "#C1A072",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
+        "ColorName_JP": "主色",
+        "ColorName_EN": "Primary Color",
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#8B9BAC",
+        "ColorName_JP": "主色(衣装)",
+        "ColorName_EN": "Primary Color (Costume)",
         "AppliesTo": null,
         "Formation": null,
         "Note_JP": null,
@@ -3358,39 +3381,29 @@
       },
       {
         "Role": "#ColorRole_Secondary",
-        "Hex": "#504695",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
-        "AppliesTo": ["#BodyPart_Eye", "#BodyPart_Hair", "#BodyPart_Foot"],
+        "Hex": "#FFD47A",
+        "ColorName_JP": "副色",
+        "ColorName_EN": "Secondary Color",
+        "AppliesTo": null,
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       },
       {
         "Role": "#ColorRole_Accent",
+        "Hex": "#504695",
+        "ColorName_JP": "メインアクセントカラー（瞳, アクセサリー）",
+        "ColorName_EN": "Main Accent Color (Eye Color, Accessory Color)",
+        "AppliesTo": ["#BodyPart_Eye", "#BodyPart_Hair", "#BodyPart_Foot"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
         "Hex": "#ECAC42",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
-        "AppliesTo": null,
-        "Formation": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Role": "#ColorRole_Sub",
-        "Hex": "#8B9BAC",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
-        "AppliesTo": null,
-        "Formation": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Role": "#ColorRole_Sub",
-        "Hex": "#FFD47A",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
+        "ColorName_JP": "副色（衣装）",
+        "ColorName_EN": "Secondary Color (Costume)",
         "AppliesTo": null,
         "Formation": null,
         "Note_JP": null,
@@ -3657,29 +3670,44 @@
       {
         "Role": "#ColorRole_Primary",
         "Hex": "#C1A072",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
-        "AppliesTo": null,
+        "ColorName_JP": "主色",
+        "ColorName_EN": "Primary Color",
+        "AppliesTo": ["#BodyPart_Hair"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#ECAC42",
+        "ColorName_JP": "主色(衣装)",
+        "ColorName_EN": "Primary Color (Costume)",
+        "AppliesTo": [
+          "#BodyPart_Chest",
+          "#BodyPart_Back",
+          "#BodyPart_Interchangeable",
+          "#BodyPart_FaceMaking"
+        ],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       },
       {
         "Role": "#ColorRole_Secondary",
-        "Hex": "#504695",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
-        "AppliesTo": ["#BodyPart_Eye", "#BodyPart_Hair", "#BodyPart_Foot"],
+        "Hex": "#FFD47A",
+        "ColorName_JP": "副色",
+        "ColorName_EN": "Secondary Color",
+        "AppliesTo": null,
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       },
       {
         "Role": "#ColorRole_Accent",
-        "Hex": "#ECAC42",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
-        "AppliesTo": null,
+        "Hex": "#504695",
+        "ColorName_JP": "メインアクセントカラー（瞳, アクセサリー）",
+        "ColorName_EN": "Main Accent Color (Eye Color, Accessory Color)",
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Eye", "#BodyPart_Foot"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -3687,19 +3715,9 @@
       {
         "Role": "#ColorRole_Sub",
         "Hex": "#8B9BAC",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
-        "AppliesTo": null,
-        "Formation": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Role": "#ColorRole_Sub",
-        "Hex": "#FFD47A",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
-        "AppliesTo": null,
+        "ColorName_JP": "副色（衣装）",
+        "ColorName_EN": "Secondary Color (Costume)",
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Leg"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null

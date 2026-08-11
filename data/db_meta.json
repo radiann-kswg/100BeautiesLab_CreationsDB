@@ -1112,6 +1112,11 @@
           "BodyPart_EN": "Wing",
           "bilateral": true
         },
+        "#BodyPart_Halo": {
+          "BodyPart": "Halo",
+          "BodyPart_JP": "ヘイロー",
+          "BodyPart_EN": "Halo"
+        },
         "#BodyPart_Interchangeable": {
           "BodyPart": "Interchangeable",
           "BodyPart_JP": "付け替え可能",

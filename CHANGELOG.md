@@ -1,5 +1,63 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### feat: 配色スロットを全作品 160 レコードへ展開（完了）と、判定根拠の `AppliesTo` 駆動化 (2026-08-11)
+
+[issue #21](https://github.com/radiann-kswg/100BeautiesLab_CreationsDB/issues/21#issuecomment-5249395494) と User 確定の 7 枠スロット表を、**配色を持つ全 160 レコード（975 色）へ展開し終えた**。**画像（設定画・単体絵）を正典**として、`ColorPalette` の並び・`Role`・`ColorName_JP/EN` を確定している。
+
+| Work / DB | 件数 | 色数 |
+| --- | ---: | ---: |
+| NumberTales / Primary | 96 | 594 |
+| NumberTales / Secondary | 37 | 219 |
+| NumberTales / SemiPrimary | 11 | 68 |
+| NumberTales / SelfSecondary | 7 | 41 |
+| UnibyteLive / Primary | 4 | 18 |
+| DestinyFoxRecords / Primary + Proxy | 5 | 35 |
+| **合計** | **160** | **975** |
+
+- **判定根拠に `AppliesTo` を通した（最大の不備の解消）**: `collectSlotEvidence()` は色語照合（13 語）だけを根拠にしており、issue §1 の適用で埋めた `AppliesTo` 244 部位が判定にも `--slot-report` にも効いていなかった。返り値へ `appliesTo` を追加し、レポートは `AppliesTo` を正・色語を `~` 付きのフォールバックとして表示する。
+- **`classifyParts()`（新規）**: 部位を 地毛（髪/耳/尻尾）/ 衣装（胸/腰/脚/肩/腕/背中）/ アクセサリー（それ以外）の 3 クラスへ写す純関数。襟・手袋・靴・帽子は小物なので `Neck` / `Hand` / `Foot` / `Head` を衣装に入れない。クラスは**排他ではない**（1 色が地毛と衣装の両方に出るのは普通）。
+- **`proposeSlotAssignment()` の副色を地毛で絞った**: 確定 5 件（Num 1/5/6/8/24）での正解率が **90% → 100%**（主色 5/5・副色 5/5）。旧版は Num 1 のパーカー `#FF8682`（衣装 33.2%）が耳・尻尾の `#FFAC8F`（11.4%）を上回るため副色を外していた。**主色は絞らない**（`AppliesTo` の抜けに巻き込まれる。Num 9 の `#A1A9BF` は球体型姿の 71.8% を占める髪だが `AppliesTo` が空）。
+- **下書きが `appliesTo` を出さなくなった**: 色語から組み立てた部位を書くと、User が「侵食されている」として差し戻した経路が下書き経由で復活する。キーを省けば `applySlotAssignment()` が既存値を持ち越す。
+- **衣装枠の順序は自動化しない（実測による判断）**: 主色(衣装) と 副色（衣装）の別はシェアでは決まらない（確定 5 件で 3/5）。Num 24 は青灰 `#AEB8DB` のカーディガンが主だが、人姿イラストの計測では藤色 `#C680AF`（19.9%）が青灰（5.8%）を上回る。**最終判断は設定画**とし、ツールは根拠提示に徹する。
+- **issue §2「未登録の実測色」23 行の反映**: 20 行は既存登録色との RGB 距離が **1〜8**（アンチエイリアスの拾い違い）だった。User 確定により、距離 10 超の **3 色だけを新規追加**（Num 5 `#E6F2F1` 白テープ / Num 60 `#FFF1F0` 白襟 / Num 74 `#E9F2FB` 半透明ショール）し、残りは最近傍の登録色の `AppliesTo` へ和集合で合流（**8 色を更新**）。**次点との差が 10 未満**の 4 行は取り違えの危険があるため除外した（Num 2 の `#FF9F71`、Num 9 の `#9FA7BE`）。
+- **8 色以上のレコード（17 件）**: 7 枠に収まらないぶんは **近い枠へ分散**させる（User 確定）。同じ `ColorName_JP` の行が 2 行並ぶが、`Role` はもともと Primary/Accent/Sub が重複する仕様なので矛盾しない。
+- **設定画の実測で判った、issue §1 の誤り**: §1 は AI が公式画像から判断した推定で、髪・衣装の色を近い別の色へ割り当てている例がある。実測した範囲では Num 2（髪は `#FFA073` ではなく **`#FFBD97`**（77.5%）、スカートは `#FFBD97` ではなく **`#FFCFAE`**（89.8%）、スカーフは `#FFA579` ではなく **`#FFA073`**）、Num 3（ケープジャケットは `#FFEE60` ではなく **`#FFBC08`**（35.2%））。**コアフォルダ（球体型姿）の最大シェア＝主色**は確定 5 件で 5/5 一致しており、こちらを正とした。
+- **`--figure-bands`（新規モード）— 今回の判定の主力**: 設定画は人姿・球体型姿・表情差分・注釈文字が混在するため、**塗り画素の連結成分**で塊を切り出し（白い襟・手袋・靴下は紙面として落ちて人姿を上下に分断するので、9px 膨張してから連結する）、その外接矩形を**縦 5 帯**に割って帯ごとの配色シェアを出す。共通造形色（`$EnumDef_CommonColor` の肌など）は除外する。「頭＝髪 / 上＝上衣 / 中＝胴 / 下＝下衣 / 足＝靴」として読めるので、**被覆率では潰れる衣装枠の順序が分かれる**。Num 24 は青灰 `#AEB8DB` が「中」帯 46% で首位に来て、シェア順（藤色 19.9% > 青灰 5.8%）の誤りを避けられた。実装は `findFigureBlobs()` / `measureFigureBands()`。
+- **`--color-map` が合同絵を含んでいたのを修正**: `resolveImageSources(...).filter(source === 'illustration')` を素通ししており、`resolveSoloArtSources()` のバッジ絞り込みを経ていなかった。他キャラの色が図に混ざる（判定材料の `collectSlotEvidence()` は既に絞っていたので、図だけがずれていた）。
+- **実データ**: **160 / 160 件・975 色を確定**。`Hex` / `Formation` / `Note_*` は既存値のまま。User が手で書いた色名（Num 5 の `メインアクセントカラー（瞳, 衣装補足色）`）は `isGeneratedColorName()` が保護した。枠ごとの内訳は 主色 160 / 主色(衣装) 159 / 副色 161 / メインアクセント 155 / サブアクセント 109 / 副色（衣装）148 / 補助色 83。
+- **`--records` の数値化バグを修正**: `Number()` に寄せていたため `"000"` / `"00"` / `"0"` が全部 `0` へ潰れ、1 件も選べなかった。数値と文字列の両方を Set へ入れる形にした。
+- **`Role` が変わるため**、`addon-ai-tag` 側で `--apply-colorpalette --force-palette` の再実行が必要（`palette_priority` へ反映するため）。
+- **検証**: `npm test` **69 files / 1,235 件すべて成功**（`classifyParts` / `collectSlotEvidence` / 下書きの回帰に 8 件追加）。`npm run data:order:check` は **0/1316 レコード整列**（キー順に変化なし）。
+
+### feat: `AppliesTo` をエントリ別 HEX 対応から補完（近似色フィルタ付き） (2026-08-11)
+
+差し戻し（下記）のあと、**根拠のない推測を外して**[issue #21 改訂版](https://github.com/radiann-kswg/100BeautiesLab_CreationsDB/issues/21#issuecomment-5249395494)を適用し直した。
+
+- **入れないもの**: 「髪の色には耳・尻尾も足す」規約（前回 318 部位を根拠なく追加した侵食の主因）。`AppliesTo` へ入れるのは**その HEX に該当する部位だけ**という User のルールに従う。
+- **近似色フィルタ（新規判断）**: 同一レコード内に **RGB 距離 40 未満**の別の色があるとき、その割当は採用しない。誤りは近似色ペアの取り違えに集中していた（Num 1 のパーカーは `#FF8682` なのに `#FFAC8F`（距離 30）へ割り当てられていた）。人でも設定画から分離できない組なので、判定ごと捨てて既存値を残す。691 行のうち **228 行**がこの条件で落ちた。
+- **フィルタ通過分は全件裏が取れた**: 確定済み 5 件で残った追加 6 件を記述と突き合わせた結果、すべて正しかった。当初「余計」と数えていたのは、`AppliesTo` を網羅の意味に統一する前の**抜粋だった既存値**と比べていたための誤検出。
+  | 追加                         | 提案の根拠                                            |
+  | ---------------------------- | ----------------------------------------------------- |
+  | Num 5 `#4CD9E8` +Eye         | `dark green eyes with a hint of…`（イズはオッドアイ） |
+  | Num 5 `#4CD9E8` +Leg         | `light blue short skirt`                              |
+  | Num 6 `#185EBD` +Neck        | `hexagonal brooch`（襟元のブローチ）                  |
+  | Num 6 `#FF76A2` +Chest,Waist | `two-tone pink purple dress`（ワンピースは 2 色）     |
+  | Num 24 `#C680AF` +Eye        | `purple eyes`                                         |
+- **実データ**: NumberTales の 3 DB で **188 色**を更新（`db_Primary` 160 / `db_SemiPrimary` 18 / `db_SelfSecondary` 10）。HEAD 比で**消えた部位 0 / 増えた部位 244**（対象 700 色）。既存値は 1 つも失っていない。
+- **検証**: `npm test` **69 files / 1,225 件すべて成功**。
+
+### fix: `#BodyPart_Halo` の宣言漏れと、`AppliesTo` 一括更新の差し戻し (2026-08-11)
+
+[issue #21](https://github.com/radiann-kswg/100BeautiesLab_CreationsDB/issues/21) のエントリ別 HEX 対応で `AppliesTo` を一括更新したが、**User から「侵食されている」と指摘があり全件差し戻した**。あわせて、その過程で露見したスキーマの穴を塞いだ。
+
+- **`#BodyPart_Halo` を `$EnumDef_DesignBodyPart` へ追加**: データ（`db_SemiPrimary` / `db_SelfSecondary` の `AppearanceDetail` と `ColorPalette`）で使われているのに**宣言が漏れていた**。部位 enum を正として値を組み立てたツールがこれを黙って落とし、`AppliesTo` から 3 箇所消えた。ラベルは既存の `#Element_Halo`（`ヘイロー` / `Halo`）から転記。
+- **`tests/data.bodypart-enum.test.js`（新規 / 3 件）**: データで使われている `#BodyPart_*` がすべて宣言されているかを検査する。宣言を外すと落ちることを確認済み。**宣言漏れは「静かに消える」形で現れる**ため、宣言側で気づけるようにした。
+- **`AppliesTo` は HEAD の状態へ全件復元**（`db_Primary` 297 / `db_SemiPrimary` 28 / `db_SelfSecondary` 17 色）。HEAD に存在した 700 色すべてで HEAD と一致することを確認（差分 0）。
+- **`--applies-to`（新規モード）は残す**: `Hex` で行を特定して `AppliesTo` だけを差し替える。`Hex` / `Role` / 色名 / `Formation` / `Note_*` は触らない。部位は `$EnumDef_DesignBodyPart` で検証し、**未宣言の値があればその行を書き換えない**（この guard が復元時に `#BodyPart_Halo` を守った）。
+- **差し戻した理由（実測）**: 確定済み 5 件（正解の部位 60 個）で改訂版マッピングを測ると **適合率 40% / 再現率 17%**。割り当てた 25 部位のうち 15 が誤りで、`#FFAC8F`（副色 = 耳・尻尾）にパーカーの首・頭・肩・胸が付くといった明確な誤割当を含む。さらに当方で足した「髪の色には耳・尻尾も足す」規約が **318 部位**を根拠なく追加しており、これが侵食の主因だった。
+- **影響範囲**: `data/db_meta.json` / `tests/data.bodypart-enum.test.js` / `tools/patch-colorpalette.mjs` / `data/Works_NumberTales/DataBases/db_{Primary,SemiPrimary,SelfSecondary}.json`。
+- **検証**: `npm test` **69 files / 1,225 件すべて成功**。
+
 ### feat: 実測 HEX からの配色補完（`--add-colors`）と、issue #20 補完案の検算 (2026-08-11)
 
 `100BeautiesLab_GeneratorsAI` の充足性レビュー（[issue #20](https://github.com/radiann-kswg/100BeautiesLab_CreationsDB/issues/20)）が出した 3 つの提案を実データで検算し、**効果が測れたものだけ**を取り込んだ。

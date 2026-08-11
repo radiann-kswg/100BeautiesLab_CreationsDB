@@ -59,6 +59,7 @@ import {
     listImageFields,
     readCommonColors,
 } from './extract-palette.mjs';
+import { readBodyPartEnum } from './patch-appearance-bodypart.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
@@ -349,6 +350,34 @@ export const COLOR_SLOTS = [
 const BASE_PARTS = new Set(['#BodyPart_Hair', '#BodyPart_Ear', '#BodyPart_Tail']);
 /** アクセント（瞳）とみなす部位。色名の注記（「瞳」か「アクセサリー」か）の分岐に使う。 */
 const ACCENT_PARTS = new Set(['#BodyPart_Eye']);
+/**
+ * 衣装が覆う部位。`#BodyPart_Neck` / `Hand` / `Foot` / `Head` は襟・手袋・靴・帽子といった
+ * **小物**にもなるため、ここには入れない（それらはアクセサリー扱い）。
+ */
+const COSTUME_PARTS = new Set([
+    '#BodyPart_Chest', '#BodyPart_Waist', '#BodyPart_Leg',
+    '#BodyPart_Shoulder', '#BodyPart_Arm', '#BodyPart_Back',
+]);
+
+/**
+ * 部位の一覧を「地毛 / 衣装 / アクセサリー」の 3 クラスへ写す。
+ *
+ * どのクラスにも排他性は無い（1 つの色が地毛と衣装の両方に出ることは普通にある。
+ * 例: Num 6 の `#FF76A2` は髪・耳・尻尾とワンピースの両方）。判定側は
+ * 「地毛を含むか」のように**含有**で見ること。
+ *
+ * @param {string[]|null|undefined} parts  `AppliesTo` 相当の部位配列
+ * @returns {{ base: boolean, costume: boolean, accessory: boolean, empty: boolean }}
+ */
+export function classifyParts(parts) {
+    const list = Array.isArray(parts) ? parts : [];
+    return {
+        base: list.some(p => BASE_PARTS.has(p)),
+        costume: list.some(p => COSTUME_PARTS.has(p)),
+        accessory: list.some(p => !BASE_PARTS.has(p) && !COSTUME_PARTS.has(p)),
+        empty: list.length === 0,
+    };
+}
 
 /**
  * スロットの色名を組み立てる。
@@ -521,7 +550,15 @@ export function resolveSoloArtSources(record, workDir, imagesRoot) {
  * - `covBall` … 球体型姿（`$palette.source: artwork`。コアフォルダ / キーキャッパー等）でのシェア
  * - `covArt`  … 人姿の単独絵でのシェア
  * - `bands`   … 球体型姿での高さ帯分布（頭/上/中/下/足）。球体型姿が取れない場合は人姿の分布
- * - `hints`   … `AppearanceDetail` の色語が一致した部位・DesignElement
+ * - `appliesTo` … レコードの `ColorPalette[].AppliesTo`（その色が現れる部位。判定の主材料）
+ * - `hints`   … `AppearanceDetail` の色語が一致した部位・DesignElement（`AppliesTo` の穴埋め用）
+ *
+ * **`appliesTo` と `hints` は別物**。前者は「この HEX が塗られている部位」を
+ * [issue #21](https://github.com/radiann-kswg/100BeautiesLab_CreationsDB/issues/21) の
+ * エントリ別 HEX 対応から確定させた値で、後者は色語（`red` / `blue` 等 13 語）の照合結果。
+ * 色語は 1 語がその色相域の**全色**へ一致してしまうため精度が 3 割前後で頭打ちになる
+ * （CHANGELOG 2026-08-11「色語 275 件の補完案は見送り」）。判定では `appliesTo` を優先し、
+ * それが空のときだけ `hints` を見ること。
  *
  * 球体型姿は原則として衣装を含まないため、そこでのシェア順が「地毛で何番目に多い色か」に
  * ほぼ対応する。確定済みレコードでの実測は主色 5/5・副色 4/5。
@@ -535,12 +572,19 @@ export function resolveSoloArtSources(record, workDir, imagesRoot) {
  * @param {any} record
  * @param {string} workDir
  * @param {string} imagesRoot
- * @returns {Array<{hex: string, covBall: number, covArt: number, bands: number[], hints: Array<{word: string, bodyPart: string|null, element: string|null, source: string}>}>}
+ * @returns {Array<{hex: string, covBall: number, covArt: number, bands: number[], appliesTo: string[], hints: Array<{word: string, bodyPart: string|null, element: string|null, source: string}>}>}
  */
 export function collectSlotEvidence(record, workDir, imagesRoot) {
-    const hexes = (Array.isArray(record?.ColorPalette) ? record.ColorPalette : [])
-        .map(c => c?.Hex).filter(h => typeof h === 'string');
+    const palette = Array.isArray(record?.ColorPalette) ? record.ColorPalette : [];
+    const hexes = palette.map(c => c?.Hex).filter(h => typeof h === 'string');
     if (!hexes.length) return [];
+    // Hex → AppliesTo。同じ Hex が 2 行ある壊れたデータでも落ちないよう先勝ちで引く
+    const partsByHex = new Map();
+    for (const row of palette) {
+        const key = String(row?.Hex ?? '').toUpperCase();
+        if (!key || partsByHex.has(key)) continue;
+        partsByHex.set(key, Array.isArray(row.AppliesTo) ? row.AppliesTo : []);
+    }
 
     /**
      * 複数枚ある場合は**宣言順の先頭**（＝基本形態）だけを使う。
@@ -573,6 +617,7 @@ export function collectSlotEvidence(record, workDir, imagesRoot) {
         covBall: ball[i].share,
         covArt: art[i].share,
         bands: ball[i].share ? ball[i].bands : art[i].bands,
+        appliesTo: partsByHex.get(hex.toUpperCase()) ?? [],
         hints: allHints.filter(h => colorWordMatchesHex(h.word, hex)),
     }));
 }
@@ -661,9 +706,13 @@ export function profileColorBands(img, hexes, opt = {}) {
 /**
  * 判定材料からスロット割当の**下書き**を作る。
  *
- * 埋めるのは **主色と副色だけ**。球体型姿（コアフォルダ等）でのシェア順が
- * 「地毛で何番目に多い色か」とほぼ対応するので、そこだけを根拠にする。
- * 残りは `unassigned` に残して、`--slot-report` の帯分布を見た人が決める。
+ * 埋めるのは **主色と副色だけ**。主色は球体型姿（コアフォルダ等）でのシェア最大の色、
+ * 副色は `AppliesTo` が地毛（髪・耳・尻尾）を含む色のうち 2 番目。
+ * 残りは `unassigned` に残して、`--slot-report` の帯分布と設定画を見た人が決める。
+ *
+ * **主色を地毛で絞らない理由**: `AppliesTo` には抜けがある。Num 9 の `#A1A9BF` は
+ * 球体型姿の 71.8% を占める銀灰の髪だが `AppliesTo` は空で、絞ると候補から消える。
+ * シェア最大は絞らなくても外さない（確定 5 件で 5/5）。
  *
  * **なぜ衣装色・アクセント色を出さないか**: 「人姿では出るが球体型姿では出ない色＝衣装」
  * 「面積が小さく瞳に紐づく色＝アクセント」という規則を実装し、User が画像を見て確定させた
@@ -671,14 +720,33 @@ export function profileColorBands(img, hexes, opt = {}) {
  * 前景マスクが淡いグレーを落とすこと、合同絵の混入が主因）。半分外す下書きは、
  * レビューする側を誤った答えへ引きずるぶん無いより悪い。
  *
- * 同じ計測での現行の正解率は **80%（主色 5/5・副色 3/5）**。規則を触るときは
- * `.cache/score-draft.mjs` 相当で測り直し、下がるなら戻すこと。
+ * 特に**衣装枠の順序（主色(衣装) と 副色（衣装））はシェアでは決まらない**。確定 5 件で 3/5。
+ * Num 24 は青灰 `#AEB8DB`（カーディガンとスカート）が主色(衣装)だが、人姿イラストの計測では
+ * 藤色 `#C680AF`（19.9%）が青灰（5.8%）を上回る。設定画を見ないと分けられない。
+ *
+ * 確定 5 件（Num 1/5/6/8/24）を正解とした主色・副色の正解率:
+ * | 版 | 正解率 |
+ * | --- | --- |
+ * | 全色をシェア順（旧） | 90%（主色 5/5・副色 4/5） |
+ * | **地毛の色だけをシェア順（現行）** | **100%（主色 5/5・副色 5/5）** |
+ *
+ * 旧版は Num 1 で副色を外していた。パーカーの `#FF8682`（衣装 33.2%）が
+ * 耳・尻尾の `#FFAC8F`（11.4%）を上回るためで、地毛で絞ると消える誤り
+ * （球体型姿は必ずしも衣装を着ていない、という前提が Num 1 では崩れている）。
+ *
+ * `AppliesTo` がどの色にも無いレコード（NumberTales/Secondary 等）は絞り込みようが無いので、
+ * 旧版と同じ「全色をシェア順」へ落ちる。規則を触るときは確定 5 件で測り直し、
+ * 下がるなら戻すこと。
+ *
+ * **`appliesTo` は出力しない。** 色語照合から組み立てた部位を書くと、User が
+ * 「侵食されている」として差し戻した経路（CHANGELOG 2026-08-11）が下書き経由で復活する。
+ * キーを省けば `applySlotAssignment()` が既存の `AppliesTo` をそのまま持ち越す。
  *
  * @param {ReturnType<typeof collectSlotEvidence>} evidence
- * @returns {{ assignment: Array<{slot: string, hex: string, appliesTo: string[]|null}>, unassigned: string[] }}
+ * @returns {{ assignment: Array<{slot: string, hex: string}>, unassigned: string[] }}
  */
 export function proposeSlotAssignment(evidence) {
-    /** @type {Array<{slot: string, hex: string, appliesTo: string[]|null}>} */
+    /** @type {Array<{slot: string, hex: string}>} */
     const assignment = [];
     /** @type {string[]} */
     const unassigned = [];
@@ -687,20 +755,23 @@ export function proposeSlotAssignment(evidence) {
     // 球体型姿が無いレコードでは人姿のシェアで代用する。両方無ければ全色が未割当。
     const hasBall = evidence.some(ev => ev.covBall > 0);
     const share = (ev) => (hasBall ? ev.covBall : ev.covArt);
+
     const ranked = [...evidence].sort((a, b) => share(b) - share(a));
 
-    /** 地毛の部位だけを `AppliesTo` の候補にする（衣装の部位は主色・副色には載せない） */
-    const baseParts = (ev) => [...new Set(
-        ev.hints.map(h => h.bodyPart).filter(p => p && BASE_PARTS.has(p)),
-    )];
-    const take = (ev, slot) => {
-        const parts = baseParts(ev);
-        assignment.push({ slot, hex: ev.hex, appliesTo: parts.length ? parts : null });
-    };
+    // 主色はシェア最大の色。地毛で絞ると `AppliesTo` の抜けに巻き込まれる
+    // （Num 9 の `#A1A9BF` は球体型姿の 71.8% を占める髪だが `AppliesTo` が空）。
+    const primary = share(ranked[0] ?? {}) > 0 ? ranked[0] : null;
+    if (primary) assignment.push({ slot: 'primary', hex: primary.hex });
 
-    if (ranked[0] && share(ranked[0]) > 0) take(ranked[0], 'primary');
-    // 2 番手はシェアが小さすぎると別物（小物の差し色など）なので副色にしない
-    if (ranked[1] && share(ranked[1]) >= 0.03) take(ranked[1], 'secondary');
+    // 副色は**地毛の色のうち 2 番目**。ここは絞りが要る: Num 1 のパーカー `#FF8682`（衣装 33.2%）は
+    // 耳・尻尾の `#FFAC8F`（11.4%）よりシェアが大きいが副色ではない。
+    // 部位が 1 つも判っていないレコードでは絞りようが無いので全色を候補にする。
+    const known = evidence.some(ev => ev.appliesTo?.length);
+    const secondary = ranked.find(ev => ev !== primary
+        && (!known || classifyParts(ev.appliesTo).base)
+        // シェアが小さすぎる色は別物（小物の差し色など）なので副色にしない
+        && share(ev) >= 0.03);
+    if (secondary) assignment.push({ slot: 'secondary', hex: secondary.hex });
 
     const used = new Set(assignment.map(a => a.hex));
     for (const ev of evidence) if (!used.has(ev.hex)) unassigned.push(ev.hex);
@@ -1040,6 +1111,76 @@ export function addColorsToPalette(opts) {
     return { results, applied, dbPath };
 }
 
+/**
+ * 既存の `ColorPalette` の `AppliesTo` を差し替える（`Hex` で行を特定する）。
+ *
+ * `AppliesTo` は **その色が現れる部位を網羅する**という意味（User 確認済み）。
+ * 「どのエントリにどの HEX が塗られているか」を外部で解決した結果を受け取る経路で、
+ * `100BeautiesLab_GeneratorsAI` の
+ * [エントリ別 HEX 対応](https://github.com/radiann-kswg/100BeautiesLab_CreationsDB/issues/21)
+ * が入力になる。`Hex` / `Role` / 色名 / `Formation` / `Note_*` は触らない。
+ *
+ * 網羅の意味では既存値も正しい部位なので、**呼び出し側で和集合にしてから渡すこと**
+ * （ここでは指定された値をそのまま書く。何を残すかの方針をツールに埋めない）。
+ *
+ * @param {{work: string, db: string, appliesTo: Array<{num: string, hex: string, appliesTo: string[]}>, apply: boolean, verbose: boolean}} opts
+ * @returns {{ results: Array<any>, applied: number, dbPath: string }}
+ */
+export function setAppliesTo(opts) {
+    const { dbPath } = resolveDbPaths(opts.work, opts.db);
+    const { original, records: db, spans } = openRecordsFile(dbPath);
+    const enumKeys = readBodyPartEnum();
+
+    const byNum = new Map();
+    for (const r of opts.appliesTo) {
+        const key = String(r.num);
+        if (!byNum.has(key)) byNum.set(key, []);
+        byNum.get(key).push(r);
+    }
+
+    /** @type {Array<any>} */
+    const results = [];
+    let text = original;
+
+    // 末尾から処理する（先頭側のオフセットが変わらないようにするため）
+    for (let i = db.length - 1; i >= 0; i--) {
+        const record = db[i];
+        const num = String(record.Num ?? recordLabel(record));
+        const wanted = byNum.get(num);
+        if (!wanted || !Array.isArray(record.ColorPalette)) continue;
+
+        const wantByHex = new Map(wanted.map(r => [String(r.hex).toUpperCase(), r.appliesTo]));
+        let changed = 0;
+        const value = record.ColorPalette.map(row => {
+            const parts = wantByHex.get(String(row.Hex ?? '').toUpperCase());
+            if (!parts) return row;
+            const bad = parts.filter(p => !enumKeys.has(p));
+            if (bad.length) {
+                results.push({ num, hex: row.Hex, status: 'error', message: `未知の部位: ${bad.join(', ')}` });
+                return row;
+            }
+            const before = JSON.stringify(row.AppliesTo ?? null);
+            const after = parts.length ? parts : null;
+            if (JSON.stringify(after) === before) return row;
+            changed++;
+            return { ...row, AppliesTo: after };
+        });
+
+        if (!changed) continue;
+        try {
+            text = upsertColorPaletteInRecord(text, spans[i], value).text;
+            results.push({ num, status: 'updated', changed });
+        } catch (err) {
+            results.push({ num, status: 'error', message: err.message });
+        }
+    }
+
+    results.reverse();
+    const applied = results.filter(r => r.status === 'updated').reduce((n, r) => n + r.changed, 0);
+    if (opts.apply && applied) writeRecordsFile(dbPath, text);
+    return { results, applied, dbPath };
+}
+
 // ────────────────────────────────────────────────────────────────────────────
 // スロット確定モード（--assign-slots）
 // ────────────────────────────────────────────────────────────────────────────
@@ -1096,6 +1237,138 @@ export function patchColorPaletteSlots(opts) {
     const applied = results.filter(r => r.status === 'slotted').length;
     if (opts.apply && applied) writeRecordsFile(dbPath, text);
     return { results, applied, dbPath };
+}
+
+// ────────────────────────────────────────────────────────────────────────────
+// 設定画からの人姿切り出しと帯分布（--figure-bands）
+// ────────────────────────────────────────────────────────────────────────────
+
+/** 塗り（紙面でも線画でもない画素）とみなす判定。設定画・イラスト共通 */
+function isInkPixel(img, i) {
+    if (img.data[i * 4 + 3] < 128) return false;
+    const r = img.data[i * 4], g = img.data[i * 4 + 1], b = img.data[i * 4 + 2];
+    if (r > 240 && g > 240 && b > 240) return false; // 紙面
+    if (r < 70 && g < 70 && b < 70) return false;    // 線画
+    return true;
+}
+
+/**
+ * 設定画から**塗られている塊**を面積の大きい順に取り出す。
+ *
+ * 設定画には人姿・球体型姿・表情差分・注釈文字が同居しているため、被覆率をそのまま測ると
+ * 全部が混ざる。連結成分に分ければ人姿だけを対象にできる。
+ *
+ * **膨張が要る理由**: 白い襟・手袋・靴下・タイツは紙面として落ちるので、そのまま繋げると
+ * 人姿が上下に分断され、頭が別の塊になってしまう（実測: Num 2 / Num 17）。
+ *
+ * @param {import('./extract-palette.mjs').DecodedImage} img
+ * @param {{step?: number, dilate?: number, minCells?: number, limit?: number}} [opt]
+ * @returns {Array<{ box: [number, number, number, number], cells: number, aspect: number }>}
+ *   `box` は元画像の座標系。`aspect` は縦/横（2 以上なら人姿、1 前後なら球体型姿や上半身の抜き）
+ */
+export function findFigureBlobs(img, opt = {}) {
+    const step = opt.step ?? 3;
+    const radius = opt.dilate ?? 3;
+    const w = Math.ceil(img.width / step), h = Math.ceil(img.height / step);
+
+    const mask = new Uint8Array(w * h);
+    for (let y = 0; y < h; y++) {
+        for (let x = 0; x < w; x++) {
+            if (isInkPixel(img, (y * step) * img.width + (x * step))) mask[y * w + x] = 1;
+        }
+    }
+    const grown = new Uint8Array(w * h);
+    for (let y = 0; y < h; y++) {
+        for (let x = 0; x < w; x++) {
+            if (!mask[y * w + x]) continue;
+            for (let dy = -radius; dy <= radius; dy++) {
+                for (let dx = -radius; dx <= radius; dx++) {
+                    const ny = y + dy, nx = x + dx;
+                    if (ny >= 0 && ny < h && nx >= 0 && nx < w) grown[ny * w + nx] = 1;
+                }
+            }
+        }
+    }
+
+    const seen = new Uint8Array(w * h);
+    const stack = [];
+    const blobs = [];
+    for (let seed = 0; seed < w * h; seed++) {
+        if (!grown[seed] || seen[seed]) continue;
+        stack.push(seed); seen[seed] = 1;
+        let cells = 0, x0 = w, x1 = 0, y0 = h, y1 = 0;
+        while (stack.length) {
+            const p = stack.pop(); cells++;
+            const px = p % w, py = (p / w) | 0;
+            if (px < x0) x0 = px;
+            if (px > x1) x1 = px;
+            if (py < y0) y0 = py;
+            if (py > y1) y1 = py;
+            for (const q of [px > 0 ? p - 1 : -1, px < w - 1 ? p + 1 : -1, py > 0 ? p - w : -1, py < h - 1 ? p + w : -1]) {
+                if (q >= 0 && grown[q] && !seen[q]) { seen[q] = 1; stack.push(q); }
+            }
+        }
+        blobs.push({
+            box: [x0 * step, y0 * step, Math.min(img.width - 1, x1 * step), Math.min(img.height - 1, y1 * step)],
+            cells,
+            aspect: (y1 - y0 + 1) / (x1 - x0 + 1),
+        });
+    }
+    return blobs
+        .filter(b => b.cells >= (opt.minCells ?? 600))
+        .sort((a, b) => b.cells - a.cells)
+        .slice(0, opt.limit ?? 3);
+}
+
+/**
+ * 塊の外接矩形を**縦 5 帯**に割り、帯ごとの配色シェアを返す。
+ *
+ * 「頭＝髪、上＝上衣、中＝胴、下＝下衣、足＝靴」として読む。
+ * **被覆率では潰れる衣装枠の順序がここで分かれる**のが要点で、これが無いと
+ * 主色(衣装) と 副色（衣装）を取り違える（確定 5 件でシェア順は 3/5。Num 24 は
+ * 青灰 `#AEB8DB` のカーディガンが主だが、シェアでは藤色 `#C680AF` が上回る）。
+ *
+ * 肌・舌などの共通造形色は `ColorPalette` に載らないため、除外しないと最近傍の配色へ
+ * 吸われて胴の帯が埋まる。
+ *
+ * @param {import('./extract-palette.mjs').DecodedImage} img
+ * @param {string[]} hexes
+ * @param {[number, number, number, number]} box
+ * @param {{common?: string[], maxDist?: number, step?: number, minShare?: number}} [opt]
+ * @returns {Array<Array<{hex: string, share: number}>>} 帯ごと（頭/上/中/下/足）の降順リスト
+ */
+export function measureFigureBands(img, hexes, box, opt = {}) {
+    const maxDist = opt.maxDist ?? 45;
+    const step = opt.step ?? 2;
+    const rgbs = hexes.map(hexToRgb);
+    const commons = (opt.common ?? []).map(hexToRgb);
+    const bands = Array.from({ length: 5 }, () => new Array(hexes.length).fill(0));
+    const totals = new Array(5).fill(0);
+    const [x0, y0, x1, y1] = box;
+    const span = (y1 - y0) + 1;
+
+    for (let y = y0; y <= y1; y += step) {
+        for (let x = x0; x <= x1; x += step) {
+            const i = y * img.width + x;
+            if (!isInkPixel(img, i)) continue;
+            const r = img.data[i * 4], g = img.data[i * 4 + 1], b = img.data[i * 4 + 2];
+            let best = -1, bestD = Infinity;
+            for (let k = 0; k < rgbs.length; k++) {
+                const d = (r - rgbs[k][0]) ** 2 + (g - rgbs[k][1]) ** 2 + (b - rgbs[k][2]) ** 2;
+                if (d < bestD) { bestD = d; best = k; }
+            }
+            if (best < 0 || bestD > maxDist * maxDist) continue;
+            if (commons.some(c => (r - c[0]) ** 2 + (g - c[1]) ** 2 + (b - c[2]) ** 2 < bestD)) continue;
+            const bi = Math.min(4, Math.floor(((y - y0) / span) * 5));
+            bands[bi][best]++; totals[bi]++;
+        }
+    }
+
+    const minShare = opt.minShare ?? 0.06;
+    return bands.map((counts, i) => counts
+        .map((n, k) => ({ hex: hexes[k], share: totals[i] ? Number((n / totals[i]).toFixed(3)) : 0 }))
+        .filter(t => t.share >= minShare)
+        .sort((a, b) => b.share - a.share));
 }
 
 /**
@@ -1273,12 +1546,20 @@ patch-colorpalette.mjs — 設定画のカラーチップから ColorPalette を
   --assign-slots    既存 ColorPalette をスロット順へ並べ替え、Role と ColorName を確定する
                     （Hex は触らない。--slots を併用しなければ下書き判定になる）
   --slots <file>    スロット割当ファイル（JSON）を読み込んで確定値として使う
+  --applies-to <file>  既存 ColorPalette の AppliesTo を差し替える
+                    形式: [{ "num": "1", "hex": "#ED5D47", "appliesTo": ["#BodyPart_Hair"] }]
+                    AppliesTo は「その色が現れる部位を網羅する」意味。既存値を残したい場合は
+                    呼び出し側で和集合にしてから渡すこと
   --add-colors <file>  既存 ColorPalette へ色を足す（既存行は触らない）
                     形式: [{ "num": "8", "hex": "#FF6574", "appliesTo": ["#BodyPart_Tail"] }]
                     既存の色や共通造形色と RGB 距離 10 未満なら重複として飛ばす
   --slot-report     スロット判定の根拠を表示し、割当ファイルの下書きを .cache/ へ出す
   --color-map       各配色が画像のどこに出ているかを粗いテキストマップで描く
                     （近似色を目視で分離できないときの判断材料。データは変更しない）
+  --figure-bands    設定画から人姿を切り出し、縦 5 帯（頭/上/中/下/足）の配色分布を出す
+                    衣装枠（主色(衣装) / 副色（衣装））の順序を決める主材料。
+                    被覆率は「どれだけ」しか言わないため、これが無いと上衣と下衣を
+                    取り違える（確定 5 件でシェア順は 3/5）。データは変更しない
   -v, --verbose     レコードごとの検出内容を表示
   -h, --help        このヘルプ
 
@@ -1330,18 +1611,24 @@ patch-colorpalette.mjs — 設定画のカラーチップから ColorPalette を
 
 /**
  * `--records 1,3,5-8` 形式を Set へ展開する。
+ *
+ * 数字だけの指定は**数値と文字列の両方**を入れる。`Num` が数値のレコード（`1`）と
+ * 文字列のレコード（`"000"` / `"00"`）が混在しており、`Number()` だけに寄せると
+ * `"000"` / `"00"` / `"0"` が全部 `0` へ潰れて 1 件も選べなくなる。
+ *
  * @param {string} spec
  * @returns {Set<any>}
  */
 function parseRecordSpec(spec) {
     const set = new Set();
+    const addNum = (t) => { set.add(Number(t)); set.add(t); };
     for (const part of spec.split(',')) {
         const t = part.trim();
         if (!t) continue;
         const m = t.match(/^(\d+)-(\d+)$/);
-        if (m) for (let i = Number(m[1]); i <= Number(m[2]); i++) set.add(i);
-        else if (/^\d+$/.test(t)) set.add(Number(t));
-        else set.add(t); // "2-alt" / "000" 等の特殊 Num
+        if (m) for (let i = Number(m[1]); i <= Number(m[2]); i++) addNum(String(i));
+        else if (/^\d+$/.test(t)) addNum(t);
+        else set.add(t); // "2-alt" / "444-mp" 等の特殊 Num
     }
     return set;
 }
@@ -1415,9 +1702,11 @@ function printColorMap(opts) {
         console.log(`\n=== #${num} ===`);
         hexes.forEach((h, i) => console.log(`  ${i + 1} = ${h}`));
 
+        // 清書イラストは `resolveSoloArtSources()` で絞る。素通しだと合同絵が混ざり、
+        // 他キャラの色が図に描かれてしまう（判定材料の `collectSlotEvidence()` と同じ理由）。
         const files = [
             ...resolveArtworkSources(record, workDir, imagesRoot).map(s => ({ role: s.folder, path: s.path })),
-            ...resolveImageSources(record, workDir, imagesRoot).filter(s => s.source === 'illustration'),
+            ...resolveSoloArtSources(record, workDir, imagesRoot).map(s => ({ role: 'solo', path: s.path })),
         ];
         if (!files.length) { console.log('  （画像なし）'); continue; }
 
@@ -1446,6 +1735,55 @@ function printColorMap(opts) {
 }
 
 /**
+ * 設定画から人姿を切り出し、縦 5 帯の配色分布を表示する（データは変更しない）。
+ *
+ * 衣装枠（主色(衣装) / 副色（衣装））の順序を決めるための主材料。被覆率は
+ * 「どれだけ使われているか」しか言わないので、これが無いと上衣と下衣を取り違える。
+ *
+ * @param {{work: string, db: string, records: Set<any>|null}} opts
+ */
+function printFigureBands(opts) {
+    const { workDir, dbPath, imagesRoot } = resolveDbPaths(opts.work, opts.db);
+    const db = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
+    const common = readCommonColors(workDir);
+
+    console.log(`[人姿の帯分布] ${opts.work} / ${opts.db}`);
+    for (const record of db) {
+        const num = record.Num ?? recordLabel(record);
+        if (opts.records && !opts.records.has(record.Num) && !opts.records.has(String(num))) continue;
+        const hexes = (Array.isArray(record.ColorPalette) ? record.ColorPalette : [])
+            .map(c => c?.Hex).filter(Boolean);
+        if (!hexes.length) continue;
+
+        // 設定画（`$palette.source: "swatch"`）が対象。人姿と球体型姿が並んでいるのが前提
+        const src = resolveImageSources(record, workDir, imagesRoot).find(s => s.source === 'swatch');
+        console.log(`\n  #${num}`);
+        if (!src) { console.log('    （設定画なし）'); continue; }
+
+        let img;
+        try {
+            img = decodePng(fs.readFileSync(src.path));
+        } catch (err) {
+            console.log(`    読み込み失敗: ${err.message}`);
+            continue;
+        }
+        const blobs = findFigureBlobs(img);
+        if (!blobs.length) { console.log('    （塊が見つかりません）'); continue; }
+
+        blobs.forEach((blob, i) => {
+            console.log(`    [塊${i + 1}] ${blob.box.join(',')}  縦横比 ${blob.aspect.toFixed(1)}`);
+            measureFigureBands(img, hexes, blob.box, { common }).forEach((band, bi) => {
+                const cells = band.map(t => `${t.hex}:${(t.share * 100).toFixed(0)}%`).join(' ') || '-';
+                console.log(`      ${BAND_LABELS[bi]} ${cells}`);
+            });
+        });
+    }
+    console.log('\n※ 縦横比 2 以上なら人姿、1 前後なら球体型姿や上半身の抜きです。');
+    console.log('  帯は「頭＝髪 / 上＝上衣 / 中＝胴 / 下＝下衣 / 足＝靴」として読んでください。');
+    console.log('  肌などの共通造形色は除外済みです。');
+}
+
+/**
  * スロット判定の根拠を表示し、割当ファイルの下書きを `.cache/` へ書き出す。
  * @param {{work: string, db: string, records: Set<any>|null, verbose: boolean}} opts
  */
@@ -1456,14 +1794,20 @@ function printSlotReport(opts) {
     for (const r of rows) {
         const slotOf = new Map(r.assignment.map(a => [a.hex.toUpperCase(), a.slot]));
         console.log(`\n  #${r.num}`);
-        console.log(`    ${'HEX'.padEnd(9)}${'球体%'.padStart(6)}${'人姿%'.padStart(7)}  ${BAND_LABELS.join('')}  スロット / 色語の部位`);
+        console.log(`    ${'HEX'.padEnd(9)}${'球体%'.padStart(6)}${'人姿%'.padStart(7)}  ${BAND_LABELS.join('')}  クラス  スロット      部位`);
         for (const ev of r.evidence) {
-            const slot = slotOf.get(ev.hex.toUpperCase()) ?? '（未割当）';
-            const parts = [...new Set(ev.hints.map(h => h.bodyPart).filter(Boolean))]
-                .map(p => p.replace('#BodyPart_', '')).join(',') || '-';
+            const slot = slotOf.get(ev.hex.toUpperCase()) ?? '-';
+            // `AppliesTo`（issue #21 由来の確定値）が正。無いときだけ色語照合を `~` 付きで見せる
+            const fallback = [...new Set(ev.hints.map(h => h.bodyPart).filter(Boolean))];
+            const parts = ev.appliesTo?.length ? ev.appliesTo : fallback;
+            const label = (ev.appliesTo?.length ? '' : parts.length ? '~' : '')
+                + (parts.map(p => p.replace('#BodyPart_', '')).join(',') || '-');
+            // 全角 1 文字＝2 桁で数えるため、無いクラスは全角スペースで埋めて桁を揃える
+            const c = classifyParts(ev.appliesTo);
+            const cls = `${c.base ? '地' : '　'}${c.costume ? '衣' : '　'}${c.accessory ? '飾' : '　'}`;
             // 帯は「その色がどこに出ているか」。近似色は被覆率では潰れるがここで分かれる
             const bands = (ev.bands ?? []).map(v => (v >= 0.4 ? '#' : v >= 0.15 ? '+' : v > 0.02 ? '.' : ' ')).join('');
-            console.log(`    ${ev.hex}${(ev.covBall * 100).toFixed(1).padStart(6)}%${(ev.covArt * 100).toFixed(1).padStart(6)}%  ${bands}  ${slot.padEnd(11)} ${parts}`);
+            console.log(`    ${ev.hex}${(ev.covBall * 100).toFixed(1).padStart(6)}%${(ev.covArt * 100).toFixed(1).padStart(6)}%  ${bands}  ${cls}  ${slot.padEnd(12)} ${label}`);
         }
         if (r.unassigned.length) console.log(`    → 未割当: ${r.unassigned.join(', ')}`);
     }
@@ -1476,9 +1820,10 @@ function printSlotReport(opts) {
     const done = rows.filter(r => !r.unassigned.length).length;
     console.log(`\n  下書き: ${done} / ${rows.length} 件が全色割当済み`);
     console.log(`  ${path.relative(REPO_ROOT, outPath).split(path.sep).join('/')} へ下書きを書き出しました。`);
-    console.log('\n※ この下書きは検証前です。根拠に使う AppearanceDetail の BodyPart / DesignElement は');
-    console.log('  画像を見て手動修正された経緯があり、近似色が競合すると被覆率も入れ替わります。');
-    console.log('  画像で確認して直してから --slots で適用してください。');
+    console.log('\n※ クラスは AppliesTo の部位から: 地=髪/耳/尻尾 衣=胸/腰/脚/肩/腕/背中 飾=それ以外（瞳・首・手・足など）');
+    console.log('  部位の `~` 印は AppliesTo が空で色語照合にフォールバックしたもの（精度 3 割前後）。');
+    console.log('\n※ この下書きが埋めるのは主色・副色だけです。衣装枠の順序はシェアでは決まらないため');
+    console.log('  （確定 5 件で 3/5）、設定画を見て割当ファイルを作ってから --slots で適用してください。');
 }
 
 /**
@@ -1516,6 +1861,34 @@ function printSlotPatch(opts) {
         console.log('\n  （--apply を付けると実際に書き込みます）');
     }
     console.log('\n※ Hex / Formation / Note は既存値のまま。Role と ColorName はスロット表から確定します。');
+}
+
+/**
+ * AppliesTo の差し替え結果を表示する。
+ * @param {{work: string, db: string, appliesTo: any[], apply: boolean, verbose: boolean}} opts
+ */
+function printAppliesTo(opts) {
+    const { results, applied, dbPath } = setAppliesTo(opts);
+
+    if (opts.verbose) {
+        for (const r of results) {
+            console.log(`  #${String(r.num).padEnd(8)} ${r.status}${r.changed ? ` ${r.changed} 色` : ''}${r.message ? ` — ${r.message}` : ''}`);
+        }
+        console.log('');
+    }
+
+    const tally = {};
+    for (const r of results) tally[r.status] = (tally[r.status] ?? 0) + 1;
+    console.log(`[AppliesTo の差し替え${opts.apply ? '' : ' / dry-run'}] ${opts.work} / ${opts.db}`);
+    for (const [status, count] of Object.entries(tally)) console.log(`  ${status}: ${count} 件`);
+    console.log(`  更新した色: ${applied} 色`);
+
+    if (opts.apply && applied) {
+        console.log(`\n  ${path.relative(REPO_ROOT, dbPath).split(path.sep).join('/')} を更新しました。`);
+        console.log('  ※ 仕上げに `npx prettier --write` を実行してください。');
+    } else if (!opts.apply) {
+        console.log('\n  （--apply を付けると実際に書き込みます）');
+    }
 }
 
 /**
@@ -1567,15 +1940,19 @@ function main() {
     let assignSlots = false;
     let slotReport = false;
     let colorMap = false;
+    let figureBands = false;
     let slotsFile = null;
     let addColorsFile = null;
+    let appliesToFile = null;
 
     for (let i = 0; i < argv.length; i++) {
         switch (argv[i]) {
             case '--assign-slots': assignSlots = true; break;
             case '--add-colors': addColorsFile = argv[++i]; break;
+            case '--applies-to': appliesToFile = argv[++i]; break;
             case '--slot-report': slotReport = true; break;
             case '--color-map': colorMap = true; break;
+            case '--figure-bands': figureBands = true; break;
             case '--slots': slotsFile = argv[++i]; break;
             case '--work': opts.work = argv[++i]; break;
             case '--db': opts.db = argv[++i]; break;
@@ -1610,6 +1987,12 @@ function main() {
         return;
     }
 
+    // ── 人姿の帯分布（データは変更しない）
+    if (figureBands) {
+        printFigureBands(opts);
+        return;
+    }
+
     // ── 配色マップ（データは変更しない）
     if (colorMap) {
         printColorMap(opts);
@@ -1619,6 +2002,12 @@ function main() {
     // ── スロット判定の根拠レポート（データは変更しない）
     if (slotReport) {
         printSlotReport(opts);
+        return;
+    }
+
+    // ── AppliesTo の差し替え
+    if (appliesToFile) {
+        printAppliesTo({ ...opts, appliesTo: JSON.parse(fs.readFileSync(appliesToFile, 'utf8')) });
         return;
     }
 
