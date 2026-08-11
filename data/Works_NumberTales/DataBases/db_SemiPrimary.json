@@ -178,7 +178,7 @@
         "Hex": "#81494A",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": ["#BodyPart_Eye"],
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Eye", "#BodyPart_Chest"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -188,7 +188,7 @@
         "Hex": "#F3D8DB",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Eye"],
+        "AppliesTo": ["#BodyPart_Eye", "#BodyPart_Neck", "#BodyPart_Chest"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -686,11 +686,14 @@
         "ColorName_JP": null,
         "ColorName_EN": null,
         "AppliesTo": [
-          "#BodyPart_Wing",
-          "#BodyPart_Eye",
           "#BodyPart_Head",
+          "#BodyPart_Eye",
+          "#BodyPart_Chest",
           "#BodyPart_Back",
-          "#BodyPart_Foot"
+          "#BodyPart_Waist",
+          "#BodyPart_Leg",
+          "#BodyPart_Foot",
+          "#BodyPart_Wing"
         ],
         "Formation": null,
         "Note_JP": null,
@@ -701,7 +704,7 @@
         "Hex": "#FFAC8F",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Back", "#BodyPart_Wing"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -711,7 +714,7 @@
         "Hex": "#E7E9E4",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Chest"],
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Chest", "#BodyPart_Tail"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -1439,10 +1442,11 @@
         "ColorName_JP": null,
         "ColorName_EN": null,
         "AppliesTo": [
-          "#BodyPart_Eye",
           "#BodyPart_Head",
           "#BodyPart_Hair",
+          "#BodyPart_Eye",
           "#BodyPart_Neck",
+          "#BodyPart_Waist",
           "#BodyPart_Foot"
         ],
         "Formation": null,
@@ -1738,7 +1742,12 @@
         "Hex": "#FFD07D",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": [
+          "#BodyPart_Eye",
+          "#BodyPart_Neck",
+          "#BodyPart_Waist",
+          "#BodyPart_Foot"
+        ],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -2335,7 +2344,12 @@
         "Hex": "#ECAC43",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": [
+          "#BodyPart_Head",
+          "#BodyPart_Eye",
+          "#BodyPart_Back",
+          "#BodyPart_Waist"
+        ],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -2345,7 +2359,12 @@
         "Hex": "#C1A072",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": [
+          "#BodyPart_Neck",
+          "#BodyPart_Chest",
+          "#BodyPart_Back",
+          "#BodyPart_Foot"
+        ],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -2395,7 +2414,7 @@
         "Hex": "#64A6C2",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Hair"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -2782,7 +2801,7 @@
         "Hex": "#E0B0BD",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": ["#BodyPart_Halo", "#BodyPart_Neck"],
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Neck", "#BodyPart_Halo"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -2792,7 +2811,14 @@
         "Hex": "#F26383",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": ["#BodyPart_Eye", "#BodyPart_Wing", "#BodyPart_Foot"],
+        "AppliesTo": [
+          "#BodyPart_Eye",
+          "#BodyPart_Neck",
+          "#BodyPart_Chest",
+          "#BodyPart_Waist",
+          "#BodyPart_Foot",
+          "#BodyPart_Wing"
+        ],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -3402,7 +3428,7 @@
         "Hex": "#C1A072",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Hair"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -3412,7 +3438,7 @@
         "Hex": "#504695",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": ["#BodyPart_Eye", "#BodyPart_Hair", "#BodyPart_Foot"],
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Eye", "#BodyPart_Foot"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -3422,7 +3448,7 @@
         "Hex": "#FFA634",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Back"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -3432,7 +3458,7 @@
         "Hex": "#8B9BAC",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Leg"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -3733,8 +3759,10 @@
         "ColorName_EN": null,
         "AppliesTo": [
           "#BodyPart_Hair",
-          "#BodyPart_FaceMaking",
-          "#BodyPart_Foot"
+          "#BodyPart_Shoulder",
+          "#BodyPart_Arm",
+          "#BodyPart_Foot",
+          "#BodyPart_FaceMaking"
         ],
         "Formation": null,
         "Note_JP": null,
@@ -4223,7 +4251,7 @@
         "Hex": "#FFB1AB",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Neck", "#BodyPart_Shoulder"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null

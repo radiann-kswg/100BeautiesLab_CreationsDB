@@ -59,6 +59,7 @@ import {
     listImageFields,
     readCommonColors,
 } from './extract-palette.mjs';
+import { readBodyPartEnum } from './patch-appearance-bodypart.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
@@ -1040,6 +1041,76 @@ export function addColorsToPalette(opts) {
     return { results, applied, dbPath };
 }
 
+/**
+ * 既存の `ColorPalette` の `AppliesTo` を差し替える（`Hex` で行を特定する）。
+ *
+ * `AppliesTo` は **その色が現れる部位を網羅する**という意味（User 確認済み）。
+ * 「どのエントリにどの HEX が塗られているか」を外部で解決した結果を受け取る経路で、
+ * `100BeautiesLab_GeneratorsAI` の
+ * [エントリ別 HEX 対応](https://github.com/radiann-kswg/100BeautiesLab_CreationsDB/issues/21)
+ * が入力になる。`Hex` / `Role` / 色名 / `Formation` / `Note_*` は触らない。
+ *
+ * 網羅の意味では既存値も正しい部位なので、**呼び出し側で和集合にしてから渡すこと**
+ * （ここでは指定された値をそのまま書く。何を残すかの方針をツールに埋めない）。
+ *
+ * @param {{work: string, db: string, appliesTo: Array<{num: string, hex: string, appliesTo: string[]}>, apply: boolean, verbose: boolean}} opts
+ * @returns {{ results: Array<any>, applied: number, dbPath: string }}
+ */
+export function setAppliesTo(opts) {
+    const { dbPath } = resolveDbPaths(opts.work, opts.db);
+    const { original, records: db, spans } = openRecordsFile(dbPath);
+    const enumKeys = readBodyPartEnum();
+
+    const byNum = new Map();
+    for (const r of opts.appliesTo) {
+        const key = String(r.num);
+        if (!byNum.has(key)) byNum.set(key, []);
+        byNum.get(key).push(r);
+    }
+
+    /** @type {Array<any>} */
+    const results = [];
+    let text = original;
+
+    // 末尾から処理する（先頭側のオフセットが変わらないようにするため）
+    for (let i = db.length - 1; i >= 0; i--) {
+        const record = db[i];
+        const num = String(record.Num ?? recordLabel(record));
+        const wanted = byNum.get(num);
+        if (!wanted || !Array.isArray(record.ColorPalette)) continue;
+
+        const wantByHex = new Map(wanted.map(r => [String(r.hex).toUpperCase(), r.appliesTo]));
+        let changed = 0;
+        const value = record.ColorPalette.map(row => {
+            const parts = wantByHex.get(String(row.Hex ?? '').toUpperCase());
+            if (!parts) return row;
+            const bad = parts.filter(p => !enumKeys.has(p));
+            if (bad.length) {
+                results.push({ num, hex: row.Hex, status: 'error', message: `未知の部位: ${bad.join(', ')}` });
+                return row;
+            }
+            const before = JSON.stringify(row.AppliesTo ?? null);
+            const after = parts.length ? parts : null;
+            if (JSON.stringify(after) === before) return row;
+            changed++;
+            return { ...row, AppliesTo: after };
+        });
+
+        if (!changed) continue;
+        try {
+            text = upsertColorPaletteInRecord(text, spans[i], value).text;
+            results.push({ num, status: 'updated', changed });
+        } catch (err) {
+            results.push({ num, status: 'error', message: err.message });
+        }
+    }
+
+    results.reverse();
+    const applied = results.filter(r => r.status === 'updated').reduce((n, r) => n + r.changed, 0);
+    if (opts.apply && applied) writeRecordsFile(dbPath, text);
+    return { results, applied, dbPath };
+}
+
 // ────────────────────────────────────────────────────────────────────────────
 // スロット確定モード（--assign-slots）
 // ────────────────────────────────────────────────────────────────────────────
@@ -1273,6 +1344,10 @@ patch-colorpalette.mjs — 設定画のカラーチップから ColorPalette を
   --assign-slots    既存 ColorPalette をスロット順へ並べ替え、Role と ColorName を確定する
                     （Hex は触らない。--slots を併用しなければ下書き判定になる）
   --slots <file>    スロット割当ファイル（JSON）を読み込んで確定値として使う
+  --applies-to <file>  既存 ColorPalette の AppliesTo を差し替える
+                    形式: [{ "num": "1", "hex": "#ED5D47", "appliesTo": ["#BodyPart_Hair"] }]
+                    AppliesTo は「その色が現れる部位を網羅する」意味。既存値を残したい場合は
+                    呼び出し側で和集合にしてから渡すこと
   --add-colors <file>  既存 ColorPalette へ色を足す（既存行は触らない）
                     形式: [{ "num": "8", "hex": "#FF6574", "appliesTo": ["#BodyPart_Tail"] }]
                     既存の色や共通造形色と RGB 距離 10 未満なら重複として飛ばす
@@ -1519,6 +1594,34 @@ function printSlotPatch(opts) {
 }
 
 /**
+ * AppliesTo の差し替え結果を表示する。
+ * @param {{work: string, db: string, appliesTo: any[], apply: boolean, verbose: boolean}} opts
+ */
+function printAppliesTo(opts) {
+    const { results, applied, dbPath } = setAppliesTo(opts);
+
+    if (opts.verbose) {
+        for (const r of results) {
+            console.log(`  #${String(r.num).padEnd(8)} ${r.status}${r.changed ? ` ${r.changed} 色` : ''}${r.message ? ` — ${r.message}` : ''}`);
+        }
+        console.log('');
+    }
+
+    const tally = {};
+    for (const r of results) tally[r.status] = (tally[r.status] ?? 0) + 1;
+    console.log(`[AppliesTo の差し替え${opts.apply ? '' : ' / dry-run'}] ${opts.work} / ${opts.db}`);
+    for (const [status, count] of Object.entries(tally)) console.log(`  ${status}: ${count} 件`);
+    console.log(`  更新した色: ${applied} 色`);
+
+    if (opts.apply && applied) {
+        console.log(`\n  ${path.relative(REPO_ROOT, dbPath).split(path.sep).join('/')} を更新しました。`);
+        console.log('  ※ 仕上げに `npx prettier --write` を実行してください。');
+    } else if (!opts.apply) {
+        console.log('\n  （--apply を付けると実際に書き込みます）');
+    }
+}
+
+/**
  * 色の追加結果を表示する。
  * @param {{work: string, db: string, colors: any[], apply: boolean, verbose: boolean}} opts
  */
@@ -1569,11 +1672,13 @@ function main() {
     let colorMap = false;
     let slotsFile = null;
     let addColorsFile = null;
+    let appliesToFile = null;
 
     for (let i = 0; i < argv.length; i++) {
         switch (argv[i]) {
             case '--assign-slots': assignSlots = true; break;
             case '--add-colors': addColorsFile = argv[++i]; break;
+            case '--applies-to': appliesToFile = argv[++i]; break;
             case '--slot-report': slotReport = true; break;
             case '--color-map': colorMap = true; break;
             case '--slots': slotsFile = argv[++i]; break;
@@ -1619,6 +1724,12 @@ function main() {
     // ── スロット判定の根拠レポート（データは変更しない）
     if (slotReport) {
         printSlotReport(opts);
+        return;
+    }
+
+    // ── AppliesTo の差し替え
+    if (appliesToFile) {
+        printAppliesTo({ ...opts, appliesTo: JSON.parse(fs.readFileSync(appliesToFile, 'utf8')) });
         return;
     }
 
