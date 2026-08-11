@@ -51,6 +51,8 @@ import {
     buildSlotColorName,
     applySlotAssignment,
     proposeSlotAssignment,
+    classifyParts,
+    collectSlotEvidence,
     profileColorBands,
     renderColorMap,
 } from '../tools/patch-colorpalette.mjs';
@@ -577,15 +579,71 @@ describe('applySlotAssignment — 配色スロットの確定（並び順 / Role
     });
 });
 
+describe('classifyParts — AppliesTo を地毛 / 衣装 / アクセサリーへ写す', () => {
+    it('髪・耳・尻尾は地毛', () => {
+        expect(classifyParts(['#BodyPart_Hair', '#BodyPart_Tail']))
+            .toEqual({ base: true, costume: false, accessory: false, empty: false });
+    });
+
+    it('胸・腰・脚は衣装', () => {
+        expect(classifyParts(['#BodyPart_Chest', '#BodyPart_Waist', '#BodyPart_Leg']))
+            .toEqual({ base: false, costume: true, accessory: false, empty: false });
+    });
+
+    /** 襟・手袋・靴・帽子は小物なので衣装ではなくアクセサリー扱い */
+    it('瞳・首・手・足はアクセサリー', () => {
+        expect(classifyParts(['#BodyPart_Eye', '#BodyPart_Neck', '#BodyPart_Hand', '#BodyPart_Foot']))
+            .toEqual({ base: false, costume: false, accessory: true, empty: false });
+    });
+
+    /** 1 色が複数クラスにまたがるのは普通（Num 6 の `#FF76A2` は髪・耳・尻尾とワンピース） */
+    it('クラスは排他ではない', () => {
+        const c = classifyParts(['#BodyPart_Hair', '#BodyPart_Ear', '#BodyPart_Chest', '#BodyPart_Waist']);
+        expect(c.base).toBe(true);
+        expect(c.costume).toBe(true);
+    });
+
+    it('空・null は empty', () => {
+        expect(classifyParts([]).empty).toBe(true);
+        expect(classifyParts(null).empty).toBe(true);
+    });
+});
+
+describe('collectSlotEvidence — 判定材料に AppliesTo を含める', () => {
+    /**
+     * `AppliesTo`（issue #21 のエントリ別 HEX 対応で確定した「その HEX が塗られている部位」）は
+     * 色語照合より精度が高く、スロット判定の主材料になる。ここへ載っていないと
+     * `--slot-report` にも下書きにも効かない。
+     */
+    it('Num 1 の各色に、レコードの AppliesTo がそのまま乗る', () => {
+        const record = JSON.parse(fs.readFileSync(
+            path.join(NTS_WORK, 'DataBases', 'db_Primary.json'), 'utf8',
+        )).find(r => r.Num === 1);
+
+        const evidence = collectSlotEvidence(record, NTS_WORK, IMAGES);
+        const byHex = new Map(evidence.map(e => [e.hex, e.appliesTo]));
+
+        expect(byHex.get('#ED5D47')).toEqual(['#BodyPart_Hair', '#BodyPart_Ear', '#BodyPart_Tail']);
+        expect(byHex.get('#FF8682')).toEqual(['#BodyPart_Chest', '#BodyPart_Shoulder']);
+        expect(byHex.get('#FFBFA7')).toEqual([]); // AppliesTo: null は空配列で返る
+    });
+});
+
 describe('proposeSlotAssignment — 下書き（主色・副色のみ）', () => {
     /**
-     * 下書きが埋めるのは**球体型姿でのシェア順で決まる主色・副色だけ**。
+     * 下書きが埋めるのは**地毛の色をシェア順に並べた主色・副色だけ**。
      * 衣装色・アクセント色の推定は確定済みレコードでの実測が 35〜40% にとどまり、
      * 半分外す下書きはレビューを誤った答えへ引きずるため出さない。
      */
     const hair = (hex, ball, art = 0) => ({
         hex, covBall: ball, covArt: art, bands: [0, 0, 0, 0, 0],
+        appliesTo: ['#BodyPart_Hair'],
         hints: [{ word: 'red', bodyPart: '#BodyPart_Hair', element: '#Element_Motif' }],
+    });
+    const costume = (hex, ball, art = 0) => ({
+        hex, covBall: ball, covArt: art, bands: [0, 0, 0, 0, 0],
+        appliesTo: ['#BodyPart_Chest'],
+        hints: [],
     });
 
     it('球体型姿のシェア順で主色・副色を割り当て、残りは unassigned にする', () => {
@@ -593,18 +651,48 @@ describe('proposeSlotAssignment — 下書き（主色・副色のみ）', () =>
             hair('#333333', 0.10), hair('#111111', 0.50), hair('#222222', 0.30),
         ]);
         expect(assignment).toEqual([
-            { slot: 'primary', hex: '#111111', appliesTo: ['#BodyPart_Hair'] },
-            { slot: 'secondary', hex: '#222222', appliesTo: ['#BodyPart_Hair'] },
+            { slot: 'primary', hex: '#111111' },
+            { slot: 'secondary', hex: '#222222' },
         ]);
         expect(unassigned).toEqual(['#333333']);
+    });
+
+    /**
+     * Num 1 の再現。パーカー `#FF8682`（衣装 33.2%）は耳・尻尾の `#FFAC8F`（11.4%）より
+     * シェアが大きいが副色ではない。地毛で絞らないとここを外す（旧版 90% → 現行 100%）。
+     */
+    it('シェアが上でも地毛でない色は副色にしない', () => {
+        const { assignment, unassigned } = proposeSlotAssignment([
+            hair('#111111', 0.41), costume('#999999', 0.33), hair('#222222', 0.11),
+        ]);
+        expect(assignment).toEqual([
+            { slot: 'primary', hex: '#111111' },
+            { slot: 'secondary', hex: '#222222' },
+        ]);
+        expect(unassigned).toEqual(['#999999']);
+    });
+
+    /**
+     * Num 9 の再現。銀灰の髪 `#A1A9BF` は球体型姿の 71.8% を占めるが `AppliesTo` が空。
+     * 主色まで地毛で絞ると、この抜けに巻き込まれて 15.8% の色が主色になってしまう。
+     */
+    it('AppliesTo が空でもシェア最大なら主色にする', () => {
+        const bare = (hex, ball) => ({ hex, covBall: ball, covArt: 0, bands: [0, 0, 0, 0, 0], appliesTo: [], hints: [] });
+        const { assignment } = proposeSlotAssignment([
+            bare('#999999', 0.72), hair('#111111', 0.16), hair('#222222', 0.05),
+        ]);
+        expect(assignment).toEqual([
+            { slot: 'primary', hex: '#999999' },
+            { slot: 'secondary', hex: '#111111' },
+        ]);
     });
 
     it('衣装色・アクセント色は推定しない（未割当のまま返す）', () => {
         const { assignment } = proposeSlotAssignment([
             hair('#111111', 0.60),
             hair('#222222', 0.20),
-            { hex: '#333333', covBall: 0.01, covArt: 0.40, bands: [0, 0, 0, 0, 0], hints: [{ word: 'blue', bodyPart: '#BodyPart_Chest', element: '#Element_CostumeItem' }] },
-            { hex: '#444444', covBall: 0.01, covArt: 0.01, bands: [0, 0, 0, 0, 0], hints: [{ word: 'green', bodyPart: '#BodyPart_Eye', element: '#Element_Motif' }] },
+            costume('#333333', 0.01, 0.40),
+            { hex: '#444444', covBall: 0.01, covArt: 0.01, bands: [0, 0, 0, 0, 0], appliesTo: ['#BodyPart_Eye'], hints: [] },
         ]);
         expect(assignment.map(a => a.slot)).toEqual(['primary', 'secondary']);
     });
@@ -616,9 +704,26 @@ describe('proposeSlotAssignment — 下書き（主色・副色のみ）', () =>
     });
 
     it('球体型姿が無い場合は人姿のシェアで代用する', () => {
-        const art = (hex, share) => ({ hex, covBall: 0, covArt: share, bands: [0, 0, 0, 0, 0], hints: [] });
+        const art = (hex, share) => ({ hex, covBall: 0, covArt: share, bands: [0, 0, 0, 0, 0], appliesTo: ['#BodyPart_Hair'], hints: [] });
         const { assignment } = proposeSlotAssignment([art('#111111', 0.2), art('#222222', 0.6)]);
         expect(assignment.map(a => [a.slot, a.hex])).toEqual([['primary', '#222222'], ['secondary', '#111111']]);
+    });
+
+    /** AppliesTo が 1 つも無い DB（NumberTales/Secondary 等）では絞りようが無いので全色が候補 */
+    it('AppliesTo がどの色にも無ければ全色をシェア順に見る', () => {
+        const bare = (hex, share) => ({ hex, covBall: share, covArt: 0, bands: [0, 0, 0, 0, 0], appliesTo: [], hints: [] });
+        const { assignment } = proposeSlotAssignment([bare('#111111', 0.2), bare('#222222', 0.6)]);
+        expect(assignment.map(a => [a.slot, a.hex])).toEqual([['primary', '#222222'], ['secondary', '#111111']]);
+    });
+
+    /**
+     * 色語照合から組み立てた部位を下書きが書くと、User が「侵食されている」として
+     * 差し戻した経路（CHANGELOG 2026-08-11）が復活する。キーを省くことで
+     * `applySlotAssignment()` が既存の `AppliesTo` を持ち越す。
+     */
+    it('appliesTo は出力しない（既存値を持ち越させる）', () => {
+        const { assignment } = proposeSlotAssignment([hair('#111111', 0.9), hair('#222222', 0.3)]);
+        for (const a of assignment) expect(a).not.toHaveProperty('appliesTo');
     });
 });
 

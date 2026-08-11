@@ -350,6 +350,34 @@ export const COLOR_SLOTS = [
 const BASE_PARTS = new Set(['#BodyPart_Hair', '#BodyPart_Ear', '#BodyPart_Tail']);
 /** アクセント（瞳）とみなす部位。色名の注記（「瞳」か「アクセサリー」か）の分岐に使う。 */
 const ACCENT_PARTS = new Set(['#BodyPart_Eye']);
+/**
+ * 衣装が覆う部位。`#BodyPart_Neck` / `Hand` / `Foot` / `Head` は襟・手袋・靴・帽子といった
+ * **小物**にもなるため、ここには入れない（それらはアクセサリー扱い）。
+ */
+const COSTUME_PARTS = new Set([
+    '#BodyPart_Chest', '#BodyPart_Waist', '#BodyPart_Leg',
+    '#BodyPart_Shoulder', '#BodyPart_Arm', '#BodyPart_Back',
+]);
+
+/**
+ * 部位の一覧を「地毛 / 衣装 / アクセサリー」の 3 クラスへ写す。
+ *
+ * どのクラスにも排他性は無い（1 つの色が地毛と衣装の両方に出ることは普通にある。
+ * 例: Num 6 の `#FF76A2` は髪・耳・尻尾とワンピースの両方）。判定側は
+ * 「地毛を含むか」のように**含有**で見ること。
+ *
+ * @param {string[]|null|undefined} parts  `AppliesTo` 相当の部位配列
+ * @returns {{ base: boolean, costume: boolean, accessory: boolean, empty: boolean }}
+ */
+export function classifyParts(parts) {
+    const list = Array.isArray(parts) ? parts : [];
+    return {
+        base: list.some(p => BASE_PARTS.has(p)),
+        costume: list.some(p => COSTUME_PARTS.has(p)),
+        accessory: list.some(p => !BASE_PARTS.has(p) && !COSTUME_PARTS.has(p)),
+        empty: list.length === 0,
+    };
+}
 
 /**
  * スロットの色名を組み立てる。
@@ -522,7 +550,15 @@ export function resolveSoloArtSources(record, workDir, imagesRoot) {
  * - `covBall` … 球体型姿（`$palette.source: artwork`。コアフォルダ / キーキャッパー等）でのシェア
  * - `covArt`  … 人姿の単独絵でのシェア
  * - `bands`   … 球体型姿での高さ帯分布（頭/上/中/下/足）。球体型姿が取れない場合は人姿の分布
- * - `hints`   … `AppearanceDetail` の色語が一致した部位・DesignElement
+ * - `appliesTo` … レコードの `ColorPalette[].AppliesTo`（その色が現れる部位。判定の主材料）
+ * - `hints`   … `AppearanceDetail` の色語が一致した部位・DesignElement（`AppliesTo` の穴埋め用）
+ *
+ * **`appliesTo` と `hints` は別物**。前者は「この HEX が塗られている部位」を
+ * [issue #21](https://github.com/radiann-kswg/100BeautiesLab_CreationsDB/issues/21) の
+ * エントリ別 HEX 対応から確定させた値で、後者は色語（`red` / `blue` 等 13 語）の照合結果。
+ * 色語は 1 語がその色相域の**全色**へ一致してしまうため精度が 3 割前後で頭打ちになる
+ * （CHANGELOG 2026-08-11「色語 275 件の補完案は見送り」）。判定では `appliesTo` を優先し、
+ * それが空のときだけ `hints` を見ること。
  *
  * 球体型姿は原則として衣装を含まないため、そこでのシェア順が「地毛で何番目に多い色か」に
  * ほぼ対応する。確定済みレコードでの実測は主色 5/5・副色 4/5。
@@ -536,12 +572,19 @@ export function resolveSoloArtSources(record, workDir, imagesRoot) {
  * @param {any} record
  * @param {string} workDir
  * @param {string} imagesRoot
- * @returns {Array<{hex: string, covBall: number, covArt: number, bands: number[], hints: Array<{word: string, bodyPart: string|null, element: string|null, source: string}>}>}
+ * @returns {Array<{hex: string, covBall: number, covArt: number, bands: number[], appliesTo: string[], hints: Array<{word: string, bodyPart: string|null, element: string|null, source: string}>}>}
  */
 export function collectSlotEvidence(record, workDir, imagesRoot) {
-    const hexes = (Array.isArray(record?.ColorPalette) ? record.ColorPalette : [])
-        .map(c => c?.Hex).filter(h => typeof h === 'string');
+    const palette = Array.isArray(record?.ColorPalette) ? record.ColorPalette : [];
+    const hexes = palette.map(c => c?.Hex).filter(h => typeof h === 'string');
     if (!hexes.length) return [];
+    // Hex → AppliesTo。同じ Hex が 2 行ある壊れたデータでも落ちないよう先勝ちで引く
+    const partsByHex = new Map();
+    for (const row of palette) {
+        const key = String(row?.Hex ?? '').toUpperCase();
+        if (!key || partsByHex.has(key)) continue;
+        partsByHex.set(key, Array.isArray(row.AppliesTo) ? row.AppliesTo : []);
+    }
 
     /**
      * 複数枚ある場合は**宣言順の先頭**（＝基本形態）だけを使う。
@@ -574,6 +617,7 @@ export function collectSlotEvidence(record, workDir, imagesRoot) {
         covBall: ball[i].share,
         covArt: art[i].share,
         bands: ball[i].share ? ball[i].bands : art[i].bands,
+        appliesTo: partsByHex.get(hex.toUpperCase()) ?? [],
         hints: allHints.filter(h => colorWordMatchesHex(h.word, hex)),
     }));
 }
@@ -662,9 +706,13 @@ export function profileColorBands(img, hexes, opt = {}) {
 /**
  * 判定材料からスロット割当の**下書き**を作る。
  *
- * 埋めるのは **主色と副色だけ**。球体型姿（コアフォルダ等）でのシェア順が
- * 「地毛で何番目に多い色か」とほぼ対応するので、そこだけを根拠にする。
- * 残りは `unassigned` に残して、`--slot-report` の帯分布を見た人が決める。
+ * 埋めるのは **主色と副色だけ**。主色は球体型姿（コアフォルダ等）でのシェア最大の色、
+ * 副色は `AppliesTo` が地毛（髪・耳・尻尾）を含む色のうち 2 番目。
+ * 残りは `unassigned` に残して、`--slot-report` の帯分布と設定画を見た人が決める。
+ *
+ * **主色を地毛で絞らない理由**: `AppliesTo` には抜けがある。Num 9 の `#A1A9BF` は
+ * 球体型姿の 71.8% を占める銀灰の髪だが `AppliesTo` は空で、絞ると候補から消える。
+ * シェア最大は絞らなくても外さない（確定 5 件で 5/5）。
  *
  * **なぜ衣装色・アクセント色を出さないか**: 「人姿では出るが球体型姿では出ない色＝衣装」
  * 「面積が小さく瞳に紐づく色＝アクセント」という規則を実装し、User が画像を見て確定させた
@@ -672,14 +720,33 @@ export function profileColorBands(img, hexes, opt = {}) {
  * 前景マスクが淡いグレーを落とすこと、合同絵の混入が主因）。半分外す下書きは、
  * レビューする側を誤った答えへ引きずるぶん無いより悪い。
  *
- * 同じ計測での現行の正解率は **80%（主色 5/5・副色 3/5）**。規則を触るときは
- * `.cache/score-draft.mjs` 相当で測り直し、下がるなら戻すこと。
+ * 特に**衣装枠の順序（主色(衣装) と 副色（衣装））はシェアでは決まらない**。確定 5 件で 3/5。
+ * Num 24 は青灰 `#AEB8DB`（カーディガンとスカート）が主色(衣装)だが、人姿イラストの計測では
+ * 藤色 `#C680AF`（19.9%）が青灰（5.8%）を上回る。設定画を見ないと分けられない。
+ *
+ * 確定 5 件（Num 1/5/6/8/24）を正解とした主色・副色の正解率:
+ * | 版 | 正解率 |
+ * | --- | --- |
+ * | 全色をシェア順（旧） | 90%（主色 5/5・副色 4/5） |
+ * | **地毛の色だけをシェア順（現行）** | **100%（主色 5/5・副色 5/5）** |
+ *
+ * 旧版は Num 1 で副色を外していた。パーカーの `#FF8682`（衣装 33.2%）が
+ * 耳・尻尾の `#FFAC8F`（11.4%）を上回るためで、地毛で絞ると消える誤り
+ * （球体型姿は必ずしも衣装を着ていない、という前提が Num 1 では崩れている）。
+ *
+ * `AppliesTo` がどの色にも無いレコード（NumberTales/Secondary 等）は絞り込みようが無いので、
+ * 旧版と同じ「全色をシェア順」へ落ちる。規則を触るときは確定 5 件で測り直し、
+ * 下がるなら戻すこと。
+ *
+ * **`appliesTo` は出力しない。** 色語照合から組み立てた部位を書くと、User が
+ * 「侵食されている」として差し戻した経路（CHANGELOG 2026-08-11）が下書き経由で復活する。
+ * キーを省けば `applySlotAssignment()` が既存の `AppliesTo` をそのまま持ち越す。
  *
  * @param {ReturnType<typeof collectSlotEvidence>} evidence
- * @returns {{ assignment: Array<{slot: string, hex: string, appliesTo: string[]|null}>, unassigned: string[] }}
+ * @returns {{ assignment: Array<{slot: string, hex: string}>, unassigned: string[] }}
  */
 export function proposeSlotAssignment(evidence) {
-    /** @type {Array<{slot: string, hex: string, appliesTo: string[]|null}>} */
+    /** @type {Array<{slot: string, hex: string}>} */
     const assignment = [];
     /** @type {string[]} */
     const unassigned = [];
@@ -688,20 +755,23 @@ export function proposeSlotAssignment(evidence) {
     // 球体型姿が無いレコードでは人姿のシェアで代用する。両方無ければ全色が未割当。
     const hasBall = evidence.some(ev => ev.covBall > 0);
     const share = (ev) => (hasBall ? ev.covBall : ev.covArt);
+
     const ranked = [...evidence].sort((a, b) => share(b) - share(a));
 
-    /** 地毛の部位だけを `AppliesTo` の候補にする（衣装の部位は主色・副色には載せない） */
-    const baseParts = (ev) => [...new Set(
-        ev.hints.map(h => h.bodyPart).filter(p => p && BASE_PARTS.has(p)),
-    )];
-    const take = (ev, slot) => {
-        const parts = baseParts(ev);
-        assignment.push({ slot, hex: ev.hex, appliesTo: parts.length ? parts : null });
-    };
+    // 主色はシェア最大の色。地毛で絞ると `AppliesTo` の抜けに巻き込まれる
+    // （Num 9 の `#A1A9BF` は球体型姿の 71.8% を占める髪だが `AppliesTo` が空）。
+    const primary = share(ranked[0] ?? {}) > 0 ? ranked[0] : null;
+    if (primary) assignment.push({ slot: 'primary', hex: primary.hex });
 
-    if (ranked[0] && share(ranked[0]) > 0) take(ranked[0], 'primary');
-    // 2 番手はシェアが小さすぎると別物（小物の差し色など）なので副色にしない
-    if (ranked[1] && share(ranked[1]) >= 0.03) take(ranked[1], 'secondary');
+    // 副色は**地毛の色のうち 2 番目**。ここは絞りが要る: Num 1 のパーカー `#FF8682`（衣装 33.2%）は
+    // 耳・尻尾の `#FFAC8F`（11.4%）よりシェアが大きいが副色ではない。
+    // 部位が 1 つも判っていないレコードでは絞りようが無いので全色を候補にする。
+    const known = evidence.some(ev => ev.appliesTo?.length);
+    const secondary = ranked.find(ev => ev !== primary
+        && (!known || classifyParts(ev.appliesTo).base)
+        // シェアが小さすぎる色は別物（小物の差し色など）なので副色にしない
+        && share(ev) >= 0.03);
+    if (secondary) assignment.push({ slot: 'secondary', hex: secondary.hex });
 
     const used = new Set(assignment.map(a => a.hex));
     for (const ev of evidence) if (!used.has(ev.hex)) unassigned.push(ev.hex);
@@ -1405,18 +1475,24 @@ patch-colorpalette.mjs — 設定画のカラーチップから ColorPalette を
 
 /**
  * `--records 1,3,5-8` 形式を Set へ展開する。
+ *
+ * 数字だけの指定は**数値と文字列の両方**を入れる。`Num` が数値のレコード（`1`）と
+ * 文字列のレコード（`"000"` / `"00"`）が混在しており、`Number()` だけに寄せると
+ * `"000"` / `"00"` / `"0"` が全部 `0` へ潰れて 1 件も選べなくなる。
+ *
  * @param {string} spec
  * @returns {Set<any>}
  */
 function parseRecordSpec(spec) {
     const set = new Set();
+    const addNum = (t) => { set.add(Number(t)); set.add(t); };
     for (const part of spec.split(',')) {
         const t = part.trim();
         if (!t) continue;
         const m = t.match(/^(\d+)-(\d+)$/);
-        if (m) for (let i = Number(m[1]); i <= Number(m[2]); i++) set.add(i);
-        else if (/^\d+$/.test(t)) set.add(Number(t));
-        else set.add(t); // "2-alt" / "000" 等の特殊 Num
+        if (m) for (let i = Number(m[1]); i <= Number(m[2]); i++) addNum(String(i));
+        else if (/^\d+$/.test(t)) addNum(t);
+        else set.add(t); // "2-alt" / "444-mp" 等の特殊 Num
     }
     return set;
 }
@@ -1531,14 +1607,20 @@ function printSlotReport(opts) {
     for (const r of rows) {
         const slotOf = new Map(r.assignment.map(a => [a.hex.toUpperCase(), a.slot]));
         console.log(`\n  #${r.num}`);
-        console.log(`    ${'HEX'.padEnd(9)}${'球体%'.padStart(6)}${'人姿%'.padStart(7)}  ${BAND_LABELS.join('')}  スロット / 色語の部位`);
+        console.log(`    ${'HEX'.padEnd(9)}${'球体%'.padStart(6)}${'人姿%'.padStart(7)}  ${BAND_LABELS.join('')}  クラス  スロット      部位`);
         for (const ev of r.evidence) {
-            const slot = slotOf.get(ev.hex.toUpperCase()) ?? '（未割当）';
-            const parts = [...new Set(ev.hints.map(h => h.bodyPart).filter(Boolean))]
-                .map(p => p.replace('#BodyPart_', '')).join(',') || '-';
+            const slot = slotOf.get(ev.hex.toUpperCase()) ?? '-';
+            // `AppliesTo`（issue #21 由来の確定値）が正。無いときだけ色語照合を `~` 付きで見せる
+            const fallback = [...new Set(ev.hints.map(h => h.bodyPart).filter(Boolean))];
+            const parts = ev.appliesTo?.length ? ev.appliesTo : fallback;
+            const label = (ev.appliesTo?.length ? '' : parts.length ? '~' : '')
+                + (parts.map(p => p.replace('#BodyPart_', '')).join(',') || '-');
+            // 全角 1 文字＝2 桁で数えるため、無いクラスは全角スペースで埋めて桁を揃える
+            const c = classifyParts(ev.appliesTo);
+            const cls = `${c.base ? '地' : '　'}${c.costume ? '衣' : '　'}${c.accessory ? '飾' : '　'}`;
             // 帯は「その色がどこに出ているか」。近似色は被覆率では潰れるがここで分かれる
             const bands = (ev.bands ?? []).map(v => (v >= 0.4 ? '#' : v >= 0.15 ? '+' : v > 0.02 ? '.' : ' ')).join('');
-            console.log(`    ${ev.hex}${(ev.covBall * 100).toFixed(1).padStart(6)}%${(ev.covArt * 100).toFixed(1).padStart(6)}%  ${bands}  ${slot.padEnd(11)} ${parts}`);
+            console.log(`    ${ev.hex}${(ev.covBall * 100).toFixed(1).padStart(6)}%${(ev.covArt * 100).toFixed(1).padStart(6)}%  ${bands}  ${cls}  ${slot.padEnd(12)} ${label}`);
         }
         if (r.unassigned.length) console.log(`    → 未割当: ${r.unassigned.join(', ')}`);
     }
@@ -1551,9 +1633,10 @@ function printSlotReport(opts) {
     const done = rows.filter(r => !r.unassigned.length).length;
     console.log(`\n  下書き: ${done} / ${rows.length} 件が全色割当済み`);
     console.log(`  ${path.relative(REPO_ROOT, outPath).split(path.sep).join('/')} へ下書きを書き出しました。`);
-    console.log('\n※ この下書きは検証前です。根拠に使う AppearanceDetail の BodyPart / DesignElement は');
-    console.log('  画像を見て手動修正された経緯があり、近似色が競合すると被覆率も入れ替わります。');
-    console.log('  画像で確認して直してから --slots で適用してください。');
+    console.log('\n※ クラスは AppliesTo の部位から: 地=髪/耳/尻尾 衣=胸/腰/脚/肩/腕/背中 飾=それ以外（瞳・首・手・足など）');
+    console.log('  部位の `~` 印は AppliesTo が空で色語照合にフォールバックしたもの（精度 3 割前後）。');
+    console.log('\n※ この下書きが埋めるのは主色・副色だけです。衣装枠の順序はシェアでは決まらないため');
+    console.log('  （確定 5 件で 3/5）、設定画を見て割当ファイルを作ってから --slots で適用してください。');
 }
 
 /**
