@@ -160,6 +160,63 @@ describe('collectColorHints — AppearanceDetail からの色語収集', () => {
         expect(collectColorHints({ Num: 99 })).toEqual([]);
         expect(collectColorHints(null)).toEqual([]);
     });
+
+    /**
+     * 英語の色語は単語境界で判定する。素朴な `includes` だと別語の一部に誤爆し、
+     * 無関係な部位を `AppliesTo` へ転記させる（実データで 50 パターン確認）。
+     * @see issue #20「AppearanceDetail 充足性レビュー」
+     */
+    it('別語の一部に含まれる色語では誤爆しない', () => {
+        const bogus = {
+            AppearanceDetail: [
+                {
+                    BodyPart: ['#BodyPart_Chest'],
+                    Attrs: [
+                        // "layered" / "colored" / "inspired" / "assured" に "red" が含まれる
+                        { AttrLabel: '#DesignAttr_Overview', value_EN: 'layered multicolored coat inspired by a pattern' },
+                        // "tank-top" / "rectangular" に "tan" が含まれる
+                        { AttrLabel: '#DesignAttr_Overview', value_EN: 'rectangular tank-top' },
+                    ],
+                },
+            ],
+        };
+        const words = collectColorHints(bogus).map(h => h.word);
+        expect(words).not.toContain('red');
+        expect(words).not.toContain('brown');
+    });
+
+    it('正当な派生形（reddish / golden / yellowish / grayish）は拾う', () => {
+        const derived = (en) => collectColorHints({
+            AppearanceDetail: [{ BodyPart: ['#BodyPart_Hair'], Attrs: [{ AttrLabel: '#DesignAttr_Overview', value_EN: en }] }],
+        }).map(h => h.word);
+
+        expect(derived('reddish brown hair')).toContain('red');
+        expect(derived('pale golden hair')).toContain('yellow');
+        expect(derived('yellowish orange hair')).toContain('yellow');
+        expect(derived('dark grayish blue eyes')).toContain('gray');
+    });
+
+    it('issue #20 で挙がった色語（amber / blonde / burgundy）を拾う', () => {
+        const words = (en) => collectColorHints({
+            AppearanceDetail: [{ BodyPart: ['#BodyPart_Eye'], Attrs: [{ AttrLabel: '#DesignAttr_Overview', value_EN: en }] }],
+        }).map(h => h.word);
+
+        // amber は橙と黄の境目にあるため両方の語彙へ入れ、実際の HEX 側で振り分ける
+        expect(words('amber eyes')).toEqual(expect.arrayContaining(['orange', 'yellow']));
+        expect(words('blonde ponytail')).toContain('yellow');
+        expect(words('burgundy vest dress')).toContain('red');
+    });
+
+    it('複数部位のエントリは全部位ぶんのヒントを出す（先頭だけにしない）', () => {
+        const multi = {
+            AppearanceDetail: [{
+                BodyPart: ['#BodyPart_Chest', '#BodyPart_Leg', '#BodyPart_Waist'],
+                Attrs: [{ AttrLabel: '#DesignAttr_Overview', value_EN: 'green casual outfit' }],
+            }],
+        };
+        const parts = collectColorHints(multi).filter(h => h.word === 'green').map(h => h.bodyPart);
+        expect(parts).toEqual(['#BodyPart_Chest', '#BodyPart_Leg', '#BodyPart_Waist']);
+    });
 });
 
 describe('resolveImageSources — 画像ソースの優先順', () => {

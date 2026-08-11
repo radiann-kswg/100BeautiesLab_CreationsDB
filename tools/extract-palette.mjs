@@ -856,20 +856,45 @@ export function medianCut(pixels, maxColors) {
  * hueRange が null の色（白 / 黒 / 灰）は彩度・明度のみで判定する。
  */
 const COLOR_WORD_RANGES = [
-    { key: 'red', jp: ['赤', '紅'], en: ['red', 'crimson'], hue: [[345, 360], [0, 12]], sMin: 0.35, vMin: 0.25 },
+    { key: 'red', jp: ['赤', '紅'], en: ['red', 'reddish', 'crimson', 'burgundy'], hue: [[345, 360], [0, 12]], sMin: 0.35, vMin: 0.25 },
     { key: 'red orange', jp: ['赤橙', '朱'], en: ['red orange', 'vermilion'], hue: [[8, 25]], sMin: 0.35, vMin: 0.3 },
-    { key: 'orange', jp: ['橙', 'オレンジ'], en: ['orange'], hue: [[20, 42]], sMin: 0.35, vMin: 0.35 },
-    { key: 'yellow', jp: ['黄'], en: ['yellow', 'gold'], hue: [[43, 68]], sMin: 0.3, vMin: 0.4 },
-    { key: 'green', jp: ['緑', '碧'], en: ['green'], hue: [[69, 165]], sMin: 0.2, vMin: 0.2 },
+    { key: 'orange', jp: ['橙', 'オレンジ'], en: ['orange', 'orangish', 'amber'], hue: [[20, 42]], sMin: 0.35, vMin: 0.35 },
+    { key: 'yellow', jp: ['黄', '金'], en: ['yellow', 'yellowish', 'gold', 'golden', 'amber', 'blonde', 'blond'], hue: [[43, 68]], sMin: 0.3, vMin: 0.4 },
+    { key: 'green', jp: ['緑', '碧'], en: ['green', 'greenish'], hue: [[69, 165]], sMin: 0.2, vMin: 0.2 },
     { key: 'cyan', jp: ['水色', '青緑'], en: ['cyan', 'turquoise', 'teal'], hue: [[166, 200]], sMin: 0.2, vMin: 0.3 },
-    { key: 'blue', jp: ['青', '藍'], en: ['blue', 'navy'], hue: [[201, 255]], sMin: 0.2, vMin: 0.15 },
-    { key: 'purple', jp: ['紫', '菫'], en: ['purple', 'violet', 'lavender'], hue: [[256, 300]], sMin: 0.15, vMin: 0.2 },
-    { key: 'pink', jp: ['桃', 'ピンク'], en: ['pink', 'magenta', 'rose'], hue: [[301, 344]], sMin: 0.12, vMin: 0.45 },
-    { key: 'brown', jp: ['茶', '褐'], en: ['brown', 'tan'], hue: [[10, 45]], sMin: 0.2, vMin: 0.15, vMax: 0.6 },
-    { key: 'white', jp: ['白'], en: ['white', 'cream', 'ivory'], hue: null, sMax: 0.14, vMin: 0.82 },
+    { key: 'blue', jp: ['青', '藍', '紺'], en: ['blue', 'bluish', 'navy', 'indigo'], hue: [[201, 255]], sMin: 0.2, vMin: 0.15 },
+    { key: 'purple', jp: ['紫', '菫'], en: ['purple', 'purplish', 'violet', 'lavender'], hue: [[256, 300]], sMin: 0.15, vMin: 0.2 },
+    { key: 'pink', jp: ['桃', 'ピンク'], en: ['pink', 'pinkish', 'magenta', 'rose'], hue: [[301, 344]], sMin: 0.12, vMin: 0.45 },
+    { key: 'brown', jp: ['茶', '褐'], en: ['brown', 'brownish', 'tan', 'beige'], hue: [[10, 45]], sMin: 0.2, vMin: 0.15, vMax: 0.6 },
+    { key: 'white', jp: ['白'], en: ['white', 'whitish', 'cream', 'ivory'], hue: null, sMax: 0.14, vMin: 0.82 },
     { key: 'black', jp: ['黒'], en: ['black'], hue: null, sMax: 0.3, vMax: 0.22 },
-    { key: 'gray', jp: ['灰', 'グレー'], en: ['gray', 'grey', 'silver'], hue: null, sMax: 0.14, vMin: 0.22, vMax: 0.82 },
+    { key: 'gray', jp: ['灰', 'グレー'], en: ['gray', 'grey', 'grayish', 'greyish', 'silver'], hue: null, sMax: 0.14, vMin: 0.22, vMax: 0.82 },
 ];
+
+/**
+ * 英語の色語が**単語として**現れているかを判定する。
+ *
+ * 素朴な `includes()` は別語の一部に誤爆する。実データ（NumberTales 1,464 件の `value_EN`）で
+ * 計測したところ、`red` が `colored` / `layered` / `inspired` / `numbered` / `assured` などに、
+ * `tan` が `rectangular` / `stands` / `tank-top` に一致していた（合計 50 パターン）。
+ * 誤爆した色語はそのエントリの `BodyPart` を無関係な色へ転記させるため、
+ * 「表情」のエントリが配色の根拠として扱われるといった実害が出る。
+ *
+ * 対処は単語境界での一致に統一し、`reddish` / `golden` / `yellowish` / `grayish` のような
+ * 正当な派生形は **`COLOR_WORD_RANGES` へ語として明示的に並べる**（境界判定を緩めない）。
+ * 日本語側は分かち書きが無いため従来どおり部分一致で見る。
+ *
+ * 未知の派生形が現れた場合は素通しになるが、`100BeautiesLab_GeneratorsAI` の
+ * `verify_appearance_detail` が「色語表に無い色語」として検出するため、そこで拾って追加する。
+ *
+ * @param {string} text 小文字化済みの英語テキスト
+ * @param {string} word 色語（空白を含む場合は連続空白を許容する）
+ * @returns {boolean}
+ */
+function containsColorWordEn(text, word) {
+    const pattern = word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/ /g, '\\s+');
+    return new RegExp(`(^|[^a-z])${pattern}($|[^a-z])`).test(text);
+}
 
 /**
  * 抽出クラスタが色語の HSV 範囲に収まるかを判定する。
@@ -915,20 +940,25 @@ export function collectColorHints(record) {
     const details = Array.isArray(record?.AppearanceDetail) ? record.AppearanceDetail : [];
 
     for (const entry of details) {
-        const bodyPart = Array.isArray(entry?.BodyPart) && entry.BodyPart.length ? entry.BodyPart[0] : null;
+        // 部位は**全部**ヒントにする。1 エントリが複数部位を持つ場合（"casual outfit" の
+        // Chest / Leg / Waist など）に先頭だけを見ると、残りの部位へ色を転記できない。
+        const parts = Array.isArray(entry?.BodyPart) && entry.BodyPart.length ? entry.BodyPart : [null];
         const element = entry?.DesignElement ?? null;
         for (const attr of (Array.isArray(entry?.Attrs) ? entry.Attrs : [])) {
             const text = `${attr?.value_JP ?? ''} ${attr?.value_EN ?? ''}`.toLowerCase();
             if (!text.trim()) continue;
             for (const def of COLOR_WORD_RANGES) {
-                const hit = def.en.some(w => text.includes(w)) || def.jp.some(w => text.includes(w));
+                // 英語は単語境界で、日本語は分かち書きが無いため部分一致で見る
+                const hit = def.en.some(w => containsColorWordEn(text, w)) || def.jp.some(w => text.includes(w));
                 if (!hit) continue;
-                hints.push({
-                    word: def.key,
-                    bodyPart,
-                    element,
-                    source: `${attr.AttrLabel ?? '?'}: ${attr.value_EN ?? attr.value_JP ?? ''}`.trim(),
-                });
+                for (const bodyPart of parts) {
+                    hints.push({
+                        word: def.key,
+                        bodyPart,
+                        element,
+                        source: `${attr.AttrLabel ?? '?'}: ${attr.value_EN ?? attr.value_JP ?? ''}`.trim(),
+                    });
+                }
             }
         }
     }

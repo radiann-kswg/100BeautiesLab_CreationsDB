@@ -2071,9 +2071,19 @@
       {
         "Role": "#ColorRole_Primary",
         "Hex": "#61DAAC",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
-        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Eye", "#BodyPart_Chest"],
+        "ColorName_JP": "主色",
+        "ColorName_EN": "Primary Color",
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Ear", "#BodyPart_Tail"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#4CD9E8",
+        "ColorName_JP": "主色(衣装)",
+        "ColorName_EN": "Primary Color (Costume)",
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Waist"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -2081,39 +2091,29 @@
       {
         "Role": "#ColorRole_Secondary",
         "Hex": "#7FE2C5",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
-        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Eye", "#BodyPart_Chest"],
+        "ColorName_JP": "副色",
+        "ColorName_EN": "Secondary Color",
+        "AppliesTo": ["#BodyPart_Tail", "#BodyPart_Ear"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       },
       {
         "Role": "#ColorRole_Accent",
-        "Hex": "#408784",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
-        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Eye", "#BodyPart_Leg"],
-        "Formation": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Role": "#ColorRole_Sub",
-        "Hex": "#4CD9E8",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
-        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Eye", "#BodyPart_Leg"],
-        "Formation": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Role": "#ColorRole_Sub",
         "Hex": "#009489",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
-        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Eye", "#BodyPart_Leg"],
+        "ColorName_JP": "メインアクセントカラー（瞳, 衣装補足色）",
+        "ColorName_EN": "Main Accent Color (Eye Color, Costume Auxiliary Color)",
+        "AppliesTo": ["#BodyPart_Eye", "#BodyPart_Foot"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#408784",
+        "ColorName_JP": "副色（衣装）",
+        "ColorName_EN": "Secondary Color (Costume)",
+        "AppliesTo": ["#BodyPart_Leg"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -2466,28 +2466,38 @@
       {
         "Role": "#ColorRole_Primary",
         "Hex": "#FF76A2",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
-        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Chest"],
+        "ColorName_JP": "主色",
+        "ColorName_EN": "Primary Color",
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Ear", "#BodyPart_Tail"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#A783B5",
+        "ColorName_JP": "主色(衣装)",
+        "ColorName_EN": "Primary Color (Costume)",
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Leg"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       },
       {
         "Role": "#ColorRole_Secondary",
-        "Hex": "#6AA6D7",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
-        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Eye"],
+        "Hex": "#FFCEED",
+        "ColorName_JP": "副色",
+        "ColorName_EN": "Secondary Color",
+        "AppliesTo": ["#BodyPart_Tail", "#BodyPart_Ear"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       },
       {
         "Role": "#ColorRole_Accent",
-        "Hex": "#A783B5",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
+        "Hex": "#185EBD",
+        "ColorName_JP": "メインアクセントカラー（瞳, アクセサリー）",
+        "ColorName_EN": "Main Accent Color (Eye Color, Accessory Color)",
         "AppliesTo": ["#BodyPart_Eye", "#BodyPart_Chest"],
         "Formation": null,
         "Note_JP": null,
@@ -2495,20 +2505,10 @@
       },
       {
         "Role": "#ColorRole_Sub",
-        "Hex": "#FFCEED",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
-        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Chest"],
-        "Formation": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Role": "#ColorRole_Sub",
-        "Hex": "#185EBD",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
-        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Eye"],
+        "Hex": "#6AA6D7",
+        "ColorName_JP": "副色（衣装）",
+        "ColorName_EN": "Secondary Color (Costume)",
+        "AppliesTo": ["#BodyPart_Neck", "#BodyPart_Foot"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -3261,13 +3261,23 @@
       {
         "Role": "#ColorRole_Primary",
         "Hex": "#E85764",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
+        "ColorName_JP": "主色",
+        "ColorName_EN": "Primary Color",
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Ear", "#BodyPart_Tail"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#FF9E68",
+        "ColorName_JP": "主色(衣装)",
+        "ColorName_EN": "Primary Color (Costume)",
         "AppliesTo": [
-          "#BodyPart_Chest",
-          "#BodyPart_Eye",
-          "#BodyPart_Hair",
-          "#BodyPart_Head"
+          "#BodyPart_Arm",
+          "#BodyPart_Hand",
+          "#BodyPart_Leg",
+          "#BodyPart_Foot"
         ],
         "Formation": null,
         "Note_JP": null,
@@ -3276,19 +3286,19 @@
       {
         "Role": "#ColorRole_Secondary",
         "Hex": "#FFA9A8",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
-        "AppliesTo": null,
+        "ColorName_JP": "副色",
+        "ColorName_EN": "Secondary Color",
+        "AppliesTo": ["#BodyPart_Tail", "#BodyPart_Ear"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       },
       {
         "Role": "#ColorRole_Accent",
-        "Hex": "#FF9E68",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
-        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Head"],
+        "Hex": "#FC6932",
+        "ColorName_JP": "メインアクセントカラー（瞳, アクセサリー）",
+        "ColorName_EN": "Main Accent Color (Eye Color, Accessory Color)",
+        "AppliesTo": ["#BodyPart_Eye", "#BodyPart_Head"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -3296,24 +3306,9 @@
       {
         "Role": "#ColorRole_Sub",
         "Hex": "#BC4655",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
-        "AppliesTo": [
-          "#BodyPart_Chest",
-          "#BodyPart_Eye",
-          "#BodyPart_Hair",
-          "#BodyPart_Head"
-        ],
-        "Formation": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Role": "#ColorRole_Sub",
-        "Hex": "#FC6932",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
-        "AppliesTo": null,
+        "ColorName_JP": "副色（衣装）",
+        "ColorName_EN": "Secondary Color (Costume)",
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Waist"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -5679,7 +5674,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -6868,7 +6863,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Hair"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -7991,7 +7986,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -9756,50 +9751,50 @@
     "ColorPalette": [
       {
         "Role": "#ColorRole_Primary",
-        "Hex": "#C680AF",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
-        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Leg"],
+        "Hex": "#E8AFD8",
+        "ColorName_JP": "主色",
+        "ColorName_EN": "Primary Color",
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Ear", "#BodyPart_Tail"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#AEB8DB",
+        "ColorName_JP": "主色(衣装)",
+        "ColorName_EN": "Primary Color (Costume)",
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Arm"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       },
       {
         "Role": "#ColorRole_Secondary",
-        "Hex": "#0097C9",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
-        "AppliesTo": null,
+        "Hex": "#FCE8EC",
+        "ColorName_JP": "副色",
+        "ColorName_EN": "Secondary Color",
+        "AppliesTo": ["#BodyPart_Tail", "#BodyPart_Ear"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       },
       {
         "Role": "#ColorRole_Accent",
-        "Hex": "#E8AFD8",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
-        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Leg"],
+        "Hex": "#0097C9",
+        "ColorName_JP": "メインアクセントカラー（アクセサリー）",
+        "ColorName_EN": "Main Accent Color (Accessory Color)",
+        "AppliesTo": ["#BodyPart_Neck"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       },
       {
         "Role": "#ColorRole_Sub",
-        "Hex": "#AEB8DB",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
-        "AppliesTo": null,
-        "Formation": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Role": "#ColorRole_Sub",
-        "Hex": "#FCE8EC",
-        "ColorName_JP": null,
-        "ColorName_EN": null,
-        "AppliesTo": null,
+        "Hex": "#C680AF",
+        "ColorName_JP": "副色（衣装）",
+        "ColorName_EN": "Secondary Color (Costume)",
+        "AppliesTo": ["#BodyPart_Waist", "#BodyPart_Leg", "#BodyPart_Foot"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -11630,7 +11625,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -14164,7 +14159,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -15407,7 +15402,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -16693,7 +16688,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -17129,7 +17124,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Eye"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -17145,7 +17140,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Eye"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -17177,7 +17172,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -18742,7 +18737,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Eye"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -20408,7 +20403,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -20800,7 +20795,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Waist"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -21183,7 +21178,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -21614,7 +21609,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -22058,7 +22053,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Arm"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -22867,7 +22862,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -22915,7 +22910,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Neck"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -26385,7 +26380,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Neck"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -26417,7 +26412,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Shoulder", "#BodyPart_Arm"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -27840,14 +27835,14 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
-        "BodyPart": null,
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Neck"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "薄いピンクのマントのよう襟",
+            "value_JP": "薄いピンクのマントのような襟",
             "value_EN": "light pink cape-like collar"
           }
         ],
@@ -27889,7 +27884,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Eye"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -28319,7 +28314,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Arm", "#BodyPart_Hand"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -29750,7 +29745,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Shoulder", "#BodyPart_Neck", "#BodyPart_Back"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -29798,7 +29793,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -30143,7 +30138,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Eye"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -32790,7 +32785,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Neck"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -33206,7 +33201,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Neck", "#BodyPart_Shoulder"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -33596,7 +33591,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -34354,7 +34349,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Eye"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -34770,7 +34765,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Eye"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -35220,7 +35215,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -35573,7 +35568,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Eye"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -36025,7 +36020,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Eye"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -36041,7 +36036,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -36478,7 +36473,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Head", "#BodyPart_Interchangeable"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -36526,14 +36521,14 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Head", "#BodyPart_Interchangeable"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "番号装飾付きピンクのマスカレードマスク(よく装着する)",
-            "value_EN": "pink one-piece dress with white collar (casual wear)"
+            "value_EN": "pink masquerade mask with number decoration (frequently worn)"
           }
         ],
         "img_PNGName": null,
@@ -36541,15 +36536,15 @@
         "Note_EN": null
       },
       {
-        "Formation": "humanoid",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Neck"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "白い襟付きピンクのワンピースドレス(普段着)",
-            "value_EN": "high heels (casual wear)"
+            "value_JP": "薄いピンクの番号付きでマントのような襟",
+            "value_EN": "light pink collar with number decoration, resembling a cape"
           }
         ],
         "img_PNGName": null,
@@ -36565,7 +36560,7 @@
           {
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "ハイヒール(普段着)",
-            "value_EN": "pink thigh-high stockings (casual wear)"
+            "value_EN": "high heels (casual wear)"
           }
         ],
         "img_PNGName": null,
@@ -36581,7 +36576,7 @@
           {
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "ピンクのサイハイストッキング(普段着)",
-            "value_EN": "pink puff-sleeve dress with white collar and central button placket (casual wear)"
+            "value_EN": "pink thigh-high stockings (casual wear)"
           }
         ],
         "img_PNGName": null,
@@ -36590,14 +36585,14 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Neck"],
+        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Arm", "#BodyPart_Waist"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "白い襟と白い裾と白い前立て付きピンクのパフスリーブドレス(普段着)",
-            "value_EN": "pink masquerade mask with number decoration (frequently worn)"
+            "value_JP": "白い裾と白い前立て付きピンクのパフスリーブドレス(普段着)",
+            "value_EN": "pink puff-sleeve dress with white hem and white placket (casual wear)"
           }
         ],
         "img_PNGName": null,
@@ -37375,7 +37370,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Eye"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -37792,7 +37787,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Head", "#BodyPart_Back"],
         "Laterality": null,
         "DesignElement": "#Element_Halo",
         "Attrs": [
@@ -37840,7 +37835,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -38914,7 +38909,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Eye"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -38962,7 +38957,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Eye"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -39287,7 +39282,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Eye"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -39319,7 +39314,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Leg"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -39633,7 +39628,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Leg"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [

@@ -1,5 +1,19 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### fix: 色語判定の誤爆修正と `AppearanceDetail.BodyPart` 51 件の補完（issue #20 対応） (2026-08-11)
+
+`100BeautiesLab_GeneratorsAI` の `verify_appearance_detail` が出した充足性レビュー（[issue #20](https://github.com/radiann-kswg/100BeautiesLab_CreationsDB/issues/20)）への対応。「`BodyPart` 欠落 71 件 / 根拠なし色 197 色」の内訳を実データで裏取りしたところ、**71 = 本当に欠落 67 件 + 色語判定の誤爆 4 件**だった。
+
+- **色語の英単語判定を単語境界へ（`tools/extract-palette.mjs`）**: `collectColorHints()` は `text.includes(w)` で色語を探していたため別語の一部に誤爆していた。実データ 1,464 件の `value_EN` で計測して **50 パターン**を確認（`red` が `colored` / `layered` / `inspired` / `numbered` / `assured` に、`tan` が `rectangular` / `stands` / `tank-top` に一致）。誤爆した色語は無関係な部位を `AppliesTo` へ転記させるため、「表情」のエントリが配色の根拠として扱われる実害が出ていた。`containsColorWordEn()` を追加して単語境界での一致に統一した。
+- **正当な派生形は語彙へ明示**: 境界判定を厳しくすると `reddish` / `golden` / `yellowish` / `grayish` を取り逃がすため、これらを `COLOR_WORD_RANGES` へ語として並べた（判定を緩めない）。あわせて issue §1 の不足語から **`amber` / `blonde` / `burgundy`** を追加（`amber` は橙と黄の境目なので両方の語彙へ入れ、実際の HEX 側で振り分ける）。
+- **`dark` / `light` は追加しない**: 色相ではなく明度の修飾語であり、`hue: null` の範囲で拾うと「そのキャラの暗い色すべて」に部位が転記される。髪の色に「胸」が付くような誤りを生むため見送った。記述側で実際の色を書くのが筋だが、それは創作内容にあたるので User の判断。
+- **複数部位のエントリを全部拾う**: `BodyPart[0]` だけを見ていたため、`["Chest","Leg","Waist"]` のようなエントリで先頭以外へ色を転記できなかった。全部位ぶんのヒントを出すよう変更。
+- **`tools/patch-appearance-bodypart.mjs`（新規）**: `AppearanceDetail[].BodyPart` を書式非破壊で埋めるパッチツール。既定 dry-run / `--apply` / `--force`。部位 enum を `data/db_meta.json` から読んで入力検証する。配列要素の走査（`scanArrayElements()`）は文字列リテラルを踏まないブレース追跡。
+- **実データ**: 欠落 67 件のうち **51 件**を補完（`db_Primary` 45 / `db_SelfSecondary` 3 / `db_SemiPrimary` 3）。判定は 12 エージェントのワークフローで「記述からの分類 → 別エージェントによる反証」を通し、**反証を通った 51 件だけ**を書き込んだ。残り 16 件は場所が記述に無い等の理由で保留（`_work_in_progress/2026-08-11_progress_colorpalette-slots.md` に一覧）。
+- **効果**: `ColorPalette` の色に紐づく部位が **延べ 1,093 → 1,338**（+245、1 色あたり 2.54 → 3.07 部位）。`BodyPart` 欠落（色語あり）は **67 → 16 件**。
+- **影響範囲**: `tools/extract-palette.mjs` / `tools/patch-appearance-bodypart.mjs` / `tests/extract-palette.test.js` / `data/Works_NumberTales/DataBases/db_{Primary,SelfSecondary,SemiPrimary}.json`。
+- **検証**: `npm test` **67 files / 1209 件すべて成功**。誤爆しないこと・派生形を拾うこと・複数部位を全部出すことを回帰に固定した。
+
 ### feat: `ColorPalette` の配色スロット（並び順・Role・色名の確定）と、判定を助ける分布計測 (2026-08-11)
 
 `ColorPalette` は `Hex`（設定画のカラーチップ＝作者指定色）だけが確定しており、`Role` は被覆率の降順という機械的な仮値、`ColorName_JP/EN` は全 160 レコードで `null` のままだった。User が Num 1（`NTS-1`）で手作業により確定させた形を基準に、**7 枠の配色スロット**を定義して並び順・`Role`・色名を機械的に決められるようにした。
