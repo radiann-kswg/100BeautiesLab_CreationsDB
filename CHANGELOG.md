@@ -1,5 +1,21 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### feat: `ColorPalette` の配色スロット（並び順・Role・色名の確定）と、判定を助ける分布計測 (2026-08-11)
+
+`ColorPalette` は `Hex`（設定画のカラーチップ＝作者指定色）だけが確定しており、`Role` は被覆率の降順という機械的な仮値、`ColorName_JP/EN` は全 160 レコードで `null` のままだった。User が Num 1（`NTS-1`）で手作業により確定させた形を基準に、**7 枠の配色スロット**を定義して並び順・`Role`・色名を機械的に決められるようにした。
+
+- **スロット表（`COLOR_SLOTS`）**: 主色 / 主色(衣装) / 副色 / メインアクセントカラー / サブアクセントカラー / 副色（衣装） / 補助色 の 7 枠。**並びがそのまま `ColorPalette` の出力順**であり、`Role` と `ColorName_JP/EN` の唯一の出所。「主色(衣装)」の `Role` は `#ColorRole_Primary`、衣装のセカンダリは常に `#ColorRole_Sub` の「副色（衣装）」枠へ入れる（User 確定）。
+- **色名の部位注記はアクセント枠のみ**（`buildSlotColorName()`）。`AppliesTo` に瞳が含まれれば「瞳」、瞳以外があれば「アクセサリー」を機械的に併記する（`メインアクセントカラー（瞳, アクセサリー）` / `Main Accent Color (Eye Color, Accessory Color)`）。
+- **`applySlotAssignment()`**: 割当に従って並べ替え、`Role` / `ColorName` を確定する。**`Hex` / `Formation` / `Note_JP` / `Note_EN` は既存値を持ち越す**（作者指定色と創作内容に触らない）。7 枠のどれとも判定できない色が 1 つでも残るレコードは**書き込まずスキップ**し `unassigned` として報告する（黙って補助色へ流さない）。未知のスロット名・存在しない `Hex` は打ち間違いとして例外にする。
+- **`profileColorBands()` / `renderColorMap()`**: 各配色が画像の**どこ**に出ているかを測る。被覆率（`measurePaletteCoverage()`）は「どれだけ使われているか」しか答えないため、RGB 距離 30 程度の近似色ペア（`NTS-1` の `#FFAC8F` / `#FFBFA7`）では主従が入れ替わる。分布なら別領域として分かれる。`renderColorMap()` は粗いテキスト図、`profileColorBands()` はそれを高さ帯（頭/上/中/下/足）の割合へ畳んだもの。**帯は外接矩形の 5 等分目盛りであって部位判定ではない**。
+- **CLI**: `--assign-slots` / `--slots <file>` / `--slot-report` / `--color-map` を `tools/patch-colorpalette.mjs` へ追加。`--work` / `--db` を変えれば他作品にも使える。
+- **`$EnumDef_ColorRole` の和名を修正**（`data/db_meta.json`）: `#ColorRole_Secondary` が「補助色」、`#ColorRole_Sub` が「副色」とスロット名に対して逆さまだったため入れ替えた。
+- **自動推定は成立しない**: `AppearanceDetail` の色語・`DesignElement` と被覆率から下書き（`proposeSlotAssignment()`）を作れるが、NumberTales / Primary の **96 件すべてで不足**した。根拠に使う `BodyPart` / `DesignElement` 自体が画像を見て手動修正された経緯を持つことに加え、近似色の競合と、前景マスクが淡いグレー（靴など）を紙面として落とすことが原因。**下書きは検証前提**であり、確定は設定画と分布計測を見た判断で行う。
+- **実データ**: NumberTales / Primary の **5 件**（Num 1 / 5 / 6 / 8 / 24）に適用済み。残り 91 件は 1 件ずつの判定待ち。
+- **影響範囲**: `tools/patch-colorpalette.mjs` / `tests/patch-colorpalette.test.js` / `data/db_meta.json` / `data/Works_NumberTales/DataBases/db_Primary.json`。
+- **検証**: `npm test` **67 files / 1203 件すべて成功**（スロット確定 7 件・分布計測 3 件を追加）。回帰の要は「順序を崩した入力が `NTS-1` の確定値どおりに整列すること」。
+- **要追従**: `Role` が変わったため、`addon-ai-tag` 側で `--apply-colorpalette --force-palette` の再実行が必要（`palette_priority` への反映）。
+
 ### fix: レコードが明示した空配列 `[]` を `_Commons` の既定値で上書きしないようにした (2026-08-10)
 
 `_Commons` の空値判定（`isEmptyForCommons()`）が**空配列を「未設定」扱い**にしていたため、レコード側に `Belonging: []`（＝無所属）と明示的に書いても、DB 既定値の `[{ Faction: "アルベッツ" }]` で塗り潰されていた。「キーを書かない＝既定値が欲しい」「`[]` を書く＝該当なしの宣言」を区別できるよう、**空配列は空扱いしない**へ変更した。

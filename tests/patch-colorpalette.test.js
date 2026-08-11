@@ -47,6 +47,12 @@ import {
     detectArtworkColorsForRecord,
     verifyArtworkAgainstChips,
     recordLabel,
+    COLOR_SLOTS,
+    buildSlotColorName,
+    applySlotAssignment,
+    proposeSlotAssignment,
+    profileColorBands,
+    renderColorMap,
 } from '../tools/patch-colorpalette.mjs';
 
 const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -465,6 +471,146 @@ describe('verifyArtworkAgainstChips — チップ由来パレットとの照合�
         const rate = totals.hit / totals.colors;
         expect(rate).toBeGreaterThan(0.75);
     }, 60000); // 89 件ぶんの PNG をデコードするため既定の 5 秒では足りない
+});
+
+describe('applySlotAssignment — 配色スロットの確定（並び順 / Role / 色名）', () => {
+    /**
+     * NumberTales の Num 1（`NTS-1`）は User が画像を見て手で確定させた基準レコード。
+     * 「主色(衣装) の Role は #ColorRole_Primary」という User 決定だけを反映すれば、
+     * 残りの並び順・色名・AppliesTo はこの割当から機械的に再現できるはず。
+     */
+    const NTS1_ASSIGNMENT = [
+        { slot: 'primary', hex: '#ED5D47', appliesTo: ['#BodyPart_Hair', '#BodyPart_Ear', '#BodyPart_Tail'] },
+        { slot: 'primaryCostume', hex: '#FF8682', appliesTo: ['#BodyPart_Chest', '#BodyPart_Shoulder'] },
+        { slot: 'secondary', hex: '#FFAC8F', appliesTo: ['#BodyPart_Tail', '#BodyPart_Ear'] },
+        { slot: 'accentMain', hex: '#E55951', appliesTo: ['#BodyPart_Eye', '#BodyPart_Chest'] },
+        { slot: 'accentSub', hex: '#C9CDCB', appliesTo: ['#BodyPart_Eye', '#BodyPart_Foot'] },
+        { slot: 'secondaryCostume', hex: '#CEC7B6', appliesTo: ['#BodyPart_Waist', '#BodyPart_Foot'] },
+        { slot: 'auxiliary', hex: '#FFBFA7', appliesTo: null },
+    ];
+
+    /** 順序をわざと崩した入力（並べ替えが効いていることを確かめるため） */
+    const shuffled = () => [
+        { Hex: '#FFBFA7', Formation: null, Note_JP: null, Note_EN: null },
+        { Hex: '#CEC7B6', Formation: null, Note_JP: null, Note_EN: null },
+        { Hex: '#ED5D47', Formation: null, Note_JP: null, Note_EN: null },
+        { Hex: '#C9CDCB', Formation: null, Note_JP: null, Note_EN: null },
+        { Hex: '#FF8682', Formation: null, Note_JP: null, Note_EN: null },
+        { Hex: '#E55951', Formation: null, Note_JP: null, Note_EN: null },
+        { Hex: '#FFAC8F', Formation: null, Note_JP: null, Note_EN: null },
+    ];
+
+    it('スロット表の並びへ整列し、Role と色名を確定する', () => {
+        const { value, unassigned } = applySlotAssignment(shuffled(), NTS1_ASSIGNMENT);
+        expect(unassigned).toEqual([]);
+        expect(value.map(v => v.Hex)).toEqual([
+            '#ED5D47', '#FF8682', '#FFAC8F', '#E55951', '#C9CDCB', '#CEC7B6', '#FFBFA7',
+        ]);
+        expect(value.map(v => v.Role)).toEqual([
+            '#ColorRole_Primary', '#ColorRole_Primary', '#ColorRole_Secondary',
+            '#ColorRole_Accent', '#ColorRole_Accent', '#ColorRole_Sub', '#ColorRole_Sub',
+        ]);
+        expect(value.map(v => v.ColorName_JP)).toEqual([
+            '主色', '主色(衣装)', '副色',
+            'メインアクセントカラー（瞳, アクセサリー）', 'サブアクセントカラー（瞳, アクセサリー）',
+            '副色（衣装）', '補助色',
+        ]);
+    });
+
+    it('アクセント枠だけ AppliesTo から部位注記を付ける', () => {
+        const eyeOnly = buildSlotColorName(COLOR_SLOTS[3], ['#BodyPart_Eye']);
+        expect(eyeOnly).toEqual({ jp: 'メインアクセントカラー（瞳）', en: 'Main Accent Color (Eye Color)' });
+
+        const accessoryOnly = buildSlotColorName(COLOR_SLOTS[4], ['#BodyPart_Foot']);
+        expect(accessoryOnly).toEqual({ jp: 'サブアクセントカラー（アクセサリー）', en: 'Sub Accent Color (Accessory Color)' });
+
+        // アクセント以外は注記を付けない
+        expect(buildSlotColorName(COLOR_SLOTS[0], ['#BodyPart_Hair'])).toEqual({ jp: '主色', en: 'Primary Color' });
+    });
+
+    it('Hex / Formation / Note は既存値を持ち越す（作者指定色と創作内容に触らない）', () => {
+        const palette = [{ Hex: '#ED5D47', Formation: 'humanoid', Note_JP: '手書きメモ', Note_EN: 'note' }];
+        const { value } = applySlotAssignment(palette, [{ slot: 'primary', hex: '#ed5d47' }]);
+        expect(value[0]).toMatchObject({ Hex: '#ED5D47', Formation: 'humanoid', Note_JP: '手書きメモ', Note_EN: 'note' });
+    });
+
+    it('割当に載っていない色は補助色へ流さず unassigned で返す', () => {
+        const palette = [{ Hex: '#ED5D47' }, { Hex: '#123456' }];
+        const { value, unassigned } = applySlotAssignment(palette, [{ slot: 'primary', hex: '#ED5D47' }]);
+        expect(value).toHaveLength(1);
+        expect(unassigned).toEqual(['#123456']);
+    });
+
+    it('未知のスロット名・存在しない Hex は打ち間違いとして弾く', () => {
+        expect(() => applySlotAssignment([{ Hex: '#ED5D47' }], [{ slot: 'tertiary', hex: '#ED5D47' }]))
+            .toThrow(/未知のスロット名/);
+        expect(() => applySlotAssignment([{ Hex: '#ED5D47' }], [{ slot: 'primary', hex: '#000000' }]))
+            .toThrow(/無い Hex/);
+    });
+});
+
+describe('proposeSlotAssignment — 下書き（検証前提）', () => {
+    it('色語が地毛・衣装・瞳のどれにも当たらない色は unassigned に残す', () => {
+        const { assignment, unassigned } = proposeSlotAssignment([
+            { hex: '#ED5D47', covBall: 0.68, covArt: 0.17, hints: [{ word: 'red', bodyPart: '#BodyPart_Hair', element: '#Element_Motif' }] },
+            { hex: '#FFBFA7', covBall: 0.21, covArt: 0.09, hints: [] },
+        ]);
+        expect(assignment).toEqual([
+            { slot: 'primary', hex: '#ED5D47', appliesTo: ['#BodyPart_Hair'] },
+        ]);
+        expect(unassigned).toEqual(['#FFBFA7']);
+    });
+
+    it('同じグループが枠数を超えたら溢れた色を unassigned に回す', () => {
+        const hair = (hex, cov) => ({ hex, covBall: cov, covArt: 0, hints: [{ word: 'red', bodyPart: '#BodyPart_Hair', element: null }] });
+        const { assignment, unassigned } = proposeSlotAssignment([hair('#111111', 0.5), hair('#222222', 0.3), hair('#333333', 0.1)]);
+        expect(assignment.map(a => a.slot)).toEqual(['primary', 'secondary']);
+        expect(unassigned).toEqual(['#333333']);
+    });
+});
+
+describe('profileColorBands / renderColorMap — 近似色を「どこに出ているか」で分ける', () => {
+    /**
+     * Num 1 のコアフォルダ（透過画像）。作者が確定させた配色の担当は判っている:
+     * `#ED5D47` が地毛の主色、`#FFAC8F` と `#FFBFA7` は RGB 距離 30 程度の近似色ペア。
+     * 被覆率だけでは後者 2 色が入れ替わるが、分布なら別領域として分かれる。
+     */
+    const NUM1_COREFOLDER = path.join(IMAGES, 'corefolder', '1', 'emstk_corefolderNTS-1-1.png');
+    const NUM1_HEXES = ['#ED5D47', '#FF8682', '#FFAC8F', '#E55951', '#C9CDCB', '#CEC7B6', '#FFBFA7'];
+
+    it('主色が最大シェアになり、帯の合計は 1 になる', () => {
+        const img = decodePng(fs.readFileSync(NUM1_COREFOLDER));
+        const prof = profileColorBands(img, NUM1_HEXES);
+
+        expect(prof).toHaveLength(NUM1_HEXES.length);
+        const top = prof.indexOf(prof.reduce((a, b) => (b.share > a.share ? b : a)));
+        expect(NUM1_HEXES[top]).toBe('#ED5D47');
+
+        for (const p of prof) {
+            if (!p.share) continue;
+            const sum = p.bands.reduce((a, b) => a + b, 0);
+            expect(sum).toBeGreaterThan(0.9);
+            expect(sum).toBeLessThan(1.1);
+        }
+    });
+
+    it('近似色ペアがそれぞれ独立した領域を持つ（被覆率では潰れる区別）', () => {
+        const img = decodePng(fs.readFileSync(NUM1_COREFOLDER));
+        const prof = profileColorBands(img, NUM1_HEXES);
+        const secondary = prof[NUM1_HEXES.indexOf('#FFAC8F')];
+        const auxiliary = prof[NUM1_HEXES.indexOf('#FFBFA7')];
+        expect(secondary.share).toBeGreaterThan(0);
+        expect(auxiliary.share).toBeGreaterThan(0);
+    });
+
+    it('配色マップは指定した行数・列数の図を返す', () => {
+        const img = decodePng(fs.readFileSync(NUM1_COREFOLDER));
+        const lines = renderColorMap(img, NUM1_HEXES, { cols: 20, rows: 10 });
+        expect(lines).toHaveLength(10);
+        for (const line of lines) expect(line).toHaveLength(20);
+        // 地（`.`）だけの図にはならない
+        expect(lines.join('')).toMatch(/[1-7]/);
+    });
 });
 
 describe('recordLabel — Num を持たない作品の表示', () => {
