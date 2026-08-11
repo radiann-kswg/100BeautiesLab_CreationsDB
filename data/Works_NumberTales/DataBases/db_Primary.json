@@ -26714,7 +26714,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Waist"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -27805,22 +27805,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "深緑色のレギンス",
             "value_EN": "dark green leggings"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": null,
-        "Laterality": null,
-        "DesignElement": "#Element_Motif",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "薄い茶色の作業着(作業着時)",
-            "value_EN": "light brown workwear (work outfit)"
           }
         ],
         "img_PNGName": null,
