@@ -838,6 +838,16 @@
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#F4C5A8",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
       }
     ],
     "ConversationPattern": {
@@ -3309,6 +3319,16 @@
         "ColorName_JP": "副色（衣装）",
         "ColorName_EN": "Secondary Color (Costume)",
         "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Waist"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#FF6574",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Tail"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -6643,6 +6663,26 @@
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#F4FAE8",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_FaceMaking"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#FF7297",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
       }
     ],
     "RelationNotes_JP": "「6(ムイ)」「26(ニロク)」に懐いている？",
@@ -7008,6 +7048,16 @@
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#6B8CC5",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
       }
     ],
     "RelationNotes_JP": "「89(ヤスモ)」とは謎のシンパシーがある？",
@@ -7350,6 +7400,16 @@
         "ColorName_JP": null,
         "ColorName_EN": null,
         "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#612C26",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Tail", "#BodyPart_Ear"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -9449,6 +9509,26 @@
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#EFF5ED",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Cheek"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#8DC0AB",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
       }
     ],
     "RelationNotes_JP": "困ったときは「2(ツグ)」「3(ナオ)」を頼りがち\n「55(イソゴ)」に影響されている？",
@@ -10697,6 +10777,16 @@
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#DEA2A7",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Eye"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
       }
     ],
     "ConversationPattern": {
@@ -11059,7 +11149,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -11705,6 +11795,16 @@
           "#BodyPart_Hair",
           "#BodyPart_Waist"
         ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#FFB879",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Tail"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -12439,6 +12539,16 @@
         "ColorName_JP": null,
         "ColorName_EN": null,
         "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Hand", "#BodyPart_Hair"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#E4BC75",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Ear"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -13326,6 +13436,26 @@
         "ColorName_JP": null,
         "ColorName_EN": null,
         "AppliesTo": ["#BodyPart_FaceMaking", "#BodyPart_Leg"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#EFF5ED",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Ear"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#A7D9C4",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Tail"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -14658,6 +14788,16 @@
         "ColorName_JP": null,
         "ColorName_EN": null,
         "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Hair"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#FAF9E8",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hand"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -16826,6 +16966,16 @@
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#80A8CC",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Tail"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
       }
     ],
     "ConversationPattern": {
@@ -17675,6 +17825,16 @@
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#1D659C",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
       }
     ],
     "Summary_JP": "消極的思考を抑えるメンター効果があるとされており、一時期注目を浴びていた個体。\nしかし自己中心的で挑発的な性格もあり、ネット上で泣かされキャラが確立してしまっている。\n趣味で対戦ゲームをよくするため、現在は主従契約のご縁よりゲームやボイスチャットでのご縁が多い。\n「34(サトシ)」などといった他個体を煽り、とんでもないフラグを建ててしまうことも。",
@@ -18484,6 +18644,26 @@
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#4E5C80",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#273654",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Tail"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
       }
     ],
     "Summary_JP": "稲妻を落とす雷神のように相手に衝動を与え、風を送る風神のように相手を奮い立たせる\"数秘的加護\"を持ち、変化を起こすことを必要としている多くの主人を後押ししている。\nもちろんそれはおおむね攻撃的な目的ではないので、彼(女)が従事した主人が愛と勇気をもった「正義の味方」に成長すると定評。\nただ、本人は平穏とした生き方を好んでおり…",
@@ -19124,7 +19304,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Arm"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -19238,6 +19418,16 @@
         "ColorName_JP": null,
         "ColorName_EN": null,
         "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#708292",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -19704,6 +19894,16 @@
         "ColorName_JP": null,
         "ColorName_EN": null,
         "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#848A6F",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -20779,7 +20979,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_Emblem",
         "Attrs": [
@@ -21719,6 +21919,26 @@
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#FAF9E8",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Ear"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#E4AD5C",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
       }
     ],
     "Summary_JP": "転機を恵むと一部の層から定評であり、主人たちの活動へ貢献している。\n活動実績は然程大きくはないが、中でも彼(女)の招いたチャンスを最大限に受容できるような主人とは相性が良い傾向にある。\nただ性格で単純さが目立っており、煽(おだ)てられるとすぐに調子に乗ってしまうところなどがある。\nそのため、彼(女)の良し悪しについては主人だけでなく他のナンバーテールズからも意見が分かれている様子。",
@@ -22069,7 +22289,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -23004,6 +23224,16 @@
         "ColorName_JP": null,
         "ColorName_EN": null,
         "AppliesTo": ["#BodyPart_Arm"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#FFFF6B",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Tail"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -23978,6 +24208,16 @@
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#E47693",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Cheek"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
       }
     ],
     "ConversationPattern": {
@@ -24546,6 +24786,36 @@
           "#BodyPart_FaceMaking",
           "#BodyPart_Chest"
         ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#E85764",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#F4FAE8",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Neck"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#FF769C",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -25321,14 +25591,14 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Waist"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "オレンジ色のアクセント",
-            "value_EN": "orange accents"
+            "value_JP": "オレンジ色の番号付きアクセントベルト",
+            "value_EN": "orange numbered accent belt"
           }
         ],
         "img_PNGName": null,
@@ -26519,6 +26789,26 @@
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#FCC7CC",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#FCCFD3",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Tail"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
       }
     ],
     "RelationNotes_JP": "「6(ムイ)」を「姉様」と慕っている",
@@ -26738,7 +27028,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -27037,7 +27327,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -27932,7 +28222,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -28026,6 +28316,26 @@
         "ColorName_JP": null,
         "ColorName_EN": null,
         "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Hair", "#BodyPart_Foot"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#EDD2DA",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_FaceMaking"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#C96C9C",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -29554,6 +29864,16 @@
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#E58E81",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Cheek"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
       }
     ],
     "Summary_JP": "少し世間知らずでなんでも知りたがるナンバーテールズ。\n単純で騙されやすく、一度触れた知識は正誤問わずすぐに共有したがるため、姉の「37(サナ)」にしばしば止められている。\n知識のアウトプットに長けた個体でもあるため、宣伝効果も兼ねてナンバーテールズ公式の配信活動も裏で行っている。\n「66(ムロク)」に憧れている一面があるようで…？",
@@ -29903,6 +30223,16 @@
         "ColorName_JP": null,
         "ColorName_EN": null,
         "AppliesTo": ["#BodyPart_Shoulder", "#BodyPart_Eye", "#BodyPart_Leg"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#ABB4BC",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Tail"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -30296,6 +30626,16 @@
         "ColorName_JP": null,
         "ColorName_EN": null,
         "AppliesTo": ["#BodyPart_Arm", "#BodyPart_Neck", "#BodyPart_Leg"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#E0D144",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Tail"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -30711,6 +31051,16 @@
         "ColorName_JP": null,
         "ColorName_EN": null,
         "AppliesTo": ["#BodyPart_Chest"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#E1E4E6",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Ear"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -32434,6 +32784,16 @@
         "ColorName_JP": null,
         "ColorName_EN": null,
         "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Eye", "#BodyPart_Leg"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#612C26",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -34504,6 +34864,16 @@
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#FFE8D7",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Cheek"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
       }
     ],
     "RelationNotes_JP": "ピアノ型のホログラムは「8(ワカツ)」が調整している",
@@ -35340,6 +35710,16 @@
         "ColorName_JP": null,
         "ColorName_EN": null,
         "AppliesTo": ["#BodyPart_Leg"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#8398C1",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -38256,8 +38636,8 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
-        "Laterality": null,
+        "BodyPart": ["#BodyPart_Chest"],
+        "Laterality": "#Lat_Left",
         "DesignElement": "#Element_Tag",
         "Attrs": [
           {
@@ -38279,7 +38659,7 @@
           {
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "淡い銀灰色の長い髪",
-            "value_EN": "fox tails"
+            "value_EN": "pale silver-gray long hair"
           }
         ],
         "img_PNGName": null,
@@ -38295,22 +38675,6 @@
           {
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "琥珀オレンジの目",
-            "value_EN": "pale silver-gray long hair"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": null,
-        "Laterality": null,
-        "DesignElement": "#Element_Motif",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "ホログラムの身体（プロトタイプ状態）",
             "value_EN": "amber-orange eyes"
           }
         ],
@@ -38326,7 +38690,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": null,
+            "value_JP": "ホログラムの身体（プロトタイプ状態）",
             "value_EN": "holographic body (prototype state)"
           }
         ],
@@ -38636,7 +39000,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Interchangeable", "#BodyPart_Foot"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -38989,7 +39353,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Leg"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -39071,6 +39435,16 @@
         "ColorName_JP": null,
         "ColorName_EN": null,
         "AppliesTo": ["#BodyPart_Chest"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#9CA4A9",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Tail"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null

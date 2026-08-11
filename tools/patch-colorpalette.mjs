@@ -955,6 +955,92 @@ export function patchColorPalette(opts) {
 }
 
 // ────────────────────────────────────────────────────────────────────────────
+// 色の追加モード（--add-colors）
+// ────────────────────────────────────────────────────────────────────────────
+
+/**
+ * 既存の `ColorPalette` へ**色を足す**（既存の行は 1 つも触らない）。
+ *
+ * 配色検出が取りこぼした色を、外部の実測結果から補うための経路。
+ * `100BeautiesLab_GeneratorsAI` の充足性レビューが出す「創作 DB に無い配色（実測 HEX）」を
+ * 受け取る想定で、`Hex` と `AppliesTo` だけを書く。`Role` は指定が無ければ
+ * `#ColorRole_Sub`（補助色）— 主従はスロット確定（`--assign-slots`）の仕事なので、
+ * ここでは仮値に留める。色名・`Formation`・`Note_*` は創作内容なので `null` のまま。
+ *
+ * **重複は入れない**: 既存の色と RGB 距離 `minDistance` 未満なら同じ色とみなして飛ばす。
+ * 共通造形色（`$EnumDef_CommonColor`）に一致する色も、設計上 `ColorPalette` へ載せない。
+ *
+ * @param {{work: string, db: string, colors: Array<{num: string, hex: string, appliesTo?: string[]|null, role?: string}>, apply: boolean, minDistance?: number, verbose: boolean}} opts
+ * @returns {{ results: Array<any>, applied: number, dbPath: string }}
+ */
+export function addColorsToPalette(opts) {
+    const { workDir, dbPath } = resolveDbPaths(opts.work, opts.db);
+    const { original, records: db, spans } = openRecordsFile(dbPath);
+    const minDistance = opts.minDistance ?? 10;
+    const commonColors = readCommonColors(workDir);
+
+    /** レコードごとにまとめる（1 レコード 1 回の書き換えで済ませる） */
+    const byNum = new Map();
+    for (const c of opts.colors) {
+        const key = String(c.num);
+        if (!byNum.has(key)) byNum.set(key, []);
+        byNum.get(key).push(c);
+    }
+
+    /** @type {Array<any>} */
+    const results = [];
+    let text = original;
+
+    // 末尾から処理する（先頭側のオフセットが変わらないようにするため）
+    for (let i = db.length - 1; i >= 0; i--) {
+        const record = db[i];
+        const num = String(record.Num ?? recordLabel(record));
+        const wanted = byNum.get(num);
+        if (!wanted) continue;
+
+        const existing = Array.isArray(record.ColorPalette) ? record.ColorPalette : [];
+        const value = existing.slice();
+        const added = [];
+
+        for (const c of wanted) {
+            const hex = String(c.hex ?? '').toUpperCase();
+            if (!/^#[0-9A-F]{6}$/.test(hex)) {
+                results.push({ num, hex: c.hex, status: 'error', message: 'カラーコードの形式が不正です' });
+                continue;
+            }
+            const near = value.map(v => v.Hex).filter(Boolean)
+                .reduce((min, h) => Math.min(min, colorDistance(h, hex)), Infinity);
+            if (near < minDistance) {
+                results.push({ num, hex, status: 'skipped-duplicate', message: `既存の色に近い（距離 ${near.toFixed(1)}）` });
+                continue;
+            }
+            const nearCommon = commonColors
+                .reduce((min, h) => Math.min(min, colorDistance(h, hex)), Infinity);
+            if (nearCommon < minDistance) {
+                results.push({ num, hex, status: 'skipped-common', message: `共通造形色に一致（距離 ${nearCommon.toFixed(1)}）` });
+                continue;
+            }
+            const row = makePaletteRow({ role: c.role ?? ROLE_REST, hex, appliesTo: c.appliesTo ?? null });
+            value.push(row);
+            added.push(row);
+        }
+
+        if (!added.length) continue;
+        try {
+            text = upsertColorPaletteInRecord(text, spans[i], value).text;
+            results.push({ num, status: 'added', added });
+        } catch (err) {
+            results.push({ num, status: 'error', message: err.message });
+        }
+    }
+
+    results.reverse();
+    const applied = results.filter(r => r.status === 'added').reduce((n, r) => n + r.added.length, 0);
+    if (opts.apply && applied) writeRecordsFile(dbPath, text);
+    return { results, applied, dbPath };
+}
+
+// ────────────────────────────────────────────────────────────────────────────
 // スロット確定モード（--assign-slots）
 // ────────────────────────────────────────────────────────────────────────────
 
@@ -1187,6 +1273,9 @@ patch-colorpalette.mjs — 設定画のカラーチップから ColorPalette を
   --assign-slots    既存 ColorPalette をスロット順へ並べ替え、Role と ColorName を確定する
                     （Hex は触らない。--slots を併用しなければ下書き判定になる）
   --slots <file>    スロット割当ファイル（JSON）を読み込んで確定値として使う
+  --add-colors <file>  既存 ColorPalette へ色を足す（既存行は触らない）
+                    形式: [{ "num": "8", "hex": "#FF6574", "appliesTo": ["#BodyPart_Tail"] }]
+                    既存の色や共通造形色と RGB 距離 10 未満なら重複として飛ばす
   --slot-report     スロット判定の根拠を表示し、割当ファイルの下書きを .cache/ へ出す
   --color-map       各配色が画像のどこに出ているかを粗いテキストマップで描く
                     （近似色を目視で分離できないときの判断材料。データは変更しない）
@@ -1429,6 +1518,39 @@ function printSlotPatch(opts) {
     console.log('\n※ Hex / Formation / Note は既存値のまま。Role と ColorName はスロット表から確定します。');
 }
 
+/**
+ * 色の追加結果を表示する。
+ * @param {{work: string, db: string, colors: any[], apply: boolean, verbose: boolean}} opts
+ */
+function printAddColors(opts) {
+    const { results, applied, dbPath } = addColorsToPalette(opts);
+
+    if (opts.verbose) {
+        for (const r of results) {
+            if (r.status === 'added') {
+                console.log(`  #${String(r.num).padEnd(8)} +${r.added.length} 色  ${r.added.map(a => `${a.Hex}[${(a.AppliesTo ?? []).map(p => p.replace('#BodyPart_', '')).join(',') || '-'}]`).join(' ')}`);
+            } else {
+                console.log(`  #${String(r.num).padEnd(8)} ${r.hex ?? ''} ${r.status}${r.message ? ` — ${r.message}` : ''}`);
+            }
+        }
+        console.log('');
+    }
+
+    const tally = {};
+    for (const r of results) tally[r.status] = (tally[r.status] ?? 0) + 1;
+    console.log(`[色の追加${opts.apply ? '' : ' / dry-run'}] ${opts.work} / ${opts.db}`);
+    for (const [status, count] of Object.entries(tally)) console.log(`  ${status}: ${count} 件`);
+    console.log(`  追加した色: ${applied} 色`);
+
+    if (opts.apply && applied) {
+        console.log(`\n  ${path.relative(REPO_ROOT, dbPath).split(path.sep).join('/')} を更新しました。`);
+        console.log('  ※ 仕上げに `npx prettier --write` を実行してください。');
+        console.log('  ※ Role は仮値（補助色）です。主従は --assign-slots で確定してください。');
+    } else if (!opts.apply) {
+        console.log('\n  （--apply を付けると実際に書き込みます）');
+    }
+}
+
 /** CLI エントリポイント。 */
 function main() {
     const argv = process.argv.slice(2);
@@ -1446,10 +1568,12 @@ function main() {
     let slotReport = false;
     let colorMap = false;
     let slotsFile = null;
+    let addColorsFile = null;
 
     for (let i = 0; i < argv.length; i++) {
         switch (argv[i]) {
             case '--assign-slots': assignSlots = true; break;
+            case '--add-colors': addColorsFile = argv[++i]; break;
             case '--slot-report': slotReport = true; break;
             case '--color-map': colorMap = true; break;
             case '--slots': slotsFile = argv[++i]; break;
@@ -1495,6 +1619,12 @@ function main() {
     // ── スロット判定の根拠レポート（データは変更しない）
     if (slotReport) {
         printSlotReport(opts);
+        return;
+    }
+
+    // ── 色の追加（既存行は触らない）
+    if (addColorsFile) {
+        printAddColors({ ...opts, colors: JSON.parse(fs.readFileSync(addColorsFile, 'utf8')) });
         return;
     }
 
