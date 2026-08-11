@@ -187,7 +187,7 @@ describe('rankChipsByCoverage — 測定できない場合のフォールバッ�
             { hex: '#111111', count: 10 },
             { hex: '#222222', count: 90 },
         ];
-        const { ordered, measuredOn } = rankChipsByCoverage(chips, { Images: {} }, IMAGES);
+        const { ordered, measuredOn } = rankChipsByCoverage(chips, { Images: {} }, NTS_WORK, IMAGES);
         expect(measuredOn).toBeNull();
         expect(ordered.map(o => o.hex)).toEqual(['#222222', '#111111']);
         expect(ordered[0].coverage).toBeNull();
@@ -269,7 +269,7 @@ describe('parseChipList / 手入力チップ — 自動検出できないレコ�
     it('手入力チップも被覆率の降順で Role が決まる（自動検出と同じ扱い）', () => {
         const chips = [{ hex: '#67BDBD', count: 0 }, { hex: '#387EB6', count: 0 }];
         const record = { Images: { corefolder_PNGPath: ['40/emstk_corefolderNTS-40-1'] } };
-        const { ordered, measuredOn } = rankChipsByCoverage(chips, record, IMAGES);
+        const { ordered, measuredOn } = rankChipsByCoverage(chips, record, NTS_WORK, IMAGES);
         expect(measuredOn).toContain('corefolderNTS-40-1');
         // corefolder 画像では #67BDBD の方が広く使われている
         expect(ordered[0].hex).toBe('#67BDBD');
@@ -394,10 +394,16 @@ describe('listImageFields / readCommonColors — スキーマ由来の宣言読�
 
 describe('resolvePaletteImageFields — 検出対象の typedef 宣言', () => {
     it('$palette.source = "swatch" のフィールドをチップ検出の入力にする', () => {
+        // 宣言は今後も増える（設定原画差分など）ので件数は決め打ちしない。
+        // 守るのは「宣言したものだけが返る」「順序は db_type.json の宣言順＝作者の意図した優先順」。
         const fields = resolvePaletteImageFields(NTS_WORK, 'swatch');
-        expect(fields.map(f => f.key)).toEqual(['concept_PNGName', 'catalog_PNGName']);
-        // 順序は db_type.json の宣言順＝作者が意図した優先順
+        expect(fields.map(f => f.key)).toContain('concept_PNGName');
+        expect(fields.map(f => f.key)).toContain('catalog_PNGName');
+        expect(fields.map(f => f.key)).not.toContain('corefolder_PNGPath'); // artwork 宣言のものは混ざらない
         expect(fields[0].dir).toBe('concept');
+
+        const declared = listImageFields(NTS_WORK).filter(f => f.paletteSource === 'swatch');
+        expect(fields.map(f => f.key)).toEqual(declared.map(f => f.field));
     });
 
     it('$palette.source = "artwork" のフィールドを透過抽出の入力にする', () => {
@@ -415,7 +421,7 @@ describe('resolvePaletteImageFields — 検出対象の typedef 宣言', () => {
     });
 
     it('衣装差分など宣言されていない透過画像は配色の入力にしない', () => {
-        // designAlt_PNGPath / arts_PNGPath は $palette 宣言を持たないので候補から外れる
+        // designAlt_PNGPath は $palette 宣言を持たないので候補から外れる
         const record = {
             Images: {
                 corefolder_PNGPath: ['1/emstk_corefolderNTS-1-1'],
@@ -526,6 +532,28 @@ describe('applySlotAssignment — 配色スロットの確定（並び順 / Role
 
         // アクセント以外は注記を付けない
         expect(buildSlotColorName(COLOR_SLOTS[0], ['#BodyPart_Hair'])).toEqual({ jp: '主色', en: 'Primary Color' });
+    });
+
+    it('手で書き換えられた色名の注記は上書きしない', () => {
+        // Num 5 の実例。ツールは「アクセサリー」しか生成しないので、これは人の手による注記
+        const palette = [{
+            Hex: '#009489',
+            ColorName_JP: 'メインアクセントカラー（瞳, 衣装補足色）',
+            ColorName_EN: 'Main Accent Color (Eye Color, Costume Auxiliary Color)',
+        }];
+        const { value } = applySlotAssignment(palette, [
+            { slot: 'accentMain', hex: '#009489', appliesTo: ['#BodyPart_Eye', '#BodyPart_Foot'] },
+        ]);
+        expect(value[0].ColorName_JP).toBe('メインアクセントカラー（瞳, 衣装補足色）');
+        expect(value[0].ColorName_EN).toBe('Main Accent Color (Eye Color, Costume Auxiliary Color)');
+    });
+
+    it('生成形の色名は AppliesTo の変更に追従して書き換わる', () => {
+        const palette = [{ Hex: '#009489', ColorName_JP: 'メインアクセントカラー（アクセサリー）' }];
+        const { value } = applySlotAssignment(palette, [
+            { slot: 'accentMain', hex: '#009489', appliesTo: ['#BodyPart_Eye'] },
+        ]);
+        expect(value[0].ColorName_JP).toBe('メインアクセントカラー（瞳）');
     });
 
     it('Hex / Formation / Note は既存値を持ち越す（作者指定色と創作内容に触らない）', () => {

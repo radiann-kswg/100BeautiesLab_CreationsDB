@@ -39,7 +39,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { scanTopLevelRecords, findValueEnd } from './extract-palette.mjs';
+import { openRecordsFile, writeRecordsFile, findValueEnd, scanArrayElements } from './extract-palette.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
@@ -48,49 +48,6 @@ const REPO_ROOT = path.resolve(__dirname, '..');
 export function readBodyPartEnum(repoRoot = REPO_ROOT) {
     const meta = JSON.parse(fs.readFileSync(path.join(repoRoot, 'data', 'db_meta.json'), 'utf8'));
     return new Set(Object.keys(meta?.General?.$VarsDef?.$EnumDef_DesignBodyPart ?? {}));
-}
-
-/**
- * JSON 配列テキストの要素を、文字列リテラルを踏まないように走査して切り出す。
- *
- * `findValueEnd()` は「キーのコロンから値の終端まで」を返すが、配列の**何番目の要素か**は
- * 教えてくれない。`AppearanceDetail[9]` のような添字指定で書き込むために必要。
- *
- * @param {string} text
- * @param {number} openBracket  `[` の位置
- * @returns {Array<[number, number]>} 各要素の [start, end)
- * @throws {Error} 配列が閉じていない場合
- */
-export function scanArrayElements(text, openBracket) {
-    if (text[openBracket] !== '[') throw new Error(`配列の開始 [ ではありません: ${openBracket}`);
-    /** @type {Array<[number, number]>} */
-    const spans = [];
-    let depth = 0, inString = false, escaped = false, start = -1;
-
-    for (let i = openBracket; i < text.length; i++) {
-        const ch = text[i];
-        if (inString) {
-            if (escaped) escaped = false;
-            else if (ch === '\\') escaped = true;
-            else if (ch === '"') inString = false;
-            continue;
-        }
-        if (ch === '"') { inString = true; continue; }
-
-        if (ch === '[' || ch === '{') {
-            depth++;
-            if (depth === 2 && start < 0) start = i;
-            continue;
-        }
-        if (ch === ']' || ch === '}') {
-            depth--;
-            if (depth === 1 && start >= 0) { spans.push([start, i + 1]); start = -1; }
-            if (depth === 0) return spans; // 対象の配列が閉じた
-            continue;
-        }
-        // プリミティブ要素（数値・true/null 等）はこのツールの対象外なので拾わない
-    }
-    throw new Error('配列が閉じていません');
 }
 
 /**
@@ -171,12 +128,7 @@ export function patchBodyParts(opts) {
             for (const f of fills) results.push({ ...f, status: 'error', message: `DB が見つかりません: ${dbFile}` });
             continue;
         }
-        const original = fs.readFileSync(dbPath, 'utf8');
-        const db = JSON.parse(original);
-        const spans = scanTopLevelRecords(original);
-        if (spans.length !== db.length) {
-            throw new Error(`レコード走査に失敗しました（テキスト ${spans.length} 件 / パース ${db.length} 件）: ${dbFile}`);
-        }
+        const { original, records: db, spans } = openRecordsFile(dbPath);
         const indexOfNum = new Map(db.map((r, i) => [String(r.Num), i]));
 
         // 末尾のレコードから処理する（先頭側のオフセットが変わらないようにするため）。
@@ -206,10 +158,7 @@ export function patchBodyParts(opts) {
             }
         }
 
-        if (opts.apply && text !== original) {
-            JSON.parse(text); // 壊れた JSON を書かないための最終ガード
-            fs.writeFileSync(dbPath, text, 'utf8');
-        }
+        if (opts.apply && text !== original) writeRecordsFile(dbPath, text);
     }
 
     return { results, applied };

@@ -67,6 +67,7 @@
         {
           "hashTag": "arts_PNGPath",
           "$type": "#PNGFilePath[]",
+          "$palette": { "source": "illustration" },
           "hashTag_JP": "イラスト作品",
           "hashTag_EN": "Illustration Works"
         }

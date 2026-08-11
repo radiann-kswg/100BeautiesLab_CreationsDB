@@ -1,5 +1,26 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### refactor: 配色検出コードの重複統合・死蔵削除と、手入力色名の保護 (2026-08-11)
+
+配色スロットと分布計測を短期間に足したため、同じ処理が複数箇所に散っていた。**挙動は変えず**、重複を 1 本化して死蔵を削った（3 ファイルのコード行 1,857 → 1,791）。6 エージェントのレビュー（観点別スキャン → 反証）で洗い出し、反証を通った指摘だけを適用している。
+
+- **ピクセル走査の 1 本化**: `profileColorBands()` と `renderColorMap()` は「透過判定 → 前景マスク → 紙面/線画の除外 → 最近傍割当」が行単位で同一だった。`scanAssignedPixels()` へ寄せ、両者は集計だけを持つ形にした。**しきい値を触るときはここ 1 箇所**を見ればよい。
+- **JSON 走査の 1 本化**: `scanTopLevelRecords()` と `patch-appearance-bodypart.mjs` の `scanArrayElements()` は同じ状態機械だった。汎用な後者を `extract-palette.mjs` へ置き、前者はトップレベル配列への薄いラッパにした。
+- **書式非破壊パッチの共通土台**: 「読む → 走査 → 件数照合 → 壊れた JSON を書かないガード」が 3 つのパッチ関数に重複していた。`openRecordsFile()` / `writeRecordsFile()` へ集約。件数照合は走査ミスで**別のレコードを書き換える**事故を防ぐ安全弁なので、共通化してどの経路でも必ず通るようにした。
+- **`ColorPalette` 1 行の形の 1 本化**: 8 キーのリテラルが `buildColorPaletteValue()` と `applySlotAssignment()` に別々にあった。`makePaletteRow()` へ集約（`Role` の出所は別のまま — 抽出直後は `ROLE_ORDER` の仮値、スロット確定後が `COLOR_SLOTS`）。
+- **パス組み立ての 1 本化**: `resolveDbPaths()`。`--work` / `--db` で他作品へ使えるという前提がここに集約された。
+- **死蔵の削除**: `COLOR_SLOTS[].group`（誰も読まない）、`COSTUME_ELEMENTS` と `hasEye` / `isCostumeWord`（衣装・アクセント推定の撤去で不要に）、`patchColorPaletteSlots` の `applySlotAssignment` 二重実行。
+- **渡されないノブを定数へ**: `buildForegroundMask` の 5 つ、`detectSwatchChips` の 5 つ、`extractSolidColors` の 5 つ、`measurePaletteCoverage` の 2 つ。実測で詰めた根拠コメントは定数側へ移した。`extractSolidColors` の統合距離（10）はチップ検出（6）と別物なので分けてある。
+- **手入力色名の保護（挙動追加）**: `applySlotAssignment()` は、ツールが生成しうる形（`（瞳）`/`（アクセサリー）`/`（瞳, アクセサリー）`）**以外**の色名を人の手によるものとみなして残す。Num 5 の `メインアクセントカラー（瞳, 衣装補足色）` が再実行のたびに機械の言い回しへ戻る問題への対処。
+- **`tests/patch-appearance-bodypart.test.js`（新規 / 10 件）**: `data/` をテキスト置換で直接書き換える唯一の未検証経路だった。実際この整理の途中で import が壊れたが、テストが無いため全 1,219 件が緑のまま通ってしまった。
+- **陳腐化した注釈の修正**: ファイルヘッダと CLI ヘルプの「`ColorName_*` は null のまま」（`--assign-slots` で確定するようになった）、`proposeSlotAssignment` の判定順リスト（撤去済みの手順を説明していた）、`rankChipsByCoverage` の測定対象（`concept` は除外済み）、`listImageFields` の「解釈するのは artwork のみ」（`swatch` も解釈する）、チップクラスタの「3〜8 個」（実装は 2〜8 個）ほか。
+- **画像ソース解決の typedef 駆動化（挙動変更）**: `resolveImageSources()` が `arts_PNGPath` / `corefolder_PNGPath` / `concept_PNGName` をハードコードしており、スキーマ駆動の `listImageFields()` と二重になっていた。作品ごとに名前が違ううえ**同種の単体絵が今後も別名で増える**ため、`$palette.source` の宣言を正とする形へ寄せた。
+  - `$palette.source` に **`"illustration"`（清書イラスト）** を追加し、`arts_PNGPath` へ宣言（NumberTales / DestinyFoxRecords）。優先順は `illustration` → `artwork` → 宣言なし → `swatch`（設定画は注釈だらけなので被覆率の測定に使わない）。
+  - 呼び出し側はフィールド名ではなく宣言値で絞る（`rankChipsByCoverage` は `swatch` 以外、`resolveSoloArtSources` は `illustration`）。`workDir` を引数に追加。
+  - **効果**: UnibyteLive は `keycapper_PNGPath` しか持たないため従来は画像が 1 枚も解決されず、`rankChipsByCoverage` がチップ面積順のフォールバックに落ちていた。宣言駆動になったことで**実測被覆率で並ぶ**ようになった（4 レコードすべてで測定成功）。NumberTales は宣言が従来の優先順と一致するため挙動不変。
+  - 新しい画像フィールドを足したら `$palette.source` を宣言すること。宣言が無いフィールドは最下位で拾われる（消えはしない）。
+- **検証**: `npm test` **68 files / 1,222 件すべて成功**。挙動不変の確認として、`--verify-artwork`（90 件 / 277 色 / 一致率 82.7%）、`--all` dry-run のチップ未検出リスト、スロット下書きの正解率（80%）、`--slot-report` の主色・副色提案数（92/96）がリファクタ前後で完全一致することを確認した。`data/` の変更は `db_type.json` 2 ファイルへの `$palette` 宣言 2 行のみ。
+
 ### fix: 色語判定の誤爆修正と `AppearanceDetail.BodyPart` 51 件の補完（issue #20 対応） (2026-08-11)
 
 `100BeautiesLab_GeneratorsAI` の `verify_appearance_detail` が出した充足性レビュー（[issue #20](https://github.com/radiann-kswg/100BeautiesLab_CreationsDB/issues/20)）への対応。「`BodyPart` 欠落 71 件 / 根拠なし色 197 色」の内訳を実データで裏取りしたところ、**71 = 本当に欠落 67 件 + 色語判定の誤爆 4 件**だった。

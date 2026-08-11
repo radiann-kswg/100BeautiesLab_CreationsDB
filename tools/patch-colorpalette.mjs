@@ -14,8 +14,9 @@
  *     Role      … キャラ画像での実測被覆率の降順で Primary / Secondary / Accent / Sub
  *     Hex       … 設定画のカラーチップから読み取った作者指定の色（計測値であり創作ではない）
  *     AppliesTo … 色語が一致した AppearanceDetail の BodyPart を **転記**
- *   `ColorName_JP` / `ColorName_EN` / `Formation` / `Note_*` は **null のまま**残す
- *   （色に名前を付ける行為は創作にあたるため、User が記入する）。
+ *   `Formation` / `Note_*` は **null のまま**残す（創作内容のため User が記入する）。
+ *   `ColorName_JP` / `ColorName_EN` は `--assign-slots` のときだけ `COLOR_SLOTS` から
+ *   機械的に確定する（自由な命名はしない。枠が決まれば名前も決まる、という関係）。
  * - **既存フォーマットを壊さない。** `JSON.parse`/`stringify` の往復は prettier が 1 行に
  *   畳んでいる短い配列をすべて展開してしまうため、テキスト挿入で追記する
  *   （`tools/patch-aihints.mjs` と同じ方針）。
@@ -44,11 +45,12 @@ import {
     decodePng,
     hexToRgb,
     buildForegroundMask,
+    openRecordsFile,
+    writeRecordsFile,
     detectSwatchChips,
     measurePaletteCoverage,
     collectColorHints,
     resolveImageSources,
-    scanTopLevelRecords,
     findValueEnd,
     colorDistance,
     colorWordMatchesHex,
@@ -60,6 +62,25 @@ import {
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
+
+/**
+ * 作品名 / DB 名から、この作品のパス一式を組み立てる。
+ *
+ * `--work` / `--db` を差し替えるだけで他作品へ使えるという前提が、この 3 行に集約されている。
+ * 呼び出し側でパスを組み立て直さないこと。
+ *
+ * @param {string} work  作品名（`Works_` 接頭辞なし）
+ * @param {string} db    DB 名（`db_` 接頭辞なし）
+ * @returns {{ workDir: string, dbPath: string, imagesRoot: string }}
+ */
+function resolveDbPaths(work, db) {
+    const workDir = path.join(REPO_ROOT, 'data', `Works_${work}`);
+    return {
+        workDir,
+        dbPath: path.join(workDir, 'DataBases', `db_${db}.json`),
+        imagesRoot: path.join(workDir, 'Images', `DB_${db}`),
+    };
+}
 
 /** 被覆率の降順で割り当てる配色役割。4 色目以降はすべて Sub。 */
 const ROLE_ORDER = ['#ColorRole_Primary', '#ColorRole_Secondary', '#ColorRole_Accent'];
@@ -103,6 +124,8 @@ export function resolvePaletteImageFields(workDir, source, fallback = []) {
  *
  * @param {any} record
  * @param {string} imagesRoot  `data/Works_<work>/Images/DB_<db>` の絶対パス
+ * @param {string[]|null} [manualChips]  手入力のカラーコード。指定時は自動検出より優先する
+ * @param {string|null} [workDir]  `$palette.source` 宣言の解決用。null なら既定の表へフォールバック
  * @returns {{ chips: Array<{hex: string, count: number}>, source: string|null }}
  */
 export function detectChipsForRecord(record, imagesRoot, manualChips = null, workDir = null) {
@@ -208,19 +231,21 @@ export function detectArtworkColorsForRecord(record, workDir, imagesRoot, opt = 
  *
  * カラーチップは「どの色を使うか」しか示さないため、主従（Primary / Secondary / …）は
  * 実際の作画を測って決める。測定対象は `resolveImageSources()` の優先順
- * （arts → corefolder → concept）で最初に見つかった画像。
+ * （illustration → artwork）で最初に見つかった画像。設定画（`swatch`）は手書き注釈だらけなので
+ * 除外する。判定はフィールド名ではなく `$palette.source` の宣言で行う。
  *
  * 測定できる画像が無い場合は、チップの面積（設定画上での大きさ）順にフォールバックする。
  *
  * @param {Array<{hex: string, count: number}>} chips
  * @param {any} record
+ * @param {string} workDir
  * @param {string} imagesRoot
  * @returns {{ ordered: Array<{hex: string, coverage: number|null}>, measuredOn: string|null }}
  */
-export function rankChipsByCoverage(chips, record, imagesRoot) {
+export function rankChipsByCoverage(chips, record, workDir, imagesRoot) {
     const hexes = chips.map(c => c.hex);
-    const sources = resolveImageSources(record, imagesRoot)
-        .filter(s => s.role !== 'concept'); // 設定画は注釈だらけなので被覆率の測定には使わない
+    const sources = resolveImageSources(record, workDir, imagesRoot)
+        .filter(s => s.source !== 'swatch'); // 設定画は注釈だらけなので被覆率の測定には使わない
 
     for (const src of sources) {
         let coverage;
@@ -245,31 +270,51 @@ export function rankChipsByCoverage(chips, record, imagesRoot) {
 }
 
 /**
+ * `ColorPalette` の 1 行を組み立てる。
+ *
+ * キーの並びは `db_meta.json` の `$Def_ColorPalette` に合わせる。抽出直後（`buildColorPaletteValue`）
+ * とスロット確定後（`applySlotAssignment`）の両方から呼ぶので、**行の形はここが唯一の出所**。
+ * スキーマにフィールドが増えたらここだけ直せばよい。
+ *
+ * `base` は既存行。`Formation` / `Note_*` は創作内容なので既存値を必ず持ち越す。
+ *
+ * @param {{role: string, hex: string, nameJP?: string|null, nameEN?: string|null, appliesTo?: string[]|null, base?: any}} src
+ * @returns {any}
+ */
+function makePaletteRow({ role, hex, nameJP = null, nameEN = null, appliesTo = null, base = {} }) {
+    return {
+        Role: role,
+        Hex: hex,
+        ColorName_JP: nameJP,
+        ColorName_EN: nameEN,
+        AppliesTo: Array.isArray(appliesTo) && appliesTo.length ? appliesTo : null,
+        Formation: base.Formation ?? null,
+        Note_JP: base.Note_JP ?? null,
+        Note_EN: base.Note_EN ?? null,
+    };
+}
+
+/**
  * 抽出した配色から `ColorPalette` フィールドの値を組み立てる。
+ *
+ * `Role` はここでは**被覆率順の仮値**（`ROLE_ORDER`）。デザイン上の主従は
+ * `--assign-slots` で `COLOR_SLOTS` から確定させる。色名は創作内容なので `null` のまま。
  *
  * @param {Array<{hex: string, coverage: number|null}>} ordered  被覆率の降順に並んだ配色
  * @param {ReturnType<typeof collectColorHints>} hints  AppearanceDetail の色語ヒント
  * @returns {any[]}
  */
 export function buildColorPaletteValue(ordered, hints) {
-    return ordered.map((entry, i) => {
-        const bodyParts = [...new Set(
+    return ordered.map((entry, i) => makePaletteRow({
+        role: ROLE_ORDER[i] ?? ROLE_REST,
+        hex: entry.hex,
+        appliesTo: [...new Set(
             hints
                 .filter(h => colorWordMatchesHex(h.word, entry.hex))
                 .map(h => h.bodyPart)
                 .filter(Boolean),
-        )];
-        return {
-            Role: ROLE_ORDER[i] ?? ROLE_REST,
-            Hex: entry.hex,
-            ColorName_JP: null,
-            ColorName_EN: null,
-            AppliesTo: bodyParts.length ? bodyParts : null,
-            Formation: null,
-            Note_JP: null,
-            Note_EN: null,
-        };
-    });
+        )],
+    }));
 }
 
 // ────────────────────────────────────────────────────────────────────────────
@@ -288,24 +333,22 @@ export function buildColorPaletteValue(ordered, hints) {
  * - 「副色(衣装) @Secondary」の枠は**運用しない**。衣装のセカンダリは常に
  *   `secondaryCostume`（`#ColorRole_Sub`）へ入れる
  *
- * @type {ReadonlyArray<{key: string, nameJP: string, nameEN: string, role: string, group: string, annotate?: boolean}>}
+ * @type {ReadonlyArray<{key: string, nameJP: string, nameEN: string, role: string, annotate?: boolean}>}
  */
 export const COLOR_SLOTS = [
-    { key: 'primary', nameJP: '主色', nameEN: 'Primary Color', role: '#ColorRole_Primary', group: 'base' },
-    { key: 'primaryCostume', nameJP: '主色(衣装)', nameEN: 'Primary Color (Costume)', role: '#ColorRole_Primary', group: 'costume' },
-    { key: 'secondary', nameJP: '副色', nameEN: 'Secondary Color', role: '#ColorRole_Secondary', group: 'base' },
-    { key: 'accentMain', nameJP: 'メインアクセントカラー', nameEN: 'Main Accent Color', role: '#ColorRole_Accent', group: 'accent', annotate: true },
-    { key: 'accentSub', nameJP: 'サブアクセントカラー', nameEN: 'Sub Accent Color', role: '#ColorRole_Accent', group: 'accent', annotate: true },
-    { key: 'secondaryCostume', nameJP: '副色（衣装）', nameEN: 'Secondary Color (Costume)', role: '#ColorRole_Sub', group: 'costume' },
-    { key: 'auxiliary', nameJP: '補助色', nameEN: 'Auxiliary Color', role: '#ColorRole_Sub', group: 'aux' },
+    { key: 'primary', nameJP: '主色', nameEN: 'Primary Color', role: '#ColorRole_Primary' },
+    { key: 'primaryCostume', nameJP: '主色(衣装)', nameEN: 'Primary Color (Costume)', role: '#ColorRole_Primary' },
+    { key: 'secondary', nameJP: '副色', nameEN: 'Secondary Color', role: '#ColorRole_Secondary' },
+    { key: 'accentMain', nameJP: 'メインアクセントカラー', nameEN: 'Main Accent Color', role: '#ColorRole_Accent', annotate: true },
+    { key: 'accentSub', nameJP: 'サブアクセントカラー', nameEN: 'Sub Accent Color', role: '#ColorRole_Accent', annotate: true },
+    { key: 'secondaryCostume', nameJP: '副色（衣装）', nameEN: 'Secondary Color (Costume)', role: '#ColorRole_Sub' },
+    { key: 'auxiliary', nameJP: '補助色', nameEN: 'Auxiliary Color', role: '#ColorRole_Sub' },
 ];
 
-/** 地毛（髪・耳・尻尾）とみなす部位。共通造形色以外の体毛はここに含める。 */
+/** 地毛（髪・耳・尻尾）とみなす部位。共通配色以外の体毛はここに含める。 */
 const BASE_PARTS = new Set(['#BodyPart_Hair', '#BodyPart_Ear', '#BodyPart_Tail']);
-/** アクセント（瞳）とみなす部位。 */
+/** アクセント（瞳）とみなす部位。色名の注記（「瞳」か「アクセサリー」か）の分岐に使う。 */
 const ACCENT_PARTS = new Set(['#BodyPart_Eye']);
-/** 衣装とみなす DesignElement。 */
-const COSTUME_ELEMENTS = new Set(['#Element_CostumeItem']);
 
 /**
  * スロットの色名を組み立てる。
@@ -331,6 +374,29 @@ export function buildSlotColorName(slot, appliesTo) {
         jp: `${slot.nameJP}（${jp.join(', ')}）`,
         en: `${slot.nameEN} (${en.join(', ')})`,
     };
+}
+
+/**
+ * このツールが生成しうる色名かどうかを判定する。
+ *
+ * User が注記を手で書き換えることがある（実例: Num 5 の
+ * `メインアクセントカラー（瞳, 衣装補足色）`。ツールは「アクセサリー」しか作れない）。
+ * 再実行のたびに機械の言い回しへ戻してしまうと、手入力が黙って消える。
+ * 生成形のどれとも一致しない名前は**人が書いたもの**とみなして残す。
+ *
+ * @param {{nameJP: string, nameEN: string, annotate?: boolean}} slot
+ * @param {string|null|undefined} nameJP  既存の `ColorName_JP`
+ * @returns {boolean} 生成形なら true（＝上書きしてよい）
+ */
+function isGeneratedColorName(slot, nameJP) {
+    if (!nameJP) return true; // 未記入は埋めてよい
+    if (!slot.annotate) return nameJP === slot.nameJP;
+    return [
+        slot.nameJP,
+        `${slot.nameJP}（瞳）`,
+        `${slot.nameJP}（アクセサリー）`,
+        `${slot.nameJP}（瞳, アクセサリー）`,
+    ].includes(nameJP);
 }
 
 /**
@@ -368,22 +434,24 @@ export function applySlotAssignment(palette, assignment) {
 
         const slot = COLOR_SLOTS[order];
         const appliesTo = entry.appliesTo === undefined ? base.AppliesTo : entry.appliesTo;
-        const name = buildSlotColorName(slot, appliesTo);
+        // 手で書き換えられた注記は残す（生成形と違う名前＝人が書いたもの）
+        const keepName = !isGeneratedColorName(slot, base.ColorName_JP);
+        const name = keepName
+            ? { jp: base.ColorName_JP, en: base.ColorName_EN ?? null }
+            : buildSlotColorName(slot, appliesTo);
 
         used.add(hex);
         out.push({
             order,
             seq,
-            row: {
-                Role: slot.role,
-                Hex: base.Hex,
-                ColorName_JP: name.jp,
-                ColorName_EN: name.en,
-                AppliesTo: Array.isArray(appliesTo) && appliesTo.length ? appliesTo : null,
-                Formation: base.Formation ?? null,
-                Note_JP: base.Note_JP ?? null,
-                Note_EN: base.Note_EN ?? null,
-            },
+            row: makePaletteRow({
+                role: slot.role,
+                hex: base.Hex,
+                nameJP: name.jp,
+                nameEN: name.en,
+                appliesTo,
+                base,
+            }),
         });
     });
 
@@ -431,15 +499,19 @@ export function indexBadgeFromImages(record) {
  * バッジが取れないレコードでは合同絵を使わず空を返す。誤った材料で埋めるより、
  * 未割当として残して人が判断するほうが安全（`AGENTS.md` の「推測値と実測値を混ぜない」）。
  *
+ * 対象は `$palette.source: "illustration"` を宣言したフィールド。作品ごとに名前が違い、
+ * 今後も別名で増える前提なのでフィールド名では絞らない。
+ *
  * @param {any} record
+ * @param {string} workDir
  * @param {string} imagesRoot
- * @returns {Array<{ role: string, path: string }>}
+ * @returns {Array<{ role: string, source: string|null, path: string }>}
  */
-export function resolveSoloArtSources(record, imagesRoot) {
-    const arts = resolveImageSources(record, imagesRoot).filter(s => s.role === 'arts');
+export function resolveSoloArtSources(record, workDir, imagesRoot) {
     const badge = indexBadgeFromImages(record);
     if (!badge) return [];
-    return arts.filter(s => path.basename(s.path).includes(badge));
+    return resolveImageSources(record, workDir, imagesRoot)
+        .filter(s => s.source === 'illustration' && path.basename(s.path).includes(badge));
 }
 
 /**
@@ -448,7 +520,7 @@ export function resolveSoloArtSources(record, imagesRoot) {
  * スロットは画像を見ないと決まらないため、ここでは**根拠だけ**を揃えて返す:
  * - `covBall` … 球体型姿（`$palette.source: artwork`。コアフォルダ / キーキャッパー等）でのシェア
  * - `covArt`  … 人姿の単独絵でのシェア
- * - `bands`   … 球体型姿での高さ帯分布（頭/上/中/下/足）
+ * - `bands`   … 球体型姿での高さ帯分布（頭/上/中/下/足）。球体型姿が取れない場合は人姿の分布
  * - `hints`   … `AppearanceDetail` の色語が一致した部位・DesignElement
  *
  * 球体型姿は原則として衣装を含まないため、そこでのシェア順が「地毛で何番目に多い色か」に
@@ -490,7 +562,7 @@ export function collectSlotEvidence(record, workDir, imagesRoot) {
     };
 
     const ballFiles = resolveArtworkSources(record, workDir, imagesRoot).map(s => s.path);
-    const artFiles = resolveSoloArtSources(record, imagesRoot).map(s => s.path);
+    const artFiles = resolveSoloArtSources(record, workDir, imagesRoot).map(s => s.path);
 
     const ball = firstShare(ballFiles);
     const art = firstShare(artFiles);
@@ -509,46 +581,68 @@ export function collectSlotEvidence(record, workDir, imagesRoot) {
 export const BAND_LABELS = ['頭', '上', '中', '下', '足'];
 
 /**
- * 各配色が前景の**どの高さ帯**に分布しているかを測る。
+ * 前景の各画素を最近傍の配色へ割り当てて走査する。
  *
- * `renderColorMap()` の図を数値へ畳んだもの。図は 1 件あたり 40 行あって読む側の負担が
- * 大きいが、帯ごとの割合だけなら 1 色 1 行で足りる。髪は `頭` に偏り、尻尾の先端は
- * `下`〜`足`、衣装は `上`〜`中`、靴は `足` に出る、という読み方をする。
+ * `profileColorBands()`（帯分布）と `renderColorMap()`（テキスト図）は、集計の仕方だけが
+ * 違う同じ走査を持っていたため、判定をここへ 1 本化した。閾値を触るときはここだけ見ればよい。
  *
- * 被覆率（`measurePaletteCoverage()`）が「どれだけ使われているか」なのに対し、
- * こちらは「どこに使われているか」。近似色は前者では潰れるが後者では分かれる。
+ * 除外するもの: 透過画素 / 背景（背景付き画像のみ `buildForegroundMask()`）/ 紙面の白 /
+ * 線画の黒 / どの配色からも `maxDist` より遠い画素。
+ *
+ * 透過画像にマスクをかけないのは、淡い色（耳・尻尾の先端は主色の淡い版であることが多い）を
+ * 紙面と誤判定して落としてしまうため。同じ理由は `extractSolidColors()` の注釈にもある。
  *
  * @param {import('./extract-palette.mjs').DecodedImage} img
  * @param {string[]} hexes
- * @param {{maxDist?: number}} [opt]
- * @returns {Array<{ share: number, bands: number[] }>} hexes と同じ並び。bands の合計は 1
+ * @param {{maxDist?: number, step?: number}} opt
+ * @param {(x: number, y: number, k: number) => void} onPixel  k は hexes の添字
  */
-export function profileColorBands(img, hexes, opt = {}) {
+function scanAssignedPixels(img, hexes, opt, onPixel) {
     const maxDist = opt.maxDist ?? 45;
+    const step = opt.step ?? 2;
+    const limit = maxDist * maxDist;
     const rgbs = hexes.map(hexToRgb);
     const fg = isTransparentArtwork(img) ? null : buildForegroundMask(img);
 
-    /** @type {Array<{y: number, k: number}>} */
-    const hits = [];
-    let minY = Infinity, maxY = -Infinity;
-    for (let y = 0; y < img.height; y += 2) {
-        for (let x = 0; x < img.width; x += 2) {
+    for (let y = 0; y < img.height; y += step) {
+        for (let x = 0; x < img.width; x += step) {
             const i = y * img.width + x;
             if (img.data[i * 4 + 3] < 128) continue;
             if (fg && !fg[i]) continue;
             const r = img.data[i * 4], g = img.data[i * 4 + 1], b = img.data[i * 4 + 2];
             if (r > 245 && g > 245 && b > 245) continue; // 紙面
             if (r < 60 && g < 60 && b < 60) continue;    // 線画
-            if (y < minY) minY = y;
-            if (y > maxY) maxY = y;
             let best = -1, bestD = Infinity;
             for (let k = 0; k < rgbs.length; k++) {
                 const d = (r - rgbs[k][0]) ** 2 + (g - rgbs[k][1]) ** 2 + (b - rgbs[k][2]) ** 2;
                 if (d < bestD) { bestD = d; best = k; }
             }
-            if (best >= 0 && bestD <= maxDist * maxDist) hits.push({ y, k: best });
+            if (best >= 0 && bestD <= limit) onPixel(x, y, best);
         }
     }
+}
+
+/**
+ * 各配色が前景の**どの高さ帯**に分布しているかを測る。
+ *
+ * `share` は「どれだけ使われているか」、`bands` は「どこに使われているか」。
+ * 髪は `頭` に偏り、尻尾の先端は `下`〜`足`、衣装は `上`〜`中`、靴は `足` に出る、と読む。
+ * 近似色はシェアだけ見ると潰れるが、帯で分かれる。
+ *
+ * @param {import('./extract-palette.mjs').DecodedImage} img
+ * @param {string[]} hexes
+ * @param {{maxDist?: number, step?: number}} [opt]
+ * @returns {Array<{ share: number, bands: number[] }>} hexes と同じ並び。bands の合計は 1
+ */
+export function profileColorBands(img, hexes, opt = {}) {
+    /** @type {Array<{y: number, k: number}>} */
+    const hits = [];
+    let minY = Infinity, maxY = -Infinity;
+    scanAssignedPixels(img, hexes, opt, (_x, y, k) => {
+        if (y < minY) minY = y;
+        if (y > maxY) maxY = y;
+        hits.push({ y, k });
+    });
 
     const out = hexes.map(() => ({ share: 0, bands: [0, 0, 0, 0, 0] }));
     if (!hits.length || maxY <= minY) return out;
@@ -567,20 +661,18 @@ export function profileColorBands(img, hexes, opt = {}) {
 /**
  * 判定材料からスロット割当の**下書き**を作る。
  *
- * 確定ではなく、User / エージェントが画像を見て直すための叩き台。
- * 判定できなかった色は `auxiliary` へ流さず `unassigned` に残す
- * （「どれに当てはまるか判らない色は聞く」運用のため）。
+ * 埋めるのは **主色と副色だけ**。球体型姿（コアフォルダ等）でのシェア順が
+ * 「地毛で何番目に多い色か」とほぼ対応するので、そこだけを根拠にする。
+ * 残りは `unassigned` に残して、`--slot-report` の帯分布を見た人が決める。
  *
- * 判定順（上ほど強い根拠）:
- *   1. 色語が瞳（`#BodyPart_Eye`）に一致 → accent
- *   2. 色語が衣装（`#Element_CostumeItem`）に一致 → costume
- *   3. 色語が地毛（髪・耳・尻尾）に一致 → base
- *   4. どれでもない → unassigned
- * 各グループ内は被覆率の降順（base は球体型姿、costume は人姿を優先して見る）。
+ * **なぜ衣装色・アクセント色を出さないか**: 「人姿では出るが球体型姿では出ない色＝衣装」
+ * 「面積が小さく瞳に紐づく色＝アクセント」という規則を実装し、User が画像を見て確定させた
+ * レコードを正解として測ったところ、正解率は 35〜40% にとどまった（近似色の競合、
+ * 前景マスクが淡いグレーを落とすこと、合同絵の混入が主因）。半分外す下書きは、
+ * レビューする側を誤った答えへ引きずるぶん無いより悪い。
  *
- * **信頼度について**: 根拠に使う `AppearanceDetail` の `BodyPart` / `DesignElement` 自体が
- * 画像を見て手動修正された経緯を持つため、この下書きを検証なしで適用しないこと。
- * 近似色が競合すると被覆率も入れ替わる（NTS-1 の `#FFAC8F` / `#FFBFA7` が実例）。
+ * 同じ計測での現行の正解率は **80%（主色 5/5・副色 3/5）**。規則を触るときは
+ * `.cache/score-draft.mjs` 相当で測り直し、下がるなら戻すこと。
  *
  * @param {ReturnType<typeof collectSlotEvidence>} evidence
  * @returns {{ assignment: Array<{slot: string, hex: string, appliesTo: string[]|null}>, unassigned: string[] }}
@@ -592,49 +684,26 @@ export function proposeSlotAssignment(evidence) {
     const unassigned = [];
     if (!evidence.length) return { assignment, unassigned };
 
-    /** その色に色語で紐づいた部位（重複除去） */
-    const partsOf = (ev) => [...new Set(ev.hints.map(h => h.bodyPart).filter(Boolean))];
+    // 球体型姿が無いレコードでは人姿のシェアで代用する。両方無ければ全色が未割当。
+    const hasBall = evidence.some(ev => ev.covBall > 0);
+    const share = (ev) => (hasBall ? ev.covBall : ev.covArt);
+    const ranked = [...evidence].sort((a, b) => share(b) - share(a));
 
-    const pool = evidence.map(ev => ({
-        hex: ev.hex,
-        covBall: ev.covBall,
-        covArt: ev.covArt,
-        parts: partsOf(ev),
-        hasEye: partsOf(ev).some(p => ACCENT_PARTS.has(p)),
-        isCostumeWord: ev.hints.some(h => COSTUME_ELEMENTS.has(h.element)),
-    }));
-    const take = (item, slot, scope) => {
-        assignment.push({
-            slot,
-            hex: item.hex,
-            appliesTo: scope && scope.length ? scope : (item.parts.length ? item.parts : null),
-        });
-        item.used = true;
+    /** 地毛の部位だけを `AppliesTo` の候補にする（衣装の部位は主色・副色には載せない） */
+    const baseParts = (ev) => [...new Set(
+        ev.hints.map(h => h.bodyPart).filter(p => p && BASE_PARTS.has(p)),
+    )];
+    const take = (ev, slot) => {
+        const parts = baseParts(ev);
+        assignment.push({ slot, hex: ev.hex, appliesTo: parts.length ? parts : null });
     };
-    const hasBall = pool.some(p => p.covBall > 0);
-    const share = (p) => (hasBall ? p.covBall : p.covArt);
 
-    // 球体型姿（コアフォルダ等）は衣装をほとんど着ないため、そこでのシェア順が
-    // 「地毛で何番目に多い色か」とほぼ一致する。確定済みレコードで実測したところ
-    // **主色 5/5・副色 4/5** で当たった。衣装・アクセントの推定はこの水準に届かなかった
-    // （35〜40%）ため、下書きでは埋めずに未割当として残す（後述）。
-    const ranked = [...pool].sort((a, b) => share(b) - share(a));
+    if (ranked[0] && share(ranked[0]) > 0) take(ranked[0], 'primary');
+    // 2 番手はシェアが小さすぎると別物（小物の差し色など）なので副色にしない
+    if (ranked[1] && share(ranked[1]) >= 0.03) take(ranked[1], 'secondary');
 
-    if (ranked[0] && share(ranked[0]) > 0) {
-        take(ranked[0], 'primary', ranked[0].parts.filter(p => BASE_PARTS.has(p)));
-    }
-    if (ranked[1] && share(ranked[1]) >= 0.03) {
-        take(ranked[1], 'secondary', ranked[1].parts.filter(p => BASE_PARTS.has(p)));
-    }
-
-    // 衣装色・アクセント色は推定しない。
-    //
-    // 「人姿では出るが球体型姿では出ない色＝衣装」「面積が小さく瞳に紐づく色＝アクセント」
-    // という規則を実装して確定済みレコードで測ったが、正解率は 35〜40% にとどまった
-    // （近似色の競合、前景マスクが淡いグレーを落とすこと、合同絵の混入が主因）。
-    // 半分外す下書きは、レビューする側を誤った答えに引きずるぶん無いより悪い。
-    // ここは `--slot-report` が出す帯分布・被覆率を見て人が決める。
-    for (const p of pool.filter(x => !x.used)) unassigned.push(p.hex);
+    const used = new Set(assignment.map(a => a.hex));
+    for (const ev of evidence) if (!used.has(ev.hex)) unassigned.push(ev.hex);
 
     return { assignment, unassigned };
 }
@@ -786,21 +855,13 @@ export function removeColorPaletteFromRecord(text, span) {
  * @returns {{ results: Array<any>, applied: number, dbPath: string }}
  */
 export function patchColorPalette(opts) {
-    const workDir = path.join(REPO_ROOT, 'data', `Works_${opts.work}`);
-    const dbPath = path.join(workDir, 'DataBases', `db_${opts.db}.json`);
-    const imagesRoot = path.join(workDir, 'Images', `DB_${opts.db}`);
-    if (!fs.existsSync(dbPath)) throw new Error(`DB が見つかりません: ${dbPath}`);
+    const { workDir, dbPath, imagesRoot } = resolveDbPaths(opts.work, opts.db);
 
     // 共通造形色（肌・舌・コアフォルダの毛など）は透過イラスト抽出でだけ除外する。
     // 宣言が無い作品では空配列になり、除外は行われない。
     const commonColors = opts.fromArtwork ? readCommonColors(workDir) : [];
 
-    const original = fs.readFileSync(dbPath, 'utf8');
-    const db = JSON.parse(original);
-    const spans = scanTopLevelRecords(original);
-    if (spans.length !== db.length) {
-        throw new Error(`レコード走査に失敗しました（テキスト ${spans.length} 件 / パース ${db.length} 件）`);
-    }
+    const { original, records: db, spans } = openRecordsFile(dbPath);
 
     /** @type {Array<any>} */
     const results = [];
@@ -828,7 +889,7 @@ export function patchColorPalette(opts) {
         let origin = 'chips';
 
         if (chips.length >= opts.minChips) {
-            ({ ordered, measuredOn } = rankChipsByCoverage(chips, record, imagesRoot));
+            ({ ordered, measuredOn } = rankChipsByCoverage(chips, record, workDir, imagesRoot));
         } else if (opts.fromArtwork) {
             // チップが取れないレコードの受け皿。透過キャラ単体イラストの面積比が
             // そのまま被覆率なので、rankChipsByCoverage() は通さない。
@@ -888,10 +949,7 @@ export function patchColorPalette(opts) {
         r.status === 'inserted' || r.status === 'replaced'
         || r.status === 'appended' || r.status === 'dropped-unresolved').length;
 
-    if (opts.apply && applied) {
-        JSON.parse(text); // 壊れた JSON を書かないための最終ガード
-        fs.writeFileSync(dbPath, text, 'utf8');
-    }
+    if (opts.apply && applied) writeRecordsFile(dbPath, text);
 
     return { results, applied, dbPath };
 }
@@ -914,17 +972,8 @@ export function patchColorPalette(opts) {
  * @returns {{ results: Array<any>, applied: number, dbPath: string }}
  */
 export function patchColorPaletteSlots(opts) {
-    const workDir = path.join(REPO_ROOT, 'data', `Works_${opts.work}`);
-    const dbPath = path.join(workDir, 'DataBases', `db_${opts.db}.json`);
-    const imagesRoot = path.join(workDir, 'Images', `DB_${opts.db}`);
-    if (!fs.existsSync(dbPath)) throw new Error(`DB が見つかりません: ${dbPath}`);
-
-    const original = fs.readFileSync(dbPath, 'utf8');
-    const db = JSON.parse(original);
-    const spans = scanTopLevelRecords(original);
-    if (spans.length !== db.length) {
-        throw new Error(`レコード走査に失敗しました（テキスト ${spans.length} 件 / パース ${db.length} 件）`);
-    }
+    const { workDir, dbPath, imagesRoot } = resolveDbPaths(opts.work, opts.db);
+    const { original, records: db, spans } = openRecordsFile(dbPath);
 
     /** @type {Array<any>} */
     const results = [];
@@ -938,26 +987,20 @@ export function patchColorPaletteSlots(opts) {
         if (!Array.isArray(record.ColorPalette) || !record.ColorPalette.length) continue;
 
         const given = opts.slots?.[String(num)];
-        let assignment, unassigned;
-        if (Array.isArray(given)) {
-            ({ unassigned } = applySlotAssignment(record.ColorPalette, given));
-            assignment = given;
-        } else {
-            ({ assignment, unassigned } = proposeSlotAssignment(
-                collectSlotEvidence(record, workDir, imagesRoot),
-            ));
-        }
-
-        if (unassigned.length) {
-            results.push({ num, status: 'skipped-unassigned', unassigned, source: given ? 'slots' : 'draft' });
-            continue;
-        }
-
+        const source = given ? 'slots' : 'draft';
         try {
-            const { value } = applySlotAssignment(record.ColorPalette, assignment);
-            const res = upsertColorPaletteInRecord(text, spans[i], value);
-            text = res.text;
-            results.push({ num, status: 'slotted', source: given ? 'slots' : 'draft', value });
+            const assignment = Array.isArray(given)
+                ? given
+                : proposeSlotAssignment(collectSlotEvidence(record, workDir, imagesRoot)).assignment;
+            const { value, unassigned } = applySlotAssignment(record.ColorPalette, assignment);
+
+            // 7 枠のどれとも判定できない色が残るレコードは書き込まない（User へ確認するため）
+            if (unassigned.length) {
+                results.push({ num, status: 'skipped-unassigned', unassigned, source });
+                continue;
+            }
+            text = upsertColorPaletteInRecord(text, spans[i], value).text;
+            results.push({ num, status: 'slotted', source, value });
         } catch (err) {
             results.push({ num, status: 'error', message: err.message });
         }
@@ -965,10 +1008,7 @@ export function patchColorPaletteSlots(opts) {
 
     results.reverse();
     const applied = results.filter(r => r.status === 'slotted').length;
-    if (opts.apply && applied) {
-        JSON.parse(text); // 壊れた JSON を書かないための最終ガード
-        fs.writeFileSync(dbPath, text, 'utf8');
-    }
+    if (opts.apply && applied) writeRecordsFile(dbPath, text);
     return { results, applied, dbPath };
 }
 
@@ -980,50 +1020,38 @@ export function patchColorPaletteSlots(opts) {
  * その色が髪なのか尻尾なのか衣装なのかが読み取れる。
  *
  * 各セルは、そこに最も多く割り当てられた配色の番号（1 始まり）。`.` は地。
- * 割当は `measurePaletteCoverage()` と同じ最近傍で、陰影・アンチエイリアスを吸収する。
- * 背景付きの画像（清書イラスト・設定画）は `buildForegroundMask()` で地を落とすが、
- * 淡いグレーが紙面として一緒に落ちることがあるため、**足元や小物は欠けることがある**。
+ * 割当は `profileColorBands()` と同じ `scanAssignedPixels()` を通るので、
+ * 図と帯分布は必ず同じ判定を見ている。
+ *
+ * 背景付きの画像（清書イラスト・設定画）は `buildForegroundMask()` で地を落とすため、
+ * 淡いグレーが紙面として一緒に落ちて**足元や小物が欠けることがある**。
  *
  * @param {import('./extract-palette.mjs').DecodedImage} img
  * @param {string[]} hexes
- * @param {{cols?: number, rows?: number, maxDist?: number}} [opt]
+ * @param {{cols?: number, rows?: number, maxDist?: number, step?: number}} [opt]
  * @returns {string[]} 行ごとの文字列
  */
 export function renderColorMap(img, hexes, opt = {}) {
     const cols = opt.cols ?? 56;
     const rows = opt.rows ?? 40;
-    const maxDist = opt.maxDist ?? 45;
-    const rgbs = hexes.map(hexToRgb);
-    const fg = isTransparentArtwork(img) ? null : buildForegroundMask(img);
     const cellW = img.width / cols, cellH = img.height / rows;
+
+    // セルごとの多数決。セル数 × 色数の票箱を先に作って 1 回の走査で埋める
+    const votes = Array.from({ length: rows * cols }, () => new Array(hexes.length).fill(0));
+    scanAssignedPixels(img, hexes, opt, (x, y, k) => {
+        const cell = Math.min(rows - 1, Math.floor(y / cellH)) * cols + Math.min(cols - 1, Math.floor(x / cellW));
+        votes[cell][k]++;
+    });
 
     /** @type {string[]} */
     const out = [];
     for (let ry = 0; ry < rows; ry++) {
         let line = '';
         for (let rx = 0; rx < cols; rx++) {
-            const votes = new Array(hexes.length).fill(0);
-            let seen = 0;
-            for (let y = Math.floor(ry * cellH); y < Math.floor((ry + 1) * cellH); y += 2) {
-                for (let x = Math.floor(rx * cellW); x < Math.floor((rx + 1) * cellW); x += 2) {
-                    const i = y * img.width + x;
-                    if (img.data[i * 4 + 3] < 128) continue;
-                    if (fg && !fg[i]) continue;
-                    const r = img.data[i * 4], g = img.data[i * 4 + 1], b = img.data[i * 4 + 2];
-                    if (r > 245 && g > 245 && b > 245) continue; // 紙面
-                    if (r < 60 && g < 60 && b < 60) continue;    // 線画
-                    let best = -1, bestD = Infinity;
-                    for (let k = 0; k < rgbs.length; k++) {
-                        const d = (r - rgbs[k][0]) ** 2 + (g - rgbs[k][1]) ** 2 + (b - rgbs[k][2]) ** 2;
-                        if (d < bestD) { bestD = d; best = k; }
-                    }
-                    if (best >= 0 && bestD <= maxDist * maxDist) { votes[best]++; seen++; }
-                }
-            }
-            if (!seen) { line += '.'; continue; }
-            let top = 0;
-            for (let k = 1; k < votes.length; k++) if (votes[k] > votes[top]) top = k;
-            line += String.fromCharCode(top < 9 ? 49 + top : 88); // 1-9 のあと X
+            const v = votes[ry * cols + rx];
+            let top = -1;
+            for (let k = 0; k < v.length; k++) if (v[k] > 0 && (top < 0 || v[k] > v[top])) top = k;
+            line += top < 0 ? '.' : String.fromCharCode(top < 9 ? 49 + top : 88); // 1-9 のあと X
         }
         out.push(line);
     }
@@ -1040,9 +1068,7 @@ export function renderColorMap(img, hexes, opt = {}) {
  * @returns {{ draft: Record<string, any[]>, rows: Array<any> }}
  */
 export function reportSlotEvidence(opts) {
-    const workDir = path.join(REPO_ROOT, 'data', `Works_${opts.work}`);
-    const dbPath = path.join(workDir, 'DataBases', `db_${opts.db}.json`);
-    const imagesRoot = path.join(workDir, 'Images', `DB_${opts.db}`);
+    const { workDir, dbPath, imagesRoot } = resolveDbPaths(opts.work, opts.db);
     const db = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
 
     /** @type {Record<string, any[]>} */
@@ -1078,11 +1104,8 @@ export function reportSlotEvidence(opts) {
  * @returns {{ records: Array<any>, totals: { records: number, colors: number, hit: number } }}
  */
 export function verifyArtworkAgainstChips(opts) {
-    const workDir = path.join(REPO_ROOT, 'data', `Works_${opts.work}`);
-    const dbPath = path.join(workDir, 'DataBases', `db_${opts.db}.json`);
-    const imagesRoot = path.join(workDir, 'Images', `DB_${opts.db}`);
+    const { workDir, dbPath, imagesRoot } = resolveDbPaths(opts.work, opts.db);
     if (!fs.existsSync(dbPath)) throw new Error(`DB が見つかりません: ${dbPath}`);
-
     const db = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
     const commonColors = readCommonColors(workDir);
 
@@ -1199,7 +1222,8 @@ patch-colorpalette.mjs — 設定画のカラーチップから ColorPalette を
   AppliesTo  色語が一致した AppearanceDetail の BodyPart を転記
 
 書き込まない項目（創作内容のため User が記入する）:
-  ColorName_JP / ColorName_EN / Formation / Note_JP / Note_EN は null のまま
+  Formation / Note_JP / Note_EN は null のまま
+  ColorName_JP / ColorName_EN も抽出時は null。--assign-slots のときだけスロット表から確定する
 
 透過イラスト抽出（--from-artwork）について:
   対象フィールドは作品別 db_type.json の Images 宣言から取り、透過率で素材を判定します
@@ -1289,10 +1313,8 @@ function printArtworkVerification(opts) {
  * @param {{work: string, db: string, records: Set<any>|null}} opts
  */
 function printColorMap(opts) {
-    const workDir = path.join(REPO_ROOT, 'data', `Works_${opts.work}`);
-    const imagesRoot = path.join(workDir, 'Images', `DB_${opts.db}`);
-    const db = JSON.parse(fs.readFileSync(path.join(workDir, 'DataBases', `db_${opts.db}.json`), 'utf8'));
-    const BANDS = ['頭', '上', '中', '下', '足'];
+    const { workDir, dbPath, imagesRoot } = resolveDbPaths(opts.work, opts.db);
+    const db = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
 
     for (const record of db) {
         const num = record.Num ?? recordLabel(record);
@@ -1306,7 +1328,7 @@ function printColorMap(opts) {
 
         const files = [
             ...resolveArtworkSources(record, workDir, imagesRoot).map(s => ({ role: s.folder, path: s.path })),
-            ...resolveImageSources(record, imagesRoot).filter(s => s.role === 'arts'),
+            ...resolveImageSources(record, workDir, imagesRoot).filter(s => s.source === 'illustration'),
         ];
         if (!files.length) { console.log('  （画像なし）'); continue; }
 
@@ -1325,7 +1347,7 @@ function printColorMap(opts) {
             const span = ((filled[filled.length - 1] ?? 0) - top) + 1;
             lines.forEach((line, i) => {
                 const rel = (i - top) / span;
-                const band = rel >= 0 && rel < 1 ? BANDS[Math.min(4, Math.floor(rel * 5))] : '　';
+                const band = rel >= 0 && rel < 1 ? BAND_LABELS[Math.min(4, Math.floor(rel * 5))] : '　';
                 console.log(`  ${band} ${line}`);
             });
         }
