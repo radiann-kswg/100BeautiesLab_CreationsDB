@@ -1566,9 +1566,11 @@ function printColorMap(opts) {
         console.log(`\n=== #${num} ===`);
         hexes.forEach((h, i) => console.log(`  ${i + 1} = ${h}`));
 
+        // 清書イラストは `resolveSoloArtSources()` で絞る。素通しだと合同絵が混ざり、
+        // 他キャラの色が図に描かれてしまう（判定材料の `collectSlotEvidence()` と同じ理由）。
         const files = [
             ...resolveArtworkSources(record, workDir, imagesRoot).map(s => ({ role: s.folder, path: s.path })),
-            ...resolveImageSources(record, workDir, imagesRoot).filter(s => s.source === 'illustration'),
+            ...resolveSoloArtSources(record, workDir, imagesRoot).map(s => ({ role: 'solo', path: s.path })),
         ];
         if (!files.length) { console.log('  （画像なし）'); continue; }
 
