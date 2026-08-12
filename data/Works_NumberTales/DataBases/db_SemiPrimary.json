@@ -1043,7 +1043,7 @@
     "ModelName_JP": "ナンバーテールズ汎用型2号機改(開発用200番機)",
     "ModelName_EN": "NumberTales General-Purpose Type Unit.2 (Development Mk.200)",
     "GenderType": "Neutral",
-    "Class": ["百倍番(ハンドレッズデジッツ)", "カレンド", "2号機型"],
+    "Class": ["百倍番(ハンドレッズデジッツ)", "2号機型"],
     "FirstPersonCalling_JP": "わたし",
     "FirstPersonCalling_EN": "I (fem. neutral)",
     "SecondPersonCalling_JP": "~さん",
@@ -1930,29 +1930,51 @@
     "Num": "256-sq",
     "Num_Badge": "256SQ",
     "Progress": "notProceeded",
-    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 256 }],
-    "Name_JP": "256(バイツ)\n16²(バイツ)",
-    "Name_EN": "256(Bytz)\n16²(Bytz)",
-    "FormalName_JP": "ナンバーテールズ キャレ-セイズ(256番機)",
-    "FormalName_EN": "NumberTales Unit.Carré-16 (Mk.256)",
+    "AnotherVersions_DBLink": [{ "_DB": "SelfSecondary", "Num": "256-alt" }],
+    "SameMPSeries_DBLink": [
+      { "_DB": "SemiPrimary", "Num": "256-bq" },
+      { "_DB": "SelfSecondary", "Num": 256 }
+    ],
+    "Name_JP": "256(セイザリー)\n16²(セイザリー)",
+    "Name_EN": "256(Seizarrie)\n16²(Seizarrie)",
+    "FormalName_JP": "ナンバーテールズ キャレ-セイズ(異格同位256番機)",
+    "FormalName_EN": "NumberTales Unit.Carré-16 (Isotope Mk.256)",
     "CodeName_JP": "二五六,16²",
     "CodeName_EN": "Two-Five-Six, Sixteen Squared",
-    "SPCodeName_JP": "バイト",
-    "SPCodeName_EN": "One Byte",
     "ModelNumber": "APHR-NT SQ.XVI",
     "GenderType": "Neutral",
     "Belonging": [
       { "Faction": "百花繚乱研究所" },
       { "Faction": "レゾンデイトルカンパニー" }
     ],
-    "Class": [
-      "トリプルフォーズ",
-      "バイナリーコンストレイント",
-      "バーチャリティテールズ",
-      "キャレ型ハイナンバーズ"
+    "Class": ["トリプルフォーズ", "キャレ型ハイナンバーズ"]
+  },
+  {
+    "Num": "256-bq",
+    "Num_Badge": "256BQ",
+    "Progress": "notProceeded",
+    "AnotherVersions_DBLink": [{ "_DB": "SelfSecondary", "Num": 256 }],
+    "SameMPSeries_DBLink": [
+      { "_DB": "SemiPrimary", "Num": "256-sq" },
+      { "_DB": "SelfSecondary", "Num": "256-alt" }
     ],
-    "Backgrounds_JP": "1バイトで表現できる値の数から由来",
-    "Backgrounds_EN": "Named after the number of values representable in one byte."
+    "Name_JP": "256(バイツ)\n2⁸(バイツ)",
+    "Name_EN": "256(Bytz)\n2⁸(Bytz)",
+    "FormalName_JP": "ナンバーテールズ バイツ1.0号機(256番機)",
+    "FormalName_EN": "NumberTales Bytz-Unit.1.0 (Mk.256)",
+    "CodeName_JP": "二五六",
+    "CodeName_EN": "Two-Five-Six",
+    "SPCodeName_JP": "バイト",
+    "SPCodeName_EN": "One Byte",
+    "ModelNumber": "APHR-NT [BQ]1.0",
+    "GenderType": "Neutral",
+    "Belonging": [
+      { "Faction": "百花繚乱研究所" },
+      { "Faction": "国際ヒューマノイド技術学会" }
+    ],
+    "Class": ["トリプルフォーズ", "国際協議個体", "バーチャリティテールズ"],
+    "Backgrounds_JP": "1バイトで表現できる値の数から由来\nなお、国際ヒューマノイド技術学会協賛による特殊な型式シリーズの個体となる",
+    "Backgrounds_EN": "Named after the number of values representable in one byte.\nNote: This unit is a special model series sponsored by the International Humanoid Technology Society."
   },
   {
     "Num": "289-sq",
@@ -2585,12 +2607,46 @@
     "NumerospecAbout_EN": "Realizes things in accordance with perfect theory"
   },
   {
+    "Num": "500-dev",
+    "Num_Badge": "500DV",
+    "Progress": "notProceeded",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 500 }],
+    "Name_JP": "500(ハルフィミル)",
+    "Name_EN": "500(Halvemill)",
+    "FormalName_JP": "ナンバーテールズ500番機",
+    "FormalName_EN": "NumberTales #500",
+    "CodeName_JP": "五〇〇",
+    "CodeName_EN": "Five-Zero-Zero",
+    "SPCodeName_JP": "半千",
+    "SPCodeName_EN": "Half of Permill",
+    "ModelNumber": "APHR-NT [GP]V.R",
+    "ModelName_JP": "ナンバーテールズ汎用型5号機改(開発用500番機)",
+    "ModelName_EN": "NumberTales General-Purpose Type Unit.5 (Development Mk.500)",
+    "GenderType": "MaleNeutral",
+    "Class": ["百倍番(ハンドレッズデジッツ)"],
+    "FirstPersonCalling_JP": "ぼく",
+    "FirstPersonCalling_EN": "I (masc. neutral)",
+    "SecondPersonCalling_JP": "[※名前呼び]",
+    "SecondPersonCalling_EN": "[*by name]",
+    "ThirdPersonCalling_JP": "[※名前呼び]",
+    "ThirdPersonCalling_EN": "[*by name]",
+    "ForMasterCalling_JP": "[※名前呼び]",
+    "ForMasterCalling_EN": "[*by name]",
+    "RelationNotes_JP": "開発専用機では「50(ナカバ)」と仲が良く、「50(ナカバ)」も彼のノリに対しては素直に接するらしい",
+    "RelationNotes_EN": "In the developer-only build, gets along well with 50(Halvan), and 50(Halvan) also seems to respond honestly to his mood",
+    "Backgrounds_JP": "5号機系直通では最後の後継個体",
+    "Backgrounds_EN": "The last direct successor unit of the Unit.5 lineage"
+  },
+  {
     "Num": "512-cub",
     "Num_Badge": "512KZ",
     "Progress": "notProceeded",
-    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 512 }],
-    "Name_JP": "512(ハキビ)\n8³(ハキビ)",
-    "Name_EN": "512(Hav-kiB)\n8³(Hav-kiB)",
+    "SameMPSeries_DBLink": [
+      { "_DB": "SemiPrimary", "Num": "512-cub" },
+      { "_DB": "SelfSecondary", "Num": 512 }
+    ],
+    "Name_JP": "512(アヒュビ)\n8³(アヒュビ)",
+    "Name_EN": "512(Achubik)\n8³(Achubik)",
     "FormalName_JP": "ナンバーテールズ キュビクザール-アハト(同位異格512番機)",
     "FormalName_EN": "NumberTales Unit.Kubikzahl-VIII (Isotope of Mk.512)",
     "CodeName_JP": "五一二, 立法八",
@@ -2603,7 +2659,31 @@
       { "Faction": "百花繚乱研究所" },
       { "Faction": "シンフォニー.XVI(ゼクズィン)" }
     ],
-    "Class": ["キュビクザール型ハイナンバーズ", "バーチャリティテールズ"]
+    "Class": ["キュビクザール型ハイナンバーズ"]
+  },
+  {
+    "Num": "512-bq",
+    "Num_Badge": "512BQ",
+    "Progress": "notProceeded",
+    "AnotherVersions_DBLink": [{ "_DB": "SemiPrimary", "Num": "512-cub" }],
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 512 }],
+    "Name_JP": "512(ハキビ)\n8³(ハキビ)",
+    "Name_EN": "512(Hav-kiB)\n8³(Hav-kiB)",
+    "FormalName_JP": "ナンバーテールズ バイツ1.5号機(512番機)",
+    "FormalName_EN": "NumberTales Bytz-Unit.1.5 (Mk.512)",
+    "CodeName_JP": "五一二, 立法八",
+    "CodeName_EN": "Five-One-Two, Eight Cubed",
+    "SPCodeName_JP": "半キロバイナリ",
+    "SPCodeName_EN": "Half ki(Kilo bInary)",
+    "ModelNumber": "APHR-NT [BQ]1.5",
+    "GenderType": "Neutral",
+    "Belonging": [
+      { "Faction": "百花繚乱研究所" },
+      { "Faction": "国際ヒューマノイド技術学会" }
+    ],
+    "Class": ["トリプルエイツ", "バーチャリティテールズ", "国際協議個体"],
+    "Backgrounds_JP": "SI接頭辞「ki(キロバイナリ)」の半分に相当する指数に由来\nなお、国際ヒューマノイド技術学会協賛による特殊な型式シリーズの個体となる",
+    "Backgrounds_EN": "Named from the exponent corresponding to half of the SI prefix 'ki(kilo binary)'.\nNote: This unit is a special model series sponsored by the International Humanoid Technology Society."
   },
   {
     "Num": 555,
@@ -3010,7 +3090,11 @@
       { "Faction": "百花繚乱研究所" },
       { "Faction": "国際ヒューマノイド技術学会" }
     ],
-    "Class": ["キャレ型ハイナンバーズ", "キュビクザール型ハイナンバーズ"]
+    "Class": [
+      "キャレ型ハイナンバーズ",
+      "キュビクザール型ハイナンバーズ",
+      "国際協議個体"
+    ]
   },
   {
     "Num": 777,
@@ -4493,7 +4577,7 @@
       "デュアルキャリーズ",
       "キャレ型ハイナンバーズ",
       "キュビクザール型ハイナンバーズ",
-      "バーチャリティテールズ",
+      "国際協議個体",
       "バイナリーコンストレイント"
     ],
     "AnivDay": [

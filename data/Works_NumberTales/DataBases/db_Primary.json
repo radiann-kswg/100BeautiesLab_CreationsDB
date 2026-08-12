@@ -18045,7 +18045,7 @@
     "ModelName_JP": "ナンバーテールズ正規+改良型4号機(44番機)",
     "ModelName_EN": "NumberTales Standard+Renovated Type Unit.4 (Mk.44)",
     "GenderType": "MaleNeutral",
-    "Class": ["マスターテールズ9", "スクエアエリート"],
+    "Class": ["マスターテールズ9"],
     "Height_cm": 150,
     "Weight_kg": { "hideText": "非公開" },
     "TailsUnit": [
@@ -38688,7 +38688,6 @@
       "未完成個体",
       "開発システム用個体",
       "2号機型",
-      "バイナリーコンストレイント",
       "バーチャリティテールズ"
     ],
     "Height_cm": [{ "value": 150, "about_JP": "想定", "about_EN": "Scenario" }],

@@ -584,6 +584,18 @@
     "Class": ["トリプルキャリーズ", "マスマティカコンストレイント"]
   },
   {
+    "Num": 128,
+    "Num_Badge": "128",
+    "Progress": "notProceeded",
+    "FormalName_JP": "量産型ナンバーテールズ128番機BQシリーズ",
+    "FormalName_EN": "NumberTales #128-BQ Series Mass Production Version for Sales",
+    "CodeName_JP": "一二八",
+    "CodeName_EN": "One-Two-Eight",
+    "ModelNumber": "APHR-NT [MP]128-BQ***",
+    "GenderType": "Neutral",
+    "Class": ["トリプルトワイズ", "バーチャリティテールズ"]
+  },
+  {
     "Num": 144,
     "Num_Badge": "144",
     "Progress": "notProceeded",
@@ -714,11 +726,11 @@
     "Num_Badge": "200",
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": "200-dev" }],
-    "FormalName_JP": "量産型ナンバーテールズ200番機シリーズ",
-    "FormalName_EN": "NumberTales #200 Series Mass Production Version for Sales",
+    "FormalName_JP": "量産型ナンバーテールズ200番機GPシリーズ",
+    "FormalName_EN": "NumberTales #200-GP Series Mass Production Version for Sales",
     "CodeName_JP": "二〇〇",
     "CodeName_EN": "Two-Zero-Zero",
-    "ModelNumber": "APHR-NT [MP]200-*****",
+    "ModelNumber": "APHR-NT [MP]200-GP***",
     "GenderType": "Neutral",
     "Class": ["百倍番(ハンドレッズデジッツ)"]
   },
@@ -1188,6 +1200,18 @@
     "AppearanceDetail": null
   },
   {
+    "Num": 243,
+    "Num_Badge": "243",
+    "Progress": "notProceeded",
+    "FormalName_JP": "量産型ナンバーテールズ243番機QPシリーズ",
+    "FormalName_EN": "NumberTales #243-QP Series Mass Production Version for Sales",
+    "CodeName_JP": "二四三",
+    "CodeName_EN": "Two-Four-Three",
+    "ModelNumber": "APHR-NT [MP]243-QP***",
+    "GenderType": "Neutral",
+    "Class": ["トリプルナインズ"]
+  },
+  {
     "Num": 244,
     "Num_Badge": "244",
     "Progress": "notProceeded",
@@ -1218,15 +1242,19 @@
     "SPCodeName_EN": "Last of Byte",
     "ModelNumber": "APHR-NT [MP]255-VR***",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル3型", "バーチャリティテールズ"],
+    "Class": ["デュオトリプル3型", "バイナリーコンストレイント"],
     "Backgrounds_JP": "1バイト値の最大値（16進法）から由来\nなお、「256(バイツ)」と姉妹関係は無い",
     "Backgrounds_EN": "Derived from the maximum value of a 1-byte integer in hexadecimal (0xFF).\nNote: has no sibling relationship with '256(Bytes)'."
   },
   {
     "Num": 256,
-    "Num_Badge": "256",
+    "Num_Badge": "256A",
     "Progress": "notProceeded",
-    "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": "256-sq" }],
+    "AnotherVersions_DBLink": [{ "_DB": "SemiPrimary", "Num": "256-bq" }],
+    "SameMPSeries_DBLink": [
+      { "_DB": "SemiPrimary", "Num": "256-sq" },
+      { "_DB": "SelfSecondary", "Num": "256-alt" }
+    ],
     "Name_JP": "256(バイツ)",
     "Name_EN": "256(Bytes)",
     "FormalName_JP": "量産型ナンバーテールズ256番機BQシリーズ",
@@ -1236,9 +1264,27 @@
     "SPCodeName_EN": "One Byte",
     "ModelNumber": "APHR-NT [MP]256-BQ***",
     "GenderType": "Neutral",
-    "Class": ["トリプルフォーズ", "バイナリーコンストレイント"],
+    "Class": ["トリプルフォーズ", "バーチャリティテールズ"],
     "Backgrounds_JP": "1バイトで表現できる値の数から由来\nなお、「255(エフエフ)」と姉妹関係は無い",
     "Backgrounds_EN": "Derived from the number of distinct values representable in 1 byte (2⁸ = 256).\nNote: has no sibling relationship with '255(0xFF)'."
+  },
+  {
+    "Num": "256-alt",
+    "Num_Badge": "256B",
+    "Progress": "notProceeded",
+    "AnotherVersions_DBLink": [{ "_DB": "SemiPrimary", "Num": "256-sq" }],
+    "SameMPSeries_DBLink": [
+      { "_DB": "SemiPrimary", "Num": "256-bq" },
+      { "_DB": "SelfSecondary", "Num": 256 }
+    ],
+    "Name_JP": "256(ニゴロ)",
+    "Name_EN": "256(Twifix)",
+    "FormalName_JP": "量産型ナンバーテールズ256番機SQシリーズ",
+    "FormalName_EN": "NumberTales #256-SQ Series Mass Production Version for Sales",
+    "CodeName_JP": "二五六",
+    "CodeName_EN": "Two-Five-Six",
+    "GenderType": "Neutral",
+    "Class": ["トリプルフォーズ"]
   },
   {
     "Num": 258,
@@ -1332,6 +1378,22 @@
       }
     ],
     "AppearanceDetail": null
+  },
+  {
+    "Num": 273,
+    "Num_Badge": "273",
+    "Progress": "notProceeded",
+    "Name_JP": "273(ゼロケール)",
+    "Name_EN": "273(ZeroKelv')",
+    "FormalName_JP": "量産型ナンバーテールズ273番機PMシリーズ",
+    "FormalName_EN": "NumberTales #273-PM Series Mass Production Version for Sales",
+    "CodeName_JP": "二七三",
+    "CodeName_EN": "Two-Seven-Three",
+    "SPCodeName_JP": "絶対零度(-273.15°C = 0K)",
+    "SPCodeName_EN": "Absolute Zero (-273.15°C = 0K)",
+    "ModelNumber": "APHR-NT [MP]273-PM***",
+    "GenderType": "Neutral",
+    "Class": ["トリプルスリーズ", "フィジクスコンストレイント"]
   },
   {
     "Num": 289,
@@ -1882,6 +1944,18 @@
     "AppearanceDetail": null
   },
   {
+    "Num": 441,
+    "Num_Badge": "441",
+    "Progress": "notProceeded",
+    "FormalName_JP": "量産型ナンバーテールズ441番機SQシリーズ",
+    "FormalName_EN": "NumberTales #441-SQ Series Mass Production Version for Sales",
+    "CodeName_JP": "四四一",
+    "CodeName_EN": "Four-Four-One",
+    "ModelNumber": "APHR-NT [MP]441-SQ***",
+    "GenderType": "Neutral",
+    "Class": ["デュオトリプル9型"]
+  },
+  {
     "Num": "444-mp",
     "Num_Badge": "444MP",
     "Progress": "released",
@@ -2409,15 +2483,16 @@
     "Num": 500,
     "Num_Badge": "500",
     "Progress": "notProceeded",
+    "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": "500-dev" }],
     "Name_JP": "500(ハルフィミル)",
     "Name_EN": "500(Halvemill)",
-    "FormalName_JP": "量産型ナンバーテールズ500番機シリーズ",
-    "FormalName_EN": "NumberTales #500 Series Mass Production Version for Sales",
+    "FormalName_JP": "量産型ナンバーテールズ500番機GPシリーズ",
+    "FormalName_EN": "NumberTales #500-GP Series Mass Production Version for Sales",
     "CodeName_JP": "五〇〇",
     "CodeName_EN": "Five-Zero-Zero",
     "SPCodeName_JP": "半千",
     "SPCodeName_EN": "Half of Permill",
-    "ModelNumber": "APHR-NT [MP]500-*****",
+    "ModelNumber": "APHR-NT [MP]500-GP***",
     "GenderType": "Neutral",
     "Class": ["百倍番(ハンドレッズデジッツ)"]
   },
@@ -2449,9 +2524,13 @@
   },
   {
     "Num": 512,
-    "Num_Badge": "512",
+    "Num_Badge": "512A",
     "Progress": "notProceeded",
-    "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": "512-cub" }],
+    "AnotherVersions_DBLink": [{ "_DB": "SemiPrimary", "Num": "512-cub" }],
+    "SameMPSeries_DBLink": [
+      { "_DB": "SemiPrimary", "Num": "512-bq" },
+      { "_DB": "SelfSecondary", "Num": "512-alt" }
+    ],
     "Name_JP": "512(ハキビ)",
     "Name_EN": "512(Hav-kiB)",
     "FormalName_JP": "量産型ナンバーテールズ512番機BQシリーズ",
@@ -2459,10 +2538,31 @@
     "CodeName_JP": "五一二",
     "CodeName_EN": "Five-One-Two",
     "SPCodeName_JP": "半キロバイナリ",
-    "SPCodeName_EN": "Half KiB(Kilo Binary)",
+    "SPCodeName_EN": "Half ki(Kilo bInary)",
     "ModelNumber": "APHR-NT [MP]512-BQ***",
     "GenderType": "Neutral",
-    "Class": ["トリプルエイツ", "バイナリーコンストレイント"]
+    "Class": ["トリプルエイツ", "バーチャリティテールズ"],
+    "Backgrounds_JP": "SI接頭辞「ki(キロバイナリ)」の半分に相当する指数に由来",
+    "Backgrounds_EN": "Named from the exponent corresponding to half of the SI prefix 'ki(kilo binary)'."
+  },
+  {
+    "Num": "512-alt",
+    "Num_Badge": "512B",
+    "Progress": "notProceeded",
+    "AnotherVersions_DBLink": [{ "_DB": "SemiPrimary", "Num": "512-bq" }],
+    "SameMPSeries_DBLink": [
+      { "_DB": "SemiPrimary", "Num": "512-cub" },
+      { "_DB": "SelfSecondary", "Num": 512 }
+    ],
+    "Name_JP": "512(フィオンドゥ)",
+    "Name_EN": "512(Fiontwo)",
+    "FormalName_JP": "量産型ナンバーテールズ512番機KZシリーズ",
+    "FormalName_EN": "NumberTales #512-KZ Series Mass Production Version for Sales",
+    "CodeName_JP": "五一二",
+    "CodeName_EN": "Five-One-Two",
+    "ModelNumber": "APHR-NT [MP]512-KZ***",
+    "GenderType": "Neutral",
+    "Class": ["トリプルエイツ"]
   },
   {
     "Num": 528,
@@ -2590,11 +2690,11 @@
     "Num_Badge": "625",
     "Progress": "stillTentative",
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "625-numberize" }],
-    "FormalName_JP": "量産型ナンバーテールズ625番機シリーズ",
-    "FormalName_EN": "NumberTales #625 Series Mass Production Version for Sales",
+    "FormalName_JP": "量産型ナンバーテールズ625番機SQシリーズ",
+    "FormalName_EN": "NumberTales #625-SQ Series Mass Production Version for Sales",
     "CodeName_JP": "六二五",
     "CodeName_EN": "Six-Two-Five",
-    "ModelNumber": "APHR-NT [MP]625-*****",
+    "ModelNumber": "APHR-NT [MP]625-SQ***",
     "GenderType": "Neutral",
     "Class": ["トリプルフォーズ"],
     "TailsUnit": [
@@ -4077,6 +4177,25 @@
         "DayAbout_EN": "????"
       }
     ]
+  },
+  {
+    "Num": 1024,
+    "Num_Badge": "1024",
+    "Progress": "notProceeded",
+    "isTriple": false,
+    "Name_JP": "1024(キルビン)",
+    "Name_EN": "1024(KilBin)",
+    "FormalName_JP": "ナンバーテールズ仮設1024番機",
+    "FormalName_EN": "NumberTales Tentative Mk.1024",
+    "CodeName_JP": "キロバイナリ",
+    "CodeName_EN": "1 ki(Kilo bInary)",
+    "ModelNumber": "APHR-NT [BQ]2.0",
+    "ModelName_JP": "ナンバーテールズ バイツ2号機(仮設1024番機)",
+    "ModelName_EN": "NumberTales Bytz-Unit.2 (Tentative Mk.1024)",
+    "GenderType": "Neutral",
+    "Class": ["バイナリーコンストレイント", "国際協議個体"],
+    "Backgrounds_JP": "SI接頭辞「ki(キロバイナリ)」に由来",
+    "Backgrounds_EN": "Named from the SI prefix 'ki(kilo binary)'."
   },
   {
     "Num": 1111,
