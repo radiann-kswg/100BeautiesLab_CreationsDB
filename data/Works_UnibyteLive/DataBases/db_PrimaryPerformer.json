@@ -87,8 +87,8 @@
       "_DB": "Primary",
       "Letter": { "Alphabet": "I", "AlphaGen": 2 }
     },
-    "FormalName_JP": "桜花 孝\n孝 ヴァーチュングレイス=春洋",
-    "FormalName_JPReading": "おうか たかみ\nたかむ ヴァーチュングレイス=はるなみ",
+    "FormalName_JP": "桜花 孝\n孝.ヴァーチュングレイス=春洋",
+    "FormalName_JPReading": "おうか たかみ\nたかみ.ヴァーチュングレイス=はるなみ",
     "FormalName_EN": "Filia.Pieter Cherrybroom\nFilia.Pieter Virtuengrace=Springer",
     "Belonging": [{ "Faction": "スターダスト・テクノロジー" }],
     "FromArea": { "Area": "雄志結国" },
