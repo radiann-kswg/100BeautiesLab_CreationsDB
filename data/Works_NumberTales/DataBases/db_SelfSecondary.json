@@ -754,6 +754,107 @@
     "ModelNumber": "APHR-NT [MP]216-KZ***",
     "GenderType": "Neutral",
     "Class": ["トリプルナインズ", "インターフェイスコンストレイント"],
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 6,
+        "Branches": [
+          { "Laterality": null, "TailCount": 1, "ClusterCount": 3 },
+          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 4, "ClusterCount": 1 }
+        ],
+        "LayoutDirection": {
+          "LayoutFrom": "#Lat_Center",
+          "LayoutTo": "#Lat_Periphery"
+        },
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ConceptAge": 16,
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#C96C9C",
+        "ColorName_JP": "主色",
+        "ColorName_EN": "Primary Color",
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#A4A2C3",
+        "ColorName_JP": "主色(衣装)",
+        "ColorName_EN": "Primary Color (Costume)",
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#FF7297",
+        "ColorName_JP": "副色",
+        "ColorName_EN": "Secondary Color",
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#F9C9DE",
+        "ColorName_JP": "メインアクセントカラー",
+        "ColorName_EN": "Main Accent Color",
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#736E9A",
+        "ColorName_JP": "サブアクセントカラー",
+        "ColorName_EN": "Sub Accent Color",
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#F26383",
+        "ColorName_JP": "副色（衣装）",
+        "ColorName_EN": "Secondary Color (Costume)",
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#B2B0CE",
+        "ColorName_JP": "補助色",
+        "ColorName_EN": "Auxiliary Color",
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#EDD2DA",
+        "ColorName_JP": "補助色（衣装）",
+        "ColorName_EN": "Auxiliary Color (Costume)",
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "Backgrounds_JP": "ちなみに、三原色を1Byteで平均的に扱う際に取れる最大の色数でもある",
     "Backgrounds_EN": "Incidentally, 216 is also the maximum number of colors obtainable when the three primary colors are each evenly distributed across a 1-byte range (6 × 6 × 6 = 216; the web-safe color cube)."
   },
@@ -950,6 +1051,18 @@
       }
     ],
     "AppearanceDetail": null
+  },
+  {
+    "Num": 225,
+    "Num_Badge": "225",
+    "Progress": "notProceeded",
+    "FormalName_JP": "量産型ナンバーテールズ225番機SQシリーズ（ナンバーテールズ225番機）",
+    "FormalName_EN": "NumberTales #225-SQ Series Mass Production Version for Sales (NumberTales #225)",
+    "CodeName_JP": "二二五",
+    "CodeName_EN": "Two-Two-Five",
+    "ModelNumber": "APHR-NT [MP]225-SQ***",
+    "GenderType": "Neutral",
+    "Class": ["デュオトリプル9型"]
   },
   {
     "Num": 227,
@@ -1378,11 +1491,13 @@
     "Num_Badge": "343",
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": "343-cub" }],
-    "FormalName_JP": "量産型ナンバーテールズ343番機シリーズ",
-    "FormalName_EN": "NumberTales #343 Series Mass Production Version for Sales",
+    "Name_JP": "343(ミシミ)",
+    "Name_EN": "343(Threfortrey)",
+    "FormalName_JP": "量産型ナンバーテールズ343番機KZシリーズ（ナンバーテールズ343番機）",
+    "FormalName_EN": "NumberTales #343-KZ Series Mass Production Version for Sales (NumberTales #343)",
     "CodeName_JP": "三四三",
     "CodeName_EN": "Three-Four-Three",
-    "ModelNumber": "APHR-NT [MP]343-*****",
+    "ModelNumber": "APHR-NT [MP]343-KZ***",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル1型"]
   },
@@ -1401,6 +1516,20 @@
     "ModelNumber": "APHR-NT [MP]360-RM***",
     "GenderType": "Neutral",
     "Class": ["ナインズトライデュアルズ", "レイディアントコンストレイント"]
+  },
+  {
+    "Num": 361,
+    "Num_Badge": "361",
+    "Progress": "notProceeded",
+    "FormalName_JP": "量産型ナンバーテールズ361番機シリーズ",
+    "FormalName_EN": "NumberTales #361 Series Mass Production Version for Sales",
+    "Name_JP": "361(トライヘキスン)",
+    "Name_EN": "361(Trihexun)",
+    "CodeName_JP": "三六一",
+    "CodeName_EN": "Three-Six-One",
+    "ModelNumber": "APHR-NT [MP]361-*****",
+    "GenderType": "Neutral",
+    "Class": ["トリプルキャリーズ"]
   },
   {
     "Num": 365,

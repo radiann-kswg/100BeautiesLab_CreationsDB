@@ -1056,18 +1056,6 @@
     "Class": ["デュオトリプル8型"]
   },
   {
-    "Num": 225,
-    "Num_Badge": "225",
-    "Progress": "notProceeded",
-    "FormalName_JP": "量産型ナンバーテールズ225番機シリーズ",
-    "FormalName_EN": "NumberTales #225 Series Mass Production Version for Sales",
-    "CodeName_JP": "二二五",
-    "CodeName_EN": "Two-Two-Five",
-    "ModelNumber": "APHR-NT [MP]225-*****",
-    "GenderType": "Neutral",
-    "Class": ["デュオトリプル9型"]
-  },
-  {
     "Num": 226,
     "Num_Badge": "226",
     "Progress": "notProceeded",
@@ -2458,18 +2446,6 @@
     "ModelNumber": "APHR-NT [MP]359-*****",
     "GenderType": "Neutral",
     "Class": ["トリプルエイツ"]
-  },
-  {
-    "Num": 361,
-    "Num_Badge": "361",
-    "Progress": "notProceeded",
-    "FormalName_JP": "量産型ナンバーテールズ361番機シリーズ",
-    "FormalName_EN": "NumberTales #361 Series Mass Production Version for Sales",
-    "CodeName_JP": "三六一",
-    "CodeName_EN": "Three-Six-One",
-    "ModelNumber": "APHR-NT [MP]361-*****",
-    "GenderType": "Neutral",
-    "Class": ["トリプルキャリーズ"]
   },
   {
     "Num": 362,
