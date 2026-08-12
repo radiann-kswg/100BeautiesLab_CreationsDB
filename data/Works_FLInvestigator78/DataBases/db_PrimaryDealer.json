@@ -438,7 +438,7 @@
   },
   {
     "Card": { "Suit": "Dealer", "Num": 79 },
-    "Progress": "released(beta)",
+    "Progress": "unreleased",
     "AnotherRegions_DBLink": {
       "_Work": "NumberTales",
       "_DB": "SemiPrimary",
@@ -530,7 +530,7 @@
   },
   {
     "Card": { "Suit": "Dealer", "Num": 80 },
-    "Progress": "released(beta)",
+    "Progress": "unreleased",
     "AnotherRegions_DBLink": {
       "_Work": "NumberTales",
       "_DB": "SemiPrimary",
