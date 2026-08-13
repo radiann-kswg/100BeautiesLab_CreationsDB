@@ -86,13 +86,13 @@
             "Lunar": "Shimotsuki",
             "CodeName_JP": "霜月",
             "CodeName_EN": "November",
-            "Class": ["幹部", "霜月研究所(仮説)"]
+            "Class": ["幹部", "霜月研究所(仮設)"]
           },
           {
             "Lunar": "Shiwasu",
             "CodeName_JP": "師走",
             "CodeName_EN": "December",
-            "Class": ["幹部", "師走研究所(仮説)"]
+            "Class": ["幹部", "師走研究所(仮設)"]
           },
           {
             "Lunar": "Leap",

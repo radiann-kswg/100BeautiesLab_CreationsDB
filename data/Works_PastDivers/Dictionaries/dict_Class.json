@@ -23,8 +23,8 @@
     "Class": "神無月研究所(破滅対策本部1課)",
     "Class_EN": "Laboratory.10(Pandemic Affairs Countermeasures Headquarter.1)"
   },
-  { "Class": "霜月研究所(仮説)", "Class_EN": "Laboratory.11(Tentative)" },
-  { "Class": "師走研究所(仮説)", "Class_EN": "Laboratory.12(Tentative)" },
+  { "Class": "霜月研究所(仮設)", "Class_EN": "Laboratory.11(Tentative)" },
+  { "Class": "師走研究所(仮設)", "Class_EN": "Laboratory.12(Tentative)" },
   { "Class": "AI幹部", "Class_EN": "Executive Director.AI" },
   { "Class": "軍事本部", "Class_EN": "Military Headquarter" },
   { "Class": "救命本部", "Class_EN": "Lifeguards Headquarter" },
