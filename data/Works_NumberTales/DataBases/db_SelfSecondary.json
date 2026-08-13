@@ -2380,15 +2380,19 @@
     "Progress": "notProceeded",
     "Name_JP": "451(ブックバーン)",
     "Name_EN": "451(Bookburn)",
-    "FormalName_JP": "量産型ナンバーテールズ451番機PMシリーズ(ナンバーテールズ451番機)",
-    "FormalName_EN": "NumberTales #451-PM Series Mass Production Version for Sales (NumberTales #451)",
+    "FormalName_JP": "量産型ナンバーテールズ451番機WNシリーズ(ナンバーテールズ451番機)",
+    "FormalName_EN": "NumberTales #451-WN Series Mass Production Version for Sales (NumberTales #451)",
     "CodeName_JP": "四五一",
     "CodeName_EN": "Four-Five-One",
     "SPCodeName_JP": "華氏451",
     "SPCodeName_EN": "Fahrenheit 451",
-    "ModelNumber": "APHR-NT [MP]451-PM***",
+    "ModelNumber": "APHR-NT [MP]451-WN***",
     "GenderType": "Neutral",
-    "Class": ["トリプルキャリーズ", "フィジクスコンストレイント"]
+    "Class": [
+      "トリプルキャリーズ",
+      "ライターノベルズ",
+      "フィジクスコンストレイント"
+    ]
   },
   {
     "Num": 456,
@@ -3988,6 +3992,22 @@
     "ModelNumber": "APHR-NT [MP]808-JW***",
     "GenderType": "Neutral",
     "Class": ["サイドシングルズ", "ワノマチ"]
+  },
+  {
+    "Num": 813,
+    "Num_Badge": "813",
+    "Progress": "notProceeded",
+    "Name_JP": "813(ルパンクライム)",
+    "Name_EN": "813(Crimesd'Arsène)",
+    "FormalName_JP": "量産型ナンバーテールズ813番機WNシリーズ",
+    "FormalName_EN": "NumberTales #813-WN Series Mass Production Version for Sales",
+    "CodeName_JP": "八一三",
+    "CodeName_EN": "Eight-One-Three",
+    "SPCodeName_JP": "アルセーヌ・ルパンの三つの犯罪",
+    "SPCodeName_EN": "Les trois crimes d'Arsène Lupin",
+    "ModelNumber": "APHR-NT [MP]813-WN***",
+    "GenderType": "Neutral",
+    "Class": ["トリプルスリーズ", "ライターノベルズ"]
   },
   {
     "Num": 833,
