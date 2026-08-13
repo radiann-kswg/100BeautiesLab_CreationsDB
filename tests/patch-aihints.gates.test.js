@@ -13,10 +13,12 @@
  *   後者は既存 AIHints の保守モードを止めない。詳細は `docs/api-sw-spec.md` §5.5。
  *
  *   ★ 固定している前提:
- *     (a) `AI_Unready` な Progress かつ画像ありのレコードは Primary / SelfSecondary に存在しない
- *         → 両 DB では Progress ゲートが no-op であり、`AI_Optout` を権利専用へ純化しても
- *           出力は変わらない。これが崩れた日からゲートが初めて仕事をする。
- *         （SemiPrimary は Num 100 が `stillTentative` で該当するため対象外。下の専用テストで固定）
+ *     (a) `AI_Unready` な Progress かつ画像ありの scaffold 候補は、既知の 3 件だけである
+ *         → この集合が Progress ゲートの実効範囲そのもの。増減したら「まだ AI へ流す段階でない
+ *           のに画像がある新規レコード」が現れた（あるいは解禁された）ということなので、
+ *           意図した状態かを確認したうえで期待値を更新すること。
+ *         （当初は SemiPrimary Num 100 のみで、Primary / SelfSecondary ではゲートが no-op
+ *           だった。2026-08-13 に 216 系 2 件へ画像が入り、SelfSecondary でも実効化した）
  *     (b) Primary の AIHints の identity_tags に `TODO:` 接頭辞は無い
  *         → `classTagsOf`（Class 辞書 fallback を持つ）の唯一の呼び出し経路である
  *           `--fill-todos` は Primary に到達しない。クラス辞書の変更が Primary の
@@ -53,24 +55,29 @@ function hasAnyImage(rec) {
 }
 
 describe('ゲートの前提条件（実データ）', () => {
-    it('scaffold 候補に `AI_Unready` な Progress は Primary / SelfSecondary に存在しない（両 DB で Progress ゲートが no-op である根拠）', () => {
+    it('Progress ゲートの実効範囲は既知の 3 件（scaffold 候補のうち `AI_Unready` なレコードの固定）', () => {
         // ★ 判定対象は「scaffold 候補」= 画像があり、かつ AIHints を**まだ持たない**レコードだけ。
         //   既存 AIHints 保持レコードは前段の skipped-existing で落ちるためゲートに到達しない。
         //   実際 Primary の Num "10-alt" は stillTentative かつ画像ありだが AIHints 保持済みで、
-        //   ゲートの影響を受けない（＝この条件を外すと前提を過大に見積もることになる）。
+        //   ゲートの影響を受けない（＝この条件を外すと対象を過大に見積もることになる）。
         const unready = loadAiUnreadyProgressValues('NumberTales');
-        const offenders = [];
-        for (const dbFile of ['db_Primary.json', 'db_SelfSecondary.json']) {
+        const gated = [];
+        for (const dbFile of TARGET_DBS) {
             for (const rec of loadDb(dbFile)) {
                 if (rec?.AIHints) continue;
                 if (unready.has(rec?.Progress) && hasAnyImage(rec)) {
-                    offenders.push(`${dbFile} Num=${JSON.stringify(rec.Num)} Progress=${JSON.stringify(rec.Progress)}`);
+                    gated.push(`${dbFile} Num=${JSON.stringify(rec.Num)}`);
                 }
             }
         }
-        // ここが落ちたら「まだ AI へ流す段階でないのに画像がある新規レコード」が現れたということ。
-        // Progress ゲートが初めて実効を持つので、意図した状態か確認すること。
-        expect(offenders).toEqual([]);
+        // ここが増えたら「まだ AI へ流す段階でないのに画像がある新規レコード」が現れたということ。
+        // 減ったら解禁されたということ。いずれも意図した状態か確認してから期待値を更新すること。
+        // Primary が 1 件も並ばないこと自体が「Primary ではゲートが no-op」の根拠になっている。
+        expect(gated).toEqual([
+            'db_SemiPrimary.json Num=100',
+            'db_SemiPrimary.json Num="216-cub"',
+            'db_SelfSecondary.json Num=216',
+        ]);
     });
 
     it('既存 AIHints を持つ `AI_Unready` なレコードはゲートに到達しない（skipped-existing が前段のため無傷）', () => {
@@ -81,14 +88,6 @@ describe('ゲートの前提条件（実データ）', () => {
             .filter((r) => r?.AIHints && unready.has(r?.Progress))
             .map((r) => r.Num);
         expect(protectedRecs).toEqual(['10-alt']);
-    });
-
-    it('SemiPrimary の Num 100 は `stillTentative` でゲート対象（ゲートが実データで効いていることの固定）', () => {
-        const unready = loadAiUnreadyProgressValues('NumberTales');
-        const gated = loadDb('db_SemiPrimary.json')
-            .filter((r) => unready.has(r?.Progress) && hasAnyImage(r) && !r?.AIHints)
-            .map((r) => r.Num);
-        expect(gated).toEqual([100]);
     });
 
     it('Primary の AIHints の identity_tags に TODO: 接頭辞は無い（クラス辞書変更が Primary に到達しない根拠）', () => {
