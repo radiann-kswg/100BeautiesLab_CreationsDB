@@ -54745,7 +54745,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:16e58c53bbe638cccd4694232209e936ecb01ecb8ebe7659cb3cdb679585ca3b",
+        "structuralSourceHash": "sha256:03abb5dc6da9471debec5141cea4bfe850bc345a5604b68b5d10024c1ad3e069",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox (slightly chipped)",
@@ -54809,7 +54809,7 @@
             "bound by rope"
           ]
         },
-        "lastStructuralResync": "2026-08-11"
+        "lastStructuralResync": "2026-08-13"
       }
     }
   },
