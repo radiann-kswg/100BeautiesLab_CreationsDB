@@ -38067,7 +38067,10 @@
     "Name_EN": "64(Sixforns)",
     "Images": {
       "concept_PNGName": "cnsp_imgNTS-64",
-      "corefolder_PNGPath": ["64/emstk_corefolderNTS-64-1"]
+      "corefolder_PNGPath": [
+        "64/emstk_corefolderNTS-64-1",
+        "64/emstk_corefolderNTS-64-2"
+      ]
     },
     "FormalName_JP": "ナンバーテールズ64番機",
     "FormalName_EN": "NumberTales #64",
