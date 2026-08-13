@@ -26550,7 +26550,7 @@
     "ModelName_JP": "ナンバーテールズ正規+改良型4号機(44番機)",
     "ModelName_EN": "NumberTales Standard+Renovated Type Unit.4 (Mk.44)",
     "GenderType": "MaleNeutral",
-    "Class": ["マスターテールズ9", "スクエアエリート"],
+    "Class": ["マスターテールズ9"],
     "Height_cm": 150,
     "Weight_kg": { "hideText": "非公開" },
     "TailsUnit": [
@@ -54410,49 +54410,32 @@
         "Hex": "#E485B6",
         "ColorName_JP": "主色",
         "ColorName_EN": "Primary Color",
-        "AppliesTo": [
-          "#BodyPart_Chest",
-          "#BodyPart_Eye",
-          "#BodyPart_Hair",
-          "#BodyPart_Neck",
-          "#BodyPart_Foot",
-          "#BodyPart_Leg"
-        ],
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Ear", "#BodyPart_Tail"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       },
       {
         "Role": "#ColorRole_Primary",
-        "Hex": "#F9C9DE",
+        "Hex": "#EC9EB4",
         "ColorName_JP": "主色(衣装)",
         "ColorName_EN": "Primary Color (Costume)",
-        "AppliesTo": [
-          "#BodyPart_Hair",
-          "#BodyPart_Eye",
-          "#BodyPart_Neck",
-          "#BodyPart_Arm",
-          "#BodyPart_Chest",
-          "#BodyPart_Waist",
-          "#BodyPart_Leg",
-          "#BodyPart_Foot"
-        ],
+        "AppliesTo": ["#BodyPart_Arm", "#BodyPart_Chest", "#BodyPart_Waist"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       },
       {
         "Role": "#ColorRole_Secondary",
-        "Hex": "#EC9EB4",
+        "Hex": "#F9C9DE",
         "ColorName_JP": "副色",
         "ColorName_EN": "Secondary Color",
         "AppliesTo": [
-          "#BodyPart_Chest",
+          "#BodyPart_Ear",
           "#BodyPart_Eye",
-          "#BodyPart_Hair",
           "#BodyPart_Neck",
-          "#BodyPart_Foot",
-          "#BodyPart_Leg"
+          "#BodyPart_Leg",
+          "#BodyPart_Tail"
         ],
         "Formation": null,
         "Note_JP": null,
@@ -54464,11 +54447,10 @@
         "ColorName_JP": "メインアクセントカラー（瞳, アクセサリー）",
         "ColorName_EN": "Main Accent Color (Eye Color, Accessory Color)",
         "AppliesTo": [
-          "#BodyPart_Head",
-          "#BodyPart_Hair",
+          "#BodyPart_Ear",
           "#BodyPart_Eye",
           "#BodyPart_Neck",
-          "#BodyPart_Interchangeable"
+          "#BodyPart_Foot"
         ],
         "Formation": null,
         "Note_JP": null,
@@ -54477,15 +54459,12 @@
       {
         "Role": "#ColorRole_Accent",
         "Hex": "#B8507B",
-        "ColorName_JP": "サブアクセントカラー（瞳, アクセサリー）",
-        "ColorName_EN": "Sub Accent Color (Eye Color, Accessory Color)",
+        "ColorName_JP": "サブアクセントカラー（アクセサリー）",
+        "ColorName_EN": "Sub Accent Color (Accessory Color)",
         "AppliesTo": [
-          "#BodyPart_Hair",
-          "#BodyPart_Eye",
           "#BodyPart_Neck",
-          "#BodyPart_Chest",
-          "#BodyPart_Leg",
-          "#BodyPart_Foot"
+          "#BodyPart_Waist",
+          "#BodyPart_Interchangeable"
         ],
         "Formation": null,
         "Note_JP": null,
@@ -56797,7 +56776,6 @@
       "未完成個体",
       "開発システム用個体",
       "2号機型",
-      "バイナリーコンストレイント",
       "バーチャリティテールズ"
     ],
     "Height_cm": [{ "value": 150, "about_JP": "想定", "about_EN": "Scenario" }],
