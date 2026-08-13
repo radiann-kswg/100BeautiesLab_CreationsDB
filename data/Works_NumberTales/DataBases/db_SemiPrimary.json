@@ -946,7 +946,11 @@
       { "Faction": "百花繚乱研究所" },
       { "Faction": "レゾンデイトルカンパニー" }
     ],
-    "Class": ["デュオトリプル4型", "キャレ型ハイナンバーズ"]
+    "Class": [
+      "デュオトリプル4型",
+      "キャレ型ハイナンバーズ",
+      "キャレ型ハイナンバーズ開発部"
+    ]
   },
   {
     "Num": "125-cub",
@@ -965,7 +969,10 @@
       { "Faction": "百花繚乱研究所" },
       { "Faction": "シンフォニー.XVI(ゼクズィン)" }
     ],
-    "Class": ["キュビクザール型ハイナンバーズ"]
+    "Class": [
+      "キュビクザール型ハイナンバーズ",
+      "ヒューマノイド開発部(シンフォニー.XVI)"
+    ]
   },
   {
     "Num": "144-sq",
@@ -989,7 +996,8 @@
     "Class": [
       "デュオトリプル9型",
       "マスマティカコンストレイント",
-      "キャレ型ハイナンバーズ"
+      "キャレ型ハイナンバーズ",
+      "キャレ型ハイナンバーズ開発部"
     ]
   },
   {
@@ -1007,7 +1015,11 @@
       { "Faction": "百花繚乱研究所" },
       { "Faction": "レゾンデイトルカンパニー" }
     ],
-    "Class": ["キャレ型ハイナンバーズ"]
+    "Class": [
+      "トリプルセブンズ",
+      "キャレ型ハイナンバーズ",
+      "キャレ型ハイナンバーズ開発部"
+    ]
   },
   {
     "Num": "196-sq",
@@ -1024,7 +1036,11 @@
       { "Faction": "百花繚乱研究所" },
       { "Faction": "レゾンデイトルカンパニー" }
     ],
-    "Class": ["キャレ型ハイナンバーズ"]
+    "Class": [
+      "トリプルセブンズ",
+      "キャレ型ハイナンバーズ",
+      "キャレ型ハイナンバーズ開発部"
+    ]
   },
   {
     "Num": "200-dev",
@@ -1060,24 +1076,28 @@
   {
     "Num": "216-cub",
     "Num_Badge": "216KZ",
-    "Progress": "nowCreating",
+    "Progress": "stillTentative",
     "AnotherVersions_DBLink": [{ "_DB": "SelfSecondary", "Num": 216 }],
     "Name_JP": "216(リク)\n6³(リク)",
     "Name_EN": "216(Secubie)\n6³(Secubie)",
+    "Images": {
+      "corefolder_PNGPath": ["216/emstk_corefolderNTS-216KZ-1"]
+    },
     "FormalName_JP": "ナンバーテールズ キュビクザール-ゼクス(同位異格216番機)",
     "FormalName_EN": "NumberTales Unit.Kubikzahl-VI (Isotope of Mk.216)",
     "CodeName_JP": "二一六, 立法六",
     "CodeName_EN": "Two-One-Six, Six Cubed",
     "ModelNumber": "APHR-NT Kz.VI",
-    "GenderType": "Neutral",
+    "GenderType": "FemaleNeutral",
     "Belonging": [
       { "Faction": "百花繚乱研究所" },
       { "Faction": "シンフォニー.XVI(ゼクズィン)" }
     ],
     "Class": [
       "トリプルナインズ",
-      "バーチャリティテールズ",
-      "キュビクザール型ハイナンバーズ"
+      "キュビクザール型ハイナンバーズ",
+      "インターフェイスコンストレイント",
+      "ヒューマノイド開発部(シンフォニー.XVI)"
     ],
     "TailsUnit": [
       {
@@ -1170,7 +1190,7 @@
       },
       {
         "Role": "#ColorRole_Sub",
-        "Hex": "#E2EBEF",
+        "Hex": "#EDD2DA",
         "ColorName_JP": "補助色（衣装）",
         "ColorName_EN": "Auxiliary Color (Costume)",
         "AppliesTo": null,
@@ -1179,6 +1199,8 @@
         "Note_EN": null
       }
     ],
+    "Summary_JP": "累乗数などの番号を持つ量産販売型ナンバーテールズの開発用に、黒薔薇国の「シンフォニー.XVI」と提携して試験開発されているキュビクザール型ハイナンバーズ。\n1バイトの値域256以下で最大となる立法数の番号であることから、ターミナルアプリ開発企業向けの提供を想定して設計された。\n完成後は同番同型量産個体の「216(ニイロ)」に百花繚乱研究所の事業を託し、シンフォニー.XVIでの提携部署「ベヴストザイン課 ヒューマノイド開発部」にて開発用機として稼働している。",
+    "Summary_EN": "A Kubikzahl-Series HighNumbers unit under experimental development in partnership with SchwarzeRoseland's \"Symphony.XVI\", intended for the development of mass-production sales NumberTales carrying numbers such as perfect powers.\nBecause her number is the largest cube number that fits within the 256-value range of a single byte, she was designed with supply to terminal-application development companies in mind.\nOnce completed, she entrusted HundredBeauties Laboratory's business to '216(Biunosect)', the mass-production unit of the same number and model, and now operates as a development unit at the partner department \"Bewußtsein Division, Humanoid Development Department\" within Symphony.XVI.",
     "Backgrounds_JP": "6の乗数であることから、「6(ムイ)」や「36(ミトム)」と関連が深い。\nシンフォニー.XVI(ゼクズィン)の部署内では設計業務に勤める「錦野舞」やその専属契約個体「78(ナナハ)」を気に掛ける様子も見られる。",
     "Backgrounds_EN": "As a multiple of 6, this unit has strong ties to \"6(Sics)\" and \"36(Trisixa).\"\nWithin the Symphony.XVI(Sechzehn) department, it is also seen to take an interest in \"Dancy Actressilk,\" who works in design, and her exclusive contract unit \"78(Seveights).\""
   },
@@ -1924,7 +1946,11 @@
       { "Faction": "百花繚乱研究所" },
       { "Faction": "レゾンデイトルカンパニー" }
     ],
-    "Class": ["キャレ型ハイナンバーズ"]
+    "Class": [
+      "デュオトリプル9型",
+      "キャレ型ハイナンバーズ",
+      "キャレ型ハイナンバーズ開発部"
+    ]
   },
   {
     "Num": "256-sq",
@@ -1937,7 +1963,7 @@
     ],
     "Name_JP": "256(セイザリー)\n16²(セイザリー)",
     "Name_EN": "256(Seizarrie)\n16²(Seizarrie)",
-    "FormalName_JP": "ナンバーテールズ キャレ-セイズ(異格同位256番機)",
+    "FormalName_JP": "ナンバーテールズ キャレ-セイズ(同位異格256番機)",
     "FormalName_EN": "NumberTales Unit.Carré-16 (Isotope Mk.256)",
     "CodeName_JP": "二五六,16²",
     "CodeName_EN": "Two-Five-Six, Sixteen Squared",
@@ -1947,7 +1973,11 @@
       { "Faction": "百花繚乱研究所" },
       { "Faction": "レゾンデイトルカンパニー" }
     ],
-    "Class": ["トリプルフォーズ", "キャレ型ハイナンバーズ"]
+    "Class": [
+      "トリプルフォーズ",
+      "キャレ型ハイナンバーズ",
+      "キャレ型ハイナンバーズ開発部"
+    ]
   },
   {
     "Num": "256-bq",
@@ -2049,7 +2079,10 @@
       { "Faction": "百花繚乱研究所" },
       { "Faction": "シンフォニー.XVI(ゼクズィン)" }
     ],
-    "Class": ["キュビクザール型ハイナンバーズ"]
+    "Class": [
+      "キュビクザール型ハイナンバーズ",
+      "ヒューマノイド開発部(シンフォニー.XVI)"
+    ]
   },
   {
     "Num": "361-sq",
@@ -2659,7 +2692,10 @@
       { "Faction": "百花繚乱研究所" },
       { "Faction": "シンフォニー.XVI(ゼクズィン)" }
     ],
-    "Class": ["キュビクザール型ハイナンバーズ"]
+    "Class": [
+      "キュビクザール型ハイナンバーズ",
+      "ヒューマノイド開発部(シンフォニー.XVI)"
+    ]
   },
   {
     "Num": "512-bq",
