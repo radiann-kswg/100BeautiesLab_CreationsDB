@@ -1199,10 +1199,12 @@
         "Note_EN": null
       }
     ],
+    "RelationNotes_JP": "シンフォニー.XVI(ゼクズィン)の部署内では設計業務に勤める「錦野舞」やその専属契約個体「78(ナナハ)」を気に掛ける様子も見られる。",
+    "RelationNotes_EN": "Within the Symphony.XVI(Sechzehn) department, it is also seen to take an interest in \"Dancy Actressilk,\" who works in design, and her exclusive contract unit \"78(Seveights).\"",
     "Summary_JP": "累乗数などの番号を持つ量産販売型ナンバーテールズの開発用に、黒薔薇国の「シンフォニー.XVI」と提携して試験開発されているキュビクザール型ハイナンバーズ。\n1バイトの値域256以下で最大となる立法数の番号であることから、ターミナルアプリ開発企業向けの提供を想定して設計された。\n完成後は同番同型量産個体の「216(ニイロ)」に百花繚乱研究所の事業を託し、シンフォニー.XVIでの提携部署「ベヴストザイン課 ヒューマノイド開発部」にて開発用機として稼働している。",
     "Summary_EN": "A Kubikzahl-Series HighNumbers unit under experimental development in partnership with SchwarzeRoseland's \"Symphony.XVI\", intended for the development of mass-production sales NumberTales carrying numbers such as perfect powers.\nBecause her number is the largest cube number that fits within the 256-value range of a single byte, she was designed with supply to terminal-application development companies in mind.\nOnce completed, she entrusted HundredBeauties Laboratory's business to '216(Biunosect)', the mass-production unit of the same number and model, and now operates as a development unit at the partner department \"Bewußtsein Division, Humanoid Development Department\" within Symphony.XVI.",
-    "Backgrounds_JP": "6の乗数であることから、「6(ムイ)」や「36(ミトム)」と関連が深い。\nシンフォニー.XVI(ゼクズィン)の部署内では設計業務に勤める「錦野舞」やその専属契約個体「78(ナナハ)」を気に掛ける様子も見られる。",
-    "Backgrounds_EN": "As a multiple of 6, this unit has strong ties to \"6(Sics)\" and \"36(Trisixa).\"\nWithin the Symphony.XVI(Sechzehn) department, it is also seen to take an interest in \"Dancy Actressilk,\" who works in design, and her exclusive contract unit \"78(Seveights).\""
+    "Backgrounds_JP": "6の乗数であることから、「6(ムイ)」や「36(ミトム)」と関連が深い。",
+    "Backgrounds_EN": "As a multiple of 6, this unit has strong ties to \"6(Sics)\" and \"36(Trisixa).\""
   },
   {
     "Num": 222,
@@ -4591,20 +4593,25 @@
   {
     "Num": "64-sxp",
     "Num_Badge": "64XP",
-    "Progress": "notProceeded",
+    "Progress": "stillTentative",
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "Primary", "Num": 64 }
     ],
     "Name_JP": "ゼフィア\n64(ゼフィア)",
     "Name_EN": "Secvier\n64(Secvier)",
-    "FormalName_JP": "ナンバーテールズ特殊個体：セクストパワーセカンド(仮設新64番機)",
-    "FormalName_EN": "NumberTales Special Model: Sextpower-II (Tentative New-Mk.64)",
+    "Images": {
+      "corefolder_PNGPath": ["64/emstk_corefolderNTS-64XP-1"]
+    },
+    "FormalName_JP": "ナンバーテールズ仮設新64番機",
+    "FormalName_EN": "NumberTales Tentative New-#64",
     "CodeName_JP": "六四",
     "CodeName_EN": "Six-Four",
     "SPCodeName_JP": "六四",
     "SPCodeName_EN": "Six-Four",
     "ModelNumber": "APHR-NT SXP.II",
-    "GenderType": "Neutral",
+    "ModelName_JP": "ナンバーテールズ特殊個体：セクストパワーセカンド(仮設新64番機)",
+    "ModelName_EN": "NumberTales Special Model: Sextpower-II (Tentative New-Mk.64)",
+    "GenderType": "FemaleNeutral",
     "Belonging": [
       { "Faction": "百花繚乱研究所" },
       { "Faction": "国際ヒューマノイド技術学会" }
@@ -4616,6 +4623,26 @@
       "国際協議個体",
       "バイナリーコンストレイント"
     ],
+    "Height_cm": 146,
+    "Weight_kg": { "hideText": "非公開" },
+    "BustSize": {
+      "value": "K",
+      "about_JP": "有志による情報",
+      "about_EN": "value provided by volunteers"
+    },
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 6,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 4, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 2, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ConceptAge": { "about_JP": "不詳", "about_EN": "Unknown" },
     "AnivDay": [
       {
         "Day": { "Month": 6, "DayOfMonth": 4 },
@@ -4628,6 +4655,75 @@
         "DayAbout_EN": "Development commemoration (Sextpower-type release incident)"
       }
     ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#B8507C",
+        "ColorName_JP": "主色",
+        "ColorName_EN": "Primary Color",
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Ear", "#BodyPart_Tail"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#F26383",
+        "ColorName_JP": "副色",
+        "ColorName_EN": "Secondary Color",
+        "AppliesTo": ["#BodyPart_Ear", "#BodyPart_Tail"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#6AA6D7",
+        "ColorName_JP": "メインアクセントカラー（瞳）, 主色（衣装）",
+        "ColorName_EN": "Main Accent Color (Eye Color), Primary Color (Costume)",
+        "AppliesTo": ["#BodyPart_Eye", "#BodyPart_Chest", "#BodyPart_Foot"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#387EB6",
+        "ColorName_JP": "サブアクセントカラー（瞳, 衣装）",
+        "ColorName_EN": "Sub Accent Color (Eye Color, Costume Color)",
+        "AppliesTo": [
+          "#BodyPart_Eye",
+          "#BodyPart_Neck",
+          "#BodyPart_Arm",
+          "#BodyPart_Waist"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#E55951",
+        "ColorName_JP": "副色（衣装）",
+        "ColorName_EN": "Sub Color (Costume)",
+        "AppliesTo": ["#BodyPart_Neck", "#BodyPart_Leg"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#EBDBDA",
+        "ColorName_JP": "補助色",
+        "ColorName_EN": "Auxiliary Color",
+        "AppliesTo": ["#BodyPart_Neck", "#BodyPart_Foot"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "Summary_JP": "ハイナンバーズ開発計画とナンバーテールズの国際展開のために計画が進んでいたある日、「64(ムトシ)」の度重なる非-純潔的な不祥事を「国際ヒューマノイド技術学会」が目を付け、新64番機として彼女の性格部分および数秘的加護のみを完全に再設計するよう百花繚乱研究所の陰で開発されていた個体。\n突然現れたこの設計構想を発端に、数秘的な性質を完全に打ち消し数学的および科学的性質に従って今後は開発するよう百花繚乱研究所へ強い規制圧力を与えたことは、「セクストパワー型リリース騒動」として問題となった。\n知的で学術的な委員長気質の性格となった彼女に、見た目を除いて「64(ムトシ)」の面影はまるで残っていない。",
+    "Summary_EN": "A unit developed in the shadows of the 100 Beauties Lab. one day while plans were advancing for the HighNumbers development program and the international expansion of NumberTales: the International Humanoid Technology Society had taken notice of the repeated scandals of a non-chaste nature surrounding '64(Sixforns)', and demanded a new Mk.64 in which only her personality and Numerospec would be completely redesigned.\nThe sudden appearance of this design concept touched off strong regulatory pressure on the 100 Beauties Lab. to negate numerological properties entirely and to base all further development on mathematical and scientific properties — an affair that became controversial as the 'Sextpower-type release incident'.\nNow remade with an intellectual, academic, class-president temperament, she retains no trace of '64(Sixforns)' apart from her appearance.",
     "Backgrounds_JP": "「64(ムトシ)」の不祥事を受け、64番機の再設計個体として密かに開発が進められていた個体。\n3桁番号を持つ量産販売型の開発試験機として外注開発しているハイナンバーズ個体：「キャレ型」シリーズ・「キュビザール型」シリーズの基本設計も担っている。",
     "Backgrounds_EN": "Following the misconduct case of '64(Sixforns)', this unit was secretly developed as a redesigned successor for Mk.64.\nAs an outsourced HighNumbers testbed for mass-production sale models with three-digit numbers, it also serves as a core baseline design for both the 'Carré' series and the 'Kubikzahl' series."
   },
