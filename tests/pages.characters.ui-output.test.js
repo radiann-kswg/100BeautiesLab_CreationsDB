@@ -720,6 +720,8 @@ describe('pages/characters.js UI output', () => {
 		await charactersModule.renderDetail('#Works_NumberTales', enrichedSecondaryRecord);
 
 		const secondarySectionText = getSectionText('二次創作情報');
+		expect(secondarySectionText).toContain('二次創作シリーズ名');
+		expect(secondarySectionText).toContain('ヘキサデミカル・テールズ');
 		expect(secondarySectionText).toContain('二次創作分類');
 		expect(secondarySectionText).toContain('共同二次創作');
 		expect(secondarySectionText).toContain('キャラクターデザイン・考案');

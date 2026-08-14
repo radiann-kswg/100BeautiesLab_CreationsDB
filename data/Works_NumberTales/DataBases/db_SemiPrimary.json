@@ -4769,7 +4769,6 @@
       "_DB": "PrimaryDealer",
       "Card": { "Suit": "Dealer", "Num": 79 }
     },
-    "sec_SeriesTitle": "D-Vines(ディ-ヴァインズ)",
     "Name_JP": "錦野 舞",
     "Name_EN": "Dancy Actressilk",
     "RaceType": "Human",
@@ -4811,7 +4810,6 @@
       "_DB": "PrimaryDealer",
       "Card": { "Suit": "Dealer", "Num": 80 }
     },
-    "sec_SeriesTitle": "D-Vines(ディ-ヴァインズ)",
     "Name_JP": "錦野 歌嫁",
     "Name_EN": "Phonia Actressilk",
     "RaceType": "Human",

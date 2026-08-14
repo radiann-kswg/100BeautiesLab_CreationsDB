@@ -1268,7 +1268,7 @@
       "_DB": "SelfSecondary",
       "Num": "255"
     },
-    "sec_SeriesTitle": "ヘキサデミカル・テールズ(ナンバーテールズ公式副次創作版)",
+    "sec_SeriesTitle": "公式版ヘキサデミカル・テールズ",
     "Name_JP": "0xFF(エフエフ)",
     "Name_EN": "0xFF(eFeF)",
     "FormalName_JP": "ヘキサデミカル-テールズ 第二最終番機(ナンバーテールズ異元255番機)",
@@ -1283,7 +1283,7 @@
   {
     "Num": "115-numberize",
     "Num_Badge": "115RZ",
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
+    "sec_SeriesTitle": "ナンバーテールズ化",
     "SameMPSeries_DBLink": [
       { "_DB": "SelfSecondary", "Num": "115-mp" },
       { "_DB": "SemiPrimary", "Num": 115 }
@@ -1378,7 +1378,7 @@
   {
     "Num": "148-numberize",
     "Num_Badge": "148RZ",
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
+    "sec_SeriesTitle": "ナンバーテールズ化",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 148 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
@@ -1470,7 +1470,7 @@
   {
     "Num": "227-numberize",
     "Num_Badge": "227RZ",
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
+    "sec_SeriesTitle": "ナンバーテールズ化",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 227 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
@@ -1570,7 +1570,7 @@
   {
     "Num": "232-numberize",
     "Num_Badge": "232RZ",
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
+    "sec_SeriesTitle": "ナンバーテールズ化",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 232 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
@@ -1671,7 +1671,7 @@
   {
     "Num": "238-numberize",
     "Num_Badge": "238RZ",
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
+    "sec_SeriesTitle": "ナンバーテールズ化",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 238 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
@@ -1763,7 +1763,7 @@
   {
     "Num": "241-numberize",
     "Num_Badge": "241RZ",
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
+    "sec_SeriesTitle": "ナンバーテールズ化",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 241 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
@@ -1863,7 +1863,7 @@
   {
     "Num": "258-numberize",
     "Num_Badge": "258RZ",
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
+    "sec_SeriesTitle": "ナンバーテールズ化",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 258 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
@@ -1955,7 +1955,7 @@
   {
     "Num": "263-numberize",
     "Num_Badge": "263RZ",
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
+    "sec_SeriesTitle": "ナンバーテールズ化",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 263 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
@@ -2057,7 +2057,7 @@
   {
     "Num": "265-numberize",
     "Num_Badge": "265RZ",
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
+    "sec_SeriesTitle": "ナンバーテールズ化",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 265 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
@@ -2149,7 +2149,7 @@
   {
     "Num": "294-numberize",
     "Num_Badge": "294RZ",
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
+    "sec_SeriesTitle": "ナンバーテールズ化",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 294 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
@@ -2236,7 +2236,7 @@
   {
     "Num": "295-numberize",
     "Num_Badge": "295RZ",
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
+    "sec_SeriesTitle": "ナンバーテールズ化",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 295 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
@@ -2333,7 +2333,7 @@
   {
     "Num": "337-numberize",
     "Num_Badge": "337RZ",
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
+    "sec_SeriesTitle": "ナンバーテールズ化",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 337 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
@@ -2427,7 +2427,7 @@
   {
     "Num": "366-numberize",
     "Num_Badge": "366RZ",
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
+    "sec_SeriesTitle": "ナンバーテールズ化",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 366 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
@@ -2528,7 +2528,7 @@
   {
     "Num": "376-numberize",
     "Num_Badge": "376RZ",
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
+    "sec_SeriesTitle": "ナンバーテールズ化",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 376 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
@@ -2620,7 +2620,7 @@
   {
     "Num": "377-numberize",
     "Num_Badge": "377RZ",
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
+    "sec_SeriesTitle": "ナンバーテールズ化",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 377 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
@@ -2711,7 +2711,7 @@
   {
     "Num": "387-numberize",
     "Num_Badge": "387RZ",
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
+    "sec_SeriesTitle": "ナンバーテールズ化",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 387 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
@@ -2803,7 +2803,7 @@
   {
     "Num": "401-numberize",
     "Num_Badge": "401RZ",
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
+    "sec_SeriesTitle": "ナンバーテールズ化",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 401 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
@@ -2873,7 +2873,7 @@
   {
     "Num": "411-numberize",
     "Num_Badge": "411RZ",
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
+    "sec_SeriesTitle": "ナンバーテールズ化",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 411 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
@@ -2962,7 +2962,7 @@
   {
     "Num": "421-numberize",
     "Num_Badge": "421RZ",
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
+    "sec_SeriesTitle": "ナンバーテールズ化",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 421 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
@@ -3056,7 +3056,7 @@
   {
     "Num": "467-numberize",
     "Num_Badge": "467RZ",
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
+    "sec_SeriesTitle": "ナンバーテールズ化",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 467 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
@@ -3148,7 +3148,7 @@
   {
     "Num": "476-numberize",
     "Num_Badge": "476RZ",
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
+    "sec_SeriesTitle": "ナンバーテールズ化",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 476 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
@@ -3240,7 +3240,7 @@
   {
     "Num": "510-numberize",
     "Num_Badge": "510RZ",
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
+    "sec_SeriesTitle": "ナンバーテールズ化",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 510 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
@@ -3327,7 +3327,7 @@
   {
     "Num": "558-numberize",
     "Num_Badge": "558RZ",
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
+    "sec_SeriesTitle": "ナンバーテールズ化",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 558 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
@@ -3418,7 +3418,7 @@
   {
     "Num": "605-numberize",
     "Num_Badge": "605RZ",
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
+    "sec_SeriesTitle": "ナンバーテールズ化",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 605 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
@@ -3508,7 +3508,7 @@
   {
     "Num": "625-numberize",
     "Num_Badge": "625RZ",
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
+    "sec_SeriesTitle": "ナンバーテールズ化",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 625 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
@@ -3600,7 +3600,7 @@
   {
     "Num": "638-numberize",
     "Num_Badge": "638RZ",
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
+    "sec_SeriesTitle": "ナンバーテールズ化",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 638 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
@@ -3692,7 +3692,7 @@
   {
     "Num": "670-numberize",
     "Num_Badge": "670RZ",
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
+    "sec_SeriesTitle": "ナンバーテールズ化",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 670 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
@@ -3779,7 +3779,7 @@
   {
     "Num": "736-numberize",
     "Num_Badge": "736RZ",
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
+    "sec_SeriesTitle": "ナンバーテールズ化",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 736 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
@@ -3871,7 +3871,7 @@
   {
     "Num": "773-numberize",
     "Num_Badge": "773RZ",
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
+    "sec_SeriesTitle": "ナンバーテールズ化",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 773 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
@@ -3962,7 +3962,7 @@
   {
     "Num": "979-numberize",
     "Num_Badge": "979RZ",
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
+    "sec_SeriesTitle": "ナンバーテールズ化",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 979 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
@@ -4049,7 +4049,7 @@
   {
     "Num": "1122-numberize",
     "Num_Badge": "1122RZ",
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
+    "sec_SeriesTitle": "ナンバーテールズ化",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 1122 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
