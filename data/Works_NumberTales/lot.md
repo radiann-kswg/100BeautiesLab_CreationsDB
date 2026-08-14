@@ -101,11 +101,12 @@ NUM |or CLASS       |          \ LOT VALIANT
 616 |FatalTales     |         [MP]616-FT***
 666 |FatalTales     |[x3]VI   [MP]666-*****
 ----+---------------+-----------------------
-223 |Wa-no-Machi    |         [MP]223-JW***
-369 |Wa-no-Machi    |         [MP]369-JW***
-456 |Wa-no-Machi    |         [MP]456-JW***
-753 |Wa-no-Machi    |         [MP]753-JW***
-808 |Wa-no-Machi    |         [MP]808-JW***
+223 |Reiwa-Emperor  |         [MP]223-JW***
+369 |Miroku         |         [MP]369-JW***
+429 |Leaf-greens day|         [MP]429-JW***
+456 |Upper dice     |         [MP]456-JW***
+753 |Child ceremony |         [MP]753-JW***
+808 |Vegetable shop |         [MP]808-JW***
 ----+---------------+-----------------------
 ```
 
