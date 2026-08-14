@@ -4612,10 +4612,7 @@
     "ModelName_JP": "ナンバーテールズ特殊個体：セクストパワーセカンド(仮設新64番機)",
     "ModelName_EN": "NumberTales Special Model: Sextpower-II (Tentative New-Mk.64)",
     "GenderType": "FemaleNeutral",
-    "Belonging": [
-      { "Faction": "百花繚乱研究所" },
-      { "Faction": "国際ヒューマノイド技術学会" }
-    ],
+    "Belonging": [{ "Faction": "国際ヒューマノイド技術学会" }],
     "Class": [
       "デュアルキャリーズ",
       "キャレ型ハイナンバーズ",
