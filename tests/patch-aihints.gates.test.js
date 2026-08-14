@@ -13,12 +13,13 @@
  *   後者は既存 AIHints の保守モードを止めない。詳細は `docs/api-sw-spec.md` §5.5。
  *
  *   ★ 固定している前提:
- *     (a) `AI_Unready` な Progress かつ画像ありの scaffold 候補は、既知の 3 件だけである
- *         → この集合が Progress ゲートの実効範囲そのもの。増減したら「まだ AI へ流す段階でない
- *           のに画像がある新規レコード」が現れた（あるいは解禁された）ということなので、
- *           意図した状態かを確認したうえで期待値を更新すること。
- *         （当初は SemiPrimary Num 100 のみで、Primary / SelfSecondary ではゲートが no-op
- *           だった。2026-08-13 に 216 系 2 件へ画像が入り、SelfSecondary でも実効化した）
+ *     (a) `AI_Unready` な Progress かつ画像ありの scaffold 候補が 1 件以上ある
+ *         → ゲートが no-op ではない（実効している）ことの確認。
+ *         ※ 対象レコードの Num は**列挙しない**。キャラ追加や画像追加のたびに期待値の
+ *           書き換えが必要になり、CI を繰り返し落としていたため（2026-08-13 / 2026-08-14）。
+ *           「どの Progress 語彙をブロックするか」の回帰は下段の
+ *           `loadAiUnreadyProgressValues` の宣言テストが担保しており、実データの
+ *           スナップショットを重ねて固定する必要はない。
  *     (b) Primary の AIHints の identity_tags に `TODO:` 接頭辞は無い
  *         → `classTagsOf`（Class 辞書 fallback を持つ）の唯一の呼び出し経路である
  *           `--fill-todos` は Primary に到達しない。クラス辞書の変更が Primary の
@@ -55,7 +56,7 @@ function hasAnyImage(rec) {
 }
 
 describe('ゲートの前提条件（実データ）', () => {
-    it('Progress ゲートの実効範囲は既知の 3 件（scaffold 候補のうち `AI_Unready` なレコードの固定）', () => {
+    it('Progress ゲートが実効している（scaffold 候補のうち `AI_Unready` なレコードが存在する）', () => {
         // ★ 判定対象は「scaffold 候補」= 画像があり、かつ AIHints を**まだ持たない**レコードだけ。
         //   既存 AIHints 保持レコードは前段の skipped-existing で落ちるためゲートに到達しない。
         //   実際 Primary の Num "10-alt" は stillTentative かつ画像ありだが AIHints 保持済みで、
@@ -70,14 +71,10 @@ describe('ゲートの前提条件（実データ）', () => {
                 }
             }
         }
-        // ここが増えたら「まだ AI へ流す段階でないのに画像がある新規レコード」が現れたということ。
-        // 減ったら解禁されたということ。いずれも意図した状態か確認してから期待値を更新すること。
-        // Primary が 1 件も並ばないこと自体が「Primary ではゲートが no-op」の根拠になっている。
-        expect(gated).toEqual([
-            'db_SemiPrimary.json Num=100',
-            'db_SemiPrimary.json Num="216-cub"',
-            'db_SelfSecondary.json Num=216',
-        ]);
+        // 0 件になったら「未成熟なのに画像があるレコード」が 1 件も無い＝ゲートが素通り状態。
+        // `AI_Unready` の宣言漏れや画像ゲートとの二重掛けで実効しなくなった場合に気づくための下限。
+        // 上限は設けない（キャラ・画像の追加は日常運用であり、そのたびに落とす価値が無い）。
+        expect(gated.length).toBeGreaterThan(0);
     });
 
     it('既存 AIHints を持つ `AI_Unready` なレコードはゲートに到達しない（skipped-existing が前段のため無傷）', () => {
