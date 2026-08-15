@@ -821,7 +821,7 @@
           "$dict": "SeriesTitle",
           "hashTag_JP": "二次創作シリーズ名",
           "hashTag_EN": "Secondary Title",
-          "$display": { "auto": false }
+          "$display": { "section": "secondaryInfo" }
         },
         {
           "hashTag": "sec_Category",

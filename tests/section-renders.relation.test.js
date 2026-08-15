@@ -254,6 +254,24 @@ describe('relationSection: クロスDB 参照（RelationTo_*）', () => {
 		expect(textOf(anchors[0])).toBe('T2');
 		expect(anchors[0].props.href).toBe('/pages/characters.html?c=UnibyteLive/PrimaryPerformer/Alphabet:T,AlphaGen:2');
 	});
+
+	it('RelationOriginalTo_* もクロスDB参照として扱う', () => {
+		const relationApi = makeRelationApi({
+			indexDef: NUMBERTALES_INDEX_DEF,
+			records: [],
+			workId: '#Works_NumberTales',
+			db: 'Secondary',
+			fetchDbRecords: async () => ({ records: [] })
+		});
+
+		const result = renderRelation({
+			containerKey: 'RelationOriginalTo_Primary',
+			value: { Related: [{ Num: 1 }] },
+			relationApi
+		});
+
+		expect(findAnchors(result)[0]?.props.href).toBe('/pages/characters.html?c=NumberTales/Primary/Num:1');
+	});
 });
 
 describe('relationSection: スカラー Index（回帰確認）', () => {

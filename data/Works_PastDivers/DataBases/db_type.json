@@ -133,7 +133,11 @@
           "$type": "#String|#String_withAbout",
           "hashTag_JP": "時空遷移(クロノイド)純度",
           "hashTag_EN": "Chronoized Purity",
-          "$display": { "section": "spec", "tagSpace": "creation", "langMode": "shared" }
+          "$display": {
+            "section": "spec",
+            "tagSpace": "creation",
+            "langMode": "shared"
+          }
         },
         {
           "hashTag": "ChronoizedAbout_JP",
@@ -223,8 +227,8 @@
       ],
       "hashTag_JP": "関係キャラクター",
       "hashTag_EN": "Related Characters",
-      "isForSecondary": false,
-      "$display": { "sectionWrapper": "relationSection" }
+      "isForSecondary": null,
+      "$display": { "sectionWrapper": "relationSection", "open": true }
     },
     {
       "hashTag": "RelationTo_Primary",
@@ -244,8 +248,8 @@
       ],
       "hashTag_JP": "原作との関係",
       "hashTag_EN": "Relation to Primary Work",
-      "isForSecondary": true,
-      "$display": { "sectionWrapper": "relationSection" }
+      "isForSecondary": null,
+      "$display": { "sectionWrapper": "relationSection", "open": true }
     }
   ],
   "$VersDef": {
@@ -269,14 +273,14 @@
         {
           "hashTag": "Lunar",
           "$type": "#Index",
-          "isForSecondary": false,
+          "isForSecondary": null,
           "hashTag_JP": "月暦",
           "hashTag_EN": "Lunar"
         },
         {
           "hashTag": "Comments",
           "$type": "#Dialogue",
-          "isForSecondary": false,
+          "isForSecondary": null,
           "hashTag_JP": "コメント",
           "hashTag_EN": "Comments"
         },
@@ -290,6 +294,7 @@
         {
           "hashTag": "RelationLabel",
           "$type": "#ListIndex[]",
+          "isForSecondary": null,
           "hashTag_JP": "関係性タグ",
           "hashTag_EN": "Relation Label",
           "$display": {

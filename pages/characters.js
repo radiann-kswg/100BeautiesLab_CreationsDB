@@ -39,7 +39,7 @@ import {
 	ensureApiSW,
 	resetApiBase,
 	replayRememberedSwInitError
-} from '../lib/page-api-bridge.js';
+} from '../lib/page-api-bridge.js?v=2026.08.15.8';
 import '../lib/wrapper-common.js';
 import '../lib/section-wrapper-common.js';
 import '../lib/basic-renders/calling-common.js';
@@ -2679,14 +2679,8 @@ function extractTopLevelSchemaFields(workTypeDef, globalTypeDef = {}, options = 
 			if (key === 'Images') continue;
 			if (seen.has(key)) continue;
 
-			// 二次創作向けフィールドの表示切替（isForSecondary）
-			// - undefined は「共通扱い」で常に表示
-			// - Secondary 文脈: true/undefined を表示、false は非表示
-			// - Primary 等の文脈: false/undefined を表示、true は非表示
-			if (isSecondary !== null && typeof item.isForSecondary === 'boolean') {
-				if (isSecondary && item.isForSecondary === false) continue;
-				if (!isSecondary && item.isForSecondary === true) continue;
-			}
+			if (isSecondary !== null && typeUtils?.isFieldForSecondaryContext
+				&& !typeUtils.isFieldForSecondaryContext(item, isSecondary)) continue;
 
 			const label = item.hashTag_JP || item.hashtag_JP || item.hashTag_EN || item.hashtag_EN || key;
 			out.push({
@@ -2712,14 +2706,8 @@ function extractTopLevelSchemaFields(workTypeDef, globalTypeDef = {}, options = 
 			if (key === 'Images') continue;
 			if (seen.has(key)) continue;
 
-			// 二次創作向けフィールドの表示切替（isForSecondary）
-			// - undefined は「共通扱い」で常に表示
-			// - Secondary 文脈: true/undefined を表示、false は非表示
-			// - Primary 等の文脈: false/undefined を表示、true は非表示
-			if (isSecondary !== null && typeof item.isForSecondary === 'boolean') {
-				if (isSecondary && item.isForSecondary === false) continue;
-				if (!isSecondary && item.isForSecondary === true) continue;
-			}
+			if (isSecondary !== null && typeUtils?.isFieldForSecondaryContext
+				&& !typeUtils.isFieldForSecondaryContext(item, isSecondary)) continue;
 
 			const label = item.hashTag_JP || item.hashtag_JP || item.hashTag_EN || item.hashtag_EN || key;
 			out.push({
@@ -6243,6 +6231,11 @@ export async function renderDetail(workId, rec) {
 				const m = k.match(/^(.+)_(JP|EN)$/);
 				if (m) s.add(m[1]);
 				else { s.add(`${k}_JP`); s.add(`${k}_EN`); }
+				for (const altKey of topLevelAltMap?.[k] || []) {
+					s.add(altKey);
+					const altMatch = altKey.match(/^(.+)_(JP|EN)$/);
+					if (altMatch) s.add(altMatch[1]);
+				}
 			}
 			return s;
 		})();
@@ -6770,7 +6763,7 @@ export async function renderDetail(workId, rec) {
 			if (rec.Summary && !isPromotedSubFieldKey('Summary')) s.add('Summary');
 			if (rec.Relation && !isPromotedSubFieldKey('Relation')) s.add('Relation');
 			for (const k of Object.keys(rec || {})) {
-				if (!/^RelationTo_/.test(k)) continue;
+				if (!/^Relation(?:Original)?To_/.test(k)) continue;
 				if (!isPromotedSubFieldKey(k)) s.add(k);
 			}
 
@@ -7415,7 +7408,7 @@ export async function renderDetail(workId, rec) {
 			});
 			if (wrappedSection) return wrappedSection;
 
-			const relationSection = ((it.key === 'Relation' || /^RelationTo_/.test(it.key)) && it.value)
+			const relationSection = ((it.key === 'Relation' || /^Relation(?:Original)?To_/.test(it.key)) && it.value)
 				? renderRelations(it.value, fieldLabelMap, metaForLookup, globalDefType, fieldDisplayMap, {
 					containerKey: it.key,
 					fieldTypeMap,
@@ -7500,6 +7493,12 @@ export async function renderDetail(workId, rec) {
 			.map((it) => renderStandaloneFieldSection(it))
 			.filter(Boolean);
 		const renderedSubFieldKeySet = new Set(orderedSubFieldItems.map((it) => it.key));
+		for (const [primaryKey, altKeys] of Object.entries(topLevelAltMap || {})) {
+			if (!Array.isArray(altKeys)) continue;
+			if (altKeys.some((altKey) => renderedSubFieldKeySet.has(altKey))) {
+				renderedSubFieldKeySet.add(primaryKey);
+			}
+		}
 
 		// basic セクションは「基本情報テーブル + スキーマで basic 指定された追加項目」をまとめて表示
 		const basicSection = el('div', { class: 'section' }, [
@@ -7627,7 +7626,7 @@ export async function renderDetail(workId, rec) {
 				? renderRelations(rec.Relation, fieldLabelMap, metaForLookup, globalDefType, fieldDisplayMap, { containerKey: 'Relation', fieldTypeMap })
 				: null,
 			...Object.keys(rec || {})
-				.filter((k) => /^RelationTo_/.test(k) && !renderedSubFieldKeySet.has(k))
+				.filter((k) => /^Relation(?:Original)?To_/.test(k) && !renderedSubFieldKeySet.has(k))
 				.map((k) => {
 					const rv = rec[k];
 					return (rv?.Related || rv?.Commented)
@@ -8173,12 +8172,15 @@ function wireControls() {
 			try {
 				// Clear all browser caches
 				const keys = await caches.keys();
-				await Promise.all(keys.map(k => caches.delete(k)));
+				await Promise.all(keys.map(k => Promise.resolve(caches.delete(k)).catch(() => false)));
 			} catch { }
 			try {
 				// Unregister all service workers
 				const regs = await navigator.serviceWorker.getRegistrations();
-				await Promise.all(regs.map(r => r.unregister()));
+				// unregister() はブラウザー実装によって解決しないことがあるため待たない
+				regs.forEach((registration) => {
+					try { registration.unregister(); } catch { }
+				});
 			} catch { }
 
 			// Clear in-memory metadata caches
@@ -8318,15 +8320,15 @@ async function main() {
 		// ローディングインジケーターを表示
 		showLoadingIndicator('アプリケーションを初期化しています...');
 
-		// ステップ1: Service Worker の初期化
+		// SW がハングしてもリセット操作を受け付けられるよう、UI を先に配線する
 		let stepStart = performance.now();
-		await ensureApiSW();
-		console.log(`✅ Service Worker を ${(performance.now() - stepStart).toFixed(2)}ms で初期化`);
-
-		// ステップ2: UI コントロールの配線
-		stepStart = performance.now();
 		wireControls();
 		console.log(`✅ UI コントロールを ${(performance.now() - stepStart).toFixed(2)}ms で配線`);
+
+		// ステップ1: Service Worker の初期化
+		stepStart = performance.now();
+		await ensureApiSW();
+		console.log(`✅ Service Worker を ${(performance.now() - stepStart).toFixed(2)}ms で初期化`);
 
 		// ステップ3: 作品リストの入力
 		stepStart = performance.now();
@@ -8429,6 +8431,7 @@ function showLoadingIndicator(message = '読み込み中...') {
 	// Show the indicator using CSS class
 	indicator.classList.add('show');
 	indicator.style.display = 'flex';
+		indicator.style.pointerEvents = 'none';
 	indicator.hidden = false;
 
 	console.log('🔄 Loading indicator shown:', message);

@@ -1067,7 +1067,9 @@
         "DayAbout_EN": "Development commemoration (in Wa-no-Machi Class)"
       }
     ],
-    "AppearanceDetail": null
+    "AppearanceDetail": null,
+    "RelationNotes_JP": "「429(リーフ)」に対して尊敬しているものの、強い謙譲意識や加害妄想があるようで……",
+    "RelationNotes_EN": "Although she respects \"429(Leafgreens)\", ze seems to have a strong sense of humility and a tendency toward persecutory delusions..."
   },
   {
     "Num": 225,
@@ -1947,6 +1949,31 @@
       }
     ],
     "AppearanceDetail": null
+  },
+  {
+    "Num": 429,
+    "Num_Badge": "429",
+    "Progress": "notProceeded",
+    "Name_JP": "429(リーフ)\n429(ミドリ)",
+    "Name_EN": "429(Leafgreens)\n429(Mídori)",
+    "FormalName_JP": "量産型ナンバーテールズ429番機JWシリーズ",
+    "FormalName_EN": "NumberTales #429-JW Series Mass Production Version for Sales",
+    "CodeName_JP": "四二九",
+    "CodeName_EN": "Four-Two-Nine",
+    "SPCodeName_JP": "みどりの日(昭和天皇の誕生日)",
+    "SPCodeName_EN": "Leafgreens' holiday (and Emperor Shōwa's Birthday) in Far-Eastern Calendar",
+    "ModelNumber": "APHR-NT [MP]429-JW***",
+    "GenderType": "Neutral",
+    "Class": ["トリプルシックスズ", "ワノマチ"],
+    "AnivDay": [
+      {
+        "Day": { "Month": 4, "DayOfMonth": 29 },
+        "DayAbout_JP": "開発記念(ワノマチ名義)",
+        "DayAbout_EN": "Development commemoration (in Wa-no-Machi Class)"
+      }
+    ],
+    "RelationNotes_JP": "「223(フブミ)」のことを兄弟姉妹のように慕っているが……",
+    "RelationNotes_EN": "Ze looks up to \"223(Twitwintrey)\" as if they were siblings, but..."
   },
   {
     "Num": 441,

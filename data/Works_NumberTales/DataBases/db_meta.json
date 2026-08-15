@@ -143,7 +143,7 @@
         {
           "sec_Category": "セルフ三次創作",
           "sec_DesignedBy": ["RadianN"],
-          "sec_SeriesTitle": "ヘキサデミカル・テールズ(ナンバーテールズ公式副次創作版)",
+          "sec_SeriesTitle": "公式版ヘキサデミカル・テールズ",
           "SecondarySummary_JP": "散狐アタストさんにより原案がキャラデザされた「ヘキサデミカル・テールズ」をもとにナンバーテールズの公式副次創作としてキャラの構想を拡張した。\n百花繚乱研究所と「エイゼルベット」によりある世界からあらゆる\"観測\"を経て誕生した、特殊な十六進数を持つナンバーテールズ同位体。百花繚乱研究所にて研究開発の一要因として活動している。",
           "StoryEra": {
             "InEra": [
@@ -164,7 +164,7 @@
         {
           "sec_Category": "共同二次創作",
           "sec_DesignedBy": ["RadianN", "Atast"],
-          "sec_SeriesTitle": "D-Vines(ディ-ヴァインズ)",
+          "sec_SeriesTitle": "D-Vines",
           "SecondarySummary_JP": "散狐アタストさんの提案により考案された。\nシンフォニー.XVI(ゼクズィン)に所属する「錦野舞」によりナンバーテールズの互換プロダクションとして開発された、胴部襷掛け方向に上下体の乖離・組み換え再接続が可能なカスタマイズ特化型ディビエイタブルヒューマノイド。上下の組み換え次第で性格に変化が生じるため、個体の外見デザイン以上のキャラクターバリエーションを有することが特徴。",
           "StoryEra": {
             "InEra": [
@@ -186,7 +186,7 @@
         {
           "sec_Category": "自創作キャラ化企画",
           "sec_DesignedBy": ["RadianN"],
-          "sec_SeriesTitle": "ナンバーテールズ化企画",
+          "sec_SeriesTitle": "ナンバーテールズ化",
           "_Commons": {
             "Progress": "archived",
             "Belonging": [],

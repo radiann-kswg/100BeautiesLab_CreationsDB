@@ -1,18 +1,34 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### fix: 二次創作 UI にシリーズタイトルを表示 (2026-08-15)
+
+- `sec_SeriesTitle` を既存の二次創作情報セクションへ表示するよう、`$Def_SecondaryMeta` の表示定義を更新。
+- 既存の `_Secondaries` / `_Commons` によるシリーズ情報の補完経路は変更しない。
+
+### feat: 一次創作との関係を初期表示 (2026-08-15)
+
+- 既存の `RelationTo_Primary` typedef に `open: true` を追加し、二次創作キャラクターの原作関係リンクを初期展開する。
+- `Relation` renderer が typedef の表示指定を解釈し、他の折りたたみセクションの初期状態は変更しない。
+
+### refactor: `isForSecondary` の共通スコープを null で明示 (2026-08-15)
+
+- 一次・二次共通の `Relation` と `$Def_Relations` の共通項目を `isForSecondary: null` へ統一。
+- UI の typedef 抽出と SW の `_DBLink` enrich を三値判定へ集約し、`null` を共通フィールドとして扱う。
+- また、一次創作限定フィールドには `isForSecondary: false` を明示し、二次創作限定フィールドには `isForSecondary: true` を明示する。
+
 ### feat: 配色スロットを全作品 160 レコードへ展開（完了）と、判定根拠の `AppliesTo` 駆動化 (2026-08-11)
 
 [issue #21](https://github.com/radiann-kswg/100BeautiesLab_CreationsDB/issues/21#issuecomment-5249395494) と User 確定の 7 枠スロット表を、**配色を持つ全 160 レコード（975 色）へ展開し終えた**。**画像（設定画・単体絵）を正典**として、`ColorPalette` の並び・`Role`・`ColorName_JP/EN` を確定している。
 
-| Work / DB | 件数 | 色数 |
-| --- | ---: | ---: |
-| NumberTales / Primary | 96 | 594 |
-| NumberTales / Secondary | 37 | 219 |
-| NumberTales / SemiPrimary | 11 | 68 |
-| NumberTales / SelfSecondary | 7 | 41 |
-| UnibyteLive / Primary | 4 | 18 |
-| DestinyFoxRecords / Primary + Proxy | 5 | 35 |
-| **合計** | **160** | **975** |
+| Work / DB                           |    件数 |    色数 |
+| ----------------------------------- | ------: | ------: |
+| NumberTales / Primary               |      96 |     594 |
+| NumberTales / Secondary             |      37 |     219 |
+| NumberTales / SemiPrimary           |      11 |      68 |
+| NumberTales / SelfSecondary         |       7 |      41 |
+| UnibyteLive / Primary               |       4 |      18 |
+| DestinyFoxRecords / Primary + Proxy |       5 |      35 |
+| **合計**                            | **160** | **975** |
 
 - **判定根拠に `AppliesTo` を通した（最大の不備の解消）**: `collectSlotEvidence()` は色語照合（13 語）だけを根拠にしており、issue §1 の適用で埋めた `AppliesTo` 244 部位が判定にも `--slot-report` にも効いていなかった。返り値へ `appliesTo` を追加し、レポートは `AppliesTo` を正・色語を `~` 付きのフォールバックとして表示する。
 - **`classifyParts()`（新規）**: 部位を 地毛（髪/耳/尻尾）/ 衣装（胸/腰/脚/肩/腕/背中）/ アクセサリー（それ以外）の 3 クラスへ写す純関数。襟・手袋・靴・帽子は小物なので `Neck` / `Hand` / `Foot` / `Head` を衣装に入れない。クラスは**排他ではない**（1 色が地毛と衣装の両方に出るのは普通）。
@@ -36,13 +52,13 @@
 - **入れないもの**: 「髪の色には耳・尻尾も足す」規約（前回 318 部位を根拠なく追加した侵食の主因）。`AppliesTo` へ入れるのは**その HEX に該当する部位だけ**という User のルールに従う。
 - **近似色フィルタ（新規判断）**: 同一レコード内に **RGB 距離 40 未満**の別の色があるとき、その割当は採用しない。誤りは近似色ペアの取り違えに集中していた（Num 1 のパーカーは `#FF8682` なのに `#FFAC8F`（距離 30）へ割り当てられていた）。人でも設定画から分離できない組なので、判定ごと捨てて既存値を残す。691 行のうち **228 行**がこの条件で落ちた。
 - **フィルタ通過分は全件裏が取れた**: 確定済み 5 件で残った追加 6 件を記述と突き合わせた結果、すべて正しかった。当初「余計」と数えていたのは、`AppliesTo` を網羅の意味に統一する前の**抜粋だった既存値**と比べていたための誤検出。
-  | 追加                         | 提案の根拠                                            |
+  | 追加 | 提案の根拠 |
   | ---------------------------- | ----------------------------------------------------- |
-  | Num 5 `#4CD9E8` +Eye         | `dark green eyes with a hint of…`（イズはオッドアイ） |
-  | Num 5 `#4CD9E8` +Leg         | `light blue short skirt`                              |
-  | Num 6 `#185EBD` +Neck        | `hexagonal brooch`（襟元のブローチ）                  |
-  | Num 6 `#FF76A2` +Chest,Waist | `two-tone pink purple dress`（ワンピースは 2 色）     |
-  | Num 24 `#C680AF` +Eye        | `purple eyes`                                         |
+  | Num 5 `#4CD9E8` +Eye | `dark green eyes with a hint of…`（イズはオッドアイ） |
+  | Num 5 `#4CD9E8` +Leg | `light blue short skirt` |
+  | Num 6 `#185EBD` +Neck | `hexagonal brooch`（襟元のブローチ） |
+  | Num 6 `#FF76A2` +Chest,Waist | `two-tone pink purple dress`（ワンピースは 2 色） |
+  | Num 24 `#C680AF` +Eye | `purple eyes` |
 - **実データ**: NumberTales の 3 DB で **188 色**を更新（`db_Primary` 160 / `db_SemiPrimary` 18 / `db_SelfSecondary` 10）。HEAD 比で**消えた部位 0 / 増えた部位 244**（対象 700 色）。既存値は 1 つも失っていない。
 - **検証**: `npm test` **69 files / 1,225 件すべて成功**。
 
