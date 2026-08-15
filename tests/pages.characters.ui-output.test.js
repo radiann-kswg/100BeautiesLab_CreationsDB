@@ -726,6 +726,12 @@ describe('pages/characters.js UI output', () => {
 		expect(secondarySectionText).toContain('共同二次創作');
 		expect(secondarySectionText).toContain('キャラクターデザイン・考案');
 		expect(secondarySectionText).toContain('散狐アタスト');
+
+		const relationSection = getSectionNode('関係キャラクター');
+		expect(relationSection?.tagName).toBe('DETAILS');
+		expect(relationSection?.open).toBe(true);
+		expect(getSectionNode('原作との関係')).not.toBeNull();
+		expect(getSectionNode('基本個体との関係')).toBeNull();
 	});
 
 	it('resolves Class values via a Belonging-scoped dictionary (scopeField)', async () => {
@@ -777,6 +783,7 @@ describe('pages/characters.js UI output', () => {
 
 		const section = getSectionNode('原作との関係');
 		expect(section).not.toBeNull();
+		expect(section?.open).toBe(true);
 
 		const links = Array.from(section.querySelectorAll('a'));
 		const primaryLink = links.find((link) => link.textContent?.trim() === '1');

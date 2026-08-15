@@ -185,8 +185,8 @@
           "StreamingActivity",
           "AbilityStats",
           "Relation",
+          "RelationOriginalTo_Primary",
           "RelationTo_PrimaryPerformer",
-          "RelationTo_Primary",
           "ConversationPattern",
           "ThisPerformer_DBLink",
           "AnotherRegions_DBLink"

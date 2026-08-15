@@ -16,6 +16,7 @@
       {
         "hashTag": "SuitNum",
         "$type": "#Number|#Null",
+        "isForSecondary": null,
         "hashTag_JP": "カード番号(種別内番号)",
         "hashTag_EN": "CardNumber(InSuit)"
       },
@@ -280,8 +281,8 @@
         }
       ],
       "hashTag_JP": "関係キャラクター",
-      "isForSecondary": false,
-      "$display": { "sectionWrapper": "relationSection" },
+      "isForSecondary": null,
+      "$display": { "sectionWrapper": "relationSection", "open": true },
       "isForMobs": false
     },
     {
@@ -303,7 +304,7 @@
       "hashTag_JP": "原作との関係",
       "hashTag_EN": "Relation to Primary Characters",
       "isForSecondary": true,
-      "$display": { "sectionWrapper": "relationSection" },
+      "$display": { "sectionWrapper": "relationSection", "open": true },
       "isForMobs": false
     }
   ],
@@ -313,14 +314,14 @@
         {
           "hashTag": "Card",
           "$type": "#Index",
-          "isForSecondary": false,
+          "isForSecondary": null,
           "hashTag_JP": "カード(アルカナ)",
           "hashTag_EN": "Card (Arcana)"
         },
         {
           "hashTag": "Comments",
           "$type": "#Dialogue",
-          "isForSecondary": false,
+          "isForSecondary": null,
           "hashTag_JP": "コメント",
           "hashTag_EN": "Comments"
         },
@@ -334,6 +335,7 @@
         {
           "hashTag": "RelationLabel",
           "$type": "#ListIndex[]",
+          "isForSecondary": null,
           "hashTag_JP": "関係性タグ",
           "hashTag_EN": "Relation Label",
           "$display": {

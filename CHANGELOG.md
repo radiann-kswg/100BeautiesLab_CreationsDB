@@ -5,6 +5,17 @@
 - `sec_SeriesTitle` を既存の二次創作情報セクションへ表示するよう、`$Def_SecondaryMeta` の表示定義を更新。
 - 既存の `_Secondaries` / `_Commons` によるシリーズ情報の補完経路は変更しない。
 
+### feat: 一次創作との関係を初期表示 (2026-08-15)
+
+- 既存の `RelationTo_Primary` typedef に `open: true` を追加し、二次創作キャラクターの原作関係リンクを初期展開する。
+- `Relation` renderer が typedef の表示指定を解釈し、他の折りたたみセクションの初期状態は変更しない。
+
+### refactor: `isForSecondary` の共通スコープを null で明示 (2026-08-15)
+
+- 一次・二次共通の `Relation` と `$Def_Relations` の共通項目を `isForSecondary: null` へ統一。
+- UI の typedef 抽出と SW の `_DBLink` enrich を三値判定へ集約し、`null` を共通フィールドとして扱う。
+- また、一次創作限定フィールドには `isForSecondary: false` を明示し、二次創作限定フィールドには `isForSecondary: true` を明示する。
+
 ### feat: 配色スロットを全作品 160 レコードへ展開（完了）と、判定根拠の `AppliesTo` 駆動化 (2026-08-11)
 
 [issue #21](https://github.com/radiann-kswg/100BeautiesLab_CreationsDB/issues/21#issuecomment-5249395494) と User 確定の 7 枠スロット表を、**配色を持つ全 160 レコード（975 色）へ展開し終えた**。**画像（設定画・単体絵）を正典**として、`ColorPalette` の並び・`Role`・`ColorName_JP/EN` を確定している。

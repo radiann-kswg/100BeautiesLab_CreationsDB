@@ -146,7 +146,7 @@
         { "Num": "0xF", "RelationLabel": ["trusted", "secretRelation"] }
       ]
     },
-    "RelationTo_Primary": {
+    "RelationOriginalTo_Primary": {
       "Related": [
         {
           "Num": 1,
@@ -344,7 +344,7 @@
         { "Num": "0xF", "RelationLabel": ["trusted"] }
       ]
     },
-    "RelationTo_Primary": {
+    "RelationOriginalTo_Primary": {
       "Related": [
         {
           "Num": 11,
@@ -555,7 +555,7 @@
       "SafetyLevel": { "SafetyLevelText": "厳重注意" }
     },
     "Relation": { "Related": [] },
-    "RelationTo_Primary": {
+    "RelationOriginalTo_Primary": {
       "Related": [
         {
           "Num": 12,
@@ -771,7 +771,7 @@
     "Relation": {
       "Related": [{ "Num": "0xE", "RelationLabel": ["unmatched"] }]
     },
-    "RelationTo_Primary": {
+    "RelationOriginalTo_Primary": {
       "Related": [
         {
           "Num": 12,
@@ -997,7 +997,7 @@
       "SafetyLevel": { "SafetyLevelText": "注意" }
     },
     "Relation": { "Related": [{ "Num": "0xD", "RelationLabel": ["abusing"] }] },
-    "RelationTo_Primary": {
+    "RelationOriginalTo_Primary": {
       "Related": [
         {
           "Num": 5,
@@ -1190,7 +1190,7 @@
     "Relation": {
       "Related": [{ "Num": "0xA", "RelationLabel": ["secretRelation"] }]
     },
-    "RelationTo_Primary": {
+    "RelationOriginalTo_Primary": {
       "Related": [
         {
           "Num": 2,

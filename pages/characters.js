@@ -2679,14 +2679,8 @@ function extractTopLevelSchemaFields(workTypeDef, globalTypeDef = {}, options = 
 			if (key === 'Images') continue;
 			if (seen.has(key)) continue;
 
-			// 二次創作向けフィールドの表示切替（isForSecondary）
-			// - undefined は「共通扱い」で常に表示
-			// - Secondary 文脈: true/undefined を表示、false は非表示
-			// - Primary 等の文脈: false/undefined を表示、true は非表示
-			if (isSecondary !== null && typeof item.isForSecondary === 'boolean') {
-				if (isSecondary && item.isForSecondary === false) continue;
-				if (!isSecondary && item.isForSecondary === true) continue;
-			}
+			if (isSecondary !== null && typeUtils?.isFieldForSecondaryContext
+				&& !typeUtils.isFieldForSecondaryContext(item, isSecondary)) continue;
 
 			const label = item.hashTag_JP || item.hashtag_JP || item.hashTag_EN || item.hashtag_EN || key;
 			out.push({
@@ -2712,14 +2706,8 @@ function extractTopLevelSchemaFields(workTypeDef, globalTypeDef = {}, options = 
 			if (key === 'Images') continue;
 			if (seen.has(key)) continue;
 
-			// 二次創作向けフィールドの表示切替（isForSecondary）
-			// - undefined は「共通扱い」で常に表示
-			// - Secondary 文脈: true/undefined を表示、false は非表示
-			// - Primary 等の文脈: false/undefined を表示、true は非表示
-			if (isSecondary !== null && typeof item.isForSecondary === 'boolean') {
-				if (isSecondary && item.isForSecondary === false) continue;
-				if (!isSecondary && item.isForSecondary === true) continue;
-			}
+			if (isSecondary !== null && typeUtils?.isFieldForSecondaryContext
+				&& !typeUtils.isFieldForSecondaryContext(item, isSecondary)) continue;
 
 			const label = item.hashTag_JP || item.hashtag_JP || item.hashTag_EN || item.hashtag_EN || key;
 			out.push({
@@ -6243,6 +6231,11 @@ export async function renderDetail(workId, rec) {
 				const m = k.match(/^(.+)_(JP|EN)$/);
 				if (m) s.add(m[1]);
 				else { s.add(`${k}_JP`); s.add(`${k}_EN`); }
+				for (const altKey of topLevelAltMap?.[k] || []) {
+					s.add(altKey);
+					const altMatch = altKey.match(/^(.+)_(JP|EN)$/);
+					if (altMatch) s.add(altMatch[1]);
+				}
 			}
 			return s;
 		})();
@@ -6770,7 +6763,7 @@ export async function renderDetail(workId, rec) {
 			if (rec.Summary && !isPromotedSubFieldKey('Summary')) s.add('Summary');
 			if (rec.Relation && !isPromotedSubFieldKey('Relation')) s.add('Relation');
 			for (const k of Object.keys(rec || {})) {
-				if (!/^RelationTo_/.test(k)) continue;
+				if (!/^Relation(?:Original)?To_/.test(k)) continue;
 				if (!isPromotedSubFieldKey(k)) s.add(k);
 			}
 
@@ -7415,7 +7408,7 @@ export async function renderDetail(workId, rec) {
 			});
 			if (wrappedSection) return wrappedSection;
 
-			const relationSection = ((it.key === 'Relation' || /^RelationTo_/.test(it.key)) && it.value)
+			const relationSection = ((it.key === 'Relation' || /^Relation(?:Original)?To_/.test(it.key)) && it.value)
 				? renderRelations(it.value, fieldLabelMap, metaForLookup, globalDefType, fieldDisplayMap, {
 					containerKey: it.key,
 					fieldTypeMap,
@@ -7500,6 +7493,12 @@ export async function renderDetail(workId, rec) {
 			.map((it) => renderStandaloneFieldSection(it))
 			.filter(Boolean);
 		const renderedSubFieldKeySet = new Set(orderedSubFieldItems.map((it) => it.key));
+		for (const [primaryKey, altKeys] of Object.entries(topLevelAltMap || {})) {
+			if (!Array.isArray(altKeys)) continue;
+			if (altKeys.some((altKey) => renderedSubFieldKeySet.has(altKey))) {
+				renderedSubFieldKeySet.add(primaryKey);
+			}
+		}
 
 		// basic セクションは「基本情報テーブル + スキーマで basic 指定された追加項目」をまとめて表示
 		const basicSection = el('div', { class: 'section' }, [
@@ -7627,7 +7626,7 @@ export async function renderDetail(workId, rec) {
 				? renderRelations(rec.Relation, fieldLabelMap, metaForLookup, globalDefType, fieldDisplayMap, { containerKey: 'Relation', fieldTypeMap })
 				: null,
 			...Object.keys(rec || {})
-				.filter((k) => /^RelationTo_/.test(k) && !renderedSubFieldKeySet.has(k))
+				.filter((k) => /^Relation(?:Original)?To_/.test(k) && !renderedSubFieldKeySet.has(k))
 				.map((k) => {
 					const rv = rec[k];
 					return (rv?.Related || rv?.Commented)

@@ -25,6 +25,27 @@ const { TypeDefUtils } = globalThis;
 /** マージ結果を hashTag 列へ落とす（マーカー混入検出のため filter は敢えて掛けない） */
 const tags = (merged) => merged.map((e) => e.hashTag);
 
+describe('TypeDefUtils.isFieldForSecondaryContext()', () => {
+  const applies = (isForSecondary, isSecondary) => TypeDefUtils.isFieldForSecondaryContext(
+    { isForSecondary },
+    isSecondary
+  );
+
+  it('null/未指定を一次・二次共通として扱う', () => {
+    expect(applies(null, false)).toBe(true);
+    expect(applies(null, true)).toBe(true);
+    expect(applies(undefined, false)).toBe(true);
+    expect(applies(undefined, true)).toBe(true);
+  });
+
+  it('true/false は対応する DB 文脈だけで有効にする', () => {
+    expect(applies(false, false)).toBe(true);
+    expect(applies(false, true)).toBe(false);
+    expect(applies(true, false)).toBe(false);
+    expect(applies(true, true)).toBe(true);
+  });
+});
+
 describe('TypeDefUtils.matchesSlot()', () => {
   it('$type は完全一致で判定する', () => {
     expect(TypeDefUtils.matchesSlot({ $type: '#Index' }, { $type: '#Index' })).toBe(true);

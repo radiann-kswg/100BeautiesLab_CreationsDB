@@ -140,11 +140,12 @@
         }
       ],
       "hashTag_JP": "関係キャラクター",
-      "isForSecondary": false,
-      "$display": { "sectionWrapper": "relationSection" }
+      "hashTag_EN": "Related Characters",
+      "isForSecondary": null,
+      "$display": { "sectionWrapper": "relationSection", "open": true }
     },
     {
-      "hashTag": "RelationTo_Primary",
+      "hashTag": "RelationOriginalTo_Primary",
       "$type": [
         {
           "hashTag": "Related",
@@ -162,7 +163,7 @@
       "hashTag_JP": "原作のアルベッツとの関係",
       "hashTag_EN": "Relation to ALPBETS of the Primary Work",
       "isForSecondary": true,
-      "$display": { "sectionWrapper": "relationSection" }
+      "$display": { "sectionWrapper": "relationSection", "open": true }
     },
     {
       "hashTag": "RelationTo_PrimaryPerformer",
@@ -170,6 +171,7 @@
         {
           "hashTag": "Related",
           "$type": "$Def_Relations[]",
+          "$alt": "RelationOriginalTo_PrimaryPerformer",
           "hashTag_JP": "親密な関係",
           "hashTag_EN": "Close Relations"
         },
@@ -184,6 +186,27 @@
       "hashTag_EN": "Relation to ALPBETS' Performers",
       "isForSecondary": false,
       "$display": { "sectionWrapper": "relationSection" }
+    },
+    {
+      "hashTag": "RelationOriginalTo_PrimaryPerformer",
+      "$type": [
+        {
+          "hashTag": "Related",
+          "$type": "$Def_Relations[]",
+          "hashTag_JP": "親密な関係",
+          "hashTag_EN": "Close Relations"
+        },
+        {
+          "hashTag": "Commented",
+          "$type": "$Def_Relations[]",
+          "hashTag_JP": "コメント",
+          "hashTag_EN": "Comments to the Characters"
+        }
+      ],
+      "hashTag_JP": "原作のアルベッツ演者との関係",
+      "hashTag_EN": "Relation to ALPBETS' Performers of the Primary Work",
+      "isForSecondary": true,
+      "$display": { "sectionWrapper": "relationSection" }
     }
   ],
   "$VersDef": {
@@ -192,14 +215,14 @@
         {
           "hashTag": "Letter",
           "$type": "#Index",
-          "isForSecondary": false,
+          "isForSecondary": null,
           "hashTag_JP": "キーレター",
           "hashTag_EN": "Key-Letter"
         },
         {
           "hashTag": "Comments",
           "$type": "#Dialogue",
-          "isForSecondary": false,
+          "isForSecondary": null,
           "hashTag_JP": "コメント",
           "hashTag_EN": "Comments"
         },
@@ -213,6 +236,7 @@
         {
           "hashTag": "RelationLabel",
           "$type": "#ListIndex[]",
+          "isForSecondary": null,
           "hashTag_JP": "関係性タグ",
           "hashTag_EN": "Relation Label",
           "$display": {

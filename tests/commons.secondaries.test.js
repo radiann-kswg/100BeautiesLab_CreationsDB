@@ -115,7 +115,7 @@ describe('CommonsProcessor secondary series commons', () => {
     expect(ctx?.self?.CommonsProcessor).toBeTypeOf('function');
 
     const metaText = loadText('data/Works_NumberTales/DataBases/db_meta.json');
-    const seriesTitle = 'D-Vines(ディ-ヴァインズ)';
+    const seriesTitle = 'D-Vines';
 
     const out0Json = vm.runInNewContext(
       `(() => {

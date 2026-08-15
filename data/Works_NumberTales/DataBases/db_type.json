@@ -239,8 +239,8 @@
       ],
       "hashTag_JP": "関係キャラクター",
       "hashTag_EN": "Related Characters",
-      "isForSecondary": false,
-      "$display": { "sectionWrapper": "relationSection" }
+      "isForSecondary": null,
+      "$display": { "sectionWrapper": "relationSection", "open": true }
     },
     {
       "hashTag": "RelationTo_Primary",
@@ -258,10 +258,32 @@
           "hashTag_EN": "Commented to Primary Characters"
         }
       ],
+      "$alt": "RelationOriginalTo_Primary",
+      "hashTag_JP": "基本個体との関係",
+      "hashTag_EN": "Relation to Basic Units",
+      "isForSecondary": false,
+      "$display": { "sectionWrapper": "relationSection", "open": true }
+    },
+    {
+      "hashTag": "RelationOriginalTo_Primary",
+      "$type": [
+        {
+          "hashTag": "Related",
+          "$type": "$Def_Relations[]",
+          "hashTag_JP": "親密な関係",
+          "hashTag_EN": "Close Related to Primary Characters"
+        },
+        {
+          "hashTag": "Commented",
+          "$type": "$Def_Relations[]",
+          "hashTag_JP": "コメント",
+          "hashTag_EN": "Commented to Primary Characters"
+        }
+      ],
       "hashTag_JP": "原作との関係",
       "hashTag_EN": "Relation to Primary Works",
       "isForSecondary": true,
-      "$display": { "sectionWrapper": "relationSection" }
+      "$display": { "sectionWrapper": "relationSection", "open": true }
     }
   ],
   "$VersDef": {
@@ -309,14 +331,14 @@
         {
           "hashTag": "Num",
           "$type": "#Index",
-          "isForSecondary": false,
+          "isForSecondary": null,
           "hashTag_JP": "番号",
           "hashTag_EN": "Number"
         },
         {
           "hashTag": "Comments",
           "$type": "#Dialogue",
-          "isForSecondary": false,
+          "isForSecondary": null,
           "hashTag_JP": "コメント",
           "hashTag_EN": "Comments"
         },
@@ -330,6 +352,7 @@
         {
           "hashTag": "RelationLabel",
           "$type": "#ListIndex[]",
+          "isForSecondary": null,
           "hashTag_JP": "関係性タグ",
           "hashTag_EN": "Relation Tags",
           "$display": {

@@ -636,7 +636,17 @@ UI 側は厳密構造より `about_JP` / `about_EN` を優先して整形表示�
 
 これは主に `Secondary` / `SelfSecondary` のような二次創作系 DB で使います。
 
-### 4.8 `SupersededDesignElements`
+### 4.8 `isForSecondary` の三値スコープ
+
+typedef の `isForSecondary` は、DB 文脈ごとの表示・参照マージ範囲を次の三値で表します。
+
+- `null`（または未指定）: 一次創作・二次創作の両方に共通
+- `true`: 二次創作系 DB 専用
+- `false`: 一次創作系 DB 専用
+
+UI の typedef 抽出と `_DBLink` の enrich マージは同じ判定を使います。共通フィールドへ `false` を置くと、Secondary 文脈の schema 抽出・参照マージから外れるため、共通の Relation やそのサブフィールドには `null` を明示します。
+
+### 4.9 `SupersededDesignElements`
 
 `AppearanceDetail[].DesignElement` の特定の値を、汎用カタログ運用から専用構造化フィールドへ移行（廃止）した際、そのことを宣言するための作品別トップレベルキーです（`Databases`/`General` と同じ階層）。型は `$MetaType.$Def_SupersededDesignElement`（§3.6）で宣言し、データは各作品の `db_meta.json` に配列で持たせます。
 
@@ -754,13 +764,13 @@ UI 側は厳密構造より `about_JP` / `about_EN` を優先して整形表示�
 
 `$slotMatch` の語彙は 5 種のみです（表現力を意図的に低く保ち、field 名依存の分岐へ逆戻りさせないため）:
 
-| 述語                               | 意味                                                                                      |
-| ---------------------------------- | ----------------------------------------------------------------------------------------- |
-| `{ "$type": "<str>" }`             | `$type` の**完全一致**（文字列型のみ）                                                    |
-| `{ "$typeIncludes": "<str>" }`     | `$type` の**部分一致**。`$Def_DBLinkRef[]\|#Null` と `$Def_DBLinkRef\|#Null` の両形を拾う |
-| `{ "$display": { "<k>": "<v>" } }` | `$display` の**浅い部分集合一致**                                                         |
+| 述語                               | 意味                                                                                                                                                                                                                 |
+| ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `{ "$type": "<str>" }`             | `$type` の**完全一致**（文字列型のみ）                                                                                                                                                                               |
+| `{ "$typeIncludes": "<str>" }`     | `$type` の**部分一致**。`$Def_DBLinkRef[]\|#Null` と `$Def_DBLinkRef\|#Null` の両形を拾う                                                                                                                            |
+| `{ "$display": { "<k>": "<v>" } }` | `$display` の**浅い部分集合一致**                                                                                                                                                                                    |
 | `{ "$inLayout": "<path>" }`        | `$DetailLayout` の宣言配列に載っているか（例: `"basicFields"`）。base 名で突き合わせる（宣言配列は `ChronoholderName`、実フィールドは `_JP` / `_EN`）。`detailLayout` 未指定なら**一致しない**（catch-all へ落ちる） |
-| `"*"`                              | catch-all（**厳密に 1 個必須**）                                                          |
+| `"*"`                              | catch-all（**厳密に 1 個必須**）                                                                                                                                                                                     |
 
 補助キー:
 
@@ -784,14 +794,14 @@ UI 側は厳密構造より `about_JP` / `about_EN` を優先して整形表示�
 
 `data/db_type.json` の `$DefType` には次の 6 マーカーが並び、`Index → Progress → _DBLinkRef 群 → Name → Images → FormalName → …` の順を作ります。
 
-| `$slot`          | 述語 / 補助                                   | 拾うもの                                     |
-| ---------------- | --------------------------------------------- | -------------------------------------------- |
-| `#Index`         | `$type: "#Index"`                             | `Num` / `Card` / `Unit` / `BeastType` など   |
-| `#SecondaryMeta` | `$slotExpand: "$MetaType.$Def_SecondaryMeta"` | `sec_SeriesTitle` / `sec_Category` など      |
-| `#WorkDBLinkRef` | `$typeIncludes: "$Def_DBLinkRef"`             | `SameModels_DBLink` / `ThisPerformer_DBLink` |
-| `#Images`        | `$display: { section: "images" }`             | `Images`（画像を持たない作品では空になる）   |
+| `$slot`          | 述語 / 補助                                               | 拾うもの                                                                                                                                               |
+| ---------------- | --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `#Index`         | `$type: "#Index"`                                         | `Num` / `Card` / `Unit` / `BeastType` など                                                                                                             |
+| `#SecondaryMeta` | `$slotExpand: "$MetaType.$Def_SecondaryMeta"`             | `sec_SeriesTitle` / `sec_Category` など                                                                                                                |
+| `#WorkDBLinkRef` | `$typeIncludes: "$Def_DBLinkRef"`                         | `SameModels_DBLink` / `ThisPerformer_DBLink`                                                                                                           |
+| `#Images`        | `$display: { section: "images" }`                         | `Images`（画像を持たない作品では空になる）                                                                                                             |
 | `#WorkBasic`     | `$inLayout: "basicFields"` + `$slotAnchor: "basicFields"` | `TailsUnit` / `Generation` / `ForMasterCalling` / `For79thDealerCalling` / `For80thDealerCalling`（**マーカー位置ではなく basicFields 上の隣へ散る**） |
-| `#WorkRest`      | `"*"` + `$slotOrder: "subFields"`             | 残りすべて（`$DetailLayout.subFields` 順）   |
+| `#WorkRest`      | `"*"` + `$slotOrder: "subFields"`                         | 残りすべて（`$DetailLayout.subFields` 順）                                                                                                             |
 
 `#WorkBasic` は `#Index` / `#WorkDBLinkRef` / `#Images` より**後**に宣言してあります（`$slotMatch` は宣言順に先勝ちのため）。`basicFields` に載っていても Index や `_DBLink` はそれぞれのスロットが先に拾います。
 

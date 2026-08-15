@@ -58,26 +58,28 @@ NUM | n² n³ 2ⁿ n⁶|n⁴ n⁵|2ⁿ×3ⁿ×5ⁿ×7ⁿ|          \ LOT VALIANT
 `NC`：ナルシシスツ所属個体。ナルシシスト数
 
 ```
-    |CATEGORY       |APHR-NT MODEL
-NUM |or CLASS       |(MAIN or LOT)
-----+---------------+--------------
-127 |Mersenne prime |[MP]127-AM***
-496 |Perfect number |[MP]496-AM***
-----+---------------+--------------
-273 |Absolute temp. |[MP]273-PM***
-528 |Solfeggio freq.|[MP]528-PM***
-----+---------------+--------------
-314 |PI:Circle radio|[MP]314-RM***
-360 |Degree per rev.|[MP]360-RM***
-----+---------------+--------------
-223 |Carole number  |[MP]223-CR***
-959 |Carole number  |[MP]959-CR***
-----+---------------+--------------
-153 |Narcissist num.|[MP]153-NC***
-370 |Narcissist num.|[MP]370-NC***
-371 |Narcissist num.|[MP]371-NC***
-407 |Narcissist num.|[MP]407-NC***
-----+---------------+--------------
+    |CATEGORY       |APHR-NT MAIN MODEL
+NUM |or CLASS       |          \ LOT VALIANT
+----+---------------+-----------------------
+28  |Perfect number |II+VIII.A
+31  |Mersenne prime |I+III.B
+127 |Mersenne prime |         [MP]127-AM***
+496 |Perfect number |         [MP]496-AM***
+----+---------------+-----------------------
+273 |Absolute temp. |         [MP]273-PM***
+528 |Solfeggio freq.|         [MP]528-PM***
+----+---------------+-----------------------
+314 |PI:Circle radio|         [MP]314-RM***
+360 |Degree per rev.|         [MP]360-RM***
+----+---------------+-----------------------
+223 |Carole number  |         [MP]223-CR***
+959 |Carole number  |         [MP]959-CR***
+----+---------------+-----------------------
+153 |Narcissist num.|         [MP]153-NC***
+370 |Narcissist num.|         [MP]370-NC***
+371 |Narcissist num.|         [MP]371-NC***
+407 |Narcissist num.|         [MP]407-NC***
+----+---------------+-----------------------
 ```
 
 ### 暦・伝承・文学についてのロット
@@ -88,26 +90,28 @@ NUM |or CLASS       |(MAIN or LOT)
 `JW`：ワノマチ所属個体。極東部伝承におけるいわれ
 
 ```
-    |CATEGORY       |APHR-NT MAIN MODEL
-NUM |or CLASS       |          \ LOT VALIANT
-----+---------------+-----------------------
-365 |Year days      |         [MP]365-GC***
-366 |Leap year      |         [MP]366-GC***
-400 |Leap term      |[GP]IV.R [MP]400-GC***
-----+---------------+-----------------------
-451 |Fahrenheit.451 |[MP]451-WN***
-813 |Arsène Lupin   |[MP]813-WN***
-----+---------------+-----------------------
-616 |FatalTales     |         [MP]616-FT***
-666 |FatalTales     |[x3]VI   [MP]666-*****
-----+---------------+-----------------------
-223 |Reiwa-Emperor  |         [MP]223-JW***
-369 |Miroku         |         [MP]369-JW***
-429 |Leaf-greens day|         [MP]429-JW***
-456 |Upper dice     |         [MP]456-JW***
-753 |Child ceremony |         [MP]753-JW***
-808 |Vegetable shop |         [MP]808-JW***
-----+---------------+-----------------------
+    |CATEGORY              |APHR-NT MAIN MODEL
+NUM |or CLASS              |          \ LOT VALIANT
+----+----------------------+-----------------------
+365 |Year days             |         [MP]365-GC***
+366 |Leap year             |         [MP]366-GC***
+400 |Leap term             |[GP]IV.R [MP]400-GC***
+----+----------------------+-----------------------
+451 |Fahrenheit.451        |[MP]451-WN***
+813 |Crimes of Arsène Lupin|[MP]813-WN***
+----+----------------------+-----------------------
+616 |FatalTales            |         [MP]616-FT***
+666 |FatalTales            |[x3]VI   [MP]666-*****
+----+----------------------+-----------------------
+35  |Shrine maiden         |III+V.A
+99  |Tsukumo/Sukumo        |[RX]IX
+223 |Reiwa-Emperor's birth |         [MP]223-JW***
+369 |Miroku                |         [MP]369-JW***
+429 |Leaf-greens day       |         [MP]429-JW***
+456 |Upper dice            |         [MP]456-JW***
+753 |Child ceremony        |         [MP]753-JW***
+808 |Vegetable shop        |         [MP]808-JW***
+----+----------------------+-----------------------
 ```
 
 ### その他のロット
