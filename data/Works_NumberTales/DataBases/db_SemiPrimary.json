@@ -941,6 +941,8 @@
     "SPCodeName_JP": "11×11",
     "SPCodeName_EN": "Eleven Elevens",
     "ModelNumber": "APHR-NT SQ.XI",
+    "ModelName_JP": "キャレ型ハイナンバーテールズ11号機,121番機想定モデル",
+    "ModelName_EN": "Carré-Type High-NumberTales Unit.11, assumed model of Mk.121",
     "GenderType": "Neutral",
     "Belonging": [
       { "Faction": "百花繚乱研究所" },
@@ -964,6 +966,8 @@
     "CodeName_JP": "一二五, 立法五",
     "CodeName_EN": "One-Two-Five, Five Cubed",
     "ModelNumber": "APHR-NT Kz.V",
+    "ModelName_JP": "キュビクザール型ハイナンバーテールズ5号機,125番機想定モデル",
+    "ModelName_EN": "Kubikzahl-Type High-NumberTales Unit.5, assumed model of Mk.125",
     "GenderType": "Neutral",
     "Belonging": [
       { "Faction": "百花繚乱研究所" },
@@ -988,6 +992,8 @@
     "SPCodeName_JP": "グロス",
     "SPCodeName_EN": "Gross",
     "ModelNumber": "APHR-NT SQ.XII",
+    "ModelName_JP": "キャレ型ハイナンバーテールズ12号機,144番機想定モデル",
+    "ModelName_EN": "Carré-Type High-NumberTales Unit.12, assumed model of Mk.144",
     "GenderType": "Neutral",
     "Belonging": [
       { "Faction": "百花繚乱研究所" },
@@ -1010,6 +1016,8 @@
     "FormalName_JP": "ナンバーテールズ キャレ-トレーズ(同位異格169番機)",
     "FormalName_EN": "NumberTales Unit.Carré-13 (Isotope of Mk.169)",
     "ModelNumber": "APHR-NT SQ.XIII",
+    "ModelName_JP": "キャレ型ハイナンバーテールズ13号機,169番機想定モデル",
+    "ModelName_EN": "Carré-Type High-NumberTales Unit.13, assumed model of Mk.169",
     "GenderType": "Neutral",
     "Belonging": [
       { "Faction": "百花繚乱研究所" },
@@ -1031,6 +1039,8 @@
     "FormalName_JP": "ナンバーテールズ キャレ-カトルズ(同位異格196番機)",
     "FormalName_EN": "NumberTales Unit.Carré-14 (Isotope of Mk.196)",
     "ModelNumber": "APHR-NT SQ.XIV",
+    "ModelName_JP": "キャレ型ハイナンバーテールズ14号機,196番機想定モデル",
+    "ModelName_EN": "Carré-Type High-NumberTales Unit.14, assumed model of Mk.196",
     "GenderType": "Neutral",
     "Belonging": [
       { "Faction": "百花繚乱研究所" },
@@ -1088,6 +1098,8 @@
     "CodeName_JP": "二一六, 立法六",
     "CodeName_EN": "Two-One-Six, Six Cubed",
     "ModelNumber": "APHR-NT Kz.VI",
+    "ModelName_JP": "キュビクザール型ハイナンバーテールズ6号機,216番機想定モデル",
+    "ModelName_EN": "Kubikzahl-Type High-NumberTales Unit.6, assumed model of Mk.216",
     "GenderType": "FemaleNeutral",
     "Belonging": [
       { "Faction": "百花繚乱研究所" },
@@ -1943,6 +1955,8 @@
     "FormalName_JP": "ナンバーテールズ キャレ-クインズ(同位異格225番機)",
     "FormalName_EN": "NumberTales Unit.Carré-15 (Isotope of Mk.225)",
     "ModelNumber": "APHR-NT SQ.XV",
+    "ModelName_JP": "キャレ型ハイナンバーテールズ15号機,225番機想定モデル",
+    "ModelName_EN": "Carré-Type High-NumberTales Unit.15, assumed model of Mk.225",
     "GenderType": "Neutral",
     "Belonging": [
       { "Faction": "百花繚乱研究所" },
@@ -1970,6 +1984,8 @@
     "CodeName_JP": "二五六,16²",
     "CodeName_EN": "Two-Five-Six, Sixteen Squared",
     "ModelNumber": "APHR-NT SQ.XVI",
+    "ModelName_JP": "キャレ型ハイナンバーテールズ16号機,256番機想定モデル",
+    "ModelName_EN": "Carré-Type High-NumberTales Unit.16, assumed model of Mk.256",
     "GenderType": "Neutral",
     "Belonging": [
       { "Faction": "百花繚乱研究所" },
@@ -1999,6 +2015,8 @@
     "SPCodeName_JP": "バイト",
     "SPCodeName_EN": "One Byte",
     "ModelNumber": "APHR-NT [BQ]1.0",
+    "ModelName_JP": "バイツ型ハイナンバーテールズ1.0号機,256番機想定モデル",
+    "ModelName_EN": "Bytz-Type High-NumberTales Unit.1.0, assumed model of Mk.256",
     "GenderType": "Neutral",
     "Belonging": [
       { "Faction": "百花繚乱研究所" },
@@ -2018,6 +2036,8 @@
     "FormalName_JP": "ナンバーテールズ キャレ-ディセット(同位異格289番機)",
     "FormalName_EN": "NumberTales Unit.Carré-17 (Isotope of Mk.289)",
     "ModelNumber": "APHR-NT SQ.XVII",
+    "ModelName_JP": "キャレ型ハイナンバーテールズ17号機,289番機想定モデル",
+    "ModelName_EN": "Carré-Type High-NumberTales Unit.17, assumed model of Mk.289",
     "GenderType": "Neutral",
     "Belonging": [
       { "Faction": "百花繚乱研究所" },
@@ -2035,6 +2055,8 @@
     "FormalName_JP": "ナンバーテールズ キャレ-ディズュイット(同位異格324番機)",
     "FormalName_EN": "NumberTales Unit.Carré-18 (Isotope of Mk.324)",
     "ModelNumber": "APHR-NT SQ.XVIII",
+    "ModelName_JP": "キャレ型ハイナンバーテールズ18号機,324番機想定モデル",
+    "ModelName_EN": "Carré-Type High-NumberTales Unit.18, assumed model of Mk.324",
     "GenderType": "Neutral",
     "Belonging": [
       { "Faction": "百花繚乱研究所" },
@@ -2076,6 +2098,8 @@
     "CodeName_JP": "三四三, 立法七",
     "CodeName_EN": "Three-Four-Three, Seven Cubed",
     "ModelNumber": "APHR-NT Kz.VII",
+    "ModelName_JP": "キュビクザール型ハイナンバーテールズ7号機,343番機想定モデル",
+    "ModelName_EN": "Kubikzahl-Type High-NumberTales Unit.7, assumed model of Mk.343",
     "GenderType": "Neutral",
     "Belonging": [
       { "Faction": "百花繚乱研究所" },
@@ -2098,6 +2122,8 @@
     "CodeName_JP": "三六一",
     "CodeName_EN": "Three-Six-One",
     "ModelNumber": "APHR-NT SQ.XIX",
+    "ModelName_JP": "キャレ型ハイナンバーテールズ19号機,361番機想定モデル",
+    "ModelName_EN": "Carré-Type High-NumberTales Unit.19, assumed model of Mk.361",
     "GenderType": "Neutral",
     "Belonging": [
       { "Faction": "百花繚乱研究所" },
@@ -2123,6 +2149,8 @@
     "SPCodeName_JP": "20×20",
     "SPCodeName_EN": "Twenty Twenties",
     "ModelNumber": "APHR-NT SQ.XX",
+    "ModelName_JP": "キャレ型ハイナンバーテールズ20号機,400番機想定モデル",
+    "ModelName_EN": "Carré-Type High-NumberTales Unit.20, assumed model of Mk.400",
     "GenderType": "Neutral",
     "Belonging": [
       { "Faction": "百花繚乱研究所" },
@@ -2686,9 +2714,9 @@
     "FormalName_EN": "NumberTales Unit.Kubikzahl-VIII (Isotope of Mk.512)",
     "CodeName_JP": "五一二, 立法八",
     "CodeName_EN": "Five-One-Two, Eight Cubed",
-    "SPCodeName_JP": "半キロバイナリ",
-    "SPCodeName_EN": "Half kiB(Kilo Binary)",
     "ModelNumber": "APHR-NT Kz.VIII",
+    "ModelName_JP": "キュビクザール型ハイナンバーテールズ8号機,512番機想定モデル",
+    "ModelName_EN": "Kubikzahl-Type High-NumberTales Unit.8, assumed model of Mk.512",
     "GenderType": "Neutral",
     "Belonging": [
       { "Faction": "百花繚乱研究所" },
@@ -2714,6 +2742,8 @@
     "SPCodeName_JP": "半キロバイナリ",
     "SPCodeName_EN": "Half ki(Kilo bInary)",
     "ModelNumber": "APHR-NT [BQ]1.5",
+    "ModelName_JP": "バイツ型ハイナンバーテールズ1.5号機,512番機想定モデル",
+    "ModelName_EN": "Bytz-Type High-NumberTales Unit.1.5, assumed model of Mk.512",
     "GenderType": "Neutral",
     "Belonging": [
       { "Faction": "百花繚乱研究所" },
@@ -3118,11 +3148,13 @@
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 729 }],
     "Name_JP": "729(ナブク)",
     "Name_EN": "729(Seventwínina)",
-    "FormalName_JP": "ナンバーテールズ特殊個体：セクストパワーサード(同位異格729番機)",
-    "FormalName_EN": "NumberTales Special Model: Sextpower-III (Isotope of Mk.729)",
+    "FormalName_JP": "ナンバーテールズ仮設729番機",
+    "FormalName_EN": "NumberTales Tentative #729",
     "CodeName_JP": "七二九",
     "CodeName_EN": "Seven-Two-Nine",
     "ModelNumber": "APHR-NT SXP.III",
+    "ModelName_JP": "ナンバーテールズ特殊個体：セクストパワーサード,729番機想定モデル",
+    "ModelName_EN": "NumberTales Special Model: Sextpower-III, assumed model of Mk.729",
     "GenderType": "Neutral",
     "Belonging": [
       { "Faction": "百花繚乱研究所" },
@@ -4735,6 +4767,8 @@
     "CodeName_JP": "九×九",
     "CodeName_EN": "Nine Nines",
     "ModelNumber": "APHR-NT SQ.IX",
+    "ModelName_JP": "キャレ型ハイナンバーテールズ9号機,81番機互換モデル",
+    "ModelName_EN": "Carré-Type High-NumberTales Unit.9, compatible model with Mk.81",
     "GenderType": "Neutral",
     "Belonging": [
       { "Faction": "百花繚乱研究所" },
