@@ -24,7 +24,7 @@
       "百倍番(ハンドレッズデジッツ)",
       "デシベルモデレーターズ",
       "10号機型",
-      "キャレ型ハイナンバーズ",
+      "キャレ型",
       "キャレ型ハイナンバーズ開発部"
     ],
     "Height_cm": 164,
@@ -258,7 +258,7 @@
     "ModelName_JP": "ナンバーテールズ試作正規型1+10号機(開発用101番機)",
     "ModelName_EN": "NumberTales' Proto-Standard: NumberTales Unit.1+10 (Development Mk.101)",
     "GenderType": "Neutral",
-    "Class": ["サイドシングルズ", "10*(ヒノマル)型ハイナンバーズ"],
+    "Class": ["サイドシングルズ", "10*(ヒノマル)型"],
     "Backgrounds_JP": "1号機系[1(ハジメ),2(ツグ),10(ミツル)]の類似個体で、こちらは販売用",
     "Backgrounds_EN": "A counterpart model derived from the Unit.1 lineage [1(Unitta), 2(Twiny), 10(Tenim)], prepared for commercial sales."
   },
@@ -279,7 +279,7 @@
     "ModelName_JP": "ナンバーテールズ試作正規型2+10号機(開発用102番機)",
     "ModelName_EN": "NumberTales' Proto-Standard: NumberTales Unit.2+10 (Development Mk.102)",
     "GenderType": "Neutral",
-    "Class": ["トライデュアルスリーズ", "10*(ヒノマル)型ハイナンバーズ"],
+    "Class": ["トライデュアルスリーズ", "10*(ヒノマル)型"],
     "Backgrounds_JP": "2号機系[バイナ,20(ハツカ)]の類似個体で、こちらは販売用",
     "Backgrounds_EN": "A counterpart model derived from the Unit.2 lineage [Binor, 20(Twentia)], prepared for commercial sales."
   },
@@ -300,7 +300,7 @@
     "ModelName_JP": "ナンバーテールズ3+10号機(開発用103番機)",
     "ModelName_EN": "NumberTales Unit.3+10 (Development Mk.103)",
     "GenderType": "Neutral",
-    "Class": ["トライデュアルフォーズ", "10*(ヒノマル)型ハイナンバーズ"],
+    "Class": ["トライデュアルフォーズ", "10*(ヒノマル)型"],
     "Backgrounds_JP": "「3(ナオ)」の類似個体で、こちらは販売用\n以下「109(ヒノマルク)」まで同様（下1桁に対応）",
     "Backgrounds_EN": "A counterpart model of 3(Treiya), prepared for commercial sales.\nThe same rule applies down to 109(Sunrizer=Nina), corresponding to the last one digit."
   },
@@ -321,7 +321,7 @@
     "ModelName_JP": "ナンバーテールズ4+10号機(開発用104番機)",
     "ModelName_EN": "NumberTales Unit.4+10 (Development Mk.104)",
     "GenderType": "Neutral",
-    "Class": ["トライデュアルファイブズ", "10*(ヒノマル)型ハイナンバーズ"],
+    "Class": ["トライデュアルファイブズ", "10*(ヒノマル)型"],
     "Backgrounds_EN": "A counterpart model of 4(Forna), prepared for commercial sales."
   },
   {
@@ -341,7 +341,7 @@
     "ModelName_JP": "ナンバーテールズ5+10号機(開発用105番機)",
     "ModelName_EN": "NumberTales Unit.5+10 (Development Mk.105)",
     "GenderType": "Neutral",
-    "Class": ["トライデュアルシックスズ", "10*(ヒノマル)型ハイナンバーズ"],
+    "Class": ["トライデュアルシックスズ", "10*(ヒノマル)型"],
     "Backgrounds_EN": "A counterpart model of 5(Fifa), prepared for commercial sales."
   },
   {
@@ -361,7 +361,7 @@
     "ModelName_JP": "ナンバーテールズ6+10号機(開発用106番機)",
     "ModelName_EN": "NumberTales Unit.6+10 (Development Mk.106)",
     "GenderType": "Neutral",
-    "Class": ["トライデュアルセブンズ", "10*(ヒノマル)型ハイナンバーズ"],
+    "Class": ["トライデュアルセブンズ", "10*(ヒノマル)型"],
     "Backgrounds_EN": "A counterpart model of 6(Sics), prepared for commercial sales."
   },
   {
@@ -381,7 +381,7 @@
     "ModelName_JP": "ナンバーテールズ7+10号機(開発用107番機)",
     "ModelName_EN": "NumberTales Unit.7+10 (Development Mk.107)",
     "GenderType": "Neutral",
-    "Class": ["トライデュアルエイツ", "10*(ヒノマル)型ハイナンバーズ"],
+    "Class": ["トライデュアルエイツ", "10*(ヒノマル)型"],
     "Backgrounds_EN": "A counterpart model of 7(Sevan), prepared for commercial sales."
   },
   {
@@ -401,7 +401,7 @@
     "ModelName_JP": "ナンバーテールズ8+10号機(開発用108番機)",
     "ModelName_EN": "NumberTales Unit.8+10 (Development Mk.108)",
     "GenderType": "Neutral",
-    "Class": ["ナインズトライデュアルズ", "10*(ヒノマル)型ハイナンバーズ"],
+    "Class": ["ナインズトライデュアルズ", "10*(ヒノマル)型"],
     "Backgrounds_EN": "A counterpart model of 8(Eighas), prepared for commercial sales."
   },
   {
@@ -421,7 +421,7 @@
     "ModelName_JP": "ナンバーテールズ9+10号機(開発用109番機)",
     "ModelName_EN": "NumberTales Unit.9+10 (Development Mk.109)",
     "GenderType": "Neutral",
-    "Class": ["トライデュアルキャリーズ", "10*(ヒノマル)型ハイナンバーズ"],
+    "Class": ["トライデュアルキャリーズ", "10*(ヒノマル)型"],
     "Backgrounds_EN": "A counterpart model of 9(Nina), prepared for commercial sales."
   },
   {
@@ -441,7 +441,7 @@
     "ModelName_JP": "ナンバーテールズ汎用改良型11号機(開発用110番機)",
     "ModelName_EN": "NumberTales General-Renovated Type Unit.11 (Development Mk.110)",
     "GenderType": "Neutral",
-    "Class": ["マスターテンズデュアルズ", "11*(ハクト)型ハイナンバーズ"],
+    "Class": ["マスターテンズデュアルズ", "11*(ハクト)型"],
     "Backgrounds_JP": "「11(トウイチ)」の類似個体で、こちらは販売用",
     "Backgrounds_EN": "A counterpart model of 11(Elevan), prepared for commercial sales."
   },
@@ -787,7 +787,7 @@
     "ModelName_JP": "ナンバーテールズ2+11号機(開発用112番機)",
     "ModelName_EN": "NumberTales Unit.2+11 (Development Mk.112)",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル4型", "11*(ハクト)型ハイナンバーズ"],
+    "Class": ["デュオトリプル4型", "11*(ハクト)型"],
     "Backgrounds_JP": "「12(トウジ)」の類似個体で、こちらは販売用\n以下「119(ハクトク)」まで同様（下2桁に対応）",
     "Backgrounds_EN": "A counterpart model of 12(Twelva), prepared for commercial sales.\nThe same rule applies down to 119(Hudres=Ninteels), corresponding to the last two digits."
   },
@@ -808,7 +808,7 @@
     "ModelName_JP": "ナンバーテールズ3+11号機(開発用113番機)",
     "ModelName_EN": "NumberTales Unit.3+11 (Development Mk.113)",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル5型", "11*(ハクト)型ハイナンバーズ"]
+    "Class": ["デュオトリプル5型", "11*(ハクト)型"]
   },
   {
     "Num": 114,
@@ -827,7 +827,7 @@
     "ModelName_JP": "ナンバーテールズ4+11号機(開発用114番機)",
     "ModelName_EN": "NumberTales Unit.4+11 (Development Mk.114)",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル6型", "11*(ハクト)型ハイナンバーズ"]
+    "Class": ["デュオトリプル6型", "11*(ハクト)型"]
   },
   {
     "Num": 115,
@@ -849,7 +849,7 @@
     "ModelName_JP": "ナンバーテールズ5+11号機(開発用115番機)",
     "ModelName_EN": "NumberTales Unit.5+11 (Development Mk.115)",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル7型", "11*(ハクト)型ハイナンバーズ"]
+    "Class": ["デュオトリプル7型", "11*(ハクト)型"]
   },
   {
     "Num": 116,
@@ -868,7 +868,7 @@
     "ModelName_JP": "ナンバーテールズ6+11号機(開発用116番機)",
     "ModelName_EN": "NumberTales Unit.6+11 (Development Mk.116)",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル8型", "11*(ハクト)型ハイナンバーズ"]
+    "Class": ["デュオトリプル8型", "11*(ハクト)型"]
   },
   {
     "Num": 117,
@@ -887,7 +887,7 @@
     "ModelName_JP": "ナンバーテールズ7+11号機(開発用117番機)",
     "ModelName_EN": "NumberTales Unit.7+11 (Development Mk.117)",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル9型", "11*(ハクト)型ハイナンバーズ"]
+    "Class": ["デュオトリプル9型", "11*(ハクト)型"]
   },
   {
     "Num": 118,
@@ -906,7 +906,7 @@
     "ModelName_JP": "ナンバーテールズ8+11号機(開発用118番機)",
     "ModelName_EN": "NumberTales Unit.8+11 (Development Mk.118)",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル1型", "11*(ハクト)型ハイナンバーズ"]
+    "Class": ["デュオトリプル1型", "11*(ハクト)型"]
   },
   {
     "Num": 119,
@@ -925,7 +925,7 @@
     "ModelName_JP": "ナンバーテールズ9+11号機(開発用119番機)",
     "ModelName_EN": "NumberTales Unit.9+11 (Development Mk.119)",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル2型", "11*(ハクト)型ハイナンバーズ"]
+    "Class": ["デュオトリプル2型", "11*(ハクト)型"]
   },
   {
     "Num": "121-sq",
@@ -942,17 +942,13 @@
     "SPCodeName_EN": "Eleven Elevens",
     "ModelNumber": "APHR-NT SQ.XI",
     "ModelName_JP": "キャレ型ハイナンバーテールズ11号機,121番機想定モデル",
-    "ModelName_EN": "Carré-Type High-NumberTales Unit.11, assumed model of Mk.121",
+    "ModelName_EN": "Carré-Series HighNumberTales Unit.11, assumed model of Mk.121",
     "GenderType": "Neutral",
     "Belonging": [
       { "Faction": "百花繚乱研究所" },
       { "Faction": "レゾンデイトルカンパニー" }
     ],
-    "Class": [
-      "デュオトリプル4型",
-      "キャレ型ハイナンバーズ",
-      "キャレ型ハイナンバーズ開発部"
-    ]
+    "Class": ["デュオトリプル4型", "キャレ型", "キャレ型ハイナンバーズ開発部"]
   },
   {
     "Num": "125-cub",
@@ -967,16 +963,13 @@
     "CodeName_EN": "One-Two-Five, Five Cubed",
     "ModelNumber": "APHR-NT Kz.V",
     "ModelName_JP": "キュビクザール型ハイナンバーテールズ5号機,125番機想定モデル",
-    "ModelName_EN": "Kubikzahl-Type High-NumberTales Unit.5, assumed model of Mk.125",
+    "ModelName_EN": "Kubikzahl-Series HighNumberTales Unit.5, assumed model of Mk.125",
     "GenderType": "Neutral",
     "Belonging": [
       { "Faction": "百花繚乱研究所" },
       { "Faction": "シンフォニー.XVI(ゼクズィン)" }
     ],
-    "Class": [
-      "キュビクザール型ハイナンバーズ",
-      "ヒューマノイド開発部(シンフォニー.XVI)"
-    ]
+    "Class": ["キュビクザール型", "ヒューマノイド開発部(シンフォニー.XVI)"]
   },
   {
     "Num": "144-sq",
@@ -993,7 +986,7 @@
     "SPCodeName_EN": "Gross",
     "ModelNumber": "APHR-NT SQ.XII",
     "ModelName_JP": "キャレ型ハイナンバーテールズ12号機,144番機想定モデル",
-    "ModelName_EN": "Carré-Type High-NumberTales Unit.12, assumed model of Mk.144",
+    "ModelName_EN": "Carré-Series HighNumberTales Unit.12, assumed model of Mk.144",
     "GenderType": "Neutral",
     "Belonging": [
       { "Faction": "百花繚乱研究所" },
@@ -1002,7 +995,7 @@
     "Class": [
       "デュオトリプル9型",
       "マスマティカコンストレイント",
-      "キャレ型ハイナンバーズ",
+      "キャレ型",
       "キャレ型ハイナンバーズ開発部"
     ]
   },
@@ -1017,17 +1010,13 @@
     "FormalName_EN": "NumberTales Unit.Carré-13 (Isotope of Mk.169)",
     "ModelNumber": "APHR-NT SQ.XIII",
     "ModelName_JP": "キャレ型ハイナンバーテールズ13号機,169番機想定モデル",
-    "ModelName_EN": "Carré-Type High-NumberTales Unit.13, assumed model of Mk.169",
+    "ModelName_EN": "Carré-Series HighNumberTales Unit.13, assumed model of Mk.169",
     "GenderType": "Neutral",
     "Belonging": [
       { "Faction": "百花繚乱研究所" },
       { "Faction": "レゾンデイトルカンパニー" }
     ],
-    "Class": [
-      "トリプルセブンズ",
-      "キャレ型ハイナンバーズ",
-      "キャレ型ハイナンバーズ開発部"
-    ]
+    "Class": ["トリプルセブンズ", "キャレ型", "キャレ型ハイナンバーズ開発部"]
   },
   {
     "Num": "196-sq",
@@ -1040,17 +1029,13 @@
     "FormalName_EN": "NumberTales Unit.Carré-14 (Isotope of Mk.196)",
     "ModelNumber": "APHR-NT SQ.XIV",
     "ModelName_JP": "キャレ型ハイナンバーテールズ14号機,196番機想定モデル",
-    "ModelName_EN": "Carré-Type High-NumberTales Unit.14, assumed model of Mk.196",
+    "ModelName_EN": "Carré-Series HighNumberTales Unit.14, assumed model of Mk.196",
     "GenderType": "Neutral",
     "Belonging": [
       { "Faction": "百花繚乱研究所" },
       { "Faction": "レゾンデイトルカンパニー" }
     ],
-    "Class": [
-      "トリプルセブンズ",
-      "キャレ型ハイナンバーズ",
-      "キャレ型ハイナンバーズ開発部"
-    ]
+    "Class": ["トリプルセブンズ", "キャレ型", "キャレ型ハイナンバーズ開発部"]
   },
   {
     "Num": "200-dev",
@@ -1099,7 +1084,7 @@
     "CodeName_EN": "Two-One-Six, Six Cubed",
     "ModelNumber": "APHR-NT Kz.VI",
     "ModelName_JP": "キュビクザール型ハイナンバーテールズ6号機,216番機想定モデル",
-    "ModelName_EN": "Kubikzahl-Type High-NumberTales Unit.6, assumed model of Mk.216",
+    "ModelName_EN": "Kubikzahl-Series HighNumberTales Unit.6, assumed model of Mk.216",
     "GenderType": "FemaleNeutral",
     "Belonging": [
       { "Faction": "百花繚乱研究所" },
@@ -1107,7 +1092,7 @@
     ],
     "Class": [
       "トリプルナインズ",
-      "キュビクザール型ハイナンバーズ",
+      "キュビクザール型",
       "インターフェイスコンストレイント",
       "ヒューマノイド開発部(シンフォニー.XVI)"
     ],
@@ -1956,17 +1941,13 @@
     "FormalName_EN": "NumberTales Unit.Carré-15 (Isotope of Mk.225)",
     "ModelNumber": "APHR-NT SQ.XV",
     "ModelName_JP": "キャレ型ハイナンバーテールズ15号機,225番機想定モデル",
-    "ModelName_EN": "Carré-Type High-NumberTales Unit.15, assumed model of Mk.225",
+    "ModelName_EN": "Carré-Series HighNumberTales Unit.15, assumed model of Mk.225",
     "GenderType": "Neutral",
     "Belonging": [
       { "Faction": "百花繚乱研究所" },
       { "Faction": "レゾンデイトルカンパニー" }
     ],
-    "Class": [
-      "デュオトリプル9型",
-      "キャレ型ハイナンバーズ",
-      "キャレ型ハイナンバーズ開発部"
-    ]
+    "Class": ["デュオトリプル9型", "キャレ型", "キャレ型ハイナンバーズ開発部"]
   },
   {
     "Num": "256-sq",
@@ -1985,17 +1966,13 @@
     "CodeName_EN": "Two-Five-Six, Sixteen Squared",
     "ModelNumber": "APHR-NT SQ.XVI",
     "ModelName_JP": "キャレ型ハイナンバーテールズ16号機,256番機想定モデル",
-    "ModelName_EN": "Carré-Type High-NumberTales Unit.16, assumed model of Mk.256",
+    "ModelName_EN": "Carré-Series HighNumberTales Unit.16, assumed model of Mk.256",
     "GenderType": "Neutral",
     "Belonging": [
       { "Faction": "百花繚乱研究所" },
       { "Faction": "レゾンデイトルカンパニー" }
     ],
-    "Class": [
-      "トリプルフォーズ",
-      "キャレ型ハイナンバーズ",
-      "キャレ型ハイナンバーズ開発部"
-    ]
+    "Class": ["トリプルフォーズ", "キャレ型", "キャレ型ハイナンバーズ開発部"]
   },
   {
     "Num": "256-bq",
@@ -2016,7 +1993,7 @@
     "SPCodeName_EN": "One Byte",
     "ModelNumber": "APHR-NT [BQ]1.0",
     "ModelName_JP": "バイツ型ハイナンバーテールズ1.0号機,256番機想定モデル",
-    "ModelName_EN": "Bytz-Type High-NumberTales Unit.1.0, assumed model of Mk.256",
+    "ModelName_EN": "Bytz-Series HighNumberTales Unit.1.0, assumed model of Mk.256",
     "GenderType": "Neutral",
     "Belonging": [
       { "Faction": "百花繚乱研究所" },
@@ -2037,13 +2014,13 @@
     "FormalName_EN": "NumberTales Unit.Carré-17 (Isotope of Mk.289)",
     "ModelNumber": "APHR-NT SQ.XVII",
     "ModelName_JP": "キャレ型ハイナンバーテールズ17号機,289番機想定モデル",
-    "ModelName_EN": "Carré-Type High-NumberTales Unit.17, assumed model of Mk.289",
+    "ModelName_EN": "Carré-Series HighNumberTales Unit.17, assumed model of Mk.289",
     "GenderType": "Neutral",
     "Belonging": [
       { "Faction": "百花繚乱研究所" },
       { "Faction": "レゾンデイトルカンパニー" }
     ],
-    "Class": ["キャレ型ハイナンバーズ"]
+    "Class": ["キャレ型"]
   },
   {
     "Num": "324-sq",
@@ -2056,13 +2033,13 @@
     "FormalName_EN": "NumberTales Unit.Carré-18 (Isotope of Mk.324)",
     "ModelNumber": "APHR-NT SQ.XVIII",
     "ModelName_JP": "キャレ型ハイナンバーテールズ18号機,324番機想定モデル",
-    "ModelName_EN": "Carré-Type High-NumberTales Unit.18, assumed model of Mk.324",
+    "ModelName_EN": "Carré-Series HighNumberTales Unit.18, assumed model of Mk.324",
     "GenderType": "Neutral",
     "Belonging": [
       { "Faction": "百花繚乱研究所" },
       { "Faction": "レゾンデイトルカンパニー" }
     ],
-    "Class": ["キャレ型ハイナンバーズ"]
+    "Class": ["キャレ型"]
   },
   {
     "Num": 333,
@@ -2099,16 +2076,13 @@
     "CodeName_EN": "Three-Four-Three, Seven Cubed",
     "ModelNumber": "APHR-NT Kz.VII",
     "ModelName_JP": "キュビクザール型ハイナンバーテールズ7号機,343番機想定モデル",
-    "ModelName_EN": "Kubikzahl-Type High-NumberTales Unit.7, assumed model of Mk.343",
+    "ModelName_EN": "Kubikzahl-Series HighNumberTales Unit.7, assumed model of Mk.343",
     "GenderType": "Neutral",
     "Belonging": [
       { "Faction": "百花繚乱研究所" },
       { "Faction": "シンフォニー.XVI(ゼクズィン)" }
     ],
-    "Class": [
-      "キュビクザール型ハイナンバーズ",
-      "ヒューマノイド開発部(シンフォニー.XVI)"
-    ]
+    "Class": ["キュビクザール型", "ヒューマノイド開発部(シンフォニー.XVI)"]
   },
   {
     "Num": "361-sq",
@@ -2123,13 +2097,13 @@
     "CodeName_EN": "Three-Six-One",
     "ModelNumber": "APHR-NT SQ.XIX",
     "ModelName_JP": "キャレ型ハイナンバーテールズ19号機,361番機想定モデル",
-    "ModelName_EN": "Carré-Type High-NumberTales Unit.19, assumed model of Mk.361",
+    "ModelName_EN": "Carré-Series HighNumberTales Unit.19, assumed model of Mk.361",
     "GenderType": "Neutral",
     "Belonging": [
       { "Faction": "百花繚乱研究所" },
       { "Faction": "レゾンデイトルカンパニー" }
     ],
-    "Class": ["キャレ型ハイナンバーズ"]
+    "Class": ["キャレ型"]
   },
   {
     "Num": "400-sq",
@@ -2150,13 +2124,13 @@
     "SPCodeName_EN": "Twenty Twenties",
     "ModelNumber": "APHR-NT SQ.XX",
     "ModelName_JP": "キャレ型ハイナンバーテールズ20号機,400番機想定モデル",
-    "ModelName_EN": "Carré-Type High-NumberTales Unit.20, assumed model of Mk.400",
+    "ModelName_EN": "Carré-Series HighNumberTales Unit.20, assumed model of Mk.400",
     "GenderType": "Neutral",
     "Belonging": [
       { "Faction": "百花繚乱研究所" },
       { "Faction": "レゾンデイトルカンパニー" }
     ],
-    "Class": ["百倍番(ハンドレッズデジッツ)", "キャレ型ハイナンバーズ"]
+    "Class": ["百倍番(ハンドレッズデジッツ)", "キャレ型"]
   },
   {
     "Num": "400-dev",
@@ -2628,7 +2602,7 @@
       "AvoidedTopics_JP": "理論に乗らないことや、理論以外の原因で起きた想定外の事態に触れられることを避ける。そうした場面では自分のプライドを守りたいがために様子が不安定になり、口調が崩れて「自分の所為ではない」と弁明する方向へ話を逸らす。",
       "AvoidedTopics_EN": "Ze avoids things that do not fit established theory, as well as having unforeseen situations — ones arising from causes outside of theory — brought to zir attention. In such moments, zir wish to protect zir own pride makes zir behavior unstable: zir speech breaks down and ze steers the talk toward the excuse that it is 'not by my doing'.",
       "ConversationNotes_JP": "「スクエアエリート」は「000(チトセ)」との2名のみからなる最小クラスで、キャレ型ハイナンバーズから「尊敬故の称号だ」と与えられたものだと説明する。想定外の事態が起きると一人称が「我輩」から「僕」へ崩れ、咳払い（ｺﾞﾎﾝ）を挟んで「我輩」へ戻すのが癖。",
-      "ConversationNotes_EN": "Ze explains that the 'SquareElites' is the smallest class of all, comprising only zirself and '000(Thouser)', bestowed upon them by the Carré-Type HighNumbers as 'a title born of respect'. When something unforeseen occurs, (zir first person slips from 'wagahai' to 'boku' in Japanese, and) ze has a habit of clearing zir throat (*Ahem*) to force it back to 'wagahai'.",
+      "ConversationNotes_EN": "Ze explains that the 'SquareElites' is the smallest class of all, comprising only zirself and '000(Thouser)', bestowed upon them by the Carré-Series HighNumbers as 'a title born of respect'. When something unforeseen occurs, (zir first person slips from 'wagahai' to 'boku' in Japanese, and) ze has a habit of clearing zir throat (*Ahem*) to force it back to 'wagahai'.",
       "DialogueExamples": [
         {
           "value_JP": "「貴君、もとい提督殿。よくぞ此処へ来てくれた。我輩はナンバーテールズ444番機オリジナルの『444(シテン)』。これより提督殿に理知的な成功を授けよう。」",
@@ -2646,7 +2620,7 @@
         },
         {
           "value_JP": "「『スクエアエリート』は、我輩と000(チトセ)殿の２名のみからなる最小クラスだ。キャレ型ハイナンバーの者らから『尊敬故の称号だ』と与えられたクラスだが、我輩の推測からするに、平方数の数字列と強い関係があると思われ…………『話が長くなるから続きはまた今度でいい』？……そうか」",
-          "value_EN": "\"The 'SquareElites' is the smallest class of all, comprising only two: myself and Sir.000(Thouser). It is a class bestowed upon us by those of the Carré-Type HighNumbers as, in their words, 'a title born of respect' — though by my own conjecture, it bears a strong relation to sequences of square numbers, and thus...... 'This is getting long, so save the rest for another time'? ...I see.\"",
+          "value_EN": "\"The 'SquareElites' is the smallest class of all, comprising only two: myself and Sir.000(Thouser). It is a class bestowed upon us by those of the Carré-Series HighNumbers as, in their words, 'a title born of respect' — though by my own conjecture, it bears a strong relation to sequences of square numbers, and thus...... 'This is getting long, so save the rest for another time'? ...I see.\"",
           "about_JP": "「000(チトセ)」および所属クラス「スクエアエリート」について（ちなみに：平方数（自然数の2乗）で下3桁がゾロ目になるパターンは'000'と'444'だけである）",
           "about_EN": "About '000(Thouser)' and zir own class, the 'SquareElites' (Note: the only square numbers (squares of natural numbers) whose last three digits form a repdigit are '000' and '444')"
         },
@@ -2716,16 +2690,13 @@
     "CodeName_EN": "Five-One-Two, Eight Cubed",
     "ModelNumber": "APHR-NT Kz.VIII",
     "ModelName_JP": "キュビクザール型ハイナンバーテールズ8号機,512番機想定モデル",
-    "ModelName_EN": "Kubikzahl-Type High-NumberTales Unit.8, assumed model of Mk.512",
+    "ModelName_EN": "Kubikzahl-Series HighNumberTales Unit.8, assumed model of Mk.512",
     "GenderType": "Neutral",
     "Belonging": [
       { "Faction": "百花繚乱研究所" },
       { "Faction": "シンフォニー.XVI(ゼクズィン)" }
     ],
-    "Class": [
-      "キュビクザール型ハイナンバーズ",
-      "ヒューマノイド開発部(シンフォニー.XVI)"
-    ]
+    "Class": ["キュビクザール型", "ヒューマノイド開発部(シンフォニー.XVI)"]
   },
   {
     "Num": "512-bq",
@@ -2743,7 +2714,7 @@
     "SPCodeName_EN": "Half ki(Kilo bInary)",
     "ModelNumber": "APHR-NT [BQ]1.5",
     "ModelName_JP": "バイツ型ハイナンバーテールズ1.5号機,512番機想定モデル",
-    "ModelName_EN": "Bytz-Type High-NumberTales Unit.1.5, assumed model of Mk.512",
+    "ModelName_EN": "Bytz-Series HighNumberTales Unit.1.5, assumed model of Mk.512",
     "GenderType": "Neutral",
     "Belonging": [
       { "Faction": "百花繚乱研究所" },
@@ -3160,11 +3131,7 @@
       { "Faction": "百花繚乱研究所" },
       { "Faction": "国際ヒューマノイド技術学会" }
     ],
-    "Class": [
-      "キャレ型ハイナンバーズ",
-      "キュビクザール型ハイナンバーズ",
-      "国際協議個体"
-    ]
+    "Class": ["キャレ型", "キュビクザール型", "国際協議個体"]
   },
   {
     "Num": 777,
@@ -4647,8 +4614,8 @@
     "Belonging": [{ "Faction": "国際ヒューマノイド技術学会" }],
     "Class": [
       "デュアルキャリーズ",
-      "キャレ型ハイナンバーズ",
-      "キュビクザール型ハイナンバーズ",
+      "キャレ型",
+      "キュビクザール型",
       "国際協議個体",
       "バイナリーコンストレイント"
     ],
@@ -4768,22 +4735,18 @@
     "CodeName_EN": "Nine Nines",
     "ModelNumber": "APHR-NT SQ.IX",
     "ModelName_JP": "キャレ型ハイナンバーテールズ9号機,81番機互換モデル",
-    "ModelName_EN": "Carré-Type High-NumberTales Unit.9, compatible model with Mk.81",
+    "ModelName_EN": "Carré-Series HighNumberTales Unit.9, compatible model with Mk.81",
     "GenderType": "Neutral",
     "Belonging": [
       { "Faction": "百花繚乱研究所" },
       { "Faction": "レゾンデイトルカンパニー" }
     ],
-    "Class": [
-      "9倍2桁番(ナインズデュアルズ)",
-      "キャレ型ハイナンバーズ",
-      "キャレ型ハイナンバーズ開発部"
-    ],
+    "Class": ["9倍2桁番", "キャレ型", "キャレ型ハイナンバーズ開発部"],
     "AnivDay": [
       {
         "Day": { "Month": 9, "DayOfMonth": 9 },
         "DayAbout_JP": "開発記念（キャレ型ハイナンバーとして）",
-        "DayAbout_EN": "Development commemoration (as Carré-Type High-Numbers)"
+        "DayAbout_EN": "Development commemoration (as Carré-Series High-Numbers)"
       },
       {
         "Day": { "Month": 11, "DayOfMonth": 20 },
