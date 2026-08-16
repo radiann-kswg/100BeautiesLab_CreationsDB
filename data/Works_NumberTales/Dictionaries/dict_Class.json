@@ -18,7 +18,7 @@
   },
   { "Class": "退任個体", "Class_EN": "Retired", "isSecondary": null },
   {
-    "Class": "1桁番(ユニデジッツ)",
+    "Class": "1桁番",
     "Class_JP": "1桁番(ユニデジッツ)",
     "Class_EN": "Uni-Digits",
     "isSecondary": false
