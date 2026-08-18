@@ -1,5 +1,25 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### fix: `D-Vines`（散狐アタストさん協賛）と未整理枠へ `AI_Optout` を宣言し、opt-out テスト回路を整備 (2026-08-19)
+
+`Works_NumberTales/DataBases/db_meta.json` の 3 箇所へ**権利軸**の opt-out を追加した。
+
+| 宣言箇所                                                                             | 変更                       |
+| ------------------------------------------------------------------------------------ | -------------------------- |
+| `#DB_SelfSecondary._Secondaries`「散狐アタストさん協賛」（`sec_SeriesTitle: "D-Vines"`） | 新規宣言 → `true`          |
+| `#DB_Secondary._Secondaries`「散狐アタストさん協賛」（同上）                            | 未宣言だったのを `true` で明示 |
+| `#DB_Secondary.#DB_UnprocessedSecondary`（ネスト DB / `DB_Hidden: true`）              | `false` → `true`           |
+
+- **2026-07-17 の「`AI_Optout` を権利軸へ純化」の巻き戻しではない**。あのとき落とした `#DB_SelfSecondary` catch-all の `true` は「キャラデザ未着手なので AI へ空データを渡したくない」という**充填ガードの代理**（意味論は `AI_Unready` / 画像ゲートへ移譲済み）で、今回は**第三者（散狐アタストさん）の関与に基づく本来の権利軸宣言**。向きが逆であることを `docs/api-sw-spec.md` §5.5 に明記した。
+- **影響**: `SelfSecondary` の dry-run が `skipped-ai-optout=2`（Num `266` / `314`）を出すようになった（`patched=7` は不変）。`#DB_SelfSecondary` はカテゴリ単位で opt-in / opt-out が**混在**する初のケースになる。
+- **opt-out テスト回路の整備（`tests/patch-aihints.gates.test.js`）**: 宣言の**列挙をやめ、データが増えても成立し続ける規則**へ作り替えた。旧テストは「SelfSecondary の全カテゴリが `false`」という全称で、D-Vines の宣言で成立しなくなっていた。
+  - 全作品横断（37 個の `db_meta.json` を**再帰**走査。`#DB_Secondary.#DB_UnprocessedSecondary` のようなネスト DB の宣言も拾う）: 綴りは `AI_Optout` ちょうど 1 種類 / 値は必ず boolean / `sec_DesignedBy` に User 以外が入るカテゴリは必ず `true`。
+  - NumberTales の意味論の骨格のみ実データで固定: User 単独作 3 DB は DB レベル `false` / `#DB_Secondary` は全カテゴリ＋ネスト DB が `true` / `#DB_SelfSecondary` の混在を `findSecondaryDef` が撃ち分ける（Num は列挙しない）。
+  - 綴り違い混入・文字列 `"true"`・第三者カテゴリの宣言漏れ・D-Vines を `false` へ戻す の 4 通りで「わざと壊して赤くなること」を確認。
+- **テスト追従**: `tests/patch-aihints.classdict.test.js` は `develop` の `8829fae`「DB構造整備 bugfix」に伴う `dict_Class.json` の変更（`Class` が `1桁番(ユニデジッツ)` → `1桁番`、ルビ付き表示形は `Class_JP` へ移動）へ追従。辞書キーは `Class`（レコードの生値）である旨を注釈に残した。
+- **未対応（申し送り）**: `migrate-aihints.mjs` はカテゴリ単位 `AI_Optout` に未対応。`#DB_SelfSecondary` は seed 予定 DB なので、seed 前に実装が必要（`docs/aihints-spec.md`）。
+- 確認: `npm test` の該当 2 ファイル 26 件成功（22 → 26）。dry-run は `SemiPrimary`: `patched=10` / `SelfSecondary`: `patched=7, skipped-ai-optout=2`。
+
 ### fix: 二次創作 UI にシリーズタイトルを表示 (2026-08-15)
 
 - `sec_SeriesTitle` を既存の二次創作情報セクションへ表示するよう、`$Def_SecondaryMeta` の表示定義を更新。

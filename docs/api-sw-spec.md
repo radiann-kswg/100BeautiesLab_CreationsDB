@@ -417,11 +417,22 @@ UI と enrich/search は、可能な限りこの `db_type.json($DefType)` に追
 > 「その進捗段階なら AIHints を生成してよい」という**内部ツールの都合**を述べているだけで、
 > AI 学習の許諾を意味しません。権利面の判断は必ず `AI_Optout` と `guideline.md` を参照してください。
 
-適用状況（2026-07-17 時点）:
+適用状況（2026-08-19 時点）:
 
-- `Works_NumberTales/DataBases/db_meta.json`: `#DB_Primary` / `#DB_SemiPrimary` / `#DB_SelfSecondary` は `AI_Optout: false`（いずれも User 自身の創作物のため権利上の opt-out は不要）。`#DB_SelfSecondary` は `_Secondaries` の全カテゴリも `false`。
-- `#DB_Secondary`（公認二次創作）は `_Secondaries` の各カテゴリで `AI_Optout: true`（第三者デザインを含むため）。
+- `Works_NumberTales/DataBases/db_meta.json`: `#DB_Primary` / `#DB_SemiPrimary` / `#DB_SelfSecondary` は **DB レベルで** `AI_Optout: false`（いずれも User 自身の創作物のため権利上の opt-out は不要）。
+- `#DB_SelfSecondary` は **カテゴリ単位で混在**する。「散狐アタストさん協賛」（`sec_SeriesTitle: "D-Vines"`）のみ `AI_Optout: true`、他の 3 カテゴリ（「リクエストナンバー」/「量産型マスタートリプル」/ catch-all）は `false`。D-Vines は散狐アタストさんの提案による協賛シリーズであり User 単独作ではないため、権利軸の opt-out を宣言している。
+- `#DB_Secondary`（公認二次創作）は `_Secondaries` の全カテゴリが `AI_Optout: true`（第三者デザインを含むため）。ネストされた `#DB_Secondary.#DB_UnprocessedSecondary`（`DB_Hidden: true` の空き枠 DB）も **DB レベルで** `AI_Optout: true`。
 - その他の作品別 `db_meta.json` の DB / Ref エントリには `AI_Optout: true` を付与済み。
+
+> **`#DB_SelfSecondary` のカテゴリ混在は、2026-07-17 の「`AI_Optout` を権利軸へ純化」の巻き戻しではありません。**
+> あのとき落とした catch-all の `true` は「キャラデザ未着手なので AI へ空データを渡したくない」という
+> **データ充填ガードの代理**でした（その意味論は `AI_Unready` / 画像ゲートへ移譲済み。前掲「意味論の境界」参照）。
+> 今回の D-Vines の `true` は**第三者の関与に基づく権利軸の宣言**であり、本節が定義する `AI_Optout` の本来の用法です。
+
+宣言の回帰は `tests/patch-aihints.gates.test.js` が固定します。個々の宣言を列挙せず、
+**データが増えても成立し続ける規則**（綴りは `AI_Optout` のみ / 値は boolean /
+`sec_DesignedBy` に User 以外が入るカテゴリは必ず `true`）と、
+NumberTales の意味論の骨格だけを対象にしています。走査は再帰で、ネスト DB の宣言も拾います。
 
 ---
 

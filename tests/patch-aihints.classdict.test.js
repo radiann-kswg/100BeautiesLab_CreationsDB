@@ -112,7 +112,12 @@ describe('Class 辞書のカバレッジ（実データ）', () => {
         const dict = loadMergedClassDictEN('NumberTales');
         // ハードコードは AI プロンプト用タグ 'uni-digits class'、辞書は表示名 'Uni-Digits'。
         // 値が異なることを固定しておく（将来どちらかを変えたらここで気づける）。
-        expect(dict.get('1桁番(ユニデジッツ)')).toBe('Uni-Digits');
+        // ★ キーがルビ無しの '1桁番' なのは、loadMergedClassDictEN() が dict_Class.json の
+        //   `Class`（= レコードの Class 配列に入る生値）をキーにするため。develop の `8829fae`
+        //   「DB構造整備 bugfix」で `Class` が '1桁番(ユニデジッツ)' → '1桁番' へ直され、ルビ付きの
+        //   表示形は `Class_JP` へ移った。旧キーのままだと dict.get() が undefined を返して落ちる
+        //   ので、テスト側をデータ仕様へ追従させている（AGENTS.md「データ更新時のテスト追従」）。
+        expect(dict.get('1桁番')).toBe('Uni-Digits');
         expect(dict.get('試験用個体')).toBe('for Testing');
     });
 });

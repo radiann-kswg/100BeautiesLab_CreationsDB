@@ -204,7 +204,9 @@ GET /api/ai/:work/:db/aihints/:idx
 >
 > 通常 `tools/patch-aihints.mjs` 側のガードが `AI_Optout: true` の DB への AIHints **書き込み**自体を拒否するため、該当レコードは存在しないはずです。本スクリプトの DB レベル判定は、手編集や `--force-ai-optout` で混入した場合に D1 → `/api/ai/*` へ素通りするのを防ぐための二重化です。
 >
-> **既知の未対応**: `_Secondaries` のカテゴリ単位 `AI_Optout` はレコード単位の 3 軸解決が必要で、本スクリプトは未対応です。現状カテゴリ単位の opt-out を持つのは `#DB_Secondary` のみで AIHints の実データが無いため latent ですが、同 DB へ AIHints を入れる場合は先に対応が必要です。仕様は `docs/api-sw-spec.md` §5.5 を参照。
+> **既知の未対応**: `_Secondaries` のカテゴリ単位 `AI_Optout` はレコード単位の 3 軸解決が必要で、本スクリプトは未対応です。仕様は `docs/api-sw-spec.md` §5.5 を参照。
+>
+> **2026-08-19: 対応の優先度が上がりました。** カテゴリ単位の opt-out を持つ DB が `#DB_Secondary` に加えて **`#DB_SelfSecondary`（「散狐アタストさん協賛」= `sec_SeriesTitle: "D-Vines"`。該当 2 件）** にも生まれています。`#DB_SelfSecondary` は AIHints の seed 予定 DB（`docs/ai-hints-usage.md` §9）であるため、**seed する前に本スクリプトのカテゴリ単位判定を実装してください**。書き込み側（`tools/patch-aihints.mjs`）は既に対応済み（該当レコードを `skipped-ai-optout`）なので現時点では D-Vines の AIHints が生成されず latent のままですが、`--force-ai-optout` や手編集で混入した瞬間に D1 → `/api/ai/*` へ素通りします。
 
 > **本仕様書の守備範囲**
 >

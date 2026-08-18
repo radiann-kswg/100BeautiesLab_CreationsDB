@@ -243,9 +243,16 @@ https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primar
 >
 > 本セクションで記述するフロー、コマンド例、`tools/patch-aihints.mjs` の各モードの動作保証、および `.cache/fill-residual-todos.mjs` の挙動は **`data/Works_NumberTales/DataBases/db_Primary.json` を対象に検証・適用されている**。コマンド例はいずれも `--work NumberTales --db Primary` 前提であり、**Primary 以外を対象にする場合は `--work` / `--db` の両方を必ず明示すること**（省略時の既定値は `NumberTales` / `Primary`）。
 >
-> **`SemiPrimary` / `SelfSecondary`（2026-07-17）**: 基盤（`_Secondaries` のカテゴリ別 `AI_Optout` 解決 / `_Commons` 継承 / Class 辞書の合流 / Num ソート）は検証済みで、dry-run が期待どおり動くところまで確認している（`SemiPrimary`: `patched=9` / `SelfSecondary`: `patched=7`）。ただし **AIHints の実データはまだ 1 件も投入していない**（`AppearanceDetail` の入力が追い付いていないため）。両 DB には humanoid 画像が存在しないため、seed した場合 `forms.humanoid` は欠落する見込み。
+> **`SemiPrimary` / `SelfSecondary`（2026-07-17 / 数値は 2026-08-19 再計測）**: 基盤（`_Secondaries` のカテゴリ別 `AI_Optout` 解決 / `_Commons` 継承 / Class 辞書の合流 / Num ソート）は検証済みで、dry-run が期待どおり動くところまで確認している。ただし **AIHints の実データはまだ 1 件も投入していない**（`AppearanceDetail` の入力が追い付いていないため）。両 DB には humanoid 画像が存在しないため、seed した場合 `forms.humanoid` は欠落する見込み。
 >
-> **`Secondary` / `Proxy` 等、および他作品**（`Works_FLInvestigator78` / `Works_ShouArRiders` / `Works_SinisterChangingGirls` / `Works_UnauthedLogica` / `Works_PastDivers` / `Works_DestinyFoxRecords`）へ適用する際は、画像ディレクトリ構造・`Images.*_PNGPath` 規則・作品別 schema（`db_type.json($VersDef)`）の差異を個別に検証の上、`--work` / `--db` の両オプションと画像パス解決ロジックを随時調整してください。なお `#DB_Secondary` は `_Secondaries` の各カテゴリが `AI_Optout: true`（第三者デザインを含むため）であり、対象外です。
+> | DB              | `--suggest`（dry-run）の内訳                                               |
+> | --------------- | -------------------------------------------------------------------------- |
+> | `SemiPrimary`   | `patched=10, skipped-no-image=43, skipped-progress=3`                      |
+> | `SelfSecondary` | `patched=7, skipped-ai-optout=2, skipped-no-image=115, skipped-progress=1` |
+>
+> `SelfSecondary` の `skipped-ai-optout=2`（Num `266` / `314`）は、2026-08-19 に「散狐アタストさん協賛」（`sec_SeriesTitle: "D-Vines"`）カテゴリへ `AI_Optout: true` を宣言したことによる。散狐アタストさんの提案による協賛シリーズで User 単独作ではないため、権利軸の opt-out を立てている。**seed するときはこの 2 件を除いて進めること**（`--force-ai-optout` で通してはいけない）。
+>
+> **`Secondary` / `Proxy` 等、および他作品**（`Works_FLInvestigator78` / `Works_ShouArRiders` / `Works_SinisterChangingGirls` / `Works_UnauthedLogica` / `Works_PastDivers` / `Works_DestinyFoxRecords`）へ適用する際は、画像ディレクトリ構造・`Images.*_PNGPath` 規則・作品別 schema（`db_type.json($VersDef)`）の差異を個別に検証の上、`--work` / `--db` の両オプションと画像パス解決ロジックを随時調整してください。なお `#DB_Secondary` は `_Secondaries` の全カテゴリが `AI_Optout: true`（第三者デザインを含むため）であり、対象外です（ネストされた `#DB_UnprocessedSecondary` も `DB_Hidden: true` / `AI_Optout: true`）。
 
 ### 9.1 ワークフロー全体像
 

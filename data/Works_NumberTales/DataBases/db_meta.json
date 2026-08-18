@@ -99,7 +99,8 @@
             "Belonging": [{ "Faction": "シンフォニー.XVI(ゼクズィン)" }],
             "RaceType": "DeviatableHumanoid(TaleBeastType)",
             "isTriple": true
-          }
+          },
+          "AI_Optout": true
         },
         {
           "sec_Category": null,
@@ -201,7 +202,8 @@
             "Belonging": [{ "Faction": "シンフォニー.XVI(ゼクズィン)" }],
             "RaceType": "DeviatableHumanoid(TaleBeastType)",
             "isTriple": false
-          }
+          },
+          "AI_Optout": true
         },
         {
           "sec_Category": "自創作キャラ化企画",
@@ -259,7 +261,7 @@
           }
         ],
         "DB_Hidden": true,
-        "AI_Optout": false
+        "AI_Optout": true
       }
     }
   },

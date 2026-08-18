@@ -36,6 +36,7 @@
 
 | ログ                                                                                                                               | 主題                                                           | 状態                              |
 | ---------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- | --------------------------------- |
+| [2026-08-19_progress_aihints-optout-dvines.md](./2026-08-19_progress_aihints-optout-dvines.md)                     | `D-Vines` / 未整理枠への `AI_Optout` 宣言 ＋ opt-out テスト回路の整備 | 🟢 現行（`migrate-aihints` のカテゴリ単位対応が残る） |
 | [2026-08-08_progress_aihints-refactor.md](./2026-08-08_progress_aihints-refactor.md)                                               | `develop` 取り込みマージ ＋ AIHints 固有コードの同種リファクタ | 🟢 現行（実地実行の確認が残る）   |
 | [.completed/2026-07-29_progress_addon-ai-tag-merge.md](./.completed/2026-07-29_progress_addon-ai-tag-merge.md)                     | `develop` 取り込みマージ（`46a3845`）＋ 本ブランチの棚卸し     | ✅ 完了・退避済み                 |
 | [2026-07-17_progress_aihints-scope-semiprimary-selfsecondary.md](./2026-07-17_progress_aihints-scope-semiprimary-selfsecondary.md) | AIHints の適用範囲（SemiPrimary / SelfSecondary）              | ⚠️ seed 本体ほか 4 件が継続       |
