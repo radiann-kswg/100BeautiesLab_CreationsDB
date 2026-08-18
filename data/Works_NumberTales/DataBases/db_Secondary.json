@@ -1262,9 +1262,9 @@
   {
     "Num": "/3",
     "Num_Badge": "Dv3",
+    "sec_SeriesTitle": "D-Vines",
     "sec_Category": "散狐アタストさん協賛",
     "sec_DesignedBy": ["RadianN", "Atast"],
-    "sec_SeriesTitle": "D-Vines",
     "FormalName_JP": "D-Vines 母艦3号機",
     "FormalName_EN": "D-Vines Unit Mothership.3",
     "ModelNumber": "APDM-Div D3",
@@ -1277,9 +1277,9 @@
   {
     "Num": "/7",
     "Num_Badge": "Dv7",
+    "sec_SeriesTitle": "D-Vines",
     "sec_Category": "散狐アタストさん協賛",
     "sec_DesignedBy": ["RadianN", "Atast"],
-    "sec_SeriesTitle": "D-Vines",
     "FormalName_JP": "D-Vines 母艦7号機",
     "FormalName_EN": "D-Vines Unit Mothership.7",
     "ModelNumber": "APDM-Div D7",
@@ -1292,9 +1292,9 @@
   {
     "Num": "8/",
     "Num_Badge": "8Dv",
+    "sec_SeriesTitle": "D-Vines",
     "sec_Category": "散狐アタストさん協賛",
     "sec_DesignedBy": ["RadianN", "Atast"],
-    "sec_SeriesTitle": "D-Vines",
     "FormalName_JP": "D-Vines 基幹8号機",
     "FormalName_EN": "D-Vines Unit Core.8",
     "ModelNumber": "APDM-Div C8",
@@ -1307,9 +1307,9 @@
   {
     "Num": "22/",
     "Num_Badge": "22Dv",
+    "sec_SeriesTitle": "D-Vines",
     "sec_Category": "散狐アタストさん協賛",
     "sec_DesignedBy": ["RadianN", "Atast"],
-    "sec_SeriesTitle": "D-Vines",
     "FormalName_JP": "D-Vines 基幹22号機",
     "FormalName_EN": "D-Vines Unit Core.22",
     "ModelNumber": "APDM-Div C22",
