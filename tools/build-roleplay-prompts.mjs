@@ -240,14 +240,40 @@ export function buildVars(record, ctx) {
 		return pick(raw);
 	};
 
-	// GenderType / RaceType / Belonging（enum/辞書ラベル解決）。
+	// GenderType / RaceType / Belonging / Class（enum/辞書ラベル解決）。
 	// 解決不能な object が `[object Object]` へ文字列化された場合は未対応として省略する。
 	const cleanLabel = (s) => (typeof s === 'string' && s && !s.includes('[object Object]')) ? s : '';
+
+	/**
+	 * 辞書コード（単体 or 配列）を 1 要素ずつラベル解決し、読点で連結する。
+	 *
+	 * @description
+	 *   `TypeResolver.resolveVarsDefLabel()` は**スカラー専用**（内部で `String(rawValue)` する）。
+	 *   配列をそのまま渡すと `Array.prototype.toString()` が働き `"A,B"` という
+	 *   辞書に無いコードとして扱われ、ラベル解決されないまま素通りする
+	 *   （例: 所属が2件ある錦野姉妹が `セブンティエイト特殊探偵団,第三県立技巧美術女子高校` になる）。
+	 *   `$Def_*` の構造化値は `flattenDefShorthand()` でコード値へ落としてから解決する。
+	 * @param {string} fieldName - 辞書名（typedef の `$dict` 宣言に対応）
+	 * @param {any} raw - レコードの生値（スカラー / 配列 / `$Def_*` オブジェクト）
+	 * @param {string} [defName] - `$Def_*` コンテナ名（`$shorthand` を持つ型のみ指定）
+	 * @returns {string} 解決済みラベルを `、` で連結した表示テキスト（該当なしなら空文字）
+	 */
+	const resolveDictLabels = (fieldName, raw, defName = '') => {
+		if (!TR) return '';
+		const flat = defName ? flattenDefShorthand(unwrapValue(raw), defName) : unwrapValue(raw);
+		if (flat === null || flat === undefined || flat === '') return '';
+		return (Array.isArray(flat) ? flat : [flat])
+			.map((code) => cleanLabel(TR.resolveVarsDefLabel(fieldName, code, globalMeta, workMeta)))
+			.filter(Boolean)
+			.join('、');
+	};
+
 	vars.Gender = cleanLabel(TR ? TR.resolveVarsDefLabel('GenderType', unwrapValue(record.GenderType), globalMeta, workMeta) : '');
 	vars.Race = cleanLabel(TR ? TR.resolveVarsDefLabel('RaceType', unwrapValue(record.RaceType), globalMeta, workMeta) : '');
-	vars.Belonging = cleanLabel(TR
-		? TR.resolveVarsDefLabel('Belonging', flattenDefShorthand(unwrapValue(record.Belonging), '$Def_Faction'), globalMeta, workMeta)
-		: '');
+	vars.Belonging = resolveDictLabels('Belonging', record.Belonging, '$Def_Faction');
+	// Class は `$dict: "Class"`。辞書側がコード（`Class`）と表示名（`Class_JP`）を分離したため、
+	// レコードの生コードを直接差し込むと読み（`1桁番(ユニデジッツ)` の括弧内）が落ちる。
+	vars.Class = resolveDictLabels('Class', record.Class);
 
 	// 年齢は Age（無ければ ConceptAge）を採用し、object 値はアンラップして統一する
 	const ageRaw = record.Age != null ? record.Age : record.ConceptAge;

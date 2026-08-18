@@ -15,6 +15,8 @@ import {
 	generatePrompt,
 	hasFilledConversationPattern,
 	computeOutputPath,
+	extractConfigAndBody,
+	buildVars,
 } from '../tools/build-roleplay-prompts.mjs';
 import { mergeByHeadings } from '../tools/roleplay/sections.mjs';
 // 符号化フィールドのデコードを Node 側で有効化（UI と同一ロジック）
@@ -203,5 +205,35 @@ describe('生成物の体裁（2026-07-25 回帰: 配布物に出ていた 3 件
 	it('接続語で文が途切れていない（Weakness 欠落時の「である一方、」）', () => {
 		const bad = collectGeneratedPrompts().filter((f) => /(?:である一方、|ながらも)[ \t]*$/m.test(f.text));
 		expect(bad.map((f) => f.rel)).toEqual([]);
+	});
+
+	// 2026-08-19 回帰: 辞書コードのラベル解決まわりで配布物に出ていた 2 件
+	// NOTE: 全文スキャンではなく `buildVars()` の辞書解決変数だけを見る。
+	//   呼称 DSL（`キミ,名前呼び`）や DB の自由記述は ASCII カンマを正当に使うため。
+	describe('辞書コードのラベル解決', () => {
+		/** 全ターゲットの buildVars() 結果を得る */
+		const allVars = () => targets.map((t) => ({
+			rel: `${t.workShort}/${t.dbShort}`,
+			vars: buildVars(t.rec, { ...ctxOf(t), config: extractConfigAndBody(t.tpl).config }),
+		}));
+
+		it('辞書コード配列が `Array.toString()` のまま漏れていない', () => {
+			// `resolveVarsDefLabel()` はスカラ専用。配列をそのまま渡すと `"A,B"` という
+			// 辞書に無いコードになり、未解決のまま出力される（例: 所属 2 件の錦野姉妹）。
+			// 解決済みラベルは `、` 連結なので、この 2 変数に ASCII カンマは現れない。
+			const bad = allVars().filter(({ vars }) => `${vars.Belonging}${vars.Class}`.includes(','));
+			expect(bad.map((b) => `${b.rel}: ${b.vars.Belonging} / ${b.vars.Class}`)).toEqual([]);
+		});
+
+		it('Class が辞書の表示名（`Class_JP`）へ解決される', () => {
+			// dict_Class.json はコード（`Class`: "1桁番"）と表示名
+			// （`Class_JP`: "1桁番(ユニデジッツ)"）を分離して持つ。
+			// テンプレが `{{Class}}`（レコードの生値）を差し込むと読みが落ちる。
+			const t = targets.find((x) => x.workShort === 'NumberTales' && x.dbShort === 'Primary' && x.rec.Num === 1);
+			expect(t, 'NumberTales/Primary Num:1 が見つからない').toBeTruthy();
+			const vars = buildVars(t.rec, { ...ctxOf(t), config: extractConfigAndBody(t.tpl).config });
+			expect(t.rec.Class).toContain('1桁番');
+			expect(vars.Class).toContain('1桁番(ユニデジッツ)');
+		});
 	});
 });

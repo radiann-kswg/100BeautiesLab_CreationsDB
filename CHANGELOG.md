@@ -1,5 +1,16 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### fix: ロールプレイプロンプト生成の辞書ラベル解決 (2026-08-19)
+
+- **`Class` を辞書の表示名へ解決**。`dict_Class.json` がコード（`Class`）と表示名（`Class_JP`）を
+  分離した際、テンプレの `{{Class}}`（レコードの生値）が読みを落としていた
+  （`1桁番(ユニデジッツ)` → `1桁番`）。合成変数 `@Class` を追加し、NumberTales /
+  FLInvestigator78 / DestinyFoxRecords のテンプレを `{{@Class}}` へ切り替え。
+- **辞書コード配列を 1 要素ずつ解決**。`TypeResolver.resolveVarsDefLabel()` はスカラ専用のため、
+  配列を渡すと `Array.prototype.toString()` で `"A,B"` となり未解決のまま出力されていた
+  （所属 2 件のレコードで顕在化）。`resolveDictLabels()` で要素ごとに解決し `、` 連結へ統一。
+- 回帰テストを `tests/data.roleplay-prompts.test.js` へ追加（`buildVars()` の `@Belonging` / `@Class` 限定）。
+
 ### fix: 二次創作 UI にシリーズタイトルを表示 (2026-08-15)
 
 - `sec_SeriesTitle` を既存の二次創作情報セクションへ表示するよう、`$Def_SecondaryMeta` の表示定義を更新。
