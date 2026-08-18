@@ -45,7 +45,7 @@ describe('CommonsProcessor secondary series commons', () => {
     expect(ctx?.self?.CommonsProcessor).toBeTypeOf('function');
 
     const metaText = loadText('data/Works_NumberTales/DataBases/db_meta.json');
-    const seriesTitle = 'ヘキサデミカル・テールズ';
+    const seriesTitle = 'ヘキサデミカル-テールズ';
 
     const resultJson = vm.runInNewContext(
       `(() => {
@@ -88,7 +88,7 @@ describe('CommonsProcessor secondary series commons', () => {
     const target = records.find((record) => record.Num === '0xA');
 
     expect(target).toBeTruthy();
-    expect(target.sec_SeriesTitle).toBe('ヘキサデミカル・テールズ');
+    expect(target.sec_SeriesTitle).toBe('ヘキサデミカル-テールズ');
     expect(target.sec_Category).toBeUndefined();
     expect(target.sec_DesignedBy).toBeUndefined();
 

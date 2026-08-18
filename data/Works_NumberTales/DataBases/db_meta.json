@@ -81,6 +81,27 @@
           "AI_Optout": false
         },
         {
+          "sec_Category": "散狐アタストさん協賛",
+          "sec_DesignedBy": ["RadianN"],
+          "sec_SeriesTitle": "D-Vines",
+          "SecondarySummary_JP": "散狐アタストさんの提案により考案された「D-Vines(ディ-バインズ)」の関連キャラクター。\nシンフォニー.XVI(ゼクズィン)に所属する「錦野舞」によりナンバーテールズの互換プロダクションとして開発設計するために試作された特殊な番号のナンバーテールズ。分数や特殊な無理数の近似値上3桁の番号を持つ個体が中心となっている。",
+          "StoryEra": {
+            "InEra": [
+              { "EraGen": 9, "YearInEra": 5 },
+              { "EraGen": 8, "YearInEra": 8 },
+              { "byRealYear": 2052 }
+            ],
+            "StoryEraAbout_JP": "第9創世紀5年(第8創世紀8年,西暦2052年相当)周辺",
+            "StoryEraAbout_EN": "in around WDCE.IX.5(Equivalent to in around: WDCE.VIII.8, DC.2052)"
+          },
+          "_Commons": {
+            "Progress": "stillTentative",
+            "Belonging": [{ "Faction": "シンフォニー.XVI(ゼクズィン)" }],
+            "RaceType": "DeviatableHumanoid(TaleBeastType)",
+            "isTriple": true
+          }
+        },
+        {
           "sec_Category": null,
           "sec_DesignedBy": ["RadianN"],
           "sec_SeriesTitle": "量産型マスタートリプル",
@@ -118,7 +139,7 @@
         {
           "sec_Category": "共同二次創作",
           "sec_DesignedBy": ["Atast"],
-          "sec_SeriesTitle": "ヘキサデミカル・テールズ",
+          "sec_SeriesTitle": "ヘキサデミカル-テールズ",
           "SecondarySummary_JP": "散狐アタストさんにより原案がキャラデザされ、現在はラジアン(柏木主税)に権利を譲渡されている。\n異世界から(散狐アタストさんの代理キャラである)「エイゼルベット」によりナンバーテールズを基にして生み出され、(同じく二次創作観測キャラである)「シグマ.クロステールズ」により百花繚乱研究所のある世界へ仲介された、十六進拡張用の数字を持つ６体のバーチャル同位体。現在は百花繚乱研究所に託され、研究開発の一要因として活動している。",
           "StoryEra": {
             "InEra": [
@@ -143,7 +164,7 @@
         {
           "sec_Category": "セルフ三次創作",
           "sec_DesignedBy": ["RadianN"],
-          "sec_SeriesTitle": "公式版ヘキサデミカル・テールズ",
+          "sec_SeriesTitle": "公式版ヘキサデミカル-テールズ",
           "SecondarySummary_JP": "散狐アタストさんにより原案がキャラデザされた「ヘキサデミカル・テールズ」をもとにナンバーテールズの公式副次創作としてキャラの構想を拡張した。\n百花繚乱研究所と「エイゼルベット」によりある世界からあらゆる\"観測\"を経て誕生した、特殊な十六進数を持つナンバーテールズ同位体。百花繚乱研究所にて研究開発の一要因として活動している。",
           "StoryEra": {
             "InEra": [
@@ -162,7 +183,7 @@
           "AI_Optout": true
         },
         {
-          "sec_Category": "共同二次創作",
+          "sec_Category": "散狐アタストさん協賛",
           "sec_DesignedBy": ["RadianN", "Atast"],
           "sec_SeriesTitle": "D-Vines",
           "SecondarySummary_JP": "散狐アタストさんの提案により考案された。\nシンフォニー.XVI(ゼクズィン)に所属する「錦野舞」によりナンバーテールズの互換プロダクションとして開発された、胴部襷掛け方向に上下体の乖離・組み換え再接続が可能なカスタマイズ特化型ディビエイタブルヒューマノイド。上下の組み換え次第で性格に変化が生じるため、個体の外見デザイン以上のキャラクターバリエーションを有することが特徴。",
@@ -179,8 +200,7 @@
             "Progress": "stillTentative",
             "Belonging": [{ "Faction": "シンフォニー.XVI(ゼクズィン)" }],
             "RaceType": "DeviatableHumanoid(TaleBeastType)",
-            "isTriple": false,
-            "isPrivate": true
+            "isTriple": false
           }
         },
         {

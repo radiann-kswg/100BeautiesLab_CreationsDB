@@ -1,12 +1,31 @@
 [
   { "Class": "試験用個体", "Class_EN": "for Testing", "isSecondary": null },
   {
-    "Class": "1桁番(ユニデジッツ)",
+    "Class": "未完成個体",
+    "Class_EN": "Progressing to Develop",
+    "isSecondary": null
+  },
+  {
+    "Class": "開発システム用個体",
+    "Class_EN": "for Developer System",
+    "isSecondary": null
+  },
+  {
+    "Class": "調整個体",
+    "Class_JP": "調整中個体 / 調整用個体",
+    "Class_EN": "Tuning / for Tuning System",
+    "isSecondary": null
+  },
+  { "Class": "退任個体", "Class_EN": "Retired", "isSecondary": null },
+  {
+    "Class": "1桁番",
+    "Class_JP": "1桁番(ユニデジッツ)",
     "Class_EN": "Uni-Digits",
     "isSecondary": false
   },
   {
-    "Class": "10倍番(テンズデジッツ)",
+    "Class": "10倍番",
+    "Class_JP": "10倍番(テンズデジッツ)",
     "Class_EN": "Tens-Digits",
     "isSecondary": false
   },
@@ -46,7 +65,8 @@
     "isSecondary": false
   },
   {
-    "Class": "9倍2桁番(ナインズデュアルズ)",
+    "Class": "9倍2桁番",
+    "Class_JP": "9倍2桁番(ナインズデュアルズ)",
     "Class_EN": "Nines Duals",
     "isSecondary": false
   },
@@ -61,21 +81,13 @@
     "isSecondary": false
   },
   {
-    "Class": "未完成個体",
-    "Class_EN": "Progressing to Develop",
-    "isSecondary": null
+    "Class": "デシベルモデレーターズ",
+    "Class_EN": "Decibel Moderators",
+    "isSecondary": false
   },
-  {
-    "Class": "開発システム用個体",
-    "Class_EN": "for Developer System",
-    "isSecondary": null
-  },
-  {
-    "Class": "調整個体",
-    "Class_EN": "Tuning/for Tuning System",
-    "isSecondary": null
-  },
-  { "Class": "退任個体", "Class_EN": "Retired", "isSecondary": null },
+  { "Class": "1号機型", "Class_EN": "Unit.1 lineage", "isSecondary": false },
+  { "Class": "2号機型", "Class_EN": "Unit.2 lineage", "isSecondary": false },
+  { "Class": "10号機型", "Class_EN": "Unit.10 lineage", "isSecondary": false },
   {
     "Class": "開発者代理人",
     "Class_EN": "Developer's Agent",
@@ -84,20 +96,14 @@
   { "Class": "開発者", "Class_EN": "Developer", "isSecondary": false },
   {
     "Class": "最高経営所長",
-    "Class_EN": "Chief Executive Officer",
+    "Class_JP": "CEO(最高経営所長)",
+    "Class_EN": "CEO(Chief Executive Officer)",
     "isSecondary": false
   },
   {
     "Class": "最高技術所長",
-    "Class_EN": "Chief Technology Officer",
-    "isSecondary": false
-  },
-  { "Class": "1号機型", "Class_EN": "Model Unit.1", "isSecondary": false },
-  { "Class": "2号機型", "Class_EN": "Model Unit.2", "isSecondary": null },
-  { "Class": "10号機型", "Class_EN": "Model Unit.10", "isSecondary": false },
-  {
-    "Class": "デシベルモデレーターズ",
-    "Class_EN": "Decibel Moderators",
+    "Class_JP": "CTO(最高技術所長)",
+    "Class_EN": "CTO(Chief Technology Officer)",
     "isSecondary": false
   },
   {
@@ -113,32 +119,36 @@
   {
     "Class": "仮設型ハイナンバー",
     "Class_EN": "Tentative HighNumbers",
-    "isSecondary": null
+    "isSecondary": false
   },
   {
     "Class": "最終型ハイナンバーズ",
     "Class_EN": "Final-Renovated HighNumbers",
-    "isSecondary": null
+    "isSecondary": false
   },
   {
-    "Class": "10*(ヒノマル)型ハイナンバーズ",
-    "Class_EN": "10*(Sunrizer)-Type HighNumbers",
-    "isSecondary": null
+    "Class": "10*(ヒノマル)型",
+    "Class_JP": "10*(ヒノマル)型ハイナンバーズ",
+    "Class_EN": "10*(Sunrizer)-Series HighNumbers",
+    "isSecondary": false
   },
   {
-    "Class": "11*(ハクト)型ハイナンバーズ",
-    "Class_EN": "11*(Hudres:Elevantis)-Type HighNumbers",
-    "isSecondary": null
+    "Class": "11*(ハクト)型",
+    "Class_JP": "11*(ハクト)型ハイナンバーズ",
+    "Class_EN": "11*(Hudres:Elevantis)-Series HighNumbers",
+    "isSecondary": false
   },
   {
-    "Class": "キャレ型ハイナンバーズ",
+    "Class": "キャレ型",
+    "Class_JP": "キャレ型ハイナンバーズ",
     "Class_EN": "Carré-Series HighNumbers",
-    "isSecondary": null
+    "isSecondary": false
   },
   {
-    "Class": "キュビクザール型ハイナンバーズ",
+    "Class": "キュビクザール型",
+    "Class_JP": "キュビクザール型ハイナンバーズ",
     "Class_EN": "Kubikzahl-Series HighNumbers",
-    "isSecondary": null
+    "isSecondary": false
   },
   {
     "Class": "国際協議個体",
@@ -148,6 +158,12 @@
   {
     "Class": "スクエアエリート",
     "Class_EN": "SquareElites",
+    "isSecondary": false
+  },
+  {
+    "Class": "証明者",
+    "Class_JP": "証明者(プロバーズ)",
+    "Class_EN": "Provers",
     "isSecondary": null
   },
   {
@@ -205,12 +221,32 @@
   },
   {
     "Class": "ヘキサデミカル-テールズ",
+    "Class_JP": "ヘキサデミカル・テールズ",
     "Class_EN": "HexademicalTales",
     "isSecondary": true
   },
   {
+    "Class": "D-Vines開発機",
+    "Class_JP": "D-Vines(ディ-ヴァインズ)開発機",
+    "Class_EN": "D-Vines Development Unit",
+    "isSecondary": true
+  },
+  {
+    "Class": "D-Vines母艦機",
+    "Class_JP": "D-Vines(ディ-ヴァインズ)母艦機",
+    "Class_EN": "D-Vines MotherShip Unit",
+    "isSecondary": true
+  },
+  {
+    "Class": "D-Vines基幹機",
+    "Class_JP": "D-Vines(ディ-ヴァインズ)基幹機",
+    "Class_EN": "D-Vines Core Unit",
+    "isSecondary": true
+  },
+  {
     "Class": "ナンバーテールズ化",
-    "Class_EN": "NumberizingTales",
+    "Class_JP": "ナンバーテールズ化(他者キャラデザ企画)",
+    "Class_EN": "NumberizingTales (Characterize Adaptation for followers)",
     "isSecondary": true
   }
 ]
