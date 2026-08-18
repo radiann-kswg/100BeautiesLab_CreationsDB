@@ -161,6 +161,12 @@
     "isSecondary": false
   },
   {
+    "Class": "証明者",
+    "Class_JP": "証明者(プロバーズ)",
+    "Class_EN": "Provers",
+    "isSecondary": null
+  },
+  {
     "Class": "キャロルズ",
     "Class_EN": "Caroles",
     "isSecondary": null
@@ -217,6 +223,24 @@
     "Class": "ヘキサデミカル-テールズ",
     "Class_JP": "ヘキサデミカル・テールズ",
     "Class_EN": "HexademicalTales",
+    "isSecondary": true
+  },
+  {
+    "Class": "D-Vines開発機",
+    "Class_JP": "D-Vines(ディ-ヴァインズ)開発機",
+    "Class_EN": "D-Vines Development Unit",
+    "isSecondary": true
+  },
+  {
+    "Class": "D-Vines母艦機",
+    "Class_JP": "D-Vines(ディ-ヴァインズ)母艦機",
+    "Class_EN": "D-Vines MotherShip Unit",
+    "isSecondary": true
+  },
+  {
+    "Class": "D-Vines基幹機",
+    "Class_JP": "D-Vines(ディ-ヴァインズ)基幹機",
+    "Class_EN": "D-Vines Core Unit",
     "isSecondary": true
   },
   {

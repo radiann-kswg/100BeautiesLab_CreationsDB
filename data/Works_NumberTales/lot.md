@@ -69,7 +69,7 @@ NUM |or CLASS       |          \ LOT VALIANT
 273 |Absolute temp. |         [MP]273-PM***
 528 |Solfeggio freq.|         [MP]528-PM***
 ----+---------------+-----------------------
-314 |PI:Circle radio|         [MP]314-RM***
+314 |PI:Circle radio|Dv.22/7(dev)
 360 |Degree per rev.|         [MP]360-RM***
 ----+---------------+-----------------------
 223 |Carole number  |         [MP]223-CR***

@@ -1392,18 +1392,6 @@
     "Class": ["トリプルスリーズ"]
   },
   {
-    "Num": 266,
-    "Num_Badge": "266",
-    "Progress": "notProceeded",
-    "FormalName_JP": "量産型ナンバーテールズ266番機シリーズ",
-    "FormalName_EN": "NumberTales #266 Series Mass Production Version for Sales",
-    "CodeName_JP": "二六六",
-    "CodeName_EN": "Two-Six-Six",
-    "ModelNumber": "APHR-NT [MP]266-*****",
-    "GenderType": "Neutral",
-    "Class": ["デュオトリプル5型"]
-  },
-  {
     "Num": 267,
     "Num_Badge": "267",
     "Progress": "notProceeded",
