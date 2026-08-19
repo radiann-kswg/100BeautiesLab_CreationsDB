@@ -185,6 +185,8 @@
   - 数値
 - `#String_withAbout`, `#Summary_withAbout`, `#Dialogue_withAbout`
   - `value` と `about_JP/about_EN/about` を持つ補足付き値
+- `$Def_TouchReaction`, `$Def_MotifCommentary`
+  - **キー付き台詞リスト**。`#Dialogue_bilingual` に「辞書コードのキー項目」を足した形（`{ Action, value_JP, value_EN, about_JP, about_EN }` / `{ Topic, TopicValue, value_JP, … }`）。Bot など外部クライアントがキーで安定して引けるよう、キー項目は生の日本語文字列ではなく `#ListIndex` ＋ `$dict` の辞書コードで持つ。表示は `keyedDialogueSummary` wrapper が `キー：台詞（補足）` へ整形する（`docs/wrapper-summary-registry.md`）
 - `#String_bilingual`, `#Dialogue_bilingual`
   - **和英共有フィールド**。1 要素の中に `value_JP` / `value_EN`（＋補足があれば `about_JP` / `about_EN`）を持ち、フィールド自体は `_JP` / `_EN` へ分けない。配列で和英の要素対応を崩さずに持ちたいときに使う（例: `ConversationPattern.DialogueExamples`、`Works_UnibyteLive` の `StreamingActivity.StreamingCategory` / `StreamingGreeting` / `StreamingAwards`）
   - 表示は `formatValueForDisplay()` がページ言語で `value_JP` / `value_EN` を選ぶ（型名ではなく**値の形**で分岐するため、`_bilingual` は「データの形」を宣言面へ明示するための型名）。1 要素 1 行で出したい配列では union に `_withAbout[]` を併記して改行連結を維持する
@@ -226,6 +228,7 @@
   - 単位表示
 - `role`
   - wrapper formatter が子要素を意味単位で読むための役割名
+  - 例: `factionCode`（辞書コードを持つ主要素）/ `dialogueKey`（台詞リストのキー項目。`$dict` で辞書名を宣言）/ `dialogueKeyValue`（キーへ連結する数値・識別子。`ライフパス` ＋ `3` → `ライフパス3`）
 - `auto:false`
   - 自動表示から除外
 - `aliasOf`

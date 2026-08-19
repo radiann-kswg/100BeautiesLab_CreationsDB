@@ -1,5 +1,24 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### feat: モチーフ解説 / 接触反応フィールドの追加（Issue #13） (2026-08-20)
+
+- **`ConversationPattern.TouchReactions`**（`$Def_TouchReaction[]|#Null`）をグローバル `data/db_type.json` へ追加。
+  なでる / つつく等の行為別の反応台詞を保持する。親の `searchable: false` を継承するため台詞本文は検索索引に載らず、
+  `$DetailLayout` は全作品とも無変更で済む。
+- **`NumerospecStats.MotifCommentaries`**（`$Def_MotifCommentary[]|#Null`）を NumberTales の作品別 typedef へ追加。
+  フィールド名は汎用で、他作品は自分の `*specStats` に同名で宣言すれば同じ器を再利用できる。
+- キー項目は生の日本語文字列ではなく **辞書コード**（`#ListIndex` ＋ `$dict`）で持つ。辞書は行為が共通の
+  `#List_TouchAction`（グローバル）、モチーフが作品ごとに異なる `#List_MotifTopic`（作品別）。
+  `#List_MotifTopic` の分類語彙は [CheatSheet-of_Numbers](https://github.com/radiann-kswg/CheatSheet-of_Numbers) の
+  いわれ分類（数秘術 / エンジェルナンバー / ゲマトリア / 吉凶 / 伝承 / 語源 / 番号のいわれ / 語呂 / 創作作品）と 1:1 で対応させた。
+- **表示**: `pages/characters.js` の `childKey === 'DialogueExamples'` というフィールド名ハードコードを廃止し、
+  schema 駆動の判定（`#Dialogue` を含む配列型 / `$display.wrapper: "keyedDialogueSummary"`）へ置換。
+  整形本体は `lib/basic-renders/keyedDialogue.js` へ移し、3 フィールドが同じ描画経路を通るようにした。
+  キー項目を持たない従来の `DialogueExamples` は接頭辞なしのまま＝表示は不変（`tests/keyedDialogue.render.test.js` で回帰を固定）。
+- **ロールプレイプロンプト**: `tools/roleplay/render.mjs` の `formatDialogueItem()` にキー接頭辞を追加し、
+  NumberTales のテンプレへ 2 節を追加（データが空なら節ごと出力されない条件ブロック）。
+- 内容本文（`value_JP` / `about_JP`）と辞書語彙の拡張は User の手動入力・監修とし、レコードへの空の器の事前挿入は行わない。
+
 ### fix: ロールプレイプロンプト生成の辞書ラベル解決 (2026-08-19)
 
 - **`Class` を辞書の表示名へ解決**。`dict_Class.json` がコード（`Class`）と表示名（`Class_JP`）を

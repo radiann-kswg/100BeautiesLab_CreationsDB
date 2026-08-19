@@ -540,6 +540,111 @@
         "hashTag_JP": "所属陣営",
         "hashTag_EN": "Belonging Faction"
       },
+      "$Def_MotifCommentary": {
+        "$DefType": [
+          {
+            "hashTag": "Topic",
+            "$type": "#ListIndex",
+            "$dict": "MotifTopic",
+            "hashTag_JP": "対象",
+            "hashTag_EN": "Topic",
+            "$display": { "role": "dialogueKey" }
+          },
+          {
+            "hashTag": "TopicValue",
+            "$type": "#Number|#String|#Null",
+            "hashTag_JP": "対象の値",
+            "hashTag_EN": "Topic Value",
+            "$display": { "role": "dialogueKeyValue" }
+          },
+          {
+            "hashTag": "value_JP",
+            "$type": "#Dialogue|#Summary|#Null",
+            "hashTag_JP": "解説(和)"
+          },
+          {
+            "hashTag": "value_EN",
+            "$type": "#Dialogue|#Summary|#Null",
+            "hashTag_EN": "Commentary"
+          },
+          {
+            "hashTag": "about_JP",
+            "$type": "#String_JP|#Null",
+            "hashTag_JP": "補足(和)"
+          },
+          {
+            "hashTag": "about_EN",
+            "$type": "#String_EN|#Null",
+            "hashTag_EN": "Note"
+          }
+        ],
+        "$display": {
+          "wrapper": "keyedDialogueSummary",
+          "arrayLayout": "multiline"
+        },
+        "hashTag_JP": "モチーフ解説",
+        "hashTag_EN": "Motif Commentary"
+      },
+      "$Def_TouchReaction": {
+        "$DefType": [
+          {
+            "hashTag": "Action",
+            "$type": "#ListIndex",
+            "$dict": "TouchAction",
+            "hashTag_JP": "行為",
+            "hashTag_EN": "Action",
+            "$display": { "role": "dialogueKey" }
+          },
+          {
+            "hashTag": "value_JP",
+            "$type": "#Dialogue|#Null",
+            "hashTag_JP": "反応台詞(和)"
+          },
+          {
+            "hashTag": "value_EN",
+            "$type": "#Dialogue|#Null",
+            "hashTag_EN": "Reaction"
+          },
+          {
+            "hashTag": "about_JP",
+            "$type": "#String_JP|#Null",
+            "hashTag_JP": "補足(和)"
+          },
+          {
+            "hashTag": "about_EN",
+            "$type": "#String_EN|#Null",
+            "hashTag_EN": "Note"
+          }
+        ],
+        "$display": {
+          "wrapper": "keyedDialogueSummary",
+          "arrayLayout": "multiline"
+        },
+        "hashTag_JP": "接触への反応",
+        "hashTag_EN": "Touch Reaction"
+      },
+      "#List_TouchAction": [
+        {
+          "TouchAction": "pat",
+          "TouchAction_JP": "なでる",
+          "TouchAction_EN": "Pat"
+        },
+        {
+          "TouchAction": "poke",
+          "TouchAction_JP": "つつく",
+          "TouchAction_EN": "Poke"
+        },
+        {
+          "TouchAction": "fluff",
+          "TouchAction_JP": "もふる",
+          "TouchAction_EN": "Fluff"
+        },
+        {
+          "TouchAction": "hug",
+          "TouchAction_JP": "抱っこ",
+          "TouchAction_EN": "Hug"
+        }
+      ],
       "#List_BustSize": [
         { "BustSize": "AA" },
         { "BustSize": "A" },

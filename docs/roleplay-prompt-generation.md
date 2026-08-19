@@ -50,7 +50,12 @@ npm run roleplay:check    # CI: 差分（新規/マージ更新）があれば e
     - `orquote` / `altquote`（改行→「」または「。**名前系はこちらを使う**）
     - `sentences`（文単位に分割し「- …。」の箇条書き化）
   - `{{#Field}}…{{/Field}}` / `{{^Field}}…{{/Field}}` … 条件（空なら行/ブロック除去）。
-  - `{{#each Path}}…{{/each}}` … 配列反復（`DialogueExamples` 用に整形済み `@dialogue` を提供）。
+  - `{{#each Path}}…{{/each}}` … 配列反復（台詞リスト用に整形済み `@dialogue` を提供）。
+    キー項目を持つリスト（`ConversationPattern.TouchReactions` / `*specStats.MotifCommentaries`）は
+    `キー：台詞（補足）` の形になる。辞書解決は build 側の合成変数 `__dialogueKeyLabel` が担い、
+    `render.mjs` は schema / 辞書を知らない純関数のままにしている（`lib/basic-renders/keyedDialogue.js` の
+    `buildKeyLabel()` を共用し、キャラシート UI と同じラベルになる）。対象コンテナは
+    `$display.wrapper: "keyedDialogueSummary"` を宣言した `$Def_*` から自動収集するため、field 名の分岐は無い。
 - 合成変数（build が計算）:
   - `@DisplayName` / `@FormalName` / `@FormalNameCompact` … `*Name` 系の複数名（改行区切り）は
     **1 名ずつ鉤括弧で括る形**（`「87(ヤシナ)」または「87(ハナ)」`）で連結。`DisplayName` は改行が

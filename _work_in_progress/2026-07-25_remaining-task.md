@@ -232,22 +232,20 @@
 - **Claude 側の残タスク**: Localization 層の enum 解決（`data/Localization/db_meta.json` の `$VarsDef` を
   `metaForLookup` へ合流）は、UI で enum ラベル表示が必要になった時点で対応
 
-### T-25 🟡 Issue #13（数秘解説 / スキンシップ反応フィールドの追加）
+### T-25 🟢 Issue #13（モチーフ解説 / 接触反応フィールド）— Phase 1〜3 完了（2026-08-20）
 
-- **関連ログ**: `2026-07-22_progress_issue13-numerology-skinship.md`（単一）／2026-07-21 起票・**OPEN 継続**
-- **実行チェックリスト（着手時の入口）**:
-  1. まず [2026-07-22_progress_issue13-numerology-skinship.md](./2026-07-22_progress_issue13-numerology-skinship.md) の
-     「導入方針」「想定スコープ」「未完了タスク」を確認する
-  2. 次に本項の 4 つの設計判断（命名 / 配置 / 表示系接続 / 対象範囲）を順に確定する
-  3. 確定後、`schema` → `meta` → `DB` の順で非破壊追加の実装に進める
-  4. 内容本文（`value_JP` / `about_JP`）は User 監修・手動入力として扱い、AI 側で自動生成しない
-- **待ち項目（設計判断）**:
-  1. フィールド命名（`NumerologyExamples` / `SkinshipReactions` を採用するか）
-  2. 配置（`ConversationPattern` 配下か、トップレベル独立か）
-  3. 表示系への接続要否（キャラシート表示対象にするか、Bot 供給専用か）
-  4. 対象レコード範囲（released 判定の適用基準）
-- **緊急度**: 低（Bot 側はフィールド未存在でもフォールバックする）
-- **制約**: 内容文（`value_JP` / `about_JP`）は User 監修・手動入力
+- **関連ログ**: `2026-07-22_progress_issue13-numerology-skinship.md`（単一）／2026-07-21 起票
+- **完了分**: 4 つの設計判断を User 確認で確定し、スキーマ（`TouchReactions` / `MotifCommentaries` ＋ 辞書 2 本）・
+  キャラシート表示（`keyedDialogueSummary`）・ロールプレイプロンプトの 3 段を実装。
+  `pages/characters.js` の `DialogueExamples` フィールド名ハードコードも同時に解消（正味 −21 行）。
+  `npm test` 1257 件 / `data:order:check` / `roleplay:plan` すべて通過。
+- **残**:
+  1. 実データの入力（`value_JP` / `about_JP`。**User 手動**）→ 入力後にローカル実機目視
+  2. Issue #13 へ確定した命名・形式をコメントして Bot 側とフィールド名を揃える（Issue は OPEN 継続）
+  3. `*specAbout` の `*specStats` 集約は **T-34** へ分離
+- **制約**: 内容文（`value_JP` / `about_JP`）と辞書語彙の拡張は User 監修・手動入力。
+  `#List_MotifTopic` の語彙は CheatSheet-of_Numbers（**CC BY-SA 4.0**）の分類と 1:1 だが、
+  本リポジトリは **CC BY-NC 4.0** でライセンス非互換のため**本文は転記しない**（分類語彙のみ取り込み）。
 
 ### T-26 🟡 創作用語DB / 基本資料DB
 
@@ -287,6 +285,30 @@
 
 ## C. 長期保留（着手判断そのものが保留）
 
+### T-34 🟡 `*specAbout` / `*specName` の `*specStats` 集約
+
+- **関連ログ**: `2026-07-22_progress_issue13-numerology-skinship.md`（T-25 から分離）
+- **経緯**: Issue #13 の設計確認時に User から「この際に `NumerospecAbout` を `NumerospecStats` に同梱するなど、
+  モチーフに関する能力を `*specStats` に集約してほしい」と依頼。Issue #13 本体（T-25）とは独立に実施できる
+- **実測した影響範囲**:
+
+  | 作品 | 移動対象キー | 影響レコード | 備考 |
+  | --- | --- | --- | --- |
+  | NumberTales | `NumerospecAbout_JP` / `_EN` | 120 / 114 | `NumerospecStats` は 99 件のみ → 約 21 件で器の新設が要る |
+  | FLInvestigator78 | `ArcanamspecAbout_JP` / `_EN` | 14 | 綴り揺れ `Arcanam` vs `ArcanumspecStats` を同時に是正する候補 |
+  | PastDivers | `ChronospecName_JP` / `_JPReading` / `_EN`、`ChronospecAbout_JP` / `_EN` | 14 | |
+  | ShouArRiders | `BeastspecName_JP` / `_EN`、`BeastspecAbout_JP` / `_EN` | 7 | `BeastspecStats` は typedef のみで実データ 0 |
+  | UnauthedLogica | `LogicspecAbout_JP` / `_EN` | 11 | `LogicspecStats` の typedef が無い → 新設が要る |
+
+- **付随変更**: `db_type.json` ×5 / `data/db_meta.json` の `$DetailLayout.subFields` ×5 /
+  `lib/section-renders/numSpec.js` / `arcanumSpec.js` / `pages/characters.js` の `ArcanumspecStats` 見出しハードコード /
+  `docs/localization-en-rules.md` §3-5・§4 / `docs/jp-notation-rules.md` / `docs/schema-meta-processing.md` /
+  `tests/pages.characters.ui-output.test.js`（`NumerospecAbout` を subFields 前提で assert している 6 箇所）/
+  `npm run data:order:write`（トップレベルキーが減るため整列が動く）
+- **注意**: レコードだけで約 166 件 ×2〜5 キー。**変更量は 500 行を確実に超える**ため、着手前に User へ確認する
+  （`AGENTS.md`「基本ルール」）。段階分割（作品ごと）も可
+- **緊急度**: 低（現行表示は破綻していない。整理目的）
+
 ### T-30 🔵 ADR-0002（Google Cloud での画像生成バックエンド）
 
 - **関連ログ**: `2026-06-21_progress_cloudflare-api-adr2-gcloud.md`（単一）／Draft のまま約 1 か月
@@ -322,7 +344,7 @@
 | [2026-08-02_progress_image-rename-index-badge.md](./2026-08-02_progress_image-rename-index-badge.md) | 画像ファイル名をインデックスバッジ（作品コード付き）へ一括改名（640 ファイル） | — | ✅ 完了（独立監査で受入可。指摘 8 件は相関図側の「前段」で解消済み） |
 | [2026-08-08_github-triage.md](./2026-08-08_github-triage.md) | GitHub 未解決問題の日次トリアージ | **T-25** | 🟢 現行（未解決は Issue #13 のみ） |
 | [2026-07-29_progress_belonging-faction-typedef.md](./2026-07-29_progress_belonging-faction-typedef.md) | `Belonging` の `$Def_Faction[]` 化・`$dictRef` 参照解決 | **T-33** | ⚠️ 実装完了・実機目視と Workers 側判断が残 |
-| [2026-07-22_progress_issue13-numerology-skinship.md](./2026-07-22_progress_issue13-numerology-skinship.md) | Issue #13 の要件整理 | **T-25** | 📝 設計判断待ち |
+| [2026-07-22_progress_issue13-numerology-skinship.md](./2026-07-22_progress_issue13-numerology-skinship.md) | Issue #13 の実装（モチーフ解説 / 接触反応） | **T-25 / T-34** | 🟢 Phase 1〜3 完了・実データ入力待ち |
 | [2026-07-18_progress_roleplay-prompt-en-phase4.md](./2026-07-18_progress_roleplay-prompt-en-phase4.md) | ロールプレイプロンプト EN 版の着手前調査 | **T-06** | 📝 着手条件は User 確認 2 件 |
 | [2026-07-17_progress_field-order-typedef.md](./2026-07-17_progress_field-order-typedef.md) | フィールドキー順の typedef 整列 | **T-04 / T-05 / T-28** | 🟢 Phase 4 以外は完了 |
 | [2026-07-13_progress_colorpalette-schema.md](./2026-07-13_progress_colorpalette-schema.md) | `ColorPalette` スキーマ・配色抽出 | **T-20** | ⚠️ 実装済み・User レビュー待ち（AIHints への導出は完了） |

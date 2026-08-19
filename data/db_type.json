@@ -421,6 +421,12 @@
           "$type": "#Dialogue[]|#Dialogue_withAbout[]|#Dialogue_bilingual[]|#Null",
           "hashTag_JP": "台詞の例",
           "hashTag_EN": "Dialogue Examples"
+        },
+        {
+          "hashTag": "TouchReactions",
+          "$type": "$Def_TouchReaction[]|#Null",
+          "hashTag_JP": "接触への反応",
+          "hashTag_EN": "Touch Reactions"
         }
       ],
       "hashTag_JP": "会話パターンについて",

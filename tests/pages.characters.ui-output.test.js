@@ -957,6 +957,45 @@ describe('pages/characters.js UI output', () => {
 		expect(profileSectionText).not.toContain('会話パターンについて');
 	});
 
+	// keyedDialogue（`lib/basic-renders/keyedDialogue.js`）の配線確認。
+	// `ConversationPattern` と `NumerospecStats` はどちらも buildObjectChildBlocks を通るため、
+	// 台詞リストの判定と辞書ラベル解決が両方の親で効くことを 1 件でまとめて見る。
+	it('renders keyed dialogue lists with dictionary-resolved key labels', async () => {
+		const record = structuredClone(ninthNumberTalesPrimaryRecord);
+		record.ConversationPattern = {
+			...(record.ConversationPattern || {}),
+			TouchReactions: [{ Action: 'pat', value_JP: 'ふや…、くすぐったいな。', about_JP: '照れている時' }]
+		};
+		record.NumerospecStats = {
+			...(record.NumerospecStats || {}),
+			MotifCommentaries: [{ Topic: 'LifePath', TopicValue: 3, value_JP: '3は表現と喜びの数だよ。' }]
+		};
+
+		charactersModule.__setCharactersTestState({
+			charState: {
+				db: 'Primary',
+				workId: '#Works_NumberTales',
+				records: numberTalesPrimaryRecords,
+				workTypeDef: numberTalesWorkTypeDef,
+				globalTypeDef,
+				workMeta: numberTalesWorkMeta,
+				imageFields: []
+			}
+		});
+
+		await charactersModule.renderDetail('#Works_NumberTales', record);
+
+		// グローバル辞書 #List_TouchAction 由来のラベル（pat → なでる）
+		const conversationText = getSubFieldSectionNode('ConversationPattern')?.textContent || '';
+		expect(conversationText).toContain('接触への反応');
+		expect(conversationText).toContain('なでる：ふや…、くすぐったいな。（照れている時）');
+
+		// 作品別辞書 #List_MotifTopic 由来のラベル ＋ TopicValue の連結（LifePath + 3 → ライフパス3）
+		const numSpecText = getSubFieldSectionNode('NumerospecStats')?.textContent || '';
+		expect(numSpecText).toContain('数秘についての語り');
+		expect(numSpecText).toContain('ライフパス3：3は表現と喜びの数だよ。');
+	});
+
 	it('prioritizes declared subFields order over basic/profile/relation fallback routes', async () => {
 		const customGlobalMeta = structuredClone(globalMeta);
 		customGlobalMeta.CreationWorks['#Works_NumberTales'].$DetailLayout.subFields = [

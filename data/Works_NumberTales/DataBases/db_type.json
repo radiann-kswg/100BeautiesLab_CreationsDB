@@ -215,6 +215,12 @@
           ],
           "hashTag_JP": "安全レベル",
           "hashTag_EN": "Safety Level"
+        },
+        {
+          "hashTag": "MotifCommentaries",
+          "$type": "$Def_MotifCommentary[]|#Null",
+          "hashTag_JP": "数秘についての語り",
+          "hashTag_EN": "Numerology Commentaries"
         }
       ],
       "hashTag_JP": "\"カバラの加護\"(数秘的加護)の特性",

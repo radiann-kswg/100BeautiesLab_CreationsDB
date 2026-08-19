@@ -47,6 +47,7 @@ import '../lib/basic-renders/type-common.js';
 import '../lib/basic-renders/def-object-common.js';
 import '../lib/basic-renders/faction.js';
 import '../lib/basic-renders/baseArea.js';
+import '../lib/basic-renders/keyedDialogue.js';
 import '../lib/section-renders/appearanceDetail.js';
 import '../lib/section-renders/colorPalette.js';
 import '../lib/section-renders/thisMasters.js';
@@ -7102,8 +7103,12 @@ export async function renderDetail(workId, rec) {
 			if (!parentKey || typeof parentKey !== 'string' || !isPlainObject(parentValue)) return [];
 			const excludedChildKeys = (options?.excludedChildKeys instanceof Set) ? options.excludedChildKeys : new Set();
 			const lang = getCurrentPageLanguage();
-			const hasJapaneseChars = (text) => /[\u3040-\u30ff\u3400-\u9fff]/.test(String(text || ''));
 			const blocks = [];
+
+			// 台詞リスト整形（keyedDialogue）の `$Def_*` / 辞書探索に使う共通 context。
+			// 子要素ごとに変わるのは schemaType と fallbackFormat だけなのでループ外へ出す
+			const keyedDialogue = globalThis.KeyedDialogueRenderer;
+			const dialogueLookupContext = { workMeta: metaForLookup, globalDefType };
 
 			for (const [childKey, childValue] of Object.entries(parentValue)) {
 				if (!childKey || typeof childKey !== 'string') continue;
@@ -7130,48 +7135,32 @@ export async function renderDetail(workId, rec) {
 						schemaDisplay: pickSchemaDisplay(schemaPath, childPath, parentKey)
 					};
 
-				if (childKey === 'DialogueExamples' && Array.isArray(childValue)) {
-					const formatDialogueItemByLang = (item) => {
-						if (item === null || item === undefined || item === '') return '';
+				// 台詞リスト（`DialogueExamples` / `TouchReactions` / `MotifCommentaries` 等）は
+				// schema 宣言で判定し、`lib/basic-renders/keyedDialogue.js` の共通整形でカード描画する。
+				// field 名依存の分岐は置かない（AGENTS.md「main code / subscript 分離原則」）。
+				// `hints.schemaType` は resolveSchemaTypeByPath が `$Def_*` を子要素型へ展開した後の値
+				// （例: `$Def_TouchReaction[]|#Null` → `#ListIndex[]|#Null`）。keyedDialogue は
+				// `$Def_*` 名で wrapper 宣言と子要素の role を引くため、展開前の生宣言を使う
+				const rawChildType = fieldTypeMap?.[schemaPath] ?? fieldTypeMap?.[childPath] ?? hints.schemaType;
 
-						if (typeof item === 'string' || typeof item === 'number' || typeof item === 'boolean') {
-							const text = String(item).trim();
-							if (!text) return '';
-							if (lang === 'jp') return hasJapaneseChars(text) ? text : '';
-							if (lang === 'en') return hasJapaneseChars(text) ? '' : text;
-							return text;
-						}
-
-						if (!isPlainObject(item)) return '';
-						const valueJP = String(item.value_JP || '').trim();
-						const valueEN = String(item.value_EN || '').trim();
-						const valueRaw = String(item.value || '').trim();
-						const aboutJP = String(item.about_JP || '').trim();
-						const aboutEN = String(item.about_EN || '').trim();
-
-						if (lang === 'jp') {
-							const base = valueJP || (hasJapaneseChars(valueRaw) ? valueRaw : '');
-							if (!base) return '';
-							return aboutJP ? `${base}（${aboutJP}）` : base;
-						}
-
-						if (lang === 'en') {
-							const base = valueEN || (!hasJapaneseChars(valueRaw) ? valueRaw : '');
-							if (!base) return '';
-							return aboutEN ? `${base} (${aboutEN})` : base;
-						}
-
-						const fallbackText = formatValueForDisplay(item, fieldLabelMap, metaForLookup, globalDefType, {
+				if (
+					Array.isArray(childValue)
+					&& keyedDialogue?.isKeyedDialogueListType?.(rawChildType, dialogueLookupContext)
+				) {
+					const dialogueContext = {
+						...dialogueLookupContext,
+						pageLang: lang,
+						schemaType: rawChildType,
+						fallbackFormat: (item) => formatValueForDisplay(item, fieldLabelMap, metaForLookup, globalDefType, {
 							schemaType: hints.schemaType,
 							display: hints.schemaDisplay,
 							fieldKey: schemaPath,
 							recordContext: rec
-						});
-						return String(fallbackText || '').trim();
+						})
 					};
 
 					const cards = childValue
-						.map((item) => formatDialogueItemByLang(item))
+						.map((item) => keyedDialogue.formatKeyedDialogueItem(item, dialogueContext))
 						.map((text) => String(text ?? '').trim())
 						.filter(Boolean)
 						.map((text) => el('div', { class: 'tag' }, [dialogueBodyText(text)]));
