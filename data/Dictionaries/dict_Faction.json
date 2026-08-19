@@ -3,153 +3,137 @@
     "Faction": "百花繚乱研究所",
     "Faction_EN": "HundredBeauties Laboratory",
     "FactionsBaseArea": { "Area": "九蓮国" },
+    "RegionstyleWithin": { "Regioministration": "W" },
     "isForSecondary": false,
-    "isMaker": null
+    "isMaker": null,
+    "isAcademic": null
   },
   {
     "Faction": "百戦錬磨開発所",
     "Faction_EN": "HundredBattlers Development",
     "FactionsBaseArea": { "Area": "九蓮国" },
+    "RegionstyleWithin": { "Regioministration": "Z" },
     "isForSecondary": false,
-    "isMaker": null
+    "isMaker": null,
+    "isAcademic": false
   },
   {
     "Faction": "夜月機関",
     "Faction_EN": "Yadzuki Organization",
     "FactionsBaseArea": { "Area": "九蓮国" },
+    "RegionstyleWithin": { "Regioministration": "Y" },
     "isForSecondary": false,
-    "isMaker": null
+    "isMaker": null,
+    "isAcademic": false
   },
   {
     "Faction": "九蓮国皇族",
     "Faction_EN": "Royal of LotusNinea(n)",
     "FactionsBaseArea": { "Area": "九蓮国" },
+    "RegionstyleWithin": { "Regioministration": "Z" },
     "isForSecondary": false,
-    "isMaker": false
-  },
-  {
-    "Faction": "照梅テクノロジー",
-    "Faction_EN": "Shôbai Technology",
-    "FactionsBaseArea": { "Area": "九蓮国" },
-    "isForSecondary": null,
-    "isMaker": true
+    "isMaker": false,
+    "isAcademic": false
   },
   {
     "Faction": "N3US大学",
     "Faction_JP": "N3US大学",
     "Faction_EN": "N3US University",
     "FactionsBaseArea": { "Area": "九蓮国" },
+    "RegionstyleWithin": null,
     "isForSecondary": false,
-    "isMaker": false
+    "isMaker": false,
+    "isAcademic": true
   },
   {
     "Faction": "夜月機関付属大学",
     "Faction_EN": "Yadzuki Org. Affiliated University",
     "FactionsBaseArea": { "Area": "九蓮国" },
+    "RegionstyleWithin": null,
     "isForSecondary": false,
-    "isMaker": false
+    "isMaker": false,
+    "isAcademic": true
   },
   {
     "Faction": "南第三県専門学校",
     "Faction_EN": "S3 Vocational School",
     "FactionsBaseArea": { "Area": "九蓮国" },
+    "RegionstyleWithin": null,
     "isForSecondary": false,
-    "isMaker": false
+    "isMaker": false,
+    "isAcademic": true
   },
   {
     "Faction": "第三県立技巧美術女子高校",
     "Faction_EN": "Prefecture.3 Technical Arts Girls' High School",
     "FactionsBaseArea": { "Area": "九蓮国" },
+    "RegionstyleWithin": null,
     "isForSecondary": false,
-    "isMaker": false
+    "isMaker": false,
+    "isAcademic": true
   },
   {
     "Faction": "獣爾騎兵",
     "Faction_EN": "Shou'ar Riders",
     "FactionsBaseArea": { "Area": "龍天国" },
+    "RegionstyleWithin": { "Regioministration": "Z" },
     "isForSecondary": false,
-    "isMaker": false
+    "isMaker": false,
+    "isAcademic": false
   },
   {
     "Faction": "界座",
     "Faction_EN": "JièZuò",
     "FactionsBaseArea": { "Area": "龍天国" },
+    "RegionstyleWithin": { "Regioministration": "Z" },
     "isForSecondary": null,
-    "isMaker": true
+    "isMaker": true,
+    "isAcademic": false
   },
   {
     "Faction": "セブンティエイト特殊探偵団",
     "Faction_EN": "Team.78(Seventy-Eight) the Special Investigators",
     "FactionsBaseArea": { "Area": "英皇国" },
+    "RegionstyleWithin": { "Regioministration": "X" },
     "isForSecondary": false,
-    "isMaker": false
+    "isMaker": false,
+    "isAcademic": false
+  },
+  {
+    "Faction": "王家英皇学会",
+    "Faction_EN": "IK.Royal Society",
+    "FactionsBaseArea": { "Area": "英皇国" },
+    "RegionstyleWithin": { "Regioministration": "X" },
+    "isForSecondary": false,
+    "isMaker": null,
+    "isAcademic": null
   },
   {
     "Faction": "スターダスト財団",
     "Faction_EN": "Stardusts Foundation",
     "FactionsBaseArea": { "Area": "雄志結国" },
+    "RegionstyleWithin": { "Regioministration": "W" },
     "isForSecondary": false,
-    "isMaker": false
+    "isMaker": false,
+    "isAcademic": false
   },
   {
     "Faction": "スターダスト・テクノロジー",
-    "Faction_EN": "Stardust Technology",
+    "Faction_EN": "Stardusts Technology",
     "FactionsBaseArea": { "Area": "雄志結国" },
+    "RegionstyleWithin": { "Regioministration": "W" },
     "isForSecondary": false,
-    "isMaker": true
+    "isMaker": true,
+    "isAcademic": false
   },
   {
     "Faction": "ラストラステクニカ-インストゥルメント",
     "Faction_EN": "LustrousTechnica Instrument",
     "FactionsBaseArea": { "Area": "雄志結国" },
+    "RegionstyleWithin": { "Regioministration": "W" },
     "isForSecondary": null,
-    "isMaker": true
-  },
-  {
-    "Faction": "白の六芒星",
-    "Faction_EN": "WhiteHexagram",
-    "FactionsBaseArea": { "Area": "雄志結国" },
-    "isForSecondary": false,
-    "isMaker": false
-  },
-  {
-    "Faction": "ジャンクガレージ『六花陛下』",
-    "Faction_EN": "JunkGarage \"Majesty Rokka\"",
-    "FactionsBaseArea": { "Area": "紅雪連邦" },
-    "isForSecondary": false,
-    "isMaker": false
-  },
-  {
-    "Faction": "アルベッツ",
-    "Faction_EN": "ALPBETS",
-    "FactionsBaseArea": { "Area": "九蓮国" },
-    "isForSecondary": false,
-    "isMaker": null
-  },
-  {
-    "Faction": "アルベッツ被害者の会",
-    "Faction_EN": "Victims Association against ALPBETS",
-    "FactionsBaseArea": { "Area": "九蓮国" },
-    "isForSecondary": false,
-    "isMaker": false
-  },
-  {
-    "Faction": "デウスマキナ",
-    "Faction_EN": "DeusMakhina",
-    "FactionsBaseArea": {
-      "Area": "紅雪連邦",
-      "BaseAreaAbout_JP": "名義上の所在地",
-      "BaseAreaAbout_EN": "Nominal Location"
-    },
-    "isForSecondary": null,
-    "isMaker": false
-  },
-  {
-    "Faction": "ロジケスキーロマンティカ産業",
-    "Faction_EN": "Logicheskiy Romantika Industry",
-    "FactionsBaseArea": { "Area": "紅雪連邦" },
-    "isForSecondary": null,
-    "isMaker": false
+    "isMaker": true,
+    "isAcademic": false
   },
   {
     "Faction": "国際ヒューマノイド技術学会",
@@ -159,29 +143,95 @@
       "BaseAreaAbout_JP": "本拠地（国際機関のため複数のエリアに所在）",
       "BaseAreaAbout_EN": "Headquarters (Due to being an international organization, it is located in multiple areas)"
     },
+    "RegionstyleWithin": { "Regioministration": "W" },
     "isForSecondary": null,
-    "isMaker": false
+    "isMaker": false,
+    "isAcademic": null
   },
   {
-    "Faction": "王家英皇学会",
-    "Faction_EN": "IK.Royal Society",
-    "FactionsBaseArea": { "Area": "英皇国" },
+    "Faction": "白の六芒星",
+    "Faction_EN": "WhiteHexagram",
+    "FactionsBaseArea": { "Area": "雄志結国" },
+    "RegionstyleWithin": { "Regioministration": "W" },
     "isForSecondary": false,
-    "isMaker": null
+    "isMaker": false,
+    "isAcademic": false
+  },
+  {
+    "Faction": "ジャンクガレージ『六花陛下』",
+    "Faction_EN": "JunkGarage \"Majesty Rokka\"",
+    "FactionsBaseArea": { "Area": "紅雪連邦" },
+    "RegionstyleWithin": { "Regioministration": "Y" },
+    "isForSecondary": false,
+    "isMaker": false,
+    "isAcademic": false
+  },
+  {
+    "Faction": "ロジケスキーロマンティカ産業",
+    "Faction_EN": "Logicheskiy Romantika Industry",
+    "FactionsBaseArea": { "Area": "紅雪連邦" },
+    "RegionstyleWithin": { "Regioministration": "Y" },
+    "isForSecondary": null,
+    "isMaker": null,
+    "isAcademic": false
+  },
+  {
+    "Faction": "デウスマキナ",
+    "Faction_EN": "DeusMakhina",
+    "FactionsBaseArea": {
+      "Area": "紅雪連邦",
+      "BaseAreaAbout_JP": "名義上の所在地",
+      "BaseAreaAbout_EN": "Nominal Location"
+    },
+    "RegionstyleWithin": { "Regioministration": "Z" },
+    "isForSecondary": null,
+    "isMaker": false,
+    "isAcademic": false
+  },
+  {
+    "Faction": "アルベッツ",
+    "Faction_EN": "ALPBETS",
+    "FactionsBaseArea": { "Area": "九蓮国" },
+    "RegionstyleWithin": { "Regioministration": "X" },
+    "isForSecondary": false,
+    "isMaker": null,
+    "isAcademic": null
+  },
+  {
+    "Faction": "アルベッツ被害者の会",
+    "Faction_EN": "Victims Association against ALPBETS",
+    "FactionsBaseArea": { "Area": "九蓮国" },
+    "RegionstyleWithin": { "Regioministration": "Y" },
+    "isForSecondary": false,
+    "isMaker": false,
+    "isAcademic": false
+  },
+  {
+    "Faction": "照梅テクノロジー",
+    "Faction_EN": "Shôbai Technology",
+    "FactionsBaseArea": { "Area": "九蓮国" },
+    "RegionstyleWithin": { "Regioministration": "X" },
+    "isForSecondary": null,
+    "isMaker": true,
+    "isAcademic": false
   },
   {
     "Faction": "レゾンデイトルカンパニー",
     "Faction_EN": "Raison-d'être Company",
     "FactionsBaseArea": { "Area": "神皇国" },
+    "RegionstyleWithin": { "Regioministration": "W" },
     "isForSecondary": null,
-    "isMaker": true
+    "isMaker": true,
+    "isAcademic": null
   },
   {
     "Faction": "シンフォニー.XVI(ゼクズィン)",
     "Faction_EN": "Symphony.XVI(Sechzehn)",
     "FactionsBaseArea": { "Area": "黒薔薇国" },
+    "RegionstyleWithin": { "Regioministration": "Z" },
     "isForSecondary": null,
-    "isMaker": null
+    "isMaker": null,
+    "isAcademic": false
   },
   {
     "Faction": "新生九蓮",
@@ -191,8 +241,10 @@
       "BaseAreaAbout_JP": "名義上の所在地",
       "BaseAreaAbout_EN": "Nominal Location"
     },
+    "RegionstyleWithin": { "Regioministration": "Y" },
     "isForSecondary": false,
-    "isMaker": false
+    "isMaker": false,
+    "isAcademic": false
   },
   {
     "Faction": "国際情報広報機関『ミハイル』",
@@ -202,8 +254,10 @@
       "BaseAreaAbout_JP": "厳密には本拠点を置かない",
       "BaseAreaAbout_EN": "Strictly speaking, it does not have a headquarters"
     },
+    "RegionstyleWithin": null,
     "isForSecondary": false,
-    "isMaker": false
+    "isMaker": false,
+    "isAcademic": false
   },
   {
     "Faction": "フィジカル9",
@@ -211,8 +265,10 @@
     "FactionsBaseArea": {
       "Area": "超次元執筆空間(アトリエ)"
     },
+    "RegionstyleWithin": null,
     "isForSecondary": false,
-    "isMaker": false
+    "isMaker": false,
+    "isAcademic": null
   },
   {
     "Faction": "超次元執筆空間(アトリエ)の住民",
@@ -220,8 +276,10 @@
     "FactionsBaseArea": {
       "Area": "超次元執筆空間(アトリエ)"
     },
+    "RegionstyleWithin": null,
     "isForSecondary": null,
-    "isMaker": false
+    "isMaker": false,
+    "isAcademic": null
   },
   {
     "Faction": "管理主",
@@ -229,8 +287,10 @@
     "FactionsBaseArea": {
       "Area": "超次元執筆空間(アトリエ)"
     },
-    "isForSecondary": false,
-    "isMaker": false
+    "RegionstyleWithin": null,
+    "isForSecondary": null,
+    "isMaker": false,
+    "isAcademic": false
   },
   {
     "Faction": "エイゼルベットの観測世界",
@@ -239,7 +299,9 @@
       "BaseAreaAbout_JP": "別次元の世界",
       "BaseAreaAbout_EN": "A world of another dimension"
     },
+    "RegionstyleWithin": null,
     "isForSecondary": true,
-    "isMaker": null
+    "isMaker": null,
+    "isAcademic": null
   }
 ]

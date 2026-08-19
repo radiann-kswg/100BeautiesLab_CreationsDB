@@ -66,7 +66,9 @@
       "DB_Label_EN": "Class Dictionary (for Arch Zerbas)",
       "keyField": "Class",
       "compatListKey": "#List_Class",
-      "scopeField": { "Regioministration": "Y" }
+      "scopeField": {
+        "AssignedRegioministratorRole": { "Regioministration": "Y" }
+      }
     },
     "#Dict_Regioministrators": {
       "DB_Label_JP": "クラス辞書(管理主向け)",

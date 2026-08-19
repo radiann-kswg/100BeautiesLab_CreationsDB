@@ -12,7 +12,7 @@
 - **インライン補完（ゴーストテキスト）**: 補完はカスタム指示ファイルを読み込みません。英訳作業中は本ファイルを隣のタブで開いておくと、近傍文脈として対訳が補完に反映されやすくなります。
 - **正典はあくまで辞書本体**。表に無い語・揺れがある語は `data/**/trans_*.json` 等の辞書と `docs/localization-en-rules.md` を確認してください。最終採否は User 判断です。
 
-- 収録: **181 対訳**（延べ抽出。生成日時: 2026-07-31T23:48:27.726Z）
+- 収録: **183 対訳**（延べ抽出。生成日時: 2026-08-19T03:23:28.461Z）
 
 ## 人名（姓・代理）
 
@@ -218,6 +218,7 @@
 
 | 日本語 | English |
 | --- | --- |
+| ユニバイト・ユニバース | Unibyte Universe |
 | 南英州諸国 | South Internations |
 
 ## アーティファクト
@@ -252,7 +253,7 @@
 | アルベッツ被害者の会 | Victims Association against ALPBETS |
 | エイゼルベットの観測世界 | ∀sellbuet's Observational World |
 | シンフォニー.XVI(ゼクズィン) | Symphony.XVI |
-| スターダスト・テクノロジー | Stardust Technology |
+| スターダスト・テクノロジー | Stardusts Technology |
 | スターダスト財団 | Stardusts Foundation |
 | セブンティエイト特殊探偵団 | Team.78 the Special Investigators |
 | デウスマキナ | DeusMakhina |
@@ -330,10 +331,11 @@
 
 ## クラス（職掌）
 
-<small>出典: `data/Dictionaries/dict_Mikhail.json` / `data/Dictionaries/dict_NeoLotusNinean.json` / `data/Dictionaries/dict_RaisondetreCompany.json` / `data/Dictionaries/dict_SymphonyXVI.json` / `data/Dictionaries/dict_WhiteHexagram.json` / `data/Dictionaries/dict_Zerbas.json`</small>
+<small>出典: `data/Dictionaries/dict_Mikhail.json` / `data/Dictionaries/dict_NeoLotusNinean.json` / `data/Dictionaries/dict_RaisondetreCompany.json` / `data/Dictionaries/dict_Regioministrators.json` / `data/Dictionaries/dict_SymphonyXVI.json` / `data/Dictionaries/dict_WhiteHexagram.json` / `data/Dictionaries/dict_Zerbas.json`</small>
 
 | 日本語 | English |
 | --- | --- |
+| 『管制主』 | 'Terministrator' |
 | 『管制主』代理人 | Agent of the 'Terministrator' |
 | 『創造主』代理人 | Agent of the 'Regiowner' |
 | 『破壊主』代理人 | Agent of the 'Regiomitator' |

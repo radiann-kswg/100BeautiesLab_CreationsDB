@@ -167,7 +167,6 @@
       "$DetailLayout": {
         "headerPills": ["Progress"],
         "basicFields": [
-          "AnotherRegions_DBLink",
           "FormalName",
           "CodeName",
           "RaceType",
@@ -189,6 +188,7 @@
           "RelationTo_PrimaryPerformer",
           "ConversationPattern",
           "ThisPerformer_DBLink",
+          "AnotherVersions_DBLink",
           "AnotherRegions_DBLink"
         ]
       }
@@ -351,7 +351,11 @@
           "Age",
           "BirthDay"
         ],
-        "subFields": ["ConversationPattern", "AnotherRegions_DBLink"]
+        "subFields": [
+          "ConversationPattern",
+          "AnotherVersions_DBLink",
+          "AnotherRegions_DBLink"
+        ]
       }
     },
     "#Works_CommonReferences": {

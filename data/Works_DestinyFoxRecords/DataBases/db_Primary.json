@@ -389,6 +389,7 @@
     "Unit_Full": "radian",
     "Unit_Badge": "RN2",
     "Progress": "unprofiled",
+    "AssignedRegioministratorRole": { "Regioministration": "X" },
     "AnotherRegions_DBLink": [{ "_DB": "Proxy", "Generation": 2 }],
     "Name_JP": "ラジアン",
     "Name_EN": "RadianN",
@@ -775,6 +776,7 @@
     "Unit_Full": "quaternion",
     "Unit_Badge": "RQN",
     "Progress": "archived",
+    "AssignedRegioministratorRole": { "Regioministration": "Z" },
     "Name_JP": "クォータ",
     "Name_EN": "Quate'N",
     "Images": {
@@ -785,7 +787,11 @@
     "FormalName_JPReading": "おうぎ もとあき",
     "FormalName_EN": "Arch Autogemn",
     "RaceType": "Warfox(Ghostinaries)",
-    "Class": ["球面神社", "代理近影"],
+    "Belonging": [
+      { "Faction": "超次元執筆空間(アトリエ)の住民" },
+      { "Faction": "管理主" }
+    ],
+    "Class": ["球面神社", "管制主(還元)", "代理近影"],
     "Height_cm": 164,
     "Weight_kg": { "hideText": "本人すら把握されていない" },
     "Age": { "about_JP": "不詳", "about_EN": "Unknown or Undefined" },

@@ -228,7 +228,8 @@
   {
     "Letter": { "Alphabet": "O", "AlphaGen": 2 },
     "Progress": "unprofiled",
-    "AnotherRegions_DBLink": [
+    "AssignedRegioministratorRole": { "Regioministration": "W" },
+    "AnotherVersions_DBLink": [
       { "_Work": "DestinyFoxRecords", "_DB": "Proxy", "Generation": 3 }
     ],
     "OwningAvatar_DBLink": {

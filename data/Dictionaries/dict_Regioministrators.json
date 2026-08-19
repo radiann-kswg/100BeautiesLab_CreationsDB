@@ -8,7 +8,13 @@
     "Class_EN": "Regiomitator"
   },
   {
-    "Class": "管制主",
-    "Class_EN": "Terministrator"
+    "Class": "管制主(再生)",
+    "Class_JP": "『管制主』（『再生』担当）",
+    "Class_EN": "'Terministrator' ('Regeneration' Role)"
+  },
+  {
+    "Class": "管制主(還元)",
+    "Class_JP": "『管制主』（『還元』担当）",
+    "Class_EN": "'Terministrator' ('Reduction' Role)"
   }
 ]
