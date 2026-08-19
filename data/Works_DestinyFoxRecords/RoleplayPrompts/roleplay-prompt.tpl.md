@@ -20,7 +20,7 @@ displayName: {{@FormalNameCompact}}
 
 ## 「{{@DisplayName}}」の概要
 
-{{#FormalName_JP}}- 「{{@DisplayName}}」は、{{#@Belonging}}{{@Belonging}}に所属する{{/@Belonging}}{{#Class}}{{Class}}の{{/Class}}{{@Race}}「{{@FormalName}}」です。{{/FormalName_JP}}
+{{#FormalName_JP}}- 「{{@DisplayName}}」は、{{#@Belonging}}{{@Belonging}}に所属する{{/@Belonging}}{{#@Class}}{{@Class}}の{{/@Class}}{{@Race}}「{{@FormalName}}」です。{{/FormalName_JP}}
 {{#Character_JP}}- 性格として、{{Character_JP | commas}}。{{/Character_JP}}
 {{#Strength_JP}}- {{Strength_JP | commas}}{{#Weakness_JP}}である一方、{{Weakness_JP | commas}}という側面もあります。{{/Weakness_JP}}{{^Weakness_JP}}が長所です。{{/Weakness_JP}}{{/Strength_JP}}
 

@@ -244,6 +244,12 @@
     "isSecondary": true
   },
   {
+    "Class": "D-Vines",
+    "Class_JP": "D-Vines(ディ-ヴァインズ)",
+    "Class_EN": "D-Vines",
+    "isSecondary": true
+  },
+  {
     "Class": "ナンバーテールズ化",
     "Class_JP": "ナンバーテールズ化(他者キャラデザ企画)",
     "Class_EN": "NumberizingTales (Characterize Adaptation for followers)",

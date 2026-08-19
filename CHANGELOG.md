@@ -1,14 +1,25 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### fix: ロールプレイプロンプト生成の辞書ラベル解決 (2026-08-19)
+
+- **`Class` を辞書の表示名へ解決**。`dict_Class.json` がコード（`Class`）と表示名（`Class_JP`）を
+  分離した際、テンプレの `{{Class}}`（レコードの生値）が読みを落としていた
+  （`1桁番(ユニデジッツ)` → `1桁番`）。合成変数 `@Class` を追加し、NumberTales /
+  FLInvestigator78 / DestinyFoxRecords のテンプレを `{{@Class}}` へ切り替え。
+- **辞書コード配列を 1 要素ずつ解決**。`TypeResolver.resolveVarsDefLabel()` はスカラ専用のため、
+  配列を渡すと `Array.prototype.toString()` で `"A,B"` となり未解決のまま出力されていた
+  （所属 2 件のレコードで顕在化）。`resolveDictLabels()` で要素ごとに解決し `、` 連結へ統一。
+- 回帰テストを `tests/data.roleplay-prompts.test.js` へ追加（`buildVars()` の `@Belonging` / `@Class` 限定）。
+
 ### fix: `D-Vines`（散狐アタストさん協賛）と未整理枠へ `AI_Optout` を宣言し、opt-out テスト回路を整備 (2026-08-19)
 
 `Works_NumberTales/DataBases/db_meta.json` の 3 箇所へ**権利軸**の opt-out を追加した。
 
-| 宣言箇所                                                                             | 変更                       |
-| ------------------------------------------------------------------------------------ | -------------------------- |
-| `#DB_SelfSecondary._Secondaries`「散狐アタストさん協賛」（`sec_SeriesTitle: "D-Vines"`） | 新規宣言 → `true`          |
-| `#DB_Secondary._Secondaries`「散狐アタストさん協賛」（同上）                            | 未宣言だったのを `true` で明示 |
-| `#DB_Secondary.#DB_UnprocessedSecondary`（ネスト DB / `DB_Hidden: true`）              | `false` → `true`           |
+| 宣言箇所                                                                                 | 変更                           |
+| ---------------------------------------------------------------------------------------- | ------------------------------ |
+| `#DB_SelfSecondary._Secondaries`「散狐アタストさん協賛」（`sec_SeriesTitle: "D-Vines"`） | 新規宣言 → `true`              |
+| `#DB_Secondary._Secondaries`「散狐アタストさん協賛」（同上）                             | 未宣言だったのを `true` で明示 |
+| `#DB_Secondary.#DB_UnprocessedSecondary`（ネスト DB / `DB_Hidden: true`）                | `false` → `true`               |
 
 - **2026-07-17 の「`AI_Optout` を権利軸へ純化」の巻き戻しではない**。あのとき落とした `#DB_SelfSecondary` catch-all の `true` は「キャラデザ未着手なので AI へ空データを渡したくない」という**充填ガードの代理**（意味論は `AI_Unready` / 画像ゲートへ移譲済み）で、今回は**第三者（散狐アタストさん）の関与に基づく本来の権利軸宣言**。向きが逆であることを `docs/api-sw-spec.md` §5.5 に明記した。
 - **影響**: `SelfSecondary` の dry-run が `skipped-ai-optout=2`（Num `266` / `314`）を出すようになった（`patched=7` は不変）。`#DB_SelfSecondary` はカテゴリ単位で opt-in / opt-out が**混在**する初のケースになる。

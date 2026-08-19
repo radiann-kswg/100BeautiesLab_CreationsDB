@@ -58,7 +58,8 @@ npm run roleplay:check    # CI: 差分（新規/マージ更新）があれば e
   - `@FormalNameReading` … 読みは `（読み：…）` の中に置かれ鉤括弧で括られないため「 または 」連結。
   - `@WorkTitle_JP` … 作品名（複数行は先頭行のみ）。
   - `@FirstPerson` / `@SecondPerson` / `@ThirdPerson` / `@ForMaster` … 呼称 DSL を `calling-common` で展開。
-  - `@Gender` / `@Race` / `@Belonging` … enum/辞書ラベル解決（`type-common`）。object 値は `unwrapValueLike` で解く。
+  - `@Gender` / `@Race` / `@Belonging` / `@Class` … enum/辞書ラベル解決（`type-common`）。object 値は `unwrapValueLike` で解く。
+    辞書コードが**配列**の場合（`Belonging` / `Class`）は **1 要素ずつ**解決して `、` で連結する（後述）。
   - `@Age`（`Age`→無ければ `ConceptAge`）/ `@BirthDay`（`{Day:{Month,DayOfMonth}}`→「M月D日」）。
   - **`@HeightText` / `@WeightText` / `@AgeText`** … 単位（cm / kg / 歳）付きの表示テキスト（後述）。
   - `@TailsUnit`（`tailsUnit.js` のサマリー）/ `@DeepLink`（`?c=<Work>/<Db>/<Index>:<値>`）。
@@ -91,6 +92,22 @@ npm run roleplay:check    # CI: 差分（新規/マージ更新）があれば e
 ```
 {{#@HeightText}}- 「{{@DisplayName}}」は身長{{@HeightText}}{{#@WeightText}}・体重{{@WeightText}}{{/@WeightText}}{{#@AgeText}}、設定年齢は{{@AgeText}}{{/@AgeText}}です。{{/@HeightText}}
 ```
+
+### 辞書コードのラベル解決（配列・表示名）
+
+`$dict` 宣言を持つフィールド（`Belonging` / `Class` 等）は、**レコードの生コードを
+テンプレへ直接差し込まない**でください。合成変数（`@Class` 等）を介して辞書へ問い合わせます。
+
+- **表示名は辞書が持つ**… `dict_Class.json` はコード（`Class`: `"1桁番"`）と表示名
+  （`Class_JP`: `"1桁番(ユニデジッツ)"`）を分離して持ちます。テンプレが `{{Class}}`（生値）を
+  差し込むと読みが落ちるため、`{{@Class}}` を使います。
+- **配列は 1 要素ずつ解決する**… `TypeResolver.resolveVarsDefLabel()` はスカラ専用（内部で
+  `String(rawValue)` する）ので、配列をそのまま渡すと `Array.prototype.toString()` が働き
+  `"A,B"` という辞書に無いコードになり、未解決のまま出力されます。
+  build 側の `resolveDictLabels()` が要素ごとに解決し、`、` で連結します。
+
+> 回帰テストは `tests/data.roleplay-prompts.test.js` の「辞書コードのラベル解決」。
+> 全文スキャンではなく `buildVars()` の当該変数だけを見ます（呼称 DSL の `キミ,名前呼び` は正当）。
 
 ### 接続語を条件ブロックの内側へ置く
 

@@ -1400,7 +1400,7 @@
     "CodeName_EN": "Two-Six-Six",
     "SPCodeName_JP": "ゲルフォント＝シュナイダー定数: ヒルベルトの第7問題（2^√2≈2.66≈3/8）",
     "SPCodeName_EN": "Gelfond-Schneider constant: Hilbert's seventh problem (2^√2≈2.66≈3/8)",
-    "ModelNumber": "APHR-NT Dv.8/3(dev)",
+    "ModelNumber": "APHR-NT Dv.8/3",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル5型", "証明者", "D-Vines開発機"]
   },
@@ -1509,7 +1509,7 @@
     "CodeName_EN": "Three-One-Four",
     "SPCodeName_JP": "π(円周率上3桁)",
     "SPCodeName_EN": "π(Pi: First 3 Digits of the Circle Ratio)",
-    "ModelNumber": "APHR-NT Dv.22/7(dev)",
+    "ModelNumber": "APHR-NT Dv.22/7",
     "GenderType": "Neutral",
     "Class": [
       "トリプルエイツ",
