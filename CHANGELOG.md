@@ -15,8 +15,14 @@
   値が `hideText` wrapper のときは EN でも `_JP` 側を採用し、ラベルだけ `_EN` 側の `hashTag_EN` を使う。
   トップレベル（`formatBilingualGroup`）と入れ子（`buildObjectChildBlocks`）の両経路へ適用。
 - 既に `_JP` / `_EN` の両方へマスクを書いている既存データ（18 件）は動作が正しいのでそのまま。新規入力は片方でよい。
+- **`_Jump` の参照先が `$enrich: true` の `*_DBLink` に連動するようになった**。従来はルート `_DBLink` か
+  `_Jump._DBLink` を書かないと参照先が決まらなかったが、`AnotherRegions_DBLink` などで既に参照先を
+  書いてあるレコードは、`_Jump` 側へ重複して書かなくても同じ相手を引ける（ルート `_DBLink` と同じ扱いを
+  `$enrich` 経路にも適用。複数エントリは先頭の解決済みエントリに従う）。
 - `data/Works_UnauthedLogica/DataBases/db_Primary.json` の `_Jump`（6 件）を明示パスへ更新。
-  ただし当該レコードには `_DBLink` が無く参照先レコードが特定されないため、値の解決には別途 `_Jump._DBLink` の付与が要る。
+  これと上記の連動により、UnauthedLogica/Primary の `_Jump` は **7 件すべてが解決するようになった**
+  （`LogicspecAbout_JP` 6 件が NumberTales の `NumerospecStats.NumerospecAbout_JP` を、
+  `BirthDay` 1 件が SinisterChangingGirls の `BirthDay` を引く）。
 
 ### refactor: モチーフ能力の情報を `*specStats` へ集約（Issue #13 Phase 4） (2026-08-20)
 

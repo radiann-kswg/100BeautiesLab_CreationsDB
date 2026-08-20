@@ -159,11 +159,32 @@ Phase 4 の作業中に見つけた「UnauthedLogica の `_Jump` が以前から
 `NumerospecStats.NumerospecAbout_JP: { hideText }` があり `_EN` が無いレコード 6 件
 （`db_Secondary` の `0xA`〜`0xF`）が英語ページで空欄になっていたのを解消した。
 
-#### 残（User 判断）
+#### 参照先の連動（追補）
 
-UnauthedLogica の `_Jump` 6 件は、パスと言語別名が原因ではなくなったが**まだ値は解決しない**。
-該当レコードにルート `_DBLink` も `_Jump._DBLink` も無く、参照先レコード自体が特定されないため。
-参照先の指定は創作判断なので User 待ち。
+当初は「参照先レコードが特定されないので値は解決しない」と記録したが、User から
+「`AnotherRegions_DBLink` で enrich 付きの参照を掛けているので、`_Jump` もそこへ連動させてほしい」と指示があり対応した。
+
+`enrichRecords()` の 2.1 節（`$enrich: true` の `*_DBLink` を解決してマージ）で参照先が確定した直後に、
+ルート `_DBLink`（2 節）とまったく同じ流儀で `resolveJumpsInAny()` を呼ぶだけの 1 行追加。
+複数エントリは既存の `_DBLink` 運用と同じく**先頭の解決済みエントリ**に従う。
+
+これで **UnauthedLogica/Primary の `_Jump` は 7 件すべてが解決**するようになった。
+
+| レコード | フィールド | 参照先 | 解決値（先頭行） |
+| --- | --- | --- | --- |
+| `Num: 10` | `LogicspecStats.LogicspecAbout_JP` | NumberTales/Primary `10-alt` | 「？？？？を果たす」 |
+| `Num: 61` | 同上 | NumberTales/Primary `61` | 「惚れさせる」 |
+| `Num: 62` | 同上 | NumberTales/Primary `62` | 「発想を形にさせる」 |
+| `Num: 10-alt` | 同上 | NumberTales/Primary `10` | 「？？？？という役目を果たす」 |
+| `Num: "0"` | 同上 | NumberTales/Primary `0`（先頭エントリ） | 「IQ200の頭脳を持つ…」 |
+| `Num: "00"` | 同上 | NumberTales/Primary `00` | 「世界トップ10のメカニック実績がある…」 |
+| `Num: "Q"` | `BirthDay` | SinisterChangingGirls/Primary `Drc: S` | `{ Day: { Month: 12, DayOfMonth: 12 } }` |
+
+`Num: "0"` は参照先が 2 件（NumberTales / SinisterChangingGirls）だが、先頭が NumberTales なので意図どおり。
+`Num: "Q"` の `LogicspecStats.LogicspecAbout_JP` は元データが空文字（`""`）で、これは Phase 5 以前からの状態。
+
+> 回帰は `tests/enrich.dblink.jump.merge.test.js` の「実データ: UnauthedLogica/Primary に未解決の `_Jump` が残らない」
+> で固定した（レコードを走査して `_Jump` ラッパーが 1 つも残らないことを確認する）。
 
 ## 検証
 

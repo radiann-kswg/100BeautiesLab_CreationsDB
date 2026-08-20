@@ -891,3 +891,66 @@ describe('_Jump の言語別名解決（*_JP / *_EN 分離フィールドを suf
     expect(T.expandLangAliasCandidates('')).toEqual([]);
   });
 });
+
+describe('_Jump が $enrich: true の *_DBLink の参照先へ連動する', () => {
+  // 共有スタブの readGlobalType() は {} を返すため、グローバル db_type.json で宣言された
+  // `AnotherRegions_DBLink` の `$enrich: true` が見えない。ここだけ実物を読ませる
+  class GlobalTypeDataFetcher extends TestDataFetcher {
+    async readGlobalType() { return loadJson('data/db_type.json'); }
+  }
+
+  const NT_PRIMARY = loadJson('data/Works_NumberTales/DataBases/db_Primary.json');
+  const ntAbout = (num) => NT_PRIMARY
+    .find((r) => String(r.Num) === String(num))?.NumerospecStats?.NumerospecAbout_JP;
+
+  /** UnauthedLogica の実際の形（AnotherRegions_DBLink ＋ _DBLink 無しの _Jump）で 1 件 enrich する */
+  async function enrichWith(dbLinkField, refs) {
+    const proc = new globalThis.EnrichmentProcessor(new GlobalTypeDataFetcher(), testConfig);
+    const rec = {
+      Model: { ModelSeries: 'AttackerZeroid', Num: 61 },
+      [dbLinkField]: refs,
+      LogicspecStats: {
+        LogicspecAbout_JP: { _Jump: { hashTag: 'NumerospecStats.NumerospecAbout' } }
+      }
+    };
+    const out = await proc.enrichRecords([rec], '#Works_UnauthedLogica', 'Primary');
+    return out[0]?.LogicspecStats?.LogicspecAbout_JP;
+  }
+
+  it('_Jump 側に _DBLink が無くても、AnotherRegions_DBLink の参照先から値を引く', async () => {
+    const v = await enrichWith('AnotherRegions_DBLink', [{ _Work: 'NumberTales', _DB: 'Primary', Num: 61 }]);
+    expect(v).toBe(ntAbout(61));
+    expect(typeof v).toBe('string');
+  });
+
+  it('複数参照先がある場合は先頭の解決済みエントリに従う（既存の _DBLink 運用と同じ）', async () => {
+    const v = await enrichWith('AnotherRegions_DBLink', [
+      { _Work: 'NumberTales', _DB: 'Primary', Num: 62 },
+      { _Work: 'NumberTales', _DB: 'Primary', Num: 61 }
+    ]);
+    expect(v).toBe(ntAbout(62));
+  });
+
+  it('$enrich: false の *_DBLink には連動しない（ラッパーを維持する）', async () => {
+    // AnotherVersions_DBLink は $enrich: false
+    const v = await enrichWith('AnotherVersions_DBLink', [{ _Work: 'NumberTales', _DB: 'Primary', Num: 61 }]);
+    expect(v?._Jump).toBeTypeOf('object');
+  });
+
+  it('実データ: UnauthedLogica/Primary に未解決の _Jump が残らない', async () => {
+    const proc = new globalThis.EnrichmentProcessor(new GlobalTypeDataFetcher(), testConfig);
+    const records = loadJson('data/Works_UnauthedLogica/DataBases/db_Primary.json');
+    const out = await proc.enrichRecords(records, '#Works_UnauthedLogica', 'Primary');
+
+    const unresolved = [];
+    const scan = (v, path) => {
+      if (!v || typeof v !== 'object') return;
+      if (Array.isArray(v)) { v.forEach((x, i) => scan(x, `${path}[${i}]`)); return; }
+      if (v._Jump) { unresolved.push(path); return; }
+      for (const [k, vv] of Object.entries(v)) scan(vv, path ? `${path}.${k}` : k);
+    };
+    out.forEach((rec, i) => scan(rec, `#${i}`));
+
+    expect(unresolved).toEqual([]);
+  });
+});

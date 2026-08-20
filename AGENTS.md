@@ -483,7 +483,7 @@ UI → Service Worker (`/pages/v1/`) → 静的 JSON 読み込み + `_DBLink`/`_
 - **画像の扱い**: 画像系フィールドは **別DB（別JSON）から参照・穴埋めしません**。同一DB参照の場合のみ画像穴埋めを許可します。
 - **`isPrivate: true` への参照**: `*_DBLink` 参照はクライアント側でフィルタし非表示にします（セクション全体も非表示）。
 - **複数 `_DBLink`**: 配列の場合の合成仕様は未確定のため、現状は先頭要素のみ参照対象とします。
-- **`_Jump`**: `{ _Jump: { hashTag, _Search } }` は参照先レコードの `hashTag`（ドットパス可）から値を取り出し置換。`_Search` の絞り込みも 1件一致のみ置換します。`hashTag` は「完全一致 → 言語別名（`TypeDefUtils.expandLangAliasCandidates()`）」の順で探すため、`_JP` / `_EN` に分離したフィールドを suffix 無しで指せます（優先言語は参照元フィールドの suffix）。入れ子フィールドは**明示ドットパス**で指定します（例: `NumerospecStats.NumerospecAbout`）。レコード全体を名前で走査することはしません。
+- **`_Jump`**: `{ _Jump: { hashTag, _Search } }` は参照先レコードの `hashTag`（ドットパス可）から値を取り出し置換。`_Search` の絞り込みも 1件一致のみ置換します。`hashTag` は「完全一致 → 言語別名（`TypeDefUtils.expandLangAliasCandidates()`）」の順で探すため、`_JP` / `_EN` に分離したフィールドを suffix 無しで指せます（優先言語は参照元フィールドの suffix）。入れ子フィールドは**明示ドットパス**で指定します（例: `NumerospecStats.NumerospecAbout`）。レコード全体を名前で走査することはしません。参照先は「自前の `_DBLink` → ルート `_DBLink` → `$enrich: true` の `*_DBLink`」の順に決まるため、`AnotherRegions_DBLink` 等で参照先を書いてあるレコードは `_Jump` 側へ `_DBLink` を重複して書く必要がありません（複数エントリは先頭の解決済みエントリに従う）。
 - **`hideText` は言語非依存**: マスク値は `#List_hideText` の辞書コードで、`formatMaskedValue()` が言語に応じて解決します。したがって `_JP` / `_EN` の**片方にだけ**書けば両言語で表示されます（EN 表示時は `_EN` 側の `hashTag_EN` をラベルに使う）。既存の両方書きも有効なので移行は不要です。
 
 ### データベース構造 / 画像管理
