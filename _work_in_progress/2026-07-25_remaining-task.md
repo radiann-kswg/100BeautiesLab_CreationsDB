@@ -311,12 +311,13 @@
   Cloud Run サービスの作成 / Secret Manager への仮 API Key 登録 / Workers への `/api/v1/generate` プロキシ追加
 - **未解決**: Vertex AI の採用可否、GCE スポット VM の活用可否
 
-### T-31 🔵 `addon-ai-tag` 逆マージ事故の後日談追記
+### T-31 🟡 `addon-ai-tag` 逆マージ事故の後日談追記（部分完了）
 
 - **関連ログ**: `2026-07-02_progress_addon-ai-tag-reverse-merge-incident.md`（単一）
+- **完了（2026-08-20）**: `2026-07-02_progress_addon-ai-tag-reverse-merge-incident.md` に反省事項と
+  逆マージ防止チェックリストを追記し、棚卸しログへ反映済み。
 - **残作業**: `addon-ai-tag` 側の `2026-07-01_progress_addon-ai-tag-merge-conflict-and-log-cleanup.md` への
-  経緯追記（`addon-ai-tag` チェックアウト環境が必要）
-- **User 判断待ち**: 再発防止策の検討（デスクトップ版 Claude のマージ操作時にブランチを取り違えた件）
+  後日談追記のみ（`addon-ai-tag` チェックアウト環境が必要）
 
 ### T-32 🔵 任意拡張
 
@@ -345,7 +346,7 @@
 | [2026-07-13_progress_colorpalette-schema.md](./2026-07-13_progress_colorpalette-schema.md) | `ColorPalette` スキーマ・配色抽出 | **T-20** | ⚠️ 実装済み・User レビュー待ち（AIHints への導出は完了） |
 | [2026-07-11_progress_appearancedetail-images.md](./2026-07-11_progress_appearancedetail-images.md) | AppearanceDetail 参考画像の一括登録 | **T-23** | ⚠️ 割当確認待ち |
 | [2026-07-06_progress_unibytelive-formalname-draft.md](./2026-07-06_progress_unibytelive-formalname-draft.md) | アルベッツの苗字・コードネーム下書き | **T-22** | ⚠️ User レビュー中 |
-| [2026-07-02_progress_addon-ai-tag-reverse-merge-incident.md](./2026-07-02_progress_addon-ai-tag-reverse-merge-incident.md) | 逆マージ事故の記録と是正 | **T-10 / T-31** | ⚠️ 後日談追記が保留 |
+| [2026-07-02_progress_addon-ai-tag-reverse-merge-incident.md](./2026-07-02_progress_addon-ai-tag-reverse-merge-incident.md) | 逆マージ事故の記録と是正 | **T-10 / T-31** | 🟡 反省事項の文書化は完了・`addon-ai-tag` 側後日談のみ保留 |
 | [2026-06-28_progress_conversationpattern-handoff.md](./2026-06-28_progress_conversationpattern-handoff.md) | ConversationPattern 補完の引き継ぎ | **T-21** | ⚠️ User 入力待ち |
 | [2026-06-25_progress_localization-summary-inputs.md](./2026-06-25_progress_localization-summary-inputs.md) | Localization Summary の入力チェックリスト | **T-24** | ⚠️ 残 7 件 |
 | [2026-06-24_progress_localization-db.md](./2026-06-24_progress_localization-db.md) | Localization レイヤーの実装 | **T-24** | ⚠️ 原作者確認・項目追加が継続 |

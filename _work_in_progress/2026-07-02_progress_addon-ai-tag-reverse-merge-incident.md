@@ -29,7 +29,26 @@
 ## 未完了タスク
 
 - `addon-ai-tag` ブランチ側の `2026-07-01_progress_addon-ai-tag-merge-conflict-and-log-cleanup.md` への後日談追記（本インシデントの経緯を踏まえた更新）は、現在 `develop` ブランチで作業中のため保留。`addon-ai-tag` チェックアウト環境（別ブランチ用のサブローカル等）で対応予定。
-- 逆マージが発生した原因（デスクトップ版 Claude によるマージ操作時の対象ブランチ取り違え等）の再発防止策の検討は User 判断待ち。
+
+## 追記（2026-08-20）: 反省事項の取り込みと即時運用
+
+### 取り込み済み
+
+- 本ログに「逆マージの再発防止チェックリスト」を固定化し、以後の棚卸し時に参照する運用へ変更。
+- 全体棚卸しログ `2026-08-20_progress_task-inventory.md` に本件の状態を反映（全面保留ではなく、文書化完了・ブランチ別追記のみ保留へ更新）。
+- 母艦台帳 `2026-07-25_remaining-task.md` の T-31 を同じ状態へ同期。
+
+### 再発防止チェックリスト（逆マージ防止）
+
+1. マージ直前に `git branch --show-current` で現在ブランチを確認する。
+2. `git rev-list --left-right --count develop...origin/addon-ai-tag` で差分方向を確認する。
+3. 方向は `develop` → `addon-ai-tag` の一方向のみ許可し、逆方向は実行しない。
+4. マージ実行前に、作業ログへ「実行予定の方向」を 1 行で明記する。
+5. マージ後は `git log --oneline --decorate -n 5` で直近履歴を確認し、想定外の merge commit がないかを確認する。
+
+### 現在の残作業（最小）
+
+- `addon-ai-tag` 側ログ（`2026-07-01_progress_addon-ai-tag-merge-conflict-and-log-cleanup.md`）への後日談追記のみ。
 
 ## 参考ログ
 
