@@ -185,6 +185,16 @@
   - 数値
 - `#String_withAbout`, `#Summary_withAbout`, `#Dialogue_withAbout`
   - `value` と `about_JP/about_EN/about` を持つ補足付き値
+- `$Def_TouchReaction`, `$Def_MotifCommentary`
+  - **キー付き台詞リスト**。`#Dialogue_bilingual` に「辞書コードのキー項目」を足した形（`{ Action, value_JP, value_EN, about_JP, about_EN }` / `{ Topic, TopicValue, value_JP, … }`）。Bot など外部クライアントがキーで安定して引けるよう、キー項目は生の日本語文字列ではなく `#ListIndex` ＋ `$dict` の辞書コードで持つ。表示は `keyedDialogueSummary` wrapper が `キー：台詞（補足）` へ整形する（`docs/wrapper-summary-registry.md`）
+- **`_JP` / `_EN` 分離フィールドの参照**
+  - 参照側（`_Jump` の `hashTag`、`_Search` の `hashTag`）は `TypeDefUtils.expandLangAliasCandidates()` で
+    「完全一致 → 素の名前 → `_JP` → `_EN`」へ展開されるため、suffix を書かなくても引けます。
+    ドットパスの**プレフィックスは保たれ、末尾セグメントだけ**が展開されます。
+    `_Jump` は参照元フィールドの suffix を優先言語として使います（`LogicspecAbout_EN` からの参照なら `_EN` が先）。
+  - **マスク（`{ hideText }`）は言語非依存**。値が `#List_hideText` の辞書コードなので、
+    `_JP` / `_EN` の片方にだけ書けば両言語で表示されます（UI 側の言語ルーティングが
+    `isMaskedValue()` で判定し、EN では `_EN` 側の `hashTag_EN` をラベルに使う）。
 - `#String_bilingual`, `#Dialogue_bilingual`
   - **和英共有フィールド**。1 要素の中に `value_JP` / `value_EN`（＋補足があれば `about_JP` / `about_EN`）を持ち、フィールド自体は `_JP` / `_EN` へ分けない。配列で和英の要素対応を崩さずに持ちたいときに使う（例: `ConversationPattern.DialogueExamples`、`Works_UnibyteLive` の `StreamingActivity.StreamingCategory` / `StreamingGreeting` / `StreamingAwards`）
   - 表示は `formatValueForDisplay()` がページ言語で `value_JP` / `value_EN` を選ぶ（型名ではなく**値の形**で分岐するため、`_bilingual` は「データの形」を宣言面へ明示するための型名）。1 要素 1 行で出したい配列では union に `_withAbout[]` を併記して改行連結を維持する
@@ -226,6 +236,7 @@
   - 単位表示
 - `role`
   - wrapper formatter が子要素を意味単位で読むための役割名
+  - 例: `factionCode`（辞書コードを持つ主要素）/ `dialogueKey`（台詞リストのキー項目。`$dict` で辞書名を宣言）/ `dialogueKeyValue`（キーへ連結する数値・識別子。`ライフパス` ＋ `3` → `ライフパス3`）
 - `auto:false`
   - 自動表示から除外
 - `aliasOf`
@@ -481,7 +492,7 @@
 - **グローバル宣言フィールドの表示順の正は `$DefType`**。`$DetailLayout` は「どれを出すか」の選択を担い、並び順は `$DefType` に揃える（2026-07-17 に `basicFields` を全 9 作品分 `$DefType` 順へ整列済み。以後もこの一致を保つこと）
 - **作品別 typedef で宣言されたフィールドは `$DetailLayout` が位置の正**。グローバル `$DefType` に宣言が無いため `$DefType` 側に「揃えるべき位置」が存在しない
   - `basicFields` に載るもの（`TailsUnit` / `Generation` / `ForMasterCalling` / `For*DealerCalling` 等）は `#WorkBasic` マーカーの `$slotAnchor` が **`basicFields` 上の直前の隣人の直後**へ配置する
-  - `subFields` に載るもの（`NumerospecAbout` / `ChronoholderName` / `Relation` 等）は `#WorkRest` の `$slotOrder` が catch-all スロット内の並びを決める
+  - `subFields` に載るもの（`NumerospecStats` / `ChronoholderName` / `Relation` 等）は `#WorkRest` の `$slotOrder` が catch-all スロット内の並びを決める
 - `Belonging` などの補助項目は、`basicFields` にすでに含まれている場合は UI 側で重複抑制される
 - **両方に載るキーは「表示」と「キー順」で正が分かれる**（現状 `Works_NumberTales` の `TailsUnit` のみ）
   - 表示: `subFields` が勝つ。UI の「1項目1箇所の原則」（`pages/characters.js` の `isPromotedSubFieldKey`）が基本情報テーブル側の行を抑制するため、`tailsUnitSection` にしか出ない

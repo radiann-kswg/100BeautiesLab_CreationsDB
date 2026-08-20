@@ -334,7 +334,7 @@
   {
     "Drc": "NW",
     "Progress": "unreleased",
-    "Regioministration": "Y",
+    "AssignedRegioministratorRole": { "Regioministration": "Y" },
     "Name_JP": "財前 小里\n終藤 こさと",
     "Name_JPReading": "ざいぜん こさと\nすどう こさと",
     "Name_EN": "Foster Empressor\nFormar Endrof",

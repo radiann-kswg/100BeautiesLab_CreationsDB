@@ -57,6 +57,17 @@ displayName: {{Name_JP | altquote}}
 {{#each ConversationPattern.DialogueExamples}}- {{@dialogue}}
 {{/each}}
 
+{{#ConversationPattern.TouchReactions}}### 「{{@DisplayName}}」の接触への反応
+
+{{#each ConversationPattern.TouchReactions}}- {{@dialogue}}
+{{/each}}
+{{/ConversationPattern.TouchReactions}}
+{{#NumerospecStats.MotifCommentaries}}### 「{{@DisplayName}}」の数秘についての語り
+
+{{#each NumerospecStats.MotifCommentaries}}- {{@dialogue}}
+{{/each}}
+{{/NumerospecStats.MotifCommentaries}}
+
 # userとの会話を行うにあたって
 
 ## 不明な点があったときは

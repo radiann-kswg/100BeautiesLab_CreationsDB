@@ -462,12 +462,19 @@ describe('pages/characters.js UI output', () => {
 
 		const record = {
 			...yayoiRecord,
+			// `_EN` を落として「`_JP` だけマスク」の形にする（Weight_kg とは別のマスクコードを使う）
+			Unlike_JP: { hideText: '極秘事項' },
 			Unlike_EN: undefined
 		};
 
 		await charactersModule.renderDetail('#Works_PastDivers', record);
 
 		expect(getBasicFieldValue('Weight_kg')).toBe('Non-Public at Pleasure');
+
+		// `_JP` だけにマスクがあり `_EN` が無い場合も、辞書 #List_hideText 経由で EN ラベルを出す
+		const detailText = document.querySelector('#detail')?.textContent || '';
+		expect(detailText).toContain('Confidential');
+		expect(detailText).not.toContain('極秘事項');
 	});
 
 	it('renders shared-language fields in English from the base value even when the _EN sibling is blank', async () => {
@@ -957,11 +964,50 @@ describe('pages/characters.js UI output', () => {
 		expect(profileSectionText).not.toContain('会話パターンについて');
 	});
 
+	// keyedDialogue（`lib/basic-renders/keyedDialogue.js`）の配線確認。
+	// `ConversationPattern` と `NumerospecStats` はどちらも buildObjectChildBlocks を通るため、
+	// 台詞リストの判定と辞書ラベル解決が両方の親で効くことを 1 件でまとめて見る。
+	it('renders keyed dialogue lists with dictionary-resolved key labels', async () => {
+		const record = structuredClone(ninthNumberTalesPrimaryRecord);
+		record.ConversationPattern = {
+			...(record.ConversationPattern || {}),
+			TouchReactions: [{ Action: 'pat', value_JP: 'ふや…、くすぐったいな。', about_JP: '照れている時' }]
+		};
+		record.NumerospecStats = {
+			...(record.NumerospecStats || {}),
+			MotifCommentaries: [{ Topic: 'LifePath', TopicValue: 3, value_JP: '3は表現と喜びの数だよ。' }]
+		};
+
+		charactersModule.__setCharactersTestState({
+			charState: {
+				db: 'Primary',
+				workId: '#Works_NumberTales',
+				records: numberTalesPrimaryRecords,
+				workTypeDef: numberTalesWorkTypeDef,
+				globalTypeDef,
+				workMeta: numberTalesWorkMeta,
+				imageFields: []
+			}
+		});
+
+		await charactersModule.renderDetail('#Works_NumberTales', record);
+
+		// グローバル辞書 #List_TouchAction 由来のラベル（pat → なでる）
+		const conversationText = getSubFieldSectionNode('ConversationPattern')?.textContent || '';
+		expect(conversationText).toContain('接触への反応');
+		expect(conversationText).toContain('なでる：ふや…、くすぐったいな。（照れている時）');
+
+		// 作品別辞書 #List_MotifTopic 由来のラベル ＋ TopicValue の連結（LifePath + 3 → ライフパス3）
+		const numSpecText = getSubFieldSectionNode('NumerospecStats')?.textContent || '';
+		expect(numSpecText).toContain('数秘についての語り');
+		expect(numSpecText).toContain('ライフパス3：3は表現と喜びの数だよ。');
+	});
+
 	it('prioritizes declared subFields order over basic/profile/relation fallback routes', async () => {
 		const customGlobalMeta = structuredClone(globalMeta);
 		customGlobalMeta.CreationWorks['#Works_NumberTales'].$DetailLayout.subFields = [
 			'AbilityStats',
-			'NumerospecAbout',
+			'NumerospecStats',
 			'Relation',
 			'ConversationPattern'
 		];
@@ -983,25 +1029,25 @@ describe('pages/characters.js UI output', () => {
 
 		const orderedSubFieldKeys = getSubFieldSectionKeys().filter((key) => [
 			'AbilityStats',
-			'NumerospecAbout',
+			'NumerospecStats',
 			'Relation',
 			'ConversationPattern'
 		].includes(key));
 
 		expect(orderedSubFieldKeys).toEqual([
 			'AbilityStats',
-			'NumerospecAbout',
+			'NumerospecStats',
 			'Relation',
 			'ConversationPattern'
 		]);
 		expect(getBasicFieldValue('“カバラの加護”(数秘的加護)について')).toBe('');
-		expect(isCollapsibleSubFieldSection('NumerospecAbout')).toBe(false);
+		expect(isCollapsibleSubFieldSection('NumerospecStats')).toBe(true);
 		expect(isCollapsibleSubFieldSection('Relation')).toBe(true);
 	});
 
 	it('keeps string-like subFields non-collapsible when hideText wraps the stored value', async () => {
 		const customGlobalMeta = structuredClone(globalMeta);
-		customGlobalMeta.CreationWorks['#Works_NumberTales'].$DetailLayout.subFields = ['NumerospecAbout'];
+		customGlobalMeta.CreationWorks['#Works_NumberTales'].$DetailLayout.subFields = ['Backgrounds'];
 
 		charactersModule.__setCharactersTestState({
 			globalMeta: customGlobalMeta,
@@ -1018,14 +1064,14 @@ describe('pages/characters.js UI output', () => {
 
 		await charactersModule.renderDetail('#Works_NumberTales', {
 			...hexademicalRecord,
-			NumerospecAbout: { hideText: '極秘事項' }
+			Backgrounds_JP: { hideText: '極秘事項' }
 		});
 
-		const numerospecAboutSection = getSubFieldSectionNode('NumerospecAbout');
-		expect(numerospecAboutSection).not.toBeNull();
-		expect(isCollapsibleSubFieldSection('NumerospecAbout')).toBe(false);
-		expect(numerospecAboutSection?.textContent || '').toContain('極秘事項');
-		expect(numerospecAboutSection?.textContent || '').not.toContain('hideText');
+		const hiddenSummarySection = getSubFieldSectionNode('Backgrounds');
+		expect(hiddenSummarySection).not.toBeNull();
+		expect(isCollapsibleSubFieldSection('Backgrounds')).toBe(false);
+		expect(hiddenSummarySection?.textContent || '').toContain('極秘事項');
+		expect(hiddenSummarySection?.textContent || '').not.toContain('hideText');
 	});
 
 	it('renders NumberTales stats as standalone subField sections driven by detail layout', async () => {
@@ -1053,7 +1099,38 @@ describe('pages/characters.js UI output', () => {
 		expect(isSubFieldSectionOpen('NumerospecStats')).toBe(false);
 		expect(abilitySection?.textContent || '').toContain('俊敏性');
 		expect(numerospecSection?.textContent || '').toContain('特殊パターン');
+
+		// Phase 4: `NumerospecAbout` はトップレベルから `NumerospecStats` 配下へ移した。
+		// 単独セクションは消え、中身は特性セクション内に残る
+		expect(getSubFieldSectionNode('NumerospecAbout')).toBeNull();
+		expect(numerospecSection?.textContent || '').toContain('(数秘的加護)について');
+		expect(numerospecSection?.textContent || '').toContain('哀しみから救済する');
 		expect(getSectionNode('スペック/能力')).toBeNull();
+	});
+
+	// マスク（hideText）は言語非依存。入れ子（buildObjectChildBlocks）経路でも、
+	// `_EN` 兄弟が無い `_JP` のマスクを EN で捨てず、ラベルだけ `_EN` 側の宣言を使う
+	it('keeps a masked _JP child visible in English and labels it from the _EN declaration', async () => {
+		charactersModule.__setCharactersTestState({
+			charState: {
+				db: 'Secondary',
+				pageLang: 'en',
+				workId: '#Works_NumberTales',
+				records: numberTalesSecondaryRecords,
+				workTypeDef: numberTalesWorkTypeDef,
+				globalTypeDef,
+				workMeta: numberTalesWorkMeta,
+				imageFields: []
+			}
+		});
+
+		// 0xA は NumerospecStats.NumerospecAbout_JP: { hideText: '極秘事項' } を持ち `_EN` が無い
+		await charactersModule.renderDetail('#Works_NumberTales', hexademicalRecord);
+
+		const numSpecText = getSubFieldSectionNode('NumerospecStats')?.textContent || '';
+		expect(numSpecText).toContain("About 'Kabbalistic Protection' (Numerospec)");
+		expect(numSpecText).toContain('Confidential');
+		expect(numSpecText).not.toContain('極秘事項');
 	});
 
 	it('renders other-work spec stats as standalone subField sections and keeps nested profile rows inside them', async () => {
@@ -1067,6 +1144,11 @@ describe('pages/characters.js UI output', () => {
 		expect(chronoTags).toContain('治癒効果: 公開不能 / Openly Not');
 		expect(chronoTags).toContain('安全レベル: 公開不能 / Openly Not');
 		expect(chronoTags).not.toContain('安全レベル');
+
+		// Phase 4: `ChronospecName` / `ChronospecAbout` を `ChronospecStats` 配下へ移した
+		expect(getSectionNode('時空遷移(クロノシフト)能力名')).toBeNull();
+		expect(chronoSection?.textContent || '').toContain('焦燥の花');
+		expect(chronoSection?.textContent || '').toContain('時間が進行するエネルギーを吸収する');
 
 		const profileSectionText = getSectionText('プロフィール/テキスト');
 		expect(profileSectionText).not.toContain('時空遷移(クロノイド)状態に関する概要');
@@ -1090,6 +1172,10 @@ describe('pages/characters.js UI output', () => {
 
 		const specTags = getSectionTagTexts('アルカナムスペック(アルカナ能力)の特性');
 		expect(specTags).toContain('能力レベル: S+（かなり強力 / Quite Powerful）');
+
+		// Phase 4: `ArcanumspecAbout`（旧 `Arcanam` 表記）を `ArcanumspecStats` 配下へ移した
+		expect(getSectionNode('アルカナムスペック(アルカナ能力)の特性')?.textContent || '')
+			.toContain('アルカナムスペック(アルカナ能力)について');
 	});
 
 	it('does not render private records in detail view', async () => {

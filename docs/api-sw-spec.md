@@ -556,9 +556,10 @@ DB全体の代表画像（`DB_Image`、§3.3/§5.2参照）も、この疑似作
 3. `_DBLink` の参照先を解決
 4. `_Jump` ラッパーを参照先の実値へ置換
 5. 同名フィールドを空値のときだけ穴埋めマージ
-6. `$alt` による代替キーからの穴埋め
-7. `#ListLink_*` を varsdef から補助補完
-8. 画像メタ、検索テキスト、displaySections を付加
+6. `$enrich: true` の `*_DBLink` suffix フィールドを解決し、同じ参照先で `_Jump` を置換 → 穴埋めマージ
+7. `$alt` による代替キーからの穴埋め
+8. `#ListLink_*` を varsdef から補助補完
+9. 画像メタ、検索テキスト、displaySections を付加
 
 重要ルール:
 
@@ -567,6 +568,14 @@ DB全体の代表画像（`DB_Image`、§3.3/§5.2参照）も、この疑似作
 - 別 DB から画像フィールドは埋めません
 - 別作品からの `_DBLink` では、対象作品の schema に宣言されたトップレベル項目だけを取り込みます
 - `_Jump` の `_Search` は 1 件一致だけ採用し、曖昧一致はスキップします
+- `_Jump` の参照先は「自前の `_DBLink`（`$Def_DBLinkRef` 形式）→ ルート `_DBLink` → `$enrich: true` の `*_DBLink`」の順に決まります。
+  つまり `AnotherRegions_DBLink` などで参照先を書いてあるレコードは、`_Jump` 側へ `_DBLink` を重複して書かなくても同じ相手を引けます
+  （複数エントリがある場合は既存の `_DBLink` 運用と同じく**先頭の解決済みエントリ**に従います）
+- `_Jump` の `hashTag` は「完全一致 → 言語別名」の順で探します（`TypeDefUtils.expandLangAliasCandidates()`）。
+  `_JP` / `_EN` に分離したフィールドを suffix 無しで指せるようにするためで、優先言語は**参照元フィールドの suffix**です。
+  入れ子は**明示ドットパス**で指定します（レコード全体を名前で走査することはしません）。
+  例: `LogicspecAbout_JP: { _Jump: { hashTag: "NumerospecStats.NumerospecAbout" } }`
+  → 参照先の `NumerospecStats.NumerospecAbout_JP` を引く。どの候補にも当たらなければラッパーを維持します
 
 ### 8.1 `_Jump` + `$Def_DBLinkRef`（フィールド単位の参照先明示）
 

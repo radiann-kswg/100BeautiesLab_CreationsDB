@@ -47,15 +47,15 @@ import '../lib/basic-renders/type-common.js';
 import '../lib/basic-renders/def-object-common.js';
 import '../lib/basic-renders/faction.js';
 import '../lib/basic-renders/baseArea.js';
+import '../lib/basic-renders/keyedDialogue.js';
 import '../lib/section-renders/appearanceDetail.js';
 import '../lib/section-renders/colorPalette.js';
 import '../lib/section-renders/thisMasters.js';
 import '../lib/section-renders/specStatsHelpers.js';
 import '../lib/section-renders/abilityStats.js';
 import '../lib/section-renders/streamingActivity.js';
-import '../lib/section-renders/numSpec.js';
+import '../lib/section-renders/specStats.js';
 import '../lib/section-renders/arcanumSpec.js';
-import '../lib/section-renders/chronoSpec.js';
 import '../lib/section-renders/relation.js';
 import '../lib/section-renders/dblink.js';
 import '../lib/section-renders/dbcrosslinkpath.js';
@@ -2965,9 +2965,6 @@ function getFieldLabel(fieldName, labelMap, workMeta = null, globalDefType = nul
 		}
 	}
 
-	// 作品側typedefの揺れでlabelMap未解決でも、主要specStats見出しは既定ラベルを返す
-	if (fieldName === 'ArcanumspecStats') return 'アルカナムスペック(アルカナ能力)の特性';
-
 	const fb = String(fallback || fieldName);
 	if (getCurrentPageLanguage() === 'en') {
 		return /[\u3040-\u30ff\u3400-\u9fff]/.test(fb) ? fieldName : fb;
@@ -3378,6 +3375,19 @@ function pickAboutByLang(obj, lang) {
 		? (obj.about_EN || obj.about_JP || obj.about)
 		: (obj.about_JP || obj.about_EN || obj.about);
 	return picked ? String(picked) : '';
+}
+
+/**
+ * `{ hideText: '...' }`（意図的なマスク値）かどうかを判定する
+ *
+ * マスク値は `#List_hideText` の辞書コードであり、`formatMaskedValue()` が言語に応じて
+ * 解決する。つまり**マスクは言語非依存**で、`_JP` / `_EN` の片方にしか無くても両言語で出せる。
+ * 言語ルーティング（EN で `_JP` 側を捨てるか）の判定に使う。
+ * @param {any} v
+ * @returns {boolean}
+ */
+function isMaskedValue(v) {
+	return isPlainObject(v) && typeof v.hideText === 'string' && !!v.hideText.trim();
 }
 
 /**
@@ -5946,7 +5956,12 @@ export async function renderDetail(workId, rec) {
 			const displayHint = topLevelDisplayMap?.[base] ?? topLevelDisplayMap?.[`${base}_JP`] ?? topLevelDisplayMap?.[`${base}_EN`] ?? null;
 			const sharedLanguage = isSharedLanguageDisplay(displayHint);
 			if (lang === 'en') {
-				const text = sharedLanguage ? (enText || baseText || pieces[0] || '') : (enText || '');
+				// マスクは言語非依存なので、`_EN` が無くても JP 側の値を EN でも採用する
+				// （textByKey の各値は既にページ言語で整形済み＝辞書 #List_hideText で EN ラベルへ解決されている）
+				const maskedFallback = (!enText && (isMaskedValue(rec?.[`${base}_JP`]) || isMaskedValue(rec?.[base])))
+					? baseText
+					: '';
+				const text = sharedLanguage ? (enText || baseText || pieces[0] || '') : (enText || maskedFallback || '');
 				return { text, usedKeys, node: null };
 			}
 			if (lang === 'jp') {
@@ -7102,8 +7117,12 @@ export async function renderDetail(workId, rec) {
 			if (!parentKey || typeof parentKey !== 'string' || !isPlainObject(parentValue)) return [];
 			const excludedChildKeys = (options?.excludedChildKeys instanceof Set) ? options.excludedChildKeys : new Set();
 			const lang = getCurrentPageLanguage();
-			const hasJapaneseChars = (text) => /[\u3040-\u30ff\u3400-\u9fff]/.test(String(text || ''));
 			const blocks = [];
+
+			// 台詞リスト整形（keyedDialogue）の `$Def_*` / 辞書探索に使う共通 context。
+			// 子要素ごとに変わるのは schemaType と fallbackFormat だけなのでループ外へ出す
+			const keyedDialogue = globalThis.KeyedDialogueRenderer;
+			const dialogueLookupContext = { workMeta: metaForLookup, globalDefType };
 
 			for (const [childKey, childValue] of Object.entries(parentValue)) {
 				if (!childKey || typeof childKey !== 'string') continue;
@@ -7113,8 +7132,12 @@ export async function renderDetail(workId, rec) {
 				const baseChildPath = `${parentKey}.${baseChildKey}`;
 				const baseDisplayHint = pickSchemaDisplay(baseChildPath, baseChildPath, parentKey);
 				const sharedLanguage = isSharedLanguageDisplay(baseDisplayHint);
+				// マスクは言語非依存。`_EN` 兄弟が無い `_JP` のマスクは EN でも捨てない
+				const isMaskedJpWithoutEn = childKey.endsWith('_JP')
+					&& isMaskedValue(childValue)
+					&& isEmptyValueLoose(parentValue[`${baseChildKey}_EN`]);
 				if (lang === 'jp' && childKey.endsWith('_EN')) continue;
-				if (lang === 'en' && childKey.endsWith('_JP')) continue;
+				if (lang === 'en' && childKey.endsWith('_JP') && !isMaskedJpWithoutEn) continue;
 				if (lang === 'en' && !childKey.endsWith('_EN') && Object.prototype.hasOwnProperty.call(parentValue, `${childKey}_EN`) && !sharedLanguage) continue;
 				if (excludedChildKeys.has(childKey)) continue;
 				if (isEmptyValueLoose(childValue)) continue;
@@ -7122,7 +7145,11 @@ export async function renderDetail(workId, rec) {
 				const childPath = `${parentKey}.${childKey}`;
 				const childPathCandidates = [childPath, childKey];
 				const schemaPath = pickSchemaPath(childPathCandidates, childPath);
-				const childLabel = getFieldLabel(schemaPath, fieldLabelMap, metaForLookup, globalDefType, childKey);
+				// マスク fallback で `_JP` を EN 表示する場合、ラベルだけは `_EN` 側の宣言（hashTag_EN）を使う
+				const labelPath = (lang === 'en' && isMaskedJpWithoutEn)
+					? pickSchemaPath([`${parentKey}.${baseChildKey}_EN`, `${baseChildKey}_EN`], schemaPath)
+					: schemaPath;
+				const childLabel = getFieldLabel(labelPath, fieldLabelMap, metaForLookup, globalDefType, childKey);
 				const hints = (isPlainObject(childValue) && !Array.isArray(childValue))
 					? pickSchemaHintsForObjectLeaf([schemaPath, childPath, childKey], childValue)
 					: {
@@ -7130,48 +7157,32 @@ export async function renderDetail(workId, rec) {
 						schemaDisplay: pickSchemaDisplay(schemaPath, childPath, parentKey)
 					};
 
-				if (childKey === 'DialogueExamples' && Array.isArray(childValue)) {
-					const formatDialogueItemByLang = (item) => {
-						if (item === null || item === undefined || item === '') return '';
+				// 台詞リスト（`DialogueExamples` / `TouchReactions` / `MotifCommentaries` 等）は
+				// schema 宣言で判定し、`lib/basic-renders/keyedDialogue.js` の共通整形でカード描画する。
+				// field 名依存の分岐は置かない（AGENTS.md「main code / subscript 分離原則」）。
+				// `hints.schemaType` は resolveSchemaTypeByPath が `$Def_*` を子要素型へ展開した後の値
+				// （例: `$Def_TouchReaction[]|#Null` → `#ListIndex[]|#Null`）。keyedDialogue は
+				// `$Def_*` 名で wrapper 宣言と子要素の role を引くため、展開前の生宣言を使う
+				const rawChildType = fieldTypeMap?.[schemaPath] ?? fieldTypeMap?.[childPath] ?? hints.schemaType;
 
-						if (typeof item === 'string' || typeof item === 'number' || typeof item === 'boolean') {
-							const text = String(item).trim();
-							if (!text) return '';
-							if (lang === 'jp') return hasJapaneseChars(text) ? text : '';
-							if (lang === 'en') return hasJapaneseChars(text) ? '' : text;
-							return text;
-						}
-
-						if (!isPlainObject(item)) return '';
-						const valueJP = String(item.value_JP || '').trim();
-						const valueEN = String(item.value_EN || '').trim();
-						const valueRaw = String(item.value || '').trim();
-						const aboutJP = String(item.about_JP || '').trim();
-						const aboutEN = String(item.about_EN || '').trim();
-
-						if (lang === 'jp') {
-							const base = valueJP || (hasJapaneseChars(valueRaw) ? valueRaw : '');
-							if (!base) return '';
-							return aboutJP ? `${base}（${aboutJP}）` : base;
-						}
-
-						if (lang === 'en') {
-							const base = valueEN || (!hasJapaneseChars(valueRaw) ? valueRaw : '');
-							if (!base) return '';
-							return aboutEN ? `${base} (${aboutEN})` : base;
-						}
-
-						const fallbackText = formatValueForDisplay(item, fieldLabelMap, metaForLookup, globalDefType, {
+				if (
+					Array.isArray(childValue)
+					&& keyedDialogue?.isKeyedDialogueListType?.(rawChildType, dialogueLookupContext)
+				) {
+					const dialogueContext = {
+						...dialogueLookupContext,
+						pageLang: lang,
+						schemaType: rawChildType,
+						fallbackFormat: (item) => formatValueForDisplay(item, fieldLabelMap, metaForLookup, globalDefType, {
 							schemaType: hints.schemaType,
 							display: hints.schemaDisplay,
 							fieldKey: schemaPath,
 							recordContext: rec
-						});
-						return String(fallbackText || '').trim();
+						})
 					};
 
 					const cards = childValue
-						.map((item) => formatDialogueItemByLang(item))
+						.map((item) => keyedDialogue.formatKeyedDialogueItem(item, dialogueContext))
 						.map((text) => String(text ?? '').trim())
 						.filter(Boolean)
 						.map((text) => el('div', { class: 'tag' }, [dialogueBodyText(text)]));
@@ -7256,9 +7267,7 @@ export async function renderDetail(workId, rec) {
 			if (!it) return null;
 			const children = Array.isArray(bodyChildren) ? bodyChildren.filter(Boolean) : [bodyChildren].filter(Boolean);
 			if (!children.length) return null;
-			const sectionTitle = (it.key === 'ArcanumspecStats')
-				? 'アルカナムスペック(アルカナ能力)の特性'
-				: it.label;
+			const sectionTitle = it.label;
 
 			const collapsible = (typeof options?.collapsible === 'boolean')
 				? options.collapsible

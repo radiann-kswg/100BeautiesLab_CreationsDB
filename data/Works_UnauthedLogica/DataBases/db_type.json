@@ -78,16 +78,25 @@
       "$display": { "section": "sub" }
     },
     {
-      "hashTag": "LogicspecAbout_JP",
-      "$type": "#Summary",
+      "hashTag": "LogicspecStats",
+      "$type": [
+        {
+          "hashTag": "LogicspecAbout_JP",
+          "$type": "#Summary",
+          "isForMobs": null,
+          "hashTag_JP": "ロジカ(論理特殊能力)について"
+        },
+        {
+          "hashTag": "LogicspecAbout_EN",
+          "$type": "#Summary|#Null",
+          "isForMobs": null,
+          "hashTag_EN": "About Logicspec"
+        }
+      ],
       "isForMobs": null,
-      "hashTag_JP": "ロジカ(論理特殊能力)について"
-    },
-    {
-      "hashTag": "LogicspecAbout_EN",
-      "$type": "#Summary|#Null",
-      "isForMobs": null,
-      "hashTag_EN": "About Logicspec"
+      "hashTag_JP": "ロジカ(論理特殊能力)の特性",
+      "hashTag_EN": "Logicspec Ability Characteristics",
+      "$display": { "sectionWrapper": "specStatsSection" }
     },
     {
       "hashTag": "ExistingRarity",

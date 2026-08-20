@@ -26,8 +26,10 @@
     "Weakness_JP": "気分の振れ幅が激しい",
     "Weakness_EN": "Mood swings are extremely wide-ranging",
     "ExistingRarity": { "Rarity": "C" },
-    "LogicspecAbout_JP": "状態を切り下げ/切り上げする",
-    "LogicspecAbout_EN": "Cuts off / rounds up state values"
+    "LogicspecStats": {
+      "LogicspecAbout_JP": "状態を切り下げ/切り上げする",
+      "LogicspecAbout_EN": "Cuts off / rounds up state values"
+    }
   },
   {
     "Logic": { "LogicSeries": "K1", "Num": "55ID1" },
@@ -56,8 +58,10 @@
     "Weakness_JP": "我が強い",
     "Weakness_EN": "Stubborn-willed",
     "ExistingRarity": { "Rarity": "SR+" },
-    "LogicspecAbout_JP": "電熱燈を点灯させる",
-    "LogicspecAbout_EN": "Illuminates incandescent lights"
+    "LogicspecStats": {
+      "LogicspecAbout_JP": "電熱燈を点灯させる",
+      "LogicspecAbout_EN": "Illuminates incandescent lights"
+    }
   },
   {
     "Logic": { "LogicSeries": "74x", "Num": 181 },
@@ -91,8 +95,10 @@
     "Weakness_JP": "指示をするための制約が多い",
     "Weakness_EN": "Many constraints for giving instructions",
     "ExistingRarity": { "Rarity": "SSR" },
-    "LogicspecAbout_JP": "論理的計算をする",
-    "LogicspecAbout_EN": "Performs logical calculations"
+    "LogicspecStats": {
+      "LogicspecAbout_JP": "論理的計算をする",
+      "LogicspecAbout_EN": "Performs logical calculations"
+    }
   },
   {
     "Logic": { "LogicSeries": "74x", "Num": 182 },
@@ -126,7 +132,9 @@
     "Weakness_JP": "単体行動や自己判断が苦手",
     "Weakness_EN": "Poor at acting alone or making independent judgments",
     "ExistingRarity": { "Rarity": "SSR" },
-    "LogicspecAbout_JP": "アリスメティアの能力を拡張する",
-    "LogicspecAbout_EN": "Extends the capabilities of the Arithmetica series"
+    "LogicspecStats": {
+      "LogicspecAbout_JP": "アリスメティアの能力を拡張する",
+      "LogicspecAbout_EN": "Extends the capabilities of the Arithmetica series"
+    }
   }
 ]

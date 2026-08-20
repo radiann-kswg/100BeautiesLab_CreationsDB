@@ -2,6 +2,7 @@
   {
     "Generation": 2,
     "Progress": "unprofiled",
+    "AssignedRegioministratorRole": { "Regioministration": "X" },
     "AnotherRegions_DBLink": [{ "_DB": "Primary", "Unit": "rad" }],
     "Name_JP": "ラジアン(2代目)",
     "Name_EN": "RadianN (2nd Gen.)",
@@ -132,6 +133,14 @@
   {
     "Generation": 3,
     "Progress": "unprofiled",
+    "AssignedRegioministratorRole": { "Regioministration": "W" },
+    "AnotherVersions_DBLink": [
+      {
+        "_Work": "UnibyteLive",
+        "_DB": "PrimaryPerformer",
+        "Letter": { "Alphabet": "O", "AlphaGen": 2 }
+      }
+    ],
     "Name_JP": "ラジアン(3代目)",
     "Name_EN": "RadianN (3rd Gen.)",
     "Images": {
@@ -159,7 +168,7 @@
       "about_JP": "ただし本人は無性別女性型が好き",
       "about_EN": "However, personally prefers a genderless feminine form"
     },
-    "Class": ["管制主"],
+    "Class": ["管制主(再生)"],
     "Height_cm": [
       {
         "about_JP": "可変\n(球体化姿時は35～72cm、人型姿時はおよそ160cmでいることが多い)",

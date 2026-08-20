@@ -2,7 +2,7 @@
   {
     "Term_JP": "アルカナムスペック",
     "Term_JPReading": "アルカナムスペック",
-    "Term_EN": "Arcanamspec",
+    "Term_EN": "Arcanumspec",
     "TermType": null,
     "Category": "Abilities",
     "BodyBlocks_JP": [
@@ -13,7 +13,7 @@
     "BodyBlocks_EN": [
       "A special ability of the 78 Special Investigators that focuses on the manipulation and intervention of 'FateLines'.",
       "It is a possession-type ability that uses one of the 78 cards known as 'Arcana', which consists of 22 Major Arcana and 4×14 Minor Arcana cards.",
-      " Arcanaholders can use this ability to uncover the truth behind 'Future Erasure'. However, since Arcana usually exists across multiple 'FL_BRANCHES', the presence of 'Dealers' is essential for all 78 Arcanamspecs to coexist."
+      " Arcanaholders can use this ability to uncover the truth behind 'Future Erasure'. However, since Arcana usually exists across multiple 'FL_BRANCHES', the presence of 'Dealers' is essential for all 78 Arcanumspecs to coexist."
     ],
     "Aliases": [],
     "Links": []
@@ -34,10 +34,10 @@
       "それぞれの能力を胸に未来(あした)の路を歩む姿は、まるで占星術のような悟りを有するかのようだった－－"
     ],
     "BodyBlocks_EN": [
-      "A general term for individuals who possess one 'Arcana' and can possess and exercise Arcanamspec. It refers to all 78 members of the 78 Special Investigators, excluding the 'Dealers'.",
+      "A general term for individuals who possess one 'Arcana' and can possess and exercise Arcanumspec. It refers to all 78 members of the 78 Special Investigators, excluding the 'Dealers'.",
       "Their abilities serve as a beacon of hope that resolves 'FL_CONFLICTS' affecting the process of repeated choices and guides people towards the right future. At the same time, it comes with a tremendous cost, accelerating the decomposition and reconstruction of body and mind through powerful world-altering abilities.",
-      "Since Arcanamspec is a power that significantly affects the world's space-time and history, it often requires sacrificing one's own 'Memoria' and 'Exista' as a cost when exercising the ability.",
-      "Therefore, there are also many Arcanaholders who have inherited Arcana from their predecessors who disappeared due to the exercise of Arcanamspec.",
+      "Since Arcanumspec is a power that significantly affects the world's space-time and history, it often requires sacrificing one's own 'Memoria' and 'Exista' as a cost when exercising the ability.",
+      "Therefore, there are also many Arcanaholders who have inherited Arcana from their predecessors who disappeared due to the exercise of Arcanumspec.",
       "The sight of each Arcanaholder walking the path of the future with their abilities was as if they possessed the enlightenment of astrology --"
     ],
     "Aliases": [],

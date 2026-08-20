@@ -186,15 +186,26 @@ export function applyFilter(value, name) {
 }
 
 /**
- * DialogueExamples の 1 要素を「台詞（補足）」形式のテキストへ整形する。
+ * 台詞リストの 1 要素を「キー：台詞（補足）」形式のテキストへ整形する。
  * 3 形式（plain string / `{value, about}` / `{value_JP, value_EN, about_JP, about_EN}`）に対応。
+ *
+ * `keyLabel` は `TouchReactions`（行為）/ `MotifCommentaries`（モチーフ）のように
+ * キー項目を持つリスト向けの接頭辞。呼び出し側が辞書解決して渡す（このモジュールは
+ * schema / 辞書を知らない純関数のままにする）。空なら従来どおり本文だけを返す。
  * @param {any} item
  * @param {string} [lang] - 'jp'（既定）| 'en'
+ * @param {string} [keyLabel] - 解決済みのキーラベル（例: 'なでる' / 'Life Path 3'）
  * @returns {string}
  */
-export function formatDialogueItem(item, lang = 'jp') {
+export function formatDialogueItem(item, lang = 'jp', keyLabel = '') {
 	const isEn = String(lang).toLowerCase() === 'en';
-	if (typeof item === 'string') return item.trim();
+	const key = String(keyLabel || '').trim();
+	const withKey = (body) => (key ? (isEn ? `${key}: ${body}` : `${key}：${body}`) : body);
+
+	if (typeof item === 'string') {
+		const text = item.trim();
+		return text ? withKey(text) : '';
+	}
 	if (!item || typeof item !== 'object') return '';
 	const value = isEn
 		? (item.value_EN || item.value || item.value_JP || '')
@@ -205,7 +216,7 @@ export function formatDialogueItem(item, lang = 'jp') {
 	const v = String(value || '').trim();
 	if (!v) return '';
 	const a = String(about || '').trim();
-	return a ? `${v}（${a}）` : v;
+	return withKey(a ? `${v}（${a}）` : v);
 }
 
 /**
@@ -221,11 +232,15 @@ function expandEach(tpl, ctx, opts) {
 		const arr = resolvePath(ctx, path);
 		if (!Array.isArray(arr) || !arr.length) return '';
 		const lang = ctx?.vars?.__lang || 'jp';
+		// キー項目（行為 / モチーフ）を持つリストの接頭辞は、辞書を知る呼び出し側の
+		// リゾルバへ委譲する（未提供なら従来どおり本文のみ）
+		const resolveKeyLabel = ctx?.vars?.__dialogueKeyLabel;
 		return arr
 			.filter((item) => !isEmpty(item))
 			.map((item) => {
 				const itemRecord = (item && typeof item === 'object' && !Array.isArray(item)) ? item : { value: item };
-				const itemCtx = { record: itemRecord, vars: { ...ctx.vars, dialogue: formatDialogueItem(item, lang) } };
+				const keyLabel = (typeof resolveKeyLabel === 'function') ? resolveKeyLabel(item, lang) : '';
+				const itemCtx = { record: itemRecord, vars: { ...ctx.vars, dialogue: formatDialogueItem(item, lang, keyLabel) } };
 				return renderTemplate(inner, itemCtx, { ...opts, finalize: false });
 			})
 			.join('');

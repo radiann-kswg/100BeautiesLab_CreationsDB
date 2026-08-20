@@ -129,8 +129,8 @@
     },
     "InStory_JP": "「エイゼルベット」の観測者「シグマ-クロステールズ」の元で観測を受けている、ある電脳世界との間で生まれた個体\n彼(女)が切るカードには強い潜在能力が秘められていると推測されているようだが…？",
     "InStory_EN": "An entity born from the interaction between a certain cyber world and \"Sigma-CrossTales,\" an observer of \"∀selbuet.\" It is speculated that the cards ze cuts hold strong latent abilities... but?",
-    "NumerospecAbout_JP": { "hideText": "極秘事項" },
     "NumerospecStats": {
+      "NumerospecAbout_JP": { "hideText": "極秘事項" },
       "EffectStats": {
         "Mental": { "hideText": "非公開" },
         "Monetize": { "hideText": "非公開" },
@@ -326,8 +326,8 @@
     },
     "InStory_JP": "「エイゼルベット」の観測者「シグマ-クロステールズ」の元で観測を受けている、ある電脳世界との間で生まれた個体\n試験を受けた後に突然 自分自身の性能が良くなることがあるらしく……",
     "InStory_EN": "An entity born from the interaction between a certain cyber world and \"Sigma-CrossTales,\" an observer of \"∀selbuet.\" It seems that after taking tests, her own performance suddenly improves...",
-    "NumerospecAbout_JP": { "hideText": "極秘事項" },
     "NumerospecStats": {
+      "NumerospecAbout_JP": { "hideText": "極秘事項" },
       "EffectStats": {
         "Mental": { "hideText": "検証中" },
         "Monetize": { "EffectText": "効果無" },
@@ -542,8 +542,8 @@
     },
     "InStory_JP": "「エイゼルベット」の観測者「シグマ-クロステールズ」の元で観測を受けている、ある電脳世界との間で生まれた個体\n試験中に機材を暴走させることがあり……",
     "InStory_EN": "An entity born from the interaction between a certain cyber world and \"Sigma-CrossTales,\" an observer of \"∀selbuet.\"\nSometimes causes equipment to go berserk during tests...",
-    "NumerospecAbout_JP": { "hideText": "極秘事項" },
     "NumerospecStats": {
+      "NumerospecAbout_JP": { "hideText": "極秘事項" },
       "EffectStats": {
         "Mental": { "EffectText": "特殊" },
         "Monetize": { "hideText": "検証中" },
@@ -756,8 +756,8 @@
     },
     "InStory_JP": "「エイゼルベット」の観測者「シグマ-クロステールズ」の元で観測を受けている、ある電脳世界との間で生まれた個体\n高い記録能力から、ヘキサデミカル-テールズの躯体開発で途中から記録担当を務めることとなった",
     "InStory_EN": "An entity born from the interaction between a certain cyber world and \"Sigma-CrossTales,\" an observer of \"∀selbuet.\"\nDue to her high recording ability, she took on the role of recording during the development of HexademicalTales' body.",
-    "NumerospecAbout_JP": { "hideText": "極秘事項" },
     "NumerospecStats": {
+      "NumerospecAbout_JP": { "hideText": "極秘事項" },
       "EffectStats": {
         "Mental": { "EffectText": "希薄" },
         "Monetize": { "EffectText": "効果無" },
@@ -984,8 +984,8 @@
     },
     "InStory_JP": "「エイゼルベット」の観測者「シグマ-クロステールズ」の元で観測を受けている、ある電脳世界との間で生まれた個体\n向こう側の電脳世界でもこちらの世界でも、色んなものの魔改造に勤しんでいる",
     "InStory_EN": "An entity born from the interaction between a certain cyber world and \"Sigma-CrossTales,\" an observer of \"∀selbuet.\"\nEngaged in modding various things in both the cyber world over there and this world.",
-    "NumerospecAbout_JP": { "hideText": "極秘事項" },
     "NumerospecStats": {
+      "NumerospecAbout_JP": { "hideText": "極秘事項" },
       "EffectStats": {
         "Mental": { "EffectText": "効果無" },
         "Monetize": { "EffectText": "期待" },
@@ -1175,8 +1175,8 @@
     },
     "InStory_JP": "「エイゼルベット」の観測者「シグマ-クロステールズ」の元で観測を受けている、ある電脳世界との間で生まれた個体\n彼女を前にした人々は彼女に「ママ」だと甘えだし……",
     "InStory_EN": "An entity born from the interaction between a certain cyber world and \"Sigma-CrossTales,\" an observer of \"∀selbuet.\"\nPeople who are in front of her start to rely on her as their \"mama\"...",
-    "NumerospecAbout_JP": { "hideText": "公開不能" },
     "NumerospecStats": {
+      "NumerospecAbout_JP": { "hideText": "公開不能" },
       "EffectStats": {
         "Mental": { "EffectText": "危険" },
         "Monetize": { "hideText": "判定失敗" },

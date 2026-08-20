@@ -79,33 +79,33 @@
       "hashTag_EN": "Chronoholder Name"
     },
     {
-      "hashTag": "ChronospecName_JP",
-      "$type": "#String_JP",
-      "hashTag_JP": "時空遷移(クロノシフト)能力名"
-    },
-    {
-      "hashTag": "ChronospecName_JPReading",
-      "$type": "##String_JP|#Null",
-      "hashTag_JP": "時空遷移(クロノシフト)能力名の読み"
-    },
-    {
-      "hashTag": "ChronospecName_EN",
-      "$type": "##String_EN|#Null",
-      "hashTag_EN": "ChronoidShift(Chronospec) Name"
-    },
-    {
-      "hashTag": "ChronospecAbout_JP",
-      "$type": "#Summary",
-      "hashTag_JP": "時空遷移(クロノシフト)能力について"
-    },
-    {
-      "hashTag": "ChronospecAbout_EN",
-      "$type": "#Summary|#Null",
-      "hashTag_EN": "About ChronoidShift(Chronospec)"
-    },
-    {
       "hashTag": "ChronospecStats",
       "$type": [
+        {
+          "hashTag": "ChronospecName_JP",
+          "$type": "#String_JP",
+          "hashTag_JP": "時空遷移(クロノシフト)能力名"
+        },
+        {
+          "hashTag": "ChronospecName_JPReading",
+          "$type": "##String_JP|#Null",
+          "hashTag_JP": "時空遷移(クロノシフト)能力名の読み"
+        },
+        {
+          "hashTag": "ChronospecName_EN",
+          "$type": "##String_EN|#Null",
+          "hashTag_EN": "ChronoidShift(Chronospec) Name"
+        },
+        {
+          "hashTag": "ChronospecAbout_JP",
+          "$type": "#Summary",
+          "hashTag_JP": "時空遷移(クロノシフト)能力について"
+        },
+        {
+          "hashTag": "ChronospecAbout_EN",
+          "$type": "#Summary|#Null",
+          "hashTag_EN": "About ChronoidShift(Chronospec)"
+        },
         {
           "hashTag": "Artifact",
           "$type": "#DictIndex",
@@ -207,7 +207,7 @@
       ],
       "hashTag_JP": "時空遷移(クロノシフト)能力の特性",
       "hashTag_EN": "ChronoidShift(Chronospec) Ability Characteristics",
-      "$display": { "sectionWrapper": "chronoSpecSection" }
+      "$display": { "sectionWrapper": "specStatsSection" }
     },
     {
       "hashTag": "Relation",

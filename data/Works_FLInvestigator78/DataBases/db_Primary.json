@@ -24,9 +24,9 @@
     "Summary_EN": "An informant of the special investigations organization 'Team.78(Seventy-Eight) the Special Investigators' (commonly known as the 'FateLine Investigators'), conducting inspection missions across various locations to gather information on special incidents involving the abuse of the mysterious disappearance phenomenon known as 'Future Erasure'.\nBrandishing the ArcanumSpec of the [⁠Foolish Tripper⁠], he gracefully evades his opponents' attacks with the power of his phoenix ability and mows down enemies with purifying flames.\nFor some reason, the two Dealer names always seem to be switched between the sisters...",
     "AdditionalDesigned_JP": "カードイラスト：REITO_KYUN♡(https://piku.page/@REITO_KYUN)\nカード背景・CG：喜雨(kiu/xiyue)(https://kiucouch.myportfolio.com/)\n意匠デザイン：散狐アタスト,ラジアン(柏木主税)",
     "AdditionalDesigned_EN": "Card Illustration：REITO_KYUN♡(https://piku.page/@REITO_KYUN)\nCard Backimage & CG：喜雨(kiu/xiyue)(https://kiucouch.myportfolio.com/)\nCard Frame & Emblem Design：散狐アタスト,ラジアン(柏木主税)",
-    "ArcanamspecAbout_JP": "火元素の力を纏い、すべての攻撃を躱す\nこの効果が発動中、周囲の危険度が変動する",
-    "ArcanamspecAbout_EN": "Shrouds itself in the power of the fire element, evading all attacks\nWhile this effect is active, the surrounding threat level fluctuates",
     "ArcanumspecStats": {
+      "ArcanumspecAbout_JP": "火元素の力を纏い、すべての攻撃を躱す\nこの効果が発動中、周囲の危険度が変動する",
+      "ArcanumspecAbout_EN": "Shrouds itself in the power of the fire element, evading all attacks\nWhile this effect is active, the surrounding threat level fluctuates",
       "SpecType": {
         "Material": [{ "Material": "Fire" }, { "Material": "Slash" }],
         "KinematicOrStatic": "Kinematic",
@@ -67,9 +67,9 @@
     "Summary_EN": "A top executive of the special investigations organization 'Team.78(Seventy-Eight) the Special Investigators' (commonly known as the 'FateLine Investigators'), renowned as a great detective for resolving countless special incidents surrounding the mysterious disappearance phenomenon known as 'Future Erasure'.\nBrandishing the ArcanumSpec of the [⁠Magician of Elements⁠], he excels at element manipulation reminiscent of alchemy, swiftly seizing clues and evidence from falsified FateLines.\nIncidentally, as he also runs his own side business, he seems to have a strong hand in the organization's personnel affairs as well.",
     "AdditionalDesigned_JP": "カードイラスト：REITO_KYUN♡(https://piku.page/@REITO_KYUN)\nカード背景・CG：喜雨(kiu/xiyue)(https://kiucouch.myportfolio.com/)\n意匠デザイン：ラジアン(柏木主税),散狐アタスト(https://misskey.io/@atast)",
     "AdditionalDesigned_EN": "Card Illustration：REITO_KYUN♡(https://piku.page/@REITO_KYUN)\nCard Backimage & CG：喜雨(kiu/xiyue)(https://kiucouch.myportfolio.com/)\nCard Frame & Emblem Design：ラジアン(柏木主税),散狐アタスト(https://misskey.io/@atast)",
-    "ArcanamspecAbout_JP": "元素を操る",
-    "ArcanamspecAbout_EN": "Manipulates the elements",
     "ArcanumspecStats": {
+      "ArcanumspecAbout_JP": "元素を操る",
+      "ArcanumspecAbout_EN": "Manipulates the elements",
       "SpecType": {
         "Material": [{ "Material": "Quart" }],
         "KinematicOrStatic": "Kinematic",
@@ -107,9 +107,9 @@
     "Age": 29,
     "ConceptAge": 29,
     "Summary_JP": "",
-    "ArcanamspecAbout_JP": "正気度を操る",
-    "ArcanamspecAbout_EN": "Manipulates sanity levels",
     "ArcanumspecStats": {
+      "ArcanumspecAbout_JP": "正気度を操る",
+      "ArcanumspecAbout_EN": "Manipulates sanity levels",
       "SpecType": {
         "Material": [{ "Material": "Water" }],
         "KinematicOrStatic": "Static",
@@ -150,9 +150,9 @@
     "Summary_EN": "The 3rd executive of the special investigations organization 'Team.78(Seventy-Eight) the Special Investigators' (commonly known as the 'FateLine Investigators'), dedicated to preventing special incidents surrounding the mysterious disappearance phenomenon known as 'Future Erasure' before they occur.\nBrandishing the ArcanumSpec of the [⁠Empress of Universe⁠], she possesses the power to quietly manipulate the mental states of those around her and excels at bringing special incidents to a peaceful resolution from the alibi that served as the trigger.\nHowever, perhaps because she has such overwhelming maternal instinct and embracing quality that men around her lose their heads — there are rumors that she tends to play the role of 'taking someone home' at banquets...",
     "AdditionalDesigned_JP": "カードイラスト：REITO_KYUN♡(https://piku.page/@REITO_KYUN)\nカード背景・CG：喜雨(kiu/xiyue)(https://kiucouch.myportfolio.com/)\n意匠デザイン：ラジアン(柏木主税),散狐アタスト(https://misskey.io/@atast)",
     "AdditionalDesigned_EN": "Card Illustration：REITO_KYUN♡(https://piku.page/@REITO_KYUN)\nCard Backimage & CG：喜雨(kiu/xiyue)(https://kiucouch.myportfolio.com/)\nCard Frame & Emblem Design：ラジアン(柏木主税),散狐アタスト(https://misskey.io/@atast)",
-    "ArcanamspecAbout_JP": "自身が止まっている間だけ、周囲の人々の精神状態を操作する",
-    "ArcanamspecAbout_EN": "Manipulates the mental states of those around herself while remaining still",
     "ArcanumspecStats": {
+      "ArcanumspecAbout_JP": "自身が止まっている間だけ、周囲の人々の精神状態を操作する",
+      "ArcanumspecAbout_EN": "Manipulates the mental states of those around herself while remaining still",
       "SpecType": {
         "Material": [{ "Material": "Water" }, { "Material": "Object" }],
         "KinematicOrStatic": "Pre-Static",
@@ -185,9 +185,9 @@
     "Class": ["九蓮国支部幹部"],
     "ConceptAge": 25,
     "Summary_JP": "",
-    "ArcanamspecAbout_JP": "挑戦意欲を駆り立てる",
-    "ArcanamspecAbout_EN": "Drives the desire to challenge",
     "ArcanumspecStats": {
+      "ArcanumspecAbout_JP": "挑戦意欲を駆り立てる",
+      "ArcanumspecAbout_EN": "Drives the desire to challenge",
       "SpecType": {
         "Material": [{ "Material": "Water" }],
         "KinematicOrStatic": "Kinematic",
@@ -228,9 +228,9 @@
     "Summary_EN": "The 8th executive of the special investigations organization 'Team.78(Seventy-Eight) the Special Investigators' (commonly known as the 'FateLine Investigators'), tasked with suppressing rampaging Arcanum entities that cause disturbances in FateLines.\nBrandishing the ArcanumSpec of the [⁠Strength Tamer⁠], she possesses the power to manipulate the anger and passion of her opponents, and has been subduing vicious criminal acts that appeared in LotusNinea.\nIncidentally, she has a hobby of watching circus performances, and sometimes acts alongside a summoned beast named 'Leo' — born from her wholehearted desire to tame a lion out of pure curiosity.",
     "AdditionalDesigned_JP": "カードイラスト：REITO_KYUN♡(https://piku.page/@REITO_KYUN)\nカード背景・CG：喜雨(kiu/xiyue)(https://kiucouch.myportfolio.com/)\n意匠デザイン：ラジアン(柏木主税),散狐アタスト(https://misskey.io/@atast)",
     "AdditionalDesigned_EN": "Card Illustration：REITO_KYUN♡(https://piku.page/@REITO_KYUN)\nCard Backimage & CG：喜雨(kiu/xiyue)(https://kiucouch.myportfolio.com/)\nCard Frame & Emblem Design：ラジアン(柏木主税),散狐アタスト(https://misskey.io/@atast)",
-    "ArcanamspecAbout_JP": "怒りを操作する",
-    "ArcanamspecAbout_EN": "Manipulates anger",
     "ArcanumspecStats": {
+      "ArcanumspecAbout_JP": "怒りを操作する",
+      "ArcanumspecAbout_EN": "Manipulates anger",
       "SpecType": {
         "Material": [{ "Material": "Fire" }],
         "KinematicOrStatic": "Pre-Kinematic",
@@ -271,9 +271,9 @@
     "Summary_EN": "Regarding the mysterious disappearance phenomenon known as 'Future Erasure' — on the surface, ze conducts scientific research as an assistant professor at a university in LotusNinea; on the inside, ze serves as the 9th executive of the special investigations organization 'Team.78(Seventy-Eight) the Special Investigators' (commonly known as the 'FateLine Investigators'), handling forensic science investigations of incidents.\nBrandishing the ArcanumSpec of the [⁠Hermit of Secret⁠], by concentrating perception and sensation into zir immediate vicinity, ze possesses a camouflage-like situational control ability in combat as well — slipping past an opponent's notice or demonstrating heightened insight.\nHowever, it seems ze is still not accustomed to searching for cases as part of a team...",
     "AdditionalDesigned_JP": "カードイラスト：REITO_KYUN♡(https://piku.page/@REITO_KYUN)\nカード背景・CG：喜雨(kiu/xiyue)(https://kiucouch.myportfolio.com/)\n意匠デザイン：ラジアン(柏木主税),散狐アタスト(https://misskey.io/@atast)",
     "AdditionalDesigned_EN": "Card Illustration：REITO_KYUN♡(https://piku.page/@REITO_KYUN)\nCard Backimage & CG：喜雨(kiu/xiyue)(https://kiucouch.myportfolio.com/)\nCard Frame & Emblem Design：ラジアン(柏木主税),散狐アタスト(https://misskey.io/@atast)",
-    "ArcanamspecAbout_JP": "一定範囲内の感度を上げ、範囲外の感度を下げる",
-    "ArcanamspecAbout_EN": "Raises the sensitivity within a certain range and lowers it outside that range",
     "ArcanumspecStats": {
+      "ArcanumspecAbout_JP": "一定範囲内の感度を上げ、範囲外の感度を下げる",
+      "ArcanumspecAbout_EN": "Raises the sensitivity within a certain range and lowers it outside that range",
       "SpecType": {
         "Material": [{ "Material": "Object" }],
         "KinematicOrStatic": "Pre-Static",
@@ -333,9 +333,9 @@
     "Summary_EN": "The 13th executive of the special investigations organization 'Team.78(Seventy-Eight) the Special Investigators' (commonly known as the 'FateLine Investigators'), remaining as the sole presence at the 'Reincarnation Border' reached by those who have experienced 'Future Erasure', continuing to send off the existences lost to incident damage to where they belong.\nBeing the ArcanumSpec of the [⁠Death of Reincarnation⁠] itself — with no ArcanaHolder to wield it — it possesses the power to bring an end to all things and every life, though the details of this ability remain shrouded in mystery.\nIt seems to share a deep connection with the ArcanumSpec known as the [⁠Foolish Tripper⁠]...",
     "AdditionalDesigned_JP": "カードイラスト：喜雨(kiu/xiyue)(https://kiucouch.myportfolio.com/),REITO_KYUN♡(https://piku.page/@REITO_KYUN)\nカード背景・CG：喜雨(kiu/xiyue)\n意匠デザイン：ラジアン(柏木主税),散狐アタスト(https://misskey.io/@atast)",
     "AdditionalDesigned_EN": "Card Illustration：喜雨(kiu/xiyue)(https://kiucouch.myportfolio.com/),REITO_KYUN♡(https://piku.page/@REITO_KYUN)\nCard Backimage & CG：喜雨(kiu/xiyue)\nCard Frame & Emblem Design：ラジアン(柏木主税),散狐アタスト(https://misskey.io/@atast)",
-    "ArcanamspecAbout_JP": "終焉をもたらす\n？？？",
-    "ArcanamspecAbout_EN": "Brings about an end\n???",
     "ArcanumspecStats": {
+      "ArcanumspecAbout_JP": "終焉をもたらす\n？？？",
+      "ArcanumspecAbout_EN": "Brings about an end\n???",
       "SpecType": {
         "Material": [{ "Material": "Water" }],
         "KinematicOrStatic": "Pre-Kinematic",
@@ -380,9 +380,9 @@
     "Summary_EN": "The 16th executive of the special investigations organization 'Team.78(Seventy-Eight) the Special Investigators' (commonly known as the 'FateLine Investigators'), conducting sabotage operations at research sites for the abusive technology used in incidents involving the mysterious disappearance phenomenon known as 'Future Erasure'.\nBrandishing the ArcanumSpec of the [⁠Tower in Collapsing⁠], she possesses a strong phenomenon destruction ability, excelling at bringing about destructive changes to situations, though it seems to come with an extremely heavy cost.\nShe herself is so reluctant to wield her Arcanum that she says, 'I never want to go on another sabotage operation again,' but when faced with someone who accepts her, even that dangerous ability...",
     "AdditionalDesigned_JP": "カードイラスト：REITO_KYUN♡(https://piku.page/@REITO_KYUN)\nカード背景・CG：喜雨(kiu/xiyue)(https://kiucouch.myportfolio.com/)\n意匠デザイン：ラジアン(柏木主税),散狐アタスト(https://misskey.io/@atast)",
     "AdditionalDesigned_EN": "Card Illustration：REITO_KYUN♡(https://piku.page/@REITO_KYUN)\nCard Backimage & CG：喜雨(kiu/xiyue)(https://kiucouch.myportfolio.com/)\nCard Frame & Emblem Design：ラジアン(柏木主税),散狐アタスト(https://misskey.io/@atast)",
-    "ArcanamspecAbout_JP": "現在の状況を破壊する",
-    "ArcanamspecAbout_EN": "Destroys the current situation",
     "ArcanumspecStats": {
+      "ArcanumspecAbout_JP": "現在の状況を破壊する",
+      "ArcanumspecAbout_EN": "Destroys the current situation",
       "SpecType": {
         "Material": [{ "Material": "Fire" }, { "Material": "Slash" }],
         "KinematicOrStatic": "Pre-Kinematic",
@@ -418,9 +418,9 @@
     "GenderType": "FemaleNeutral",
     "Class": ["英皇国支部幹部"],
     "Summary_JP": "",
-    "ArcanamspecAbout_JP": "感情を修復する\n欲望を補填する",
-    "ArcanamspecAbout_EN": "Repairs emotions\nSupplements desires",
     "ArcanumspecStats": {
+      "ArcanumspecAbout_JP": "感情を修復する\n欲望を補填する",
+      "ArcanumspecAbout_EN": "Repairs emotions\nSupplements desires",
       "SpecType": {
         "Material": [{ "Material": "Water" }],
         "KinematicOrStatic": "Pre-Static",
@@ -460,9 +460,9 @@
     "Summary_EN": "The 18th executive of the special investigations organization 'Team.78(Seventy-Eight) the Special Investigators' (commonly known as the 'FateLine Investigators'), conducting reconnaissance activities in Internic.Kingdom to keep watch over the research sites for the abusive technology used in incidents involving the mysterious disappearance phenomenon known as 'Future Erasure'.\nBrandishing the ArcanumSpec of the [⁠Moon of Anxiety⁠], she excels at covert operations by manipulating feelings of anxiety and security, though this ability can only manifest at night, seemingly requiring carefully planned operations.\nShe has a somewhat strong tendency toward paranoid delusions of causing harm, but that's most likely just a result of her aptitude for this ability, so please don't think poorly of her.",
     "AdditionalDesigned_JP": "カードイラスト：REITO_KYUN♡(https://piku.page/@REITO_KYUN)\nカード背景・CG：喜雨(kiu/xiyue)(https://kiucouch.myportfolio.com/)\n意匠デザイン：ラジアン(柏木主税),散狐アタスト(https://misskey.io/@atast)",
     "AdditionalDesigned_EN": "Card Illustration：REITO_KYUN♡(https://piku.page/@REITO_KYUN)\nCard Backimage & CG：喜雨(kiu/xiyue)(https://kiucouch.myportfolio.com/)\nCard Frame & Emblem Design：ラジアン(柏木主税),散狐アタスト(https://misskey.io/@atast)",
-    "ArcanamspecAbout_JP": "不安を増幅する\n安心感を操作する",
-    "ArcanamspecAbout_EN": "Amplifies anxiety\nManipulates the sense of security",
     "ArcanumspecStats": {
+      "ArcanumspecAbout_JP": "不安を増幅する\n安心感を操作する",
+      "ArcanumspecAbout_EN": "Amplifies anxiety\nManipulates the sense of security",
       "SpecType": {
         "Material": [{ "Material": "Water" }],
         "KinematicOrStatic": "Pre-Static",
@@ -497,9 +497,9 @@
     "Summary_EN": "Although not directly involved in the investigation of incidents involving the mysterious disappearance phenomenon known as 'Future Erasure', she is an ArcanaHolder protected as an Assistant Executive of the special investigations organization 'Team.78(Seventy-Eight) the Special Investigators' (commonly known as the 'FateLine Investigators').\nBrandishing the ArcanumSpec of the [⁠Sun Feeling Elated⁠], while it can only be activated during clear daytime skies, she possesses the power to manipulate exhilaration and passion, enhancing the abilities of executives.\nHowever, due to the nature of this ArcanumSpec, it seems that only young ArcanaHolders are granted aptitude, necessitating frequent succession of ArcanaHolders...",
     "AdditionalDesigned_JP": "",
     "AdditionalDesigned_EN": "",
-    "ArcanamspecAbout_JP": "情熱を降り注ぐ\n高揚感を操作する",
-    "ArcanamspecAbout_EN": "Pours down passion\nManipulates exhilaration",
     "ArcanumspecStats": {
+      "ArcanumspecAbout_JP": "情熱を降り注ぐ\n高揚感を操作する",
+      "ArcanumspecAbout_EN": "Pours down passion\nManipulates exhilaration",
       "SpecType": {
         "Material": [{ "Material": "Fire" }],
         "KinematicOrStatic": "Pre-Static",
@@ -863,9 +863,9 @@
     "RaceType": { "hideText": "定義不能" },
     "GenderType": "FemaleNeutral",
     "Summary_JP": "",
-    "ArcanamspecAbout_JP": "78のアルカナの力を宿す\nこの能力では支援に長けている",
-    "ArcanamspecAbout_EN": "Harbors the power of 78 Arcana\nThis ability excels in support",
     "ArcanumspecStats": {
+      "ArcanumspecAbout_JP": "78のアルカナの力を宿す\nこの能力では支援に長けている",
+      "ArcanumspecAbout_EN": "Harbors the power of 78 Arcana\nThis ability excels in support",
       "SpecType": {
         "Material": [],
         "KinematicOrStatic": null,
@@ -901,9 +901,9 @@
     "RaceType": { "hideText": "定義不能" },
     "GenderType": "FemaleNeutral",
     "Summary_JP": "",
-    "ArcanamspecAbout_JP": "78のアルカナの力を宿す\nこの能力では牽制に長けている",
-    "ArcanamspecAbout_EN": "Harbors the power of 78 Arcana\nThis ability excels in checking (suppression tactics)",
     "ArcanumspecStats": {
+      "ArcanumspecAbout_JP": "78のアルカナの力を宿す\nこの能力では牽制に長けている",
+      "ArcanumspecAbout_EN": "Harbors the power of 78 Arcana\nThis ability excels in checking (suppression tactics)",
       "SpecType": {
         "Material": [],
         "KinematicOrStatic": null,

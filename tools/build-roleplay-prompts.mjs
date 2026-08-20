@@ -40,6 +40,8 @@ import '../lib/wrapper-common.js';
 import '../lib/section-wrapper-common.js';
 import '../lib/basic-renders/calling-common.js';
 import '../lib/basic-renders/type-common.js';
+import '../lib/basic-renders/def-object-common.js';
+import '../lib/basic-renders/keyedDialogue.js';
 import '../lib/section-renders/tailsUnit.js';
 
 const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -150,6 +152,34 @@ export function buildVars(record, ctx) {
 	const { config, workShort, dbShort, pathRoles, workMeta, globalMeta, lang, workTitle } = ctx;
 	// 作品名は複数行を持つことがあるため先頭行のみ採用
 	const vars = { __lang: lang, WorkTitle_JP: String(workTitle || '').split('\n')[0].trim() };
+
+	// 台詞リストのキー接頭辞（`TouchReactions` の行為 / `MotifCommentaries` のモチーフ）を辞書解決する。
+	// 対象コンテナは `$display.wrapper: "keyedDialogueSummary"` を宣言した `$Def_*` から自動収集し、
+	// 要素が持つキー項目（`$display.role: "dialogueKey"`）で突き合わせるため、
+	// ここに field 名ごとの分岐は持たない。`{{#each}}` から render.mjs 経由で呼ばれる。
+	vars.__dialogueKeyLabel = (() => {
+		const K = globalThis.KeyedDialogueRenderer;
+		if (!K) return null;
+		const containers = [globalMeta?.General?.$VarsDef, workMeta?.General?.$VarsDef]
+			.filter((v) => v && typeof v === 'object')
+			.flatMap((varsDef) => Object.entries(varsDef))
+			.filter(([name, c]) => name.startsWith('$Def_') && c?.$display?.wrapper === K.WRAPPER_NAME)
+			.map(([, c]) => c);
+		if (!containers.length) return null;
+
+		return (item, itemLang) => {
+			if (!item || typeof item !== 'object' || Array.isArray(item)) return '';
+			const context = { workMeta, globalDefType: globalMeta, pageLang: itemLang || lang };
+			for (const container of containers) {
+				const entries = Array.isArray(container?.$DefType) ? container.$DefType : [];
+				const keyName = String(entries.find((e) => e?.$display?.role === 'dialogueKey')?.hashTag || '').trim();
+				if (!keyName || !item[keyName]) continue;
+				const label = K.buildKeyLabel(item, container, context);
+				if (label) return label;
+			}
+			return '';
+		};
+	})();
 
 	// 名前系（改行区切りの複数名）は 1 名ずつ鉤括弧で括る形（`「A」または「B」`）へ連結する。
 	// 外側の `「` `」` はテンプレが持つため、ここでは名の間だけを `」または「` で繋ぐ（orquote/altquote）。

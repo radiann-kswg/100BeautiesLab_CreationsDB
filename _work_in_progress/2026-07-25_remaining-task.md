@@ -232,22 +232,20 @@
 - **Claude 側の残タスク**: Localization 層の enum 解決（`data/Localization/db_meta.json` の `$VarsDef` を
   `metaForLookup` へ合流）は、UI で enum ラベル表示が必要になった時点で対応
 
-### T-25 🟡 Issue #13（数秘解説 / スキンシップ反応フィールドの追加）
+### T-25 🟢 Issue #13（モチーフ解説 / 接触反応フィールド）— Phase 1〜3 完了（2026-08-20）
 
-- **関連ログ**: `2026-07-22_progress_issue13-numerology-skinship.md`（単一）／2026-07-21 起票・**OPEN 継続**
-- **実行チェックリスト（着手時の入口）**:
-  1. まず [2026-07-22_progress_issue13-numerology-skinship.md](./2026-07-22_progress_issue13-numerology-skinship.md) の
-     「導入方針」「想定スコープ」「未完了タスク」を確認する
-  2. 次に本項の 4 つの設計判断（命名 / 配置 / 表示系接続 / 対象範囲）を順に確定する
-  3. 確定後、`schema` → `meta` → `DB` の順で非破壊追加の実装に進める
-  4. 内容本文（`value_JP` / `about_JP`）は User 監修・手動入力として扱い、AI 側で自動生成しない
-- **待ち項目（設計判断）**:
-  1. フィールド命名（`NumerologyExamples` / `SkinshipReactions` を採用するか）
-  2. 配置（`ConversationPattern` 配下か、トップレベル独立か）
-  3. 表示系への接続要否（キャラシート表示対象にするか、Bot 供給専用か）
-  4. 対象レコード範囲（released 判定の適用基準）
-- **緊急度**: 低（Bot 側はフィールド未存在でもフォールバックする）
-- **制約**: 内容文（`value_JP` / `about_JP`）は User 監修・手動入力
+- **関連ログ**: `2026-07-22_progress_issue13-numerology-skinship.md`（単一）／2026-07-21 起票
+- **完了分**: 4 つの設計判断を User 確認で確定し、スキーマ（`TouchReactions` / `MotifCommentaries` ＋ 辞書 2 本）・
+  キャラシート表示（`keyedDialogueSummary`）・ロールプレイプロンプトの 3 段を実装。
+  `pages/characters.js` の `DialogueExamples` フィールド名ハードコードも同時に解消（正味 −21 行）。
+  `npm test` 1257 件 / `data:order:check` / `roleplay:plan` すべて通過。
+- **残**:
+  1. 実データの入力（`value_JP` / `about_JP`。**User 手動**）→ 入力後にローカル実機目視
+  2. Issue #13 へ確定した命名・形式をコメントして Bot 側とフィールド名を揃える（Issue は OPEN 継続）
+  3. `*specAbout` の `*specStats` 集約は **T-34** へ分離
+- **制約**: 内容文（`value_JP` / `about_JP`）と辞書語彙の拡張は User 監修・手動入力。
+  `#List_MotifTopic` の語彙は CheatSheet-of_Numbers（**CC BY-SA 4.0**）の分類と 1:1 だが、
+  本リポジトリは **CC BY-NC 4.0** でライセンス非互換のため**本文は転記しない**（分類語彙のみ取り込み）。
 
 ### T-26 🟡 創作用語DB / 基本資料DB
 
@@ -287,6 +285,25 @@
 
 ## C. 長期保留（着手判断そのものが保留）
 
+### T-34 🟢 `*specAbout` / `*specName` の `*specStats` 集約 — 完了（2026-08-20）
+
+- **関連ログ**: `2026-07-22_progress_issue13-numerology-skinship.md`（Phase 4）
+- **実施内容**: 4 作品 / 155 レコード / 7 ファイルを移行し、`$DetailLayout.subFields` からも該当キーを除去。
+  併せて `numSpecSection` ≡ `chronoSpecSection` の完全重複を汎用 `specStatsSection` へ統合（`chronoSpec.js` 削除）、
+  `pages/characters.js` の `ArcanumspecStats` ラベルハードコード 2 箇所を削除。
+  `npm test` 1259 件 / `data:order:check` / `agents:check` / prettier いずれも通過。
+- **追補（同日）**: `UnauthedLogica` も `LogicspecStats` の器を新設して `LogicspecAbout_*` を収めた（11 レコード）。
+  これで 5 作品すべてがモチーフ情報を `*specStats` に集約した状態に揃った。
+- **綴り**: `Arcanum` へ統一済み（T-35 で決着）。
+
+### T-35 🟢 `Arcanam` / `Arcanum` 綴り揺れの決着 — 完了（2026-08-20）
+
+- **決定（User）**: **`Arcanum` に統一**。
+- **反映範囲**: `db_type.json` のフィールド名・`hashTag_EN`、`db_Primary.json` のレコードキー（14 件）、
+  `References/ref_Reference.json` の用語定義（`Term_EN: "Arcanumspec"`）と `ref_Vocabulary.json` の本文表記、
+  `docs/localization-en-rules.md` / `docs/jp-notation-rules.md`、UI テスト。
+- **触れていないもの**: `CHANGELOG.md` の過去エントリと `.completed/` 等の完了済み WIP ログ（当時の事実の記録のため）。
+
 ### T-30 🔵 ADR-0002（Google Cloud での画像生成バックエンド）
 
 - **関連ログ**: `2026-06-21_progress_cloudflare-api-adr2-gcloud.md`（単一）／Draft のまま約 1 か月
@@ -294,12 +311,16 @@
   Cloud Run サービスの作成 / Secret Manager への仮 API Key 登録 / Workers への `/api/v1/generate` プロキシ追加
 - **未解決**: Vertex AI の採用可否、GCE スポット VM の活用可否
 
-### T-31 🔵 `addon-ai-tag` 逆マージ事故の後日談追記
+### T-31 ✅ `addon-ai-tag` 逆マージ事故の後日談追記
 
-- **関連ログ**: `2026-07-02_progress_addon-ai-tag-reverse-merge-incident.md`（単一）
-- **残作業**: `addon-ai-tag` 側の `2026-07-01_progress_addon-ai-tag-merge-conflict-and-log-cleanup.md` への
-  経緯追記（`addon-ai-tag` チェックアウト環境が必要）
-- **User 判断待ち**: 再発防止策の検討（デスクトップ版 Claude のマージ操作時にブランチを取り違えた件）
+- **関連ログ**:
+  - `2026-07-02_progress_addon-ai-tag-reverse-merge-incident.md`
+  - `2026-07-14_progress_addon-ai-tag-log-inventory.md`
+- **完了（2026-08-20）**: `2026-07-02_progress_addon-ai-tag-reverse-merge-incident.md` に反省事項と
+  逆マージ防止チェックリストを追記し、棚卸しログへ反映済み。
+- **完了（同日追記）**: `addon-ai-tag` で追記対象の 2026-07-01 ログ実体を確認した結果、
+  現行 `origin/addon-ai-tag` に当該ファイルが存在しないため、
+  後日談は `2026-07-14_progress_addon-ai-tag-log-inventory.md` へ統合記録した。
 
 ### T-32 🔵 任意拡張
 
@@ -322,13 +343,14 @@
 | [2026-08-02_progress_image-rename-index-badge.md](./2026-08-02_progress_image-rename-index-badge.md) | 画像ファイル名をインデックスバッジ（作品コード付き）へ一括改名（640 ファイル） | — | ✅ 完了（独立監査で受入可。指摘 8 件は相関図側の「前段」で解消済み） |
 | [2026-08-08_github-triage.md](./2026-08-08_github-triage.md) | GitHub 未解決問題の日次トリアージ | **T-25** | 🟢 現行（未解決は Issue #13 のみ） |
 | [2026-07-29_progress_belonging-faction-typedef.md](./2026-07-29_progress_belonging-faction-typedef.md) | `Belonging` の `$Def_Faction[]` 化・`$dictRef` 参照解決 | **T-33** | ⚠️ 実装完了・実機目視と Workers 側判断が残 |
-| [2026-07-22_progress_issue13-numerology-skinship.md](./2026-07-22_progress_issue13-numerology-skinship.md) | Issue #13 の要件整理 | **T-25** | 📝 設計判断待ち |
+| [2026-07-22_progress_issue13-numerology-skinship.md](./2026-07-22_progress_issue13-numerology-skinship.md) | Issue #13 の実装（モチーフ解説 / 接触反応 / `*specStats` 集約） | **T-25 / T-34 / T-35** | 🟢 Phase 1〜4 完了・実データ入力と綴り判断待ち |
 | [2026-07-18_progress_roleplay-prompt-en-phase4.md](./2026-07-18_progress_roleplay-prompt-en-phase4.md) | ロールプレイプロンプト EN 版の着手前調査 | **T-06** | 📝 着手条件は User 確認 2 件 |
 | [2026-07-17_progress_field-order-typedef.md](./2026-07-17_progress_field-order-typedef.md) | フィールドキー順の typedef 整列 | **T-04 / T-05 / T-28** | 🟢 Phase 4 以外は完了 |
 | [2026-07-13_progress_colorpalette-schema.md](./2026-07-13_progress_colorpalette-schema.md) | `ColorPalette` スキーマ・配色抽出 | **T-20** | ⚠️ 実装済み・User レビュー待ち（AIHints への導出は完了） |
 | [2026-07-11_progress_appearancedetail-images.md](./2026-07-11_progress_appearancedetail-images.md) | AppearanceDetail 参考画像の一括登録 | **T-23** | ⚠️ 割当確認待ち |
 | [2026-07-06_progress_unibytelive-formalname-draft.md](./2026-07-06_progress_unibytelive-formalname-draft.md) | アルベッツの苗字・コードネーム下書き | **T-22** | ⚠️ User レビュー中 |
-| [2026-07-02_progress_addon-ai-tag-reverse-merge-incident.md](./2026-07-02_progress_addon-ai-tag-reverse-merge-incident.md) | 逆マージ事故の記録と是正 | **T-10 / T-31** | ⚠️ 後日談追記が保留 |
+| [2026-07-02_progress_addon-ai-tag-reverse-merge-incident.md](./2026-07-02_progress_addon-ai-tag-reverse-merge-incident.md) | 逆マージ事故の記録と是正 | **T-10 / T-31** | ✅ 反省事項・後日談ともに完了 |
+| [2026-07-14_progress_addon-ai-tag-log-inventory.md](./2026-07-14_progress_addon-ai-tag-log-inventory.md) | `addon-ai-tag` 側ログ棚卸しと AIHints 残課題台帳 | **T-31（後日談統合）** | ✅ 後日談追記済み |
 | [2026-06-28_progress_conversationpattern-handoff.md](./2026-06-28_progress_conversationpattern-handoff.md) | ConversationPattern 補完の引き継ぎ | **T-21** | ⚠️ User 入力待ち |
 | [2026-06-25_progress_localization-summary-inputs.md](./2026-06-25_progress_localization-summary-inputs.md) | Localization Summary の入力チェックリスト | **T-24** | ⚠️ 残 7 件 |
 | [2026-06-24_progress_localization-db.md](./2026-06-24_progress_localization-db.md) | Localization レイヤーの実装 | **T-24** | ⚠️ 原作者確認・項目追加が継続 |

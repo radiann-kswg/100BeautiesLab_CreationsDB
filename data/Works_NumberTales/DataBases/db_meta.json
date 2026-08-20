@@ -307,6 +307,73 @@
           "CommonColor_EN": "Fur Skin (Corefolder)"
         }
       },
+      "#List_MotifTopic": [
+        {
+          "MotifTopic": "LifePath",
+          "MotifTopic_JP": "ライフパス",
+          "MotifTopic_EN": "Life Path"
+        },
+        {
+          "MotifTopic": "Soul",
+          "MotifTopic_JP": "ソウルナンバー",
+          "MotifTopic_EN": "Soul Number"
+        },
+        {
+          "MotifTopic": "Numerology",
+          "MotifTopic_JP": "数秘術（還元値の象意）",
+          "MotifTopic_EN": "Numerology (Digital Root)"
+        },
+        {
+          "MotifTopic": "Angel",
+          "MotifTopic_JP": "エンジェルナンバー",
+          "MotifTopic_EN": "Angel Number"
+        },
+        {
+          "MotifTopic": "HebrewNumeral",
+          "MotifTopic_JP": "ヘブライ数字",
+          "MotifTopic_EN": "Hebrew Numeral"
+        },
+        {
+          "MotifTopic": "Gematria",
+          "MotifTopic_JP": "ゲマトリア（数価）",
+          "MotifTopic_EN": "Gematria"
+        },
+        {
+          "MotifTopic": "Kikkyo",
+          "MotifTopic_JP": "吉凶・忌み数",
+          "MotifTopic_EN": "Lucky & Unlucky Number"
+        },
+        {
+          "MotifTopic": "Folklore",
+          "MotifTopic_JP": "伝承・神話・名数",
+          "MotifTopic_EN": "Folklore & Mythology"
+        },
+        {
+          "MotifTopic": "Gogen",
+          "MotifTopic_JP": "語源・数詞",
+          "MotifTopic_EN": "Etymology & Numeral"
+        },
+        {
+          "MotifTopic": "Meisu",
+          "MotifTopic_JP": "番号のいわれ",
+          "MotifTopic_EN": "Notable Numbering"
+        },
+        {
+          "MotifTopic": "Goro",
+          "MotifTopic_JP": "語呂合わせ・スラング",
+          "MotifTopic_EN": "Wordplay & Slang"
+        },
+        {
+          "MotifTopic": "Fiction",
+          "MotifTopic_JP": "創作作品",
+          "MotifTopic_EN": "Fiction"
+        },
+        {
+          "MotifTopic": "PlainNumber",
+          "MotifTopic_JP": "数字",
+          "MotifTopic_EN": "Number"
+        }
+      ],
       "$Def_NumerospecStats": {
         "$Def_EffectStats": {
           "#ListLink_EffectText": [
