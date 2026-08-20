@@ -1,5 +1,22 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### refactor: モチーフ能力の情報を `*specStats` へ集約（Issue #13 Phase 4） (2026-08-20)
+
+- **`*specAbout` / `*specName` をトップレベルから `*specStats` 配下へ移動**（4 作品 / 155 レコード / 7 ファイル）。
+  NumberTales `NumerospecAbout` → `NumerospecStats`、FLInvestigator78 `ArcanamspecAbout` → `ArcanumspecStats`、
+  PastDivers `ChronospecName` / `ChronospecAbout` → `ChronospecStats`、ShouArRiders `BeastspecName` / `BeastspecAbout` → `BeastspecStats`。
+  `$DetailLayout.subFields` からも該当キーを外し、モチーフ関連の情報が 1 セクションにまとまるようにした。
+  `UnauthedLogica` も `LogicspecStats` の器を新設して `LogicspecAbout_*` を収めた（11 レコード）。5 作品すべてで揃った。
+  汎用の `specStatsSection`（`lib/section-renders/specStats.js`）へ統合し `chronoSpec.js` を削除。
+  ShouArRiders `BeastspecStats` も `statsSection`（値をタグで並べる `AbilityStats` 用）から `specStatsSection` へ移した
+  （移動してきた説明文がタグに詰め込まれるのを避けるため）。FLInvestigator78 のみ派生の `arcanumSpecSection` を継続。
+- **`pages/characters.js` のフィールド名ハードコードを 2 箇所削除**: `ArcanumspecStats` の既定ラベルと見出し分岐は
+  `hashTag_JP` で解決できるため冗長だった（既存の UI テストが通ることで確認）。
+- データ移行は `JSON.parse` → `JSON.stringify` の往復を避け、`tools/extract-palette.mjs` / `tools/normalize-field-order.mjs` の
+  span スキャナを使った行単位のテキスト手術で行った（書式を壊さない方針。`normalize-field-order.mjs:10`）。
+- **綴りを `Arcanum` へ統一**（User 判断）。フィールド名 `ArcanamspecAbout` に加え、`References/ref_Reference.json` の
+  用語定義（`Term_EN`）と `ref_Vocabulary.json` の本文中の表記もすべて `Arcanumspec` へ揃えた。
+
 ### feat: モチーフ解説 / 接触反応フィールドの追加（Issue #13） (2026-08-20)
 
 - **`ConversationPattern.TouchReactions`**（`$Def_TouchReaction[]|#Null`）をグローバル `data/db_type.json` へ追加。

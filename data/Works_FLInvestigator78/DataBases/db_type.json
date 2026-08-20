@@ -125,20 +125,20 @@
       "isForMobs": false
     },
     {
-      "hashTag": "ArcanamspecAbout_JP",
-      "$type": "#Summary|#Null",
-      "hashTag_JP": "アルカナムスペック(アルカナ能力)について",
-      "isForMobs": null
-    },
-    {
-      "hashTag": "ArcanamspecAbout_EN",
-      "$type": "#Summary|#Null",
-      "hashTag_EN": "About Arcanamspecs (Arcana Abilities)",
-      "isForMobs": null
-    },
-    {
       "hashTag": "ArcanumspecStats",
       "$type": [
+        {
+          "hashTag": "ArcanumspecAbout_JP",
+          "$type": "#Summary|#Null",
+          "hashTag_JP": "アルカナムスペック(アルカナ能力)について",
+          "isForMobs": null
+        },
+        {
+          "hashTag": "ArcanumspecAbout_EN",
+          "$type": "#Summary|#Null",
+          "hashTag_EN": "About Arcanumspecs (Arcana Abilities)",
+          "isForMobs": null
+        },
         {
           "hashTag": "SpecType",
           "$type": [
@@ -260,7 +260,7 @@
         }
       ],
       "hashTag_JP": "アルカナムスペック(アルカナ能力)の特性",
-      "hashTag_EN": "Arcanamspec (Arcana Ability) Traits",
+      "hashTag_EN": "Arcanumspec (Arcana Ability) Traits",
       "$display": { "sectionWrapper": "arcanumSpecSection" },
       "isForMobs": null
     },

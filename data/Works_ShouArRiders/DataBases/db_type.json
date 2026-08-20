@@ -64,18 +64,28 @@
       "hashTag_EN": "Images"
     },
     {
-      "hashTag": "BeastspecName_JP",
-      "$type": "#String_JP",
-      "hashTag_JP": "獣騎能力名"
-    },
-    {
-      "hashTag": "BeastspecName_EN",
-      "$type": "##String_EN|#Null",
-      "hashTag_EN": "Beastspec Name"
-    },
-    {
       "hashTag": "BeastspecStats",
       "$type": [
+        {
+          "hashTag": "BeastspecName_JP",
+          "$type": "#String_JP",
+          "hashTag_JP": "獣騎能力名"
+        },
+        {
+          "hashTag": "BeastspecName_EN",
+          "$type": "##String_EN|#Null",
+          "hashTag_EN": "Beastspec Name"
+        },
+        {
+          "hashTag": "BeastspecAbout_JP",
+          "$type": "#Summary",
+          "hashTag_JP": "獣騎能力について"
+        },
+        {
+          "hashTag": "BeastspecAbout_EN",
+          "$type": "#Summary|#Null",
+          "hashTag_EN": "About Beastspec"
+        },
         {
           "hashTag": "SpecType",
           "$type": "$Def_SpecType",
@@ -105,17 +115,7 @@
       ],
       "hashTag_JP": "獣騎能力の特性",
       "hashTag_EN": "Beastspec Ability Characteristics",
-      "$display": { "sectionWrapper": "statsSection" }
-    },
-    {
-      "hashTag": "BeastspecAbout_JP",
-      "$type": "#Summary",
-      "hashTag_JP": "獣騎能力について"
-    },
-    {
-      "hashTag": "BeastspecAbout_EN",
-      "$type": "#Summary|#Null",
-      "hashTag_EN": "About Beastspec"
+      "$display": { "sectionWrapper": "specStatsSection" }
     }
   ]
 }

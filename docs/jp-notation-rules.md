@@ -253,7 +253,7 @@ FL 作品の特定の Dealer（錦野舞・錦野歌嫁）への呼称。
 
 ## 3. テキストフィールド (Text Fields)
 
-対象フィールド: `Character`、`Hobby`、`SpecialSkill`、`Favor`、`Unlike`、`Summary`、`Backgrounds`、`InStory`、`RelationNotes`、`NumerospecAbout`、`ConversationPattern` 内各フィールド、他
+対象フィールド: `Character`、`Hobby`、`SpecialSkill`、`Favor`、`Unlike`、`Summary`、`Backgrounds`、`InStory`、`RelationNotes`、`NumerospecStats.NumerospecAbout`、`ConversationPattern` 内各フィールド、他
 
 ### 3-1. 改行 `\n`
 
@@ -362,7 +362,7 @@ EN: NT の漢数字は 1 桁ずつ英語数詞にしてハイフン連結（`七
 |-----------|---------|
 | `ForMasterCalling` | §2-5 参照 |
 | `TailsUnit` | 尻尾の形状。`$Def_TailsUnit` 構造化型（`TailShapeType`/`Count`/`Segment`/`Branches`/`Note_JP`・`_EN`）。自由記述ではない。 |
-| `NumerospecAbout` | カバラの加護説明。1〜2 行の体言止め or 動詞句。 |
+| `NumerospecStats.NumerospecAbout` | カバラの加護説明。1〜2 行の体言止め or 動詞句。 |
 | `NumerospecStats.SafetyLevel` | `SafetyLevelText` にランク記述 |
 
 ---
@@ -373,7 +373,7 @@ EN: NT の漢数字は 1 桁ずつ英語数詞にしてハイフン連結（`七
 |-----------|---------|
 | `For79thDealerCalling` | §2-6 参照。錦野舞への呼称。 |
 | `For80thDealerCalling` | §2-6 参照。錦野歌嫁への呼称。 |
-| `ArcanamspecAbout` | アルカナ能力説明。自由記述。 |
+| `ArcanumspecStats.ArcanumspecAbout` | アルカナ能力説明。自由記述。 |
 
 ---
 

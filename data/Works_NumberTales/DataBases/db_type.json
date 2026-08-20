@@ -142,19 +142,19 @@
       "$display": { "section": "profile", "sectionWrapper": "tailsUnitSection" }
     },
     {
-      "hashTag": "NumerospecAbout_JP",
-      "$type": "#Summary",
-      "hashTag_JP": "\"カバラの加護\"(数秘的加護)について",
-      "hashTag_EN": "About Kabbalistic Protection (Numerospec)"
-    },
-    {
-      "hashTag": "NumerospecAbout_EN",
-      "$type": "#Summary|#Null",
-      "hashTag_EN": "About 'Kabbalistic Protection' (Numerospec)"
-    },
-    {
       "hashTag": "NumerospecStats",
       "$type": [
+        {
+          "hashTag": "NumerospecAbout_JP",
+          "$type": "#Summary",
+          "hashTag_JP": "\"カバラの加護\"(数秘的加護)について",
+          "hashTag_EN": "About Kabbalistic Protection (Numerospec)"
+        },
+        {
+          "hashTag": "NumerospecAbout_EN",
+          "$type": "#Summary|#Null",
+          "hashTag_EN": "About 'Kabbalistic Protection' (Numerospec)"
+        },
         {
           "hashTag": "EffectStats",
           "$type": [
@@ -225,7 +225,7 @@
       ],
       "hashTag_JP": "\"カバラの加護\"(数秘的加護)の特性",
       "hashTag_EN": "Characteristics of 'Kabbalah's Blessing' (Numerospec)",
-      "$display": { "sectionWrapper": "numSpecSection" }
+      "$display": { "sectionWrapper": "specStatsSection" }
     },
     {
       "hashTag": "Relation",

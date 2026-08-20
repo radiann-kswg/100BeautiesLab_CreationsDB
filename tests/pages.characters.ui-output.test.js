@@ -1000,7 +1000,7 @@ describe('pages/characters.js UI output', () => {
 		const customGlobalMeta = structuredClone(globalMeta);
 		customGlobalMeta.CreationWorks['#Works_NumberTales'].$DetailLayout.subFields = [
 			'AbilityStats',
-			'NumerospecAbout',
+			'NumerospecStats',
 			'Relation',
 			'ConversationPattern'
 		];
@@ -1022,25 +1022,25 @@ describe('pages/characters.js UI output', () => {
 
 		const orderedSubFieldKeys = getSubFieldSectionKeys().filter((key) => [
 			'AbilityStats',
-			'NumerospecAbout',
+			'NumerospecStats',
 			'Relation',
 			'ConversationPattern'
 		].includes(key));
 
 		expect(orderedSubFieldKeys).toEqual([
 			'AbilityStats',
-			'NumerospecAbout',
+			'NumerospecStats',
 			'Relation',
 			'ConversationPattern'
 		]);
 		expect(getBasicFieldValue('“カバラの加護”(数秘的加護)について')).toBe('');
-		expect(isCollapsibleSubFieldSection('NumerospecAbout')).toBe(false);
+		expect(isCollapsibleSubFieldSection('NumerospecStats')).toBe(true);
 		expect(isCollapsibleSubFieldSection('Relation')).toBe(true);
 	});
 
 	it('keeps string-like subFields non-collapsible when hideText wraps the stored value', async () => {
 		const customGlobalMeta = structuredClone(globalMeta);
-		customGlobalMeta.CreationWorks['#Works_NumberTales'].$DetailLayout.subFields = ['NumerospecAbout'];
+		customGlobalMeta.CreationWorks['#Works_NumberTales'].$DetailLayout.subFields = ['Backgrounds'];
 
 		charactersModule.__setCharactersTestState({
 			globalMeta: customGlobalMeta,
@@ -1057,14 +1057,14 @@ describe('pages/characters.js UI output', () => {
 
 		await charactersModule.renderDetail('#Works_NumberTales', {
 			...hexademicalRecord,
-			NumerospecAbout: { hideText: '極秘事項' }
+			Backgrounds_JP: { hideText: '極秘事項' }
 		});
 
-		const numerospecAboutSection = getSubFieldSectionNode('NumerospecAbout');
-		expect(numerospecAboutSection).not.toBeNull();
-		expect(isCollapsibleSubFieldSection('NumerospecAbout')).toBe(false);
-		expect(numerospecAboutSection?.textContent || '').toContain('極秘事項');
-		expect(numerospecAboutSection?.textContent || '').not.toContain('hideText');
+		const hiddenSummarySection = getSubFieldSectionNode('Backgrounds');
+		expect(hiddenSummarySection).not.toBeNull();
+		expect(isCollapsibleSubFieldSection('Backgrounds')).toBe(false);
+		expect(hiddenSummarySection?.textContent || '').toContain('極秘事項');
+		expect(hiddenSummarySection?.textContent || '').not.toContain('hideText');
 	});
 
 	it('renders NumberTales stats as standalone subField sections driven by detail layout', async () => {
@@ -1092,6 +1092,12 @@ describe('pages/characters.js UI output', () => {
 		expect(isSubFieldSectionOpen('NumerospecStats')).toBe(false);
 		expect(abilitySection?.textContent || '').toContain('俊敏性');
 		expect(numerospecSection?.textContent || '').toContain('特殊パターン');
+
+		// Phase 4: `NumerospecAbout` はトップレベルから `NumerospecStats` 配下へ移した。
+		// 単独セクションは消え、中身は特性セクション内に残る
+		expect(getSubFieldSectionNode('NumerospecAbout')).toBeNull();
+		expect(numerospecSection?.textContent || '').toContain('(数秘的加護)について');
+		expect(numerospecSection?.textContent || '').toContain('哀しみから救済する');
 		expect(getSectionNode('スペック/能力')).toBeNull();
 	});
 
@@ -1106,6 +1112,11 @@ describe('pages/characters.js UI output', () => {
 		expect(chronoTags).toContain('治癒効果: 公開不能 / Openly Not');
 		expect(chronoTags).toContain('安全レベル: 公開不能 / Openly Not');
 		expect(chronoTags).not.toContain('安全レベル');
+
+		// Phase 4: `ChronospecName` / `ChronospecAbout` を `ChronospecStats` 配下へ移した
+		expect(getSectionNode('時空遷移(クロノシフト)能力名')).toBeNull();
+		expect(chronoSection?.textContent || '').toContain('焦燥の花');
+		expect(chronoSection?.textContent || '').toContain('時間が進行するエネルギーを吸収する');
 
 		const profileSectionText = getSectionText('プロフィール/テキスト');
 		expect(profileSectionText).not.toContain('時空遷移(クロノイド)状態に関する概要');
@@ -1129,6 +1140,10 @@ describe('pages/characters.js UI output', () => {
 
 		const specTags = getSectionTagTexts('アルカナムスペック(アルカナ能力)の特性');
 		expect(specTags).toContain('能力レベル: S+（かなり強力 / Quite Powerful）');
+
+		// Phase 4: `ArcanumspecAbout`（旧 `Arcanam` 表記）を `ArcanumspecStats` 配下へ移した
+		expect(getSectionNode('アルカナムスペック(アルカナ能力)の特性')?.textContent || '')
+			.toContain('アルカナムスペック(アルカナ能力)について');
 	});
 
 	it('does not render private records in detail view', async () => {

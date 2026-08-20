@@ -92,6 +92,53 @@ User の依頼により [CheatSheet-of_Numbers](https://github.com/radiann-kswg/
 | `Kikkyo` / `Folklore` / `Gogen` / `Meisu` / `Goro` / `Fiction` | CheatSheet `tools/number_lore_v1.json` のキュレーション分類（`LORE_CATEGORY_ORDER` と同順） |
 | `PlainNumber` | 分類を伴わない素の数字（Issue #13 の「数字の8」相当） |
 
+### Phase 4 — `*specAbout` / `*specName` の `*specStats` 集約（2026-08-20 実施）
+
+| 作品 | 移動 | レコード |
+| --- | --- | --- |
+| NumberTales | `NumerospecAbout_JP` / `_EN` → `NumerospecStats` | 120（Primary 103 / SemiPrimary 11 / Secondary 6） |
+| FLInvestigator78 | `ArcanamspecAbout_JP` / `_EN` → `ArcanumspecStats` | 14 |
+| PastDivers | `ChronospecName_*` / `ChronospecAbout_*` → `ChronospecStats` | 14 |
+| ShouArRiders | `BeastspecName_*` / `BeastspecAbout_*` → `BeastspecStats` | 7 |
+| UnauthedLogica | `LogicspecAbout_*` → `LogicspecStats`（器を新設） | 11（Primary 7 / PrimaryMobs 4） |
+
+合計 166 レコード / 9 ファイル。`$DetailLayout.subFields` も 5 作品分を追従させた。
+
+- **UnauthedLogica**: 当初は「`LogicspecAbout` 単体を包むだけの器は意味が薄い」として見送ったが、User 判断で
+  他作品と揃えることにした。`LogicspecStats`（`$display.sectionWrapper: "specStatsSection"`）を新設し、
+  ラベルは他作品の `*specStats` に倣って `ロジカ(論理特殊能力)の特性` / `Logicspec Ability Characteristics` とした。
+  なお **typedef だけ足すのは不可**。トップレベルの宣言が消えると「schema 外の項目は自動表示しない」原則で
+  レコード側の `LogicspecAbout_JP` が表示から落ちるため、データ 11 件の移行と同じ変更に含めている。
+- **併せて解消した不備**:
+  - `numSpecSection` と `chronoSpecSection` が登録名以外まったく同一だった → 汎用 `specStatsSection`
+    （`lib/section-renders/specStats.js`）へ統合し `chronoSpec.js` を削除。
+  - ShouArRiders `BeastspecStats` は `statsSection`（値をタグで並べる `AbilityStats` 用）を使っていた。
+    移動してきた説明文がタグに詰め込まれてしまうため `specStatsSection` へ変更。
+  - `pages/characters.js` の `ArcanumspecStats` ラベルハードコード 2 箇所を削除（`hashTag_JP` で解決できる。
+    既存の UI テスト `アルカナムスペック(アルカナ能力)の特性` が通ることで冗長性を確認）。
+- **移行手法**: `JSON.parse` → `JSON.stringify` の往復は書式を壊す（NumberTales で 15,408 行の差分になることを実測）。
+  `tools/extract-palette.mjs` の `scanTopLevelRecords()` と `tools/normalize-field-order.mjs` の `scanRecordMembers()` を
+  再利用した行単位のテキスト手術で行い、`canonical()` 比較で「移動以外は 1 ビットも変わっていない」ことを検証した。
+  使い捨てスクリプトは `.cache/migrate-specstats.mjs` / `.cache/migrate-typedef.mjs`（Git 管轄外）。
+- **踏まなかった落とし穴**: ロールプレイテンプレは移動対象フィールドを参照していなかったため、生成物への影響なし。
+
+#### 綴り揺れ `Arcanam` / `Arcanum` → **`Arcanum` へ統一（User 判断・2026-08-20）**
+
+当初は `References/ref_Reference.json` が `Term_EN: "Arcanamspec"` を創作上の正式英名として宣言していたため
+判断を保留したが、User の指示で **`Arcanum` に統一**した。フィールド名・`hashTag_EN`・レコードキー（14 件）に加え、
+`ref_Reference.json` の用語定義と `ref_Vocabulary.json` の本文表記も `Arcanumspec` へ揃えている。
+`CHANGELOG.md` の過去エントリと完了済み WIP ログは当時の事実の記録なので書き換えていない。
+
+#### 既知の別課題（本変更とは無関係・Phase 4 以前から）
+
+`data/Works_UnauthedLogica/DataBases/db_Primary.json` の `LogicspecAbout_JP` は
+`{ "_Jump": { "hashTag": "NumerospecAbout" } }` を持つが、**この参照は以前から解決できていない**。
+
+- 参照先キー `NumerospecAbout`（素）は NumberTales 側に 1 件も存在しない（実在するのは `NumerospecAbout_JP` / `_EN`）
+- 該当レコードにはルート `_DBLink` が無いため、`resolveJumpsInAny()` に渡る参照先レコード自体が無い
+
+いずれも Phase 4 の移行以前からの状態。参照先の決定は創作内容に踏み込むため、User の判断待ちとして記録に留める。
+
 ## 検証
 
 | 項目 | 結果 |

@@ -285,29 +285,24 @@
 
 ## C. 長期保留（着手判断そのものが保留）
 
-### T-34 🟡 `*specAbout` / `*specName` の `*specStats` 集約
+### T-34 🟢 `*specAbout` / `*specName` の `*specStats` 集約 — 完了（2026-08-20）
 
-- **関連ログ**: `2026-07-22_progress_issue13-numerology-skinship.md`（T-25 から分離）
-- **経緯**: Issue #13 の設計確認時に User から「この際に `NumerospecAbout` を `NumerospecStats` に同梱するなど、
-  モチーフに関する能力を `*specStats` に集約してほしい」と依頼。Issue #13 本体（T-25）とは独立に実施できる
-- **実測した影響範囲**:
+- **関連ログ**: `2026-07-22_progress_issue13-numerology-skinship.md`（Phase 4）
+- **実施内容**: 4 作品 / 155 レコード / 7 ファイルを移行し、`$DetailLayout.subFields` からも該当キーを除去。
+  併せて `numSpecSection` ≡ `chronoSpecSection` の完全重複を汎用 `specStatsSection` へ統合（`chronoSpec.js` 削除）、
+  `pages/characters.js` の `ArcanumspecStats` ラベルハードコード 2 箇所を削除。
+  `npm test` 1259 件 / `data:order:check` / `agents:check` / prettier いずれも通過。
+- **追補（同日）**: `UnauthedLogica` も `LogicspecStats` の器を新設して `LogicspecAbout_*` を収めた（11 レコード）。
+  これで 5 作品すべてがモチーフ情報を `*specStats` に集約した状態に揃った。
+- **綴り**: `Arcanum` へ統一済み（T-35 で決着）。
 
-  | 作品 | 移動対象キー | 影響レコード | 備考 |
-  | --- | --- | --- | --- |
-  | NumberTales | `NumerospecAbout_JP` / `_EN` | 120 / 114 | `NumerospecStats` は 99 件のみ → 約 21 件で器の新設が要る |
-  | FLInvestigator78 | `ArcanamspecAbout_JP` / `_EN` | 14 | 綴り揺れ `Arcanam` vs `ArcanumspecStats` を同時に是正する候補 |
-  | PastDivers | `ChronospecName_JP` / `_JPReading` / `_EN`、`ChronospecAbout_JP` / `_EN` | 14 | |
-  | ShouArRiders | `BeastspecName_JP` / `_EN`、`BeastspecAbout_JP` / `_EN` | 7 | `BeastspecStats` は typedef のみで実データ 0 |
-  | UnauthedLogica | `LogicspecAbout_JP` / `_EN` | 11 | `LogicspecStats` の typedef が無い → 新設が要る |
+### T-35 🟢 `Arcanam` / `Arcanum` 綴り揺れの決着 — 完了（2026-08-20）
 
-- **付随変更**: `db_type.json` ×5 / `data/db_meta.json` の `$DetailLayout.subFields` ×5 /
-  `lib/section-renders/numSpec.js` / `arcanumSpec.js` / `pages/characters.js` の `ArcanumspecStats` 見出しハードコード /
-  `docs/localization-en-rules.md` §3-5・§4 / `docs/jp-notation-rules.md` / `docs/schema-meta-processing.md` /
-  `tests/pages.characters.ui-output.test.js`（`NumerospecAbout` を subFields 前提で assert している 6 箇所）/
-  `npm run data:order:write`（トップレベルキーが減るため整列が動く）
-- **注意**: レコードだけで約 166 件 ×2〜5 キー。**変更量は 500 行を確実に超える**ため、着手前に User へ確認する
-  （`AGENTS.md`「基本ルール」）。段階分割（作品ごと）も可
-- **緊急度**: 低（現行表示は破綻していない。整理目的）
+- **決定（User）**: **`Arcanum` に統一**。
+- **反映範囲**: `db_type.json` のフィールド名・`hashTag_EN`、`db_Primary.json` のレコードキー（14 件）、
+  `References/ref_Reference.json` の用語定義（`Term_EN: "Arcanumspec"`）と `ref_Vocabulary.json` の本文表記、
+  `docs/localization-en-rules.md` / `docs/jp-notation-rules.md`、UI テスト。
+- **触れていないもの**: `CHANGELOG.md` の過去エントリと `.completed/` 等の完了済み WIP ログ（当時の事実の記録のため）。
 
 ### T-30 🔵 ADR-0002（Google Cloud での画像生成バックエンド）
 
@@ -344,7 +339,7 @@
 | [2026-08-02_progress_image-rename-index-badge.md](./2026-08-02_progress_image-rename-index-badge.md) | 画像ファイル名をインデックスバッジ（作品コード付き）へ一括改名（640 ファイル） | — | ✅ 完了（独立監査で受入可。指摘 8 件は相関図側の「前段」で解消済み） |
 | [2026-08-08_github-triage.md](./2026-08-08_github-triage.md) | GitHub 未解決問題の日次トリアージ | **T-25** | 🟢 現行（未解決は Issue #13 のみ） |
 | [2026-07-29_progress_belonging-faction-typedef.md](./2026-07-29_progress_belonging-faction-typedef.md) | `Belonging` の `$Def_Faction[]` 化・`$dictRef` 参照解決 | **T-33** | ⚠️ 実装完了・実機目視と Workers 側判断が残 |
-| [2026-07-22_progress_issue13-numerology-skinship.md](./2026-07-22_progress_issue13-numerology-skinship.md) | Issue #13 の実装（モチーフ解説 / 接触反応） | **T-25 / T-34** | 🟢 Phase 1〜3 完了・実データ入力待ち |
+| [2026-07-22_progress_issue13-numerology-skinship.md](./2026-07-22_progress_issue13-numerology-skinship.md) | Issue #13 の実装（モチーフ解説 / 接触反応 / `*specStats` 集約） | **T-25 / T-34 / T-35** | 🟢 Phase 1〜4 完了・実データ入力と綴り判断待ち |
 | [2026-07-18_progress_roleplay-prompt-en-phase4.md](./2026-07-18_progress_roleplay-prompt-en-phase4.md) | ロールプレイプロンプト EN 版の着手前調査 | **T-06** | 📝 着手条件は User 確認 2 件 |
 | [2026-07-17_progress_field-order-typedef.md](./2026-07-17_progress_field-order-typedef.md) | フィールドキー順の typedef 整列 | **T-04 / T-05 / T-28** | 🟢 Phase 4 以外は完了 |
 | [2026-07-13_progress_colorpalette-schema.md](./2026-07-13_progress_colorpalette-schema.md) | `ColorPalette` スキーマ・配色抽出 | **T-20** | ⚠️ 実装済み・User レビュー待ち（AIHints への導出は完了） |

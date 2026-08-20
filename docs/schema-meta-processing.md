@@ -470,7 +470,7 @@
 - **グローバル宣言フィールドの表示順の正は `$DefType`**。`$DetailLayout` は「どれを出すか」の選択を担い、並び順は `$DefType` に揃える（2026-07-17 に `basicFields` を全 9 作品分 `$DefType` 順へ整列済み。以後もこの一致を保つこと）
 - **作品別 typedef で宣言されたフィールドは `$DetailLayout` が位置の正**。グローバル `$DefType` に宣言が無いため `$DefType` 側に「揃えるべき位置」が存在しない
   - `basicFields` に載るもの（`TailsUnit` / `Generation` / `ForMasterCalling` / `For*DealerCalling` 等）は `#WorkBasic` マーカーの `$slotAnchor` が **`basicFields` 上の直前の隣人の直後**へ配置する
-  - `subFields` に載るもの（`NumerospecAbout` / `ChronoholderName` / `Relation` 等）は `#WorkRest` の `$slotOrder` が catch-all スロット内の並びを決める
+  - `subFields` に載るもの（`NumerospecStats` / `ChronoholderName` / `Relation` 等）は `#WorkRest` の `$slotOrder` が catch-all スロット内の並びを決める
 - `Belonging` などの補助項目は、`basicFields` にすでに含まれている場合は UI 側で重複抑制される
 - **両方に載るキーは「表示」と「キー順」で正が分かれる**（現状 `Works_NumberTales` の `TailsUnit` のみ）
   - 表示: `subFields` が勝つ。UI の「1項目1箇所の原則」（`pages/characters.js` の `isPromotedSubFieldKey`）が基本情報テーブル側の行を抑制するため、`tailsUnitSection` にしか出ない

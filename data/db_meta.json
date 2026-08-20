@@ -46,7 +46,6 @@
           "ForMasterCalling"
         ],
         "subFields": [
-          "NumerospecAbout",
           "NumerospecStats",
           "TailsUnit",
           "AppearanceDetail",
@@ -114,7 +113,6 @@
           "For80thDealerCalling"
         ],
         "subFields": [
-          "ArcanamspecAbout",
           "ArcanumspecStats",
           "AbilityStats",
           "AppearanceDetail",
@@ -150,7 +148,6 @@
           "BirthDay"
         ],
         "subFields": [
-          "BeastspecName",
           "BeastspecStats",
           "ConversationPattern",
           "AnotherRegions_DBLink"
@@ -277,7 +274,7 @@
         ],
         "subFields": [
           "ExistingRarity",
-          "LogicspecAbout",
+          "LogicspecStats",
           "ConversationPattern",
           "AnotherVersions_DBLink",
           "AnotherRegions_DBLink"
@@ -313,8 +310,6 @@
         ],
         "subFields": [
           "ChronoholderName",
-          "ChronospecName",
-          "ChronospecAbout",
           "ChronospecStats",
           "AbilityStats",
           "AnotherRegions_DBLink"

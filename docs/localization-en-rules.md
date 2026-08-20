@@ -43,7 +43,7 @@
 
 | 系統                                   | 形式                                                 | 該当フィールド（実データで確認）                                                                                                                                                                                                                                          |
 | -------------------------------------- | ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`_JP`/`_EN` ペア型（既定・大多数）** | `field_JP` と `field_EN` を隣接配置                  | `CodeName` / `FormalName` / `Name` / `Summary` / `Character` / `Hobby` / `SpecialSkill` / `Favor` / `Unlike` / `Motif` / `*PersonCalling` / `ForMasterCalling` / `NumerospecAbout` / `Backgrounds` / `InStory` / `RelationNotes` ほか、本書記載のほぼ全項目（`TailsUnit` は `$Def_TailsUnit` 構造化型へ移行済み。§3-2 参照） |
+| **`_JP`/`_EN` ペア型（既定・大多数）** | `field_JP` と `field_EN` を隣接配置                  | `CodeName` / `FormalName` / `Name` / `Summary` / `Character` / `Hobby` / `SpecialSkill` / `Favor` / `Unlike` / `Motif` / `*PersonCalling` / `ForMasterCalling` / `NumerospecStats.NumerospecAbout` / `Backgrounds` / `InStory` / `RelationNotes` ほか、本書記載のほぼ全項目（`TailsUnit` は `$Def_TailsUnit` 構造化型へ移行済み。§3-2 参照） |
 | **plain + `_EN` 型（例外）**           | `Comments` と `Comments_EN` を隣接配置（`_JP` 無し） | `Relation.*.Comments`（§3-8）のみ（実データ 671 件すべて plain）                                                                                                                                                                                                          |
 | **移行中（混在）**                     | `value` / `about` は plain と `_JP` が混在           | `DialogueExamples` の `value`・`about`（§3-9。文字列 → `value_JP` へ移行途上。plain 約 1/3・`_JP` 約 2/3）                                                                                                                                                                |
 
@@ -317,6 +317,13 @@ he/she; [指示表現 or 敬称/参照形]; [*by name or 参照]
 
 ### 3-5. `NumerospecAbout_EN`（NumberTales 固有）
 
+> **配置（2026-08-20〜）**: `NumerospecAbout_JP` / `_EN` はトップレベルではなく `NumerospecStats` 配下にある。
+> 同様に `ArcanumspecAbout` は `ArcanumspecStats`、`ChronospecName` / `ChronospecAbout` は
+> `ChronospecStats`、`BeastspecName` / `BeastspecAbout` は `BeastspecStats` の配下。翻訳の書式ルール自体は変わらない。
+> （綴りは 2026-08-20 に **`Arcanum`** へ統一済み。旧 `Arcanam` 表記はフィールド名・`References/ref_*` の
+> 用語と本文とも `Arcanum` へ移行しており、新規の英訳でも `Arcanumspec` を使う。）
+> `LogicspecAbout` も同様に `LogicspecStats` 配下（2026-08-20 に器を新設）。5 作品すべてで `*specStats` 配下に揃った。
+
 1〜2行の簡潔な説明文。複数行は `\n` で区切る。
 主語を省いた体言止め or 動詞句で統一:
 
@@ -538,7 +545,7 @@ NT db_SelfSecondary 等でよく使われる頻出パターン:
 ### 4-2. FLInvestigator78
 
 - `CodeName_EN`: タロットカードの公式英語名（例: `High-Priestess`, `Hermit`）
-- `ArcanamspecAbout_EN`: NumerospecAbout_EN と同じ形式
+- `ArcanumspecAbout_EN`: NumerospecAbout_EN と同じ形式
 - `EffectText_EN`: ランク説明の固定文。**レコード側ではなく辞書側**（`DataBases/db_meta.json` の `General.$VarsDef.$Def_ArcanumspecStats.$Def_EffectStats.#ListLink_EffectText[]`）に `EffectText` / `EffectText_EN` ペアとして定義される enum。レコードの `EffectText`（JP）は enum 値を参照する。固定訳の例: `危険`→`Dangerous` / `絶大`→`Tremendous` / `期待`→`Expected` / `希薄`→`Dilute` / `効果無`→`No Benefit` / `逆効果`→`Counterproductive`。新訳は追加せず、既存 enum に従う。
 - `For79thDealerCalling_EN` / `For80thDealerCalling_EN`: ForMasterCalling_EN と同形式
 

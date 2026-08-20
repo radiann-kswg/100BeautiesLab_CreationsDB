@@ -54,9 +54,8 @@ import '../lib/section-renders/thisMasters.js';
 import '../lib/section-renders/specStatsHelpers.js';
 import '../lib/section-renders/abilityStats.js';
 import '../lib/section-renders/streamingActivity.js';
-import '../lib/section-renders/numSpec.js';
+import '../lib/section-renders/specStats.js';
 import '../lib/section-renders/arcanumSpec.js';
-import '../lib/section-renders/chronoSpec.js';
 import '../lib/section-renders/relation.js';
 import '../lib/section-renders/dblink.js';
 import '../lib/section-renders/dbcrosslinkpath.js';
@@ -2965,9 +2964,6 @@ function getFieldLabel(fieldName, labelMap, workMeta = null, globalDefType = nul
 			}
 		}
 	}
-
-	// 作品側typedefの揺れでlabelMap未解決でも、主要specStats見出しは既定ラベルを返す
-	if (fieldName === 'ArcanumspecStats') return 'アルカナムスペック(アルカナ能力)の特性';
 
 	const fb = String(fallback || fieldName);
 	if (getCurrentPageLanguage() === 'en') {
@@ -7245,9 +7241,7 @@ export async function renderDetail(workId, rec) {
 			if (!it) return null;
 			const children = Array.isArray(bodyChildren) ? bodyChildren.filter(Boolean) : [bodyChildren].filter(Boolean);
 			if (!children.length) return null;
-			const sectionTitle = (it.key === 'ArcanumspecStats')
-				? 'アルカナムスペック(アルカナ能力)の特性'
-				: it.label;
+			const sectionTitle = it.label;
 
 			const collapsible = (typeof options?.collapsible === 'boolean')
 				? options.collapsible
