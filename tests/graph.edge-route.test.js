@@ -280,8 +280,13 @@ describe('routeEdges', () => {
 		runs.sort((a, b) => a - b);
 		const median = runs[2];
 
+		// 閾値はマシン性能に左右される絶対値。GitHub Actions の共有ランナーは同じコードで
+		// 実測 41〜66ms（ローカルは数 ms）だったため、CI では回帰検知に足りる緩い上限にする。
+		// アルゴリズムが悪化すれば桁で増えるので、緩めても検知力は残る。
+		const limit = process.env.CI ? 200 : 40;
+
 		expect(out.length).toBeGreaterThan(700);
-		expect(median, `中央値 ${median.toFixed(1)}ms`).toBeLessThan(40);
+		expect(median, `中央値 ${median.toFixed(1)}ms`).toBeLessThan(limit);
 	});
 
 	it('レーン分離で線分の完全な重なりが消える', () => {

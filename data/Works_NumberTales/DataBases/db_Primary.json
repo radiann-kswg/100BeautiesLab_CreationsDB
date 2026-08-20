@@ -39023,7 +39023,9 @@
     "InStory_EN": "Retired before completion due to a hardware development issue\nCurrently exists only as ROS, dedicated entirely to development support",
     "NumerospecStats": {
       "NumerospecAbout_JP": "他ナンバーテールズに託す：この効果の詳細は不明",
-      "NumerospecAbout_EN": "Entrusts to other NumberTales units — the details of this effect are unknown", "SpecialPattern": ["Ptn.X(転化・転送効果)"] },
+      "NumerospecAbout_EN": "Entrusts to other NumberTales units — the details of this effect are unknown",
+      "SpecialPattern": ["Ptn.X(転化・転送効果)"]
+    },
     "Relation": {
       "Related": [
         { "Num": 2, "RelationLabel": ["sameNumber", "classmate"] },
