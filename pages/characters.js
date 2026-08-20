@@ -3378,6 +3378,19 @@ function pickAboutByLang(obj, lang) {
 }
 
 /**
+ * `{ hideText: '...' }`（意図的なマスク値）かどうかを判定する
+ *
+ * マスク値は `#List_hideText` の辞書コードであり、`formatMaskedValue()` が言語に応じて
+ * 解決する。つまり**マスクは言語非依存**で、`_JP` / `_EN` の片方にしか無くても両言語で出せる。
+ * 言語ルーティング（EN で `_JP` 側を捨てるか）の判定に使う。
+ * @param {any} v
+ * @returns {boolean}
+ */
+function isMaskedValue(v) {
+	return isPlainObject(v) && typeof v.hideText === 'string' && !!v.hideText.trim();
+}
+
+/**
  * `hideText`（意図的なマスク値）を表示用に解決する
  * - 辞書（`$VarsDef.hideText`）にラベルがあれば言語に応じて差し替える
  * @param {any} maskedText - `hideText` の生値
@@ -5943,7 +5956,12 @@ export async function renderDetail(workId, rec) {
 			const displayHint = topLevelDisplayMap?.[base] ?? topLevelDisplayMap?.[`${base}_JP`] ?? topLevelDisplayMap?.[`${base}_EN`] ?? null;
 			const sharedLanguage = isSharedLanguageDisplay(displayHint);
 			if (lang === 'en') {
-				const text = sharedLanguage ? (enText || baseText || pieces[0] || '') : (enText || '');
+				// マスクは言語非依存なので、`_EN` が無くても JP 側の値を EN でも採用する
+				// （textByKey の各値は既にページ言語で整形済み＝辞書 #List_hideText で EN ラベルへ解決されている）
+				const maskedFallback = (!enText && (isMaskedValue(rec?.[`${base}_JP`]) || isMaskedValue(rec?.[base])))
+					? baseText
+					: '';
+				const text = sharedLanguage ? (enText || baseText || pieces[0] || '') : (enText || maskedFallback || '');
 				return { text, usedKeys, node: null };
 			}
 			if (lang === 'jp') {
@@ -7114,8 +7132,12 @@ export async function renderDetail(workId, rec) {
 				const baseChildPath = `${parentKey}.${baseChildKey}`;
 				const baseDisplayHint = pickSchemaDisplay(baseChildPath, baseChildPath, parentKey);
 				const sharedLanguage = isSharedLanguageDisplay(baseDisplayHint);
+				// マスクは言語非依存。`_EN` 兄弟が無い `_JP` のマスクは EN でも捨てない
+				const isMaskedJpWithoutEn = childKey.endsWith('_JP')
+					&& isMaskedValue(childValue)
+					&& isEmptyValueLoose(parentValue[`${baseChildKey}_EN`]);
 				if (lang === 'jp' && childKey.endsWith('_EN')) continue;
-				if (lang === 'en' && childKey.endsWith('_JP')) continue;
+				if (lang === 'en' && childKey.endsWith('_JP') && !isMaskedJpWithoutEn) continue;
 				if (lang === 'en' && !childKey.endsWith('_EN') && Object.prototype.hasOwnProperty.call(parentValue, `${childKey}_EN`) && !sharedLanguage) continue;
 				if (excludedChildKeys.has(childKey)) continue;
 				if (isEmptyValueLoose(childValue)) continue;
@@ -7123,7 +7145,11 @@ export async function renderDetail(workId, rec) {
 				const childPath = `${parentKey}.${childKey}`;
 				const childPathCandidates = [childPath, childKey];
 				const schemaPath = pickSchemaPath(childPathCandidates, childPath);
-				const childLabel = getFieldLabel(schemaPath, fieldLabelMap, metaForLookup, globalDefType, childKey);
+				// マスク fallback で `_JP` を EN 表示する場合、ラベルだけは `_EN` 側の宣言（hashTag_EN）を使う
+				const labelPath = (lang === 'en' && isMaskedJpWithoutEn)
+					? pickSchemaPath([`${parentKey}.${baseChildKey}_EN`, `${baseChildKey}_EN`], schemaPath)
+					: schemaPath;
+				const childLabel = getFieldLabel(labelPath, fieldLabelMap, metaForLookup, globalDefType, childKey);
 				const hints = (isPlainObject(childValue) && !Array.isArray(childValue))
 					? pickSchemaHintsForObjectLeaf([schemaPath, childPath, childKey], childValue)
 					: {

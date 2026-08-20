@@ -462,12 +462,19 @@ describe('pages/characters.js UI output', () => {
 
 		const record = {
 			...yayoiRecord,
+			// `_EN` を落として「`_JP` だけマスク」の形にする（Weight_kg とは別のマスクコードを使う）
+			Unlike_JP: { hideText: '極秘事項' },
 			Unlike_EN: undefined
 		};
 
 		await charactersModule.renderDetail('#Works_PastDivers', record);
 
 		expect(getBasicFieldValue('Weight_kg')).toBe('Non-Public at Pleasure');
+
+		// `_JP` だけにマスクがあり `_EN` が無い場合も、辞書 #List_hideText 経由で EN ラベルを出す
+		const detailText = document.querySelector('#detail')?.textContent || '';
+		expect(detailText).toContain('Confidential');
+		expect(detailText).not.toContain('極秘事項');
 	});
 
 	it('renders shared-language fields in English from the base value even when the _EN sibling is blank', async () => {
@@ -1099,6 +1106,31 @@ describe('pages/characters.js UI output', () => {
 		expect(numerospecSection?.textContent || '').toContain('(数秘的加護)について');
 		expect(numerospecSection?.textContent || '').toContain('哀しみから救済する');
 		expect(getSectionNode('スペック/能力')).toBeNull();
+	});
+
+	// マスク（hideText）は言語非依存。入れ子（buildObjectChildBlocks）経路でも、
+	// `_EN` 兄弟が無い `_JP` のマスクを EN で捨てず、ラベルだけ `_EN` 側の宣言を使う
+	it('keeps a masked _JP child visible in English and labels it from the _EN declaration', async () => {
+		charactersModule.__setCharactersTestState({
+			charState: {
+				db: 'Secondary',
+				pageLang: 'en',
+				workId: '#Works_NumberTales',
+				records: numberTalesSecondaryRecords,
+				workTypeDef: numberTalesWorkTypeDef,
+				globalTypeDef,
+				workMeta: numberTalesWorkMeta,
+				imageFields: []
+			}
+		});
+
+		// 0xA は NumerospecStats.NumerospecAbout_JP: { hideText: '極秘事項' } を持ち `_EN` が無い
+		await charactersModule.renderDetail('#Works_NumberTales', hexademicalRecord);
+
+		const numSpecText = getSubFieldSectionNode('NumerospecStats')?.textContent || '';
+		expect(numSpecText).toContain("About 'Kabbalistic Protection' (Numerospec)");
+		expect(numSpecText).toContain('Confidential');
+		expect(numSpecText).not.toContain('極秘事項');
 	});
 
 	it('renders other-work spec stats as standalone subField sections and keeps nested profile rows inside them', async () => {

@@ -187,6 +187,14 @@
   - `value` と `about_JP/about_EN/about` を持つ補足付き値
 - `$Def_TouchReaction`, `$Def_MotifCommentary`
   - **キー付き台詞リスト**。`#Dialogue_bilingual` に「辞書コードのキー項目」を足した形（`{ Action, value_JP, value_EN, about_JP, about_EN }` / `{ Topic, TopicValue, value_JP, … }`）。Bot など外部クライアントがキーで安定して引けるよう、キー項目は生の日本語文字列ではなく `#ListIndex` ＋ `$dict` の辞書コードで持つ。表示は `keyedDialogueSummary` wrapper が `キー：台詞（補足）` へ整形する（`docs/wrapper-summary-registry.md`）
+- **`_JP` / `_EN` 分離フィールドの参照**
+  - 参照側（`_Jump` の `hashTag`、`_Search` の `hashTag`）は `TypeDefUtils.expandLangAliasCandidates()` で
+    「完全一致 → 素の名前 → `_JP` → `_EN`」へ展開されるため、suffix を書かなくても引けます。
+    ドットパスの**プレフィックスは保たれ、末尾セグメントだけ**が展開されます。
+    `_Jump` は参照元フィールドの suffix を優先言語として使います（`LogicspecAbout_EN` からの参照なら `_EN` が先）。
+  - **マスク（`{ hideText }`）は言語非依存**。値が `#List_hideText` の辞書コードなので、
+    `_JP` / `_EN` の片方にだけ書けば両言語で表示されます（UI 側の言語ルーティングが
+    `isMaskedValue()` で判定し、EN では `_EN` 側の `hashTag_EN` をラベルに使う）。
 - `#String_bilingual`, `#Dialogue_bilingual`
   - **和英共有フィールド**。1 要素の中に `value_JP` / `value_EN`（＋補足があれば `about_JP` / `about_EN`）を持ち、フィールド自体は `_JP` / `_EN` へ分けない。配列で和英の要素対応を崩さずに持ちたいときに使う（例: `ConversationPattern.DialogueExamples`、`Works_UnibyteLive` の `StreamingActivity.StreamingCategory` / `StreamingGreeting` / `StreamingAwards`）
   - 表示は `formatValueForDisplay()` がページ言語で `value_JP` / `value_EN` を選ぶ（型名ではなく**値の形**で分岐するため、`_bilingual` は「データの形」を宣言面へ明示するための型名）。1 要素 1 行で出したい配列では union に `_withAbout[]` を併記して改行連結を維持する

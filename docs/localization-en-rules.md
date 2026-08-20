@@ -14,6 +14,9 @@
 - **既存 `_EN` は上書きしない**: 空（`null`/`""`/未定義）のときだけ訳案を補う（詳細は §0）。
 - **固有名詞は監修辞書に固定**: 早見表 [`localization-glossary-quickref.md`](localization-glossary-quickref.md) → 辞書本体（`data/Localization/trans_*.json` / `data/References/ref_*.json` / `data/Dictionaries/dict_*.json`）の順に確認し、勝手な別訳を作らない。作品タイトルの英名は `Works_` 識別子が正。
 - **`hideText` を尊重**: `{ "hideText": "..." }` はマスク。訳したり展開したりしない。
+- **マスクは片方だけでよい**（2026-08-20〜）: `{ "hideText": "..." }` は `#List_hideText` の辞書コードなので、
+  `_JP` 側にだけ書けば英語ページでも対訳（例: `極秘事項` → `Confidential`）が出ます。`_EN` 側へマスクを複製する必要はありません。
+  既に両方に書かれている既存データ（18 件）はそのままで正しく、整理は不要です。
 - **一括処理との棲み分け**: 大量翻訳・既存英訳の突き合わせ(eval)・用語集同期は `tools/deepl/`（[`deepl-localization.md`](deepl-localization.md)）。エージェントの補助は単発の入力補助。
 - **最終採否は User**: 迷う訳は確定させず候補提示に留める。
 

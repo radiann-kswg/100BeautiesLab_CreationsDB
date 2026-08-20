@@ -812,3 +812,82 @@ describe('AnotherRegions_DBLink same-work merge (Works_DestinyFoxRecords / Proxy
     expect(e.Unit_JP).toBe('角度(弧度法)');
   });
 });
+
+describe('_Jump の言語別名解決（*_JP / *_EN 分離フィールドを suffix 無しで指す）', () => {
+  // 参照先: NumberTales/Primary Num=1 の NumerospecStats.NumerospecAbout_JP / _EN
+  // 期待値はデータから取る（本文が変わってもテストが陳腐化しないようにする）
+  const NT_LINK = { _Work: 'NumberTales', _DB: 'Primary', Num: 1 };
+  const NT1 = loadJson('data/Works_NumberTales/DataBases/db_Primary.json')
+    .find((r) => String(r.Num) === '1');
+  const JP_TEXT = NT1?.NumerospecStats?.NumerospecAbout_JP;
+  const EN_TEXT = NT1?.NumerospecStats?.NumerospecAbout_EN;
+
+  /** UnauthedLogica の実際の形（LogicspecStats 配下の _JP / _EN）で 1 件 enrich する */
+  async function enrichLogicspec(childKey, hashTag) {
+    const proc = new globalThis.EnrichmentProcessor(new TestDataFetcher(), testConfig);
+    const rec = {
+      Model: { ModelSeries: 'AttackerZeroid', Num: 61 },
+      LogicspecStats: {
+        [childKey]: { _Jump: { hashTag, _DBLink: NT_LINK } }
+      }
+    };
+    const out = await proc.enrichRecords([rec], '#Works_UnauthedLogica', 'Primary');
+    return out[0]?.LogicspecStats?.[childKey];
+  }
+
+  it('前提: 参照先が _JP / _EN に分離した非空の値を持つ', () => {
+    expect(typeof JP_TEXT).toBe('string');
+    expect(typeof EN_TEXT).toBe('string');
+    expect(JP_TEXT).not.toBe(EN_TEXT);
+  });
+
+  it('suffix 無し ＋ ドットパスで、参照元が _JP なら参照先の _JP を引く', async () => {
+    expect(await enrichLogicspec('LogicspecAbout_JP', 'NumerospecStats.NumerospecAbout')).toBe(JP_TEXT);
+  });
+
+  it('同じ hashTag でも、参照元が _EN なら参照先の _EN を引く', async () => {
+    expect(await enrichLogicspec('LogicspecAbout_EN', 'NumerospecStats.NumerospecAbout')).toBe(EN_TEXT);
+  });
+
+  it('suffix を明示した完全一致は従来どおり（参照元の言語に引きずられない）', async () => {
+    expect(await enrichLogicspec('LogicspecAbout_JP', 'NumerospecStats.NumerospecAbout_EN')).toBe(EN_TEXT);
+    expect(await enrichLogicspec('LogicspecAbout_EN', 'NumerospecStats.NumerospecAbout_JP')).toBe(JP_TEXT);
+  });
+
+  it('どの候補にも当たらなければラッパーを維持する（誤置換しない）', async () => {
+    const v = await enrichLogicspec('LogicspecAbout_JP', 'NumerospecStats.NoSuchField');
+    expect(v?._Jump).toBeTypeOf('object');
+    expect(v._Jump.hashTag).toBe('NumerospecStats.NoSuchField');
+  });
+
+  it('コンテナのパスを省くと当たらない（明示パス方式。レコード全体は走査しない）', async () => {
+    const v = await enrichLogicspec('LogicspecAbout_JP', 'NumerospecAbout');
+    expect(v?._Jump).toBeTypeOf('object');
+  });
+
+  it('TypeDefUtils.expandLangAliasCandidates は prefix を保って末尾だけ展開する', () => {
+    const T = globalThis.TypeDefUtils;
+
+    // _Search が使う既定の並び（挙動不変の回帰）
+    expect(T.expandLangAliasCandidates('FormalName_JP'))
+      .toEqual(['FormalName_JP', 'FormalName', 'FormalName_EN']);
+    expect(T.expandLangAliasCandidates('FormalName_EN'))
+      .toEqual(['FormalName_EN', 'FormalName', 'FormalName_JP']);
+
+    // ドットパスは prefix を保ち、末尾だけを展開する
+    expect(T.expandLangAliasCandidates('NumerospecStats.NumerospecAbout')).toEqual([
+      'NumerospecStats.NumerospecAbout',
+      'NumerospecStats.NumerospecAbout_JP',
+      'NumerospecStats.NumerospecAbout_EN'
+    ]);
+
+    // preferLang: 'EN' なら _EN を先に試す
+    expect(T.expandLangAliasCandidates('NumerospecStats.NumerospecAbout', 'EN')).toEqual([
+      'NumerospecStats.NumerospecAbout',
+      'NumerospecStats.NumerospecAbout_EN',
+      'NumerospecStats.NumerospecAbout_JP'
+    ]);
+
+    expect(T.expandLangAliasCandidates('')).toEqual([]);
+  });
+});

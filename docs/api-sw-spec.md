@@ -475,6 +475,11 @@ DB全体の代表画像（`DB_Image`、§3.3/§5.2参照）も、この疑似作
 - 別 DB から画像フィールドは埋めません
 - 別作品からの `_DBLink` では、対象作品の schema に宣言されたトップレベル項目だけを取り込みます
 - `_Jump` の `_Search` は 1 件一致だけ採用し、曖昧一致はスキップします
+- `_Jump` の `hashTag` は「完全一致 → 言語別名」の順で探します（`TypeDefUtils.expandLangAliasCandidates()`）。
+  `_JP` / `_EN` に分離したフィールドを suffix 無しで指せるようにするためで、優先言語は**参照元フィールドの suffix**です。
+  入れ子は**明示ドットパス**で指定します（レコード全体を名前で走査することはしません）。
+  例: `LogicspecAbout_JP: { _Jump: { hashTag: "NumerospecStats.NumerospecAbout" } }`
+  → 参照先の `NumerospecStats.NumerospecAbout_JP` を引く。どの候補にも当たらなければラッパーを維持します
 
 ### 8.1 `_Jump` + `$Def_DBLinkRef`（フィールド単位の参照先明示）
 

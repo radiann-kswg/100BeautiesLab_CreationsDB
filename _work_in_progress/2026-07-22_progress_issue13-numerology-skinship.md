@@ -129,15 +129,41 @@ User の依頼により [CheatSheet-of_Numbers](https://github.com/radiann-kswg/
 `ref_Reference.json` の用語定義と `ref_Vocabulary.json` の本文表記も `Arcanumspec` へ揃えている。
 `CHANGELOG.md` の過去エントリと完了済み WIP ログは当時の事実の記録なので書き換えていない。
 
-#### 既知の別課題（本変更とは無関係・Phase 4 以前から）
+### Phase 5 — 和英分離フィールドの suffix なし参照解決 ＋ `hideText` の言語共有（2026-08-20 実施）
 
-`data/Works_UnauthedLogica/DataBases/db_Primary.json` の `LogicspecAbout_JP` は
-`{ "_Jump": { "hashTag": "NumerospecAbout" } }` を持つが、**この参照は以前から解決できていない**。
+Phase 4 の作業中に見つけた「UnauthedLogica の `_Jump` が以前から解決できていない」問題を掘ったところ、
+原因は `_JP` / `_EN` 分離に起因する 2 系統だと分かったので、参照側と表示側の両方を直した。
 
-- 参照先キー `NumerospecAbout`（素）は NumberTales 側に 1 件も存在しない（実在するのは `NumerospecAbout_JP` / `_EN`）
-- 該当レコードにはルート `_DBLink` が無いため、`resolveJumpsInAny()` に渡る参照先レコード自体が無い
+#### 調査で分かったこと（部品は 2 つとも既にあった）
 
-いずれも Phase 4 の移行以前からの状態。参照先の決定は創作内容に踏み込むため、User の判断待ちとして記録に留める。
+| 事実 | 位置 |
+| --- | --- |
+| `_Jump` の `getByPath` は**ドットパスに既に対応**。足りないのは末尾の言語別名解決だけ | `lib/data-common.js` `resolveJumpsInAny()` |
+| 言語別名の展開（`FormalName_JP` → `[…, FormalName, FormalName_EN]`）は**既にあった**が、`searchRecords` 内のローカルクロージャで再利用できなかった。しかも**ドットパスの prefix を保って末尾だけ展開**する実装で、そのまま使えた | 同 `expandLangAliasCandidates` |
+| `hideText` の和英解決も**既にあった**。`#List_hideText`（`極秘事項`↔`Confidential` 等 13 対）を引いて言語別に出し分ける | `pages/characters.js` `formatMaskedValue()` |
+| 詰まっていたのは言語ルーティング側。EN では `_JP` 側を捨てるため、`_JP` にだけマスクがあるレコードが空欄になっていた | `formatBilingualGroup` / `buildObjectChildBlocks` |
+
+#### 変更
+
+1. `expandLangAliasCandidates()` を `TypeDefUtils` の static へ昇格し、`preferLang` を追加。`_Search` 側は呼び出しへ置換（並び不変）。
+2. `resolveJumpsInAny()` の `getByPath` 1 回を候補ループへ。第 1 候補が `hashTag` そのものなので**既存挙動は不変**、
+   全滅時はラッパー維持（fail-closed）。参照元フィールドのキー名を `walk()` で引き継いで優先言語にする。
+3. `isMaskedValue()` を追加し、EN ルーティング 2 箇所で「マスクなら `_JP` 側を EN でも採用」。ラベルだけ `_EN` 側の `hashTag_EN` を使う。
+4. UnauthedLogica の `_Jump` 6 件を明示パス（`NumerospecStats.NumerospecAbout`）へ更新。
+
+**入れ子の参照は明示ドットパス方式**（User 判断）。レコード全体を名前で走査する案は採らなかったため、
+当初懸念していた素の hashTag の衝突（実測で `Communication` / `Related` / `Commented` の 3 語）は問題ごと消えた。
+
+#### 実害の解消
+
+`NumerospecStats.NumerospecAbout_JP: { hideText }` があり `_EN` が無いレコード 6 件
+（`db_Secondary` の `0xA`〜`0xF`）が英語ページで空欄になっていたのを解消した。
+
+#### 残（User 判断）
+
+UnauthedLogica の `_Jump` 6 件は、パスと言語別名が原因ではなくなったが**まだ値は解決しない**。
+該当レコードにルート `_DBLink` も `_Jump._DBLink` も無く、参照先レコード自体が特定されないため。
+参照先の指定は創作判断なので User 待ち。
 
 ## 検証
 

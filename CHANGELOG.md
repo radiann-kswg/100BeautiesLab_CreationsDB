@@ -1,5 +1,23 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### feat: 和英分離フィールドの suffix なし参照解決と `hideText` の言語共有 (2026-08-20)
+
+- **`_Jump` が `_JP` / `_EN` を意識せず参照できるようになった**。`hashTag` を「完全一致 → 言語別名」の順で探し、
+  優先言語は参照元フィールドの suffix を使う。入れ子は明示ドットパスで指す。
+  例: `LogicspecAbout_JP: { _Jump: { hashTag: "NumerospecStats.NumerospecAbout" } }` → 参照先の `..._JP` を引く。
+  第 1 候補が `hashTag` そのものなので、既存の完全一致・ドットパス参照の挙動は変わらない。
+  どの候補にも当たらなければ従来どおりラッパーを維持する（fail-closed）。
+- **言語別名の展開を共通化**。`searchRecords` 内のローカルクロージャだった `expandLangAliasCandidates()` を
+  `TypeDefUtils` の static へ昇格し、`_Search` と `_Jump` で共用する（`_Search` 側の並びは不変）。
+- **`hideText` を言語共有として扱うようにした**。マスク値は `#List_hideText` の辞書コードで
+  `formatMaskedValue()` が既に言語別解決していたが、UI の言語ルーティングが EN で `_JP` 側を捨てていたため、
+  `_JP` にだけマスクがあるレコード（NumberTales/Secondary の 6 件）が英語ページで空欄になっていた。
+  値が `hideText` wrapper のときは EN でも `_JP` 側を採用し、ラベルだけ `_EN` 側の `hashTag_EN` を使う。
+  トップレベル（`formatBilingualGroup`）と入れ子（`buildObjectChildBlocks`）の両経路へ適用。
+- 既に `_JP` / `_EN` の両方へマスクを書いている既存データ（18 件）は動作が正しいのでそのまま。新規入力は片方でよい。
+- `data/Works_UnauthedLogica/DataBases/db_Primary.json` の `_Jump`（6 件）を明示パスへ更新。
+  ただし当該レコードには `_DBLink` が無く参照先レコードが特定されないため、値の解決には別途 `_Jump._DBLink` の付与が要る。
+
 ### refactor: モチーフ能力の情報を `*specStats` へ集約（Issue #13 Phase 4） (2026-08-20)
 
 - **`*specAbout` / `*specName` をトップレベルから `*specStats` 配下へ移動**（4 作品 / 155 レコード / 7 ファイル）。
