@@ -1359,12 +1359,15 @@
     "Num": 265,
     "Num_Badge": "265",
     "Progress": "stillTentative",
-    "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "265-numberize" }],
-    "FormalName_JP": "量産型ナンバーテールズ265番機シリーズ",
-    "FormalName_EN": "NumberTales #265 Series Mass Production Version for Sales",
+    "Name_JP": "265(ナイトエッヂ)",
+    "Name_EN": "265(KnightEdge)",
+    "FormalName_JP": "量産型ナンバーテールズ265番機RMシリーズ（ナンバーテールズ265番機）",
+    "FormalName_EN": "NumberTales #265-RM Series Mass Production Version for Sales (NumberTales #265)",
     "CodeName_JP": "二六五",
     "CodeName_EN": "Two-Six-Five",
-    "ModelNumber": "APHR-NT [MP]265-*****",
+    "SPCodeName_JP": "チェス駒ナイトの移動角度(arctan(1/2)≈26.565°)",
+    "SPCodeName_EN": "Movement angle of chess piece Knight (arctan(1/2)≈26.565°)",
+    "ModelNumber": "APHR-NT [MP]265-RM***",
     "GenderType": "Neutral",
     "Class": ["トリプルフォーズ"],
     "TailsUnit": [
@@ -1372,13 +1375,13 @@
         "TailShapeType": "#TailShapeType_FoxBranched",
         "Count": 6,
         "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 3 },
           { "Laterality": null, "TailCount": 1, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 3 },
           { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 2 }
         ],
         "LayoutDirection": {
-          "LayoutFrom": "#Lat_Upper",
-          "LayoutTo": "#Lat_Lower"
+          "LayoutFrom": "#Lat_Center",
+          "LayoutTo": "#Lat_Periphery"
         },
         "Note_JP": null,
         "Note_EN": null

@@ -58,28 +58,30 @@ NUM | n² n³ 2ⁿ n⁶|n⁴ n⁵|2ⁿ×3ⁿ×5ⁿ×7ⁿ|          \ LOT VALIANT
 `NC`：ナルシシスツ所属個体。ナルシシスト数
 
 ```
-    |CATEGORY       |APHR-NT MAIN MODEL
-NUM |or CLASS       |          \ LOT VALIANT
-----+---------------+-----------------------
-28  |Perfect number |II+VIII.A
-31  |Mersenne prime |I+III.B
-127 |Mersenne prime |         [MP]127-AM***
-496 |Perfect number |         [MP]496-AM***
-----+---------------+-----------------------
-273 |Absolute temp. |         [MP]273-PM***
-528 |Solfeggio freq.|         [MP]528-PM***
-----+---------------+-----------------------
-314 |PI:Circle radio|Dv.22/7(dev)
-360 |Degree per rev.|         [MP]360-RM***
-----+---------------+-----------------------
-223 |Carole number  |         [MP]223-CR***
-959 |Carole number  |         [MP]959-CR***
-----+---------------+-----------------------
-153 |Narcissist num.|         [MP]153-NC***
-370 |Narcissist num.|         [MP]370-NC***
-371 |Narcissist num.|         [MP]371-NC***
-407 |Narcissist num.|         [MP]407-NC***
-----+---------------+-----------------------
+    |CATEGORY         |APHR-NT MAIN MODEL
+NUM |or CLASS         |         \ LOT VALIANT
+----+-----------------+----------------------
+28  |Perfect number   |II+VIII.A
+31  |Mersenne prime   |I+III.B
+127 |Mersenne prime   |         [MP]127-AM***
+266 |Hilbert number   |Dv.8/3
+496 |Perfect number   |         [MP]496-AM***
+----+-----------------+----------------------
+273 |Absolute temp.   |         [MP]273-PM***
+528 |Solfeggio freq.  |         [MP]528-PM***
+----+-----------------+----------------------
+265 |Knight direction |         [MP]265-RM***
+314 |PI:Circle radio  |Dv.22/7
+360 |Degree per rev.  |         [MP]360-RM***
+----+-----------------+-----------------------
+223 |Carole number    |         [MP]223-CR***
+959 |Carole number    |         [MP]959-CR***
+----+-----------------+-----------------------
+153 |Narcissist num.  |         [MP]153-NC***
+370 |Narcissist num.  |         [MP]370-NC***
+371 |Narcissist num.  |         [MP]371-NC***
+407 |Narcissist num.  |         [MP]407-NC***
+----+-----------------+----------------------
 ```
 
 ### 暦・伝承・文学についてのロット
