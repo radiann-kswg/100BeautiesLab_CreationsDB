@@ -30,6 +30,8 @@
     "calendar:sync:dry": "node tools/sync-calendar-gcal.mjs --dry-run"
   },
   "devDependencies": {
+    "glob": "^13.0.6",
+    "jsdom": "^26.1.0",
     "glob": "^11.1.0",
     "jsdom": "^30.0.1",
     "playwright": "^1.62.1",
