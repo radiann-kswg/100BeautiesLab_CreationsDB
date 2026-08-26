@@ -219,6 +219,41 @@
 - **`ThisMasters._DBLink` のフォーマット**: `$Def_DBLinkRef` 形式を使用。`lib/section-renders/thisMasters.js` の `hydrateThisMastersLink` は SENTINEL_KEYS（`_DB / _Work / label_JP / label_EN`）を除いた最初のキーをインデックスとして動的解決します。
 - **画像以外のバイナリ資産（3Dモデル等）の追加パターン**: VRM 3Dアバター（`VRMs.corefolder_VRMPath`: `#VRMFilePath[]`）で確立したパターンとして、既存の `Images`/`ImageProcessor` パイプラインを流用・分岐で汚さず、専用型 + 専用 section-renderer（`$display.sectionWrapper`）+ client側専用URL構築ヘルパー（`pages/characters.js` の `buildTailsUnitImageUrl` 相当）で独立実装します。重い外部ライブラリ（three.js 等）が必要な場合は `pages/vendor/` に同梱（外部CDN非依存）し、ユーザー操作（ボタン押下等）まで動的 `import()` を遅延させます。詳細は `docs/wrapper-summary-registry.md` の `vrmViewerSection` / `docs/schema-meta-processing.md` の `#VRMFilePath` を参照してください。
 
+## 下流リポジトリへの波及（上流としての責務）
+
+本リポジトリは 3 リポジトリ構成の**最上流**です。ここでのフレームワーク変更は下流 2 本へ波及します。
+**正典は [`docs/fork-sync.md`](./docs/fork-sync.md)。**
+
+```
+100BeautiesLab_CreationsDB（本リポジトリ / フレームワークの実開発地）
+        └─→ JsonCharacterDB-Framework（public / CC BY-NC 4.0 / 創作データを持たない）
+                    └─→ RadianNs_SecondaryWorksDB（private / 二次創作DB）
+```
+
+流れは**一方向のみ**です。同期の仕組み（ベンダーブランチ方式・マニフェスト・点検ワークフロー）は
+**下流側**に実装されており、本リポジトリに同期スクリプトはありません（流し込む先が無いため）。
+
+**エージェントが守ること:**
+
+- **フレームワーク部分と創作データを同じコミットに混ぜない。** 下流はパス単位
+  （`lib/` `pages/` `tools/` `tests/` `pkg/` `svc/` `api/` `docs/`）で取り込むため、混在すると
+  下流の履歴とレビューが読みにくくなります。分けられるときは分けてください。
+- **下流へ波及する変更は `CHANGELOG.md` に理由と影響範囲を書く。** 下流の定期点検は
+  「どのファイルが変わったか」までしか出せません。**「なぜ変わったか / 取り込むべきか」の判断材料は
+  CHANGELOG が唯一の情報源**です。特に次は必ず書くこと。
+  - `db_type.json` / `db_meta.json` の仕様変更
+  - Service Worker のルーティング・`_enrichment` の出力形状の変更
+  - `lib/` の共通処理シグネチャの変更 / `pages/characters.js` の表示仕様の変更
+- **本リポジトリ固有のツールを追加したら、下流の除外リスト更新が要るかもしれないと申し送る。**
+  `tools/patch-*.mjs` `tools/build-calendar-ics.mjs` `tools/sync-calendar-gcal.mjs`
+  `tools/inject-conversation-patterns.mjs` `tools/normalize-callings.mjs` などは下流で除外済みです。
+  **ツールとそのテストは必ず対で除外される必要があり**、片方だけだと下流の `npm test` が壊れます。
+- **下流で見つかったフレームワークのバグは、本リポジトリで直して流し直す。** 下流で直接直すと
+  差分が固定化し、次回の同期でコンフリクトになります。
+
+依存関係の定期更新は `.github/dependabot.yml`（npm / GitHub Actions・毎週月曜 09:00 JST）。
+3 リポジトリで同じ方針を採っていますが、`.github/**` は同期対象外で各リポジトリ個別管理です。
+
 ## ブランチ運用方針
 
 ### `develop` ブランチ（コアドキュメント・主機能）

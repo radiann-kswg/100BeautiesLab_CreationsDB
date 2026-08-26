@@ -1,5 +1,20 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### chore: 上流としてのフォーク運用ルールと Dependabot を導入 (2026-08-26)
+
+- **本リポジトリを 3 リポジトリ構成の最上流として明文化**した。`docs/fork-sync.md` を新設し、
+  `AGENTS.md` に「下流リポジトリへの波及（上流としての責務）」を追加。
+  流れは `100BeautiesLab_CreationsDB` → `JsonCharacterDB-Framework` → `RadianNs_SecondaryWorksDB` の**一方向のみ**。
+  同期の仕組み（ベンダーブランチ方式）は下流側に実装されており、本リポジトリに同期スクリプトは持たない。
+- **上流としての運用ルールを追加**。フレームワーク部分と創作データを同じコミットに混ぜない／
+  下流へ波及する変更（`db_type.json` の仕様、SW ルーティング、`_enrichment` の出力形状、`lib/` の
+  共通処理シグネチャ、`pages/characters.js` の表示仕様）は **CHANGELOG に理由と影響範囲を書く**。
+  下流の定期点検はファイル差分までしか出せず、取り込み可否の判断材料は CHANGELOG が唯一の情報源になるため。
+- **`.github/dependabot.yml` を新規追加**（npm: リポジトリ直下 / `pkg/mcp`、GitHub Actions。毎週月曜 09:00 JST）。
+  従来は設定ファイルが無く、動いていたのは**設定不要の security updates のみ**だった。
+  定期のバージョン追従は本ファイルが必要。開発依存のマイナー/パッチと GitHub Actions は
+  それぞれ 1 本の PR にまとめてレビュー負荷を下げる。
+
 ### feat: 和英分離フィールドの suffix なし参照解決と `hideText` の言語共有 (2026-08-20)
 
 - **`_Jump` が `_JP` / `_EN` を意識せず参照できるようになった**。`hashTag` を「完全一致 → 言語別名」の順で探し、
