@@ -32,7 +32,7 @@
           { "Beast": "Fox", "RaceType": "Warfox(Acquired)" },
           { "Beast": "Boar", "RaceType": "FangSpeeder(Acquired)" },
           { "Beast": "Cat", "RaceType": "Nekomata(Acquired)" },
-          { "Beast": "Dog", "RaceType": "Komainu(Acquired)" }
+          { "Beast": "Dog", "RaceType": "Komainu" }
         ]
       }
     }
