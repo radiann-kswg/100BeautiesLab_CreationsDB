@@ -146,6 +146,7 @@
     "Name_EN": "Boundy Rabbitimes",
     "Images": {
       "newYear_PNGPath": ["art_imgSAR-EZ4", "art_imgSAR-EZ4-newyear2023"],
+      "concept_PNGName": "cnsp_imgSAR-EZ4",
       "designAlt_PNGPath": ["chattingArt/chart_imgSAR-EZ4-private"]
     },
     "FormalName_JP": "月島 みちる",
@@ -372,7 +373,7 @@
     "Name_JPReading": "とらのこくネネコ",
     "Name_EN": "Meowcats Tigertimes",
     "Images": {
-      "newYear_PNGPath": ["art_imgSAR-EZ13-meowsday2023"],
+      "newYear_PNGPath": ["art_imgSAR-EZ13", "art_imgSAR-EZ13-meowsday2023"],
       "concept_PNGName": "cnsp_imgSAR-EZ13",
       "arts_PNGPath": [
         "sphericateDay/art_imgSAR-EZ13-sphericateDay202309A",
