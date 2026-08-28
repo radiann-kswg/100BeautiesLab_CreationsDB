@@ -12,7 +12,7 @@
 - **インライン補完（ゴーストテキスト）**: 補完はカスタム指示ファイルを読み込みません。英訳作業中は本ファイルを隣のタブで開いておくと、近傍文脈として対訳が補完に反映されやすくなります。
 - **正典はあくまで辞書本体**。表に無い語・揺れがある語は `data/**/trans_*.json` 等の辞書と `docs/localization-en-rules.md` を確認してください。最終採否は User 判断です。
 
-- 収録: **184 対訳**（延べ抽出。生成日時: 2026-08-28T05:40:58.133Z）
+- 収録: **186 対訳**（延べ抽出。生成日時: 2026-08-28T06:54:36.613Z）
 
 ## 人名（姓・代理）
 
@@ -285,6 +285,7 @@
 | カスタムオートマトン | Custom Automaton |
 | ヒューマノイド | Humanoid |
 | ポータブルヒューマノイド | Portable Humanoid |
+| 化猫 | Warcat |
 | 恐怖概念 | Terrorinaries |
 | 金牛 | Taurus |
 | 月虎 | LunaTiger |
@@ -292,7 +293,8 @@
 | 獅子 | Lionian |
 | 時空遷移存在 | ChronoidShifter |
 | 人間 | Human |
-| 生体改造済みモルモット種族 | ClonicMouse |
+| 人狼 | Warwolf |
+| 生体改造済みモルモット種族 | Bioengineered Guinean |
 | 猪突猛進者 | FangSpeeder |
 | 鳥人 | Birdman |
 | 馬人 | Thoroughbreder |
