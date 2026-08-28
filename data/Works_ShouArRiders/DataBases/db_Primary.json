@@ -64,8 +64,17 @@
     "FromArea": { "Area": "四蓮島" },
     "Height_cm": 191,
     "Weight_kg": 80,
-    "Age": {"value": 23, "about_JP": "？", "about_EN": "?"},
-    "AnivDay": [{ "Day": { "Month": 1, "DayOfMonth": 21 }, "DayAbout_JP": "「丑刻ギウニ」としての便宜上の誕生日" },{ "Day": { "Month": 5, "DayOfMonth": 22 }, "DayAbout_JP": "「出水 億人」としての戸籍上の誕生日" }],
+    "Age": { "value": 23, "about_JP": "？", "about_EN": "?" },
+    "AnivDay": [
+      {
+        "Day": { "Month": 1, "DayOfMonth": 21 },
+        "DayAbout_JP": "「丑刻ギウニ」としての便宜上の誕生日"
+      },
+      {
+        "Day": { "Month": 5, "DayOfMonth": 22 },
+        "DayAbout_JP": "「出水 億人」としての戸籍上の誕生日"
+      }
+    ],
     "FirstPersonCalling_JP": "おれ;[※名前呼び]",
     "FirstPersonCalling_EN": "I (masc. informal);[*by name]",
     "SecondPersonCalling_JP": "おまえ;[※名前呼び]",
@@ -136,7 +145,7 @@
     "Name_JPReading": "うのこくハネネカ",
     "Name_EN": "Boundy Rabbitimes",
     "Images": {
-      "newYear_PNGPath": ["art_imgSAR-EZ4","art_imgSAR-EZ4-newyear2023"],
+      "newYear_PNGPath": ["art_imgSAR-EZ4", "art_imgSAR-EZ4-newyear2023"],
       "designAlt_PNGPath": ["chattingArt/chart_imgSAR-EZ4-private"]
     },
     "FormalName_JP": "月島 みちる",
@@ -180,12 +189,12 @@
     "Name_JP": "辰刻リウロン",
     "Name_JPReading": "たつのこくリウロン\nたつのこくリューロン",
     "Name_EN": "Liú-lóng Dragotimes",
-    "Images": { "newYear_PNGPath": ["art_imgSAR-EZ5","art_imgSAR-EZ5-2024"] },
+    "Images": { "newYear_PNGPath": ["art_imgSAR-EZ5", "art_imgSAR-EZ5-2024"] },
     "FormalName_JP": "劉.元画",
     "FormalName_JPReading": "リウ.ユァンファ",
     "FormalName_EN": "Liú.YuánHuà",
     "GenderType": "Male",
-    "FromArea": { "Area": "龍天国" },
+    "FromArea": { "Area": "暁美諸国" },
     "Height_cm": 170,
     "Weight_kg": 62,
     "Age": 37,
@@ -222,7 +231,12 @@
     "Name_JPReading": "みのこくカミツ",
     "Name_EN": "Ciderin Snaketimes",
     "Images": {
-      "newYear_PNGPath": ["art_imgSAR-EZ6-A","art_imgSAR-EZ6-B","art_imgSAR-EZ6-newyear2025A", "art_imgSAR-EZ6-newyear2025B"]
+      "newYear_PNGPath": [
+        "art_imgSAR-EZ6-A",
+        "art_imgSAR-EZ6-B",
+        "art_imgSAR-EZ6-newyear2025A",
+        "art_imgSAR-EZ6-newyear2025B"
+      ]
     },
     "FormalName_JP": "花.花琳",
     "FormalName_JPReading": "ホゥア.フアリン",
@@ -270,7 +284,9 @@
     "Name_JP": "午刻ハヤテ",
     "Name_JPReading": "うまのこくハヤテ",
     "Name_EN": "Windrush Horsetimes",
-    "Images": { "newYear_PNGPath": ["art_imgSAR-EZ7","art_imgSAR-EZ7-newyear2026"] },
+    "Images": {
+      "newYear_PNGPath": ["art_imgSAR-EZ7", "art_imgSAR-EZ7-newyear2026"]
+    },
     "FormalName_JP": "ルドルフ.コーナー",
     "FormalName_EN": "Rudolf.Korner",
     "GenderType": "Male",
@@ -305,22 +321,27 @@
   },
   {
     "BeastType": { "Beast": "Sheep" },
-    "Progress": "nowProceeded",
+    "Progress": "nowCreating",
     "Name_JP": "未刻ユメウツゝ",
     "Name_JPReading": "ひつじのこくユメウツツ",
-    "Name_EN": "Dremys Sheeptimes",
+    "Name_EN": "Dreamythrill Sheeptimes",
+    "Images": { "newYear_PNGPath": ["art_imgSAR-EZ8"] },
     "FormalName_JP": "出水 ねむり",
     "FormalName_JPReading": "いずみ ねむり",
     "FormalName_EN": "Nonrem Izumi",
     "GenderType": "Female",
     "FromArea": { "Area": "四蓮島" },
     "Height_cm": 120,
-    "Weight_kg": {"hideText": "無効データ"},
+    "Weight_kg": { "hideText": "無効データ" },
     "BustSize": "W",
-    "Age": {"value": 10, "about_JP": "この年の姿をしているが、さらに15年以上歳を重ねているとされている", "about_EN": "Although appearing this age, it's said she has aged over 15 additional years."},
-    "BirthDay": {"hideText": "本人すら把握されていない"},
-    "FirstPersonCalling_JP": "ぼく;[※名前呼び]",
-    "FirstPersonCalling_EN": "I (neutral);[*by name]",
+    "Age": {
+      "value": 10,
+      "about_JP": "この年の姿をしているが、実際はさらに15年以上歳を重ねているとされている",
+      "about_EN": "Although appearing this age, it's said she has aged over 15 additional years."
+    },
+    "BirthDay": { "hideText": "本人すら把握されていない" },
+    "FirstPersonCalling_JP": "ぼく;ユメゥ/ねむり ※名前呼び",
+    "FirstPersonCalling_EN": "I (neutral); Dremys/Nonrem (*by name)",
     "SecondPersonCalling_JP": "きみ;[※名前呼び]",
     "SecondPersonCalling_EN": "you;[*by name]",
     "ThirdPersonCalling_JP": "*れ;[※名前呼び]",
@@ -333,10 +354,10 @@
     "SpecialSkill_EN": "Can count numbers to six or more digits (apparently)\nAgeless",
     "Favor_JP": "アイスクリーム（あたり付き）",
     "Favor_EN": "Ice cream (with a prize inside)",
-    "Unlike_JP": "うなぎ,水,弟：丑刻ギウニ(出水億人)",
-    "Unlike_EN": "Eel, Water, Younger brother: Holster Oxentimes (Oxto Izumi)",
-    "Summary_JP": "巻き角のある垂れた耳と長く滑らかで柔らかい毛髪が特徴的な獣爾騎兵の8番手。\n若くして山月病罹患により局所的な身体生育の停止と不眠症状を患い生死の危機にあったが、子刻ハッカと南里ハッケンによる不老治療により一命を取り留めている。\nその不眠治療の一環として得た『睡魔封印』という能力で、相手の睡魔を増幅し昏睡状態級に深い睡眠を与える力を手にした。",
-    "Summary_EN": "The 8th of the Shou-Ar Riders, distinguished by drooping ears with curled horns and long, smooth, and soft hair.\nShe suffered from localized growth arrest and insomnia due to Shanyu Disease in her younger years, facing a life-threatening situation, but survived thanks to ageless treatment by Mus Mousetimes and Hachken Southmidog.\nAs part of her insomnia treatment, she gained the ability called 'Sleep-Overdose,' which amplifies the sleepiness of others and induces a deep sleep akin to a comatose state.",
+    "Unlike_JP": "うなぎ,水\n弟：丑刻ギウニ(出水億人)",
+    "Unlike_EN": "Eel, Water\nYounger brother: Holster Oxentimes (Oxto Izumi)",
+    "Summary_JP": "巻き角のある垂れた耳と長く滑らかで柔らかい毛髪が特徴的な獣爾騎兵の8番手。\n山月病罹患により局所的な身体生育の停止と不眠を伴う症状を患い若くして生死の危機にあったが、子刻ハッカと南里ハッケンによる不老治療により一命を取り留めている。\nその不眠治療の一環として得た『睡魔封印』という能力で、相手の睡魔を増幅し昏睡状態級に深い睡眠を与える力を手にした。",
+    "Summary_EN": "The 8th of the Shou-Ar Riders, distinguished by drooping ears with curled horns and long, smooth, and soft hair.\nShe suffered from localized growth arrest and insomnia due to Shanyu Disease, facing a life-threatening situation in her younger years, but survived thanks to ageless treatment by Mus Mousetimes and Hachken Southmidog.\nAs part of her insomnia treatment, she gained the ability called 'Sleep-Overdose,' which amplifies the sleepiness of others and induces a deep sleep akin to a comatose state.",
     "BeastspecStats": {
       "BeastspecName_JP": "睡魔封印",
       "BeastspecName_EN": "Sleep-Overdose",
@@ -406,7 +427,7 @@
     "FromArea": { "Area": "九連国" },
     "Height_cm": 164,
     "Weight_kg": 52,
-    "Age": 37,
+    "Age": 47,
     "BirthDay": { "Day": { "Month": 3, "DayOfMonth": 28 } },
     "FirstPersonCalling_JP": "私",
     "FirstPersonCalling_EN": "I (formal)",
