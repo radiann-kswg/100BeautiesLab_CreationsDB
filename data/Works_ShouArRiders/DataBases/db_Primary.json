@@ -53,7 +53,7 @@
   },
   {
     "BeastType": { "Beast": "Ox" },
-    "Progress": "nowProceeded",
+    "Progress": "notProceeded",
     "Name_JP": "丑刻ギウニ",
     "Name_JPReading": "うしのこくギウニ\nうしのこくギューニ",
     "Name_EN": "Holster Oxtimes",
