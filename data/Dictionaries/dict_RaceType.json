@@ -113,12 +113,12 @@
   },
   {
     "RaceType": "Nekomata",
-    "RaceType_JP": "猫又",
+    "RaceType_JP": "猫又/化猫",
     "RaceType_EN": "Nekomata / Warcat"
   },
   {
     "RaceType": "Nekomata(Acquired)",
-    "RaceType_JP": "猫又(後天的)",
+    "RaceType_JP": "猫又/化猫(後天的)",
     "RaceType_EN": "Nekomata / Warcat (Acquired)",
     "basis": [{ "RaceType": "Human" }, { "RaceType": "Nekomata" }]
   },
@@ -148,13 +148,19 @@
     "RaceType_EN": "LunaTiger"
   },
   {
+    "RaceType": "LunaTiger(Acquired)",
+    "RaceType_JP": "月虎(後天的)",
+    "RaceType_EN": "LunaTiger (Acquired)",
+    "basis": [{ "RaceType": "Human" }, { "RaceType": "LunaTiger" }]
+  },
+  {
     "RaceType": "LunaWolf",
-    "RaceType_JP": "月狼",
+    "RaceType_JP": "月狼/人狼",
     "RaceType_EN": "LunaWolf / Warwolf"
   },
   {
     "RaceType": "LunaWolf(Super-dimentional)",
-    "RaceType_JP": "月狼(超次元的)",
+    "RaceType_JP": "月狼/人狼(超次元的)",
     "RaceType_EN": "LunaWolf / Warwolf (Super-dimensional)",
     "basis": [{ "RaceType": "LunaWolf" }, { "RaceType": "ChronoidShifter" }]
   },

@@ -1,5 +1,16 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### feat: DeepL 用語集ビルドで併記形（`/` 区切り）を位置対応ペアリング (2026-08-28)
+
+- **`tools/deepl/build-glossary-source.mjs` の併記形の扱いを改善**。従来、`猫又/化猫` ↔ `Nekomata / Warcat` の
+  ような JP / EN 双方が併記形の対訳は、訳語側が常に先頭断片へ固定され、`化猫→Warcat` などの対が
+  データセットから落ちていた。**断片数が一致する場合は位置対応でペアリング**し、各断片対
+  （`猫又→Nekomata` / `化猫→Warcat`）を独立エントリとして JA→EN / EN→JA の双方向へ登録する。
+- 断片数が一致しない併記形（例: `人狼惹き` ↔ `Half LunaWolf / Half Warwolf`）は従来どおり
+  「先頭断片を訳語に採用＋EN 側全断片をソースキー登録」を維持。丸括弧注釈のスキップ仕様も現状維持。
+- 影響範囲: `.cache/deepl/glossary_*.tsv` / `glossary_source.json` / `docs/localization-glossary-quickref.md`
+  （JA→EN 185→186 件、EN→JA 188 件）。DeepL 側への反映は `npm run deepl:sync-glossary` の再実行が必要。
+
 ### chore: 上流としてのフォーク運用ルールと Dependabot を導入 (2026-08-26)
 
 - **本リポジトリを 3 リポジトリ構成の最上流として明文化**した。`docs/fork-sync.md` を新設し、
