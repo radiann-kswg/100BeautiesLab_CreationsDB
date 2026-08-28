@@ -144,6 +144,7 @@
           "Class",
           "Height_cm",
           "Weight_kg",
+          "BustSize",
           "Age",
           "BirthDay"
         ],
@@ -375,6 +376,11 @@
           "hideText": "データ無",
           "hideText_JP": "データ無",
           "hideText_EN": "No Data"
+        },
+        {
+          "hideText": "無効データ",
+          "hideText_JP": "無効データ",
+          "hideText_EN": "Non-Valid Data"
         },
         {
           "hideText": "公開不能",

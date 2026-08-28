@@ -2254,13 +2254,13 @@
         "TailShapeType": "#TailShapeType_FoxBranched",
         "Count": 6,
         "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 3 },
           { "Laterality": null, "TailCount": 1, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 3 },
           { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 2 }
         ],
         "LayoutDirection": {
-          "LayoutFrom": "#Lat_Upper",
-          "LayoutTo": "#Lat_Lower"
+          "LayoutFrom": "#Lat_Center",
+          "LayoutTo": "#Lat_Periphery"
         },
         "Note_JP": null,
         "Note_EN": null

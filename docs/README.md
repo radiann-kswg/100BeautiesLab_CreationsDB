@@ -17,6 +17,7 @@ This folder contains documentation for **100BeautiesLab. Creations DB (Web)**.
 - API / SW technical note (JP): `api-sw-spec.md`
 - Wrapper summary registry note (JP): `wrapper-summary-registry.md`
 - Implementation playbook (JP): `implementation-playbook.md`
+- **Fork sync (JP)**: `fork-sync.md` — 下流 `JsonCharacterDB-Framework` / `RadianNs_SecondaryWorksDB` への波及と、上流としての責務
 - Third-party policy (JP): `third-party-policy.md`
 - **pkg/ client libraries (JP)**: `pkg-client-libraries.md` — サブモジュール向けクライアントパッケージ（Node.js / Python / C# / Cloudflare Workers / MCP）の設計・使い方
 

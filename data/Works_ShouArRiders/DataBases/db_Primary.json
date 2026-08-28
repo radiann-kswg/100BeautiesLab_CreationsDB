@@ -17,6 +17,7 @@
     },
     "Height_cm": 129,
     "Weight_kg": 32,
+    "BustSize": "A",
     "Age": { "value": 17, "about_JP": "？", "about_EN": "?" },
     "AnivDay": [
       {
@@ -45,9 +46,58 @@
     "Summary_EN": "The 1st of the Shou-Ar Riders and their commander, distinguished by round ears and a thread-like tail.\nA certified doctor girl conducting extensive research on countermeasures for Shanyu Disease, a designated intractable illness in LóngZhōu's.Republic.\nSince she never leaves the Shou-Ar Riders' research base, rumors of devotion, aggression, and even madness in pursuit of survival and victory circulate; those who don't know her well describe her as a \"living guinea pig.\"\nShe claims to be 17 years old, but even checking family registers, a \"17-year-old girl\" matching her description has \"not existed for a very long time\"...",
     "BeastspecStats": {
       "BeastspecName_JP": "子機分身",
-      "BeastspecName_EN": "ChildCroning",
+      "BeastspecName_EN": "Child-Croning",
       "BeastspecAbout_JP": "クローン個体と意識を共有することで疑似的に分身出来る",
       "BeastspecAbout_EN": "Can pseudo-split by sharing consciousness with clone units"
+    }
+  },
+  {
+    "BeastType": { "Beast": "Ox" },
+    "Progress": "notProceeded",
+    "Name_JP": "丑刻ギウニ",
+    "Name_JPReading": "うしのこくギウニ\nうしのこくギューニ",
+    "Name_EN": "Holster Oxtimes",
+    "FormalName_JP": "出水 億人",
+    "FormalName_JPReading": "いずみ おくと",
+    "FormalName_EN": "Oxto Izumi",
+    "GenderType": "Male",
+    "FromArea": { "Area": "四蓮島" },
+    "Height_cm": 191,
+    "Weight_kg": 80,
+    "Age": { "value": 23, "about_JP": "？", "about_EN": "?" },
+    "AnivDay": [
+      {
+        "Day": { "Month": 1, "DayOfMonth": 21 },
+        "DayAbout_JP": "「丑刻ギウニ」としての便宜上の誕生日"
+      },
+      {
+        "Day": { "Month": 5, "DayOfMonth": 22 },
+        "DayAbout_JP": "「出水 億人」としての戸籍上の誕生日"
+      }
+    ],
+    "FirstPersonCalling_JP": "おれ;[※名前呼び]",
+    "FirstPersonCalling_EN": "I (masc. informal);[*by name]",
+    "SecondPersonCalling_JP": "おまえ;[※名前呼び]",
+    "SecondPersonCalling_EN": "you (informal);[*by name]",
+    "ThirdPersonCalling_JP": "*れ;[※名前呼び]",
+    "ThirdPersonCalling_EN": "this/that/who/what/which/them (as objective); [*by name]",
+    "Character_JP": "ムードメーカだが、実は……",
+    "Character_EN": "A mood maker, but in reality...",
+    "Hobby_JP": "繁華街の散歩",
+    "Hobby_EN": "Walking around downtown",
+    "SpecialSkill_JP": "バストサイズを見抜く",
+    "SpecialSkill_EN": "Can discern bust size",
+    "Favor_JP": "エロ本, 子刻ハッカ",
+    "Favor_EN": "Erotic comics, Mus Mousetimes",
+    "Unlike_JP": "自分が尊敬されること",
+    "Unlike_EN": "Being respected by others",
+    "Summary_JP": "角のある垂れた耳と真鱈模様な肌が特徴的な獣爾騎兵の2番手。\n8番手の未刻ユメウツゝとは姉弟関係のようだが……",
+    "Summary_EN": "The 2nd of the Shou-Ar Riders, distinguished by drooping ears with horns and skin with a cod pattern.\nHe seems to have a sibling relationship with the 8th member: Dremys Sheeptime, but...",
+    "BeastspecStats": {
+      "BeastspecName_JP": "追従突撃",
+      "BeastspecName_EN": "Pursuing-Charge",
+      "BeastspecAbout_JP": "標的を定めて突撃する",
+      "BeastspecAbout_EN": "Charges at the target with precision"
     }
   },
   {
@@ -65,12 +115,12 @@
     "Weight_kg": 58,
     "Age": 25,
     "BirthDay": { "Day": { "Month": 2, "DayOfMonth": 25 } },
-    "FirstPersonCalling_JP": "[※名前呼び]",
-    "FirstPersonCalling_EN": "[*by name]",
-    "SecondPersonCalling_JP": "[※名前呼び]",
-    "SecondPersonCalling_EN": "[*by name]",
-    "ThirdPersonCalling_JP": "*れ;[※名前呼び]",
-    "ThirdPersonCalling_EN": "this/that/who/what/which/them (as objective); [*by name]",
+    "FirstPersonCalling_JP": "俺;[※名前呼び]",
+    "FirstPersonCalling_EN": "I (masc. informal); [*by name]",
+    "SecondPersonCalling_JP": "あんた;[※名前呼び]",
+    "SecondPersonCalling_EN": "you (informal); [*by name]",
+    "ThirdPersonCalling_JP": "*いつ,*れ;[※名前呼び]",
+    "ThirdPersonCalling_EN": "this/that/who/what/which/them (as personal or objective); [*by name]",
     "Character_JP": "喧嘩っ早く短期",
     "Character_EN": "Quarrelsome and short-tempered",
     "Hobby_JP": "ツーリング",
@@ -80,10 +130,10 @@
     "Unlike_JP": "自分勝手な人間\n不平等",
     "Unlike_EN": "Selfish people\nInequality",
     "Summary_JP": "猫の耳と尻尾と虎柄な髪色が特徴的な獣爾騎兵の3番手。\n13番手の寅刻ネゝコを妹に持ち、武力行使による鎮圧任務などで活躍している。",
-    "Summary_EN": "The 3rd of the Shou-Ar Riders, distinguished by cat ears, a tail, and tiger-patterned hair.\nHe has the 13th unit Meowcats as a younger sister, and is active in suppression missions using force.",
+    "Summary_EN": "The 3rd of the Shou-Ar Riders, distinguished by cat ears, a tail, and tiger-patterned hair.\nHe has the 13th member: Meowcats as a younger sister, and is active in suppression missions using force.",
     "BeastspecStats": {
       "BeastspecName_JP": "会心一中",
-      "BeastspecName_EN": "One'sConcentration",
+      "BeastspecName_EN": "One's-Concentration",
       "BeastspecAbout_JP": "相手の急所など一点を狙って行動できる",
       "BeastspecAbout_EN": "Can act with precision, targeting vital points of opponents"
     }
@@ -95,13 +145,17 @@
     "Name_JPReading": "うのこくハネネカ",
     "Name_EN": "Boundy Rabbitimes",
     "Images": {
-      "newYear_PNGPath": ["art_imgSAR-EZ4-newyear2023"],
+      "newYear_PNGPath": ["art_imgSAR-EZ4", "art_imgSAR-EZ4-newyear2023"],
       "designAlt_PNGPath": ["chattingArt/chart_imgSAR-EZ4-private"]
     },
+    "FormalName_JP": "月島 みちる",
+    "FormalName_JPReading": "つきしま みちる",
+    "FormalName_EN": "Michill Fulluna",
     "GenderType": "Female",
     "FromArea": { "Area": "九蓮国" },
     "Height_cm": 144,
     "Weight_kg": { "hideText": "非公開" },
+    "BustSize": "A",
     "Age": 19,
     "BirthDay": { "Day": { "Month": 3, "DayOfMonth": 19 } },
     "FirstPersonCalling_JP": "ウチ",
@@ -124,7 +178,7 @@
     "Summary_EN": "The 4th of the Shou-Ar Riders, distinguished by rabbit ears and a tail.\nPossesses high mobility with superior jumping and dashing ability, and despite her lean build, she has stepped up as a powerhouse combatant among the Shou-Ar Riders.\nAlthough her tomboyish and energetic personality means she loves physical activity, she has a strong trauma around mochi pounding due to the weapon she uses in combat, making it difficult to actively participate.",
     "BeastspecStats": {
       "BeastspecName_JP": "跳躍",
-      "BeastspecName_EN": "DashJumping",
+      "BeastspecName_EN": "Dash-Jumping",
       "BeastspecAbout_JP": "優れた脚力でジャンプやダッシュなどの機動力を上げる",
       "BeastspecAbout_EN": "Enhances mobility such as jumping and dashing with superior leg strength"
     }
@@ -133,14 +187,14 @@
     "BeastType": { "Beast": "Dragon" },
     "Progress": "released",
     "Name_JP": "辰刻リウロン",
-    "Name_JPReading": "たつのこくリウロン",
+    "Name_JPReading": "たつのこくリウロン\nたつのこくリューロン",
     "Name_EN": "Liú-lóng Dragotimes",
-    "Images": { "newYear_PNGPath": ["art_imgSAR-EZ5-2024"] },
+    "Images": { "newYear_PNGPath": ["art_imgSAR-EZ5", "art_imgSAR-EZ5-2024"] },
     "FormalName_JP": "劉.元画",
     "FormalName_JPReading": "リウ.ユァンファ",
     "FormalName_EN": "Liú.YuánHuà",
     "GenderType": "Male",
-    "FromArea": { "Area": "龍天国" },
+    "FromArea": { "Area": "暁美諸国" },
     "Height_cm": 170,
     "Weight_kg": 62,
     "Age": 37,
@@ -177,7 +231,12 @@
     "Name_JPReading": "みのこくカミツ",
     "Name_EN": "Ciderin Snaketimes",
     "Images": {
-      "newYear_PNGPath": ["art_imgSAR-EZ6-newyear2025A", "art_imgSAR-EZ6-newyear2025B"]
+      "newYear_PNGPath": [
+        "art_imgSAR-EZ6-A",
+        "art_imgSAR-EZ6-B",
+        "art_imgSAR-EZ6-newyear2025A",
+        "art_imgSAR-EZ6-newyear2025B"
+      ]
     },
     "FormalName_JP": "花.花琳",
     "FormalName_JPReading": "ホゥア.フアリン",
@@ -186,6 +245,7 @@
     "FromArea": { "Area": "龍天国" },
     "Height_cm": 157,
     "Weight_kg": { "hideText": "？？？" },
+    "BustSize": "G",
     "Age": { "hideText": "？？？" },
     "AnivDay": [
       {
@@ -224,7 +284,9 @@
     "Name_JP": "午刻ハヤテ",
     "Name_JPReading": "うまのこくハヤテ",
     "Name_EN": "Windrush Horsetimes",
-    "Images": { "newYear_PNGPath": ["art_imgSAR-EZ7-newyear2026"] },
+    "Images": {
+      "newYear_PNGPath": ["art_imgSAR-EZ7", "art_imgSAR-EZ7-newyear2026"]
+    },
     "FormalName_JP": "ルドルフ.コーナー",
     "FormalName_EN": "Rudolf.Korner",
     "GenderType": "Male",
@@ -255,6 +317,52 @@
       "BeastspecName_EN": "PullingBreakthrough",
       "BeastspecAbout_JP": "馬力と俊敏性の高い走破で移動戦に持ち込む",
       "BeastspecAbout_EN": "Draws battles into mobile warfare with powerful horsepower and high-agility traversal"
+    }
+  },
+  {
+    "BeastType": { "Beast": "Sheep" },
+    "Progress": "nowCreating",
+    "Name_JP": "未刻ユメウツゝ",
+    "Name_JPReading": "ひつじのこくユメウツツ",
+    "Name_EN": "Dreamythrill Sheeptimes",
+    "Images": { "newYear_PNGPath": ["art_imgSAR-EZ8"] },
+    "FormalName_JP": "出水 ねむり",
+    "FormalName_JPReading": "いずみ ねむり",
+    "FormalName_EN": "Nonrem Izumi",
+    "GenderType": "Female",
+    "FromArea": { "Area": "四蓮島" },
+    "Height_cm": 120,
+    "Weight_kg": { "hideText": "無効データ" },
+    "BustSize": "W",
+    "Age": {
+      "value": 10,
+      "about_JP": "この年の姿をしているが、実際はさらに15年以上歳を重ねているとされている",
+      "about_EN": "Although appearing this age, it's said she has aged over 15 additional years."
+    },
+    "BirthDay": { "hideText": "本人すら把握されていない" },
+    "FirstPersonCalling_JP": "ぼく;ユメゥ/ねむり ※名前呼び",
+    "FirstPersonCalling_EN": "I (neutral); Dremys/Nonrem (*by name)",
+    "SecondPersonCalling_JP": "きみ;[※名前呼び]",
+    "SecondPersonCalling_EN": "you;[*by name]",
+    "ThirdPersonCalling_JP": "*れ;[※名前呼び]",
+    "ThirdPersonCalling_EN": "this/that/who/what/which/them (as objective); [*by name]",
+    "Character_JP": "気怠げでいつも眠そう",
+    "Character_EN": "Lethargic and always sleepy",
+    "Hobby_JP": "毛髪の手入れ",
+    "Hobby_EN": "Hair care",
+    "SpecialSkill_JP": "６桁以上の個数を数えられる（らしい）\n不老",
+    "SpecialSkill_EN": "Can count numbers to six or more digits (apparently)\nAgeless",
+    "Favor_JP": "アイスクリーム（あたり付き）",
+    "Favor_EN": "Ice cream (with a prize inside)",
+    "Unlike_JP": "うなぎ,水\n弟：丑刻ギウニ(出水億人)",
+    "Unlike_EN": "Eel, Water\nYounger brother: Holster Oxentimes (Oxto Izumi)",
+    "Summary_JP": "巻き角のある垂れた耳と長く滑らかで柔らかい毛髪が特徴的な獣爾騎兵の8番手。\n山月病罹患により局所的な身体生育の停止と不眠を伴う症状を患い若くして生死の危機にあったが、子刻ハッカと南里ハッケンによる不老治療により一命を取り留めている。\nその不眠治療の一環として得た『睡魔封印』という能力で、相手の睡魔を増幅し昏睡状態級に深い睡眠を与える力を手にした。",
+    "Summary_EN": "The 8th of the Shou-Ar Riders, distinguished by drooping ears with curled horns and long, smooth, and soft hair.\nShe suffered from localized growth arrest and insomnia due to Shanyu Disease, facing a life-threatening situation in her younger years, but survived thanks to ageless treatment by Mus Mousetimes and Hachken Southmidog.\nAs part of her insomnia treatment, she gained the ability called 'Sleep-Overdose,' which amplifies the sleepiness of others and induces a deep sleep akin to a comatose state.",
+    "BeastspecStats": {
+      "BeastspecName_JP": "睡魔封印",
+      "BeastspecName_EN": "Sleep-Overdose",
+      "BeastspecAbout_JP": "睡魔を増幅しノンレム睡眠状態ないし昏睡状態にする",
+      "BeastspecAbout_EN": "Amplifies the sleepiness and induces a deep sleep akin to a comatose state"
     }
   },
   {
@@ -304,6 +412,46 @@
       "BeastspecName_EN": "SoftizeBody/TouchGrounding",
       "BeastspecAbout_JP": "関節や骨格を極限まで柔らかく動かす\n着地時に受け身を執ることで高所からの落下に耐える",
       "BeastspecAbout_EN": "Moves joints and skeletal structure with extreme flexibility\nWithstands falls from great heights by taking a breakfall upon landing"
+    }
+  },
+  {
+    "BeastType": { "Beast": "Dog" },
+    "Progress": "stillTentative",
+    "Name_JP": "南里ハッケン",
+    "Name_JPReading": "なんりハッケン",
+    "Name_EN": "Hachken Southmidog",
+    "FormalName_JP": "徳川 秀長",
+    "FormalName_JPReading": "とくがわ ひでなが",
+    "FormalName_EN": "Hidenaga Tokugawa",
+    "GenderType": "Male",
+    "FromArea": { "Area": "九連国" },
+    "Height_cm": 164,
+    "Weight_kg": 52,
+    "Age": 47,
+    "BirthDay": { "Day": { "Month": 3, "DayOfMonth": 28 } },
+    "FirstPersonCalling_JP": "私",
+    "FirstPersonCalling_EN": "I (formal)",
+    "SecondPersonCalling_JP": "あなた;[※名前呼び],~さん",
+    "SecondPersonCalling_EN": "you (formal); [*by name]",
+    "ThirdPersonCalling_JP": "彼/彼女;*ちら;[※名前呼び]",
+    "ThirdPersonCalling_EN": "he/she; this/that/who/what/which/them one (as personal or objective); [*by name]",
+    "Character_JP": "人徳のあり優しい風格\n時に厳しい",
+    "Character_EN": "Has a virtuous and gentle demeanor\nCan be strict at times",
+    "Hobby_JP": "時代劇鑑賞",
+    "Hobby_EN": "Watching period dramas",
+    "SpecialSkill_JP": "急患を見抜く",
+    "SpecialSkill_EN": "Can identify emergency patients",
+    "Favor_JP": "宝玉（特にこれが登場する創作作品にも関心が強い）",
+    "Favor_EN": "Jewels/Orbs (especially interested in creative works in which they appear)",
+    "Unlike_JP": "安楽死\n子刻ハッカの思想",
+    "Unlike_EN": "Euthanasia\nThe ideology of Mus Mousetimes",
+    "Summary_JP": "子刻ハッカと山月病の治療普及に尽力している治療施術専門家。\n獣爾騎兵構成員の主治医でもあり、自身は罹患者ではないものの山月病患者に対する心境についても深く共感しているところがあるようだ。",
+    "Summary_EN": "A medical practitioner specializing in treatment care, dedicated to the treatment and popularization of Mus Mousetimes and Shanyu disease.\nAlso serves as the primary doctor for members of the Shou-Ar Riders, and although not personally afflicted, deeply empathizes with the feelings of Shanyu disease patients.",
+    "BeastspecStats": {
+      "BeastspecName_JP": "心獣鎮静",
+      "BeastspecName_EN": "HeartBeast-Calming",
+      "BeastspecAbout_JP": "山月病患者を延命治療する",
+      "BeastspecAbout_EN": "Provides life-prolonging treatment for Shanyu disease patients"
     }
   }
 ]

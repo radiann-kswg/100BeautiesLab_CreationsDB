@@ -20,11 +20,6 @@
     "isForSecondary": false
   },
   {
-    "Area": "南英州諸国",
-    "Area_EN": "South Internations",
-    "isForSecondary": null
-  },
-  {
     "Area": "雄志結国",
     "Area_EN": "United.Heroic.Nation",
     "isForSecondary": false
@@ -40,6 +35,13 @@
     "isForSecondary": false
   },
   {
+    "Area": "ユニバイト・ユニバース",
+    "Area_EN": "Unibyte Universe",
+    "about_JP": "メタバースプラットフォームサービスによるVR空間",
+    "about_EN": "VR space by metaverse platform service",
+    "isForSecondary": false
+  },
+  {
     "Area": "黒薔薇国",
     "Area_EN": "SchwarzeRoseland",
     "isForSecondary": null
@@ -50,11 +52,9 @@
     "isForSecondary": null
   },
   {
-    "Area": "ユニバイト・ユニバース",
-    "Area_EN": "Unibyte Universe",
-    "about_JP": "メタバースプラットフォームサービスによるVR空間",
-    "about_EN": "VR space by metaverse platform service",
-    "isForSecondary": false
+    "Area": "南英州諸国",
+    "Area_EN": "South Internations",
+    "isForSecondary": null
   },
   {
     "Area": "算象(アリスマ)諸国",
@@ -74,6 +74,11 @@
   {
     "Area": "然天(ネーザ)大陸",
     "Area_EN": "Naitus Mainland",
+    "isForSecondary": null
+  },
+  {
+    "Area": "暁美諸国",
+    "Area_EN": "Corizing Nations",
     "isForSecondary": null
   },
   {

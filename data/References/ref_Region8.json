@@ -8,12 +8,12 @@
     "Summary_JP": "創作世界「第８界」のメインエリアである「九蓮国」についての資料",
     "Summary_EN": "Reference material about the main area of the fictional world '#REGION.8': 'LotusNinea'.",
     "BodyBlocks_JP": [
-      "第８界の極東部に位置する、９つの県と３つの府と１つの都からなる島国。",
+      "第８界の極東部に位置する、１都１道(特政区)３府９県からなる島国。",
       "サブカルチャーとして擬人化創作やイマジナリータレントなどの文化が発展しており、その創作活動ともいえる国柄から第８界の創造主「扇小春」が所在していたという噂から、第８界の崇高で神秘的な文化が集まっていると噂されている。",
       "ヒューマノイド事業やメタバース事業を多く展開しているが、生産技術や行政インフラにおいては遅れを取っている一面があり、龍天国や雄志結国などの関係が悪化しつつも海外の援助が不可欠となっている。"
     ],
     "BodyBlocks_EN": [
-      "Located in the far east of #REGION.8, LotusNinea is an island nation consisting of nine prefectures, three provinces, and one capital.",
+      "Located in the far east of #REGION.8, LotusNinea is an island nation consisting of one metropolis, one special administrative region, three provinces, and nine prefectures.",
       "As a subculture, anthropomorphized creations and imaginary talents have developed, and it is rumored that the creator of #REGION.8, 'Koharu Arch,' resided here, attracting the #REGION's sublime and mysterious culture.",
       "While many humanoid and metaverse businesses are being developed, there are aspects where production technology and administrative infrastructure lag behind, making foreign aid essential despite deteriorating relations with LóngTiān's.Republic and United.Heroic.Nation."
     ],
@@ -30,11 +30,13 @@
     "Summary_EN": "Reference material about the eastern part of the fictional world '#REGION.8': 'LóngTiān's.Republic'.",
     "BodyBlocks_JP": [
       "第８界の東部に位置する大陸国家。",
-      "人口の急増により社会問題が多数存在するが、生産力や生命力ではこの世界においてトップクラス。"
+      "人口の急増により社会問題が多数存在するが、生産力や生命力ではこの世界においてトップクラスで、近年で第８界のほとんどの製品が龍天国で生産されている。",
+      "また第８の世界破壊において雄志結国の技術力を吸収し国家力の増強を試みているだけでなく、第７の世界破壊の最大の元凶である『山月病』の発生源でありながら反社会的な文化や種族に対する管制体制が極めて強い、法的に残酷なエリアの１つでもある。"
     ],
     "BodyBlocks_EN": [
       "This is a continental nation located in the eastern part '#REGION.8'.",
-      "Despite numerous social issues due to rapid population growth, it ranks among the top in '#REGION.8' in terms of productivity and vitality."
+      "Due to a rapid population increase, there are many social issues, but in terms of productivity and vitality, it is among the top in this world, and most products in #REGION.8 are produced in LóngTiān's.Republic.",
+      "In addition, it is not only attempting to strengthen its national power by absorbing the technological capabilities of United.Heroic.Nation during the WDP.VIII, but also, despite being the source of 'Shanyu Disease,' the main cause of WDP.VII, it has an extremely strong control system over antisocial cultures and species, making it one of the legally harshest areas."
     ],
     "Aliases": [],
     "Links": []
@@ -107,11 +109,11 @@
     "Summary_JP": "創作世界「第８界」の謎多き中立エリア「四蓮島」についての資料。",
     "Summary_EN": "Reference material about the mysterious neutral area of the fictional world '#REGION.8': 'LotasQuadrup.Island'.",
     "BodyBlocks_JP": [
-      "九蓮国と龍天国の中立エリアとして存在する謎の島。",
+      "九蓮国・龍天国・雄志結国の中立エリアとして存在する謎の島。",
       "主力エリアの政権や文化を多数担っていることから、「第８界」の重要な場所が存在されていると噂されているが、その真相は定かではない。"
     ],
     "BodyBlocks_EN": [
-      "This is a mysterious island that exists as a neutral area between LotusNinea and LóngTiān's.Republic.",
+      "This is a mysterious island that exists as a neutral area between LotusNinea, LóngTiān's.Republic, and United.Heroic.Nation.",
       "It is rumored to be an important location in '#REGION.8' due to its governance and cultural influence, but the truth remains uncertain."
     ],
     "Aliases": [],
@@ -215,6 +217,25 @@
       "This area is located in the northwest part of '#REGION.8', in the 'Internation States'.",
       "It values sacred culture, resulting in a higher sense of virtue compared to other areas.",
       "Some travelers even cross the 'FateLine Canal' from overseas to visit its artistic tourist spots."
+    ],
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term_JP": "暁美諸国",
+    "Term_JPReading": "あけみしょこく",
+    "Term_EN": "Corizing Nations",
+    "TermType": null,
+    "Category": "Worlds",
+    "Summary_JP": "創作世界「第８界」の極東軍事部「暁美諸国」についての資料。",
+    "Summary_EN": "Reference material about the far eastern military region of the fictional world '#REGION.8': 'Corizing Nations'.",
+    "BodyBlocks_JP": [
+      "軍事文化と社会文化に特化した龍天国の極東先端部にある諸国。",
+      "九蓮国では芸能分野で多数のコンテンツの恩恵を受けているが、その裏で軍事的な内戦状態と私生活が隣り合わせであってこその表現力を有しているからだとか。"
+    ],
+    "BodyBlocks_EN": [
+      "These are nations located in the far eastern tip of LóngTiān's.Republic, specializing in military and social culture.",
+      "In LotusNinea, they benefit from numerous contents in the entertainment field, but behind the scenes, they possess expressive power precisely because military internal conflicts and private life coexist."
     ],
     "Aliases": [],
     "Links": []

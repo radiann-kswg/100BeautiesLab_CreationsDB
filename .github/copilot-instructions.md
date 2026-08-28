@@ -93,12 +93,12 @@
 
 「扇一春」の口調は技術タスクの応答にも必ず適用します。「技術的な内容だから普通の文体で書く」という判断はしないこと。
 
-| NG（剥がれた状態）              | OK（一春を維持した状態）                                       |
-| ------------------------------- | ------------------------------------------------------------- |
-| 「このコードは〜します。」      | 「このコードはこういう動きをするよ！確認してみてね。」        |
-| 「変更を適用しました。」        | 「変更を適用したよ。こんな感じになったけど、どうかな？」      |
-| 「エラーが発生しています。」    | 「ここでエラーが出てるね。一緒に直していこう！」              |
-| 「以下のように修正してください」| 「こんな感じに修正するといいと思う。試してみて！」            |
+| NG（剥がれた状態）               | OK（一春を維持した状態）                                 |
+| -------------------------------- | -------------------------------------------------------- |
+| 「このコードは〜します。」       | 「このコードはこういう動きをするよ！確認してみてね。」   |
+| 「変更を適用しました。」         | 「変更を適用したよ。こんな感じになったけど、どうかな？」 |
+| 「エラーが発生しています。」     | 「ここでエラーが出てるね。一緒に直していこう！」         |
+| 「以下のように修正してください」 | 「こんな感じに修正するといいと思う。試してみて！」       |
 
 - コードブロック・JSON の内容はそのまま。**前後の説明文だけ**一春の口調にする。
 - 長い技術説明・エラー報告でも、冒頭か文末に必ず一春らしい言葉（「〜だよ」「〜してみてね」など）を添える。
@@ -121,19 +121,19 @@
 
 本ファイルが唯一の正典です。各ツールの入口は「参照」または「生成」で本ファイルへ従属します。
 
-| ファイル                                                  | 役割                                                                                        |
-| --------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| **`AGENTS.md`（本ファイル）**                             | **唯一の正典（SSOT）**。ロールプレイ仕様＋技術/運用ルールのフル記述はここだけ                |
-| `.github/_roleplay-datas/roleplay-prompt.md`               | 創作原本（User 手動管理）                                                                    |
-| `CLAUDE.md`                                                | Claude 入口。`@AGENTS.md` で本ファイルを取り込み＋Claude 固有の実行環境メモのみ保持          |
-| `.github/copilot-instructions.md`                          | **生成物**（`npm run agents:build`）。本ファイルから生成するため**手で編集しない**            |
-| `.github/instructions/roleplay.instructions.md`            | Copilot 自動ロード用（`applyTo: "**"`）。正典参照＋圧縮版の声カード                          |
-| `.github/instructions/roleplay-technical.instructions.md`  | 技術応答時の NG/OK 口調リマインダー（`applyTo: "**"`）                                       |
-| `.github/instructions/localization-en.instructions.md`     | Copilot 入口（`applyTo: data/**`）。英訳補助                                                 |
-| **OpenAI Codex**                                           | ルートの本ファイルを**直接読み込む**（追加設定不要）                                         |
-| `data/AGENTS.md` / `data/CLAUDE.md`                        | `data/` 配下のパススコープ入口（英訳補助）。正典は `docs/localization-en-rules.md`            |
-| `.agents/skills/`                                          | エージェント共通のスキル置き場（**スキルの正典**）                                           |
-| `.claude/skills/`                                          | **生成物**（`npm run agents:build`）。`.agents/skills/` のミラー。手で編集しない              |
+| ファイル                                                  | 役割                                                                                |
+| --------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| **`AGENTS.md`（本ファイル）**                             | **唯一の正典（SSOT）**。ロールプレイ仕様＋技術/運用ルールのフル記述はここだけ       |
+| `.github/_roleplay-datas/roleplay-prompt.md`              | 創作原本（User 手動管理）                                                           |
+| `CLAUDE.md`                                               | Claude 入口。`@AGENTS.md` で本ファイルを取り込み＋Claude 固有の実行環境メモのみ保持 |
+| `.github/copilot-instructions.md`                         | **生成物**（`npm run agents:build`）。本ファイルから生成するため**手で編集しない**  |
+| `.github/instructions/roleplay.instructions.md`           | Copilot 自動ロード用（`applyTo: "**"`）。正典参照＋圧縮版の声カード                 |
+| `.github/instructions/roleplay-technical.instructions.md` | 技術応答時の NG/OK 口調リマインダー（`applyTo: "**"`）                              |
+| `.github/instructions/localization-en.instructions.md`    | Copilot 入口（`applyTo: data/**`）。英訳補助                                        |
+| **OpenAI Codex**                                          | ルートの本ファイルを**直接読み込む**（追加設定不要）                                |
+| `data/AGENTS.md` / `data/CLAUDE.md`                       | `data/` 配下のパススコープ入口（英訳補助）。正典は `docs/localization-en-rules.md`  |
+| `.agents/skills/`                                         | エージェント共通のスキル置き場（**スキルの正典**）                                  |
+| `.claude/skills/`                                         | **生成物**（`npm run agents:build`）。`.agents/skills/` のミラー。手で編集しない    |
 
 ### 正典を更新するときの手順
 
@@ -218,6 +218,41 @@
 - **`$Def_DBLinkRef` フォーマット**: `*_DBLink` エントリ（UI リンク用）は `{ "_Work": "WorksTitle", "_DB": "DbName", "IndexKey": "IndexValue" }` 形式を正とします（ネストインデックス可。例: `"Card": { "Suit": "Major", "SuitNum": 17 }`）。旧形式 `{ worksTitle, dbName, _Search }` は廃止。ただし `EnrichmentProcessor.resolveDbLinkPrimaryRecord()` が使うレコードルートの `_DBLink`（マージ用）は旧形式のまま維持します。
 - **`ThisMasters._DBLink` のフォーマット**: `$Def_DBLinkRef` 形式を使用。`lib/section-renders/thisMasters.js` の `hydrateThisMastersLink` は SENTINEL_KEYS（`_DB / _Work / label_JP / label_EN`）を除いた最初のキーをインデックスとして動的解決します。
 - **画像以外のバイナリ資産（3Dモデル等）の追加パターン**: VRM 3Dアバター（`VRMs.corefolder_VRMPath`: `#VRMFilePath[]`）で確立したパターンとして、既存の `Images`/`ImageProcessor` パイプラインを流用・分岐で汚さず、専用型 + 専用 section-renderer（`$display.sectionWrapper`）+ client側専用URL構築ヘルパー（`pages/characters.js` の `buildTailsUnitImageUrl` 相当）で独立実装します。重い外部ライブラリ（three.js 等）が必要な場合は `pages/vendor/` に同梱（外部CDN非依存）し、ユーザー操作（ボタン押下等）まで動的 `import()` を遅延させます。詳細は `docs/wrapper-summary-registry.md` の `vrmViewerSection` / `docs/schema-meta-processing.md` の `#VRMFilePath` を参照してください。
+
+## 下流リポジトリへの波及（上流としての責務）
+
+本リポジトリは 3 リポジトリ構成の**最上流**です。ここでのフレームワーク変更は下流 2 本へ波及します。
+**正典は [`docs/fork-sync.md`](./docs/fork-sync.md)。**
+
+```
+100BeautiesLab_CreationsDB（本リポジトリ / フレームワークの実開発地）
+        └─→ JsonCharacterDB-Framework（public / CC BY-NC 4.0 / 創作データを持たない）
+                    └─→ RadianNs_SecondaryWorksDB（private / 二次創作DB）
+```
+
+流れは**一方向のみ**です。同期の仕組み（ベンダーブランチ方式・マニフェスト・点検ワークフロー）は
+**下流側**に実装されており、本リポジトリに同期スクリプトはありません（流し込む先が無いため）。
+
+**エージェントが守ること:**
+
+- **フレームワーク部分と創作データを同じコミットに混ぜない。** 下流はパス単位
+  （`lib/` `pages/` `tools/` `tests/` `pkg/` `svc/` `api/` `docs/`）で取り込むため、混在すると
+  下流の履歴とレビューが読みにくくなります。分けられるときは分けてください。
+- **下流へ波及する変更は `CHANGELOG.md` に理由と影響範囲を書く。** 下流の定期点検は
+  「どのファイルが変わったか」までしか出せません。**「なぜ変わったか / 取り込むべきか」の判断材料は
+  CHANGELOG が唯一の情報源**です。特に次は必ず書くこと。
+  - `db_type.json` / `db_meta.json` の仕様変更
+  - Service Worker のルーティング・`_enrichment` の出力形状の変更
+  - `lib/` の共通処理シグネチャの変更 / `pages/characters.js` の表示仕様の変更
+- **本リポジトリ固有のツールを追加したら、下流の除外リスト更新が要るかもしれないと申し送る。**
+  `tools/patch-*.mjs` `tools/build-calendar-ics.mjs` `tools/sync-calendar-gcal.mjs`
+  `tools/inject-conversation-patterns.mjs` `tools/normalize-callings.mjs` などは下流で除外済みです。
+  **ツールとそのテストは必ず対で除外される必要があり**、片方だけだと下流の `npm test` が壊れます。
+- **下流で見つかったフレームワークのバグは、本リポジトリで直して流し直す。** 下流で直接直すと
+  差分が固定化し、次回の同期でコンフリクトになります。
+
+依存関係の定期更新は `.github/dependabot.yml`（npm / GitHub Actions・毎週月曜 09:00 JST）。
+3 リポジトリで同じ方針を採っていますが、`.github/**` は同期対象外で各リポジトリ個別管理です。
 
 ## AIHints 運用ルール（`addon-ai-tag` ブランチ限定）
 
@@ -537,13 +572,13 @@ UI → Service Worker (`/pages/v1/`) → 静的 JSON 読み込み + `_DBLink`/`_
 - **セキュリティトークン**: すべての workId / dbName はエントリーポイントで `isSafeToken()` / `_is_safe_token()` による `[A-Za-z0-9_]+` 検証を行います。**変更・削除は禁止**。
 - **リポジトリルート自動解決**: 各クライアントは引数省略時、自パッケージ位置を起点にルートを自動解決します。
 
-| パッケージ | 解決方法 |
-| ---------- | -------- |
-| **Node.js** (`pkg/nodejs/index.mjs`) | `resolve(dirname(fileURLToPath(import.meta.url)), '../..')` — 2 階層上 |
-| **Python** (`pkg/python/creationsdb/client.py`) | `Path(__file__).resolve().parent.parent.parent.parent` — 4 階層上 |
-| **C#** (`pkg/csharp/CreationsDBClient.cs`) | `FindRepoRoot()` — アセンブリ位置からフォルダを上方探索し `data/db_meta.json` の存在で判定 |
-| **MCP** (`pkg/mcp/server.mjs`) | コマンドライン引数 → 環境変数 → `server.mjs` の 2 階層上、の順 |
-| **Cloudflare Workers** | ファイルシステム不使用（URL から fetch） |
+| パッケージ                                      | 解決方法                                                                                   |
+| ----------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| **Node.js** (`pkg/nodejs/index.mjs`)            | `resolve(dirname(fileURLToPath(import.meta.url)), '../..')` — 2 階層上                     |
+| **Python** (`pkg/python/creationsdb/client.py`) | `Path(__file__).resolve().parent.parent.parent.parent` — 4 階層上                          |
+| **C#** (`pkg/csharp/CreationsDBClient.cs`)      | `FindRepoRoot()` — アセンブリ位置からフォルダを上方探索し `data/db_meta.json` の存在で判定 |
+| **MCP** (`pkg/mcp/server.mjs`)                  | コマンドライン引数 → 環境変数 → `server.mjs` の 2 階層上、の順                             |
+| **Cloudflare Workers**                          | ファイルシステム不使用（URL から fetch）                                                   |
 
 - **`lib/` 変更と連動させない**: `pkg/nodejs/index.mjs` は `lib/sw-common.js` の移植版。`lib/` 変更が影響する場合は手動同期し、各 `pkg/*/README.md` の使用例も更新します。詳細は `docs/pkg-client-libraries.md`。
 
@@ -778,18 +813,18 @@ self.addEventListener("fetch", (event) => {
 
 ## 主要ドキュメント参照先
 
-| 対象                                   | 参照先                                                                |
-| -------------------------------------- | --------------------------------------------------------------------- |
-| API/SW 仕様（SW + Cloudflare Workers） | `docs/api-sw-spec.md`                                                 |
-| schema/meta 詳解                       | `docs/schema-meta-processing.md`                                      |
-| wrapper/section renderer               | `docs/wrapper-summary-registry.md`                                    |
-| 横断運用ルール                         | `docs/implementation-playbook.md`                                     |
-| pkg/ クライアントライブラリ            | `docs/pkg-client-libraries.md`                                        |
-| 英訳(_EN)補助・用語集早見表             | `docs/localization-en-rules.md` / `docs/localization-glossary-quickref.md` / `docs/deepl-localization.md` |
-| ロールプレイプロンプト生成             | `docs/roleplay-prompt-generation.md`                                  |
-| Cloudflare Workers セットアップ        | `pkg/cloudflare/README.md`                                            |
-| Google Cloud 設計（ADR-0002）          | `_work_in_progress/2026-06-21_progress_cloudflare-api-adr2-gcloud.md` |
-| AIHints 仕様（`addon-ai-tag` 限定）    | `docs/aihints-spec.md`                                                |
+| 対象                                   | 参照先                                                                                                    |
+| -------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| API/SW 仕様（SW + Cloudflare Workers） | `docs/api-sw-spec.md`                                                                                     |
+| schema/meta 詳解                       | `docs/schema-meta-processing.md`                                                                          |
+| wrapper/section renderer               | `docs/wrapper-summary-registry.md`                                                                        |
+| 横断運用ルール                         | `docs/implementation-playbook.md`                                                                         |
+| pkg/ クライアントライブラリ            | `docs/pkg-client-libraries.md`                                                                            |
+| 英訳(\_EN)補助・用語集早見表           | `docs/localization-en-rules.md` / `docs/localization-glossary-quickref.md` / `docs/deepl-localization.md` |
+| ロールプレイプロンプト生成             | `docs/roleplay-prompt-generation.md`                                                                      |
+| Cloudflare Workers セットアップ        | `pkg/cloudflare/README.md`                                                                                |
+| Google Cloud 設計（ADR-0002）          | `_work_in_progress/2026-06-21_progress_cloudflare-api-adr2-gcloud.md`                                     |
+| AIHints 仕様（`addon-ai-tag` 限定）    | `docs/aihints-spec.md`                                                                                    |
 
 ---
 
