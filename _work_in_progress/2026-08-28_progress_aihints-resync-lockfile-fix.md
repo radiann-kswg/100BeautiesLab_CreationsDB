@@ -37,15 +37,23 @@
 - `npm ci --dry-run` → 成功
 - `npm test` → 70 files / 1271 tests すべて成功
 
-## 影響範囲・反映手順
+## 影響範囲・反映手順（実施済み）
 
-1. `develop` へ commit（本修正）
-2. `develop` → `addon-ai-tag` へマージ（一方向マージ方針どおり）
-3. addon-ai-tag への push で本ワークフローが再走行 → `npm ci` 成功を確認
+1. `develop` へ commit・push（011a539）
+2. `develop` → `addon-ai-tag` へマージ・push（95e3882 / 一方向マージ方針どおり）
+3. 本ワークフローのトリガーは `data/Works_*/DataBases/db_*.json` のパス限定のため、
+   今回の push（lockfile のみ）では再走行しない。次回の DB 変更 push 時に `npm ci` 成功となる想定
+   （マージ後ツリーでの `npm ci --dry-run` 成功はローカルで確認済み）
+
+## 追加対応（同日）
+
+- 再生成した lockfile が `brace-expansion@5.0.6`（Dependabot alert 22 / high / DoS）を拾っていたため、
+  `npm update brace-expansion --package-lock-only` で 5.0.9 へ更新（4e9c8d5）。
+  develop / addon-ai-tag 双方へ反映済み。alert 22 は `fixed` を確認。
 
 ## 未完了タスク
 
-- リモートへの push と addon-ai-tag へのマージ反映（User 確認後）
+- 次回の DB 変更 push 時に本ワークフローが成功することの確認
 - 再発防止の検討（任意）: lockfile の JSON 妥当性を `tests/` か CI で軽く検査する案
 
 ## 参考リンク
