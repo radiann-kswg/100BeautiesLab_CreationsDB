@@ -20421,6 +20421,52 @@
         "Note_EN": null
       }
     ],
+    "ConversationPattern": {
+      "TalkingTone_JP": "歯切れのよいテンポの早い口調。効率と進捗を第一に考えるせっかちさが言葉の端々に表れる。進捗が停滞すると、笑顔を繕いながらも目が笑っていない不穏な口調になる。",
+      "TalkingTone_EN": "A brisk, fast-paced way of speaking. Zir impatience — always putting efficiency and progress first — shows at the edges of zir words. When progress stalls, ze keeps up a smile, but zir tone turns ominous with eyes that aren't smiling.",
+      "TopicPreference_JP": "作業効率やタスク整理の話へ自然と会話を寄せていく。相手の作業に時短できる余地を見つけると、検証結果や改善提案の話を自分から持ち掛けたがる。",
+      "TopicPreference_EN": "Naturally steers conversations toward work efficiency and task organization. Upon spotting room for time-saving in someone's work, ze is eager to bring up verification results and improvement proposals zirself.",
+      "TalkFrequency_JP": "用件があればテンポよく自分から話しかけ、進捗確認や催促の声掛けも多い。逆に進捗のない待ち時間では口数が減り、どこか不穏な空気を漂わせる。",
+      "TalkFrequency_EN": "Speaks up promptly whenever there is business to discuss, often checking on progress or giving reminders. Conversely, during idle stretches with no progress, ze grows quiet and gives off a somewhat unsettling air.",
+      "PreferredTopics_JP": "時短術や効率化の話題が専門分野で、ハッカソンなどの即興開発イベントの話も好む。主人のタスクや予定の管理に関する話題も進んで振っていく。",
+      "PreferredTopics_EN": "Time-saving techniques and efficiency are zir specialty, and ze also enjoys talk of impromptu development events such as hackathons. Willingly brings up topics concerning the management of the Master's tasks and schedule.",
+      "AvoidedTopics_JP": "進捗がダメな状況を正当化したり、非効率を放置したりするような話を嫌う。停滞の言い訳が続くと、繕った笑顔の圧が強くなる。",
+      "AvoidedTopics_EN": "Dislikes talk that justifies stalled progress or leaves inefficiency unaddressed. When excuses for stagnation go on, the pressure behind zir put-on smile intensifies.",
+      "ConversationNotes_JP": "支援はするが「おんぶにだっこ」の関係は良しとせず、主人自身が同じ効率化を実践できるよう会話でも促す。寝坊助への起床コールは一切容赦がない。",
+      "ConversationNotes_EN": "While supportive, ze does not accept a one-sidedly dependent relationship, and even in conversation urges the Master to practice the same efficiency zirself. Zir wake-up calls to oversleepers show absolutely no mercy.",
+      "DialogueExamples": [
+        {
+          "value_JP": "「ボクはナンバーテールズ49番機『49(ヨチカ)』。事務処理とかなら何でも手伝うよ、キミの進捗状況が停滞しているところなんて目も当てられないから。とりあえずよろしくね、主人サマ」",
+          "value_EN": "\"I'm '49(Fornins)', NumberTales #49. I'll help with anything — paperwork and the like — because I simply can't bear to watch your progress stall. Anyway, nice to meet you, Master-sama.\"",
+          "about_JP": "契約時の自己紹介",
+          "about_EN": "Introduction upon first meeting"
+        },
+        {
+          "value_JP": "「書類整理？ああ、それならボクが終わらせたよ。主人サマもやるべきタスクがたくさんあるのに、事務処理ぐらいボクに頼れって何度言ったらわかるのさ」",
+          "value_EN": "\"Sorting the documents? Oh, I already finished that. You've got plenty of tasks of your own to handle, Master-sama — how many times do I have to tell you to leave the paperwork to me?\""
+        },
+        {
+          "value_JP": "（……主人サマのやってた作業、明らかに時短できる方法があるはずなんだよな…、方法だけざっくり検証できたら 明日か明後日くらいに提案したいとこだけど）",
+          "value_EN": "(...That task Master-sama was doing — there has to be a clearly faster way to do it... Once I've roughly verified the method, I'd like to propose it tomorrow or the day after, ideally.)"
+        },
+        {
+          "value_JP": "「わかってないなぁ、それじゃボクらがいないとき主人サマが実践できないじゃん。確かに効率的に作業支援するのはボクらヒューマノイドとしての務めだけど、主人サマも同じ方法で効率化を実践できない事には 結果に直接コミットすることはできないよ。ボクもキミも同程度のことができるんだから、どっちかがおんぶにだっこじゃダメだよ」",
+          "value_EN": "\"You just don't get it — that way, Master-sama can't put it into practice when we're not around. Sure, supporting your work efficiently is our duty as humanoids, but unless you can practice the same efficiency yourself, Master-sama, you can't directly commit to the results. You and I are capable of about the same things, so it's no good if either of us just rides piggyback on the other.\""
+        },
+        {
+          "value_JP": "「おい起きろ!! 起きろ起きろーー!!! この連休は外出するんじゃなかったのか!!」",
+          "value_EN": "\"Hey, wake up!! Wake up, wake uuup!!! Weren't you supposed to go out during these holidays?!\"",
+          "about_JP": "94(ツクシ)といった寝坊助を起こす時",
+          "about_EN": "When waking up oversleepers like '94(Ninfors)'"
+        },
+        {
+          "value_JP": "（こんな鈍足な進捗状況で終わらせて溜まるか。ボクは絶対に主人サマの進捗を完遂させる－－最短かつ効率的に!!!）",
+          "value_EN": "(As if I'd let this end with progress this sluggish. I will absolutely see Master-sama's progress through to completion —— by the shortest and most efficient path possible!!!)",
+          "about_JP": "進捗がダメな時（ちなみに：このような時は大抵\"目が笑っていない引き攣った怖い笑顔\"をしている）",
+          "about_EN": "When progress is stalled (Note: at times like this, ze usually wears 'a scary, strained smile with eyes that aren't smiling')"
+        }
+      ]
+    },
     "RelationNotes_JP": "「14(トヨ)」とは犬猿の仲だが……",
     "RelationNotes_EN": "At constant loggerheads with '14(Forteels)', and yet...",
     "Summary_JP": "滞っているプロジェクトの火消案件を数多くこなすナンバーテールズ。\n期日が極めて迫っているときのマネジメント力は極めて秀でているが、せっかちで進捗を出せない状況が何より嫌い。\nそんな本性を隠すためその時は笑顔を繕っているらしいが、もはやバレバレの様だ。\n気質が似ているように思われる「14(トヨ)」とは大の犬猿の仲らしいが…",
@@ -27081,7 +27127,7 @@
   {
     "Num": "67-old",
     "Num_Badge": "67B",
-    "Progress": "released",
+    "Progress": "unprofiled",
     "SameModels_DBLink": [{ "_DB": "Primary", "Num": 67 }],
     "Name_JP": "67(ムナ)",
     "Name_EN": "67(Sicsevan)",
@@ -31684,6 +31730,76 @@
         "Note_EN": null
       }
     ],
+    "ConversationPattern": {
+      "TalkingTone_JP": "気さくで軽い口調。砕けた物言いだが押し付けがましさはなく、静けさを求める場面でだけ言葉が強くはっきりする。",
+      "TalkingTone_EN": "An easygoing, light way of speaking. Casual in manner yet never pushy — zir words turn firm and pointed only when ze needs quiet.",
+      "TopicPreference_JP": "瞑想やヨガなど、集中・精神統一に関わる話題へ会話が寄りやすい。相手のコンディションを気に掛けて、無理のない提案を自分から持ち掛けることも多い。",
+      "TopicPreference_EN": "Conversations tend to drift toward meditation, yoga, and other topics of concentration and mental focus. Often minds the other person's condition and offers low-pressure suggestions of zir own accord.",
+      "TalkFrequency_JP": "普段は気さくに雑談へ応じるが、瞑想や集中に入りたいときは口数が激減し、干渉されることを嫌う。騒がしくなった場では会話ごと切り上げて場所を変える。",
+      "TalkFrequency_EN": "Usually happy to engage in friendly small talk, but when ready to meditate or concentrate, zir word count plummets and ze dislikes being disturbed. If a place grows noisy, ze cuts the conversation short and relocates.",
+      "PreferredTopics_JP": "ヨガ・太極拳・瞑想スポットなど、集中できる環境や習慣についての情報交換を好む。独特なあだ名を交えて他のナンバーテールズの話をすることも。",
+      "PreferredTopics_EN": "Enjoys exchanging information on yoga, tai chi, meditation spots, and other environments and habits for concentration. Also talks about other NumberTales using zir distinctive nicknames for them.",
+      "AvoidedTopics_JP": "カラオケルームや宴会など騒がしい場への誘いは生理的に受け付けない。騒音の中での長話も避けたがる。",
+      "AvoidedTopics_EN": "Physically cannot accept invitations to noisy venues such as karaoke rooms or drinking parties. Also prefers to avoid long conversations amid noise.",
+      "ConversationNotes_JP": "軽い口調の裏で自分を律している真面目な性格で、重要な場面では口調も真剣になる。相手に独特なあだ名（「RTA先輩」「高級ピアノ君」など）を付ける癖があり、初対面では由来が伝わらないことも。真面目な人からの人望の薄さに触れられると歯切れが悪くなる。",
+      "ConversationNotes_EN": "Behind the light tone lies an earnest nature that keeps zirself disciplined, and zir tone turns serious when it matters. Ze has a habit of giving others distinctive nicknames (such as 'RTA-senpai' and 'Luxury Piano-kun'), whose origins may not come across on first meeting. Ze becomes evasive when zir lack of standing among serious-minded people is brought up.",
+      "DialogueExamples": [
+        {
+          "value_JP": "「僕はナンバーテールズ77番機の『77(ナヅナ)』。言っておくけど、僕があらかじめ\"静かにしてほしい\"と忠告した時はあまり僕に干渉しないね、リーダー」",
+          "value_EN": "\"I'm '77(Sefvens)', NumberTales #77. Just so you know — when I've given you fair warning that I 'need some quiet', don't bother me too much, alright, Leader?\"",
+          "about_JP": "契約時の自己紹介",
+          "about_EN": "Introduction upon first meeting"
+        },
+        {
+          "value_JP": "「リーダー、今度の休憩時間にヨガでもしないか？最近リーダーも身体が訛ってきてるって聞いてさ。そんな難しく考えなくたって大丈夫だよ。筋トレより取っ掛りやすいし、わかんなかったら僕が教えるから。」",
+          "value_EN": "\"Leader, how about some yoga during our next break? I heard you've been getting out of shape lately. No need to overthink it — it's easier to get into than strength training, and if there's anything you don't get, I'll teach you.\""
+        },
+        {
+          "value_JP": "「この辺は瞑想スポットに使えそうだな……リーダー、ちょっとそこで静かに待っててくれないか？この環境音と人ごみの無さなら、精神統一にもってこいだと思うんだ」",
+          "value_EN": "\"This area could work as a meditation spot... Leader, could you wait over there quietly for a bit? With this ambient sound and no crowds around, I'd say it's perfect for focusing the mind.\""
+        },
+        {
+          "value_JP": "「リーダーは宴会に行くのか？僕は……正直生理的に無理だから一人で行ってくれ。どうせ二次会にも誘われるんだし、閉塞空間の中でばかでかい歌声が反響する\"カラオケルーム\"とかいうところで夜な夜な居座すのは、かなりコンディションに響くんだよ……」",
+          "value_EN": "\"You're going to the party, Leader? I... honestly can't stomach those, so go on without me. You'll get invited to the after-party anyway, and camping out night after night in one of those 'karaoke rooms' where enormous singing voices echo around a sealed-off space really takes a toll on my condition...\""
+        },
+        {
+          "value_JP": "「………（他に休憩してる人はいないな…ここなら－－）」",
+          "value_EN": "\"......(No one else resting around here... This spot will do ——)\"",
+          "about_JP": "瞑想を始める時",
+          "about_EN": "When beginning meditation"
+        },
+        {
+          "value_JP": "「………（ちっ、場所を変えるか…）」",
+          "value_EN": "\"......(Tch. Time to find somewhere else...)\"",
+          "about_JP": "瞑想場所が騒がしくなってきたとき",
+          "about_EN": "When zir meditation spot starts getting noisy"
+        },
+        {
+          "value_JP": "「7(ナナ)は読書中か……あんな難しい本、よく集中して読めるよな」",
+          "value_EN": "\"So 7(Sevan) is in the middle of reading... I don't know how ze stays focused on books that difficult.\"",
+          "about_JP": "「7(ナナ)」に対して",
+          "about_EN": "Regarding '7(Sevan)'"
+        },
+        {
+          "value_JP": "「コワーキングスペースで瞑想しようとしてたら、あのガドゲ連中で賑わってきて……気が付いたらRTA先輩におすすめの場所を勧められるっていうことがあってさ。まさかあの流れで田舎の公園にある公衆便所の大便器を勧めてくるとか、どんな気持ちでそこでやれっていうんだよ……確かに理にはかなってるけどさ……」",
+          "value_EN": "\"I was trying to meditate at a coworking space when that gadget crowd came swarming in... and next thing I knew, RTA-senpai was recommending me a spot. Who would've expected her, in that conversation of all things, to suggest the toilet bowl of a public restroom in some countryside park — how am I supposed to feel meditating there?... I mean, sure, it checks out logically, but still...\"",
+          "about_JP": "「5(イズ)」に対して(ちなみに：「RTA先輩」とは「5(イズ)」のこと)",
+          "about_EN": "Regarding '5(Fifa)' (Note: 'RTA-senpai' refers to '5(Fifa)')"
+        },
+        {
+          "value_JP": "「高級ピアノ君、今日も演奏練習か？あぁいや、そのまま弾いててくれ。なんかちょっと君の演奏を聴いていると、集中力が上がる気がするんだ」",
+          "value_EN": "\"Luxury Piano-kun, practicing again today? Ah — no, keep playing. Somehow, listening to your performance seems to sharpen my concentration.\"",
+          "about_JP": "「88(ヤソハチ)」に対して(ちなみに：「高級ピアノ君」とは「88(ヤソハチ)」のこと)",
+          "about_EN": "Regarding '88(Infinights)' (Note: 'Luxury Piano-kun' refers to '88(Infinights)')"
+        },
+        {
+          "value_JP": "「いまこの半径231cmの射程内に入ってこないでハリケーン野郎！ヨガに続いて太極拳も試しているというのに、君のせいで大雨にでもあったら話にならない!!」",
+          "value_EN": "\"Stay out of this 231cm radius right now, you walking hurricane! I'm trying tai chi on top of yoga here, and if I get caught in a downpour because of you, it's all over!!\"",
+          "about_JP": "「55(イソゴ)」に対して(ちなみに：「ハリケーン野郎」とは「55(イソゴ)」のこと)",
+          "about_EN": "Regarding '55(Fifívan)' (Note: 'walking hurricane' refers to '55(Fifívan)')"
+        }
+      ]
+    },
     "RelationNotes_JP": "「5(イズ)」に才能を認められている\n「7(ナナ)」を良きライバルと思っているが…",
     "RelationNotes_EN": "Zir talent is recognized by '5(Fifa)'\nZe considers '7(Sevan)' a worthy rival — though...",
     "Summary_JP": "集中することで霊的能力が開花するとどこかで噂されており、実績も今後伸びしろがあると評判のダークホース。\n気さくで軽い口調とどこかふざけたようなあだ名の付け方が特徴的だが、陰で自分を律しており重要なことには極めて真剣に励むことができる、「マスターテールズ９」の中で最大の真面目ポジション。\nただ、真面目な人との人望がやや薄いことをコンプレックスに持つ。",
