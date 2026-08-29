@@ -9248,7 +9248,8 @@
         "value_JP": "江戸川 笑（78特殊探偵団 金の硬貨支部 二番札(デューサー)）",
         "value_EN": "Emmy Edogawa (Team.78 the Special Investigators PentacleObjects Branch Deuce-r)"
       }
-    ]
+    ],
+    "VRMs": { "corefolder_VRMPath": ["22/vrm_NTS-22-corefolder"] }
   },
   {
     "Num": 23,
@@ -36595,7 +36596,8 @@
         "value_JP": "乃木 希（VIPマスター;夜月機関 救命本部 推薦所属候補者）",
         "value_EN": "Nozomi Nogi（VIP-Master; Yadzuki Org. Lifeguards Headquarter Recommended Candidate）"
       }
-    ]
+    ],
+    "VRMs": { "corefolder_VRMPath": ["93/vrm_NTS-93-corefolder"] }
   },
   {
     "Num": 94,

@@ -422,10 +422,10 @@ describe('TailsUnit schema', () => {
   it('NT db_Primary.json VRMs.corefolder_VRMPath references existing .vrm/.png files', () => {
     const records = load('data/Works_NumberTales/DataBases/db_Primary.json');
     const expected = new Map([
-      [4, 'vrm_corefolder4'],
-      [16, 'vrm_corefolder16'],
-      [20, 'vrm_corefolder20'],
-      [25, 'vrm_corefolder25'],
+      [4, 'vrm_NTS-4-corefolder'],
+      [16, 'vrm_NTS-16-corefolder'],
+      [20, 'vrm_NTS-20-corefolder'],
+      [25, 'vrm_NTS-25-corefolder'],
     ]);
 
     for (const [num, fileName] of expected) {
