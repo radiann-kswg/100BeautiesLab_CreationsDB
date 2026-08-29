@@ -1762,7 +1762,7 @@
         }
       ]
     },
-    "VRMs": { "corefolder_VRMPath": ["4/vrm_corefolder4"] }
+    "VRMs": { "corefolder_VRMPath": ["4/vrm_NTS-4-corefolder"] }
   },
   {
     "Num": 5,
@@ -6816,7 +6816,7 @@
         }
       }
     ],
-    "VRMs": { "corefolder_VRMPath": ["16/vrm_corefolder16"] }
+    "VRMs": { "corefolder_VRMPath": ["16/vrm_NTS-16-corefolder"] }
   },
   {
     "Num": 17,
@@ -8366,7 +8366,7 @@
     "ThisMasters": [
       { "value_JP": "メルランディア.シラユキ", "value_EN": "Merlandia.S.White" }
     ],
-    "VRMs": { "corefolder_VRMPath": ["20/vrm_corefolder20"] }
+    "VRMs": { "corefolder_VRMPath": ["20/vrm_NTS-20-corefolder"] }
   },
   {
     "Num": 21,
@@ -10565,7 +10565,7 @@
         "value_EN": "Thœfran Adaka (Team.78 the Special Investigators WaterCups Branch Seven-ist)"
       }
     ],
-    "VRMs": { "corefolder_VRMPath": ["25/vrm_corefolder25"] }
+    "VRMs": { "corefolder_VRMPath": ["25/vrm_NTS-25-corefolder"] }
   },
   {
     "Num": 26,
