@@ -87,11 +87,72 @@
           "hashTag_EN": "About Beastspec"
         },
         {
-          "hashTag": "SpecType",
-          "$type": "$Def_SpecType",
-          "hashTag_JP": "能力種別",
-          "hashTag_EN": "Spec Type",
+          "hashTag": "Artifact",
+          "$type": "#DictIndex",
+          "$dict": "Artifact",
+          "hashTag_JP": "技巧属性",
+          "hashTag_EN": "Artifact Type",
           "$display": { "section": "spec", "tagSpace": "creation" }
+        },
+        {
+          "hashTag": "HeartBeastizedPurity",
+          "$type": "#String|#String_withAbout",
+          "hashTag_JP": "心獣化純度",
+          "hashTag_EN": "HeartBeastized Purity",
+          "$display": {
+            "section": "spec",
+            "tagSpace": "creation",
+            "langMode": "shared"
+          }
+        },
+        {
+          "hashTag": "HeartBeastAbout_JP",
+          "$type": "#Summary",
+          "hashTag_JP": "心獣状態に関する概要",
+          "$display": { "section": "profile" }
+        },
+        {
+          "hashTag": "HeartBeastAbout_EN",
+          "$type": "#Summary|#Null",
+          "hashTag_EN": "About HeartBeast State",
+          "$display": { "section": "profile" }
+        },
+        {
+          "hashTag": "EffectStats",
+          "$type": [
+            {
+              "hashTag": "Physical",
+              "$type": "$Def_EffectText",
+              "hashTag_JP": "物理的作用",
+              "hashTag_EN": "Physical Effect"
+            },
+            {
+              "hashTag": "Lethal",
+              "$type": "$Def_EffectText",
+              "hashTag_JP": "殺傷力",
+              "hashTag_EN": "Lethal Effect"
+            },
+            {
+              "hashTag": "Intimidation",
+              "$type": "$Def_EffectText",
+              "hashTag_JP": "威嚇作用",
+              "hashTag_EN": "Intimidation Effect"
+            },
+            {
+              "hashTag": "Healing",
+              "$type": "$Def_EffectText",
+              "hashTag_JP": "治癒効果",
+              "hashTag_EN": "Healing Effect"
+            },
+            {
+              "hashTag": "MentalRisk",
+              "$type": "$Def_EffectText",
+              "hashTag_JP": "精神衛生面へのリスク",
+              "hashTag_EN": "Risk to Mental Health"
+            }
+          ],
+          "hashTag_JP": "効果度数",
+          "hashTag_EN": "Effect Details"
         },
         {
           "hashTag": "SpecialPattern",

@@ -1,5 +1,18 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### fix: VRMビューアのカメラ中央フィットとサムネイル欠損フォールバック (2026-08-29)
+
+- **`lib/section-renders/vrmViewer.js` のカメラ初期化を修正**。従来は等身の高い人型前提の固定値
+  （position `(0, 1.3, 2.2)` / target `(0, 1.0, 0)`）だったため、ちびキャラのVRMが画面下に沈んで見えた。
+  読み込んだ `vrm.scene` のバウンディングボックス中心へ `controls.target` を合わせ、モデル実寸と
+  カメラの fov / aspect から距離を算出して中央フィットさせる（マージン 1.4 倍）。
+- **サムネイルPNG未登録のVRMエントリでも壊れた画像を出さない暫定対応**。ポスター `img` に `onerror` を追加し、
+  404 時は `.model-viewer__media` カラムごと畳んで「起動ボタン + 3Dステージのみ」のカードへフォールバックする。
+  サムネイル画像が後から追加されれば従来どおりの2カラム表示に自動復帰する（コード変更不要）。
+- **`data/Works_NumberTales/VRMs/DB_Primary/corefolder/22/` のVRMファイル名 typo を修正**
+  （`vrm_NTS-22-corefloder.vrm` → `vrm_NTS-22-corefolder.vrm`。DB記載の綴りに一致させた）。
+- 下流影響: `lib/section-renders/vrmViewer.js` のみ（表示仕様の改善。DOM構造・登録名 `vrmViewerSection` は不変）。
+
 ### feat: DeepL 用語集ビルドで併記形（`/` 区切り）を位置対応ペアリング (2026-08-28)
 
 - **`tools/deepl/build-glossary-source.mjs` の併記形の扱いを改善**。従来、`猫又/化猫` ↔ `Nekomata / Warcat` の

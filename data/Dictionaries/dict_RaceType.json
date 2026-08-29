@@ -154,6 +154,17 @@
     "basis": [{ "RaceType": "Human" }, { "RaceType": "LunaTiger" }]
   },
   {
+    "RaceType": "LunaRabbit",
+    "RaceType_JP": "月兎",
+    "RaceType_EN": "LunaRabbit"
+  },
+  {
+    "RaceType": "LunaRabbit(Acquired)",
+    "RaceType_JP": "月兎(後天的)",
+    "RaceType_EN": "LunaRabbit (Acquired)",
+    "basis": [{ "RaceType": "Human" }, { "RaceType": "LunaRabbit" }]
+  },
+  {
     "RaceType": "LunaWolf",
     "RaceType_JP": "月狼/人狼",
     "RaceType_EN": "LunaWolf / Warwolf"
@@ -186,17 +197,6 @@
     "RaceType_JP": "龍人(後天的)",
     "RaceType_EN": "Dragonian (Acquired)",
     "basis": [{ "RaceType": "Human" }, { "RaceType": "Dragonian" }]
-  },
-  {
-    "RaceType": "LunaRabbit",
-    "RaceType_JP": "月兎",
-    "RaceType_EN": "LunaRabbit"
-  },
-  {
-    "RaceType": "LunaRabbit(Acquired)",
-    "RaceType_JP": "月兎(後天的)",
-    "RaceType_EN": "LunaRabbit (Acquired)",
-    "basis": [{ "RaceType": "Human" }, { "RaceType": "LunaRabbit" }]
   },
   {
     "RaceType": "Lamia",

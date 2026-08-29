@@ -41,8 +41,45 @@
   "General": {
     "$VarsDef": {
       "$Def_BeastspecStats": {
-        "$Def_SpecType": { "$DefType": [] },
-        "#List_SpecialPattern": null,
+        "$Def_EffectStats": {
+          "#ListLink_EffectText": [
+            {
+              "EffectText": "危険",
+              "EffectText_EN": "Dangerous",
+              "Rank": "ZZ"
+            },
+            {
+              "EffectText": "過剰",
+              "EffectText_EN": "Over Limited",
+              "Rank": "Z"
+            },
+            {
+              "EffectText": "増強中",
+              "EffectText_EN": "Under Enhancement",
+              "Rank": "S+"
+            },
+            {
+              "EffectText": "絶大",
+              "EffectText_EN": "Tremendous",
+              "Rank": "S"
+            },
+            { "EffectText": "強力", "EffectText_EN": "Powerful", "Rank": "A" },
+            { "EffectText": "特殊", "EffectText_EN": "Special", "Rank": "B+" },
+            { "EffectText": "標準", "EffectText_EN": "Normal", "Rank": "B" },
+            { "EffectText": "弱小", "EffectText_EN": "Weak", "Rank": "C" },
+            {
+              "EffectText": "無能力",
+              "EffectText_EN": "Powerless",
+              "Rank": "D"
+            },
+            { "EffectText": "脆弱", "EffectText_EN": "Fragile", "Rank": "E" },
+            {
+              "EffectText": "抑制中",
+              "EffectText_EN": "Under Suppression",
+              "Rank": "E"
+            }
+          ]
+        },
         "$Def_SpecLevel": {
           "$EnumLink_SpecLevelText": {
             "#Rank0": {

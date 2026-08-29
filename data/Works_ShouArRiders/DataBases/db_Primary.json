@@ -48,7 +48,20 @@
       "BeastspecName_JP": "子機分身",
       "BeastspecName_EN": "Child-Croning",
       "BeastspecAbout_JP": "クローン個体と意識を共有することで疑似的に分身出来る",
-      "BeastspecAbout_EN": "Can pseudo-split by sharing consciousness with clone units"
+      "BeastspecAbout_EN": "Can pseudo-split by sharing consciousness with clone units",
+      "Artifact": "撹乱",
+      "HeartBeastizedPurity": { "hideText": "判定失敗" },
+      "HeartBeastAbout_JP": "（「ボクが獣騎能力の付与も山月病の治療も施術を担っているんだぞ。そんなボクの病状など、何も語る必要はないだろう」と本人は供述する）",
+      "HeartBeastAbout_EN": "(She herself states: \"I'm the one who performs both the Beastspec-granting procedures and the Shanyu Disease treatments. There's no need to talk about my own condition, is there?\")",
+      "EffectStats": {
+        "Physical": { "EffectText": "脆弱" },
+        "Lethal": { "EffectText": "特殊" },
+        "Intimidation": { "EffectText": "危険" },
+        "Healing": { "EffectText": "危険" },
+        "MentalRisk": { "hideText": "極秘事項" }
+      },
+      "SpecialPattern": [],
+      "SpecLevel": { "Rank": "Z" }
     }
   },
   {
@@ -60,7 +73,7 @@
     "FormalName_JP": "出水 億人",
     "FormalName_JPReading": "いずみ おくと",
     "FormalName_EN": "Oxto Izumi",
-    "GenderType": "Male",
+    "GenderType": "MaleNeutral",
     "FromArea": { "Area": "四蓮島" },
     "Height_cm": 191,
     "Weight_kg": 80,
@@ -97,7 +110,20 @@
       "BeastspecName_JP": "追従突撃",
       "BeastspecName_EN": "Pursuing-Charge",
       "BeastspecAbout_JP": "標的を定めて突撃する",
-      "BeastspecAbout_EN": "Charges at the target with precision"
+      "BeastspecAbout_EN": "Charges at the target with precision",
+      "Artifact": "哨戒近接",
+      "HeartBeastizedPurity": "82.2%",
+      "HeartBeastAbout_JP": "乳幼児時代に姉(CN:未刻ユメウツゝ)の希望で獣爾騎兵に保護された。\n精密検査の結果 金牛型山月病と打診：出生の事情と姉の影響により歪んだ性教育を経ているため、厳重な性知識の矯正が必要とされている。\n備考：出生時の性別は男性であるが、山月病により母乳の分泌を確認している。性別障碍にも影響があるとみて精密検査を検討するように。",
+      "HeartBeastAbout_EN": "Taken into the protection of the Shou'ar Riders in infancy at the request of his older sister (CN: Dreamythrill Sheeptimes).\nDetailed examination suggests Taurus-type Shanyu Disease: due to the circumstances of his birth and his sister's influence, he has gone through a distorted sexual education, and strict correction of his sexual knowledge is deemed necessary.\nNote: Although male at birth, lactation has been confirmed as a result of Shanyu Disease. Consider a detailed examination on the assumption that gender disorders may also be affected.",
+      "EffectStats": {
+        "Physical": { "EffectText": "過剰" },
+        "Lethal": { "EffectText": "過剰" },
+        "Intimidation": { "EffectText": "強力" },
+        "Healing": { "EffectText": "弱小" },
+        "MentalRisk": { "EffectText": "危険" }
+      },
+      "SpecialPattern": [],
+      "SpecLevel": { "Rank": "S+" }
     }
   },
   {
@@ -135,7 +161,20 @@
       "BeastspecName_JP": "会心一中",
       "BeastspecName_EN": "One's-Concentration",
       "BeastspecAbout_JP": "相手の急所など一点を狙って行動できる",
-      "BeastspecAbout_EN": "Can act with precision, targeting vital points of opponents"
+      "BeastspecAbout_EN": "Can act with precision, targeting vital points of opponents",
+      "Artifact": "応戦",
+      "HeartBeastizedPurity": "66.3%",
+      "HeartBeastAbout_JP": "妹の姚.恋華(CN:寅刻ネゝコ)の身柄確保を経て獣爾騎兵に加入。\n精密検査の結果、月虎型山月病と打診：あらゆるものに興味関心を示すのと同時に注意散漫・継続力不信などの特性による欲求不満から発症したと推定。よって長期間の単一任務への配属は不能であると判断し、現在は偵察任務や派遣任務を主体に配属中。\n備考：体格変異が症状として顕著に表れているため、加入前の身柄特定はほぼ不能。代替策として姚.恋華が保護される経緯から調査を進めている。",
+      "HeartBeastAbout_EN": "Joined the Shou'ar Riders following the securing of his younger sister Yáo.LiànHuá (CN: Meowcats Tigertimes).\nDetailed examination suggests LunaTiger-type Shanyu Disease: presumed to have developed from frustration caused by traits such as showing curiosity toward everything while also being easily distracted and distrustful of his own perseverance. Accordingly, assignment to any single long-term mission has been judged impossible, and he is currently deployed mainly on reconnaissance and dispatch missions.\nNote: As physical mutation manifests prominently among his symptoms, identifying who he was before joining is nearly impossible. As an alternative measure, investigation is proceeding from the circumstances under which Yáo.LiànHuá was taken into protection.",
+      "EffectStats": {
+        "Physical": { "EffectText": "増強中" },
+        "Lethal": { "EffectText": "増強中" },
+        "Intimidation": { "EffectText": "強力" },
+        "Healing": { "EffectText": "無能力" },
+        "MentalRisk": { "EffectText": "抑制中" }
+      },
+      "SpecialPattern": [],
+      "SpecLevel": { "Rank": "S" }
     }
   },
   {
@@ -146,6 +185,7 @@
     "Name_EN": "Boundy Rabbitimes",
     "Images": {
       "newYear_PNGPath": ["art_imgSAR-EZ4", "art_imgSAR-EZ4-newyear2023"],
+      "concept_PNGName": "cnsp_imgSAR-EZ4",
       "designAlt_PNGPath": ["chattingArt/chart_imgSAR-EZ4-private"]
     },
     "FormalName_JP": "月島 みちる",
@@ -180,7 +220,20 @@
       "BeastspecName_JP": "跳躍",
       "BeastspecName_EN": "Dash-Jumping",
       "BeastspecAbout_JP": "優れた脚力でジャンプやダッシュなどの機動力を上げる",
-      "BeastspecAbout_EN": "Enhances mobility such as jumping and dashing with superior leg strength"
+      "BeastspecAbout_EN": "Enhances mobility such as jumping and dashing with superior leg strength",
+      "Artifact": "強襲",
+      "HeartBeastizedPurity": "36.4%",
+      "HeartBeastAbout_JP": "留学で龍天国の入国時の健康診査にて山月病罹患が発覚し、本人の希望で獣爾騎兵に加入。\n精密検査の結果、月兎型山月病と打診：入国前に餅つきの機材を破壊したことがあり、その時点からすでに罹患していたと推測。精神衛生的な症状はないが力の制御能力に支障があるため、怪力を戦闘能力に起用する形式で抑制訓練を試みている。\n備考：前述の経緯はあるものの名月鑑賞では餅を好んで食べる様子が見られる。現在カウンセリングでトラウマ障碍の有無について詳しく調査中。",
+      "HeartBeastAbout_EN": "Her Shanyu Disease infection was discovered during the health screening upon entering LóngTiān's.Republic to study abroad, and she joined the Shou'ar Riders at her own request.\nDetailed examination suggests LunaRabbit-type Shanyu Disease: she once destroyed mochi-pounding equipment before entering the country, and is presumed to have already been infected at that point. While she shows no mental-health symptoms, her ability to control her strength is impaired, so suppression training is being attempted in the form of employing her superhuman strength as a combat capability.\nNote: Despite the aforementioned history, she is seen happily eating mochi at harvest-moon viewings. Counseling is currently underway to investigate in detail whether she has a trauma disorder.",
+      "EffectStats": {
+        "Physical": { "EffectText": "過剰" },
+        "Lethal": { "EffectText": "強力" },
+        "Intimidation": { "EffectText": "弱小" },
+        "Healing": { "EffectText": "標準" },
+        "MentalRisk": { "EffectText": "標準" }
+      },
+      "SpecialPattern": [],
+      "SpecLevel": { "Rank": "S" }
     }
   },
   {
@@ -221,7 +274,20 @@
       "BeastspecName_JP": "画竜点睛(空中走行)",
       "BeastspecName_EN": "Dragon'sSkywalk",
       "BeastspecAbout_JP": "空中を走行するように移動することで機動力の高い戦闘を繰り広げる",
-      "BeastspecAbout_EN": "Conducts high-mobility combat by moving through the air as if running along it"
+      "BeastspecAbout_EN": "Conducts high-mobility combat by moving through the air as if running along it",
+      "Artifact": "工作近接",
+      "HeartBeastizedPurity": "57.9%",
+      "HeartBeastAbout_JP": "本人の希望で獣爾騎兵に加入。もともと暁美諸国の軍人一家の出身であることが判明しているが、勘当を受け龍天国に亡命。\n精密検査の結果、龍人型山月病と打診：罹患したのは龍天国への亡命以後・獣爾騎兵への加入前とみられ、加入直後は龍人らしい生体変化は見られなかった。しかし軍人時代への訓令が山月病の症状に関与しているのは確かであったため、獣騎能力の付与施術を本人合意のうえで実施。\n備考：彼に児童以下の子供を近づけないよう厳重に注意すること。",
+      "HeartBeastAbout_EN": "Joined the Shou'ar Riders at his own request. He is known to originally come from a military family in the Corizing Nations, but was disowned and defected to LóngTiān's.Republic.\nDetailed examination suggests Dragonian-type Shanyu Disease: infection is believed to have occurred after his defection to LóngTiān's.Republic and before joining the Shou'ar Riders, and no Dragonian(dragonfolk)-like biological changes were observed immediately after joining. However, as it was certain that the directives from his military days were involved in his Shanyu Disease symptoms, the Beastspec-granting procedure was performed with his consent.\nNote: Take strict care not to let children under school age near him.",
+      "EffectStats": {
+        "Physical": { "EffectText": "絶大" },
+        "Lethal": { "hideText": "非公開希望" },
+        "Intimidation": { "EffectText": "強力" },
+        "Healing": { "EffectText": "標準" },
+        "MentalRisk": { "EffectText": "標準" }
+      },
+      "SpecialPattern": [],
+      "SpecLevel": { "Rank": "S+" }
     }
   },
   {
@@ -276,7 +342,24 @@
       "BeastspecName_EN": "RopeTyingForm",
       "BeastspecAbout_JP": "四肢を納めて大蛇の姿になることで、巻き付きや匍匐(ほふく)行動など特殊な潜入動作を可能にする",
       "BeastspecAbout_EN": "By retracting all four limbs and taking the form of a giant serpent, enables special infiltration maneuvers such as constriction and crawling"
-    }
+    },
+    "Artifact": "妨害",
+    "HeartBeastizedPurity": {
+      "value": "70-85%",
+      "about_JP": "データが古いため、再度の精密検査を推奨",
+      "about_EN": "Data is outdated, so a re-examination is recommended"
+    },
+    "HeartBeastAbout_JP": "加入経緯不明。子刻ハッカから「厳重に保護するように」という言伝を受けている。\n精密検査の結果、蛇人型山月病と打診：飲酒や性●などの快楽への依存症状が山月病を悪化させていることが判明している。しかし本人は自制する催促を頑なに拒んでいる。\n備考：獣爾余剰体のうち\"隠し子\"に相当する異常個体の存在が発覚。当個体は獣爾騎兵構内を逃亡し行方不明とのこと、至急 身柄の調査を行うように。",
+    "HeartBeastAbout_EN": "Circumstances of joining unknown. A message has been received from Mus Mousetimes to \"keep her under strict protection.\"\nDetailed examination suggests Lamia-type Shanyu Disease: dependence on pleasures such as drinking and s*x has been found to be aggravating her Shanyu Disease. However, she stubbornly refuses any urging toward self-restraint.\nNote: The existence of an abnormal individual corresponding to a \"hidden child\" among the Shou'ar Surpluses has come to light. Said individual has escaped the Shou'ar Riders' premises and is missing; investigate its whereabouts immediately.",
+    "EffectStats": {
+      "Physical": { "EffectText": "特殊" },
+      "Lethal": { "EffectText": "標準" },
+      "Intimidation": { "EffectText": "絶大" },
+      "Healing": { "EffectText": "強力" },
+      "MentalRisk": { "EffectText": "標準" }
+    },
+    "SpecialPattern": [],
+    "SpecLevel": { "Rank": "A" }
   },
   {
     "BeastType": { "Beast": "Horse" },
@@ -317,7 +400,20 @@
       "BeastspecName_EN": "PullingBreakthrough",
       "BeastspecAbout_JP": "馬力と俊敏性の高い走破で移動戦に持ち込む",
       "BeastspecAbout_EN": "Draws battles into mobile warfare with powerful horsepower and high-agility traversal"
-    }
+    },
+    "Artifact": "牽制",
+    "HeartBeastizedPurity": "81.7%",
+    "HeartBeastAbout_JP": "龍天国敵軍の雄志結国兵であることが判明したため、獣爾騎兵へ身柄を確保中。のちに山月病の蔓延防止という口実で強制的に獣爾騎兵へ加入命令を下される。\n精密検査の結果、馬人型山月病と打診：獣爾騎兵としての仲裁任務を経て雄志結国兵としての忠誠心に強い葛藤が生じているため、精神面から山月病を促進していると判断。\n備考：南里ハッケン主治医より厳重なメンタルケアを講じるよう言伝あり。しかし子刻ハッカ兵長は曖昧に返答しているとのこと。",
+    "HeartBeastAbout_EN": "Currently held in custody by the Shou'ar Riders after being identified as a soldier of United.Heroic.Nation, an enemy force of LóngTiān's.Republic. He was later forcibly ordered to join the Shou'ar Riders under the pretext of preventing the spread of Shanyu Disease.\nDetailed examination suggests Thoroughbreder-type Shanyu Disease: mediation missions as a Shou'ar Rider have created intense conflict with his loyalty as a U.H.N. soldier, which is judged to be accelerating his Shanyu Disease from the mental side.\nNote: Word has come from attending physician Hachken Southmidog to provide thorough mental care. However, Commander Mus Mousetimes is said to be giving only vague replies.",
+    "EffectStats": {
+      "Physical": { "EffectText": "絶大" },
+      "Lethal": { "EffectText": "標準" },
+      "Intimidation": { "EffectText": "弱小" },
+      "Healing": { "EffectText": "無能力" },
+      "MentalRisk": { "EffectText": "脆弱" }
+    },
+    "SpecialPattern": [],
+    "SpecLevel": { "Rank": "B" }
   },
   {
     "BeastType": { "Beast": "Sheep" },
@@ -362,7 +458,20 @@
       "BeastspecName_JP": "睡魔封印",
       "BeastspecName_EN": "Sleep-Overdose",
       "BeastspecAbout_JP": "睡魔を増幅しノンレム睡眠状態ないし昏睡状態にする",
-      "BeastspecAbout_EN": "Amplifies the sleepiness and induces a deep sleep akin to a comatose state"
+      "BeastspecAbout_EN": "Amplifies the sleepiness and induces a deep sleep akin to a comatose state",
+      "Artifact": "支援",
+      "HeartBeastizedPurity": "80.9%",
+      "HeartBeastAbout_JP": "幼くして龍天国へ弟(CN:丑刻ギウニ)と違法入国を試み身柄を確保された際に、急患で応急施術を受ける形式で獣爾騎兵へ保護される。その後、本人の意思で加入。\n精密検査の結果、夢羊型山月病と打診：生育機能が脂肪と体毛に集中しており身体症状が全身の不均衡な体格として顕れている。不眠症状も発覚しており、獣騎能力で補完するよう延命施術を行っている。\n備考：亡命前に弟と育児放棄などの家庭問題があったことが判明。彼女自身の症状へ影響があるとみて調査中。",
+      "HeartBeastAbout_EN": "Taken into the protection of the Shou'ar Riders as a young child, receiving emergency treatment when she was detained while attempting to enter LóngTiān's.Republic illegally with her younger brother (CN: Holster Oxtimes). She later joined of her own will.\nDetailed examination suggests DreamEater-type Shanyu Disease: her growth functions are concentrated in body fat and hair, with physical symptoms manifesting as an unbalanced physique across her whole body. Insomnia has also been discovered, and life-prolonging procedures are being performed so that her Beastspec compensates for it.\nNote: It has been found that she and her younger brother experienced family problems, including child neglect, before their defection. Investigation is underway on the assumption that this affects her own symptoms.",
+      "EffectStats": {
+        "Physical": { "EffectText": "脆弱" },
+        "Lethal": { "EffectText": "特殊" },
+        "Intimidation": { "EffectText": "弱小" },
+        "Healing": { "EffectText": "特殊" },
+        "MentalRisk": { "EffectText": "標準" }
+      },
+      "SpecialPattern": [],
+      "SpecLevel": { "Rank": "C" }
     }
   },
   {
@@ -372,7 +481,7 @@
     "Name_JPReading": "とらのこくネネコ",
     "Name_EN": "Meowcats Tigertimes",
     "Images": {
-      "newYear_PNGPath": ["art_imgSAR-EZ13-meowsday2023"],
+      "newYear_PNGPath": ["art_imgSAR-EZ13", "art_imgSAR-EZ13-meowsday2023"],
       "concept_PNGName": "cnsp_imgSAR-EZ13",
       "arts_PNGPath": [
         "sphericateDay/art_imgSAR-EZ13-sphericateDay202309A",
@@ -409,9 +518,21 @@
     "Summary_EN": "The 13th of the Shou-Ar Riders, distinguished by cat ears and a tail.\nWith Pantheras Tigertimes as an older brother, she specializes in infiltrating various spaces.\nHer sociable personality and combat-unsuited abilities lend her a more peaceful and outgoing side compared to the other riders.\nHowever, toward the Shou-Ar Riders' commander Mus Mousetimes, she shows little goodwill, partly because weaknesses have been held over her from long ago.",
     "BeastspecStats": {
       "BeastspecName_JP": "軟体/着地",
-      "BeastspecName_EN": "SoftizeBody/TouchGrounding",
+      "BeastspecName_EN": "Softize-Body/Touch-Grounding",
       "BeastspecAbout_JP": "関節や骨格を極限まで柔らかく動かす\n着地時に受け身を執ることで高所からの落下に耐える",
-      "BeastspecAbout_EN": "Moves joints and skeletal structure with extreme flexibility\nWithstands falls from great heights by taking a breakfall upon landing"
+      "BeastspecAbout_EN": "Moves joints and skeletal structure with extreme flexibility\nWithstands falls from great heights by taking a breakfall upon landing",
+      "Artifact": "潜入",
+      "HeartBeastizedPurity": { "hideText": "非公開希望" },
+      "HeartBeastAbout_JP": { "hideText": "削除済み" },
+      "EffectStats": {
+        "Physical": { "EffectText": "弱小" },
+        "Lethal": { "EffectText": "無能力" },
+        "Intimidation": { "EffectText": "無能力" },
+        "Healing": { "EffectText": "強力" },
+        "MentalRisk": { "hideText": "非公開希望" }
+      },
+      "SpecialPattern": [],
+      "SpecLevel": { "Rank": "D" }
     }
   },
   {
