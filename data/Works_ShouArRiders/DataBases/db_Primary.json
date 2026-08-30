@@ -5,7 +5,10 @@
     "Name_JP": "子刻ハッカ",
     "Name_JPReading": "ねのこくハッカ",
     "Name_EN": "Mus Mousetimes",
-    "Images": { "concept_PNGName": "cnsp_imgSAR-EZ1" },
+    "Images": {
+      "concept_PNGName": "cnsp_imgSAR-EZ1",
+      "art_PNGPath": ["chattingArt/chart_imgSAR-EZ1"]
+    },
     "FormalName_JP": "易.爾姫",
     "FormalName_JPReading": "ヰ.アルヂ/ヰ.アルセ゚",
     "FormalName_EN": "Yì.Ěr jī",
@@ -186,7 +189,8 @@
     "Images": {
       "newYear_PNGPath": ["art_imgSAR-EZ4", "art_imgSAR-EZ4-newyear2023"],
       "concept_PNGName": "cnsp_imgSAR-EZ4",
-      "designAlt_PNGPath": ["chattingArt/chart_imgSAR-EZ4-private"]
+      "designAlt_PNGPath": ["chattingArt/chart_imgSAR-EZ4-private"],
+      "art_PNGPath": ["chattingArt/chart_imgSAR-EZ4"]
     },
     "FormalName_JP": "月島 みちる",
     "FormalName_JPReading": "つきしま みちる",

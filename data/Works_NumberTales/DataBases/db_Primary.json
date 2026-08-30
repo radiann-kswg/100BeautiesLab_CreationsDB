@@ -5119,7 +5119,10 @@
     "Images": {
       "concept_PNGName": "cnsp_imgNTS-13",
       "corefolder_PNGPath": ["13/emstk_corefolderNTS-13-1"],
-      "arts_PNGPath": ["corefolders/sphericateDay/art_sphericateDay202306"]
+      "arts_PNGPath": [
+        "chattingArt/chart_imgNTS-13-humanoid",
+        "corefolders/sphericateDay/art_sphericateDay202306"
+      ]
     },
     "FormalName_JP": "ナンバーテールズ13番機",
     "FormalName_EN": "NumberTales #13",
@@ -12334,7 +12337,10 @@
         "30/emstk_corefolderNTS-30-1",
         "30/emstk_corefolderNTS-30-2"
       ],
-      "arts_PNGPath": ["chattingArt/chart_imgNTS-30-corefolder"]
+      "arts_PNGPath": [
+        "chattingArt/chart_imgNTS-30-humanoid",
+        "chattingArt/chart_imgNTS-30-corefolder"
+      ]
     },
     "FormalName_JP": "ナンバーテールズ30番機",
     "FormalName_EN": "NumberTales #30",
@@ -19248,6 +19254,7 @@
       ],
       "arts_PNGPath": [
         "humanoids/2023/art_imgNTS-47-humanoid",
+        "chattingArt/2023/chart_imgNTS-47,NTS-74-humanoid",
         "corefolders/sphericateDay/art_sphericateDay202307"
       ]
     },
@@ -27132,7 +27139,10 @@
     "SameModels_DBLink": [{ "_DB": "Primary", "Num": 67 }],
     "Name_JP": "67(ムナ)",
     "Name_EN": "67(Sicsevan)",
-    "Images": { "concept_PNGName": "cnsp_imgNTS-67B" },
+    "Images": {
+      "concept_PNGName": "cnsp_imgNTS-67B",
+      "arts_PNGPath": ["chattingArt/chart_imgNTS-67B-humanoid"]
+    },
     "FormalName_JP": "ナンバーテールズ旧67番機",
     "FormalName_EN": "NumberTales #67.OldType",
     "ModelNumber": "APHR-NT VI+VII.A",
@@ -27400,7 +27410,10 @@
     "SameModels_DBLink": [{ "_DB": "Primary", "Num": "67-old" }],
     "Name_JP": "67(ムナ)",
     "Name_EN": "67(Sicsevan)",
-    "Images": { "concept_PNGName": "cnsp_imgNTS-67A" },
+    "Images": {
+      "concept_PNGName": "cnsp_imgNTS-67A",
+      "arts_PNGPath": ["chattingArt/chart_imgNTS-67A-humanoid"]
+    },
     "FormalName_JP": "ナンバーテールズ67番機",
     "FormalName_EN": "NumberTales #67",
     "CodeName_JP": "六七",
@@ -28188,6 +28201,7 @@
     "Images": {
       "concept_PNGName": "cnsp_imgNTS-69",
       "corefolder_PNGPath": ["69/emstk_corefolderNTS-69-1"],
+      "designAlt_PNGPath": ["chattingArt/chart_imgNTS-69-humanoidLeotard"],
       "arts_PNGPath": [
         "humanoids/2023/art_imgNTS-69-humanoid",
         "humanoids/2023/art_imgNTS-69-humanoidOnMask"
@@ -30192,6 +30206,7 @@
       "concept_PNGName": "cnsp_imgNTS-74",
       "corefolder_PNGPath": ["74/emstk_corefolderNTS-74-1"],
       "arts_PNGPath": [
+        "chattingArt/2023/chart_imgNTS-47,NTS-74-humanoid",
         "corefolders/sphericateDay/art_sphericateDay202307",
         "corefolders/2023/art_imgNTS-74-corefolderAsObjectA",
         "corefolders/2023/art_imgNTS-74-corefolderAsObjectB"
@@ -30574,6 +30589,7 @@
         "75/emstk_corefolderNTS-75-2"
       ],
       "arts_PNGPath": [
+        "chattingArt/chart_imgNTS-75-humanoidSaveYourself",
         "corefolders/sphericateDay/art_sphericateDay202305-imgNTS-75"
       ]
     },
