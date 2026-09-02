@@ -7,7 +7,7 @@
     "Name_EN": "Mus Mousetimes",
     "Images": {
       "concept_PNGName": "cnsp_imgSAR-EZ1",
-      "art_PNGPath": ["chattingArt/chart_imgSAR-EZ1"]
+      "arts_PNGPath": ["chattingArt/chart_imgSAR-EZ1"]
     },
     "FormalName_JP": "易.爾姫",
     "FormalName_JPReading": "ヰ.アルヂ/ヰ.アルセ゚",
@@ -190,7 +190,7 @@
       "newYear_PNGPath": ["art_imgSAR-EZ4", "art_imgSAR-EZ4-newyear2023"],
       "concept_PNGName": "cnsp_imgSAR-EZ4",
       "designAlt_PNGPath": ["chattingArt/chart_imgSAR-EZ4-private"],
-      "art_PNGPath": ["chattingArt/chart_imgSAR-EZ4"]
+      "arts_PNGPath": ["chattingArt/chart_imgSAR-EZ4"]
     },
     "FormalName_JP": "月島 みちる",
     "FormalName_JPReading": "つきしま みちる",
@@ -345,25 +345,25 @@
       "BeastspecName_JP": "束縛形態",
       "BeastspecName_EN": "RopeTyingForm",
       "BeastspecAbout_JP": "四肢を納めて大蛇の姿になることで、巻き付きや匍匐(ほふく)行動など特殊な潜入動作を可能にする",
-      "BeastspecAbout_EN": "By retracting all four limbs and taking the form of a giant serpent, enables special infiltration maneuvers such as constriction and crawling"
-    },
-    "Artifact": "妨害",
-    "HeartBeastizedPurity": {
-      "value": "70-85%",
-      "about_JP": "データが古いため、再度の精密検査を推奨",
-      "about_EN": "Data is outdated, so a re-examination is recommended"
-    },
-    "HeartBeastAbout_JP": "加入経緯不明。子刻ハッカから「厳重に保護するように」という言伝を受けている。\n精密検査の結果、蛇人型山月病と打診：飲酒や性●などの快楽への依存症状が山月病を悪化させていることが判明している。しかし本人は自制する催促を頑なに拒んでいる。\n備考：獣爾余剰体のうち\"隠し子\"に相当する異常個体の存在が発覚。当個体は獣爾騎兵構内を逃亡し行方不明とのこと、至急 身柄の調査を行うように。",
-    "HeartBeastAbout_EN": "Circumstances of joining unknown. A message has been received from Mus Mousetimes to \"keep her under strict protection.\"\nDetailed examination suggests Lamia-type Shanyu Disease: dependence on pleasures such as drinking and s*x has been found to be aggravating her Shanyu Disease. However, she stubbornly refuses any urging toward self-restraint.\nNote: The existence of an abnormal individual corresponding to a \"hidden child\" among the Shou'ar Surpluses has come to light. Said individual has escaped the Shou'ar Riders' premises and is missing; investigate its whereabouts immediately.",
-    "EffectStats": {
-      "Physical": { "EffectText": "特殊" },
-      "Lethal": { "EffectText": "標準" },
-      "Intimidation": { "EffectText": "絶大" },
-      "Healing": { "EffectText": "強力" },
-      "MentalRisk": { "EffectText": "標準" }
-    },
-    "SpecialPattern": [],
-    "SpecLevel": { "Rank": "A" }
+      "BeastspecAbout_EN": "By retracting all four limbs and taking the form of a giant serpent, enables special infiltration maneuvers such as constriction and crawling",
+      "Artifact": "妨害",
+      "HeartBeastizedPurity": {
+        "value": "70-85%",
+        "about_JP": "データが古いため、再度の精密検査を推奨",
+        "about_EN": "Data is outdated, so a re-examination is recommended"
+      },
+      "HeartBeastAbout_JP": "加入経緯不明。子刻ハッカから「厳重に保護するように」という言伝を受けている。\n精密検査の結果、蛇人型山月病と打診：飲酒や性●などの快楽への依存症状が山月病を悪化させていることが判明している。しかし本人は自制する催促を頑なに拒んでいる。\n備考：獣爾余剰体のうち\"隠し子\"に相当する異常個体の存在が発覚。当個体は獣爾騎兵構内を逃亡し行方不明とのこと、至急 身柄の調査を行うように。",
+      "HeartBeastAbout_EN": "Circumstances of joining unknown. A message has been received from Mus Mousetimes to \"keep her under strict protection.\"\nDetailed examination suggests Lamia-type Shanyu Disease: dependence on pleasures such as drinking and s*x has been found to be aggravating her Shanyu Disease. However, she stubbornly refuses any urging toward self-restraint.\nNote: The existence of an abnormal individual corresponding to a \"hidden child\" among the Shou'ar Surpluses has come to light. Said individual has escaped the Shou'ar Riders' premises and is missing; investigate its whereabouts immediately.",
+      "EffectStats": {
+        "Physical": { "EffectText": "特殊" },
+        "Lethal": { "EffectText": "標準" },
+        "Intimidation": { "EffectText": "絶大" },
+        "Healing": { "EffectText": "強力" },
+        "MentalRisk": { "EffectText": "標準" }
+      },
+      "SpecialPattern": [],
+      "SpecLevel": { "Rank": "A" }
+    }
   },
   {
     "BeastType": { "Beast": "Horse" },
@@ -403,21 +403,21 @@
       "BeastspecName_JP": "牽引突破",
       "BeastspecName_EN": "PullingBreakthrough",
       "BeastspecAbout_JP": "馬力と俊敏性の高い走破で移動戦に持ち込む",
-      "BeastspecAbout_EN": "Draws battles into mobile warfare with powerful horsepower and high-agility traversal"
-    },
-    "Artifact": "牽制",
-    "HeartBeastizedPurity": "81.7%",
-    "HeartBeastAbout_JP": "龍天国敵軍の雄志結国兵であることが判明したため、獣爾騎兵へ身柄を確保中。のちに山月病の蔓延防止という口実で強制的に獣爾騎兵へ加入命令を下される。\n精密検査の結果、馬人型山月病と打診：獣爾騎兵としての仲裁任務を経て雄志結国兵としての忠誠心に強い葛藤が生じているため、精神面から山月病を促進していると判断。\n備考：南里ハッケン主治医より厳重なメンタルケアを講じるよう言伝あり。しかし子刻ハッカ兵長は曖昧に返答しているとのこと。",
-    "HeartBeastAbout_EN": "Currently held in custody by the Shou'ar Riders after being identified as a soldier of United.Heroic.Nation, an enemy force of LóngTiān's.Republic. He was later forcibly ordered to join the Shou'ar Riders under the pretext of preventing the spread of Shanyu Disease.\nDetailed examination suggests Thoroughbreder-type Shanyu Disease: mediation missions as a Shou'ar Rider have created intense conflict with his loyalty as a U.H.N. soldier, which is judged to be accelerating his Shanyu Disease from the mental side.\nNote: Word has come from attending physician Hachken Southmidog to provide thorough mental care. However, Commander Mus Mousetimes is said to be giving only vague replies.",
-    "EffectStats": {
-      "Physical": { "EffectText": "絶大" },
-      "Lethal": { "EffectText": "標準" },
-      "Intimidation": { "EffectText": "弱小" },
-      "Healing": { "EffectText": "無能力" },
-      "MentalRisk": { "EffectText": "脆弱" }
-    },
-    "SpecialPattern": [],
-    "SpecLevel": { "Rank": "B" }
+      "BeastspecAbout_EN": "Draws battles into mobile warfare with powerful horsepower and high-agility traversal",
+      "Artifact": "牽制",
+      "HeartBeastizedPurity": "81.7%",
+      "HeartBeastAbout_JP": "龍天国敵軍の雄志結国兵であることが判明したため、獣爾騎兵へ身柄を確保中。のちに山月病の蔓延防止という口実で強制的に獣爾騎兵へ加入命令を下される。\n精密検査の結果、馬人型山月病と打診：獣爾騎兵としての仲裁任務を経て雄志結国兵としての忠誠心に強い葛藤が生じているため、精神面から山月病を促進していると判断。\n備考：南里ハッケン主治医より厳重なメンタルケアを講じるよう言伝あり。しかし子刻ハッカ兵長は曖昧に返答しているとのこと。",
+      "HeartBeastAbout_EN": "Currently held in custody by the Shou'ar Riders after being identified as a soldier of United.Heroic.Nation, an enemy force of LóngTiān's.Republic. He was later forcibly ordered to join the Shou'ar Riders under the pretext of preventing the spread of Shanyu Disease.\nDetailed examination suggests Thoroughbreder-type Shanyu Disease: mediation missions as a Shou'ar Rider have created intense conflict with his loyalty as a U.H.N. soldier, which is judged to be accelerating his Shanyu Disease from the mental side.\nNote: Word has come from attending physician Hachken Southmidog to provide thorough mental care. However, Commander Mus Mousetimes is said to be giving only vague replies.",
+      "EffectStats": {
+        "Physical": { "EffectText": "絶大" },
+        "Lethal": { "EffectText": "標準" },
+        "Intimidation": { "EffectText": "弱小" },
+        "Healing": { "EffectText": "無能力" },
+        "MentalRisk": { "EffectText": "脆弱" }
+      },
+      "SpecialPattern": [],
+      "SpecLevel": { "Rank": "B" }
+    }
   },
   {
     "BeastType": { "Beast": "Sheep" },

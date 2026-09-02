@@ -1,5 +1,19 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### fix: 獣騎能力（ShouArRiders `BeastspecStats`）の `SpecLevel` をタグ表示へ (2026-09-02)
+
+- **汎用 `specStatsSection`（`lib/section-renders/specStats.js`）が `SpecLevel` をタグとして描くようにした**。
+  従来は `EffectStats` / `SafetyLevel` だけをタググリッドへ載せ、`SpecLevel` は `buildObjectChildBlocks` の
+  大ブロックへ落ちていたため、ShouArRiders `BeastspecStats` の「能力レベル」だけが説明文と同じ体裁で
+  セクション末尾に並んでいた（同じ形の `SpecLevel` を持つ FLInvestigator78 は `arcanumSpecSection` 側で
+  既にタグ化していたため、汎用側の取りこぼし）。描画は既存の `__specStatsHelpers.buildSingleLeafTag()` を
+  再利用しており、専用レンダラーの新設はしていない。
+- 影響範囲: `*specStats` 配下に `SpecLevel` を宣言している作品のみ。現状は **ShouArRiders `BeastspecStats` だけ**が該当し、
+  NumberTales `NumerospecStats` / PastDivers `ChronospecStats` / UnauthedLogica `LogicspecStats` の表示は変わらない。
+  FLInvestigator78 は従来どおり `arcanumSpecSection`（`SpecType` の kvTable を持つ派生）を使う。
+- 回帰テスト: `tests/pages.characters.ui-output.test.js` に ShouArRiders の
+  「`能力レベル: S+（かなり強力 / Quite Powerful）` がタグとして出る」ケースを追加。
+
 ### fix: VRMビューアのカメラ中央フィットとサムネイル欠損フォールバック (2026-08-29)
 
 - **`lib/section-renders/vrmViewer.js` のカメラ初期化を修正**。従来は等身の高い人型前提の固定値
