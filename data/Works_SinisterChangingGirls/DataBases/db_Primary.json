@@ -107,7 +107,7 @@
   },
   {
     "Drc": "E",
-    "Progress": "notProceeded",
+    "Progress": "unreleased",
     "AnotherRegions_DBLink": [
       {
         "_Work": "PastDivers",
@@ -118,6 +118,7 @@
     "Name_JP": "六花 ルノ",
     "Name_JPReading": "ろくばな ルノ",
     "Name_EN": "Luno Hexacrys",
+    "Images": { "concept_PNGName": "cnsp_imgSCG-E" },
     "FormalName_JP": "ルノ.ヘクスクリス",
     "FormalName_EN": "Luno Hexacrys",
     "CodeName_JP": "憤怒の早朝",
@@ -130,25 +131,29 @@
       "BaseAreaAbout_JP": "残された戸籍情報によるが、事実は定かではない",
       "BaseAreaAbout_EN": "Based on the remaining family registry information, but the facts are uncertain"
     },
-    "Height_cm": 160,
+    "Height_cm": 166,
     "Weight_kg": { "hideText": "非公開" },
-    "BustSize": "F",
+    "BustSize": "L",
     "Age": 25,
     "BirthDay": { "Day": { "Month": 4, "DayOfMonth": 7 } },
-    "FirstPersonCalling_JP": "",
-    "SecondPersonCalling_JP": "",
-    "ThirdPersonCalling_JP": "",
-    "Character_JP": "",
-    "Character_EN": "",
-    "Hobby_JP": "",
-    "Hobby_EN": "",
-    "SpecialSkill_JP": "",
-    "SpecialSkill_EN": "",
+    "FirstPersonCalling_JP": "私(わたし)",
+    "FirstPersonCalling_EN": "I",
+    "SecondPersonCalling_JP": "君(きみ);[※名前呼び],~君/~さん",
+    "SecondPersonCalling_EN": "you; [*by name]",
+    "ThirdPersonCalling_JP": "彼/彼女;[※名前呼び],~君/~さん",
+    "ThirdPersonCalling_EN": "he/she; [*by name]",
+    "Character_JP": "優しく人想いな美少女だが、人想いな余り人の命を蔑ろにする存在を目にすると暴走する",
+    "Character_EN": "A kind, warm-hearted beautiful girl, but so warm-hearted that she runs wild at the sight of anyone who treats human life as worthless",
+    "Hobby_JP": "世界の知識に触れること",
+    "Hobby_EN": "Getting in touch with the knowledge of the world",
+    "SpecialSkill_JP": "カーチェイス（F1レーサー免許あり）",
+    "SpecialSkill_EN": "Car chases (holds an F1 racer's license)",
     "Favor_JP": "人間の友情や愛情",
     "Favor_EN": "Human friendship and affection",
-    "Unlike_JP": "親友の危険、人体実験",
-    "Unlike_EN": "Her best friend's danger, human experimentation",
-    "Summary_JP": ""
+    "Unlike_JP": "親友の危険\n人体実験",
+    "Unlike_EN": "Her best friend's danger\nHuman experimentation",
+    "Summary_JP": "夜月機関からある理由で独立し「白の六芒星」という機密研究機関で研究所長を務める少女。\n儚くも優しいアルビノな美少女で、人情味と愛にあふれる温厚な性格……なのだが、「人体兵器として生まれた」「中学時代は学園番長を名乗っていた」「夜月機関で先代幹部の殉職を目にし覚悟が決まっている」などと危険な一面を持つ噂が後を絶たない。\nそんな彼女の「憤怒」な一面は、特に親友の命を蔑ろにするようなことがあると突然あらわれるようで……",
+    "Summary_EN": "A girl who broke away from the Yadzuki Organization for a certain reason and now serves as research director at a classified research institute called 'WhiteHexagram'.\nA frail yet gentle albino beauty, mild-mannered and overflowing with human warmth and love... and yet the rumors of her dangerous side never cease: \"born as a human weapon\", \"called herself a school delinquent leader back in middle school\", \"has been resolved ever since witnessing the previous executive's death in the line of duty at the Yadzuki Organization\".\nThat 'Wrath/Rage' side of hers seems to surface all of a sudden, especially when something treats her best friend's life as worthless..."
   },
   {
     "Drc": "SE",
@@ -220,7 +225,7 @@
     "Age": 27,
     "BirthDay": { "Day": { "Month": 12, "DayOfMonth": 12 } },
     "Summary_JP": "日中は「六花陛下」という相性で親しまれたスラム街のジャンクガレージで一人ジャンクショップを経営する、お淑やかで静かな看板娘……なのだが、実は二重人格で夜間（もしくは眼鏡が外れた）顔は「強欲」そのものなトレジャーハンター「クィーン.トゥエルヴ」として活動している。\n両人格とも汎用集積素子部品の「72IS」シリーズに対する共通の趣味はあるのだが、廃番で入手困難になった型番の話となると人格が切り替わり傲慢に恫喝されかねないので、くれぐれも彼女を相手にした話題の選択は慎重に。",
-    "Summary_EN": "By day, a graceful and soft-spoken shopgirl who runs a junk shop alone in a slum-district garage known affectionately as 'Majesty Rokka'... but in reality she has a split personality, and by night (or when her glasses come off) her face shows the 'Greed' herself as the treasure hunter 'Queen.XII'.\nBoth personalities share a common hobby with the general-purpose IC component '72IS' series, but if the topic turns to a discontinued hard-to-find model number, the personality can switch and she may aggressively threaten you — so please choose your words very carefully when dealing with her."
+    "Summary_EN": "By day, a graceful and soft-spoken shopgirl who runs a junk shop alone in a slum-district garage known affectionately as 'Majesty Rokka'... but in reality she has a split personality, and by night (or when her glasses come off) her face shows the 'Greed(y)' herself as the treasure hunter 'Queen.XII'.\nBoth personalities share a common hobby with the general-purpose IC component '72IS' series, but if the topic turns to a discontinued hard-to-find model number, the personality can switch and she may aggressively threaten you — so please choose your words very carefully when dealing with her."
   },
   {
     "Drc": "SW",
@@ -280,7 +285,7 @@
     "Unlike_JP": "性行為,母親という概念",
     "Unlike_EN": "Sexual acts, the concept of motherhood",
     "Summary_JP": "黒薔薇国に漂流していたところを拾われ、「扇 三春」を中心とした豹変系女子と旅を共にする成体した幼い少女。恐らく龍天国で育児に恵まれなかった孤児だということがわかるものの、その子供のような精神年齢から普段はとても人懐っこくいろんなものに興味を示している。しかし女性との交友に対し恐怖心とまでいえる強い執着心を有しており、特に\"母\"や\"生殖\"などのような命の誕生に関わる概念に触れると「嫉妬」スイッチが入り、凶悪な毒蛇のように凶暴な姿を露にしてしまう。",
-    "Summary_EN": "A young girl who was found drifting in SchwarzeRoseland and now travels with a group of Sinister Changing Girls led by 'Mikhail Arch'. She is presumably an orphan who was not fortunate in receiving care in LóngTiān's.Republic, and despite her adult body, she has the mental age of a child, making her very friendly and curious about many things. However, she has a strong attachment and fear towards interactions with women, and when confronted with concepts related to the birth of life, such as 'mother' or 'reproduction', her 'envy/jealousy' switch is triggered, revealing a ferocious side like a venomous snake."
+    "Summary_EN": "A young girl who was found drifting in SchwarzeRoseland and now travels with a group of Sinister Changing Girls led by 'Mikhail Arch'. She is presumably an orphan who was not fortunate in receiving care in LóngTiān's.Republic, and despite her adult body, she has the mental age of a child, making her very friendly and curious about many things. However, she has a strong attachment and fear towards interactions with women, and when confronted with concepts related to the birth of life, such as 'mother' or 'reproduction', her 'Envy/Jealousy' switch is triggered, revealing a ferocious side like a venomous snake."
   },
   {
     "Drc": "W",
