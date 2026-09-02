@@ -440,8 +440,8 @@
       "about_EN": "Although appearing this age, it's said she has aged over 15 additional years."
     },
     "BirthDay": { "hideText": "本人すら把握されていない" },
-    "FirstPersonCalling_JP": "ぼく;ユメゥ/ねむり ※名前呼び",
-    "FirstPersonCalling_EN": "I (neutral); Dremys/Nonrem (*by name)",
+    "FirstPersonCalling_JP": "ぼく\nユメゥ/ねむり ※名前呼び",
+    "FirstPersonCalling_EN": "I (neutral)\nDremys/Nonrem (*by name)",
     "SecondPersonCalling_JP": "きみ;[※名前呼び]",
     "SecondPersonCalling_EN": "you;[*by name]",
     "ThirdPersonCalling_JP": "*れ;[※名前呼び]",
