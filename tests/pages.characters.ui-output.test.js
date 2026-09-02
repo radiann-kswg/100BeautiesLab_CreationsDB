@@ -339,6 +339,11 @@ const unibyteLiveArrowRecord = unibyteLivePrimaryRecords.find((record) => record
 const unibyteLiveZigRecord = unibyteLivePrimaryRecords.find((record) => record?.Name_JP === 'Z:ジグ');
 // StreamingActivity の中身（和英共有フィールド + bilingual wrapper）が一通り埋まっているレコード
 const unibyteLiveNarmyRecord = unibyteLivePrimaryRecords.find((record) => record?.Name_JP === 'S:ナーミィ');
+const shouArRidersWorkTypeDef = loadJson('data/Works_ShouArRiders/DataBases/db_type.json');
+const shouArRidersWorkMeta = buildWorkMetaFixture('Works_ShouArRiders');
+const shouArRidersPrimaryRecords = loadJson('data/Works_ShouArRiders/DataBases/db_Primary.json');
+// BeastspecStats の EffectStats / SpecLevel がどちらも埋まっているレコード（丑刻ギウニ）
+const shouArRidersOxRecord = shouArRidersPrimaryRecords.find((record) => record?.BeastType?.Beast === 'Ox');
 const unauthedLogicaWorkTypeDef = loadJson('data/Works_UnauthedLogica/DataBases/db_type.json');
 const unauthedLogicaWorkMeta = buildWorkMetaFixture('Works_UnauthedLogica');
 const unauthedLogicaMobRecords = loadJson('data/Works_UnauthedLogica/DataBases/db_PrimaryMobs.json');
@@ -1176,6 +1181,35 @@ describe('pages/characters.js UI output', () => {
 		// Phase 4: `ArcanumspecAbout`（旧 `Arcanam` 表記）を `ArcanumspecStats` 配下へ移した
 		expect(getSectionNode('アルカナムスペック(アルカナ能力)の特性')?.textContent || '')
 			.toContain('アルカナムスペック(アルカナ能力)について');
+	});
+
+	it('renders BeastspecStats SpecLevel as a tag alongside EffectStats', async () => {
+		charactersModule.__setCharactersTestState({
+			charState: {
+				db: 'Primary',
+				workId: '#Works_ShouArRiders',
+				records: shouArRidersPrimaryRecords,
+				workTypeDef: shouArRidersWorkTypeDef,
+				globalTypeDef,
+				workMeta: shouArRidersWorkMeta,
+				imageFields: []
+			}
+		});
+
+		await charactersModule.renderDetail('#Works_ShouArRiders', shouArRidersOxRecord);
+
+		// SpecLevel は EffectStats と同じ度数系の指標なので、汎用 specStatsSection でも
+		// 大ブロックではなくタググリッドへ並べる（arcanumSpecSection と同挙動）
+		const beastTags = getSectionTagTexts('獣騎能力の特性');
+		expect(beastTags).toContain('物理的作用: 過剰');
+		expect(beastTags).toContain('能力レベル: S+（かなり強力 / Quite Powerful）');
+		// ラベルだけの見出しタグ（＝ブロック描画へ落ちた状態）が残っていないこと
+		expect(beastTags).not.toContain('能力レベル');
+
+		// タグへ移しても、他の子要素のブロック描画は従来どおり
+		const beastSection = getSectionNode('獣騎能力の特性');
+		expect(beastSection?.textContent || '').toContain('獣騎能力について');
+		expect(beastSection?.textContent || '').toContain('心獣状態に関する概要');
 	});
 
 	it('does not render private records in detail view', async () => {
