@@ -501,6 +501,7 @@ UI → Service Worker (`/pages/v1/`) → 静的 JSON 読み込み + `_DBLink`/`_
 ### 直リンク（URL クエリ）
 
 - **圧縮ロケータ（正）**: キャラ詳細の直リンクは `c=<作品>[/<DB>[/<インデックス>]]` の 1 パラメータにまとめます（例: `?c=NumberTales/Primary/Num:57`, `?c=FLInvestigator78/Primary/Card.Num:7`, `?c=NumberTales/Primary&q=狐`）。作品IDは `Works_` 接頭辞なしの短縮形です。
+- **短縮ロケータ（バッジ直リンク）**: `b=<Works_Code>-<バッジ>[/<DB>]`（例: `?b=NTS-57`, `?b=FLI-M16/PrimaryDealer`）。バッジは相関図と同じ `Works_Code` + 作品別 typedef の `$IndexDef.$badge` 宣言（`lib/graph/graph-badge.js`）で組み立て、読み取り側は `c` 形式（work / db / idx）へ解決してから通常経路へ合流します（表示後の URL は `c` 形式へ書き換わる）。DB 省略時は DB カタログ順に走査して最初に一致した DB を採るため、生成側（詳細ヘッダの「短縮リンクをコピー」ボタン）はカタログ先頭以外の DB のときだけ `/<DB>` を付けます（同一キャラの派生 DB でバッジが重なるため）。文法は `lib/viewer-locator.js` の `parseShortLocator()` / `buildShortQueryString()`。
 - **インデックス表記**: `値` / `キーパス:値` / `キーパス:値,キーパス:値...`（キーパスは `<root>` / `<root>.<child>`。例: `Num`, `Card.Num`, `BeastType.Beast`）。キーパス省略時は `$IndexDef` の主要要素として解釈。
 - **複合 Index（object 形式 `$IndexDef`）**: カテゴリキー（`#IndexListKey`。`Card.Suit` / `Letter.Alphabet` 等）を常に載せ、一意にならない場合だけ他のサブフィールドをカンマ区切りで追加します（例: `?c=FLInvestigator78/Primary/Suit:Major,SuitNum:16`）。数値サブフィールド単独の直リンクは「どの分類の N 番か」を示せず別レコードと衝突するため生成しません。複合トークンは `idx`（JSON 条件）+ `idxKey=__conditions__` へ正規化され、既存の subset match 経路で解決されます。
 - **複合 Index の root 省略**: 複合条件では主 Index の root（`Card` / `Letter`）を落とします（`$IndexDef` は 1 レコード 1 オブジェクト前提で root に識別情報が無いため）。単一キーは従来どおり root 付き（`Card.Num:7`）。root を落とすのは `getIndexIdentifierFromRecord()` 側だけで、`_DBLink` 由来のペイロード（サブ Index を指す可能性がある）は root 付きのまま出力します。
