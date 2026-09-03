@@ -1,16 +1,60 @@
 [
-  { "Class": "火の棍棒支部", "Class_EN": "FireWands Branch" },
-  { "Class": "水の聖杯支部", "Class_EN": "WaterCups Branch" },
-  { "Class": "風の刀剣支部", "Class_EN": "SlashSwords Branch" },
-  { "Class": "金の硬貨支部", "Class_EN": "PentacleObjects Branch" },
-  { "Class": "采配幹部(ディーラーズ)", "Class_EN": "Dealers" },
-  { "Class": "情報屋", "Class_EN": "Informant" },
-  { "Class": "最高幹部", "Class_EN": "Top Executive" },
-  { "Class": "国際幹部", "Class_EN": "International Executive" },
-  { "Class": "国境幹部", "Class_EN": "Border Executive" },
-  { "Class": "補助幹部", "Class_EN": "Assistant Executive" },
-  { "Class": "九蓮国支部幹部", "Class_EN": "RN.Branch Executive" },
-  { "Class": "英皇国支部幹部", "Class_EN": "IK.Branch Executive" },
-  { "Class": "基底岐路管理秘書", "Class_EN": "KERNEL-BRANCH Secretary" },
-  { "Class": "基底岐路管理官", "Class_EN": "KERNEL-BRANCH Administrator" }
+  {
+    "Class": "火の棍棒支部",
+    "Class_EN": "FireWands Branch",
+    "Class_Code": "FFW"
+  },
+  {
+    "Class": "水の聖杯支部",
+    "Class_EN": "WaterCups Branch",
+    "Class_Code": "FWC"
+  },
+  {
+    "Class": "風の刀剣支部",
+    "Class_EN": "SlashSwords Branch",
+    "Class_Code": "FSS"
+  },
+  {
+    "Class": "金の硬貨支部",
+    "Class_EN": "PentacleObjects Branch",
+    "Class_Code": "FPO"
+  },
+  {
+    "Class": "采配幹部(ディーラーズ)",
+    "Class_EN": "Dealers",
+    "Class_Code": "FLD"
+  },
+  { "Class": "情報屋", "Class_EN": "Informant", "Class_Code": "FLI" },
+  { "Class": "最高幹部", "Class_EN": "Top Executive", "Class_Code": "FTE" },
+  {
+    "Class": "国際幹部",
+    "Class_EN": "International Executive",
+    "Class_Code": "FIE"
+  },
+  { "Class": "国境幹部", "Class_EN": "Border Executive", "Class_Code": "FBE" },
+  {
+    "Class": "補助幹部",
+    "Class_EN": "Assistant Executive",
+    "Class_Code": "FAE"
+  },
+  {
+    "Class": "九蓮国支部幹部",
+    "Class_EN": "RN.Branch Executive",
+    "Class_Code": "FRN"
+  },
+  {
+    "Class": "英皇国支部幹部",
+    "Class_EN": "IK.Branch Executive",
+    "Class_Code": "FIK"
+  },
+  {
+    "Class": "基底岐路管理秘書",
+    "Class_EN": "KERNEL-BRANCH Secretary",
+    "Class_Code": "F.KB"
+  },
+  {
+    "Class": "基底岐路管理官",
+    "Class_EN": "KERNEL-BRANCH Administrator",
+    "Class_Code": "F.KA"
+  }
 ]

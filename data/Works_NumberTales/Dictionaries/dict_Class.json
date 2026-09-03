@@ -1,258 +1,349 @@
 [
-  { "Class": "試験用個体", "Class_EN": "for Testing", "isSecondary": null },
+  {
+    "Class": "試験用個体",
+    "Class_EN": "for Testing",
+    "Class_Code": "NTfD",
+    "isSecondary": null
+  },
   {
     "Class": "未完成個体",
     "Class_EN": "Progressing to Develop",
+    "Class_Code": "NTWP",
     "isSecondary": null
   },
   {
     "Class": "開発システム用個体",
     "Class_EN": "for Developer System",
+    "Class_Code": "NTDS",
     "isSecondary": null
   },
   {
     "Class": "調整個体",
     "Class_JP": "調整中個体 / 調整用個体",
     "Class_EN": "Tuning / for Tuning System",
+    "Class_Code": "NTfT",
     "isSecondary": null
   },
-  { "Class": "退任個体", "Class_EN": "Retired", "isSecondary": null },
+  {
+    "Class": "退任個体",
+    "Class_EN": "Retired",
+    "Class_Code": "NTR",
+    "isSecondary": null
+  },
   {
     "Class": "1桁番",
     "Class_JP": "1桁番(ユニデジッツ)",
     "Class_EN": "Uni-Digits",
+    "Class_Code": "N1D",
     "isSecondary": false
   },
   {
     "Class": "10倍番",
     "Class_JP": "10倍番(テンズデジッツ)",
     "Class_EN": "Tens-Digits",
+    "Class_Code": "NDD",
     "isSecondary": false
   },
   {
     "Class": "マスターテールズ9",
     "Class_EN": "MasterTales 9",
+    "Class_Code": "NMT",
     "isSecondary": false
   },
   {
     "Class": "デュアルスリーズ",
     "Class_EN": "Dual Sum-3s",
+    "Class_Code": "ND3",
     "isSecondary": false
   },
   {
     "Class": "デュアルフォーズ",
     "Class_EN": "Dual Sum-4s",
+    "Class_Code": "ND4",
     "isSecondary": false
   },
   {
     "Class": "デュアルファイブズ",
     "Class_EN": "Dual Sum-5s",
+    "Class_Code": "ND5",
     "isSecondary": false
   },
   {
     "Class": "デュアルシックスズ",
     "Class_EN": "Dual Sum-6s",
+    "Class_Code": "ND6",
     "isSecondary": false
   },
   {
     "Class": "デュアルセブンズ",
     "Class_EN": "Dual Sum-7s",
+    "Class_Code": "ND7",
     "isSecondary": false
   },
   {
     "Class": "デュアルエイツ",
     "Class_EN": "Dual Sum-8s",
+    "Class_Code": "ND8",
     "isSecondary": false
   },
   {
     "Class": "9倍2桁番",
     "Class_JP": "9倍2桁番(ナインズデュアルズ)",
     "Class_EN": "Nines Duals",
+    "Class_Code": "ND9",
     "isSecondary": false
   },
   {
     "Class": "デュアルキャリーズ",
     "Class_EN": "Dual Carries",
+    "Class_Code": "NDC",
     "isSecondary": false
   },
   {
     "Class": "デュアルイレブンズ",
     "Class_EN": "Dual Sum-11s",
+    "Class_Code": "NDE",
     "isSecondary": false
   },
   {
     "Class": "デシベルモデレーターズ",
     "Class_EN": "Decibel Moderators",
+    "Class_Code": "NMD",
     "isSecondary": false
   },
-  { "Class": "1号機型", "Class_EN": "Unit.1 lineage", "isSecondary": false },
-  { "Class": "2号機型", "Class_EN": "Unit.2 lineage", "isSecondary": false },
-  { "Class": "10号機型", "Class_EN": "Unit.10 lineage", "isSecondary": false },
+  {
+    "Class": "1号機型",
+    "Class_EN": "Unit.1 lineage",
+    "Class_Code": "NT1",
+    "isSecondary": false
+  },
+  {
+    "Class": "2号機型",
+    "Class_EN": "Unit.2 lineage",
+    "Class_Code": "NT2",
+    "isSecondary": false
+  },
+  {
+    "Class": "10号機型",
+    "Class_EN": "Unit.10 lineage",
+    "Class_Code": "NT10",
+    "isSecondary": false
+  },
   {
     "Class": "開発者代理人",
     "Class_EN": "Developer's Agent",
+    "Class_Code": "NT0",
     "isSecondary": false
   },
-  { "Class": "開発者", "Class_EN": "Developer", "isSecondary": false },
+  {
+    "Class": "開発者",
+    "Class_EN": "Developer",
+    "Class_Code": "N.DV",
+    "isSecondary": false
+  },
   {
     "Class": "最高経営所長",
     "Class_JP": "CEO(最高経営所長)",
     "Class_EN": "CEO(Chief Executive Officer)",
+    "Class_Code": "N.CE",
     "isSecondary": false
   },
   {
     "Class": "最高技術所長",
     "Class_JP": "CTO(最高技術所長)",
     "Class_EN": "CTO(Chief Technology Officer)",
+    "Class_Code": "N.CT",
     "isSecondary": false
   },
   {
     "Class": "マスタートリプル",
     "Class_EN": "MasterTriples 9",
+    "Class_Code": "NMx3",
     "isSecondary": false
   },
   {
     "Class": "量産型マスタートリプル",
     "Class_EN": "Cloned MasterTriples 9",
+    "Class_Code": "NM3C",
     "isSecondary": false
   },
   {
     "Class": "仮設型ハイナンバー",
     "Class_EN": "Tentative HighNumbers",
+    "Class_Code": "NPx",
     "isSecondary": false
   },
   {
     "Class": "最終型ハイナンバーズ",
     "Class_EN": "Final-Renovated HighNumbers",
+    "Class_Code": "NRZ",
     "isSecondary": false
   },
   {
     "Class": "10*(ヒノマル)型",
     "Class_JP": "10*(ヒノマル)型ハイナンバーズ",
     "Class_EN": "10*(Sunrizer)-Series HighNumbers",
+    "Class_Code": "NSR",
     "isSecondary": false
   },
   {
     "Class": "11*(ハクト)型",
     "Class_JP": "11*(ハクト)型ハイナンバーズ",
     "Class_EN": "11*(Hudres:Elevantis)-Series HighNumbers",
+    "Class_Code": "NHE",
     "isSecondary": false
   },
   {
     "Class": "キャレ型",
     "Class_JP": "キャレ型ハイナンバーズ",
     "Class_EN": "Carré-Series HighNumbers",
+    "Class_Code": "NSQ",
     "isSecondary": false
   },
   {
     "Class": "キュビクザール型",
     "Class_JP": "キュビクザール型ハイナンバーズ",
     "Class_EN": "Kubikzahl-Series HighNumbers",
+    "Class_Code": "NKZ",
     "isSecondary": false
   },
   {
     "Class": "国際協議個体",
     "Class_EN": "Internationally Negotiated Unit",
+    "Class_Code": "NIN",
     "isSecondary": null
   },
   {
     "Class": "スクエアエリート",
     "Class_EN": "SquareElites",
+    "Class_Code": "NSE",
     "isSecondary": false
   },
   {
     "Class": "証明者",
     "Class_JP": "証明者(プロバーズ)",
     "Class_EN": "Provers",
+    "Class_Code": "NPV",
     "isSecondary": null
   },
   {
     "Class": "キャロルズ",
     "Class_EN": "Caroles",
+    "Class_Code": "NCR",
     "isSecondary": null
   },
   {
     "Class": "バーチャリティテールズ",
     "Class_EN": "VirtualityTales",
+    "Class_Code": "NVT",
     "isSecondary": null
   },
-  { "Class": "カレンド", "Class_EN": "Calends", "isSecondary": null },
-  { "Class": "ナルシシスツ", "Class_EN": "Narcissists", "isSecondary": null },
+  {
+    "Class": "カレンド",
+    "Class_EN": "Calends",
+    "Class_Code": "NCL",
+    "isSecondary": null
+  },
+  {
+    "Class": "ナルシシスツ",
+    "Class_EN": "Narcissists",
+    "Class_Code": "NNR",
+    "isSecondary": null
+  },
   {
     "Class": "フィジクスコンストレイント",
     "Class_EN": "Physics Constraint",
+    "Class_Code": "NPM",
     "isSecondary": null
   },
   {
     "Class": "ライターノベルズ",
     "Class_EN": "Writer Novels",
+    "Class_Code": "NWN",
     "isSecondary": null
   },
   {
     "Class": "マスマティカコンストレイント",
     "Class_EN": "Mathematica Constraint",
+    "Class_Code": "NMC",
     "isSecondary": null
   },
   {
     "Class": "バイナリーコンストレイント",
     "Class_EN": "Binary Constraint",
+    "Class_Code": "NBM",
     "isSecondary": null
   },
   {
     "Class": "レイディアントコンストレイント",
     "Class_EN": "Radiant Constraint",
+    "Class_Code": "NRM",
     "isSecondary": null
   },
   {
     "Class": "インターフェイスコンストレイント",
     "Class_EN": "Interface Constraint",
+    "Class_Code": "NUM",
     "isSecondary": null
   },
-  { "Class": "ワノマチ", "Class_EN": "Wa-no-Machi", "isSecondary": null },
+  {
+    "Class": "ワノマチ",
+    "Class_EN": "Wa-no-Machi",
+    "Class_Code": "NWJ",
+    "isSecondary": null
+  },
   {
     "Class": "フェイタルテールズ",
     "Class_EN": "FatalTales",
+    "Class_Code": "NFT",
     "isSecondary": null
   },
   {
     "Class": "ゼミアシスタント",
     "Class_EN": "Seminar Assistant",
+    "Class_Code": "N.SA",
     "isSecondary": null
   },
   {
     "Class": "ヘキサデミカル-テールズ",
     "Class_JP": "ヘキサデミカル・テールズ",
     "Class_EN": "HexademicalTales",
+    "Class_Code": "HxT",
     "isSecondary": true
   },
   {
     "Class": "D-Vines開発機",
     "Class_JP": "D-Vines(ディ-ヴァインズ)開発機",
     "Class_EN": "D-Vines Development Unit",
+    "Class_Code": "DVfD",
     "isSecondary": true
   },
   {
     "Class": "D-Vines母艦機",
     "Class_JP": "D-Vines(ディ-ヴァインズ)母艦機",
     "Class_EN": "D-Vines MotherShip Unit",
+    "Class_Code": "DVM",
     "isSecondary": true
   },
   {
     "Class": "D-Vines基幹機",
     "Class_JP": "D-Vines(ディ-ヴァインズ)基幹機",
     "Class_EN": "D-Vines Core Unit",
+    "Class_Code": "DVC",
     "isSecondary": true
   },
   {
     "Class": "D-Vines",
     "Class_JP": "D-Vines(ディ-ヴァインズ)",
     "Class_EN": "D-Vines",
+    "Class_Code": "DVs",
     "isSecondary": true
   },
   {
     "Class": "ナンバーテールズ化",
     "Class_JP": "ナンバーテールズ化(他者キャラデザ企画)",
     "Class_EN": "NumberizingTales (Characterize Adaptation for followers)",
+    "Class_Code": "NTZ",
     "isSecondary": true
   }
 ]

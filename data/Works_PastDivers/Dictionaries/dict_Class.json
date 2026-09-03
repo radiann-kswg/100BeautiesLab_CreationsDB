@@ -1,36 +1,61 @@
 [
-  { "Class": "総帥", "Class_EN": "Chief.Executive" },
-  { "Class": "幹部", "Class_EN": "Executive Director" },
-  { "Class": "睦月研究所", "Class_EN": "Laboratory.1" },
-  { "Class": "如月研究所", "Class_EN": "Laboratory.2" },
+  { "Class": "総帥", "Class_EN": "Head.Executive", "Class_Code": "PHE" },
+  { "Class": "幹部", "Class_EN": "Executive Director", "Class_Code": "PXD" },
+  { "Class": "睦月研究所", "Class_EN": "Laboratory.1", "Class_Code": "PD1" },
+  { "Class": "如月研究所", "Class_EN": "Laboratory.2", "Class_Code": "PD2" },
   {
     "Class": "弥生研究所(破滅対策本部2課)",
-    "Class_EN": "Laboratory.3(Pandemic Affairs Countermeasures Headquarter.2)"
+    "Class_EN": "Laboratory.3(Pandemic Affairs Countermeasures Headquarter.2)",
+    "Class_Code": "PD3"
   },
-  { "Class": "卯月研究所", "Class_EN": "Laboratory.4" },
-  { "Class": "皐月研究所", "Class_EN": "Laboratory.5" },
-  { "Class": "水無月研究所", "Class_EN": "Laboratory.6" },
-  { "Class": "文月研究所", "Class_EN": "Laboratory.7" },
+  { "Class": "卯月研究所", "Class_EN": "Laboratory.4", "Class_Code": "PD4" },
+  { "Class": "皐月研究所", "Class_EN": "Laboratory.5", "Class_Code": "PD5" },
+  { "Class": "水無月研究所", "Class_EN": "Laboratory.6", "Class_Code": "PD6" },
+  { "Class": "文月研究所", "Class_EN": "Laboratory.7", "Class_Code": "PD7" },
   {
     "Class": "葉月研究所(軍事本部)",
-    "Class_EN": "Laboratory.8(Military Headquarter)"
+    "Class_EN": "Laboratory.8(Military Headquarter)",
+    "Class_Code": "PD8"
   },
   {
     "Class": "長月研究所(救命本部)",
-    "Class_EN": "Laboratory.9(Lifeguards Headquarter)"
+    "Class_EN": "Laboratory.9(Lifeguards Headquarter)",
+    "Class_Code": "PD9"
   },
   {
     "Class": "神無月研究所(破滅対策本部1課)",
-    "Class_EN": "Laboratory.10(Pandemic Affairs Countermeasures Headquarter.1)"
+    "Class_EN": "Laboratory.10(Pandemic Affairs Countermeasures Headquarter.1)",
+    "Class_Code": "PD10"
   },
-  { "Class": "霜月研究所(仮設)", "Class_EN": "Laboratory.11(Tentative)" },
-  { "Class": "師走研究所(仮設)", "Class_EN": "Laboratory.12(Tentative)" },
-  { "Class": "AI幹部", "Class_EN": "Executive Director.AI" },
-  { "Class": "軍事本部", "Class_EN": "Military Headquarter" },
-  { "Class": "救命本部", "Class_EN": "Lifeguards Headquarter" },
+  {
+    "Class": "霜月研究所(仮設)",
+    "Class_EN": "Laboratory.11(Tentative)",
+    "Class_Code": "PD11"
+  },
+  {
+    "Class": "師走研究所(仮設)",
+    "Class_EN": "Laboratory.12(Tentative)",
+    "Class_Code": "PD12"
+  },
+  {
+    "Class": "AI幹部",
+    "Class_EN": "Executive Director.AI",
+    "Class_Code": "P.AI"
+  },
+  {
+    "Class": "軍事本部",
+    "Class_EN": "Military Headquarter",
+    "Class_Code": "PMH"
+  },
+  {
+    "Class": "救命本部",
+    "Class_EN": "Lifeguards Headquarter",
+    "Class_Code": "PLH"
+  },
   {
     "Class": "破滅対策本部",
-    "Class_EN": "Pandemic Affairs Countermeasures Headquarter"
+    "Class_EN": "Pandemic Affairs Countermeasures Headquarter",
+    "Class_Code": "PPH"
   },
-  { "Class": "機関創設者", "Class_EN": "First Organizer" }
+  { "Class": "機関創設者", "Class_EN": "First Organizer", "Class_Code": "P.FO" }
 ]

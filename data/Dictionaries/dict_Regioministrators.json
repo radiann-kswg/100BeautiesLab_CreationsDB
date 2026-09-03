@@ -1,20 +1,24 @@
 [
   {
     "Class": "創造主",
-    "Class_EN": "Regiowner"
+    "Class_EN": "Regiowner",
+    "Class_Code": ".X"
   },
   {
     "Class": "破壊主",
-    "Class_EN": "Regiomitator"
+    "Class_EN": "Regiomitator",
+    "Class_Code": ".Y"
   },
   {
     "Class": "管制主(再生)",
     "Class_JP": "『管制主』（『再生』担当）",
-    "Class_EN": "'Terministrator' ('Regeneration' Role)"
+    "Class_EN": "'Terministrator' ('Regeneration' Role)",
+    "Class_Code": ".W"
   },
   {
     "Class": "管制主(還元)",
     "Class_JP": "『管制主』（『還元』担当）",
-    "Class_EN": "'Terministrator' ('Reduction' Role)"
+    "Class_EN": "'Terministrator' ('Reduction' Role)",
+    "Class_Code": ".Z"
   }
 ]

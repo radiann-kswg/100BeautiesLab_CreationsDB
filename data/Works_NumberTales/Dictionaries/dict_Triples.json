@@ -2,151 +2,181 @@
   {
     "Class": "百倍番(ハンドレッズデジッツ)",
     "Class_EN": "Hundrets-Digits",
+    "Class_Code": "NHD",
     "isSecondary": null
   },
   {
     "Class": "マスターテンズデュアルズ",
     "Class_EN": "Master 110s",
+    "Class_Code": "NETD",
     "isSecondary": null
   },
   {
     "Class": "サイドシングルズ",
     "Class_EN": "Side Singles",
+    "Class_Code": "NS3S",
     "isSecondary": null
   },
   {
     "Class": "トライデュアルスリーズ",
     "Class_EN": "Tri-Dual Sum-3s",
+    "Class_Code": "NTD3",
     "isSecondary": null
   },
   {
     "Class": "トライデュアルフォーズ",
     "Class_EN": "Tri-Dual Sum-4s",
+    "Class_Code": "NTD4",
     "isSecondary": null
   },
   {
     "Class": "トライデュアルファイブズ",
     "Class_EN": "Tri-Dual Sum-5s",
+    "Class_Code": "NTD5",
     "isSecondary": null
   },
   {
     "Class": "トライデュアルシックスズ",
     "Class_EN": "Tri-Dual Sum-6s",
+    "Class_Code": "NTD6",
     "isSecondary": null
   },
   {
     "Class": "トライデュアルセブンズ",
     "Class_EN": "Tri-Dual Sum-7s",
+    "Class_Code": "NTD7",
     "isSecondary": null
   },
   {
     "Class": "トライデュアルエイツ",
     "Class_EN": "Tri-Dual Sum-8s",
+    "Class_Code": "NTD8",
     "isSecondary": null
   },
   {
     "Class": "ナインズトライデュアルズ",
     "Class_EN": "Nines Tri-Duals",
+    "Class_Code": "NTD9",
     "isSecondary": null
   },
   {
     "Class": "トライデュアルキャリーズ",
     "Class_EN": "Tri-Dual Carries",
+    "Class_Code": "NTDC",
     "isSecondary": null
   },
   {
     "Class": "トライデュアルトワイズ",
     "Class_EN": "Tri-Dual Sum-Twis",
+    "Class_Code": "NTDT",
     "isSecondary": null
   },
   {
     "Class": "デュオトリプル1型",
     "Class_EN": "Duet Triples I",
+    "Class_Code": "NDT1",
     "isSecondary": null
   },
   {
     "Class": "デュオトリプル2型",
     "Class_EN": "Duet Triples II",
+    "Class_Code": "NDT2",
     "isSecondary": null
   },
   {
     "Class": "デュオトリプル3型",
     "Class_EN": "Duet Triples III",
+    "Class_Code": "NDT3",
     "isSecondary": null
   },
   {
     "Class": "デュオトリプル4型",
     "Class_EN": "Duet Triples IV",
+    "Class_Code": "NDT4",
     "isSecondary": null
   },
   {
     "Class": "デュオトリプル5型",
     "Class_EN": "Duet Triples V",
+    "Class_Code": "NDT5",
     "isSecondary": null
   },
   {
     "Class": "デュオトリプル6型",
     "Class_EN": "Duet Triples VI",
+    "Class_Code": "NDT6",
     "isSecondary": null
   },
   {
     "Class": "デュオトリプル7型",
     "Class_EN": "Duet Triples VII",
+    "Class_Code": "NDT7",
     "isSecondary": null
   },
   {
     "Class": "デュオトリプル8型",
     "Class_EN": "Duet Triples VIII",
+    "Class_Code": "NDT8",
     "isSecondary": null
   },
   {
     "Class": "デュオトリプル9型",
     "Class_EN": "Duet Triples IX",
+    "Class_Code": "NDT9",
     "isSecondary": null
   },
   {
     "Class": "トリプルキャリーズ",
     "Class_EN": "Triple Carries",
+    "Class_Code": "N3TC",
     "isSecondary": null
   },
   {
     "Class": "トリプルトワイズ",
     "Class_EN": "Triple Sum-Twis",
+    "Class_Code": "N3TT",
     "isSecondary": null
   },
   {
     "Class": "トリプルスリーズ",
     "Class_EN": "Triple Sum-3s",
+    "Class_Code": "N3T3",
     "isSecondary": null
   },
   {
     "Class": "トリプルフォーズ",
     "Class_EN": "Triple Sum-4s",
+    "Class_Code": "N3T4",
     "isSecondary": null
   },
   {
     "Class": "トリプルファイブズ",
     "Class_EN": "Triple Sum-5s",
+    "Class_Code": "N3T5",
     "isSecondary": null
   },
   {
     "Class": "トリプルシックスズ",
     "Class_EN": "Triple Sum-6s",
+    "Class_Code": "N3T6",
     "isSecondary": null
   },
   {
     "Class": "トリプルセブンズ",
     "Class_EN": "Triple Sum-7s",
+    "Class_Code": "N3T7",
     "isSecondary": null
   },
   {
     "Class": "トリプルエイツ",
     "Class_EN": "Triple Sum-8s",
+    "Class_Code": "N3T8",
     "isSecondary": null
   },
   {
     "Class": "トリプルナインズ",
     "Class_EN": "Triple Nines",
+    "Class_Code": "N3T9",
     "isSecondary": null
   }
 ]

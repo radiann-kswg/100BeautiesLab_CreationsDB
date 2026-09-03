@@ -2,16 +2,19 @@
   {
     "Class": "技術修道女院部",
     "Class_JP": "聖職課 技術修道女院部",
-    "Class_EN": "Clergy Division, Technical Nuns' Department"
+    "Class_EN": "Clergy Division, Technical Nuns' Department",
+    "Class_Code": "CTN"
   },
   {
     "Class": "キャレ型ハイナンバーズ開発部",
     "Class_JP": "セラピーロボット課 キャレ型ハイナンバーズ開発部",
-    "Class_EN": "Therapy Robot Division, Carré-Series HighNumbers Development Department"
+    "Class_EN": "Therapy Robot Division, Carré-Series HighNumbers Development Department",
+    "Class_Code": "TRC"
   },
   {
     "Class": "アヴァンギャルド広告部",
     "Class_JP": "技術者倫理美学課 アヴァンギャルド広告部",
-    "Class_EN": "Engineers' Ethics & Aesthetics Division, Avant-Garde Advertising Department"
+    "Class_EN": "Engineers' Ethics & Aesthetics Division, Avant-Garde Advertising Department",
+    "Class_Code": "EAA"
   }
 ]

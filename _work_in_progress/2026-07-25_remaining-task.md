@@ -334,7 +334,7 @@
 | ログ | 主題 | 関連タスク | 状態 |
 | --- | --- | --- | --- |
 | [2026-07-25_remaining-task.md](./2026-07-25_remaining-task.md) | **本ファイル**（残タスクの起点） | — | 🟢 現行 |
-| [2026-09-03_progress_short-link.md](./2026-09-03_progress_short-link.md) | キャラシートの短縮リンク（`?b=<Works_Code>-<バッジ>`）の新設 | — | ✅ 実装完了（実機目視は未実施） |
+| [2026-09-03_progress_short-link.md](./2026-09-03_progress_short-link.md) | キャラシートの短縮リンク（`?b=`）と相関図の圧縮ロケータ（`?r=`）の新設 | — | ✅ 実装完了（実機目視は未実施） |
 | [2026-08-04_progress_unibytelive-streaming-bilingual.md](./2026-08-04_progress_unibytelive-streaming-bilingual.md) | ハンカクライブ `StreamingActivity` の配列系を和英共有フィールドへ統一 | — | ✅ 完了（残は `SUMMARY_KEYS` の schema 駆動化と既存の赤 3 件） |
 | [.completed/2026-08-02_progress_relations-graph.md](./.completed/2026-08-02_progress_relations-graph.md) | キャラクター相関図ページ（`pages/relations.html`）の新設（初期計画） | **T-13** | ✅ 完了・退避済み |
 | [.completed/2026-08-04_progress_relations-tri-grid.md](./.completed/2026-08-04_progress_relations-tri-grid.md) | 相関図の実装完走ログ（tri-grid/route/UX/遷移/導線） | **T-13** | ✅ 完了・退避済み |

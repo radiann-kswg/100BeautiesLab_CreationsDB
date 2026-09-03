@@ -2,26 +2,31 @@
   {
     "Class": "代理",
     "Class_JP": "代理(作者近影)",
-    "Class_EN": "Proxy (Author's Snapshot)"
+    "Class_EN": "Proxy (Author's Snapshot)",
+    "Class_Code": ".PX"
   },
   {
     "Class": "代理近影",
     "Class_JP": "代理近影",
-    "Class_EN": "Proxy Snapshot"
+    "Class_EN": "Proxy Snapshot",
+    "Class_Code": ".PS"
   },
   {
     "Class": "大学同期生",
     "Class_JP": "大学同期生(作者の友人近影)",
-    "Class_EN": "University Classmate (Author's Friend Snapshot)"
+    "Class_EN": "University Classmate (Author's Friend Snapshot)",
+    "Class_Code": ".UC"
   },
   {
     "Class": "球面神社",
     "Class_JP": "球面神社",
-    "Class_EN": "Spherical-face Shrine"
+    "Class_EN": "Spherical-face Shrine",
+    "Class_Code": ".SS"
   },
   {
     "Class": "ホテルアルバイター",
     "Class_JP": "ホテルアルバイター",
-    "Class_EN": "Hotel Arbeiter"
+    "Class_EN": "Hotel Arbeiter",
+    "Class_Code": ".HA"
   }
 ]
