@@ -1,5 +1,19 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### feat: キャラシートの短縮リンク（インデックスバッジ直リンク `?b=NTS-57`）(2026-09-03)
+
+- **`characters.html?b=<Works_Code>-<バッジ>[/<DB>]` を新設**（例: `?b=NTS-57`, `?b=FLI-M16/PrimaryDealer`）。
+  バッジは相関図と同じ `Works_Code` + `$IndexDef.$badge` 宣言（`lib/graph/graph-badge.js`）で組み立て、
+  キャラシート側は `c` 形式（work / db / idx）へ解決してから通常経路へ合流する（表示後の URL は `c` 形式へ書き換わる）。
+  DB 省略時は DB カタログ順に走査して最初に一致した DB を採る。一致しなければ URL を触らず通常の初期表示へ進む。
+- **詳細ヘッダに「🔗 短縮リンクをコピー」ボタンを追加**（`pages/characters.html` / `pages/characters.js`）。
+  カタログ先頭以外の DB（FLI `PrimaryDealer` / UBL `PrimaryPerformer` 等、Primary とバッジが重なる派生 DB）のときだけ
+  `/<DB>` を付ける。clipboard API が使えない環境は `prompt` で手動コピーへフォールバック。
+- 文法は `lib/viewer-locator.js` の `SHORT_LOCATOR_PARAM` / `parseShortLocator()` / `buildShortQueryString()` に集約
+  （`tests/lib.viewer-locator.test.js` に往復テストを追加）。`asset-version` を `2026.09.03.1` へ更新。
+- 下流への影響: `lib/viewer-locator.js` の公開 API 追加（既存関数は無変更）。`pages/characters.js` が
+  `lib/graph/graph-badge.js` / `lib/graph/graph-model.js` を新たに import する（どちらも DOM 非依存の純関数）。
+
 ### fix: 獣騎能力（ShouArRiders `BeastspecStats`）の `SpecLevel` をタグ表示へ (2026-09-02)
 
 - **汎用 `specStatsSection`（`lib/section-renders/specStats.js`）が `SpecLevel` をタグとして描くようにした**。
