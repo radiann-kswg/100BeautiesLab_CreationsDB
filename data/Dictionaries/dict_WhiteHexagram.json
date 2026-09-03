@@ -1,4 +1,8 @@
 [
-  { "Class": "機関所長", "Class_EN": "Director of the Agency" },
-  { "Class": "保護対象", "Class_EN": "Protected Subject" }
+  {
+    "Class": "機関所長",
+    "Class_EN": "Director of the Agency",
+    "Class_Code": "WDA"
+  },
+  { "Class": "保護対象", "Class_EN": "Protected Subject", "Class_Code": "WPS" }
 ]

@@ -10,7 +10,7 @@
         "hashTag_EN": "CardType",
         "$display": {
           "langMode": "shared",
-          "facet": { "order": 15, "hierarchy": 15 }
+          "facet": { "order": 15, "hierarchy": 15, "codeFrom": "Suit_Code" }
         }
       },
       {

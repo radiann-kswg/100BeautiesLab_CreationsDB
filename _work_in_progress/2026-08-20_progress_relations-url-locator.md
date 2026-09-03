@@ -1,7 +1,7 @@
 # 相関図 URL 圧縮ロケータ設計案
 
 - 作成日: 2026-08-20
-- 状態: 設計案のみ。実装・テスト変更は未着手
+- 状態: ✅ 実装済み（2026-09-03）。実装内容・設計からの差分は [2026-09-03_progress_short-link.md](./2026-09-03_progress_short-link.md) を参照
 - 対象: `pages/relations.html` / `pages/relations.js`
 
 ## 0. チャット内作業の棚卸し

@@ -8453,8 +8453,10 @@ async function main() {
 	// リロードで流れたSW失敗ログを、初期化前に再掲（引用できるようにする）
 	replayRememberedSwInitError();
 
-	// 短縮ロケータ（?b=NTS-57）は直後の setQS({ lang }) で URL から消えるため、先に退避する
-	const shortLocator = new URLSearchParams(location.search).get(SHORT_LOCATOR_PARAM) || '';
+	// 短縮ロケータ（?b=NTS-57）は直後の setQS({ lang }) で URL から消えるため、先に退避する。
+	// 正規形 `c` が同時にあるときは `c` を優先し、`b` は無視する
+	const initialParams = new URLSearchParams(location.search);
+	const shortLocator = initialParams.has(VIEWER_LOCATOR_PARAM) ? '' : (initialParams.get(SHORT_LOCATOR_PARAM) || '');
 
 	const startTime = performance.now();
 	console.log('🚀 キャラクターブラウザアプリケーションを初期化中...');

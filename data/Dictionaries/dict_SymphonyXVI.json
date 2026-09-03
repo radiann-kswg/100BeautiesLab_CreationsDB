@@ -2,16 +2,19 @@
   {
     "Class": "左遷・逆行研究部",
     "Class_JP": "エニグマ課 左遷・逆行研究部",
-    "Class_EN": "Enigma Division, Demotion/Retrograde Research Department"
+    "Class_EN": "Enigma Division, Demotion/Retrograde Research Department",
+    "Class_Code": "EDR"
   },
   {
     "Class": "新人類研究部",
     "Class_JP": "ベヴストザイン課 新人類研究部",
-    "Class_EN": "Bewußtsein Division, Newer Human Research Department"
+    "Class_EN": "Bewußtsein Division, Newer Human Research Department",
+    "Class_Code": "BNH"
   },
   {
     "Class": "ヒューマノイド開発部(シンフォニー.XVI)",
     "Class_JP": "ベヴストザイン課 ヒューマノイド開発部",
-    "Class_EN": "Bewußtsein Division, Humanoid Development Department"
+    "Class_EN": "Bewußtsein Division, Humanoid Development Department",
+    "Class_Code": "BHR"
   }
 ]

@@ -168,7 +168,7 @@
       "$display": {
         "section": "basic",
         "tagSpace": "creation",
-        "facet": { "path": "Faction", "order": 10, "hierarchy": 10 }
+        "facet": { "path": "Faction", "order": 10, "hierarchy": 10, "codeFrom": "Faction_Code" }
       }
     },
     {
@@ -189,7 +189,7 @@
       "$display": {
         "section": "basic",
         "tagSpace": "creation",
-        "facet": { "order": 30, "maxGroups": 12, "hierarchy": 30 }
+        "facet": { "order": 30, "maxGroups": 12, "hierarchy": 30, "codeFrom": "Class_Code" }
       }
     },
     {

@@ -1,5 +1,25 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### feat: 相関図の圧縮ロケータ `?r=NTS/100BL` とバッジによるフォーカス `f=NTS-57` (2026-09-03)
+
+- **相関図 URL を `r=[<map>/]<Works_Code>/<段の値...>` へ集約**（旧 `m` / `d` は読み取りのみ互換、生成しない）。
+  文法は `lib/relations-locator.js`（新規・DOM 非依存）、値の解決は `pages/relations.js` の `resolveLocators()`。
+  `_work_in_progress/2026-08-20_progress_relations-url-locator.md` の設計案を実装したもの。
+- **段の値の短縮は宣言駆動**: `lib/graph/graph-facets.js` の facet に `$display.facet.codeFrom`（辞書行の列名）を追加。
+  宣言があり辞書行に列があれば code（FLI `Card.Suit` → `Suit_Code`: `M` / `W` …）、無ければ生値へフォールバック。
+  `data/db_type.json` の `Belonging`（`Faction_Code`）/ `Class`（`Class_Code`）にも宣言だけ置いた。
+  **辞書行の code 値は未入力**（User が `dict_Faction.json` / `dict_Class.json` へ手入力する。それまでは生値のまま動く）。
+- **フォーカス `f` はインデックスバッジ**（`NTS-57`。同じバッジのノードが他にあれば `NTS-57/Db`）。旧ノードキー（`|` 区切り）も読める。
+- キャラシートの `b=` は `c=` と同時指定時に `c` を優先するよう修正（設計ログの優先順位に合わせた）。
+- 辞書 code の文字種は英数字と `.` だけに固定（`_` / `-` は後続機能の区切りに予約）。User 入力済みの `Class_Code` に
+  混ざっていた `_` を `.` へ一括置換し（32 件・9 ファイル）、`tests/data.facet-codes.test.js`（新規）で文字種と
+  スコープ内一意性を守る。
+- fix: `pages/relations.js` の `loadAll()` が同名の `#List_*` を後勝ちで置換していたため、グローバル側の所属別クラス辞書
+  （`data/Dictionaries/dict_Mikhail.json` 等）が作品側の `#List_Class` に隠れ、`Class_Code` が引けず生値へ落ちていた（6 値）。
+  キャラシートと同じ `TypeResolver.mergeVarsDefLayers()`（配列連結）へ寄せた。
+- `pages/relations.html` の `asset-version` を `2026.09.03.1` へ。テスト: `tests/lib.relations-locator.test.js`（新規）、
+  `tests/graph.facets.test.js` に `codeFrom` の passthrough を追加。
+
 ### feat: キャラシートの短縮リンク（インデックスバッジ直リンク `?b=NTS-57`）(2026-09-03)
 
 - **`characters.html?b=<Works_Code>-<バッジ>[/<DB>]` を新設**（例: `?b=NTS-57`, `?b=FLI-M16/PrimaryDealer`）。
