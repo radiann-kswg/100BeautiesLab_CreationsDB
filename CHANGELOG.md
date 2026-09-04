@@ -1,5 +1,24 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### fix: CI の Node を 22 系へ固定（jsdom/undici の要求と不整合で全ワークフローが Node 20 だった）(2026-09-04)
+
+- **症状**: AIHints 構造的再同期ワークフローの「テスト」ステップが `npm test` で失敗し続けていた
+  （[Actions run 33830375654](https://github.com/radiann-kswg/100BeautiesLab_CreationsDB/actions/runs/33830375654)）。
+  再同期処理そのものは成功しており、落ちていたのは jsdom を使う 4 スイート
+  （`pages.characters.ui-output` / `pages.characters.url-params` / `pages.characters.value-format` / `section-renders.relation`）。
+- **原因**: `jsdom@30.0.1` が依存する `undici@8.10.0`（`engines: node >=22.19.0`）が
+  `require('node:worker_threads').markAsUncloneable` を使う。この関数は **Node 22.10.0 以降にしか存在しない**ため、
+  ワークフローが固定していた Node 20 では `undefined` となり
+  `TypeError: webidl.util.markAsUncloneable is not a function` で import 段階から落ちていた。
+  ローカル（Node 24 系）では素通りするため、手元検証をすり抜け続けていた
+  （`_work_in_progress/` に 8/29・8/31・9/2 と 3 回トリアージ済みで未着手のまま再発）。
+- **対応**: 全ワークフローの `node-version` を `"20"` → `"22"` に統一（`cf-api-sync.yml` 2 箇所 /
+  `gcal-sync.yml` / `jekyll-gh-pages.yml`、および `addon-ai-tag` 側の `aihints-structural-resync.yml`）。
+  あわせて `package.json` の `engines.node` を実態に合わせて `>=18.0.0` → `>=22.19.0` へ修正。
+- **下流への申し送り**: `engines.node` の引き上げは下流 2 本にも波及する。Node 20 以下の環境では `npm test` が
+  動かなくなるため、下流の CI も Node 22 以上へ揃える必要がある（`.github/**` は同期対象外のため各リポジトリで個別対応）。
+- 再発防止として `AGENTS.md` の「テスト戦略」に Node 下限の根拠を明記した（生成物も `npm run agents:build` で追従）。
+
 ### feat: 相関図の圧縮ロケータ `?r=NTS/100BL` とバッジによるフォーカス `f=NTS-57` (2026-09-03)
 
 - **相関図 URL を `r=[<map>/]<Works_Code>/<段の値...>` へ集約**（旧 `m` / `d` は読み取りのみ互換、生成しない）。
