@@ -26045,14 +26045,14 @@
     "ForMasterCalling_EN": "Instructor\nInstructor.~",
     "Character_JP": "常に何かへ発情している\n加えて、ドが付くほどマゾらしく…",
     "Character_EN": "Always aroused by something\nOn top of that, an extreme masochist to boot...",
-    "Hobby_JP": { "hideText": "？？？" },
-    "Hobby_EN": { "hideText": "???" },
+    "Hobby_JP": { "hideText": "検閲済み" },
+    "Hobby_EN": { "hideText": "Censored" },
     "SpecialSkill_JP": "リアクション芸",
     "SpecialSkill_EN": "Exaggerated reaction comedy",
     "Favor_JP": "強気でＳっ気のある大人",
     "Favor_EN": "Dominant, sadistic adults",
-    "Unlike_JP": { "hideText": "？？？" },
-    "Unlike_EN": { "hideText": "???" },
+    "Unlike_JP": { "hideText": "検閲済み" },
+    "Unlike_EN": { "hideText": "Censored" },
     "AppearanceDetail": [
       {
         "Formation": "corefolder",
@@ -26171,14 +26171,30 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Leg"],
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "ローズピンクのカジュアルドレス",
-            "value_EN": "rose-pink casual dress"
+            "value_JP": "紺色のカジュアルドレス",
+            "value_EN": "navy blue casual dress"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Waist"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "赤色のミニスカート",
+            "value_EN": "red mini skirt"
           }
         ],
         "img_PNGName": null,

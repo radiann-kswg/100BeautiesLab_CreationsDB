@@ -4614,13 +4614,14 @@
   {
     "Num": "64-sxp",
     "Num_Badge": "64XP",
-    "Progress": "stillTentative",
+    "Progress": "released",
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "Primary", "Num": 64 }
     ],
     "Name_JP": "ゼフィア\n64(ゼフィア)",
     "Name_EN": "Secvier\n64(Secvier)",
     "Images": {
+      "concept_PNGName": "cnsp_imgNTS-64XP",
       "corefolder_PNGPath": ["64/emstk_corefolderNTS-64XP-1"]
     },
     "FormalName_JP": "ナンバーテールズ仮設新64番機",
@@ -4635,7 +4636,6 @@
     "GenderType": "FemaleNeutral",
     "Belonging": [{ "Faction": "国際ヒューマノイド技術学会" }],
     "Class": [
-      "デュアルキャリーズ",
       "キャレ型",
       "キュビクザール型",
       "国際協議個体",
@@ -4671,6 +4671,205 @@
         "Day": { "Month": 10, "DayOfMonth": 3 },
         "DayAbout_JP": "開発記念（セクストパワー型リリース騒動）",
         "DayAbout_EN": "Development commemoration (Sextpower-type release incident)"
+      }
+    ],
+    "FirstPersonCalling_JP": "あたし",
+    "FirstPersonCalling_EN": "I (fem.)",
+    "SecondPersonCalling_JP": "[※三人称]\nあなた ※稀",
+    "SecondPersonCalling_EN": "[*third-person calling]\nyou (neutral/polite; rare)",
+    "ThirdPersonCalling_JP": "*の人;[※名前呼び];~(な)人\n~先輩",
+    "ThirdPersonCalling_EN": "that/this person; [*by name]\n~-senpai",
+    "ForMasterCalling_JP": "主任\n～主任",
+    "ForMasterCalling_EN": "Chief\nChief.~",
+    "Character_JP": "理知的で委員長のような風格\n見た目に反してド清楚のド純潔で……",
+    "Character_EN": "Intelligent with the demeanor of a class president\nContrary to her appearance, extremely pure and chaste...",
+    "Hobby_JP": "数学やプログラミングの問題を解く",
+    "Hobby_EN": "Solving mathematical and programming problems",
+    "SpecialSkill_JP": "アーケードゲーム",
+    "SpecialSkill_EN": "Arcade games",
+    "Favor_JP": "勤勉で精神的向上心のある人",
+    "Favor_EN": "Diligent and mentally ambitious people",
+    "Unlike_JP": "64(ムトシ)のような総受けでマゾっ気のある淫乱な人",
+    "Unlike_EN": "Individuals who are like 64(Sixforns), submissive, masochistic, and lewd",
+    "AppearanceDetail": [
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Neck"],
+        "Laterality": "#Lat_Left",
+        "DesignElement": "#Element_NumberMark",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "左襟,布の端周辺に小さく",
+            "value_EN": "on the left collar, near the edge of the fabric, small"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "暗色",
+            "value_EN": "dark"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Notation",
+            "value_JP": "アラビア数字の「64」",
+            "value_EN": "Arabic numeral '64'"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Chest"],
+        "Laterality": "#Lat_Center",
+        "DesignElement": "#Element_NumberMark",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "胸元,襟に通しているリボンの留め具である赤くて大きく丸いバッチに記載",
+            "value_EN": "on the chest, on the red, large, round badge that is the fastener of the ribbon passing through the collar"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "白色",
+            "value_EN": "white"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Notation",
+            "value_JP": "中央に大きく「2⁶」,その下に小さく「Sextpower」",
+            "value_EN": "large '2⁶' in the center, small 'Sextpower' below"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Ear"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Ear",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Neck", "#BodyPart_Chest"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "番号付きの白い襟と、それを通り文字付きの赤くて大きく丸いバッチで留められた青いリボン",
+            "value_EN": "white collar with a number, and a blue ribbon passing through it, fastened with a red, large, round badge with text"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Hair"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "マゼンタの長い髪を後頭部でポニーテールにしている",
+            "value_EN": "long magenta hair in a ponytail at the back of the head"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Eye"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "紫の特殊な瞳孔をした目",
+            "value_EN": "violet eyes with unique pupils"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": null,
+        "Laterality": null,
+        "DesignElement": "#Element_Expression",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "清楚で純潔な表情",
+            "value_EN": "pure and innocent expression"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Chest"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "紺色のカジュアルスーツ",
+            "value_EN": "navy blue casual suit"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Waist"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "赤色のカジュアルスカート",
+            "value_EN": "red casual skirt"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Foot"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "青の靴",
+            "value_EN": "blue shoes"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
       }
     ],
     "ColorPalette": [
@@ -4740,10 +4939,13 @@
         "Note_EN": null
       }
     ],
-    "Summary_JP": "ハイナンバーズ開発計画とナンバーテールズの国際展開のために計画が進んでいたある日、「64(ムトシ)」の度重なる非-純潔的な不祥事を「国際ヒューマノイド技術学会」が目を付け、新64番機として彼女の性格部分および数秘的加護のみを完全に再設計するよう百花繚乱研究所の陰で開発されていた個体。\n突然現れたこの設計構想を発端に、数秘的な性質を完全に打ち消し数学的および科学的性質に従って今後は開発するよう百花繚乱研究所へ強い規制圧力を与えたことは、「セクストパワー型リリース騒動」として問題となった。\n知的で学術的な委員長気質の性格となった彼女に、見た目を除いて「64(ムトシ)」の面影はまるで残っていない。",
+    "Summary_JP": "ハイナンバーズ開発計画とナンバーテールズの国際展開のために計画が進んでいたある日、「64(ムトシ)」の度重なる非-純潔的な不祥事を「国際ヒューマノイド技術学会」が目を付け、新64番機として彼女の性格部分および数秘的加護のみを完全に再設計するよう百花繚乱研究所の陰で開発されていた個体。\n突然現れたこの設計構想を発端に、数秘的な性質を完全に打ち消し数学的および科学的な性質に従って今後は開発するよう百花繚乱研究所へ強い規制圧力を与えたことは、「セクストパワー型リリース騒動」として問題となった。\n知的で学術的な委員長気質の性格となった彼女に、見た目を除いて「64(ムトシ)」の面影はまるで残っていない。",
     "Summary_EN": "A unit developed in the shadows of the 100 Beauties Lab. one day while plans were advancing for the HighNumbers development program and the international expansion of NumberTales: the International Humanoid Technology Society had taken notice of the repeated scandals of a non-chaste nature surrounding '64(Sixforns)', and demanded a new Mk.64 in which only her personality and Numerospec would be completely redesigned.\nThe sudden appearance of this design concept touched off strong regulatory pressure on the 100 Beauties Lab. to negate numerological properties entirely and to base all further development on mathematical and scientific properties — an affair that became controversial as the 'Sextpower-type release incident'.\nNow remade with an intellectual, academic, class-president temperament, she retains no trace of '64(Sixforns)' apart from her appearance.",
     "Backgrounds_JP": "「64(ムトシ)」の不祥事を受け、64番機の再設計個体として密かに開発が進められていた個体。\n3桁番号を持つ量産販売型の開発試験機として外注開発しているハイナンバーズ個体：「キャレ型」シリーズ・「キュビザール型」シリーズの基本設計も担っている。",
-    "Backgrounds_EN": "Following the misconduct case of '64(Sixforns)', this unit was secretly developed as a redesigned successor for Mk.64.\nAs an outsourced HighNumbers testbed for mass-production sale models with three-digit numbers, it also serves as a core baseline design for both the 'Carré' series and the 'Kubikzahl' series."
+    "Backgrounds_EN": "Following the misconduct case of '64(Sixforns)', this unit was secretly developed as a redesigned successor for Mk.64.\nAs an outsourced HighNumbers testbed for mass-production sale models with three-digit numbers, it also serves as a core baseline design for both the 'Carré' series and the 'Kubikzahl' series.",
+    "NumerospecStats": {
+      "NumerospecAbout_JP": { "hideText": "非公開" }
+    }
   },
   {
     "Num": "9x9",
