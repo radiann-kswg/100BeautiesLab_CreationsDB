@@ -38611,12 +38611,13 @@
             "long magenta hair tied at the back",
             "violet eyes",
             "inviting smile",
-            "rose-pink casual dress",
+            "navy blue casual dress",
+            "red mini skirt",
             "blue shoes"
           ],
           "negative_visuals": [],
           "natural_language_description": null,
-          "prompt_export": "humanoid form, branching fox 6 tails, short stature (about 146cm), teenager, Fox, long magenta hair tied at the back, violet eyes, inviting smile, rose-pink casual dress, blue shoes",
+          "prompt_export": "humanoid form, branching fox 6 tails, short stature (about 146cm), teenager, Fox, long magenta hair tied at the back, violet eyes, inviting smile, navy blue casual dress, red mini skirt, blue shoes",
           "negative_prompt_export": "",
           "reference_images": null
         }
@@ -38624,7 +38625,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:4d6dfc0167592594b2692b75a300a326e220dad0f7b4a3fdb4a93b9a65b9f3d3",
+        "structuralSourceHash": "sha256:5b2d915dc22934532757fb2d68b78ad6f5123630559617f48796438bc5c7725f",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox",
@@ -38679,11 +38680,12 @@
             "long magenta hair tied at the back",
             "violet eyes",
             "inviting smile",
-            "rose-pink casual dress",
+            "navy blue casual dress",
+            "red mini skirt",
             "blue shoes"
           ]
         },
-        "lastStructuralResync": "2026-08-14"
+        "lastStructuralResync": "2026-09-04"
       }
     }
   },
