@@ -438,6 +438,11 @@
           "hideText_EN": "Indefinite"
         },
         {
+          "hideText": "検閲済み",
+          "hideText_JP": "検閲済み",
+          "hideText_EN": "Censored"
+        },
+        {
           "hideText": "削除済み",
           "hideText_JP": "削除済み",
           "hideText_EN": "Archived or Deleted"
