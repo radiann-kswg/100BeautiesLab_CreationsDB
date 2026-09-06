@@ -281,6 +281,18 @@
     （現状は SW 疑似 API 専用。載せない場合は「SW 専用」で確定させる）
 - **補足**: `$Def_Faction` は所属以外へも再利用できる形だが、現時点の適用先は `Belonging` のみ
 
+### T-36 🟡 corefolder 画像の原寸差し替え（下流 CreationsAI Issue #1 依頼2）
+
+- **関連ログ**: `2026-09-06_progress_corefolder-image-resolution.md`（単一）
+- **完了済み**: `data/**` の画像 733 枚を実測し、縮小版が `corefolder`（emstk 系）に限定されることを確定。
+  差し替え対象 **194 枚 / 8.8 MB** のパス一覧を上記ログに収録。**コード・スキーマの変更は不要**
+  （画像パス解決は解像度を参照しないため、同じパスへ上書きするだけで全経路に反映される）
+- **待ち項目**:
+  - **原本ファイルの投入**（User のローカル資産。エージェント側では用意できない）
+  - 差し替え後の解像度をどこに置くかの判断。1024px なら約 40 MB、1536px なら約 90 MB、
+    2048px なら約 160 MB（現在 `data/` 全体の画像は 71 MB）
+- **補足**: `arts` / `concept` / `catalog` は既に 1024px 以上で対応不要。`attr`（属性アイコン・165px）は対象外
+
 ---
 
 ## C. 長期保留（着手判断そのものが保留）
@@ -334,6 +346,7 @@
 | ログ | 主題 | 関連タスク | 状態 |
 | --- | --- | --- | --- |
 | [2026-07-25_remaining-task.md](./2026-07-25_remaining-task.md) | **本ファイル**（残タスクの起点） | — | 🟢 現行 |
+| [2026-09-06_progress_corefolder-image-resolution.md](./2026-09-06_progress_corefolder-image-resolution.md) | corefolder 画像の原寸差し替え対象リスト（実測 194 枚）。下流 CreationsAI Issue #1 依頼2 | **T-36** | ⚠️ 調査完了・原本投入待ち |
 | [2026-09-03_progress_short-link.md](./2026-09-03_progress_short-link.md) | キャラシートの短縮リンク（`?b=`）と相関図の圧縮ロケータ（`?r=`）の新設 | — | ✅ 実装完了（実機目視は未実施） |
 | [2026-08-04_progress_unibytelive-streaming-bilingual.md](./2026-08-04_progress_unibytelive-streaming-bilingual.md) | ハンカクライブ `StreamingActivity` の配列系を和英共有フィールドへ統一 | — | ✅ 完了（残は `SUMMARY_KEYS` の schema 駆動化と既存の赤 3 件） |
 | [.completed/2026-08-02_progress_relations-graph.md](./.completed/2026-08-02_progress_relations-graph.md) | キャラクター相関図ページ（`pages/relations.html`）の新設（初期計画） | **T-13** | ✅ 完了・退避済み |
