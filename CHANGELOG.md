@@ -1,5 +1,33 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### data: corefolder 画像を原寸化（3.25 倍）＋ 画像参照の破損 1 件を修正 (2026-09-07)
+
+- **下流要件**: [CreationsAI Issue #1](https://github.com/radiann-kswg/100BeautiesLab_CreationsAI/issues/1) 依頼2。
+  収録画像が Web 用縮小版で、作風の核（線幅・塗りのエッジ）が失われており、生成参照と LoRA 再学習の
+  双方のボトルネックになっていた。
+- **対応**: `corefolder`（emstk 系）を 3.25 倍で差し替え（`e95b720`）。
+  **長辺 1024px 未満は 194 枚 → 0 枚**（最小 1235 / 中央値 1557 / 最大 3481 px）。
+  `data/` 全画像は 71.0 MB → 81.0 MB（+10 MB）。
+  対象が corefolder のみで足りる根拠（`arts` 中央値 1200px / `concept` 1180px / `catalog` 9000px は対応不要、
+  `attr` は属性アイコンのため対象外）は `_work_in_progress/2026-09-06_progress_corefolder-image-resolution.md`。
+- **スキーマ・コードの変更は無し**。画像パス解決は解像度を参照しないため、同じパスへの上書きだけで
+  SW 疑似 API / Workers 実 API / 下流データセットのすべてに反映される。
+  Issue が代案に挙げた「原寸パスを引けるメタの追加」は採らなかった（パス体系の二重化は
+  `$image` 解決・`Images/DB_*` 規約・`_DBLink` の画像穴埋め制約すべてに分岐を増やすため）。
+- **画像参照の破損 1 件を修正**: `db_Primary.json` の `#47` / `#74` が
+  `chattingArt/2023/chart_imgNTS-47,NTS-74-humanoid` を指していたが `chattingArt/` に年フォルダは無い
+  （年フォルダ運用は `humanoids/` のみ。`cc0aa87` からのコピペ由来）。該当 2 レコードの絵チャット画像は
+  それまで表示されていなかった。全 21 DB の `Images` 参照 **643 件**を照合し、実体なしが 0 件になったことを確認。
+- **テストの追従**: 拡大処理の色空間往復で全チャンネルが一律 -1 ずれたため
+  （`#ED5D47` → `#EC5C47` / `#FFFFFF` → `#FEFEFD`）、`tests/patch-colorpalette.test.js` の
+  完全一致 2 件を**色差による判定**（閾値 3）へ変更。抽出ロジック自体は無傷であることを実測で確認済み
+  （チップ値との距離 1.00〜1.73 / 共通色除外は `SOLID_EXCLUDE_TOL = 6` に対し距離 2.45 で正常動作）。
+- **申し送り（未修正）**: Role の根拠である `measurePaletteCoverage()` の主色判定が差し替え前後で入れ替わった。
+  `buildForegroundMask()` が透過素材に不向きなことが表面化したもので、既存テストでは検知できない。
+  配色の主従は創作判断を含むため User 判断待ち（`_work_in_progress/2026-07-25_remaining-task.md` の **T-37**）。
+- **下流への申し送り**: 画像バイナリが全面的に入れ替わったため、CreationsAI 側はサブモジュール更新後に
+  `image-index.json` の再ビルドが必要（`width` / `height` / `long_edge_px` / `is_large_original_candidate` が変わる）。
+
 ### feat: AIHints を `DB_SemiPrimary` / `DB_SelfSecondary` へ seed（NumberTales・18 件）(2026-09-06)
 
 > 本エントリは `addon-ai-tag` ブランチ固有（AIHints は `develop` に含めない運用）。

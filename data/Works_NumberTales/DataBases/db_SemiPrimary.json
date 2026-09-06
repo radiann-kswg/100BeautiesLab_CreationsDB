@@ -1640,7 +1640,7 @@
     "Name_EN": "222(Pelgäns)",
     "Images": {
       "concept_PNGName": "cnsp_imgNTS-222A",
-      "corefolder_PNGPath": ["222/emstk_corefolderNTS-222A-2a"],
+      "corefolder_PNGPath": ["222/emstk_corefolderNTS-222A-2"],
       "designAlt_PNGPath": [
         "chattingArt/chart_imgNTS-222A,NTS-222B-humanoidWBed"
       ]
@@ -2155,7 +2155,7 @@
     "Name_EN": "222(Doppels)",
     "Images": {
       "concept_PNGName": "cnsp_imgNTS-222B",
-      "corefolder_PNGPath": ["222/emstk_corefolderNTS-222B-2b"],
+      "corefolder_PNGPath": ["222/emstk_corefolderNTS-222B-2"],
       "designAlt_PNGPath": [
         "chattingArt/chart_imgNTS-222A,NTS-222B-humanoidWBed"
       ]
