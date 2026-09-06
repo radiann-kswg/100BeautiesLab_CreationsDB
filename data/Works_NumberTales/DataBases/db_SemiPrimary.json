@@ -847,7 +847,9 @@
           "natural_language_description": null,
           "prompt_export": "humanoid form, nekomata single tail, short stature (about 141cm), early teenager, from the left shoulder to the edge of the cape, dark red, Arabic numeral '111', Cat (hidden under the hood cap), salmon-red eyes with large yellow pupils, eyes turn red when enraged, dark red hood cap with a salmon-red headband, short blonde hair with white bangs accent, hero-like salmon-red numbered cape, white cross-strap belt and tie, dark red military-style uniform, dark red boots",
           "negative_prompt_export": "",
-          "reference_images": null
+          "reference_images": {
+            "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SemiPrimary/concept/cnsp_imgNTS-111.png"
+          }
         },
         "corefolder": {
           "form_tags": ["corefolder form"],
@@ -2010,7 +2012,9 @@
           "natural_language_description": null,
           "prompt_export": "humanoid form, short stature (about 147cm), teenager, small on the left collar, near the edge of the fabric, pink, Arabic numeral '222', Fox (hanging in a shape overlapping the cap), salmon-red eyes with special pupils, salmon-red brim with a pale yellow cap, long pale-colored twin-tail hairstyle, pale-colored collar, pendant featuring three '2's and a heart motif, pale brown casual vest, pink short skirt, pink and light-colored casual boots",
           "negative_prompt_export": "",
-          "reference_images": null
+          "reference_images": {
+            "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SemiPrimary/concept/cnsp_imgNTS-222A.png"
+          }
         },
         "corefolder": {
           "form_tags": ["corefolder form"],
@@ -2066,7 +2070,7 @@
           "negative_prompt_export": "pink short skirt, pink and light-colored casual boots",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SemiPrimary/concept/cnsp_imgNTS-222A.png",
-            "corefolder": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SemiPrimary/corefolder/222/emstk_corefolderNTS-222A-2a.png"
+            "corefolder": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SemiPrimary/corefolder/222/emstk_corefolderNTS-222A-2.png"
           }
         }
       },
@@ -2515,7 +2519,9 @@
           "natural_language_description": null,
           "prompt_export": "humanoid form, short stature (about 146cm), teenager, small on the left collar, near the edge of the fabric, yellow, Arabic numeral '222', Fox (hanging in a shape overlapping the cap), yellow eyes with special pupils, yellow brim with a pale yellow cap, long pale-colored twin-tail hairstyle, pale-colored collar, pendant featuring three '2's and a heart motif, pale brown casual vest, yellow short skirt, yellow and light-colored casual boots",
           "negative_prompt_export": "",
-          "reference_images": null
+          "reference_images": {
+            "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SemiPrimary/concept/cnsp_imgNTS-222B.png"
+          }
         },
         "corefolder": {
           "form_tags": ["corefolder form"],
@@ -2571,7 +2577,7 @@
           "negative_prompt_export": "yellow short skirt, yellow and light-colored casual boots",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SemiPrimary/concept/cnsp_imgNTS-222B.png",
-            "corefolder": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SemiPrimary/corefolder/222/emstk_corefolderNTS-222B-2b.png"
+            "corefolder": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SemiPrimary/corefolder/222/emstk_corefolderNTS-222B-2.png"
           }
         }
       },
@@ -3439,7 +3445,9 @@
           "natural_language_description": null,
           "prompt_export": "humanoid form, fox 4 tails, slightly tall stature (about 163cm), Fox, dark cyan eyes with dark yellow special pupils, stands majestically (normal state), occasionally becomes overly defensive to protect pride (when something unexpected happens), light blue cheek pattern accent, halo consisting of three squares/diamonds, cyan blue short hair, around the fastening area on the left hem of the cape, dark yellow, Arabic numeral '444', around the fastening area on the left hem of the basewear, dark yellow, Arabic numeral '444', slightly classical ochre basewear, fastener with the same motif as the halo, long back hem like a cape, thin and light dark cyan outerwear, light blue leggings, ochre boots",
           "negative_prompt_export": "slightly classical ochre cape, fastener with the same motif as the halo, long back hem like a cape",
-          "reference_images": null
+          "reference_images": {
+            "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SemiPrimary/concept/cnsp_imgNTS-444.png"
+          }
         },
         "corefolder": {
           "form_tags": ["corefolder form"],
@@ -4188,7 +4196,9 @@
           "natural_language_description": null,
           "prompt_export": "humanoid form, fox 6 tails, average stature (about 150cm), teenager, halo, brooch, and wings are themed around '666', magenta, Arabic numeral '666' themed design, Fox, reddish-purple eyes with gray special pupils, seductive gestures and occasionally demonic behavior, halo with three '6's arranged in rotational symmetry (with a circle in the center), wings inspired by the motif of '666' (with heart-shaped tips), light purple, curly and unusual hairstyle, long hair tied to the side, brooch with three '6's arranged in rotational symmetry and hexagonal shape, slightly classical magenta collar, demonic and casual pink apron dress, belt with a hexagonal brooch on the waist, high-heeled shoes in reddish-purple",
           "negative_prompt_export": "brooch with three '6's arranged in rotational symmetry and hexagonal shape, slightly classical magenta collar, belt with a hexagonal brooch",
-          "reference_images": null
+          "reference_images": {
+            "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SemiPrimary/concept/cnsp_imgNTS-666.png"
+          }
         }
       },
       "alt_modes": null,
@@ -4664,7 +4674,9 @@
           "natural_language_description": null,
           "prompt_export": "humanoid form, fox 7 tails, slightly tall stature (about 161cm), There is an emblem on the forehead that features '㐂' and a 180-degree rotated '777' motif., yellow, Arabic numeral '㐂' (typography combined with rotated '777'), Cat (drooping), eyes with a navy and yellow gradient, cheerful and bright expressions, holding a cocoa cigarette bar in the mouth, long light brown hair tied at the back with a navy hairpin, carrying a dark yellow expansion board on the back, gray tracksuit resembling gym clothes, navy leather shoes",
           "negative_prompt_export": "",
-          "reference_images": null
+          "reference_images": {
+            "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SemiPrimary/concept/cnsp_imgNTS-777.png"
+          }
         },
         "corefolder": {
           "form_tags": ["corefolder form"],
@@ -4714,7 +4726,9 @@
           "natural_language_description": "Corefolder form: a spherical cushion-like body in Cat (drooping); eyes with a navy and yellow gradient; long light brown hair tied at the back with a navy hairpin, with the number '777' marking (There is an emblem on the forehead that features '㐂' and a 180-degree rotated '777' motif., yellow, Arabic numeral '㐂' (typography combined with rotated '777')).",
           "prompt_export": "corefolder form, fox 7 tails, slightly tall stature (about 161cm), There is an emblem on the forehead that features '㐂' and a 180-degree rotated '777' motif., yellow, Arabic numeral '㐂' (typography combined with rotated '777'), Cat (drooping), eyes with a navy and yellow gradient, cheerful and bright expressions, holding a cocoa cigarette bar in the mouth, long light brown hair tied at the back with a navy hairpin, carrying a dark yellow expansion board on the back",
           "negative_prompt_export": "navy leather shoes",
-          "reference_images": null
+          "reference_images": {
+            "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SemiPrimary/concept/cnsp_imgNTS-777.png"
+          }
         }
       },
       "alt_modes": null,
@@ -5160,7 +5174,9 @@
           "natural_language_description": "Corefolder form: a spherical cushion-like body in Cat (drooping); eyes with a navy and yellow gradient; long light brown hair tied at the back with a navy hairpin, with the number '777.Jackpot' marking (There is an emblem on the forehead that features '㐂' and a 180-degree rotated '777' motif., yellow, Arabic numeral '㐂' (typography combined with rotated '777')).",
           "prompt_export": "corefolder form, fox 7 tails, slightly tall stature (about 161cm), There is an emblem on the forehead that features '㐂' and a 180-degree rotated '777' motif., yellow, Arabic numeral '㐂' (typography combined with rotated '777'), Cat (drooping), eyes with a navy and yellow gradient, cheerful and bright expressions, holding a cocoa cigarette bar in the mouth, long light brown hair tied at the back with a navy hairpin, wearing a dark yellow slot machine-type addon and functioning like a slot machine",
           "negative_prompt_export": "carrying a dark yellow slot machine-type addon on the back, navy leather shoes",
-          "reference_images": null
+          "reference_images": {
+            "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SemiPrimary/concept/cnsp_imgNTS-777JP.png"
+          }
         },
         "humanoid": {
           "form_tags": ["humanoid form"],
@@ -5200,7 +5216,9 @@
           "natural_language_description": null,
           "prompt_export": "humanoid form, fox 7 tails, slightly tall stature (about 161cm), There is an emblem on the forehead that features '㐂' and a 180-degree rotated '777' motif., yellow, Arabic numeral '㐂' (typography combined with rotated '777'), Cat (drooping), eyes with a navy and yellow gradient, cheerful and bright expressions, holding a cocoa cigarette bar in the mouth, long light brown hair tied at the back with a navy hairpin, carrying a dark yellow slot machine-type addon on the back, gray tracksuit resembling gym clothes, navy leather shoes",
           "negative_prompt_export": "wearing a dark yellow slot machine-type addon and functioning like a slot machine",
-          "reference_images": null
+          "reference_images": {
+            "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SemiPrimary/concept/cnsp_imgNTS-777JP.png"
+          }
         }
       },
       "alt_modes": null,
@@ -5710,7 +5728,9 @@
           "natural_language_description": null,
           "prompt_export": "humanoid form, tail feathers only single tail, average stature (about 156cm), teenager, Large on the forehead, vermilion, '8∞8', EarShapeType_Wing (ears resembling the orange wing sections), light pink intake long hair, thick and large light pink eyebrows, narrow vermilion eyes, pupils divided like '8∞8', tail feathers resembling a phoenix in vermilion and orange with a pattern like the character '8', vermilion inner sweater, casual reddish-purple outerwear resembling a haori, light orange slacks, vermilion geta, light pink socks",
           "negative_prompt_export": "",
-          "reference_images": null
+          "reference_images": {
+            "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SemiPrimary/concept/cnsp_imgNTS-888.png"
+          }
         },
         "corefolder": {
           "form_tags": ["corefolder form"],
@@ -5759,7 +5779,9 @@
           "natural_language_description": "Corefolder form: a spherical cushion-like body in EarShapeType_Wing (ears resembling the orange wing sections); light pink intake long hair; thick and large light pink eyebrows; narrow vermilion eyes, pupils divided like '8∞8'; tail feathers resembling a phoenix in vermilion and orange with a pattern like the character '8', with the number '888' marking (Large on the forehead, vermilion, '8∞8').",
           "prompt_export": "corefolder form, tail feathers only single tail, average stature (about 156cm), teenager, Large on the forehead, vermilion, '8∞8', EarShapeType_Wing (ears resembling the orange wing sections), light pink intake long hair, thick and large light pink eyebrows, narrow vermilion eyes, pupils divided like '8∞8', tail feathers resembling a phoenix in vermilion and orange with a pattern like the character '8'",
           "negative_prompt_export": "vermilion inner sweater",
-          "reference_images": null
+          "reference_images": {
+            "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SemiPrimary/concept/cnsp_imgNTS-888.png"
+          }
         }
       },
       "alt_modes": null,
@@ -6449,7 +6471,9 @@
           "natural_language_description": null,
           "prompt_export": "humanoid form, scorpion 3 tails, average stature (about 152cm), teenager, around the edge of the fabric on the left hem of the cape, dark color, Arabic numeral '33', followed by a small parenthetical '(3×11)', Fox (pink heart-shaped pattern on the tip), pale golden hair with a large ponytail at the back of the head (appears to be two-tone upon closer inspection), tied with a ribbon in three colors, each face having a different color, earrings in blue, purple, and magenta, earrings in yellow, orange, and magenta, three scorpion-type segmented tails (freely movable like arms), vivid eyes with magenta pupils and cyan-blue irises, a bright and outgoing character who is tolerant of otaku/nerd hobbies, a maidenly side that becomes tearful and confused when receiving strong affection, purple ribbon with two round brooches featuring a three-color motif, two round brooches featuring a three-color motif, halo featuring heart shapes, a three-color motif, and six bands, bright pink cape with a white collar, flashy Victorian Lolita dress in CMY primary colors, large breasts, fashion boots in purple and bright pink",
           "negative_prompt_export": "",
-          "reference_images": null
+          "reference_images": {
+            "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SemiPrimary/concept/cnsp_imgNTS-3x11.png"
+          }
         },
         "corefolder": {
           "form_tags": ["corefolder form"],
@@ -7024,7 +7048,9 @@
           "natural_language_description": null,
           "prompt_export": "humanoid form, branching fox 6 tails, short stature (about 146cm), on the left collar, near the edge of the fabric, small, dark, Arabic numeral '64', on the chest, on the red, large, round badge that is the fastener of the ribbon passing through the collar, white, large '2⁶' in the center, small 'Sextpower' below, Fox, white collar with a number, and a blue ribbon passing through it, fastened with a red, large, round badge with text, long magenta hair in a ponytail at the back of the head, violet eyes with unique pupils, pure and innocent expression, navy blue casual suit, red casual skirt, blue shoes",
           "negative_prompt_export": "",
-          "reference_images": null
+          "reference_images": {
+            "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SemiPrimary/concept/cnsp_imgNTS-64XP.png"
+          }
         },
         "corefolder": {
           "form_tags": ["corefolder form"],

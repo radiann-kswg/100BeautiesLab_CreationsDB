@@ -485,7 +485,9 @@
           "natural_language_description": null,
           "prompt_export": "humanoid form, nekomata 3 tails, short stature (about 141cm), early teenager, from the left shoulder to the edge of the cape, red, Arabic numeral '111', lot mark on the left cheek, red (underlined), Arabic numeral '111', Cat (hidden under the hood cap), salmon-red eyes with large yellow pupils and a mechanical appearance, expressions and gestures are not particularly noticeable, red hood cap with a salmon-red headband, short blonde hair with white bangs accent, hero-like salmon-red numbered cape, white cross-strap belt and tie, red military-style uniform, red boots",
           "negative_prompt_export": "",
-          "reference_images": null
+          "reference_images": {
+            "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SelfSecondary/concept/cnsp_imgNTS-111MP.png"
+          }
         },
         "corefolder": {
           "form_tags": ["corefolder form"],
@@ -2874,7 +2876,9 @@
           "natural_language_description": null,
           "prompt_export": "humanoid form, fox 4 tails, slightly tall stature (about 163cm), lot mark on the left cheek, dark cyan (underlined), Arabic numeral '444', Fox, dark cyan eyes with gray special pupils and a mechanical appearance, expressions and gestures are not particularly noticeable, light blue cheek pattern accent, halo consisting of three squares/diamonds, cyan blue short hair, around the fastening area on the left hem of the basewear (not very noticeable due to the color), gray, Arabic numeral '444', slightly classical ochre basewear, fastener with the same motif as the halo, long back hem like a cape, thin and light dark cyan outerwear, light blue leggings, ochre boots",
           "negative_prompt_export": "slightly classical ochre cape, fastener with the same motif as the halo, long back hem like a cape",
-          "reference_images": null
+          "reference_images": {
+            "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SelfSecondary/concept/cnsp_imgNTS-444MP.png"
+          }
         }
       },
       "alt_modes": null,
@@ -3844,7 +3848,9 @@
           "natural_language_description": null,
           "prompt_export": "humanoid form, fox 6 tails, average stature (about 150cm), teenager, halo, brooch, and wings are themed around '666', dark magenta, Arabic numeral '666' themed design, lot mark on the left cheek, dark magenta (underlined), Arabic numeral '666', Fox, reddish-purple eyes with gray special pupils and a mechanical appearance, expressions and gestures are not particularly noticeable, halo with three '6's arranged in rotational symmetry, wings inspired by the motif of '666', light purple, curly and unusual hairstyle, long hair tied to the side, brooch with three '6's arranged in rotational symmetry and hexagonal shape, slightly classical magenta collar, demonic and casual pink apron dress, belt with a hexagonal brooch on the waist, high-heeled shoes in reddish-purple",
           "negative_prompt_export": "brooch with three '6's arranged in rotational symmetry and hexagonal shape, slightly classical magenta collar, belt with a hexagonal brooch",
-          "reference_images": null
+          "reference_images": {
+            "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SelfSecondary/concept/cnsp_imgNTS-666MP.png"
+          }
         }
       },
       "alt_modes": null,
@@ -4635,7 +4641,9 @@
           "natural_language_description": null,
           "prompt_export": "humanoid form, fox 7 tails, slightly tall stature (about 161cm), There is an emblem on the forehead that features '777' and a 180-degree rotated '㐂' motif., dark yellow, Arabic numeral '777' (typography combined with rotated '㐂'), lot mark on the left cheek, dark yellow (underlined), Arabic numeral '777', Cat (drooping), mechanical eyes with a navy and yellow gradient, expressions and gestures are not particularly noticeable, holding a cocoa cigarette bar in the mouth, long light brown hair tied at the back with a navy hairpin, carrying a dark yellow expansion board on the back, gray tracksuit resembling gym clothes, navy leather shoes",
           "negative_prompt_export": "",
-          "reference_images": null
+          "reference_images": {
+            "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SelfSecondary/concept/cnsp_imgNTS-777MPA.png"
+          }
         },
         "corefolder": {
           "form_tags": ["corefolder form"],
@@ -4686,7 +4694,9 @@
           "natural_language_description": "Corefolder form: a spherical cushion-like body in Cat (drooping); mechanical eyes with a navy and yellow gradient; long light brown hair tied at the back with a navy hairpin, with the number '777-mp' marking (There is an emblem on the forehead that features '777' and a 180-degree rotated '㐂' motif., dark yellow, Arabic numeral '777' (typography combined with rotated '㐂'); lot mark on the left cheek, dark yellow (underlined), Arabic numeral '777').",
           "prompt_export": "corefolder form, fox 7 tails, slightly tall stature (about 161cm), There is an emblem on the forehead that features '777' and a 180-degree rotated '㐂' motif., dark yellow, Arabic numeral '777' (typography combined with rotated '㐂'), lot mark on the left cheek, dark yellow (underlined), Arabic numeral '777', Cat (drooping), mechanical eyes with a navy and yellow gradient, expressions and gestures are not particularly noticeable, holding a cocoa cigarette bar in the mouth, long light brown hair tied at the back with a navy hairpin, carrying a dark yellow expansion board on the back",
           "negative_prompt_export": "navy leather shoes",
-          "reference_images": null
+          "reference_images": {
+            "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SelfSecondary/concept/cnsp_imgNTS-777MPA.png"
+          }
         }
       },
       "alt_modes": null,
@@ -5169,7 +5179,9 @@
           "natural_language_description": "Corefolder form: a spherical cushion-like body in Cat (drooping); mechanical eyes with a navy and yellow gradient; long light brown hair tied at the back with a navy hairpin, with the number '777.Jackpot-mp' marking (There is an emblem on the forehead that features '777' and a 180-degree rotated '㐂' motif., dark yellow, Arabic numeral '777' (typography combined with rotated '㐂'); lot mark on the left cheek, dark yellow (underlined), Arabic numeral '777').",
           "prompt_export": "corefolder form, fox 7 tails, slightly tall stature (about 161cm), There is an emblem on the forehead that features '777' and a 180-degree rotated '㐂' motif., dark yellow, Arabic numeral '777' (typography combined with rotated '㐂'), lot mark on the left cheek, dark yellow (underlined), Arabic numeral '777', Cat (drooping), mechanical eyes with a navy and yellow gradient, expressions and gestures are not particularly noticeable, holding a cocoa cigarette bar in the mouth, long light brown hair tied at the back with a navy hairpin, wearing a dark yellow slot machine-type addon and functioning like a slot machine",
           "negative_prompt_export": "carrying a dark yellow slot machine-type addon on the back, navy leather shoes",
-          "reference_images": null
+          "reference_images": {
+            "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SelfSecondary/concept/cnsp_imgNTS-777JMP-mpB.png"
+          }
         },
         "humanoid": {
           "form_tags": ["humanoid form"],
@@ -5210,7 +5222,9 @@
           "natural_language_description": null,
           "prompt_export": "humanoid form, fox 7 tails, slightly tall stature (about 161cm), There is an emblem on the forehead that features '777' and a 180-degree rotated '㐂' motif., dark yellow, Arabic numeral '777' (typography combined with rotated '㐂'), lot mark on the left cheek, dark yellow (underlined), Arabic numeral '777', Cat (drooping), mechanical eyes with a navy and yellow gradient, expressions and gestures are not particularly noticeable, holding a cocoa cigarette bar in the mouth, long light brown hair tied at the back with a navy hairpin, carrying a dark yellow slot machine-type addon on the back, gray tracksuit resembling gym clothes, navy leather shoes",
           "negative_prompt_export": "wearing a dark yellow slot machine-type addon and functioning like a slot machine",
-          "reference_images": null
+          "reference_images": {
+            "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SelfSecondary/concept/cnsp_imgNTS-777JMP-mpB.png"
+          }
         }
       },
       "alt_modes": null,
