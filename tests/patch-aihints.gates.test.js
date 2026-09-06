@@ -114,11 +114,16 @@ describe('ゲートの前提条件（実データ）', () => {
         expect(count).toBe(92);
     });
 
-    it('SemiPrimary / SelfSecondary には AIHints がまだ無い（本ラウンドは基盤整備のみ）', () => {
-        // seed した将来ラウンドではこの期待値を更新し、あわせて
-        // tests/aihints.schema.test.js を DB パラメータ化すること。
-        expect(loadDb('db_SemiPrimary.json').filter((r) => r?.AIHints).length).toBe(0);
-        expect(loadDb('db_SelfSecondary.json').filter((r) => r?.AIHints).length).toBe(0);
+    it('SemiPrimary / SelfSecondary は seed 済みで、AIHints は参照画像を持つレコードだけに付く', () => {
+        // 2026-09-06 seed（SemiPrimary=11 / SelfSecondary=7）。件数は User の画像追加で
+        // 増えるためスナップショットにせず、画像ゲート（skipped-no-image）が効いている
+        // ことだけを固定する。この規則はデータが増えても成立し続ける。
+        for (const file of ['db_SemiPrimary.json', 'db_SelfSecondary.json']) {
+            const withAiHints = loadDb(file).filter((r) => r?.AIHints);
+            expect(withAiHints.length, `${file} は seed 済み`).toBeGreaterThan(0);
+            const noImage = withAiHints.filter((r) => !r.Images).map((r) => r.Num);
+            expect(noImage, `${file} の AIHints は Images を持つレコードのみ`).toEqual([]);
+        }
     });
 });
 

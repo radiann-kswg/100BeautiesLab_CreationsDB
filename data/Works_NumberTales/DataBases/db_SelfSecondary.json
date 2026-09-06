@@ -406,7 +406,222 @@
       }
     ],
     "Summary_JP": "3桁ゾロ目の数字を持つ特殊クラスロットの「量産型マスタートリプル」に属し、通常個体と引け目を取らない性能をもつ通常個体互換の量産型ナンバーテールズ。\n「1(ハジメ)」や「11(トウイチ)」の基本設計を踏襲し、同クラスロットの中の代表個体ともいえる強力な性能を有する。",
-    "Summary_EN": "A regular-unit-compatible mass-production NumberTales belonging to \"Cloned MasterTriples 9\", the special Class-Lot for units carrying three-digit repdigit numbers, with performance that rivals regular units.\nInheriting the basic design of '1(Unitta)' and '11(Elevan)', ze holds powerful performance that could well be called representative of the Class-Lot."
+    "Summary_EN": "A regular-unit-compatible mass-production NumberTales belonging to \"Cloned MasterTriples 9\", the special Class-Lot for units carrying three-digit repdigit numbers, with performance that rivals regular units.\nInheriting the basic design of '1(Unitta)' and '11(Elevan)', ze holds powerful performance that could well be called representative of the Class-Lot.",
+    "AIHints": {
+      "common": {
+        "identity_tags": [
+          "Cat (hidden under the hood cap)",
+          "salmon-red eyes with large yellow pupils and a mechanical appearance",
+          "red hood cap with a salmon-red headband",
+          "short blonde hair with white bangs accent",
+          "hero-like salmon-red numbered cape"
+        ],
+        "silhouette_features": [
+          "nekomata 3 tails",
+          "short stature (about 141cm)",
+          "Cat (hidden under the hood cap)",
+          "salmon-red eyes with large yellow pupils and a mechanical appearance",
+          "short blonde hair with white bangs accent",
+          "exactly 3 tails total, no more no less"
+        ],
+        "immutable_traits": [
+          "number '111-mp' marking: from the left shoulder to the edge of the cape, red, Arabic numeral '111'",
+          "number '111-mp' marking: lot mark on the left cheek, red (underlined), Arabic numeral '111'"
+        ],
+        "expression_tendency": [
+          "expressions and gestures are not particularly noticeable"
+        ],
+        "age_appearance": "early teenager",
+        "palette_priority": {
+          "primary": "#FFD58F",
+          "secondary": "#E7E9E3",
+          "accent": "#FCBD47"
+        },
+        "natural_language_description": null,
+        "reference_images": {
+          "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SelfSecondary/concept/cnsp_imgNTS-111MP.png",
+          "concept": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SelfSecondary/concept/cnsp_imgNTS-111MP.png"
+        }
+      },
+      "work_common": null,
+      "forms": {
+        "humanoid": {
+          "form_tags": ["humanoid form"],
+          "outfit_features": [
+            "red hood cap with a salmon-red headband",
+            "hero-like salmon-red numbered cape",
+            "red military-style uniform",
+            "red boots"
+          ],
+          "silhouette_notes": {
+            "body_description": [
+              "Cat (hidden under the hood cap)",
+              "salmon-red eyes with large yellow pupils and a mechanical appearance",
+              "short blonde hair with white bangs accent",
+              "white cross-strap belt and tie"
+            ],
+            "attached_items": []
+          },
+          "immutable_constraints": null,
+          "negative_keywords": null,
+          "ai_tags": [
+            "humanoid form",
+            "nekomata 3 tails",
+            "short stature (about 141cm)",
+            "early teenager",
+            "from the left shoulder to the edge of the cape, red, Arabic numeral '111'",
+            "lot mark on the left cheek, red (underlined), Arabic numeral '111'",
+            "Cat (hidden under the hood cap)",
+            "salmon-red eyes with large yellow pupils and a mechanical appearance",
+            "expressions and gestures are not particularly noticeable",
+            "red hood cap with a salmon-red headband",
+            "short blonde hair with white bangs accent",
+            "hero-like salmon-red numbered cape",
+            "white cross-strap belt and tie",
+            "red military-style uniform",
+            "red boots"
+          ],
+          "negative_visuals": [],
+          "natural_language_description": null,
+          "prompt_export": "humanoid form, nekomata 3 tails, short stature (about 141cm), early teenager, from the left shoulder to the edge of the cape, red, Arabic numeral '111', lot mark on the left cheek, red (underlined), Arabic numeral '111', Cat (hidden under the hood cap), salmon-red eyes with large yellow pupils and a mechanical appearance, expressions and gestures are not particularly noticeable, red hood cap with a salmon-red headband, short blonde hair with white bangs accent, hero-like salmon-red numbered cape, white cross-strap belt and tie, red military-style uniform, red boots",
+          "negative_prompt_export": "",
+          "reference_images": null
+        },
+        "corefolder": {
+          "form_tags": ["corefolder form"],
+          "outfit_features": [
+            "red hood cap with a salmon-red headband",
+            "hero-like salmon-red numbered cape"
+          ],
+          "silhouette_notes": {
+            "body_description": [
+              "spherical core body with the head as the only protruding part on top",
+              "Cat (hidden under the hood cap)",
+              "salmon-red eyes with large yellow pupils and a mechanical appearance",
+              "short blonde hair with white bangs accent"
+            ],
+            "attached_items": []
+          },
+          "immutable_constraints": [
+            "do not render arms or hands",
+            "do not render legs or feet",
+            "do not dress in humanoid casual / fashion outfit"
+          ],
+          "negative_keywords": [
+            "feet",
+            "legs",
+            "shoes",
+            "high heels",
+            "arms",
+            "hands",
+            "hoodie",
+            "blazer",
+            "fashion outfit",
+            "bound by rope"
+          ],
+          "ai_tags": [
+            "corefolder form",
+            "nekomata 3 tails",
+            "short stature (about 141cm)",
+            "early teenager",
+            "from the left shoulder to the edge of the cape, red, Arabic numeral '111'",
+            "lot mark on the left cheek, red (underlined), Arabic numeral '111'",
+            "Cat (hidden under the hood cap)",
+            "salmon-red eyes with large yellow pupils and a mechanical appearance",
+            "expressions and gestures are not particularly noticeable",
+            "red hood cap with a salmon-red headband",
+            "short blonde hair with white bangs accent",
+            "hero-like salmon-red numbered cape"
+          ],
+          "negative_visuals": ["red military-style uniform", "red boots"],
+          "natural_language_description": "Corefolder form: a spherical cushion-like body in Cat (hidden under the hood cap); salmon-red eyes with large yellow pupils and a mechanical appearance; short blonde hair with white bangs accent, with the number '111-mp' marking (from the left shoulder to the edge of the cape, red, Arabic numeral '111'; lot mark on the left cheek, red (underlined), Arabic numeral '111').",
+          "prompt_export": "corefolder form, nekomata 3 tails, short stature (about 141cm), early teenager, from the left shoulder to the edge of the cape, red, Arabic numeral '111', lot mark on the left cheek, red (underlined), Arabic numeral '111', Cat (hidden under the hood cap), salmon-red eyes with large yellow pupils and a mechanical appearance, expressions and gestures are not particularly noticeable, red hood cap with a salmon-red headband, short blonde hair with white bangs accent, hero-like salmon-red numbered cape",
+          "negative_prompt_export": "red military-style uniform, red boots",
+          "reference_images": {
+            "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SelfSecondary/concept/cnsp_imgNTS-111MP.png",
+            "corefolder": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SelfSecondary/corefolder/111/emstk_corefolderNTS-111MP-1.png"
+          }
+        }
+      },
+      "alt_modes": null,
+      "_meta": {
+        "structuralSourceHash": "sha256:6aed1e235637b3f47470c6d2dcc7016e424d07bfb4568867d5d6f3d223d99897",
+        "structuralEntries": {
+          "common.identity_tags": [
+            "Cat (hidden under the hood cap)",
+            "salmon-red eyes with large yellow pupils and a mechanical appearance",
+            "red hood cap with a salmon-red headband",
+            "short blonde hair with white bangs accent",
+            "hero-like salmon-red numbered cape"
+          ],
+          "common.silhouette_features": [
+            "nekomata 3 tails",
+            "short stature (about 141cm)",
+            "Cat (hidden under the hood cap)",
+            "salmon-red eyes with large yellow pupils and a mechanical appearance",
+            "short blonde hair with white bangs accent"
+          ],
+          "common.immutable_traits": [
+            "number '111-mp' marking: from the left shoulder to the edge of the cape, red, Arabic numeral '111'",
+            "number '111-mp' marking: lot mark on the left cheek, red (underlined), Arabic numeral '111'"
+          ],
+          "common.expression_tendency": [
+            "expressions and gestures are not particularly noticeable"
+          ],
+          "forms.humanoid.form_tags": ["humanoid form"],
+          "forms.humanoid.ai_tags": [
+            "humanoid form",
+            "nekomata 3 tails",
+            "short stature (about 141cm)",
+            "early teenager",
+            "from the left shoulder to the edge of the cape, red, Arabic numeral '111'",
+            "lot mark on the left cheek, red (underlined), Arabic numeral '111'",
+            "Cat (hidden under the hood cap)",
+            "salmon-red eyes with large yellow pupils and a mechanical appearance",
+            "expressions and gestures are not particularly noticeable",
+            "red hood cap with a salmon-red headband",
+            "short blonde hair with white bangs accent",
+            "hero-like salmon-red numbered cape",
+            "white cross-strap belt and tie",
+            "red military-style uniform",
+            "red boots"
+          ],
+          "forms.corefolder.form_tags": ["corefolder form"],
+          "forms.corefolder.ai_tags": [
+            "corefolder form",
+            "nekomata 3 tails",
+            "short stature (about 141cm)",
+            "early teenager",
+            "from the left shoulder to the edge of the cape, red, Arabic numeral '111'",
+            "lot mark on the left cheek, red (underlined), Arabic numeral '111'",
+            "Cat (hidden under the hood cap)",
+            "salmon-red eyes with large yellow pupils and a mechanical appearance",
+            "expressions and gestures are not particularly noticeable",
+            "red hood cap with a salmon-red headband",
+            "short blonde hair with white bangs accent",
+            "hero-like salmon-red numbered cape"
+          ],
+          "forms.corefolder.immutable_constraints": [
+            "do not render arms or hands",
+            "do not render legs or feet",
+            "do not dress in humanoid casual / fashion outfit"
+          ],
+          "forms.corefolder.negative_keywords": [
+            "feet",
+            "legs",
+            "shoes",
+            "high heels",
+            "arms",
+            "hands",
+            "hoodie",
+            "blazer",
+            "fashion outfit",
+            "bound by rope"
+          ]
+        },
+        "lastStructuralResync": "2026-09-06"
+      }
+    }
   },
   {
     "Num": "112-mp",
@@ -1022,7 +1237,99 @@
       }
     ],
     "Summary_JP": "クラスロット「キャロルズ」に属するデュオトリプル型量産ナンバーテールズ。\n223番機シリーズの代表個体で、「キャロル数」「オイラー素数」「幸福数」などといった数学的特徴をモチーフにしたカスタマイズがなされていることから、数学的および数秘的ポテンシャルの強い「22(フジ)」の影響を大きく受けた個体でもある。",
-    "Summary_EN": "A Duet-Triple-type mass-production NumberTales belonging to the Class-Lot \"Caroles\".\nAs the representative unit of the #223 series, ze carries customizations themed on mathematical traits such as \"Carol numbers\", \"Euler primes\", and \"happy numbers\", which also makes zir a unit strongly influenced by '22(Twin-twina)', whose mathematical and numerological potential runs strong."
+    "Summary_EN": "A Duet-Triple-type mass-production NumberTales belonging to the Class-Lot \"Caroles\".\nAs the representative unit of the #223 series, ze carries customizations themed on mathematical traits such as \"Carol numbers\", \"Euler primes\", and \"happy numbers\", which also makes zir a unit strongly influenced by '22(Twin-twina)', whose mathematical and numerological potential runs strong.",
+    "AIHints": {
+      "common": {
+        "identity_tags": [
+          "number '223' as core identifier",
+          "scorpion-type android unit",
+          "Duet Triples VII",
+          "Caroles"
+        ],
+        "silhouette_features": [
+          "scorpion 2 tails",
+          "TODO: hair color and length",
+          "TODO: eye color",
+          "exactly 2 tails total, no more no less"
+        ],
+        "immutable_traits": [
+          "digital construct (NumberTales unit)",
+          "scorpion 2 tails (immutable count)",
+          "'#223' number marking (immutable)"
+        ],
+        "expression_tendency": ["TODO: expression based on Character field"],
+        "age_appearance": "early teenager",
+        "palette_priority": {
+          "primary": "#EAE5D6",
+          "secondary": "#FFEE60",
+          "accent": "#FFCE2B"
+        },
+        "natural_language_description": "TODO: 1-sentence neutral summary of appearance and demeanor.",
+        "reference_images": {
+          "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SelfSecondary/concept/cr/cnsp_imgNTS-223.png",
+          "concept": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SelfSecondary/concept/cr/cnsp_imgNTS-223.png"
+        }
+      },
+      "work_common": null,
+      "forms": {
+        "corefolder": {
+          "form_tags": ["corefolder form"],
+          "outfit_features": [
+            "TODO: corefolder outfit features (hoodie / harness / marking details)"
+          ],
+          "silhouette_notes": {
+            "body_description": [
+              "spherical core body with the head as the only protruding part on top",
+              "TODO: 1-2 lines of character-specific body description for #223 (base color, surface markings, facial expression typical)"
+            ],
+            "attached_items": [
+              "TODO: list character-specific attached items for #223 (ribbon / collar / scarf / hairband / harness etc. - NO humanoid clothing words like coat / dress / pants / shoes)"
+            ]
+          },
+          "immutable_constraints": [
+            "do not render arms or hands",
+            "do not render legs or feet",
+            "do not dress in humanoid casual / fashion outfit"
+          ],
+          "negative_keywords": [
+            "feet",
+            "legs",
+            "shoes",
+            "high heels",
+            "arms",
+            "hands",
+            "hoodie",
+            "blazer",
+            "fashion outfit",
+            "bound by rope"
+          ],
+          "ai_tags": [
+            "corefolder form",
+            "1other",
+            "early teenager",
+            "TODO: ear type (no AppearanceDetail #Element_Ear entry found)",
+            "scorpion 2 tails",
+            "TODO: hair color and style",
+            "TODO: eye color",
+            "TODO: corefolder outfit key terms"
+          ],
+          "negative_visuals": [
+            "cat ears",
+            "rabbit ears",
+            "fewer or more than 2 tail(s)",
+            "humanoid casual outfit"
+          ],
+          "natural_language_description": "TODO: 1-sentence description of the corefolder form.",
+          "prompt_export": "corefolder form, 1other, early teenager, scorpion 2 tails",
+          "negative_prompt_export": "cat ears, rabbit ears, fewer or more than 2 tail(s), humanoid casual outfit",
+          "reference_images": {
+            "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SelfSecondary/concept/cr/cnsp_imgNTS-223.png",
+            "corefolder": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SelfSecondary/corefolder/223/emstk_corefolderNTS-223-1.png"
+          }
+        }
+      },
+      "alt_modes": null
+    }
   },
   {
     "Num": "223-jw",
@@ -2426,7 +2733,229 @@
       }
     ],
     "Summary_JP": "3桁ゾロ目の数字を持つ特殊クラスロットの「量産型マスタートリプル」に属し、通常個体と引け目を取らない性能をもつ通常個体互換の量産型ナンバーテールズ。\n「4(モチ)」や「44(シトシ)」の基底設計を踏襲し、同クラスロットの中でも高い演算性能を持つ。",
-    "Summary_EN": "A regular-unit-compatible mass-production NumberTales belonging to \"Cloned MasterTriples 9\", the special Class-Lot for units carrying three-digit repdigit numbers, with performance that rivals regular units.\nInheriting the base design of '4(Forna)' and '44(Folfourn)', ze holds high computational performance even within the Class-Lot."
+    "Summary_EN": "A regular-unit-compatible mass-production NumberTales belonging to \"Cloned MasterTriples 9\", the special Class-Lot for units carrying three-digit repdigit numbers, with performance that rivals regular units.\nInheriting the base design of '4(Forna)' and '44(Folfourn)', ze holds high computational performance even within the Class-Lot.",
+    "AIHints": {
+      "common": {
+        "identity_tags": [
+          "Fox",
+          "dark cyan eyes with gray special pupils and a mechanical appearance",
+          "light blue cheek pattern accent",
+          "halo consisting of three squares/diamonds",
+          "cyan blue short hair"
+        ],
+        "silhouette_features": [
+          "fox 4 tails",
+          "slightly tall stature (about 163cm)",
+          "Fox",
+          "dark cyan eyes with gray special pupils and a mechanical appearance",
+          "light blue cheek pattern accent",
+          "cyan blue short hair",
+          "exactly 4 tails total, no more no less"
+        ],
+        "immutable_traits": [
+          "number '444-mp' marking: lot mark on the left cheek, dark cyan (underlined), Arabic numeral '444'"
+        ],
+        "expression_tendency": [
+          "expressions and gestures are not particularly noticeable"
+        ],
+        "age_appearance": "TODO: e.g., teenager",
+        "palette_priority": {
+          "primary": "#94CDD5",
+          "secondary": "#A4DAEF",
+          "accent": "#FFD47A"
+        },
+        "natural_language_description": null,
+        "reference_images": {
+          "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SelfSecondary/concept/cnsp_imgNTS-444MP.png",
+          "concept": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SelfSecondary/concept/cnsp_imgNTS-444MP.png"
+        }
+      },
+      "work_common": null,
+      "forms": {
+        "corefolder": {
+          "form_tags": ["corefolder form"],
+          "outfit_features": [
+            "slightly classical ochre cape, fastener with the same motif as the halo, long back hem like a cape"
+          ],
+          "silhouette_notes": {
+            "body_description": [
+              "spherical core body with the head as the only protruding part on top",
+              "Fox",
+              "dark cyan eyes with gray special pupils and a mechanical appearance",
+              "light blue cheek pattern accent",
+              "cyan blue short hair"
+            ],
+            "attached_items": ["halo consisting of three squares/diamonds"]
+          },
+          "immutable_constraints": [
+            "do not render arms or hands",
+            "do not render legs or feet",
+            "do not dress in humanoid casual / fashion outfit"
+          ],
+          "negative_keywords": [
+            "feet",
+            "legs",
+            "shoes",
+            "high heels",
+            "arms",
+            "hands",
+            "hoodie",
+            "blazer",
+            "fashion outfit",
+            "bound by rope"
+          ],
+          "ai_tags": [
+            "corefolder form",
+            "fox 4 tails",
+            "slightly tall stature (about 163cm)",
+            "lot mark on the left cheek, dark cyan (underlined), Arabic numeral '444'",
+            "Fox",
+            "dark cyan eyes with gray special pupils and a mechanical appearance",
+            "expressions and gestures are not particularly noticeable",
+            "light blue cheek pattern accent",
+            "halo consisting of three squares/diamonds",
+            "cyan blue short hair",
+            "around the fastening area on the left hem of the cape (not very noticeable due to the color), gray, Arabic numeral '444'",
+            "slightly classical ochre cape, fastener with the same motif as the halo, long back hem like a cape"
+          ],
+          "negative_visuals": [
+            "slightly classical ochre basewear, fastener with the same motif as the halo, long back hem like a cape",
+            "thin and light dark cyan outerwear",
+            "light blue leggings",
+            "ochre boots"
+          ],
+          "natural_language_description": "Corefolder form: a spherical cushion-like body in Fox; dark cyan eyes with gray special pupils and a mechanical appearance; light blue cheek pattern accent; cyan blue short hair, with the number '444-mp' marking (lot mark on the left cheek, dark cyan (underlined), Arabic numeral '444'; around the fastening area on the left hem of the cape (not very noticeable due to the color), gray, Arabic numeral '444'); halo consisting of three squares/diamonds.",
+          "prompt_export": "corefolder form, fox 4 tails, slightly tall stature (about 163cm), lot mark on the left cheek, dark cyan (underlined), Arabic numeral '444', Fox, dark cyan eyes with gray special pupils and a mechanical appearance, expressions and gestures are not particularly noticeable, light blue cheek pattern accent, halo consisting of three squares/diamonds, cyan blue short hair, around the fastening area on the left hem of the cape (not very noticeable due to the color), gray, Arabic numeral '444', slightly classical ochre cape, fastener with the same motif as the halo, long back hem like a cape",
+          "negative_prompt_export": "slightly classical ochre basewear, fastener with the same motif as the halo, long back hem like a cape, thin and light dark cyan outerwear, light blue leggings, ochre boots",
+          "reference_images": {
+            "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SelfSecondary/concept/cnsp_imgNTS-444MP.png",
+            "corefolder": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SelfSecondary/corefolder/444/emstk_corefolderNTS-444MP-1.png"
+          }
+        },
+        "humanoid": {
+          "form_tags": ["humanoid form"],
+          "outfit_features": [
+            "slightly classical ochre basewear, fastener with the same motif as the halo, long back hem like a cape",
+            "thin and light dark cyan outerwear",
+            "light blue leggings",
+            "ochre boots"
+          ],
+          "silhouette_notes": {
+            "body_description": [
+              "Fox",
+              "dark cyan eyes with gray special pupils and a mechanical appearance",
+              "light blue cheek pattern accent",
+              "cyan blue short hair"
+            ],
+            "attached_items": ["halo consisting of three squares/diamonds"]
+          },
+          "immutable_constraints": null,
+          "negative_keywords": null,
+          "ai_tags": [
+            "humanoid form",
+            "fox 4 tails",
+            "slightly tall stature (about 163cm)",
+            "lot mark on the left cheek, dark cyan (underlined), Arabic numeral '444'",
+            "Fox",
+            "dark cyan eyes with gray special pupils and a mechanical appearance",
+            "expressions and gestures are not particularly noticeable",
+            "light blue cheek pattern accent",
+            "halo consisting of three squares/diamonds",
+            "cyan blue short hair",
+            "around the fastening area on the left hem of the basewear (not very noticeable due to the color), gray, Arabic numeral '444'",
+            "slightly classical ochre basewear, fastener with the same motif as the halo, long back hem like a cape",
+            "thin and light dark cyan outerwear",
+            "light blue leggings",
+            "ochre boots"
+          ],
+          "negative_visuals": [
+            "slightly classical ochre cape, fastener with the same motif as the halo, long back hem like a cape"
+          ],
+          "natural_language_description": null,
+          "prompt_export": "humanoid form, fox 4 tails, slightly tall stature (about 163cm), lot mark on the left cheek, dark cyan (underlined), Arabic numeral '444', Fox, dark cyan eyes with gray special pupils and a mechanical appearance, expressions and gestures are not particularly noticeable, light blue cheek pattern accent, halo consisting of three squares/diamonds, cyan blue short hair, around the fastening area on the left hem of the basewear (not very noticeable due to the color), gray, Arabic numeral '444', slightly classical ochre basewear, fastener with the same motif as the halo, long back hem like a cape, thin and light dark cyan outerwear, light blue leggings, ochre boots",
+          "negative_prompt_export": "slightly classical ochre cape, fastener with the same motif as the halo, long back hem like a cape",
+          "reference_images": null
+        }
+      },
+      "alt_modes": null,
+      "_meta": {
+        "structuralSourceHash": "sha256:d1c1d58def6237fd1d5540e67b31011e42b97bee3f1ae92bc2dd6a091804564a",
+        "structuralEntries": {
+          "common.identity_tags": [
+            "Fox",
+            "dark cyan eyes with gray special pupils and a mechanical appearance",
+            "light blue cheek pattern accent",
+            "halo consisting of three squares/diamonds",
+            "cyan blue short hair"
+          ],
+          "common.silhouette_features": [
+            "fox 4 tails",
+            "slightly tall stature (about 163cm)",
+            "Fox",
+            "dark cyan eyes with gray special pupils and a mechanical appearance",
+            "light blue cheek pattern accent",
+            "cyan blue short hair"
+          ],
+          "common.immutable_traits": [
+            "number '444-mp' marking: lot mark on the left cheek, dark cyan (underlined), Arabic numeral '444'"
+          ],
+          "common.expression_tendency": [
+            "expressions and gestures are not particularly noticeable"
+          ],
+          "forms.corefolder.form_tags": ["corefolder form"],
+          "forms.corefolder.ai_tags": [
+            "corefolder form",
+            "fox 4 tails",
+            "slightly tall stature (about 163cm)",
+            "lot mark on the left cheek, dark cyan (underlined), Arabic numeral '444'",
+            "Fox",
+            "dark cyan eyes with gray special pupils and a mechanical appearance",
+            "expressions and gestures are not particularly noticeable",
+            "light blue cheek pattern accent",
+            "halo consisting of three squares/diamonds",
+            "cyan blue short hair",
+            "around the fastening area on the left hem of the cape (not very noticeable due to the color), gray, Arabic numeral '444'",
+            "slightly classical ochre cape, fastener with the same motif as the halo, long back hem like a cape"
+          ],
+          "forms.corefolder.immutable_constraints": [
+            "do not render arms or hands",
+            "do not render legs or feet",
+            "do not dress in humanoid casual / fashion outfit"
+          ],
+          "forms.corefolder.negative_keywords": [
+            "feet",
+            "legs",
+            "shoes",
+            "high heels",
+            "arms",
+            "hands",
+            "hoodie",
+            "blazer",
+            "fashion outfit",
+            "bound by rope"
+          ],
+          "forms.humanoid.form_tags": ["humanoid form"],
+          "forms.humanoid.ai_tags": [
+            "humanoid form",
+            "fox 4 tails",
+            "slightly tall stature (about 163cm)",
+            "lot mark on the left cheek, dark cyan (underlined), Arabic numeral '444'",
+            "Fox",
+            "dark cyan eyes with gray special pupils and a mechanical appearance",
+            "expressions and gestures are not particularly noticeable",
+            "light blue cheek pattern accent",
+            "halo consisting of three squares/diamonds",
+            "cyan blue short hair",
+            "around the fastening area on the left hem of the basewear (not very noticeable due to the color), gray, Arabic numeral '444'",
+            "slightly classical ochre basewear, fastener with the same motif as the halo, long back hem like a cape",
+            "thin and light dark cyan outerwear",
+            "light blue leggings",
+            "ochre boots"
+          ]
+        },
+        "lastStructuralResync": "2026-09-06"
+      }
+    }
   },
   {
     "Num": 451,
@@ -3168,7 +3697,237 @@
       }
     ],
     "Summary_JP": "3桁ゾロ目の数字を持つ特殊クラスロットの「量産型マスタートリプル」に属し、通常個体と引け目を取らない性能をもつ通常個体互換の量産型ナンバーテールズ。\n「6(ムイ)」や「66(ムロク)」の美学的設計を踏襲し、同クラスロットの中でも優美な美貌を持つ。",
-    "Summary_EN": "A regular-unit-compatible mass-production NumberTales belonging to \"Cloned MasterTriples 9\", the special Class-Lot for units carrying three-digit repdigit numbers, with performance that rivals regular units.\nInheriting the aesthetic design of '6(Sics)' and '66(Sixis)', she possesses a graceful beauty that stands out even within the Class-Lot."
+    "Summary_EN": "A regular-unit-compatible mass-production NumberTales belonging to \"Cloned MasterTriples 9\", the special Class-Lot for units carrying three-digit repdigit numbers, with performance that rivals regular units.\nInheriting the aesthetic design of '6(Sics)' and '66(Sixis)', she possesses a graceful beauty that stands out even within the Class-Lot.",
+    "AIHints": {
+      "common": {
+        "identity_tags": [
+          "Fox",
+          "reddish-purple eyes with gray special pupils and a mechanical appearance",
+          "halo with three '6's arranged in rotational symmetry",
+          "wings inspired by the motif of '666'",
+          "light purple, curly and unusual hairstyle, long hair tied to the side"
+        ],
+        "silhouette_features": [
+          "fox 6 tails",
+          "average stature (about 150cm)",
+          "Fox",
+          "reddish-purple eyes with gray special pupils and a mechanical appearance",
+          "light purple, curly and unusual hairstyle, long hair tied to the side",
+          "exactly 6 tails total, no more no less"
+        ],
+        "immutable_traits": [
+          "number '666-mp' marking: halo, brooch, and wings are themed around '666', dark magenta, Arabic numeral '666' themed design",
+          "number '666-mp' marking: lot mark on the left cheek, dark magenta (underlined), Arabic numeral '666'"
+        ],
+        "expression_tendency": [
+          "expressions and gestures are not particularly noticeable"
+        ],
+        "age_appearance": "teenager",
+        "palette_priority": {
+          "primary": "#BC8797",
+          "secondary": "#E0B0BC",
+          "accent": "#A95D8D"
+        },
+        "natural_language_description": null,
+        "reference_images": {
+          "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SelfSecondary/concept/cnsp_imgNTS-666MP.png",
+          "concept": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SelfSecondary/concept/cnsp_imgNTS-666MP.png"
+        }
+      },
+      "work_common": null,
+      "forms": {
+        "corefolder": {
+          "form_tags": ["corefolder form"],
+          "outfit_features": [
+            "wings inspired by the motif of '666'",
+            "brooch with three '6's arranged in rotational symmetry and hexagonal shape",
+            "slightly classical magenta collar, belt with a hexagonal brooch"
+          ],
+          "silhouette_notes": {
+            "body_description": [
+              "spherical core body with the head as the only protruding part on top",
+              "Fox",
+              "reddish-purple eyes with gray special pupils and a mechanical appearance",
+              "light purple, curly and unusual hairstyle, long hair tied to the side"
+            ],
+            "attached_items": [
+              "halo with three '6's arranged in rotational symmetry"
+            ]
+          },
+          "immutable_constraints": [
+            "do not render arms or hands",
+            "do not render legs or feet",
+            "do not dress in humanoid casual / fashion outfit"
+          ],
+          "negative_keywords": [
+            "feet",
+            "legs",
+            "shoes",
+            "high heels",
+            "arms",
+            "hands",
+            "hoodie",
+            "blazer",
+            "fashion outfit",
+            "bound by rope"
+          ],
+          "ai_tags": [
+            "corefolder form",
+            "fox 6 tails",
+            "average stature (about 150cm)",
+            "teenager",
+            "halo, brooch, and wings are themed around '666', dark magenta, Arabic numeral '666' themed design",
+            "lot mark on the left cheek, dark magenta (underlined), Arabic numeral '666'",
+            "Fox",
+            "reddish-purple eyes with gray special pupils and a mechanical appearance",
+            "expressions and gestures are not particularly noticeable",
+            "halo with three '6's arranged in rotational symmetry",
+            "wings inspired by the motif of '666'",
+            "light purple, curly and unusual hairstyle, long hair tied to the side",
+            "brooch with three '6's arranged in rotational symmetry and hexagonal shape",
+            "slightly classical magenta collar, belt with a hexagonal brooch"
+          ],
+          "negative_visuals": [
+            "brooch with three '6's arranged in rotational symmetry and hexagonal shape",
+            "slightly classical magenta collar, demonic and casual pink apron dress, belt with a hexagonal brooch on the waist",
+            "high-heeled shoes in reddish-purple"
+          ],
+          "natural_language_description": "Corefolder form: a spherical cushion-like body in Fox; reddish-purple eyes with gray special pupils and a mechanical appearance; light purple, curly and unusual hairstyle, long hair tied to the side, with the number '666-mp' marking (halo, brooch, and wings are themed around '666', dark magenta, Arabic numeral '666' themed design; lot mark on the left cheek, dark magenta (underlined), Arabic numeral '666'); halo with three '6's arranged in rotational symmetry.",
+          "prompt_export": "corefolder form, fox 6 tails, average stature (about 150cm), teenager, halo, brooch, and wings are themed around '666', dark magenta, Arabic numeral '666' themed design, lot mark on the left cheek, dark magenta (underlined), Arabic numeral '666', Fox, reddish-purple eyes with gray special pupils and a mechanical appearance, expressions and gestures are not particularly noticeable, halo with three '6's arranged in rotational symmetry, wings inspired by the motif of '666', light purple, curly and unusual hairstyle, long hair tied to the side, brooch with three '6's arranged in rotational symmetry and hexagonal shape, slightly classical magenta collar, belt with a hexagonal brooch",
+          "negative_prompt_export": "brooch with three '6's arranged in rotational symmetry and hexagonal shape, slightly classical magenta collar, demonic and casual pink apron dress, belt with a hexagonal brooch on the waist, high-heeled shoes in reddish-purple",
+          "reference_images": {
+            "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SelfSecondary/concept/cnsp_imgNTS-666MP.png",
+            "corefolder": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SelfSecondary/corefolder/666/emstk_corefolderNTS-666MP-1.png"
+          }
+        },
+        "humanoid": {
+          "form_tags": ["humanoid form"],
+          "outfit_features": [
+            "wings inspired by the motif of '666'",
+            "brooch with three '6's arranged in rotational symmetry and hexagonal shape",
+            "slightly classical magenta collar, demonic and casual pink apron dress, belt with a hexagonal brooch on the waist",
+            "high-heeled shoes in reddish-purple"
+          ],
+          "silhouette_notes": {
+            "body_description": [
+              "Fox",
+              "reddish-purple eyes with gray special pupils and a mechanical appearance",
+              "light purple, curly and unusual hairstyle, long hair tied to the side"
+            ],
+            "attached_items": [
+              "halo with three '6's arranged in rotational symmetry"
+            ]
+          },
+          "immutable_constraints": null,
+          "negative_keywords": null,
+          "ai_tags": [
+            "humanoid form",
+            "fox 6 tails",
+            "average stature (about 150cm)",
+            "teenager",
+            "halo, brooch, and wings are themed around '666', dark magenta, Arabic numeral '666' themed design",
+            "lot mark on the left cheek, dark magenta (underlined), Arabic numeral '666'",
+            "Fox",
+            "reddish-purple eyes with gray special pupils and a mechanical appearance",
+            "expressions and gestures are not particularly noticeable",
+            "halo with three '6's arranged in rotational symmetry",
+            "wings inspired by the motif of '666'",
+            "light purple, curly and unusual hairstyle, long hair tied to the side",
+            "brooch with three '6's arranged in rotational symmetry and hexagonal shape",
+            "slightly classical magenta collar, demonic and casual pink apron dress, belt with a hexagonal brooch on the waist",
+            "high-heeled shoes in reddish-purple"
+          ],
+          "negative_visuals": [
+            "brooch with three '6's arranged in rotational symmetry and hexagonal shape",
+            "slightly classical magenta collar, belt with a hexagonal brooch"
+          ],
+          "natural_language_description": null,
+          "prompt_export": "humanoid form, fox 6 tails, average stature (about 150cm), teenager, halo, brooch, and wings are themed around '666', dark magenta, Arabic numeral '666' themed design, lot mark on the left cheek, dark magenta (underlined), Arabic numeral '666', Fox, reddish-purple eyes with gray special pupils and a mechanical appearance, expressions and gestures are not particularly noticeable, halo with three '6's arranged in rotational symmetry, wings inspired by the motif of '666', light purple, curly and unusual hairstyle, long hair tied to the side, brooch with three '6's arranged in rotational symmetry and hexagonal shape, slightly classical magenta collar, demonic and casual pink apron dress, belt with a hexagonal brooch on the waist, high-heeled shoes in reddish-purple",
+          "negative_prompt_export": "brooch with three '6's arranged in rotational symmetry and hexagonal shape, slightly classical magenta collar, belt with a hexagonal brooch",
+          "reference_images": null
+        }
+      },
+      "alt_modes": null,
+      "_meta": {
+        "structuralSourceHash": "sha256:ae4341de5c8aaf24cb121e240a8ecff431200d5f2e1ddffe3311a74ae520e563",
+        "structuralEntries": {
+          "common.identity_tags": [
+            "Fox",
+            "reddish-purple eyes with gray special pupils and a mechanical appearance",
+            "halo with three '6's arranged in rotational symmetry",
+            "wings inspired by the motif of '666'",
+            "light purple, curly and unusual hairstyle, long hair tied to the side"
+          ],
+          "common.silhouette_features": [
+            "fox 6 tails",
+            "average stature (about 150cm)",
+            "Fox",
+            "reddish-purple eyes with gray special pupils and a mechanical appearance",
+            "light purple, curly and unusual hairstyle, long hair tied to the side"
+          ],
+          "common.immutable_traits": [
+            "number '666-mp' marking: halo, brooch, and wings are themed around '666', dark magenta, Arabic numeral '666' themed design",
+            "number '666-mp' marking: lot mark on the left cheek, dark magenta (underlined), Arabic numeral '666'"
+          ],
+          "common.expression_tendency": [
+            "expressions and gestures are not particularly noticeable"
+          ],
+          "forms.corefolder.form_tags": ["corefolder form"],
+          "forms.corefolder.ai_tags": [
+            "corefolder form",
+            "fox 6 tails",
+            "average stature (about 150cm)",
+            "teenager",
+            "halo, brooch, and wings are themed around '666', dark magenta, Arabic numeral '666' themed design",
+            "lot mark on the left cheek, dark magenta (underlined), Arabic numeral '666'",
+            "Fox",
+            "reddish-purple eyes with gray special pupils and a mechanical appearance",
+            "expressions and gestures are not particularly noticeable",
+            "halo with three '6's arranged in rotational symmetry",
+            "wings inspired by the motif of '666'",
+            "light purple, curly and unusual hairstyle, long hair tied to the side",
+            "brooch with three '6's arranged in rotational symmetry and hexagonal shape",
+            "slightly classical magenta collar, belt with a hexagonal brooch"
+          ],
+          "forms.corefolder.immutable_constraints": [
+            "do not render arms or hands",
+            "do not render legs or feet",
+            "do not dress in humanoid casual / fashion outfit"
+          ],
+          "forms.corefolder.negative_keywords": [
+            "feet",
+            "legs",
+            "shoes",
+            "high heels",
+            "arms",
+            "hands",
+            "hoodie",
+            "blazer",
+            "fashion outfit",
+            "bound by rope"
+          ],
+          "forms.humanoid.form_tags": ["humanoid form"],
+          "forms.humanoid.ai_tags": [
+            "humanoid form",
+            "fox 6 tails",
+            "average stature (about 150cm)",
+            "teenager",
+            "halo, brooch, and wings are themed around '666', dark magenta, Arabic numeral '666' themed design",
+            "lot mark on the left cheek, dark magenta (underlined), Arabic numeral '666'",
+            "Fox",
+            "reddish-purple eyes with gray special pupils and a mechanical appearance",
+            "expressions and gestures are not particularly noticeable",
+            "halo with three '6's arranged in rotational symmetry",
+            "wings inspired by the motif of '666'",
+            "light purple, curly and unusual hairstyle, long hair tied to the side",
+            "brooch with three '6's arranged in rotational symmetry and hexagonal shape",
+            "slightly classical magenta collar, demonic and casual pink apron dress, belt with a hexagonal brooch on the waist",
+            "high-heeled shoes in reddish-purple"
+          ]
+        },
+        "lastStructuralResync": "2026-09-06"
+      }
+    }
   },
   {
     "Num": 670,
@@ -3369,7 +4128,99 @@
       }
     ],
     "Summary_JP": "クラスロット「ワノマチ」に属するトリプルシックスズ型量産ナンバーテールズ。\n753番機シリーズの代表個体で、どこかの世界の極東で催される7歳・5歳・3歳の子供に向けた祭事をモチーフにしたカスタマイズがなされていることから、同じ「ワノマチ」のクラスに仮所属する「35(ミコ)」やその弟/妹個体「53(イツゾウ)」の影響を大きく受けた個体でもある。",
-    "Summary_EN": "A Triple-Sum-6s-type mass-production NumberTales belonging to the Class-Lot \"Wa-no-Machi\".\nAs the representative unit of the #753 series, ze carries customizations themed on a festival held in the Far East of a certain world for children aged seven, five, and three, which also makes zir a unit strongly influenced by '35(Míko)', provisionally assigned to the same \"Wa-no-Machi\" class, and by that unit's younger sibling '53(Fifthren)'."
+    "Summary_EN": "A Triple-Sum-6s-type mass-production NumberTales belonging to the Class-Lot \"Wa-no-Machi\".\nAs the representative unit of the #753 series, ze carries customizations themed on a festival held in the Far East of a certain world for children aged seven, five, and three, which also makes zir a unit strongly influenced by '35(Míko)', provisionally assigned to the same \"Wa-no-Machi\" class, and by that unit's younger sibling '53(Fifthren)'.",
+    "AIHints": {
+      "common": {
+        "identity_tags": [
+          "number '753' as core identifier",
+          "fox-type android unit",
+          "Triple Sum-6s",
+          "wa-no-machi class"
+        ],
+        "silhouette_features": [
+          "branching fox 7 tails",
+          "TODO: hair color and length",
+          "TODO: eye color",
+          "exactly 7 tails total: from Lower to Upper — Lower: 3 tails x3 clusters, 2 tails x2 clusters, Upper: 1 tails x1 clusters, no more no less"
+        ],
+        "immutable_traits": [
+          "digital construct (NumberTales unit)",
+          "branching fox 7 tails (immutable count)",
+          "'#753' number marking (immutable)"
+        ],
+        "expression_tendency": ["TODO: expression based on Character field"],
+        "age_appearance": "teenager",
+        "palette_priority": {
+          "primary": "#FFC4A3",
+          "secondary": "#F7FFB9",
+          "accent": "#4378C3"
+        },
+        "natural_language_description": "TODO: 1-sentence neutral summary of appearance and demeanor.",
+        "reference_images": {
+          "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SelfSecondary/concept/jw/cnsp_imgNTS-753.png",
+          "concept": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SelfSecondary/concept/jw/cnsp_imgNTS-753.png"
+        }
+      },
+      "work_common": null,
+      "forms": {
+        "corefolder": {
+          "form_tags": ["corefolder form"],
+          "outfit_features": [
+            "TODO: corefolder outfit features (hoodie / harness / marking details)"
+          ],
+          "silhouette_notes": {
+            "body_description": [
+              "spherical core body with the head as the only protruding part on top",
+              "TODO: 1-2 lines of character-specific body description for #753 (base color, surface markings, facial expression typical)"
+            ],
+            "attached_items": [
+              "TODO: list character-specific attached items for #753 (ribbon / collar / scarf / hairband / harness etc. - NO humanoid clothing words like coat / dress / pants / shoes)"
+            ]
+          },
+          "immutable_constraints": [
+            "do not render arms or hands",
+            "do not render legs or feet",
+            "do not dress in humanoid casual / fashion outfit"
+          ],
+          "negative_keywords": [
+            "feet",
+            "legs",
+            "shoes",
+            "high heels",
+            "arms",
+            "hands",
+            "hoodie",
+            "blazer",
+            "fashion outfit",
+            "bound by rope"
+          ],
+          "ai_tags": [
+            "corefolder form",
+            "1other",
+            "teenager",
+            "TODO: ear type (no AppearanceDetail #Element_Ear entry found)",
+            "branching fox 7 tails",
+            "TODO: hair color and style",
+            "TODO: eye color",
+            "TODO: corefolder outfit key terms"
+          ],
+          "negative_visuals": [
+            "cat ears",
+            "rabbit ears",
+            "fewer or more than 7 tail(s)",
+            "humanoid casual outfit"
+          ],
+          "natural_language_description": "TODO: 1-sentence description of the corefolder form.",
+          "prompt_export": "corefolder form, 1other, teenager, branching fox 7 tails",
+          "negative_prompt_export": "cat ears, rabbit ears, fewer or more than 7 tail(s), humanoid casual outfit",
+          "reference_images": {
+            "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SelfSecondary/concept/jw/cnsp_imgNTS-753.png",
+            "corefolder": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SelfSecondary/corefolder/753/emstk_corefolderNTS-753-1.png"
+          }
+        }
+      },
+      "alt_modes": null
+    }
   },
   {
     "Num": 773,
@@ -3704,7 +4555,216 @@
       }
     ],
     "Summary_JP": "3桁ゾロ目の数字を持つ特殊クラスロットの「量産型マスタートリプル」に属し、通常個体と引け目を取らない性能をもつ通常個体互換の量産型ナンバーテールズ。\n「7(ナナ)」や「77(ナヅナ)」の学習設計を踏襲し、加えて「VII×3.R(ラッキーセブンアール)」型アドオンによる機能特化に秀でたアーキテクチャを持つ。",
-    "Summary_EN": "A regular-unit-compatible mass-production NumberTales belonging to \"Cloned MasterTriples 9\", the special Class-Lot for units carrying three-digit repdigit numbers, with performance that rivals regular units.\nInheriting the learning-oriented design of '7(Sevan)' and '77(Sefvens)', he further holds an architecture that excels at functional specialization through the \"VIIx3.R (Lucky Seven-R)\" type addon."
+    "Summary_EN": "A regular-unit-compatible mass-production NumberTales belonging to \"Cloned MasterTriples 9\", the special Class-Lot for units carrying three-digit repdigit numbers, with performance that rivals regular units.\nInheriting the learning-oriented design of '7(Sevan)' and '77(Sefvens)', he further holds an architecture that excels at functional specialization through the \"VIIx3.R (Lucky Seven-R)\" type addon.",
+    "AIHints": {
+      "common": {
+        "identity_tags": [
+          "Cat (drooping)",
+          "mechanical eyes with a navy and yellow gradient",
+          "holding a cocoa cigarette bar in the mouth",
+          "long light brown hair tied at the back with a navy hairpin",
+          "carrying a dark yellow expansion board on the back"
+        ],
+        "silhouette_features": [
+          "fox 7 tails",
+          "slightly tall stature (about 161cm)",
+          "Cat (drooping)",
+          "mechanical eyes with a navy and yellow gradient",
+          "long light brown hair tied at the back with a navy hairpin",
+          "exactly 7 tails total, no more no less"
+        ],
+        "immutable_traits": [
+          "number '777-mp' marking: There is an emblem on the forehead that features '777' and a 180-degree rotated '㐂' motif., dark yellow, Arabic numeral '777' (typography combined with rotated '㐂')",
+          "number '777-mp' marking: lot mark on the left cheek, dark yellow (underlined), Arabic numeral '777'"
+        ],
+        "expression_tendency": [
+          "expressions and gestures are not particularly noticeable"
+        ],
+        "age_appearance": "TODO: e.g., teenager",
+        "palette_priority": {
+          "primary": "#C1A072",
+          "secondary": "#FFD47A",
+          "accent": "#504695"
+        },
+        "natural_language_description": null,
+        "reference_images": {
+          "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SelfSecondary/concept/cnsp_imgNTS-777MPA.png",
+          "concept": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SelfSecondary/concept/cnsp_imgNTS-777MPA.png",
+          "concept_variants": [
+            "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SelfSecondary/conceptAlt/cnsp_imgNTS-777MP,NTS-777JMPC.png",
+            "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SelfSecondary/conceptAlt/cnsp_imgNTS-777MP,NTS-777JMP.png"
+          ]
+        }
+      },
+      "work_common": null,
+      "forms": {
+        "humanoid": {
+          "form_tags": ["humanoid form"],
+          "outfit_features": [
+            "holding a cocoa cigarette bar in the mouth",
+            "carrying a dark yellow expansion board on the back",
+            "navy leather shoes"
+          ],
+          "silhouette_notes": {
+            "body_description": [
+              "Cat (drooping)",
+              "mechanical eyes with a navy and yellow gradient",
+              "long light brown hair tied at the back with a navy hairpin",
+              "gray tracksuit resembling gym clothes"
+            ],
+            "attached_items": []
+          },
+          "immutable_constraints": null,
+          "negative_keywords": null,
+          "ai_tags": [
+            "humanoid form",
+            "fox 7 tails",
+            "slightly tall stature (about 161cm)",
+            "There is an emblem on the forehead that features '777' and a 180-degree rotated '㐂' motif., dark yellow, Arabic numeral '777' (typography combined with rotated '㐂')",
+            "lot mark on the left cheek, dark yellow (underlined), Arabic numeral '777'",
+            "Cat (drooping)",
+            "mechanical eyes with a navy and yellow gradient",
+            "expressions and gestures are not particularly noticeable",
+            "holding a cocoa cigarette bar in the mouth",
+            "long light brown hair tied at the back with a navy hairpin",
+            "carrying a dark yellow expansion board on the back",
+            "gray tracksuit resembling gym clothes",
+            "navy leather shoes"
+          ],
+          "negative_visuals": [],
+          "natural_language_description": null,
+          "prompt_export": "humanoid form, fox 7 tails, slightly tall stature (about 161cm), There is an emblem on the forehead that features '777' and a 180-degree rotated '㐂' motif., dark yellow, Arabic numeral '777' (typography combined with rotated '㐂'), lot mark on the left cheek, dark yellow (underlined), Arabic numeral '777', Cat (drooping), mechanical eyes with a navy and yellow gradient, expressions and gestures are not particularly noticeable, holding a cocoa cigarette bar in the mouth, long light brown hair tied at the back with a navy hairpin, carrying a dark yellow expansion board on the back, gray tracksuit resembling gym clothes, navy leather shoes",
+          "negative_prompt_export": "",
+          "reference_images": null
+        },
+        "corefolder": {
+          "form_tags": ["corefolder form"],
+          "outfit_features": [
+            "holding a cocoa cigarette bar in the mouth",
+            "carrying a dark yellow expansion board on the back"
+          ],
+          "silhouette_notes": {
+            "body_description": [
+              "spherical core body with the head as the only protruding part on top",
+              "Cat (drooping)",
+              "mechanical eyes with a navy and yellow gradient",
+              "long light brown hair tied at the back with a navy hairpin"
+            ],
+            "attached_items": []
+          },
+          "immutable_constraints": [
+            "do not render arms or hands",
+            "do not render legs or feet",
+            "do not dress in humanoid casual / fashion outfit"
+          ],
+          "negative_keywords": [
+            "feet",
+            "legs",
+            "shoes",
+            "high heels",
+            "arms",
+            "hands",
+            "hoodie",
+            "blazer",
+            "fashion outfit",
+            "bound by rope"
+          ],
+          "ai_tags": [
+            "corefolder form",
+            "fox 7 tails",
+            "slightly tall stature (about 161cm)",
+            "There is an emblem on the forehead that features '777' and a 180-degree rotated '㐂' motif., dark yellow, Arabic numeral '777' (typography combined with rotated '㐂')",
+            "lot mark on the left cheek, dark yellow (underlined), Arabic numeral '777'",
+            "Cat (drooping)",
+            "mechanical eyes with a navy and yellow gradient",
+            "expressions and gestures are not particularly noticeable",
+            "holding a cocoa cigarette bar in the mouth",
+            "long light brown hair tied at the back with a navy hairpin",
+            "carrying a dark yellow expansion board on the back"
+          ],
+          "negative_visuals": ["navy leather shoes"],
+          "natural_language_description": "Corefolder form: a spherical cushion-like body in Cat (drooping); mechanical eyes with a navy and yellow gradient; long light brown hair tied at the back with a navy hairpin, with the number '777-mp' marking (There is an emblem on the forehead that features '777' and a 180-degree rotated '㐂' motif., dark yellow, Arabic numeral '777' (typography combined with rotated '㐂'); lot mark on the left cheek, dark yellow (underlined), Arabic numeral '777').",
+          "prompt_export": "corefolder form, fox 7 tails, slightly tall stature (about 161cm), There is an emblem on the forehead that features '777' and a 180-degree rotated '㐂' motif., dark yellow, Arabic numeral '777' (typography combined with rotated '㐂'), lot mark on the left cheek, dark yellow (underlined), Arabic numeral '777', Cat (drooping), mechanical eyes with a navy and yellow gradient, expressions and gestures are not particularly noticeable, holding a cocoa cigarette bar in the mouth, long light brown hair tied at the back with a navy hairpin, carrying a dark yellow expansion board on the back",
+          "negative_prompt_export": "navy leather shoes",
+          "reference_images": null
+        }
+      },
+      "alt_modes": null,
+      "_meta": {
+        "structuralSourceHash": "sha256:8835775bd0200d89a788cc91ec16cc29faa5e805054ad41b1e4e3fdd6dc3f912",
+        "structuralEntries": {
+          "common.identity_tags": [
+            "Cat (drooping)",
+            "mechanical eyes with a navy and yellow gradient",
+            "holding a cocoa cigarette bar in the mouth",
+            "long light brown hair tied at the back with a navy hairpin",
+            "carrying a dark yellow expansion board on the back"
+          ],
+          "common.silhouette_features": [
+            "fox 7 tails",
+            "slightly tall stature (about 161cm)",
+            "Cat (drooping)",
+            "mechanical eyes with a navy and yellow gradient",
+            "long light brown hair tied at the back with a navy hairpin"
+          ],
+          "common.immutable_traits": [
+            "number '777-mp' marking: There is an emblem on the forehead that features '777' and a 180-degree rotated '㐂' motif., dark yellow, Arabic numeral '777' (typography combined with rotated '㐂')",
+            "number '777-mp' marking: lot mark on the left cheek, dark yellow (underlined), Arabic numeral '777'"
+          ],
+          "common.expression_tendency": [
+            "expressions and gestures are not particularly noticeable"
+          ],
+          "forms.humanoid.form_tags": ["humanoid form"],
+          "forms.humanoid.ai_tags": [
+            "humanoid form",
+            "fox 7 tails",
+            "slightly tall stature (about 161cm)",
+            "There is an emblem on the forehead that features '777' and a 180-degree rotated '㐂' motif., dark yellow, Arabic numeral '777' (typography combined with rotated '㐂')",
+            "lot mark on the left cheek, dark yellow (underlined), Arabic numeral '777'",
+            "Cat (drooping)",
+            "mechanical eyes with a navy and yellow gradient",
+            "expressions and gestures are not particularly noticeable",
+            "holding a cocoa cigarette bar in the mouth",
+            "long light brown hair tied at the back with a navy hairpin",
+            "carrying a dark yellow expansion board on the back",
+            "gray tracksuit resembling gym clothes",
+            "navy leather shoes"
+          ],
+          "forms.corefolder.form_tags": ["corefolder form"],
+          "forms.corefolder.ai_tags": [
+            "corefolder form",
+            "fox 7 tails",
+            "slightly tall stature (about 161cm)",
+            "There is an emblem on the forehead that features '777' and a 180-degree rotated '㐂' motif., dark yellow, Arabic numeral '777' (typography combined with rotated '㐂')",
+            "lot mark on the left cheek, dark yellow (underlined), Arabic numeral '777'",
+            "Cat (drooping)",
+            "mechanical eyes with a navy and yellow gradient",
+            "expressions and gestures are not particularly noticeable",
+            "holding a cocoa cigarette bar in the mouth",
+            "long light brown hair tied at the back with a navy hairpin",
+            "carrying a dark yellow expansion board on the back"
+          ],
+          "forms.corefolder.immutable_constraints": [
+            "do not render arms or hands",
+            "do not render legs or feet",
+            "do not dress in humanoid casual / fashion outfit"
+          ],
+          "forms.corefolder.negative_keywords": [
+            "feet",
+            "legs",
+            "shoes",
+            "high heels",
+            "arms",
+            "hands",
+            "hoodie",
+            "blazer",
+            "fashion outfit",
+            "bound by rope"
+          ]
+        },
+        "lastStructuralResync": "2026-09-06"
+      }
+    }
   },
   {
     "Num": "777.Jackpot-mp",
@@ -4015,7 +5075,219 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ]
+    ],
+    "AIHints": {
+      "common": {
+        "identity_tags": [
+          "Cat (drooping)",
+          "mechanical eyes with a navy and yellow gradient",
+          "holding a cocoa cigarette bar in the mouth",
+          "long light brown hair tied at the back with a navy hairpin"
+        ],
+        "silhouette_features": [
+          "fox 7 tails",
+          "slightly tall stature (about 161cm)",
+          "Cat (drooping)",
+          "mechanical eyes with a navy and yellow gradient",
+          "long light brown hair tied at the back with a navy hairpin",
+          "exactly 7 tails total, no more no less"
+        ],
+        "immutable_traits": [
+          "number '777.Jackpot-mp' marking: There is an emblem on the forehead that features '777' and a 180-degree rotated '㐂' motif., dark yellow, Arabic numeral '777' (typography combined with rotated '㐂')",
+          "number '777.Jackpot-mp' marking: lot mark on the left cheek, dark yellow (underlined), Arabic numeral '777'"
+        ],
+        "expression_tendency": [
+          "expressions and gestures are not particularly noticeable"
+        ],
+        "age_appearance": "TODO: e.g., teenager",
+        "palette_priority": {
+          "primary": "#C1A072",
+          "secondary": "#FFD47A",
+          "accent": "#504695"
+        },
+        "natural_language_description": null,
+        "reference_images": {
+          "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SelfSecondary/concept/cnsp_imgNTS-777JMP-mpB.png",
+          "concept": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SelfSecondary/concept/cnsp_imgNTS-777JMP-mpB.png",
+          "concept_variants": [
+            "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SelfSecondary/conceptAlt/cnsp_imgNTS-777MP,NTS-777JMPC.png",
+            "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SelfSecondary/conceptAlt/cnsp_imgNTS-777MP,NTS-777JMP.png"
+          ]
+        }
+      },
+      "work_common": null,
+      "forms": {
+        "corefolder": {
+          "form_tags": ["corefolder form"],
+          "outfit_features": [
+            "holding a cocoa cigarette bar in the mouth",
+            "wearing a dark yellow slot machine-type addon and functioning like a slot machine"
+          ],
+          "silhouette_notes": {
+            "body_description": [
+              "spherical core body with the head as the only protruding part on top",
+              "Cat (drooping)",
+              "mechanical eyes with a navy and yellow gradient",
+              "long light brown hair tied at the back with a navy hairpin"
+            ],
+            "attached_items": []
+          },
+          "immutable_constraints": [
+            "do not render arms or hands",
+            "do not render legs or feet",
+            "do not dress in humanoid casual / fashion outfit"
+          ],
+          "negative_keywords": [
+            "feet",
+            "legs",
+            "shoes",
+            "high heels",
+            "arms",
+            "hands",
+            "hoodie",
+            "blazer",
+            "fashion outfit",
+            "bound by rope"
+          ],
+          "ai_tags": [
+            "corefolder form",
+            "fox 7 tails",
+            "slightly tall stature (about 161cm)",
+            "There is an emblem on the forehead that features '777' and a 180-degree rotated '㐂' motif., dark yellow, Arabic numeral '777' (typography combined with rotated '㐂')",
+            "lot mark on the left cheek, dark yellow (underlined), Arabic numeral '777'",
+            "Cat (drooping)",
+            "mechanical eyes with a navy and yellow gradient",
+            "expressions and gestures are not particularly noticeable",
+            "holding a cocoa cigarette bar in the mouth",
+            "long light brown hair tied at the back with a navy hairpin",
+            "wearing a dark yellow slot machine-type addon and functioning like a slot machine"
+          ],
+          "negative_visuals": [
+            "carrying a dark yellow slot machine-type addon on the back",
+            "navy leather shoes"
+          ],
+          "natural_language_description": "Corefolder form: a spherical cushion-like body in Cat (drooping); mechanical eyes with a navy and yellow gradient; long light brown hair tied at the back with a navy hairpin, with the number '777.Jackpot-mp' marking (There is an emblem on the forehead that features '777' and a 180-degree rotated '㐂' motif., dark yellow, Arabic numeral '777' (typography combined with rotated '㐂'); lot mark on the left cheek, dark yellow (underlined), Arabic numeral '777').",
+          "prompt_export": "corefolder form, fox 7 tails, slightly tall stature (about 161cm), There is an emblem on the forehead that features '777' and a 180-degree rotated '㐂' motif., dark yellow, Arabic numeral '777' (typography combined with rotated '㐂'), lot mark on the left cheek, dark yellow (underlined), Arabic numeral '777', Cat (drooping), mechanical eyes with a navy and yellow gradient, expressions and gestures are not particularly noticeable, holding a cocoa cigarette bar in the mouth, long light brown hair tied at the back with a navy hairpin, wearing a dark yellow slot machine-type addon and functioning like a slot machine",
+          "negative_prompt_export": "carrying a dark yellow slot machine-type addon on the back, navy leather shoes",
+          "reference_images": null
+        },
+        "humanoid": {
+          "form_tags": ["humanoid form"],
+          "outfit_features": [
+            "holding a cocoa cigarette bar in the mouth",
+            "carrying a dark yellow slot machine-type addon on the back",
+            "navy leather shoes"
+          ],
+          "silhouette_notes": {
+            "body_description": [
+              "Cat (drooping)",
+              "mechanical eyes with a navy and yellow gradient",
+              "long light brown hair tied at the back with a navy hairpin",
+              "gray tracksuit resembling gym clothes"
+            ],
+            "attached_items": []
+          },
+          "immutable_constraints": null,
+          "negative_keywords": null,
+          "ai_tags": [
+            "humanoid form",
+            "fox 7 tails",
+            "slightly tall stature (about 161cm)",
+            "There is an emblem on the forehead that features '777' and a 180-degree rotated '㐂' motif., dark yellow, Arabic numeral '777' (typography combined with rotated '㐂')",
+            "lot mark on the left cheek, dark yellow (underlined), Arabic numeral '777'",
+            "Cat (drooping)",
+            "mechanical eyes with a navy and yellow gradient",
+            "expressions and gestures are not particularly noticeable",
+            "holding a cocoa cigarette bar in the mouth",
+            "long light brown hair tied at the back with a navy hairpin",
+            "carrying a dark yellow slot machine-type addon on the back",
+            "gray tracksuit resembling gym clothes",
+            "navy leather shoes"
+          ],
+          "negative_visuals": [
+            "wearing a dark yellow slot machine-type addon and functioning like a slot machine"
+          ],
+          "natural_language_description": null,
+          "prompt_export": "humanoid form, fox 7 tails, slightly tall stature (about 161cm), There is an emblem on the forehead that features '777' and a 180-degree rotated '㐂' motif., dark yellow, Arabic numeral '777' (typography combined with rotated '㐂'), lot mark on the left cheek, dark yellow (underlined), Arabic numeral '777', Cat (drooping), mechanical eyes with a navy and yellow gradient, expressions and gestures are not particularly noticeable, holding a cocoa cigarette bar in the mouth, long light brown hair tied at the back with a navy hairpin, carrying a dark yellow slot machine-type addon on the back, gray tracksuit resembling gym clothes, navy leather shoes",
+          "negative_prompt_export": "wearing a dark yellow slot machine-type addon and functioning like a slot machine",
+          "reference_images": null
+        }
+      },
+      "alt_modes": null,
+      "_meta": {
+        "structuralSourceHash": "sha256:853066c181a83203a5a2672c922a70f1426b128f7302e8c05136abe5ccd2ed29",
+        "structuralEntries": {
+          "common.identity_tags": [
+            "Cat (drooping)",
+            "mechanical eyes with a navy and yellow gradient",
+            "holding a cocoa cigarette bar in the mouth",
+            "long light brown hair tied at the back with a navy hairpin"
+          ],
+          "common.silhouette_features": [
+            "fox 7 tails",
+            "slightly tall stature (about 161cm)",
+            "Cat (drooping)",
+            "mechanical eyes with a navy and yellow gradient",
+            "long light brown hair tied at the back with a navy hairpin"
+          ],
+          "common.immutable_traits": [
+            "number '777.Jackpot-mp' marking: There is an emblem on the forehead that features '777' and a 180-degree rotated '㐂' motif., dark yellow, Arabic numeral '777' (typography combined with rotated '㐂')",
+            "number '777.Jackpot-mp' marking: lot mark on the left cheek, dark yellow (underlined), Arabic numeral '777'"
+          ],
+          "common.expression_tendency": [
+            "expressions and gestures are not particularly noticeable"
+          ],
+          "forms.corefolder.form_tags": ["corefolder form"],
+          "forms.corefolder.ai_tags": [
+            "corefolder form",
+            "fox 7 tails",
+            "slightly tall stature (about 161cm)",
+            "There is an emblem on the forehead that features '777' and a 180-degree rotated '㐂' motif., dark yellow, Arabic numeral '777' (typography combined with rotated '㐂')",
+            "lot mark on the left cheek, dark yellow (underlined), Arabic numeral '777'",
+            "Cat (drooping)",
+            "mechanical eyes with a navy and yellow gradient",
+            "expressions and gestures are not particularly noticeable",
+            "holding a cocoa cigarette bar in the mouth",
+            "long light brown hair tied at the back with a navy hairpin",
+            "wearing a dark yellow slot machine-type addon and functioning like a slot machine"
+          ],
+          "forms.corefolder.immutable_constraints": [
+            "do not render arms or hands",
+            "do not render legs or feet",
+            "do not dress in humanoid casual / fashion outfit"
+          ],
+          "forms.corefolder.negative_keywords": [
+            "feet",
+            "legs",
+            "shoes",
+            "high heels",
+            "arms",
+            "hands",
+            "hoodie",
+            "blazer",
+            "fashion outfit",
+            "bound by rope"
+          ],
+          "forms.humanoid.form_tags": ["humanoid form"],
+          "forms.humanoid.ai_tags": [
+            "humanoid form",
+            "fox 7 tails",
+            "slightly tall stature (about 161cm)",
+            "There is an emblem on the forehead that features '777' and a 180-degree rotated '㐂' motif., dark yellow, Arabic numeral '777' (typography combined with rotated '㐂')",
+            "lot mark on the left cheek, dark yellow (underlined), Arabic numeral '777'",
+            "Cat (drooping)",
+            "mechanical eyes with a navy and yellow gradient",
+            "expressions and gestures are not particularly noticeable",
+            "holding a cocoa cigarette bar in the mouth",
+            "long light brown hair tied at the back with a navy hairpin",
+            "carrying a dark yellow slot machine-type addon on the back",
+            "gray tracksuit resembling gym clothes",
+            "navy leather shoes"
+          ]
+        },
+        "lastStructuralResync": "2026-09-06"
+      }
+    }
   },
   {
     "Num": 780,

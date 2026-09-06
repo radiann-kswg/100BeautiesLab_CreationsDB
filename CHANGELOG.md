@@ -1,5 +1,32 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### feat: AIHints を `DB_SemiPrimary` / `DB_SelfSecondary` へ seed（NumberTales・18 件）(2026-09-06)
+
+> 本エントリは `addon-ai-tag` ブランチ固有（AIHints は `develop` に含めない運用）。
+
+- **下流要件**: [CreationsAI Issue #1](https://github.com/radiann-kswg/100BeautiesLab_CreationsAI/issues/1) 依頼1。
+  `has_ai_hints` で絞る下流の `get_characters()` から SemiPrimary / SelfSecondary が丸ごと列挙できず、
+  オフライン・API 障害時に生成不能だった。
+- **対応**: 新規コードを足さず既存モードの 4 段適用で seed。
+  `--suggest` → `--apply-appearancedetail`（`AppearanceDetail` 保有分のみ）→ `--apply-colorpalette` → `--fill-todos`。
+  **SemiPrimary 11 件 / SelfSecondary 7 件**（Issue が名指しした `3x11` を含む）。
+  2026-07-17 の基盤整備ログで「`AppearanceDetail` 待ち」としていた前提は解消済みだった
+  （画像保有レコードの `ColorPalette` 100% / `AppearanceDetail` 21 件中 16 件）。
+- **到達上限**: 残る 158 件は `skipped-no-image`（参照画像が 1 枚も無い）。画像投入待ちの別軸タスク。
+- **`--resync-structural` を収束**させた（seed 直後は `resync-applied=10/5` で no-op ではなく、
+  そのまま push すると `aihints-structural-resync.yml` が即 PR を起こす）。適用後は 3 DB とも `resync-unchanged`。
+- **`tools/patch-aihints.mjs` の既存バグ修正**: `parseRecordSpec()` の許可文字集合 `^[0-9A-Za-z_\-]+$` が
+  `777.Jackpot` / `777.Jackpot-mp` を弾いていた（同ファイルの `compareNums()` JSDoc が実在 Num として挙げている値）。
+  兄弟ツール `tools/patch-colorpalette.mjs` の同名関数と同じく、範囲でも純整数でもないトークンは
+  文字列 Num としてそのまま通す方式へ揃えた（`%` / `∞` にも同時に効く）。
+- **テスト**: `tests/aihints.schema.test.js` のレコード側 `describe` を 3 DB へ `describe.each` 化。
+  `tests/patch-aihints.gates.test.js` の「まだ 0 件」期待値を「AIHints を持つレコードは必ず `Images` を持つ」へ差し替え
+  （件数スナップショットは避ける。同ファイルの 2026-08-19 方針）。
+- **`db_Primary.json` は 1 バイトも変更していない**（AIHints 92 件・`resync-unchanged=92`）。
+- **下流への申し送り**: `migrate-aihints.mjs` の per-record `_Secondaries` opt-out 判定が未対応のまま。
+  SelfSecondary に実データが入ったことで latent ではなくなったため、D1 投入前に対応が必要。
+- 詳細: `_work_in_progress/2026-09-06_progress_aihints-seed-semiprimary-selfsecondary.md`
+
 ### fix: CI の Node を 22 系へ固定（jsdom/undici の要求と不整合で全ワークフローが Node 20 だった）(2026-09-04)
 
 - **症状**: AIHints 構造的再同期ワークフローの「テスト」ステップが `npm test` で失敗し続けていた

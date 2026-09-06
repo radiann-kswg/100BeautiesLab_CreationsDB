@@ -93,8 +93,16 @@ describe('AIHints schema: corefolder enhancements (NumberTales)', () => {
     });
 });
 
-describe('AIHints data: upgraded NumberTales/DB_Primary records', () => {
-    const dbPath = 'data/Works_NumberTales/DataBases/db_Primary.json';
+/**
+ * AIHints 実データを持つ NumberTales の DB 一覧（2026-09-06 に SemiPrimary / SelfSecondary を seed）。
+ *
+ * humanoid form は参照画像の有無ではなく `AppearanceDetail` の `Formation: "humanoid"`
+ * エントリから生成されるため、画像が corefolder しか無い DB にも humanoid form は存在する。
+ */
+const AIHINTS_DBS = ['db_Primary.json', 'db_SemiPrimary.json', 'db_SelfSecondary.json'];
+
+describe.each(AIHINTS_DBS)('AIHints data: upgraded NumberTales/%s records', (db) => {
+    const dbPath = `data/Works_NumberTales/DataBases/${db}`;
     const records = loadJson(dbPath);
 
     it('AIHints を持つ全レコードに work_common と alt_modes トップレベルが存在する', () => {
@@ -231,6 +239,9 @@ describe('AIHints data: upgraded NumberTales/DB_Primary records', () => {
             const cf = rec.AIHints.forms.corefolder;
             const nld = cf.natural_language_description;
             if (typeof nld !== 'string' || !nld.trim()) continue;
+            // seed 直後の未記入プレースホルダ。値が入るまでテンプレ判定の対象外
+            // （AppearanceDetail が無いレコードは NLD を機械生成できない）。
+            if (nld.startsWith('TODO:')) continue;
             // テンプレ準拠（"Corefolder form: a spherical cushion-like body in ..."）
             expect(
                 /^Corefolder form:\s*a spherical cushion-like body in\b/i.test(nld),

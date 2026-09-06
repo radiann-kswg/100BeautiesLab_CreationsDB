@@ -152,9 +152,14 @@ function parseArgs(argv) {
 }
 
 /**
- * "41-60" / "41,42,47" / "41-45,50,55-58" 形式を Set<number> に展開。
+ * "41-60" / "41,42,47" / "41-45,50,55-58" 形式を Set に展開。
+ *
+ * 範囲でも純整数でもないトークンは文字列 Num（"2-alt" / "777.Jackpot-mp" / "%" / "∞" 等）として
+ * そのまま通す。許可文字を列挙すると DB 側の採番語彙（`compareNums` の JSDoc 参照）を取りこぼす。
+ * 兄弟ツール `tools/patch-colorpalette.mjs` の同名関数と同じ方針。
+ *
  * @param {string} spec
- * @returns {Set<number>}
+ * @returns {Set<any>}
  */
 function parseRecordSpec(spec) {
     const set = new Set();
@@ -167,11 +172,9 @@ function parseRecordSpec(spec) {
             // 純粋な整数トークン: 数値・文字列の両キーを許容（特殊番号 "000" 等で両形が混在する DB に備える）
             set.add(Number(chunk));
             set.add(chunk);
-        } else if (/^[0-9A-Za-z_\-]+$/.test(chunk)) {
-            // 特殊番号トークン（例: "000", "2-alt", "10-alt", "67-old"）: 文字列のままセットに追加
-            set.add(chunk);
         } else {
-            throw new Error(`Invalid --records token: ${chunk}`);
+            // 特殊番号トークン（例: "000", "2-alt", "67-old", "777.Jackpot-mp"）: 文字列のままセットに追加
+            set.add(chunk);
         }
     }
     return set;
