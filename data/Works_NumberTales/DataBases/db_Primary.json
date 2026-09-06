@@ -9263,7 +9263,10 @@
     "Images": {
       "concept_PNGName": "cnsp_imgNTS-23",
       "catalog_PNGName": "chr-dsgn_catalogNTS-23",
-      "corefolder_PNGPath": ["23/emstk_corefolderNTS-23-1"],
+      "corefolder_PNGPath": [
+        "23/emstk_corefolderNTS-23-1",
+        "23/emstk_corefolderNTS-23-2"
+      ],
       "arts_PNGPath": [
         "corefolders/sphericateDay/art_sphericateDay202301r2",
         "humanoids/2023/art_imgNTS-23-humanoid"
