@@ -583,7 +583,7 @@
         {
           "hashTag": "corefolder_reference",
           "$type": "#String[]|#Null",
-          "hashTag_JP": "コアフォルダ形態の作品共通設計図/カットモデル画像URL集(Ref_Glossary/concept-figure 等)"
+          "hashTag_JP": "コアフォルダ形態の作品共通設計図/カットモデル画像URL集(Ref_Vocabulary/concept-figure 等)"
         },
         {
           "hashTag": "humanoid_reference",

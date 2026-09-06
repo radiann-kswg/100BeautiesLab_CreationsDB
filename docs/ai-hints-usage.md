@@ -60,7 +60,7 @@ GitHub 上に AI タグを置いただけでは、現在の生成 AI（ChatGPT �
 | `negative_prompt_export`       | `#String`                           | カンマ区切りのネガティブタグ列 (この形態用)                                                                                                                                                                                                                                                                                                                                                                                                                                                 | NovelAI / SD        |
 | `reference_images`             | `object`                            | この形態の参照画像 URL (main / face / silhouette / palette)                                                                                                                                                                                                                                                                                                                                                                                                                                 | Gemini / ChatGPT    |
 
-> **トップレベル追加項目（2026-06-08）**: `$Def_AIHints` には `common` / `forms` の他に、作品共通の参照画像をまとめる `work_common.reference_images.{corefolder_reference[], humanoid_reference[]}` と、将来予約モードを格納する `alt_modes.corefolder_dressed.{allowed, outfit_source}` が追加されている。`work_common` は `--upgrade-schema` 適用時に `Images/Ref_Glossary/concept-figure/` 等から `cnsp-fg_*CoreFolder.png` / `cnsp-fg_*Humanoid.png` を自動収集する。
+> **トップレベル追加項目（2026-06-08）**: `$Def_AIHints` には `common` / `forms` の他に、作品共通の参照画像をまとめる `work_common.reference_images.{corefolder_reference[], humanoid_reference[]}` と、将来予約モードを格納する `alt_modes.corefolder_dressed.{allowed, outfit_source}` が追加されている。`work_common` は `--upgrade-schema` 適用時に `Images/Ref_Vocabulary/concept-figure/` 等から `cnsp-fg_*CoreFolder.png` / `cnsp-fg_*Humanoid.png` を自動収集する。
 
 ### 4.1 形態識別タグの規約
 
@@ -398,7 +398,7 @@ node tools/patch-aihints.mjs --work NumberTales --db Primary --all --upgrade-sch
 | `forms.*.silhouette_notes`             | 球体本体記述（頭部が頂部から唯一突出）+ キャラ固有 TODO 1 行（ハーネス形状等はキャラ固有スロット） | TODO 1 行のみ（キャラ固有はすべて User 入力） |
 | `forms.*.immutable_constraints`        | 腾/脈/手禁止 + humanoid 衣装禁止の 3 項目（ハーネス保持は **15固有**，他キャラに自動投入しない）   | TODO 1 行のみ                                 |
 | `forms.*.negative_keywords`            | `feet/legs/shoes/high heels/arms/hands/hoodie/blazer/fashion outfit/bound by rope` の 10 項目      | TODO 1 行のみ                                 |
-| `AIHints.work_common.reference_images` | `Images/Ref_Glossary/concept-figure/cnsp-fg_*CoreFolder.png` / `cnsp-fg_*Humanoid.png` を自動収集  | （同上、トップレベル）                        |
+| `AIHints.work_common.reference_images` | `Images/Ref_Vocabulary/concept-figure/cnsp-fg_*CoreFolder.png` / `cnsp-fg_*Humanoid.png` を自動収集  | （同上、トップレベル）                        |
 | `AIHints.alt_modes`                    | `null`（将来予約。`corefolder_dressed.{allowed, outfit_source}` を後日追加可）                     | （同上、トップレベル）                        |
 
 #### 注意事項

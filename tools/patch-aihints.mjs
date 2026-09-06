@@ -488,7 +488,7 @@ function resolveImageInfo(record, work, db) {
 // ────────────────────────────────────────────────────────────────────────────
 
 /**
- * 作品の `Images/Ref_Glossary/concept-figure/` / `Images/Ref_Reference/concept-figure/`
+ * 作品の `Images/Ref_Vocabulary/concept-figure/` / `Images/Ref_Reference/concept-figure/`
  * 配下から、コアフォルダ / ヒューマノイド形態の共通設計図画像を収集する。
  *
  * ファイル名の規約（NumberTales 想定）:
@@ -505,9 +505,16 @@ function resolveWorkCommonRefs(work) {
     /** @type {{ corefolder_reference: string[], humanoid_reference: string[] }} */
     const out = { corefolder_reference: [], humanoid_reference: [] };
 
-    /** スキャン対象ディレクトリ（作品 Images からの相対パス） */
+    /**
+     * スキャン対象ディレクトリ（作品 Images からの相対パス）。
+     *
+     * `Ref_*` は資料系 DB の catalog key に対応するフォルダ名。NumberTales の語彙 DB は
+     * `#Ref_Glossary` → `#Ref_Vocabulary` へ改名済みで、旧名のフォルダはリポジトリに
+     * 1 つも残っていない（2026-09-07 に追従。それまで `work_common.reference_images` は
+     * 改名前の URL を指したまま 184 件が 404 になっていた）。
+     */
     const scanDirs = [
-        'Ref_Glossary/concept-figure',
+        'Ref_Vocabulary/concept-figure',
         'Ref_Reference/concept-figure',
     ];
 
