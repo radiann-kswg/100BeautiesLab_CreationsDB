@@ -19257,7 +19257,7 @@
       ],
       "arts_PNGPath": [
         "humanoids/2023/art_imgNTS-47-humanoid",
-        "chattingArt/2023/chart_imgNTS-47,NTS-74-humanoid",
+        "chattingArt/chart_imgNTS-47,NTS-74-humanoid",
         "corefolders/sphericateDay/art_sphericateDay202307"
       ]
     },
@@ -30225,7 +30225,7 @@
       "concept_PNGName": "cnsp_imgNTS-74",
       "corefolder_PNGPath": ["74/emstk_corefolderNTS-74-1"],
       "arts_PNGPath": [
-        "chattingArt/2023/chart_imgNTS-47,NTS-74-humanoid",
+        "chattingArt/chart_imgNTS-47,NTS-74-humanoid",
         "corefolders/sphericateDay/art_sphericateDay202307",
         "corefolders/2023/art_imgNTS-74-corefolderAsObjectA",
         "corefolders/2023/art_imgNTS-74-corefolderAsObjectB"

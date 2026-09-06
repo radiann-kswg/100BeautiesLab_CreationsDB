@@ -281,17 +281,33 @@
     （現状は SW 疑似 API 専用。載せない場合は「SW 専用」で確定させる）
 - **補足**: `$Def_Faction` は所属以外へも再利用できる形だが、現時点の適用先は `Belonging` のみ
 
-### T-36 🟡 corefolder 画像の原寸差し替え（下流 CreationsAI Issue #1 依頼2）
+### T-36 ✅ corefolder 画像の原寸差し替え（下流 CreationsAI Issue #1 依頼2）— **完了**（2026-09-07）
 
 - **関連ログ**: `2026-09-06_progress_corefolder-image-resolution.md`（単一）
-- **完了済み**: `data/**` の画像 733 枚を実測し、縮小版が `corefolder`（emstk 系）に限定されることを確定。
-  差し替え対象 **194 枚 / 8.8 MB** のパス一覧を上記ログに収録。**コード・スキーマの変更は不要**
-  （画像パス解決は解像度を参照しないため、同じパスへ上書きするだけで全経路に反映される）
-- **待ち項目**:
-  - **原本ファイルの投入**（User のローカル資産。エージェント側では用意できない）
-  - 差し替え後の解像度をどこに置くかの判断。1024px なら約 40 MB、1536px なら約 90 MB、
-    2048px なら約 160 MB（現在 `data/` 全体の画像は 71 MB）
-- **補足**: `arts` / `concept` / `catalog` は既に 1024px 以上で対応不要。`attr`（属性アイコン・165px）は対象外
+- **結果**: User が 3.25 倍で差し替え（`e95b720`）。**長辺 1024px 未満は 194 枚 → 0 枚**
+  （最小 1235 / 中央値 1557 / 最大 3481 px）。`data/` 全画像は 71.0 MB → 81.0 MB（+10 MB）
+- **併せて実施**: 全 21 DB の `Images` 参照 643 件を実ファイルと照合し実体なし 0 件を確認。
+  途中で発見した破損参照 1 件（`#47` / `#74` の `chattingArt/2023/` は年フォルダ非運用のため誤り）を修正。
+  拡大に伴う色の一律 -1 シフトへ `tests/patch-colorpalette.test.js` の 2 件を追従（実装は無傷と実測で確認）
+- **申し送り**: 被覆率測定の主色判定が変わった件は **T-37** へ分離
+
+### T-37 🟡 `measurePaletteCoverage` の主色判定（透過素材でのマスク選択）
+
+- **関連ログ**: `2026-09-06_progress_corefolder-image-resolution.md`（「発見した別件」節）
+- **症状**: corefolder 差し替え後、Role の根拠である被覆率の順位が変わった。
+  Num 1 は主色が `#ED5D47`（71.9%）→ `#FF8682`（54.9%）へ入れ替わり、**生ヒストグラムの真値
+  （`#ED5D47` 30.6% が最大）と食い違う**。既存テストは「合計 ≤ 1」「> 0」しか見ないため検知できない
+- **原因**: `measurePaletteCoverage()` が使う `buildForegroundMask()` が、紙面付き設定画を想定した
+  「外周フラッドフィル + 外周からの背景色推定」であり、透過素材では外周の写り込み次第で結果が振れる
+  （前後とも不透明画素の 40〜43% しか前景に残らない）。`extractSolidColors()` の JSDoc が
+  「透過素材に `buildForegroundMask()` は使わない」と明記しており**既知の脆さ**
+- **試作の結果（未採用）**: 透過素材では「不透明かつ輪郭線の純黒でない画素」を前景にする案で、
+  監修済みパレット先頭色との一致は 65/90 → 77/90 に改善するが、**白毛キャラで白を主色と誤判定**する
+  新しい失敗モードが 8 件出る
+- **待ち項目（User 判断）**:
+  - そもそも被覆率で Role を決め直す運用が要るか（現行 `ColorPalette` は監修済みで、再生成の予定が無ければ latent）
+  - 決め直すなら、共通造形色（毛の白など）を被覆率側でも除外するか
+    （`extractSolidColors` は `readCommonColors()` で除外している。同じ扱いに揃えるかは配色の意味論の判断）
 
 ---
 
@@ -346,7 +362,7 @@
 | ログ | 主題 | 関連タスク | 状態 |
 | --- | --- | --- | --- |
 | [2026-07-25_remaining-task.md](./2026-07-25_remaining-task.md) | **本ファイル**（残タスクの起点） | — | 🟢 現行 |
-| [2026-09-06_progress_corefolder-image-resolution.md](./2026-09-06_progress_corefolder-image-resolution.md) | corefolder 画像の原寸差し替え対象リスト（実測 194 枚）。下流 CreationsAI Issue #1 依頼2 | **T-36** | ⚠️ 調査完了・原本投入待ち |
+| [2026-09-06_progress_corefolder-image-resolution.md](./2026-09-06_progress_corefolder-image-resolution.md) | corefolder 画像の原寸差し替え（下流 CreationsAI Issue #1 依頼2）と、その後始末 | **T-36 / T-37** | ✅ 差し替え完了（被覆率の主色判定のみ T-37 で継続） |
 | [2026-09-03_progress_short-link.md](./2026-09-03_progress_short-link.md) | キャラシートの短縮リンク（`?b=`）と相関図の圧縮ロケータ（`?r=`）の新設 | — | ✅ 実装完了（実機目視は未実施） |
 | [2026-08-04_progress_unibytelive-streaming-bilingual.md](./2026-08-04_progress_unibytelive-streaming-bilingual.md) | ハンカクライブ `StreamingActivity` の配列系を和英共有フィールドへ統一 | — | ✅ 完了（残は `SUMMARY_KEYS` の schema 駆動化と既存の赤 3 件） |
 | [.completed/2026-08-02_progress_relations-graph.md](./.completed/2026-08-02_progress_relations-graph.md) | キャラクター相関図ページ（`pages/relations.html`）の新設（初期計画） | **T-13** | ✅ 完了・退避済み |

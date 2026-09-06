@@ -29,6 +29,7 @@ import {
     detectSwatchChips,
     measurePaletteCoverage,
     hexToRgb,
+    colorDistance,
     scanTopLevelRecords,
     extractSolidColors,
     isTransparentArtwork,
@@ -292,13 +293,25 @@ describe('parseChipList / 手入力チップ — 自動検出できないレコ�
 const COREFOLDER_1 = path.join(IMAGES, 'corefolder', '1', 'emstk_corefolderNTS-1-1.png');
 
 describe('extractSolidColors — 透過イラストからの配色抽出', () => {
-    it('チップ由来で確定済みの配色を、距離 0（完全一致）で拾う', () => {
+    it('チップ由来で確定済みの配色を、符号化差の範囲で拾う', () => {
         const img = decodePng(fs.readFileSync(COREFOLDER_1));
         const colors = extractSolidColors([img], { exclude: readCommonColors(NTS_WORK) });
         const hexes = colors.map(c => c.hex);
-        // Num 1 のチップ由来パレットに含まれる色。べた塗りなので階調のずれ無く一致する
+        // Num 1 のチップ由来パレットに含まれる色。べた塗りなので階調は潰れずに残る。
+        //
+        // ★ 2026-09-07 の corefolder 原寸化（3.25 倍拡大）で、拡大処理の色空間往復により
+        //   全チャンネルが一律 -1 ずれた（#ED5D47 → #EC5C47 / #FFFFFF → #FEFEFD）。
+        //   目視では区別できない差だが、完全一致は成立しなくなったため色差で判定する。
+        //   実測の最近傍距離は 1.00〜1.73 で、ツール側の許容差（SOLID_EXCLUDE_TOL = 6 /
+        //   SOLID_MERGE_TOL = 10）に十分収まる＝抽出のロジックは無傷。
+        //   閾値 3 は「符号化差は通すが、別の塗りとの取り違えは通さない」水準
+        //   （Num 1 のチップ同士の最小距離は 30.6）。
         for (const expected of ['#ED5D47', '#FF8682', '#FFBFA7', '#FFAC8F']) {
-            expect(hexes).toContain(expected);
+            const nearest = Math.min(...hexes.map(h => colorDistance(expected, h)));
+            expect(
+                nearest,
+                `${expected} に対応する色が抽出される（最近傍距離 ${nearest.toFixed(2)} / 抽出値 ${hexes.join(' ')}）`,
+            ).toBeLessThanOrEqual(3);
         }
     });
 
@@ -324,10 +337,13 @@ describe('extractSolidColors — 透過イラストからの配色抽出', () =>
         const common = readCommonColors(NTS_WORK);
         expect(common).toContain('#FFFFFF');
 
+        // 画像側の白は 3.25 倍拡大の色空間往復で #FEFEFD へずれている（上のテストの注釈参照）。
+        // 除外の判定はツール側も色差（SOLID_EXCLUDE_TOL = 6）で行っているため、期待値も同じ尺度で見る。
+        const nearWhite = hexes => hexes.filter(h => colorDistance('#FFFFFF', h) <= 6);
         const withCommon = extractSolidColors([img], {}).map(c => c.hex);
         const without = extractSolidColors([img], { exclude: common }).map(c => c.hex);
-        expect(withCommon).toContain('#FFFFFF');
-        expect(without).not.toContain('#FFFFFF');
+        expect(nearWhite(withCommon), `除外しなければ白系が残る（抽出値 ${withCommon.join(' ')}）`).not.toEqual([]);
+        expect(nearWhite(without), `除外すれば白系が消える（抽出値 ${without.join(' ')}）`).toEqual([]);
     });
 
     it('白が主体のキャラでも共通色除外で配色が空にならない（SemiPrimary 222）', () => {
