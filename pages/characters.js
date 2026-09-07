@@ -309,24 +309,15 @@ function mapDbNameToImageDir(dbName, layer = '') {
 	if (layerStr === 'References') return `Ref_${rawName}`;
 	if (layerStr === 'Localization') return `Loc_${rawName}`;
 
+	// layer が渡らない経路のための最終フォールバック。上の DB_Layer 分岐が本来の解決経路で、
+	// ここは画像を実際に持つ資料系 DB だけを拾う（`Glossary` は `#Ref_Vocabulary` へ改名済み）。
+	// 素名だけでは一意に決まらない（`#Ref_Society` と `#Loc_Society` が併存する）ため、
+	// 表を増やさず layer を渡す側で解くこと。
 	const refMapping = {
-		Glossary: 'Ref_Glossary',
+		Vocabulary: 'Ref_Vocabulary',
 		Reference: 'Ref_Reference'
 	};
 	if (refMapping[rawName]) return refMapping[rawName];
-
-	const dbMapping = {
-		Primary: 'DB_Primary',
-		Secondary: 'DB_Secondary',
-		SemiPrimary: 'DB_SemiPrimary',
-		SelfSecondary: 'DB_SelfSecondary',
-		UnprocessedSecondary: 'DB_UnprocessedSecondary',
-		PrimaryDealer: 'DB_PrimaryDealer',
-		PrimaryMobs: 'DB_PrimaryMobs',
-		Proxy: 'DB_Proxy',
-		Mobs: 'DB_Mobs'
-	};
-	if (dbMapping[rawName]) return dbMapping[rawName];
 
 	return `DB_${rawName}`;
 }

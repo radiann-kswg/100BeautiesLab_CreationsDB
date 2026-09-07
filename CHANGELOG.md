@@ -1,5 +1,34 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### fix: 資料系 DB の画像ディレクトリ解決が `#Ref_Vocabulary` へ追従できていなかった (2026-09-07)
+
+- **症状**: SW 疑似 API の enrich 出力（`_enrichment.images`）で、References レイヤーの DB `Vocabulary` の画像が
+  存在しない `Images/DB_Vocabulary/` へ解決されていた（実測: `/data/Works_NumberTales/Images/DB_Vocabulary/concept-figure/cnsp-fg_NTsHumanoid.png`）。
+  正しくは `Ref_Vocabulary`。`ref_Vocabulary.json` の画像保有 2 レコードが該当。
+- **原因**: `ImageProcessor.mapDbNameToImageDir()` の `refMapping` が
+  `#Ref_Glossary` → `#Ref_Vocabulary` の改名に追従しておらず、旧名 `Glossary` のまま残っていた。
+  同メソッドへ渡るのは SW ルート由来の**接頭辞なしの素名**で、`#DB_*` は既定の `DB_` 補完で足りるが
+  `#Ref_*` / `#Loc_*` は素名から判別できないため、この例外表が唯一の解決手段になっている。
+- **UI 側は無傷だった**: `pages/characters.js` は `DB_Layer` を引数で受け取る汎用分岐
+  （`References` → `Ref_<DB名>`）を持ち、`tests/pages.characters.ui-output.test.js` が緑で押さえていた。
+  影響は SW/enrich 経路に限定される。
+- **対応**:
+  - `lib/data-common.js` / `pages/characters.js` の `refMapping` を `Vocabulary` / `Reference` へ修正。
+    あわせて `lib/` 側の接頭辞素通し判定に `Loc_` を追加（UI 側と条件を揃えた）。
+  - **`dbMapping`（9 エントリ）を両実装から削除**。全エントリが既定補完 `` `DB_${rawName}` `` と同値の
+    死にコードだった（実データの `#DB_*` 12 種のうち 4 種は表に無く、既定補完で正しく解決できていた）。
+  - 例示が旧名のままだった `README.md` / `docs/schema-meta-processing.md` /
+    `pkg/cloudflare/schema/d1-init.sql` のコメントを更新。
+- **再発防止**: `tests/image-dir-mapping.test.js` を新設し、**実データのカタログキーと突き合わせて**固定した。
+  「画像を持つ資料系 DB は `Vocabulary` / `Reference` の 2 つだけ」を assert しているため、
+  新たに画像を持つ `#Ref_*` / `#Loc_*` が増えたら赤くなり、例外表の更新漏れに気づける。
+- **原理的な制約を明文化**: 実データに `#Ref_Society` と `#Loc_Society` が併存するため、
+  **素名だけの汎用解決は不可能**。表を増やす前に呼び出し側で `DB_Layer` を渡すべきであることを
+  JSDoc とテストに残した（現状 `Society` はどちらも画像を持たないため実害なし）。
+- `pages/characters.html` の `asset-version` を `2026.09.07.1` へ更新（`characters.js` のキャッシュ影響のため）。
+- **下流への申し送り**: `lib/data-common.js` の変更のため下流 2 本へ波及する。挙動が変わるのは
+  「素名で `Vocabulary` を渡したとき」と「`Loc_` 接頭辞付きを渡したとき」だけで、`#DB_*` 系の解決は不変。
+
 ### data: corefolder 画像を原寸化（3.25 倍）＋ 画像参照の破損 1 件を修正 (2026-09-07)
 
 - **下流要件**: [CreationsAI Issue #1](https://github.com/radiann-kswg/100BeautiesLab_CreationsAI/issues/1) 依頼2。
