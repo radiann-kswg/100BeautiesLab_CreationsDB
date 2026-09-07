@@ -116,6 +116,66 @@ User が画像を追加して seed 対象が増えても落ちない。
 > 誤って実行すると 6,000 行超の一括整形差分が出る。今回は気づいて `git checkout HEAD --` で戻し、
 > 編集分だけを入れ直した（最終差分は 3 ファイル計 32 行）。
 
+---
+
+## 追記（2026-09-07）: `develop` 取り込みマージと、その検証で見つかった参照 URL 破損
+
+### マージ（`f93a643`）
+
+依頼2（corefolder 画像の原寸化）を含む `develop` を取り込んだ。衝突は `CHANGELOG.md` のみで、
+2026-07-17 のマージと同様に**両側のエントリを両方保持**（新しい順: 09-07 corefolder → 09-06 AIHints）。
+
+- AIHints 実データは無傷（Primary 92 / SemiPrimary 11 / SelfSecondary 7）
+- `--resync-structural` は 3 DB とも no-op のまま（再同期ワークフローは PR を起こさない）
+- `npm test` 81 files / 1480 tests 成功、`data:order:check` 0/1337、`agents:check` 一致
+
+### 検証中に発見: AIHints 参照 URL 723 件中 640 件が 404
+
+**マージが原因ではない**。マージ前の HEAD で既に 638 件が壊れており、原因は 2 系統だった。
+
+| 系統 | 件数 | 原因 | 対応 |
+| --- | ---: | --- | --- |
+| ファイル名の一括改名 | 456 | 2026-08-02 の「640 ファイルをインデックスバッジへ改名」に AIHints が未追従 | `--fix-refs --apply`（`8dbb901`） |
+| フォルダの改名 | 184 | `#Ref_Glossary` → `#Ref_Vocabulary` の改名に `work_common` が未追従 | データ + ツール走査先を修正（`b7acebb`） |
+
+184 件が `--fix-refs` で直らなかったのは、`AIHints.work_common.reference_images` が
+**レコード単位ではない**ため同モードの対象外だから。再発源の
+`resolveWorkCommonRefs()` の `scanDirs` も `Ref_Vocabulary/concept-figure` へ更新済み
+（`--upgrade-schema` が `schema-unchanged=92` の no-op であることで再発しないことを確認）。
+
+**参照 URL 817 件すべてが実体に解決**する状態になった。
+
+安全性の確認:
+
+- 構造比較で「変化した 107 レコードすべてが `reference_images` のみ」＝タグ・創作テキストは無変更
+- `--fix-refs` はツール独自のインデント（2→4 スペース）で書き戻すため、適用後に `prettier --write` が必要
+  （かけないと整形差分 23,000 行超に実質の変更が埋もれる）
+
+### デプロイ（本番確認済み）
+
+`addon-ai-tag` を push（`8f9a3de..b7acebb`）。3 ワークフローとも success、PR の自動生成なし。
+
+| 確認項目 | 結果 |
+| --- | --- |
+| `Ref_Vocabulary/concept-figure/cnsp-fg_NTsCoreFolder.png` | HTTP 200 |
+| 旧 `Ref_Glossary/...`（修復前のパス） | HTTP 404 |
+| `3x11` の corefolder 参照画像（依頼1 の seed 分） | HTTP 200 |
+| 依頼2 の原寸画像（`NTS-1-1`） | HTTP 200 / 1592x1417 |
+
+> **補足**: 本番の PNG は Cloudflare Polish により再圧縮されている（`cf-polished: ok, orig_size=84575`）。
+> ローカルと本番のピクセルを全比較したところ **9,023,456 サブピクセル中 0 個の差**で、
+> ロスレス再圧縮であることを確認した（依頼2 が守りたい線幅・塗りのエッジは無傷）。
+
+### `develop` 側への申し送り（本ブランチでは未修正）
+
+`lib/data-common.js` / `pages/characters.js` の `mapDbNameToImageDir()` にある `refMapping` が
+`Glossary: 'Ref_Glossary'` のままで、`Vocabulary` を渡すと存在しない `DB_Vocabulary` へ解決される。
+`Ref_Vocabulary` と完全形で渡す経路は正しく動くため潜在バグの可能性が高い。
+`README.md` / `docs/schema-meta-processing.md` / `pkg/cloudflare/schema/d1-init.sql` の例示も旧名のまま。
+いずれも `develop` 所有ファイルのため、逆マージを避けて `develop` 側で対応する。
+
+---
+
 ## 未完了タスク
 
 - [ ] **視覚情報の TODO 補完（User 入力 or vision prompt 待ち）**。機械生成できない項目が 47 件残る。

@@ -1,5 +1,35 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### fix: AIHints の参照画像 URL 640 件が 404 だったのを修復 (2026-09-07)
+
+> 本エントリは `addon-ai-tag` ブランチ固有（AIHints は `develop` に含めない運用）。
+
+- **症状**: `AIHints` の `reference_images` に載っている URL 723 件のうち **640 件が 404**。
+  `develop` 取り込みマージの検証中に発見したもので、**マージが原因ではなく積年の不整合**
+  （マージ前の時点で既に 638 件が壊れていた）。下流 GeneratorsAI が原典画像を引く経路そのもので、
+  「生成画が原典の作風と似ない」（CreationsAI Issue #1）に効いている可能性がある。
+- **原因は 2 系統**:
+  1. **456 件**: 2026-08-02 の「画像ファイル名をインデックスバッジへ一括改名（640 ファイル）」に
+     AIHints 側が追従していなかった（`cnsp_img1.png` のような旧名を指したまま）。
+  2. **184 件**（92 レコード × 2）: 語彙 DB の catalog key が `#Ref_Glossary` → `#Ref_Vocabulary` へ
+     改名され画像フォルダも移ったのに、`AIHints.work_common.reference_images` が旧パスのままだった。
+     `work_common` はレコード単位ではないため `--fix-refs` の対象外で取り残されていた。
+- **対応**: 1 は `tools/patch-aihints.mjs --fix-refs --apply` を 3 DB へ適用（`8dbb901`）。
+  2 はデータの URL を `Ref_Vocabulary` へ修正し、あわせて**再発源である
+  `resolveWorkCommonRefs()` の走査先**（`Ref_Glossary/concept-figure` → `Ref_Vocabulary/concept-figure`）と
+  `docs/ai-hints-usage.md` / `db_type.json` のラベルを追従させた（`b7acebb`）。
+  結果、**参照 URL 817 件すべてが実体に解決**（`--upgrade-schema` は `schema-unchanged=92` の no-op で再発しない）。
+- **タグ・創作テキストは無変更**: 構造比較で「変化した 107 レコードすべてが `reference_images` のみ」を確認済み。
+  `--resync-structural` は 3 DB とも `resync-unchanged` を維持。
+- **本番確認**: `Ref_Vocabulary/concept-figure/cnsp-fg_NTsCoreFolder.png` が HTTP 200、
+  旧 `Ref_Glossary/...` は 404。
+- **申し送り（`develop` 側・未修正）**: `lib/data-common.js` / `pages/characters.js` の
+  `mapDbNameToImageDir()` にある `refMapping` が `Glossary: 'Ref_Glossary'` のままで、
+  `Vocabulary` を渡すと存在しない `DB_Vocabulary` へ解決される。`Ref_Vocabulary` と完全形で渡す経路は
+  正しく動くため潜在バグの可能性が高いが、`develop` 所有ファイルのため本ブランチでは修正していない。
+  同様に `README.md` / `docs/schema-meta-processing.md` / `pkg/cloudflare/schema/d1-init.sql` の
+  例示も旧名のまま。
+
 ### data: corefolder 画像を原寸化（3.25 倍）＋ 画像参照の破損 1 件を修正 (2026-09-07)
 
 - **下流要件**: [CreationsAI Issue #1](https://github.com/radiann-kswg/100BeautiesLab_CreationsAI/issues/1) 依頼2。
