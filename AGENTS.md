@@ -118,6 +118,11 @@
 | `.agents/skills/`                                          | エージェント共通のスキル置き場（**スキルの正典**）                                           |
 | `.claude/skills/`                                          | **生成物**（`npm run agents:build`）。`.agents/skills/` のミラー。手で編集しない              |
 
+> **第三者スキルの取り込み**: 外部のスキル（例: [mattpocock/skills](https://github.com/mattpocock/skills) の `grilling` / `grill-me`）を
+> 使いたい場合も、プラグインの個人インストールに頼らず `.agents/skills/<name>/` へ **逐語コピー + ライセンス表記** で取り込み、
+> `npm run agents:build` でミラーします（全ローカル・全エージェントへ commit / pull で配布されるため）。
+> リポジトリ固有の調整（日本語・一春の口調・創作内容を生成しない等）は本文を書き換えず、区切り線の下の「適用メモ」節に書きます。
+
 ### 正典を更新するときの手順
 
 1. **`AGENTS.md`（本ファイル）を編集する**。技術ルール・運用ルールの追加や変更は必ずここに書く。

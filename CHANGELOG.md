@@ -1,5 +1,20 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### skills: `grilling` / `grill-me` をリポジトリ共通スキルとして取り込み (2026-09-11)
+
+- **背景**: `/grilling`（`/mattpocock-skills:grilling`）を呼んでも `Unknown command` になり、`/skill-doctor` でも未ロードだった。
+  Matt Pocock さんのプラグイン `mattpocock-skills` は各ローカルで個別インストールが必要で、リモートセッションや
+  他エージェント（Codex / Copilot）には配布されないため。
+- **対応**: [mattpocock/skills](https://github.com/mattpocock/skills)（MIT License）の
+  `skills/productivity/grilling` と `skills/productivity/grill-me` を `.agents/skills/` へ逐語コピーし、
+  `npm run agents:build` で `.claude/skills/` へミラー。`agents/openai.yaml` も同梱（Codex 向けメタ）。
+  - `/grill-me` … User が明示的に打つ入口（`disable-model-invocation: true`）。中身は `grilling` へ委譲。
+  - `/grilling` … 設計ツリーの「前提が確定した質問」だけをラウンドでまとめて投げるインタビュー本体。
+- **リポジトリ固有の適用メモ**（各 SKILL.md の区切り線の下）: 質問は日本語・一春の口調で書く／推奨回答で創作内容の値を
+  生成しない（`AGENTS.md` §8）／事実はリポジトリ探索で埋め、User には判断だけを投げる。上流本文は書き換えない。
+- `AGENTS.md` §9 に「第三者スキルの取り込み」ルールを追記（`.github/copilot-instructions.md` は再生成）。
+- **下流への申し送り**: `.agents/` / `.claude/` は下流の同期対象外（`docs/fork-sync.md`）のため波及なし。
+
 ### fix: 資料系 DB の画像ディレクトリ解決が `#Ref_Vocabulary` へ追従できていなかった (2026-09-07)
 
 - **症状**: SW 疑似 API の enrich 出力（`_enrichment.images`）で、References レイヤーの DB `Vocabulary` の画像が
