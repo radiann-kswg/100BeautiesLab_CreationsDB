@@ -1,4 +1,4 @@
-(更新日/Updated on 2026.1.27)
+(更新日/Updated on 2026.9.11)
 
 > This file is the canonical English version of the creation guidelines for 100BeautiesLab. (百花繚乱研究所). For the Japanese version (source of truth), see [guideline.md](./guideline.md).
 
@@ -11,7 +11,7 @@ http://creativecommons.org/licenses/by-nc/4.0/
 
 ## Permissions
 
-- In principle, permission is required when third parties use images of works that are primary works and are tagged with any of the following series tags: #運命線狐の記録 (the Destiny Fox's Records), #フィジカル9 (Physical-9), #ナンバーテールズ (NumberTales), #運命線探偵78 (the Fate-Line Investigators 78), #獣爾騎兵 (Shau'er Riders), #パストダイヴァー (PastDivers), or #豹変系女子 (Sinister Changing Girls) (hereinafter referred to as "Primary Works").
+- In principle, permission is required when third parties use images of works that are primary works and are tagged with any of the following series tags: #運命線狐の記録 (the Destiny Fox's Records), #フィジカル9 (Physical-9), #ナンバーテールズ (NumberTales), #運命線探偵78 (the Fate-Line Investigators 78), #獣爾騎兵 (Shau'er Riders), #パストダイヴァー (PastDivers), #豹変系女子 (Sinister Changing Girls), #我ら美徳の桜花兄弟 (Virtues Us - the Cherrybloom Siblings), #ハンカクライブ (UnibyteLive), or #アンオースドロジカ (UnauthedLogica) (hereinafter referred to as "Primary Works").
   (To request permission, please contact the author "RadianN_kswg" ("ラジアン(柏木主税)") through the [official homepage](htps://www.numbertales-radiann.net/).)
 
 # Secondary Works Guideline
@@ -46,40 +46,45 @@ http://creativecommons.org/licenses/by-nc/4.0/
 - (5) **Depictions that differ significantly from the settings described on the site below and that may cause confusion regarding the official settings.**
 
 * [NumberTales Official Site](http://www.numbertales-radiann.com/) (JAPANESE ONLY)
+* [the Fate-Line Investigators 78 Official Site](https://fateline-investigator78.com/) (JAPANESE ONLY)
+* [Shau'er Riders Official Site](https://shouar-riders.com/) (JAPANESE ONLY)
   (Minor deviations will be tolerated to a certain extent, **but please refrain from creating secondary works that clearly deviate from the official settings.**)
 
 ※If you encounter any of the above violations, please first inform "RadianN_kswg" ("ラジアン(柏木主税)", e-mail address: radiann.kswg6631＠gmail.com). We will then take appropriate action.
 
 ## Secondary Works Permissions(OK/NG) List
 
-| Item                       | the Destiny Fox's Records / Physical-9 | NumberTales     | Shau'er Riders     | the Fate-line Investigators 78 | PastDivers           | Others (※9)          |
-| -------------------------- | -------------------------------------- | --------------- | ------------------ | ------------------------------ | -------------------- | -------------------- |
-| Cross over (うちよそ)      | OK                                     | OK (Welcome!)   | OK                 | OK                             | OK                   | ※9                   |
-| Secondary Character        | Tacit Accepts                          | OK (※4)         | Tacit Accepts      | Tacit Accepts                  | Tacit Accepts        | ※9                   |
-| Costume Change             | Required Permit                        | Tacit Accepts   | OK                 | OK                             | OK                   | Tacit Accepts (※9)   |
-| TS (Gender Change)         | Required Permit (※1)                   | ※5              | OK                 | Tacit Accepts                  | Tacit Accepts        | Tacit Accepts (※9)   |
-| Beastification             | OK (Welcome!)                          | OK              | OK                 | OK                             | OK                   | OK (※9)              |
-| TS (State/Shape Change)    | OK (Welcome!)                          | OK (Welcome!)   | OK (Welcome!)      | OK                             | OK                   | OK (※9)              |
-| Transform                  | Tacit Accepts                          | OK              | OK                 | OK                             | OK                   | ※9                   |
-| Sexual Expressions         | Required Permit                        | PROHIBITED (※5) | Tacit Accepts (※6) | Tacit Accepts (≦R15)           | Tacit Accepts (≦R15) | ※9                   |
-| Damaging in Cartoon        | OK                                     | OK              | OK                 | Tacit Accepts                  | Tacit Accepts        | ※9                   |
-| Heavy Damaging             | Required Permit                        | Tacit Accepts   | Tacit Accepts (※6) | PROHIBITED                     | Tacit Accepts (※7)   | Required Permit (※9) |
-| Violence                   | PROHIBITED                             | PROHIBITED      | Tacit Accepts (※6) | Required Permit                | Tacit Accepts (※7)   | Required Permit (※9) |
-| Excretion                  | Required Permit                        | PROHIBITED (※5) | Tacit Accepts (※6) | PROHIBITED                     | PROHIBITED           | PROHIBITED (※9)      |
-| Specific Gender Love       | ※2                                     | Required Permit | Tacit Accepts (※6) | Required Permit                | Required Permit      | PROHIBITED (※9)      |
-| Social/Religious Thought   | PROHIBITED (※3)                        | Required Permit | Required Permit    | PROHIBITED                     | ※8                   | PROHIBITED (※9)      |
-| Antisocialize              | PROHIBITED (※3)                        | PROHIBITED      | Required Permit    | PROHIBITED                     | ※8                   | PROHIBITED (※9)      |
-| Any Damaging to Impression | PROHIBITED (※3)                        | PROHIBITED      | Required Permit    | PROHIBITED                     | Required Permit      | PROHIBITED (※9)      |
-| Sales Operation            | PROHIBITED                             | Required Permit | PROHIBITED         | PROHIBITED                     | Required Permit      | PROHIBITED (※9)      |
+| Item                       | the Destiny Fox's Records / Physical-9 | NumberTales / UnauthedLogica (※4') | Shau'er Riders     | the Fate-line Investigators 78 | PastDivers           | UnibyteLive       | Others (Sinister Changing Girls / Virtues Us - the Cherrybloom Siblings, etc.) (※9) |
+| -------------------------- | -------------------------------------- | ---------------------------------- | ------------------ | ------------------------------ | -------------------- | ----------------- | ----------------------------------------------------------------------------------- |
+| Cross over (うちよそ)      | OK                                     | OK (Welcome!)                      | OK                 | OK                             | OK                   | OK (Welcome!)     | ※9                                                                                  |
+| Secondary Character        | Tacit Accepts                          | OK (※4)                            | Tacit Accepts      | Tacit Accepts                  | Tacit Accepts        | OK (Welcome! ※10) | ※9                                                                                  |
+| Costume Change             | Required Permit                        | Tacit Accepts                      | OK                 | OK                             | OK                   | OK                | Tacit Accepts (※9)                                                                  |
+| TS (Gender Change)         | Required Permit (※1)                   | ※5                                 | OK                 | Tacit Accepts                  | Tacit Accepts        | Required Permit   | Tacit Accepts (※9)                                                                  |
+| Beastification             | OK (Welcome!)                          | OK                                 | OK                 | OK                             | OK                   | OK                | OK (※9)                                                                             |
+| TS (State/Shape Change)    | OK (Welcome!)                          | OK (Welcome!)                      | OK (Welcome!)      | OK                             | OK                   | OK (Welcome! ※11) | OK (※9)                                                                             |
+| Transform                  | Tacit Accepts                          | OK                                 | OK                 | OK                             | OK                   | OK                | ※9                                                                                  |
+| Sexual Expressions         | Required Permit                        | PROHIBITED (※5)                    | Tacit Accepts (※6) | Tacit Accepts (≦R15)           | Tacit Accepts (≦R15) | PROHIBITED        | ※9                                                                                  |
+| Damaging in Cartoon        | OK                                     | OK                                 | OK                 | Tacit Accepts                  | Tacit Accepts        | Tacit Accepts     | ※9                                                                                  |
+| Heavy Damaging             | Required Permit                        | Tacit Accepts                      | Tacit Accepts (※6) | PROHIBITED                     | Tacit Accepts (※7)   | Required Permit   | Required Permit (※9)                                                                |
+| Violence                   | PROHIBITED                             | PROHIBITED                         | Tacit Accepts (※6) | Required Permit                | Tacit Accepts (※7)   | PROHIBITED        | Required Permit (※9)                                                                |
+| Excretion                  | Required Permit                        | PROHIBITED (※5)                    | Tacit Accepts (※6) | PROHIBITED                     | PROHIBITED           | PROHIBITED        | PROHIBITED (※9)                                                                     |
+| Specific Gender Love       | ※2                                     | Required Permit                    | Tacit Accepts (※6) | Required Permit                | Required Permit      | Tacit Accepts     | PROHIBITED (※9)                                                                     |
+| Social/Religious Thought   | PROHIBITED (※3)                        | Required Permit                    | Required Permit    | PROHIBITED                     | ※8                   | PROHIBITED        | PROHIBITED (※9)                                                                     |
+| Antisocialize              | PROHIBITED (※3)                        | PROHIBITED                         | Required Permit    | PROHIBITED                     | ※8                   | PROHIBITED        | PROHIBITED (※9)                                                                     |
+| Any Damaging to Impression | PROHIBITED (※3)                        | PROHIBITED                         | Required Permit    | PROHIBITED                     | Required Permit      | PROHIBITED        | PROHIBITED (※9)                                                                     |
+| Sales Operation            | PROHIBITED                             | Required Permit                    | PROHIBITED         | PROHIBITED                     | Required Permit      | PROHIBITED        | PROHIBITED (※9)                                                                     |
 
 Notes:
 
 - ※1: The gender of the "RadianN" (Author's Surrogater) is optional.
 - ※2: Permission is only "Required" in "Expressions relating to male homosexuality", otherwise "Tacit approval".
 - ※3: **ANY Expression or Operation that "Seriously Undermines the Impression of the Author" is "STRICTLY FORBIDDEN".**
-- ※4: Eligible secondary NumberTales' numbers are EXCEPT 0-99 and the multiple of 111 (111,222,333,...,999).
-- ※5: **NumberTales are gender-NEUTRAL in their physical structure. In particular, ANY Expression or Operation of "Adding genitalia to them WITHOUT PERMISSION" or "Relating to genitalia or semen with them" are "STRICTLY FORBIDDEN".**
+- ※4: Eligible secondary NumberTales' numbers are EXCEPT 0-99 and the multiple of 111 (111,222,333,...,999). **In "UnauthedLogica", this applies to the "AttackerZeroids" (see also ※4').**
+- ※4': Note that "UnauthedLogica" is a battle-action-oriented title whose world setting differs slightly from "NumberTales". **"AttackerZeroids" correspond to the same individuals living in a parallel timeline of "NumberTales" ("ANOTHER-REGIONs" existences).** Also, since "Automatons" (the mob race) are characterizations of real-world general-purpose logic ICs, **creating "Automatons" (mob race) based on general-purpose logic ICs or integrated-circuit elements other than the 7400-series ICs, the main motif of this title, is welcome.**
+- ※5: **NumberTales are gender-NEUTRAL in their physical structure. In particular, ANY Expression or Operation of "Adding genitalia to them WITHOUT PERMISSION" or "Relating to genitalia or semen with them" are "STRICTLY FORBIDDEN". In "UnauthedLogica", this applies to the "AttackerZeroids" and the "Automatons" (mob race).**
 - ※6: "Shau'er Rider" series MAKES AN EXCEPTION and "Tacitly Accepts" secondary works that Conflict with R18/18G.
 - ※7: Permission is "Required" if the material "Clearly deviates from the expression of a battle-action work".
 - ※8: Permission is only "Tacit approval" in "Expressions or operation of social depictions ONLY KEPT AS PART OF A WORK OF FICTION", otherwise "Required".
-- ※9: **This is JUST AN EXAMPLE,** and we would appreciate it if you could check with the author in advance when creating a secondary work with these character (that does not correspond to any of the series works listed).
+- ※9: **This is JUST AN EXAMPLE.** These characters may also appear in other creative titles; in that case, the guideline of the title they appear in applies. If anything is unclear when creating secondary works with these characters, we would appreciate it if you could check with the author in advance.
+- ※10: This title mainly turns the alphabet letters A to Z into VR streamers as "ALPBETS". **Creating characters that turn other letters or scripts, such as Greek or Cyrillic letters or full-width characters, into VR streamers is welcome, as long as they are made as a separate group from "ALPBETS".**
+- ※11: Incidentally, the VR streamers "ALPBETS" in this title also have an official setting in which they **promote content for experiencing shape-shifting and state-changing within VR spaces / the metaverse**.

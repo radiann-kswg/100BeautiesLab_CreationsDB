@@ -362,6 +362,7 @@
 | ログ | 主題 | 関連タスク | 状態 |
 | --- | --- | --- | --- |
 | [2026-07-25_remaining-task.md](./2026-07-25_remaining-task.md) | **本ファイル**（残タスクの起点） | — | 🟢 現行 |
+| [2026-09-11_progress_guideline-new-titles.md](./2026-09-11_progress_guideline-new-titles.md) | 創作ガイドラインの新規 4 タイトル補填（`/grilling` で合意）＋ `grilling` / `grill-me` スキル取り込み | — | ✅ 反映完了（英語版の獣爾騎兵表記統一・既存差異の要否確認は申し送り） |
 | [2026-09-06_progress_corefolder-image-resolution.md](./2026-09-06_progress_corefolder-image-resolution.md) | corefolder 画像の原寸差し替え（下流 CreationsAI Issue #1 依頼2）と、その後始末 | **T-36 / T-37** | ✅ 差し替え完了（被覆率の主色判定のみ T-37 で継続） |
 | [2026-09-03_progress_short-link.md](./2026-09-03_progress_short-link.md) | キャラシートの短縮リンク（`?b=`）と相関図の圧縮ロケータ（`?r=`）の新設 | — | ✅ 実装完了（実機目視は未実施） |
 | [2026-08-04_progress_unibytelive-streaming-bilingual.md](./2026-08-04_progress_unibytelive-streaming-bilingual.md) | ハンカクライブ `StreamingActivity` の配列系を和英共有フィールドへ統一 | — | ✅ 完了（残は `SUMMARY_KEYS` の schema 駆動化と既存の赤 3 件） |
