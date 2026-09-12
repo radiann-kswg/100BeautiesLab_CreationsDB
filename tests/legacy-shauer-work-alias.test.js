@@ -104,6 +104,24 @@ function makeRecordingEnv() {
   return { env, d1Binds, r2Keys };
 }
 
+/**
+ * worker の API ルートプレフィックスを実行時に判定する。
+ * develop は `/api/v1`、addon-ai-tag は `/api/ai` で公開しているため固定値にできない。
+ * @returns {Promise<string>}
+ */
+async function resolveApiPrefix() {
+  const { env } = makeRecordingEnv();
+  for (const prefix of ["/api/v1", "/api/ai"]) {
+    const res = await worker.fetch(
+      new Request(`https://example.invalid${prefix}/works`),
+      env,
+      {},
+    );
+    if (res.status !== 404) return prefix;
+  }
+  throw new Error("worker の API ルートプレフィックスを判定できませんでした");
+}
+
 describe("lib/sw-common.js: DataUtils.toWorkKey() の旧綴り互換", () => {
   it("ShouArRiders / Works_ShouArRiders / #Works_ShouArRiders は #Works_ShauErRiders へ正規化される", () => {
     const { DataUtils } = loadSwCommon().self;
@@ -158,11 +176,14 @@ describe("lib/data-common.js: 旧綴り作品IDの正規化とディレクトリ
   });
 });
 
-describe("pkg/cloudflare/worker.js: /api/v1/Works_ShouArRiders/* は現行キーで D1 / R2 を引く", () => {
-  it("GET /api/v1/Works_ShouArRiders/meta は #Works_ShauErRiders で works を検索し、Works_ShauErRiders 配下を読む", async () => {
+describe("pkg/cloudflare/worker.js: Works_ShouArRiders/* は現行キーで D1 / R2 を引く", () => {
+  it("GET /:prefix/Works_ShouArRiders/meta は #Works_ShauErRiders で works を検索し、Works_ShauErRiders 配下を読む", async () => {
+    const prefix = await resolveApiPrefix();
     const { env, d1Binds, r2Keys } = makeRecordingEnv();
     const res = await worker.fetch(
-      new Request("https://example.invalid/api/v1/Works_ShouArRiders/meta"),
+      new Request(
+        `https://example.invalid${prefix}/Works_ShouArRiders/meta`,
+      ),
       env,
       {},
     );
