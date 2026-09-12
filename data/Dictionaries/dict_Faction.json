@@ -74,7 +74,7 @@
   },
   {
     "Faction": "獣爾騎兵",
-    "Faction_EN": "Shou'ar Riders",
+    "Faction_EN": "Shau'er Riders",
     "FactionsBaseArea": { "Area": "龍天国" },
     "RegionstyleWithin": { "Regioministration": "Z" },
     "isForSecondary": false,
