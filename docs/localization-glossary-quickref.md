@@ -98,7 +98,7 @@
 | ラジアン代理 | RadianN's Proxy |
 | 運命線狐の記録 | Destiny Fox's Records |
 | 運命線探偵78 | the Fate-Line Investigator 78 |
-| 獣爾騎兵 | Shou'ar Riders |
+| 獣爾騎兵 | Shau'er Riders |
 | 豹変系女子 | Sinister Changing Girls |
 
 ## 職業

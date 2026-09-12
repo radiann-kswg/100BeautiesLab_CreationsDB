@@ -150,7 +150,7 @@ describe('pkg/nodejs: $IndexDef によるインデックスキーのスキーマ
     // 旧実装は 'Num' 決め打ちのため、Num を持たない作品では常に null を返していた。
     expect(await db.getIndexKey('NumberTales', 'Primary')).toBe('Num');
     expect(await db.getIndexKey('FLInvestigator78', 'Primary')).toBe('Card.Suit');
-    expect(await db.getIndexKey('ShouArRiders', 'Primary')).toBe('BeastType.Beast');
+    expect(await db.getIndexKey('ShauErRiders', 'Primary')).toBe('BeastType.Beast');
   });
 
   it('$IndexDef_<DbNorm> サイドカーが work 既定より優先される（DB 単位の上書き）', async () => {

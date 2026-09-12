@@ -339,9 +339,9 @@ const unibyteLiveArrowRecord = unibyteLivePrimaryRecords.find((record) => record
 const unibyteLiveZigRecord = unibyteLivePrimaryRecords.find((record) => record?.Name_JP === 'Z:ジグ');
 // StreamingActivity の中身（和英共有フィールド + bilingual wrapper）が一通り埋まっているレコード
 const unibyteLiveNarmyRecord = unibyteLivePrimaryRecords.find((record) => record?.Name_JP === 'S:ナーミィ');
-const shouArRidersWorkTypeDef = loadJson('data/Works_ShouArRiders/DataBases/db_type.json');
-const shouArRidersWorkMeta = buildWorkMetaFixture('Works_ShouArRiders');
-const shouArRidersPrimaryRecords = loadJson('data/Works_ShouArRiders/DataBases/db_Primary.json');
+const shouArRidersWorkTypeDef = loadJson('data/Works_ShauErRiders/DataBases/db_type.json');
+const shouArRidersWorkMeta = buildWorkMetaFixture('Works_ShauErRiders');
+const shouArRidersPrimaryRecords = loadJson('data/Works_ShauErRiders/DataBases/db_Primary.json');
 // BeastspecStats の EffectStats / SpecLevel がどちらも埋まっているレコード（丑刻ギウニ）
 const shouArRidersOxRecord = shouArRidersPrimaryRecords.find((record) => record?.BeastType?.Beast === 'Ox');
 const unauthedLogicaWorkTypeDef = loadJson('data/Works_UnauthedLogica/DataBases/db_type.json');
@@ -1187,7 +1187,7 @@ describe('pages/characters.js UI output', () => {
 		charactersModule.__setCharactersTestState({
 			charState: {
 				db: 'Primary',
-				workId: '#Works_ShouArRiders',
+				workId: '#Works_ShauErRiders',
 				records: shouArRidersPrimaryRecords,
 				workTypeDef: shouArRidersWorkTypeDef,
 				globalTypeDef,
@@ -1196,7 +1196,7 @@ describe('pages/characters.js UI output', () => {
 			}
 		});
 
-		await charactersModule.renderDetail('#Works_ShouArRiders', shouArRidersOxRecord);
+		await charactersModule.renderDetail('#Works_ShauErRiders', shouArRidersOxRecord);
 
 		// SpecLevel は EffectStats と同じ度数系の指標なので、汎用 specStatsSection でも
 		// 大ブロックではなくタググリッドへ並べる（arcanumSpecSection と同挙動）

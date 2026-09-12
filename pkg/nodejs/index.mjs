@@ -930,7 +930,7 @@ export class CreationsDBClient {
    *
    * 例:
    * - NumberTales/Primary（`$type` 文字列）→ `{ folderKey:'Num', fileKey:'Num', splitFolder:false }`
-   * - ShouArRiders/Primary（配列・link 無し）→ `{ folderKey:'BeastType.Beast', fileKey:'BeastType.Beast', splitFolder:false }`
+   * - ShauErRiders/Primary（配列・link 無し）→ `{ folderKey:'BeastType.Beast', fileKey:'BeastType.Beast', splitFolder:false }`
    * - FLInvestigator78/PrimaryDealer（配列・Num に link）→ `{ folderKey:'Card.Suit', fileKey:'Card.Num', splitFolder:true }`
    *
    * @param {string} workId

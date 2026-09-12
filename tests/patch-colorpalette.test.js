@@ -408,7 +408,7 @@ describe('listImageFields / readCommonColors — スキーマ由来の宣言読�
     });
 
     it('宣言の無い作品では空配列（除外なしで動く）', () => {
-        expect(readCommonColors(path.join(REPO_ROOT, 'data', 'Works_ShouArRiders'))).toEqual([]);
+        expect(readCommonColors(path.join(REPO_ROOT, 'data', 'Works_ShauErRiders'))).toEqual([]);
     });
 });
 
@@ -435,7 +435,7 @@ describe('resolvePaletteImageFields — 検出対象の typedef 宣言', () => {
 
     it('宣言の無い作品ではフォールバックをそのまま返す（既存作品の挙動を変えない）', () => {
         const fallback = [{ role: 'concept', dir: 'concept', key: 'concept_PNGName' }];
-        const noDecl = path.join(REPO_ROOT, 'data', 'Works_ShouArRiders');
+        const noDecl = path.join(REPO_ROOT, 'data', 'Works_ShauErRiders');
         expect(resolvePaletteImageFields(noDecl, 'swatch', fallback)).toEqual(fallback);
         expect(resolvePaletteImageFields(null, 'swatch', fallback)).toEqual(fallback);
     });
