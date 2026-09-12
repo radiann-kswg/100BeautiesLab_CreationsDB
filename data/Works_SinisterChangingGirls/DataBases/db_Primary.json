@@ -229,10 +229,11 @@
   },
   {
     "Drc": "SW",
-    "Progress": "stillTentative",
+    "Progress": "unreleased",
     "Name_JP": "ミル.ニュクスフ",
     "Name_EN": "Lamill.NuXV",
     "Images": {
+      "concept_PNGName": "cnsp_imgSCG-SW",
       "arts_PNGPath": [
         "chattingArt/chart_imgSCG-SW-whereBabiesFrom",
         "art_imgSCG-NE,SCG-SW-InfrationAerialSwimming"
