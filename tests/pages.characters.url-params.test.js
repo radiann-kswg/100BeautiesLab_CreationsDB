@@ -189,9 +189,15 @@ describe('クエリ解釈（getQS）の後方互換', () => {
 
 	it('旧形式（work=Works_* / idx / idxKey の個別キー）を読める', () => {
 		setLocation('?work=Works_PastDivers&db=Primary&idx=Yayoi&idxKey=Chronos.Lunar&q=');
+		// work は読み取り時に短縮形へ正規化される（旧綴り別名解決を read 側にも通すため）
 		expect(getQS()).toMatchObject({
-			work: 'Works_PastDivers', db: 'Primary', idx: 'Yayoi', idxKey: 'Chronos.Lunar'
+			work: 'PastDivers', db: 'Primary', idx: 'Yayoi', idxKey: 'Chronos.Lunar'
 		});
+	});
+
+	it('旧綴り別名（ShouArRiders）を現行綴りへ解決する', () => {
+		setLocation('?c=ShouArRiders/Primary');
+		expect(getQS()).toMatchObject({ work: 'ShauErRiders', db: 'Primary' });
 	});
 
 	it('旧 ?num= は Num インデックスとして解釈する（setQS による書き換えで直リンクが失われない）', () => {

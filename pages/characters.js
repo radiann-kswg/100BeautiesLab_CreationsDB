@@ -95,7 +95,7 @@ const ISSUE_REPORT_REPO = 'radiann-kswg/100BeautiesLab_CreationsDB';
 const ISSUE_REPORT_WORK_LABELS = {
 	NumberTales: 'ナンバーテールズ (NumberTales)',
 	FLInvestigator78: '運命線探偵78 (FLInvestigator78)',
-	ShouArRiders: '獣爾騎兵 (ShouArRiders)',
+	ShauErRiders: '獣爾騎兵 (ShauErRiders)',
 	UnibyteLive: 'ハンカクライブ (UnibyteLive)',
 	SinisterChangingGirls: '豹変系女子 (SinisterChangingGirls)',
 	UnauthedLogica: 'アンオースドロジカ (UnauthedLogica)',
@@ -529,7 +529,8 @@ function getQS() {
 	}
 
 	return {
-		work: p.get('work') || locator.work || '',
+		// 旧綴り別名の解決を含む正規化を read 側にも適用する（lib/viewer-locator.js の LEGACY_WORK_ALIASES）
+		work: workKeyForURL(p.get('work') || locator.work || ''),
 		db: p.get('db') || locator.db || '',
 		num: legacyNum,
 		// 汎用インデックス直リンク（作品ごとの $IndexDef に対応）

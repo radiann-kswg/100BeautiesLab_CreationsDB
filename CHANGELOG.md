@@ -1,5 +1,25 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### fix: 獣爾騎兵の英語表記を `ShauErRiders` / `Shau'er Riders` へ全改名 (2026-09-12)
+
+- **背景**: 作品識別子 `ShouArRiders` / 表示英名 `Shou'ar Riders` は、ガイドライン正典（`guideline.en.md`）の
+  `Shau'er Riders` と綴りが食い違っていた（2026-09-11 のログで保留していた統一を User 判断で実施）。
+- **改名内容**（大文字小文字を区別した一括置換。`Shou'Ar` の揺れも `Shau'er` へ正規化）:
+  - 識別子: `Works_ShouArRiders` → `Works_ShauErRiders`（`data/` ディレクトリ改名・`db_meta.json` キー・全 `Scope` 配列・テスト）
+  - 表示英名: `Shou'ar Riders` → `Shau'er Riders`、`Shou'arSurpluses` → `Shau'erSurpluses`（辞書・trans・`_EN` 本文。SCG 側の言及含む）
+  - コード/docs: `pages/characters.js` の作品ラベル表、`pkg/mcp`・lib コメント、`docs/localization-*` ほか、`AGENTS.md` 作品シリーズ表記
+- **旧直リンク互換**: `lib/viewer-locator.js` に `LEGACY_WORK_ALIASES`（`ShouArRiders` → `ShauErRiders`）を追加し、
+  `workKeyForURL()` / `parseViewerLocator()` と `pages/characters.js` の `getQS()` read 側で解決。
+  公開済みの `?c=ShouArRiders/...` は表示時に新綴りへ書き換わる。`?b=` は `Works_Code: SAR` 基準のため無影響。
+  副作用として `getQS().work` は常に短縮形へ正規化される（`normalizeWorkKey()` が接頭辞を付け直すため挙動は等価。
+  `tests/pages.characters.url-params.test.js` を追従＋別名解決の回帰テストを追加）。
+- **不変のもの**: 公式サイト URL `shouar-riders.com`（実ドメイン）、`Works_Code: SAR`、`guideline*.md`（既に正典表記）、
+  過去の履歴ログ（`_work_in_progress/` / 本ファイルの旧記述）。
+- **生成物再生成**: `.github/copilot-instructions.md`（`npm run agents:build`）、`calendar/100beautieslab-creations.ics`。
+- **下流への申し送り**: `lib/viewer-locator.js` の `workKeyForURL()` が別名解決を含むようになった（シグネチャ不変・出力は短縮形のまま）。
+  `pages/characters.js` の `getQS().work` の正規化も同様。データの作品改名自体は創作データのため同期対象外。
+  **R2/D1 への反映はマージ後に `scripts/migrate.mjs` 再実行 + `wrangler deploy` が必要**（旧 `ShouArRiders` キーの掃除含む）。
+
 ### docs/data: 創作ガイドラインを新規 4 タイトル向けに補填 + 獣爾騎兵の公式サイトを `db_meta.json` へ登録 (2026-09-11)
 
 - **背景**: `guideline.md`（2026.1.27 版）の利用許可タグ列挙と OK/NG 表に、`data/db_meta.json` へ登録済みの
