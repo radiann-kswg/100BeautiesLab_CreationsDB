@@ -2,11 +2,11 @@
   {
     "Term_JP": "獣爾騎兵",
     "Term_JPReading": "シャウアルきへい",
-    "Term_EN": "Shou'ar Riders",
+    "Term_EN": "Shau'er Riders",
     "TermType": null,
     "Category": "Faction",
     "Summary": "『山月病』の蔓延と獣人感染者の暴走によるテロを鎮圧するために結成された獣人改造兵による組織。構成員も全員『山月病』の感染者であるが、その感染源を動力源に自身を強化する能力『獣騎能力』を宿した山月病克服者の一種ともいえる。獣爾騎兵は「将来的に山月病の適切な社会的治療措置を普及させるため」にテロの鎮圧にあたっているが、兵長「子刻ハッカ」の目論みとしてはこの限りではないようだ。",
-    "Summary_EN": "The Shou'ar Riders are an organization formed by beast-modified soldiers to suppress terrorism caused by the spread of 'Shanyu Disease' and the rampage of infected beastmen. All members are infected with 'Shanyu Disease', but they possess the ability 'Beastspec', which allows them to use the source of their infection as a power source to enhance themselves, making them a type of Shanyu Disease survivor. The Shou'ar Riders are engaged in suppressing terrorism, but the captain 'Mus Mousetimes' has her own agenda.",
+    "Summary_EN": "The Shau'er Riders are an organization formed by beast-modified soldiers to suppress terrorism caused by the spread of 'Shanyu Disease' and the rampage of infected beastmen. All members are infected with 'Shanyu Disease', but they possess the ability 'Beastspec', which allows them to use the source of their infection as a power source to enhance themselves, making them a type of Shanyu Disease survivor. The Shau'er Riders are engaged in suppressing terrorism, but the captain 'Mus Mousetimes' has her own agenda.",
     "Aliases": [],
     "Links": []
   },
@@ -39,18 +39,18 @@
     "TermType": null,
     "Category": "Technical",
     "Summary_JP": "獣爾騎兵にて施術される、身体の分解と再構築を行うリファクタリング治療。この治療は、身体構造を一度球体型の単純形状になるまで身体細胞を分解し、その分解の過程で再利用可能な細胞から「獣爾余剰体」という健常なクローンを作成して、そのクローンの部位を用いて球体型となった身体を元の健常な状態に再構築するという、極めて高度かつ危険な施術である。この治療方法は獣爾騎兵兵長である「子刻ハッカ」しか扱えず、同時に他の者が\"決して\"扱ってはならない。",
-    "Summary_EN": "'EggSphere Rebirth' is a refactoring treatment in Shou'ar Riders, which involves disassembling and reconstructing the body. This treatment is an extremely advanced and strictly dangerous procedure that disassembles the body's cells until it becomes a simple spherical shape, and during this process, creates a healthy clone called 'Shou'ar Surpluses' from reusable cells. The clone's parts are then used to reconstruct the spherical body back to its original healthy state. This treatment method can only be handled by the Shou'ar Rider Captain 'Mus Mousetimes', and NEVER ONE ELSE is allowed to handle it.",
+    "Summary_EN": "'EggSphere Rebirth' is a refactoring treatment in Shau'er Riders, which involves disassembling and reconstructing the body. This treatment is an extremely advanced and strictly dangerous procedure that disassembles the body's cells until it becomes a simple spherical shape, and during this process, creates a healthy clone called 'Shau'er Surpluses' from reusable cells. The clone's parts are then used to reconstruct the spherical body back to its original healthy state. This treatment method can only be handled by the Shau'er Rider Captain 'Mus Mousetimes', and NEVER ONE ELSE is allowed to handle it.",
     "Aliases": [],
     "Links": []
   },
   {
     "Term_JP": "獣爾余剰体",
     "Term_JPReading": "シャウアルよじょうたい",
-    "Term_EN": "Shou'ar Surpluses",
+    "Term_EN": "Shau'er Surpluses",
     "TermType": null,
     "Category": "Race",
     "Summary_JP": "獣爾騎兵のリファクタリング治療「球子再起(エッグリボーン)」の過程で健常細胞により編纂された、獣爾騎兵兵員の残留クローン。高速で身体の生育が行われて移植施術に運用されるため、知性は低く社会参入へは絶望的に不可能とされている。だが施術の程度により一部の個体は身体の成人を終えて移植に運用されないまま残留してしまうため、その場合は家畜要因として獣爾騎兵に極めて軽度の業務へ従事させているのだが……",
-    "Summary_EN": "Shou'ar Surpluses are residual clones of Shou'ar Rider personnel, compiled from healthy cells during the refactoring treatment 'EggSphere Rebirth'. Due to their rapid physical growth and use in transplantation procedures, they have low intelligence and are considered hopelessly incapable of social participation. However, some individuals may remain after completing their physical development without being used for transplantation, and in such cases, they are employed in extremely light duties as livestock factors for the Shou'ar Riders...",
+    "Summary_EN": "Shau'er Surpluses are residual clones of Shau'er Rider personnel, compiled from healthy cells during the refactoring treatment 'EggSphere Rebirth'. Due to their rapid physical growth and use in transplantation procedures, they have low intelligence and are considered hopelessly incapable of social participation. However, some individuals may remain after completing their physical development without being used for transplantation, and in such cases, they are employed in extremely light duties as livestock factors for the Shau'er Riders...",
     "Aliases": [],
     "Links": []
   }

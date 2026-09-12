@@ -1,5 +1,82 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### fix: 獣爾騎兵の旧綴り別名解決を API / SW 経路へ追加 + `Summary_EN` の旧英名残存を置換 (2026-09-12)
+
+- **背景**: PR #33 の旧直リンク互換（`ShouArRiders` → `ShauErRiders`）が `lib/viewer-locator.js`（ビューア側）にしか無く、
+  API / SW 経路（`pkg/cloudflare/worker.js`・`lib/sw-common.js`・`lib/data-common.js`）には無かった。
+  D1 を `--clean` で再同期すると works/dbs/records のキーは現行綴りのみになるため、
+  `/api/v1/Works_ShouArRiders/...` が 404 になる（GitHub トリアージ報告・実読で確認済み）。
+- **修正方針**: ディレクトリ名のエイリアス（`Proxies` 方式）だけでは D1 の `works.key` 検索や
+  `db_meta.json` の `CreationWorks` キー参照が旧キーのまま残るため、**作品IDの正規化点で読み替える**。
+  - `pkg/cloudflare/worker.js`: `toWorkKey()` に `LEGACY_WORK_ID_ALIASES` を適用（D1 / R2 とも現行キーで引く）。
+  - `lib/sw-common.js`: `DataUtils.toWorkKey()` に同エイリアスを適用（api/svc/pages の 3 SW すべてに効く）。
+    `LEGACY_WORK_DIR_ALIASES` にも `ShouArRiders → Works_ShauErRiders` を追加。
+  - `lib/data-common.js`: `normalizeLegacyWorkKey()` を新設し `normalizeWorkId()` / `toWorkKeyFromWorksTitle()` から利用。
+    SW の importScripts 同一グローバル衝突を避けるため const 名は `DATA_COMMON_LEGACY_WORK_ID_ALIASES`。
+  - `pkg/nodejs/index.mjs`: `toWorkKey()` / `LEGACY_WORK_DIR_ALIASES` に同エイリアスを追加。
+  - `pages/characters.js`: `normalizeWorkKey()` を `workKeyForURL()` ベースに統一（内部キー正規化でも旧綴りを解決）。
+    `LEGACY_WORK_DIR_ALIASES` にも追加。
+- **データ**: `data/Works_ShauErRiders/DataBases/db_Primary.json` の `Summary_EN` に残っていた旧英名
+  `Shou-Ar Riders`（10 レコード・15 箇所）を `Shau'er Riders` へ置換。
+- **テスト**: `tests/legacy-shauer-work-alias.test.js`（新規）— sw-common の `toWorkKey()`、data-common の
+  `resolveWorksReference('ShouArRiders')` / `normalizeWorkId()`、Workers の `/api/v1/Works_ShouArRiders/meta` が
+  D1 / R2 を現行キーで引くこと、`db_Primary.json` に旧英名が残っていないことを検証。
+- **下流への申し送り**: `lib/sw-common.js` / `lib/data-common.js` / `pkg/nodejs` の作品ID正規化が旧綴り別名を含むようになった
+  （シグネチャ不変）。エイリアス表は 5 箇所（viewer-locator / sw-common / data-common / worker / nodejs）に分散しているため、
+  今後の改名時は同時に更新すること。**R2/D1 反映は `wrangler deploy` が必要**（データ再同期は `db_Primary.json` の差分のみ）。
+
+### fix: 獣爾騎兵の英語表記を `ShauErRiders` / `Shau'er Riders` へ全改名 (2026-09-12)
+
+- **背景**: 作品識別子 `ShouArRiders` / 表示英名 `Shou'ar Riders` は、ガイドライン正典（`guideline.en.md`）の
+  `Shau'er Riders` と綴りが食い違っていた（2026-09-11 のログで保留していた統一を User 判断で実施）。
+- **改名内容**（大文字小文字を区別した一括置換。`Shou'Ar` の揺れも `Shau'er` へ正規化）:
+  - 識別子: `Works_ShouArRiders` → `Works_ShauErRiders`（`data/` ディレクトリ改名・`db_meta.json` キー・全 `Scope` 配列・テスト）
+  - 表示英名: `Shou'ar Riders` → `Shau'er Riders`、`Shou'arSurpluses` → `Shau'erSurpluses`（辞書・trans・`_EN` 本文。SCG 側の言及含む）
+  - コード/docs: `pages/characters.js` の作品ラベル表、`pkg/mcp`・lib コメント、`docs/localization-*` ほか、`AGENTS.md` 作品シリーズ表記
+- **旧直リンク互換**: `lib/viewer-locator.js` に `LEGACY_WORK_ALIASES`（`ShouArRiders` → `ShauErRiders`）を追加し、
+  `workKeyForURL()` / `parseViewerLocator()` と `pages/characters.js` の `getQS()` read 側で解決。
+  公開済みの `?c=ShouArRiders/...` は表示時に新綴りへ書き換わる。`?b=` は `Works_Code: SAR` 基準のため無影響。
+  副作用として `getQS().work` は常に短縮形へ正規化される（`normalizeWorkKey()` が接頭辞を付け直すため挙動は等価。
+  `tests/pages.characters.url-params.test.js` を追従＋別名解決の回帰テストを追加）。
+- **不変のもの**: 公式サイト URL `shouar-riders.com`（実ドメイン）、`Works_Code: SAR`、`guideline*.md`（既に正典表記）、
+  過去の履歴ログ（`_work_in_progress/` / 本ファイルの旧記述）。
+- **生成物再生成**: `.github/copilot-instructions.md`（`npm run agents:build`）、`calendar/100beautieslab-creations.ics`。
+- **下流への申し送り**: `lib/viewer-locator.js` の `workKeyForURL()` が別名解決を含むようになった（シグネチャ不変・出力は短縮形のまま）。
+  `pages/characters.js` の `getQS().work` の正規化も同様。データの作品改名自体は創作データのため同期対象外。
+  **R2/D1 への反映はマージ後に `scripts/migrate.mjs` 再実行 + `wrangler deploy` が必要**（旧 `ShouArRiders` キーの掃除含む）。
+
+### docs/data: 創作ガイドラインを新規 4 タイトル向けに補填 + 獣爾騎兵の公式サイトを `db_meta.json` へ登録 (2026-09-11)
+
+- **背景**: `guideline.md`（2026.1.27 版）の利用許可タグ列挙と OK/NG 表に、`data/db_meta.json` へ登録済みの
+  ハンカクライブ（UBL）／我ら美徳の桜花兄弟（VTU）／アンオースドロジカ（UAL）が無く、豹変系女子（SCG）も表に列が無かった。
+- **合意プロセス**: `/grilling`（本 PR で取り込んだスキル）で 3 ラウンドの質問を行い、値・注釈文・英訳はすべて User の回答どおり。
+  `AGENTS.md` の「ガイドライン本文はエージェントが編集しない」原則に対し、**この作業に限り User が明示的に直接編集を許可**した。
+- **`guideline.md` / `guideline.en.md`**（同じ差分を両言語へ反映、更新日 2026.9.11）:
+  - 利用許可のタグ列挙に `#ハンカクライブ` / `#我ら美徳の桜花兄弟` / `#アンオースドロジカ` を追加。二次創作タグ区分は不変。
+  - 違反行為⑤の公式サイト一覧に運命線探偵78・獣爾騎兵を追加（どちらも `www.` 無しを正とする）。
+  - OK/NG 表: 「ハンカクライブ」列を新設（パストダイヴァーとその他の間）。見出しを「ナンバーテールズ／アンオースドロジカ（※4'）」
+    「その他（豹変系女子／我ら美徳の桜花兄弟 ほか）（※9）」へ変更。既存列の値は不変。
+  - 注釈: ※4・※5 にアンオースドロジカでの適用範囲を追記、※4' を ※4 直後に新設、※9 を差し替え、※10・※11 を新設。
+  - 英語版の獣爾騎兵表記は既存の `Shau'er Riders` のまま（`db_meta.json` の `Shou'ar Riders` との統一は別途）。
+- **`data/db_meta.json`**: `#Works_ShouArRiders.Works_OfficialLinks` に公式サイト（`https://shouar-riders.com/`）を追加。
+  運命線探偵78 は登録済みの `www.` 無し URL を正として据え置き。
+- **下流への申し送り**: `guideline*.md` / `data/**` は創作データのため下流の同期対象外。フレームワークへの波及なし。
+
+### skills: `grilling` / `grill-me` をリポジトリ共通スキルとして取り込み (2026-09-11)
+
+- **背景**: `/grilling`（`/mattpocock-skills:grilling`）を呼んでも `Unknown command` になり、`/skill-doctor` でも未ロードだった。
+  Matt Pocock さんのプラグイン `mattpocock-skills` は各ローカルで個別インストールが必要で、リモートセッションや
+  他エージェント（Codex / Copilot）には配布されないため。
+- **対応**: [mattpocock/skills](https://github.com/mattpocock/skills)（MIT License）の
+  `skills/productivity/grilling` と `skills/productivity/grill-me` を `.agents/skills/` へ逐語コピーし、
+  `npm run agents:build` で `.claude/skills/` へミラー。`agents/openai.yaml` も同梱（Codex 向けメタ）。
+  - `/grill-me` … User が明示的に打つ入口（`disable-model-invocation: true`）。中身は `grilling` へ委譲。
+  - `/grilling` … 設計ツリーの「前提が確定した質問」だけをラウンドでまとめて投げるインタビュー本体。
+- **リポジトリ固有の適用メモ**（各 SKILL.md の区切り線の下）: 質問は日本語・一春の口調で書く／推奨回答で創作内容の値を
+  生成しない（`AGENTS.md` §8）／事実はリポジトリ探索で埋め、User には判断だけを投げる。上流本文は書き換えない。
+- `AGENTS.md` §9 に「第三者スキルの取り込み」ルールを追記（`.github/copilot-instructions.md` は再生成）。
+- **下流への申し送り**: `.agents/` / `.claude/` は下流の同期対象外（`docs/fork-sync.md`）のため波及なし。
+
 ### fix: 資料系 DB の画像ディレクトリ解決が `#Ref_Vocabulary` へ追従できていなかった (2026-09-07)
 
 - **症状**: SW 疑似 API の enrich 出力（`_enrichment.images`）で、References レイヤーの DB `Vocabulary` の画像が

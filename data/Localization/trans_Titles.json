@@ -17,10 +17,10 @@
   },
   {
     "Term_JP": "獣爾騎兵",
-    "Term_EN": "Shou'ar Riders",
+    "Term_EN": "Shau'er Riders",
     "TransPolicy": "#TP_KeepOriginal",
     "Scope": [
-      "Works_ShouArRiders"
+      "Works_ShauErRiders"
     ]
   },
   {

@@ -27,7 +27,7 @@ describe('database shapes', () => {
     // テスト対象の作品リスト
     const works = [
       'Works_NumberTales',
-      'Works_ShouArRiders',
+      'Works_ShauErRiders',
       'Works_SinisterChangingGirls',
       'Works_FLInvestigator78',
       'Works_PastDivers',
