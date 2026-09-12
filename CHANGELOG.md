@@ -1,5 +1,30 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### fix: 獣爾騎兵の旧綴り別名解決を API / SW 経路へ追加 + `Summary_EN` の旧英名残存を置換 (2026-09-12)
+
+- **背景**: PR #33 の旧直リンク互換（`ShouArRiders` → `ShauErRiders`）が `lib/viewer-locator.js`（ビューア側）にしか無く、
+  API / SW 経路（`pkg/cloudflare/worker.js`・`lib/sw-common.js`・`lib/data-common.js`）には無かった。
+  D1 を `--clean` で再同期すると works/dbs/records のキーは現行綴りのみになるため、
+  `/api/v1/Works_ShouArRiders/...` が 404 になる（GitHub トリアージ報告・実読で確認済み）。
+- **修正方針**: ディレクトリ名のエイリアス（`Proxies` 方式）だけでは D1 の `works.key` 検索や
+  `db_meta.json` の `CreationWorks` キー参照が旧キーのまま残るため、**作品IDの正規化点で読み替える**。
+  - `pkg/cloudflare/worker.js`: `toWorkKey()` に `LEGACY_WORK_ID_ALIASES` を適用（D1 / R2 とも現行キーで引く）。
+  - `lib/sw-common.js`: `DataUtils.toWorkKey()` に同エイリアスを適用（api/svc/pages の 3 SW すべてに効く）。
+    `LEGACY_WORK_DIR_ALIASES` にも `ShouArRiders → Works_ShauErRiders` を追加。
+  - `lib/data-common.js`: `normalizeLegacyWorkKey()` を新設し `normalizeWorkId()` / `toWorkKeyFromWorksTitle()` から利用。
+    SW の importScripts 同一グローバル衝突を避けるため const 名は `DATA_COMMON_LEGACY_WORK_ID_ALIASES`。
+  - `pkg/nodejs/index.mjs`: `toWorkKey()` / `LEGACY_WORK_DIR_ALIASES` に同エイリアスを追加。
+  - `pages/characters.js`: `normalizeWorkKey()` を `workKeyForURL()` ベースに統一（内部キー正規化でも旧綴りを解決）。
+    `LEGACY_WORK_DIR_ALIASES` にも追加。
+- **データ**: `data/Works_ShauErRiders/DataBases/db_Primary.json` の `Summary_EN` に残っていた旧英名
+  `Shou-Ar Riders`（10 レコード・15 箇所）を `Shau'er Riders` へ置換。
+- **テスト**: `tests/legacy-shauer-work-alias.test.js`（新規）— sw-common の `toWorkKey()`、data-common の
+  `resolveWorksReference('ShouArRiders')` / `normalizeWorkId()`、Workers の `/api/v1/Works_ShouArRiders/meta` が
+  D1 / R2 を現行キーで引くこと、`db_Primary.json` に旧英名が残っていないことを検証。
+- **下流への申し送り**: `lib/sw-common.js` / `lib/data-common.js` / `pkg/nodejs` の作品ID正規化が旧綴り別名を含むようになった
+  （シグネチャ不変）。エイリアス表は 5 箇所（viewer-locator / sw-common / data-common / worker / nodejs）に分散しているため、
+  今後の改名時は同時に更新すること。**R2/D1 反映は `wrangler deploy` が必要**（データ再同期は `db_Primary.json` の差分のみ）。
+
 ### fix: 獣爾騎兵の英語表記を `ShauErRiders` / `Shau'er Riders` へ全改名 (2026-09-12)
 
 - **背景**: 作品識別子 `ShouArRiders` / 表示英名 `Shou'ar Riders` は、ガイドライン正典（`guideline.en.md`）の

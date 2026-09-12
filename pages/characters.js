@@ -681,9 +681,8 @@ async function fetchDB(workKey, dbName, { resolve = true, debug = false } = {}) 
  */
 function normalizeWorkKey(id) {
 	if (!id) return id;
-	if (id.startsWith('#Works_')) return id;
-	if (id.startsWith('Works_')) return `#${id}`;
-	return `#Works_${id}`;
+	// 旧綴り別名（lib/viewer-locator.js の LEGACY_WORK_ALIASES: ShouArRiders → ShauErRiders）も含めて正規化する
+	return `#Works_${workKeyForURL(id)}`;
 }
 
 /**
@@ -4373,7 +4372,7 @@ function dialogueBodyText(text) {
 }
 
 // 旧作品「Works_Proxies」直リンク互換: 統合先(Works_DestinyFoxRecords)へ読み替える
-const LEGACY_WORK_DIR_ALIASES = { Proxies: 'Works_DestinyFoxRecords' };
+const LEGACY_WORK_DIR_ALIASES = { Proxies: 'Works_DestinyFoxRecords', ShouArRiders: 'Works_ShauErRiders' };
 
 /**
  * 作品IDから物理ディレクトリ名を解決する。
