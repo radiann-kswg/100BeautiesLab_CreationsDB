@@ -1,5 +1,29 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### fix: 旧綴り別名解決を Python / C# クライアントへ追従 + エイリアス表のパリティ検査を追加 (2026-09-14)
+
+- **背景**: PR #34 のレビュー指摘（Copilot）。旧綴りの作品IDエイリアス（`ShouArRiders` → `ShauErRiders`）を
+  `pkg/nodejs` と `pkg/cloudflare` にだけ追加したため、同一 API サーフェスを持つ
+  `pkg/python` / `pkg/csharp` は依然として旧ディレクトリ `Works_ShouArRiders` を読みに行き、
+  互換性の挙動が言語ごとに分岐していた（`pkg/mcp` は Node.js クライアント経由のため自動追従）。
+- **修正**:
+  - `pkg/python/creationsdb/client.py`: `_LEGACY_WORK_ID_ALIASES` を新設し `_to_work_key()` に適用。
+    `_LEGACY_WORK_DIR_ALIASES` にも `ShouArRiders` → `Works_ShauErRiders` を追加。
+  - `pkg/csharp/CreationsDBClient.cs`: `LegacyWorkIdAliases` を新設し `ToWorkKey()` に適用。
+    `LegacyWorkDirAliases` にも同エントリを追加。
+  - `pkg/cloudflare/worker.js`: `LEGACY_WORK_ID_ALIASES` の宣言を `toWorkKey()` の**前**へ移動
+    （PR #34 では参照より後に宣言していた。挙動は変わらないが宣言順として不適切だったため）。
+- **テスト**:
+  - `tests/pkg.client-alias-parity.test.js`（新規）: エイリアス表は SSOT を持たず 7 ファイルへ独立に
+    書かれているため、各ソースから表を抽出して**全ファイルで一致すること**を機械検査する。
+    あわせて「作品IDエイリアスには対応するディレクトリエイリアスが必ず伴う」不変条件
+    （PR #33 の取りこぼしそのもの）と、解決先が `data/` と `CreationWorks` に実在することも検証。
+    Python / C# は実行環境（python3 / dotnet）が CI に無いためソース解析で担保する。
+  - `tests/pkg.nodejs.test.js`: 旧綴り `ShouArRiders` での `getRecords()` / `getWorkMeta()` が
+    現行綴りと一致することの回帰テストを追加（レビュー指摘への直接対応）。
+- **下流への申し送り**: エイリアス表を追加・変更するときは 7 ファイルすべてを同時更新すること。
+  漏れは `tests/pkg.client-alias-parity.test.js` が検出する。API シグネチャの変更は無し。
+
 ### fix: 獣爾騎兵の旧綴り別名解決を API / SW 経路へ追加 + `Summary_EN` の旧英名残存を置換 (2026-09-12)
 
 - **背景**: PR #33 の旧直リンク互換（`ShouArRiders` → `ShauErRiders`）が `lib/viewer-locator.js`（ビューア側）にしか無く、

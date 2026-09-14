@@ -13,6 +13,7 @@
  * - `Works_Dir` オーバーライド（共通資料の疑似作品）とレイヤー畳み込み
  * - `$IndexDef` / `$IndexDef_<DbNorm>` によるインデックスキーのスキーマ駆動解決
  * - 旧作品名エイリアス（`Proxies` → `Works_DestinyFoxRecords`）
+ * - 旧綴りの作品IDエイリアス（`ShouArRiders` → `ShauErRiders`）
  * - JP/EN フィールド命名（`Title_JP` / `Works_Summary_JP`）
  *
  * NOTE:
@@ -197,6 +198,27 @@ describe('pkg/nodejs: 旧作品名エイリアス（Proxies → Works_DestinyFox
   it('他作品はエイリアスの影響を受けない', async () => {
     const records = await db.getRecords('NumberTales', 'Primary');
     expect(records.length).toBeGreaterThan(0);
+  });
+});
+
+describe('pkg/nodejs: 旧綴りの作品IDエイリアス（ShouArRiders → ShauErRiders）', () => {
+  // `Proxies` と違い作品IDそのものが改名されたため、ディレクトリ解決だけでなく
+  // 作品キーの正規化（`toWorkKey`）でも読み替える必要がある。
+  // 読み替えが漏れると db_meta の CreationWorks 参照が旧キーのままになり、
+  // 作品メタが取れない / D1 再同期後に 404 になる（PR #33 → #34）。
+  it('旧綴り ShouArRiders でも現行綴りと同じレコードを取得できる', async () => {
+    const viaAlias = await db.getRecords('ShouArRiders', 'Primary');
+    const viaCurrent = await db.getRecords('ShauErRiders', 'Primary');
+
+    expect(viaAlias.length).toBeGreaterThan(0);
+    expect(viaAlias).toEqual(viaCurrent);
+  });
+
+  it('旧綴り ShouArRiders でも作品メタを現行キーで取得できる', async () => {
+    const viaAlias = await db.getWorkMeta('ShouArRiders');
+    const viaCurrent = await db.getWorkMeta('ShauErRiders');
+
+    expect(viaAlias).toEqual(viaCurrent);
   });
 });
 
