@@ -952,7 +952,7 @@
       { "Faction": "百花繚乱研究所" },
       { "Faction": "レゾンデイトルカンパニー" }
     ],
-    "Class": ["デュオトリプル4型", "キャレ型", "キャレ型ハイナンバーズ開発部"]
+    "Class": ["キャレ型", "キャレ型ハイナンバーズ開発部", "マルチアドレセンス"]
   },
   {
     "Num": "125-cub",
@@ -997,10 +997,10 @@
       { "Faction": "レゾンデイトルカンパニー" }
     ],
     "Class": [
-      "デュオトリプル9型",
       "マスマティカコンストレイント",
       "キャレ型",
-      "キャレ型ハイナンバーズ開発部"
+      "キャレ型ハイナンバーズ開発部",
+      "マルチアドレセンス"
     ]
   },
   {
@@ -1020,7 +1020,7 @@
       { "Faction": "百花繚乱研究所" },
       { "Faction": "レゾンデイトルカンパニー" }
     ],
-    "Class": ["トリプルセブンズ", "キャレ型", "キャレ型ハイナンバーズ開発部"]
+    "Class": ["キャレ型", "キャレ型ハイナンバーズ開発部", "マルチアドレセンス"]
   },
   {
     "Num": "196-sq",
@@ -1039,7 +1039,7 @@
       { "Faction": "百花繚乱研究所" },
       { "Faction": "レゾンデイトルカンパニー" }
     ],
-    "Class": ["トリプルセブンズ", "キャレ型", "キャレ型ハイナンバーズ開発部"]
+    "Class": ["キャレ型", "キャレ型ハイナンバーズ開発部", "マルチアドレセンス"]
   },
   {
     "Num": "200-dev",
@@ -1098,7 +1098,8 @@
       "トリプルナインズ",
       "キュビクザール型",
       "インターフェイスコンストレイント",
-      "ヒューマノイド開発部(シンフォニー.XVI)"
+      "ヒューマノイド開発部(シンフォニー.XVI)",
+      "マルチアドレセンス"
     ],
     "TailsUnit": [
       {
@@ -1206,6 +1207,32 @@
     "Summary_EN": "A Kubikzahl-Series HighNumbers unit under experimental development in partnership with SchwarzeRoseland's \"Symphony.XVI\", intended for the development of mass-production sales NumberTales carrying numbers such as perfect powers.\nBecause her number is the largest cube number that fits within the 256-value range of a single byte, she was designed with supply to terminal-application development companies in mind.\nOnce completed, she entrusted HundredBeauties Laboratory's business to '216(Biunosect)', the mass-production unit of the same number and model, and now operates as a development unit at the partner department \"Bewußtsein Division, Humanoid Development Department\" within Symphony.XVI.",
     "Backgrounds_JP": "6の乗数であることから、「6(ムイ)」や「36(ミトム)」と関連が深い。",
     "Backgrounds_EN": "As a multiple of 6, this unit has strong ties to \"6(Sics)\" and \"36(Trisixa).\""
+  },
+  {
+    "Num": 221,
+    "Num_Badge": "221",
+    "Progress": "notProceeded",
+    "isTriple": false,
+    "SameMPSeries_DBLink": [
+      { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": "221B" }
+    ],
+    "Name_JP": "チェイン\n221(チェインプライム)",
+    "Name_EN": "Chains\n221(PrimeChain)",
+    "FormalName_JP": "ナンバーテールズ仮称13×17号機(221番機)",
+    "FormalName_EN": "NumberTales Temporary Unit.13×17 (Mk.221)",
+    "CodeName_JP": "素数連鎖",
+    "CodeName_EN": "Prime Chain",
+    "ModelNumber": "APHR-NT [MA]XIII.XVII",
+    "GenderType": "Neutral",
+    "Belonging": [
+      { "Faction": "国際ヒューマノイド技術学会" },
+      { "Faction": "レゾンデイトルカンパニー" }
+    ],
+    "Class": [
+      "マルチアドレセンス",
+      "国際協議個体",
+      "プリーミアコンストレイント"
+    ]
   },
   {
     "Num": 222,
@@ -1957,7 +1984,33 @@
       { "Faction": "百花繚乱研究所" },
       { "Faction": "レゾンデイトルカンパニー" }
     ],
-    "Class": ["デュオトリプル9型", "キャレ型", "キャレ型ハイナンバーズ開発部"]
+    "Class": ["キャレ型", "キャレ型ハイナンバーズ開発部", "マルチアドレセンス"]
+  },
+  {
+    "Num": "247-ma",
+    "Num_Badge": "247MA",
+    "Progress": "notProceeded",
+    "isTriple": false,
+    "AnotherVersions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": 247 }
+    ],
+    "Name_JP": "マンソーンジュ\n247(マンソーンジュ・ペンタゴン)",
+    "Name_EN": "Mansonge\n247(Mansonge.Pentagone)",
+    "FormalName_JP": "ナンバーテールズ仮称13×19号機(247番機)",
+    "FormalName_EN": "NumberTales Temporary Unit.13×19 (Mk.247)",
+    "CodeName_JP": "五角形の嘘",
+    "CodeName_EN": "Pentagons' Lie",
+    "ModelNumber": "APHR-NT [MA]XIII.XIX",
+    "GenderType": "MaleNeutral",
+    "Belonging": [
+      { "Faction": "国際ヒューマノイド技術学会" },
+      { "Faction": "レゾンデイトルカンパニー" }
+    ],
+    "Class": [
+      "マルチアドレセンス",
+      "国際協議個体",
+      "プリーミアコンストレイント"
+    ]
   },
   {
     "Num": "256-sq",
@@ -1982,7 +2035,7 @@
       { "Faction": "百花繚乱研究所" },
       { "Faction": "レゾンデイトルカンパニー" }
     ],
-    "Class": ["トリプルフォーズ", "キャレ型", "キャレ型ハイナンバーズ開発部"]
+    "Class": ["キャレ型", "キャレ型ハイナンバーズ開発部", "マルチアドレセンス"]
   },
   {
     "Num": "256-bq",
@@ -2030,7 +2083,33 @@
       { "Faction": "百花繚乱研究所" },
       { "Faction": "レゾンデイトルカンパニー" }
     ],
-    "Class": ["キャレ型"]
+    "Class": ["キャレ型", "キャレ型ハイナンバーズ開発部", "マルチアドレセンス"]
+  },
+  {
+    "Num": "323-ma",
+    "Num_Badge": "323MA",
+    "Progress": "notProceeded",
+    "isTriple": false,
+    "AnotherVersions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": 323 }
+    ],
+    "Name_JP": "トロンペ\n323(トロンペ)",
+    "Name_EN": "Tromper\n323(Tromper)",
+    "FormalName_JP": "ナンバーテールズ仮称17×19号機(323番機)",
+    "FormalName_EN": "NumberTales Temporary Unit.17×19 (Mk.323)",
+    "CodeName_JP": "素数判定を騙す数",
+    "CodeName_EN": "Number to Fool Prime Testing",
+    "ModelNumber": "APHR-NT [MA]XVII.XIX",
+    "GenderType": "MaleNeutral",
+    "Belonging": [
+      { "Faction": "国際ヒューマノイド技術学会" },
+      { "Faction": "レゾンデイトルカンパニー" }
+    ],
+    "Class": [
+      "マルチアドレセンス",
+      "国際協議個体",
+      "プリーミアコンストレイント"
+    ]
   },
   {
     "Num": "324-sq",
@@ -2049,7 +2128,7 @@
       { "Faction": "百花繚乱研究所" },
       { "Faction": "レゾンデイトルカンパニー" }
     ],
-    "Class": ["キャレ型"]
+    "Class": ["キャレ型", "キャレ型ハイナンバーズ開発部", "マルチアドレセンス"]
   },
   {
     "Num": 333,
@@ -2113,7 +2192,7 @@
       { "Faction": "百花繚乱研究所" },
       { "Faction": "レゾンデイトルカンパニー" }
     ],
-    "Class": ["キャレ型"]
+    "Class": ["キャレ型", "キャレ型ハイナンバーズ開発部", "マルチアドレセンス"]
   },
   {
     "Num": "400-sq",
