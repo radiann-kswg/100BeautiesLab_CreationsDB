@@ -930,6 +930,8 @@
     "Num_Badge": "196",
     "Progress": "notProceeded",
     "AnotherVersions_DBLink": [{ "_DB": "SemiPrimary", "Num": "196-sq" }],
+    "Name_JP": "196(ヒクル)",
+    "Name_EN": "196(Uninix)",
     "FormalName_JP": "量産型ナンバーテールズ196番機SQシリーズ(ナンバーテールズ196番機)",
     "FormalName_EN": "NumberTales #196-SQ Series Mass Production Version for Sales (NumberTales #196)",
     "CodeName_JP": "一九六",
@@ -943,6 +945,8 @@
     "Num_Badge": "200",
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": "200-dev" }],
+    "Name_JP": "量産型 200(バイセンテ)",
+    "Name_EN": "Cloned 200(Bicentenny)",
     "FormalName_JP": "量産型ナンバーテールズ200番機GPシリーズ",
     "FormalName_EN": "NumberTales #200-GP Series Mass Production Version for Sales",
     "CodeName_JP": "二〇〇",
@@ -1091,6 +1095,25 @@
     "Summary_EN": "A Triple-Nines-type mass-production NumberTales corresponding to the \"Kubikzahl-Series\" Class-Lot.\nAs the representative unit of the #216 series, she carries customizations themed not only on mathematical traits such as \"the sixth cube number\", but also on quantitative traits for interfaces such as \"the maximum number of colors that can evenly represent the three primary colors within 1 byte\", which makes her what could be called a general-purpose, lightweight variant of the original unit '216(Secubie)', also known as \"Kubikzahl-VI\".",
     "Backgrounds_JP": "ちなみに、三原色を1Byteで平均的に扱う際に取れる最大の色数でもある",
     "Backgrounds_EN": "Incidentally, 216 is also the maximum number of colors obtainable when the three primary colors are each evenly distributed across a 1-byte range (6 × 6 × 6 = 216; the web-safe color cube)."
+  },
+  {
+    "Num": "221B",
+    "Num_Badge": "221B",
+    "Progress": "notProceeded",
+    "SameMPSeries_DBLink": [
+      { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 221 }
+    ],
+    "Name_JP": "シャーロック\n221(シャーロックホーム)",
+    "Name_EN": "Sherlock\n221(SherlockHome)",
+    "FormalName_JP": "量産型ナンバーテールズ221番機WNシリーズ(ナンバーテールズ221B番機)",
+    "FormalName_EN": "NumberTales #221-WN Series Mass Production Version for Sales",
+    "CodeName_JP": "二二一",
+    "CodeName_EN": "Two-Two-One",
+    "SPCodeName_JP": "ベーカー街221B(シャーロック・ホームズの下宿先)",
+    "SPCodeName_EN": "Baker Street 221B (Sherlock Holmes' Lodging)",
+    "ModelNumber": "APHR-NT [MP]221-WN***",
+    "GenderType": "Neutral",
+    "Class": ["デュオトリプル5型", "ライターノベルズ"]
   },
   {
     "Num": "222-mp",
@@ -1384,6 +1407,8 @@
     "Num": 225,
     "Num_Badge": "225",
     "Progress": "notProceeded",
+    "Name_JP": "225(ニニコ)",
+    "Name_EN": "225(Bibipents)",
     "FormalName_JP": "量産型ナンバーテールズ225番機SQシリーズ（ナンバーテールズ225番機）",
     "FormalName_EN": "NumberTales #225-SQ Series Mass Production Version for Sales (NumberTales #225)",
     "CodeName_JP": "二二五",
@@ -1542,6 +1567,23 @@
     "Class": ["デュオトリプル1型"]
   },
   {
+    "Num": 247,
+    "Num_Badge": "247",
+    "Progress": "notProceeded",
+    "AnotherVersions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": "247-ma" }
+    ],
+    "Name_JP": "247(フシナ)",
+    "Name_EN": "247(Diquasept)",
+    "FormalName_JP": "量産型ナンバーテールズ247番機PAシリーズ",
+    "FormalName_EN": "NumberTales #247-PA Series Mass Production Version for Sales",
+    "CodeName_JP": "二四七",
+    "CodeName_EN": "Two-Four-Seven",
+    "ModelNumber": "APHR-NT [MP]247-PA***",
+    "GenderType": "MaleNeutral",
+    "Class": ["トリプルフォーズ", "プリーミアコンストレイント"]
+  },
+  {
     "Num": 255,
     "Num_Badge": "255",
     "Progress": "notProceeded",
@@ -1564,15 +1606,15 @@
   },
   {
     "Num": 256,
-    "Num_Badge": "256A",
+    "Num_Badge": "256B",
     "Progress": "notProceeded",
     "AnotherVersions_DBLink": [{ "_DB": "SemiPrimary", "Num": "256-bq" }],
     "SameMPSeries_DBLink": [
       { "_DB": "SemiPrimary", "Num": "256-sq" },
       { "_DB": "SelfSecondary", "Num": "256-alt" }
     ],
-    "Name_JP": "256(バイツ)",
-    "Name_EN": "256(Bytes)",
+    "Name_JP": "量産型 256(バイツ)",
+    "Name_EN": "Cloned 256(Bytes)",
     "FormalName_JP": "量産型ナンバーテールズ256番機BQシリーズ",
     "FormalName_EN": "NumberTales #256-BQ Series Mass Production Version for Sales",
     "CodeName_JP": "二五六",
@@ -1586,7 +1628,7 @@
   },
   {
     "Num": "256-alt",
-    "Num_Badge": "256B",
+    "Num_Badge": "256A",
     "Progress": "notProceeded",
     "AnotherVersions_DBLink": [{ "_DB": "SemiPrimary", "Num": "256-sq" }],
     "SameMPSeries_DBLink": [
@@ -1737,6 +1779,8 @@
     "Num_Badge": "289",
     "Progress": "notProceeded",
     "AnotherVersions_DBLink": [{ "_DB": "SemiPrimary", "Num": "289-sq" }],
+    "Name_JP": "289(ツバキュウ)",
+    "Name_EN": "289(Bioctena)",
     "FormalName_JP": "量産型ナンバーテールズ289番機SQシリーズ(ナンバーテールズ289番機)",
     "FormalName_EN": "NumberTales #289-SQ Series Mass Production Version for Sales (NumberTales #289)",
     "CodeName_JP": "二八九",
@@ -1832,10 +1876,27 @@
     "Backgrounds_EN": "Derived from the value of π(pi) (3.14)."
   },
   {
+    "Num": 323,
+    "Num_Badge": "323",
+    "Progress": "notProceeded",
+    "AnotherVersions_DBLink": [{ "_DB": "SemiPrimary", "Num": "323-ma" }],
+    "Name_JP": "323(ミブサ)",
+    "Name_EN": "323(Triditrie)",
+    "FormalName_JP": "量産型ナンバーテールズ323番機PAシリーズ",
+    "FormalName_EN": "NumberTales #323-PA Series Mass Production Version for Sales",
+    "CodeName_JP": "三二三",
+    "CodeName_EN": "Three-Two-Three",
+    "ModelNumber": "APHR-NT [MP]323-PA***",
+    "GenderType": "Neutral",
+    "Class": ["デュオトリプル8型", "プリーミアコンストレイント"]
+  },
+  {
     "Num": 324,
     "Num_Badge": "324",
     "Progress": "notProceeded",
     "AnotherVersions_DBLink": [{ "_DB": "SemiPrimary", "Num": "324-sq" }],
+    "Name_JP": "324(ミフヨ)",
+    "Name_EN": "324(Tridiquas)",
     "FormalName_JP": "量産型ナンバーテールズ324番機SQシリーズ (ナンバーテールズ324番機)",
     "FormalName_EN": "NumberTales #324-SQ Series Mass Production Version for Sales (NumberTales #324)",
     "CodeName_JP": "三二四",
@@ -3080,8 +3141,8 @@
     "Num_Badge": "500",
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": "500-dev" }],
-    "Name_JP": "500(ハルフィミル)",
-    "Name_EN": "500(Halvemill)",
+    "Name_JP": "量産型 500(ハルフィミル)",
+    "Name_EN": "Cloned 500(Halvemill)",
     "FormalName_JP": "量産型ナンバーテールズ500番機GPシリーズ",
     "FormalName_EN": "NumberTales #500-GP Series Mass Production Version for Sales",
     "CodeName_JP": "五〇〇",
@@ -3120,15 +3181,15 @@
   },
   {
     "Num": 512,
-    "Num_Badge": "512A",
+    "Num_Badge": "512B",
     "Progress": "notProceeded",
     "AnotherVersions_DBLink": [{ "_DB": "SemiPrimary", "Num": "512-cub" }],
     "SameMPSeries_DBLink": [
       { "_DB": "SemiPrimary", "Num": "512-bq" },
       { "_DB": "SelfSecondary", "Num": "512-alt" }
     ],
-    "Name_JP": "512(ハキビ)",
-    "Name_EN": "512(Hav-kiB)",
+    "Name_JP": "量産型 512(ハキビ)",
+    "Name_EN": "Cloned 512(Hav-kiB)",
     "FormalName_JP": "量産型ナンバーテールズ512番機BQシリーズ",
     "FormalName_EN": "NumberTales #512-BQ Series Mass Production Version for Sales",
     "CodeName_JP": "五一二",
@@ -3143,7 +3204,7 @@
   },
   {
     "Num": "512-alt",
-    "Num_Badge": "512B",
+    "Num_Badge": "512A",
     "Progress": "notProceeded",
     "AnotherVersions_DBLink": [{ "_DB": "SemiPrimary", "Num": "512-bq" }],
     "SameMPSeries_DBLink": [

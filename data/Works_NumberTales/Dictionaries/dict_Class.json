@@ -201,6 +201,13 @@
     "isSecondary": false
   },
   {
+    "Class": "マルチアドレセンス",
+    "Class_JP": "マルチアドレセンス",
+    "Class_EN": "Multi-Adolescence",
+    "Class_Code": "NMA",
+    "isSecondary": null
+  },
+  {
     "Class": "キュビクザール型",
     "Class_JP": "キュビクザール型ハイナンバーズ",
     "Class_EN": "Kubikzahl-Series HighNumbers",
@@ -260,6 +267,12 @@
     "Class": "ライターノベルズ",
     "Class_EN": "Writer Novels",
     "Class_Code": "NWN",
+    "isSecondary": null
+  },
+  {
+    "Class": "プリーミアコンストレイント",
+    "Class_EN": "Premier Constraint",
+    "Class_Code": "NNP",
     "isSecondary": null
   },
   {
