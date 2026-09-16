@@ -27,7 +27,9 @@
     "deepl:eval": "node tools/deepl/evaluate-translations.mjs",
     "deepl:draft": "node tools/deepl/draft-translate.mjs",
     "calendar:sync": "node tools/sync-calendar-gcal.mjs",
-    "calendar:sync:dry": "node tools/sync-calendar-gcal.mjs --dry-run"
+    "calendar:sync:dry": "node tools/sync-calendar-gcal.mjs --dry-run",
+    "cache:clean": "node tools/clean-cache.mjs",
+    "cache:clean:write": "node tools/clean-cache.mjs --write"
   },
   "devDependencies": {
     "glob": "^13.0.6",
