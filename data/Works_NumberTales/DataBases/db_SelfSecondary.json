@@ -896,6 +896,10 @@
     "SPCodeName_EN": "Baker Street 221B (Sherlock Holmes' Lodging)",
     "ModelNumber": "APHR-NT [MP]221-WN***",
     "GenderType": "Neutral",
+    "Belonging": [
+      { "Faction": "百花繚乱研究所" },
+      { "Faction": "ティーポットベリー" }
+    ],
     "Class": ["デュオトリプル5型", "ライターノベルズ"]
   },
   {
@@ -1272,6 +1276,10 @@
     "CodeName_EN": "Two-Four-Seven",
     "ModelNumber": "APHR-NT [MP]247-PA***",
     "GenderType": "MaleNeutral",
+    "Belonging": [
+      { "Faction": "百花繚乱研究所" },
+      { "Faction": "レゾンデイトルカンパニー" }
+    ],
     "Class": ["トリプルフォーズ", "プリーミアコンストレイント"]
   },
   {
@@ -1579,6 +1587,10 @@
     "CodeName_EN": "Three-Two-Three",
     "ModelNumber": "APHR-NT [MP]323-PA***",
     "GenderType": "Neutral",
+    "Belonging": [
+      { "Faction": "百花繚乱研究所" },
+      { "Faction": "レゾンデイトルカンパニー" }
+    ],
     "Class": ["デュオトリプル8型", "プリーミアコンストレイント"]
   },
   {
@@ -2503,6 +2515,10 @@
     "SPCodeName_EN": "Fahrenheit 451",
     "ModelNumber": "APHR-NT [MP]451-WN***",
     "GenderType": "Neutral",
+    "Belonging": [
+      { "Faction": "百花繚乱研究所" },
+      { "Faction": "スターダスト・テクノロジー" }
+    ],
     "Class": [
       "トリプルキャリーズ",
       "ライターノベルズ",
@@ -4122,6 +4138,10 @@
     "SPCodeName_EN": "Les trois crimes d'Arsène Lupin",
     "ModelNumber": "APHR-NT [MP]813-WN***",
     "GenderType": "Neutral",
+    "Belonging": [
+      { "Faction": "百花繚乱研究所" },
+      { "Faction": "レゾンデイトルカンパニー" }
+    ],
     "Class": ["トリプルスリーズ", "ライターノベルズ"]
   },
   {
