@@ -109,6 +109,16 @@
     "isAcademic": null
   },
   {
+    "Faction": "ティーポットベリー",
+    "Faction_JP": "ティーポットベリー・コンピューティング",
+    "Faction_EN": "Teapot-Berry Computing",
+    "FactionsBaseArea": { "Area": "英皇国" },
+    "RegionstyleWithin": { "Regioministration": "X" },
+    "isForSecondary": null,
+    "isMaker": true,
+    "isAcademic": false
+  },
+  {
     "Faction": "スターダスト財団",
     "Faction_EN": "Stardusts Foundation",
     "FactionsBaseArea": { "Area": "雄志結国" },
@@ -152,7 +162,7 @@
     "Faction": "白の六芒星",
     "Faction_EN": "WhiteHexagram",
     "FactionsBaseArea": { "Area": "雄志結国" },
-    "RegionstyleWithin": { "Regioministration": "W" },
+    "RegionstyleWithin": { "Regioministration": "X" },
     "isForSecondary": false,
     "isMaker": false,
     "isAcademic": false
@@ -210,7 +220,7 @@
     "Faction": "照梅テクノロジー",
     "Faction_EN": "Shôbai Technology",
     "FactionsBaseArea": { "Area": "九蓮国" },
-    "RegionstyleWithin": { "Regioministration": "X" },
+    "RegionstyleWithin": { "Regioministration": "W" },
     "isForSecondary": null,
     "isMaker": true,
     "isAcademic": false
@@ -219,7 +229,7 @@
     "Faction": "レゾンデイトルカンパニー",
     "Faction_EN": "Raison-d'être Company",
     "FactionsBaseArea": { "Area": "神皇国" },
-    "RegionstyleWithin": { "Regioministration": "W" },
+    "RegionstyleWithin": { "Regioministration": "X" },
     "isForSecondary": null,
     "isMaker": true,
     "isAcademic": null
@@ -257,7 +267,7 @@
     "RegionstyleWithin": null,
     "isForSecondary": false,
     "isMaker": false,
-    "isAcademic": false
+    "isAcademic": null
   },
   {
     "Faction": "フィジカル9",
