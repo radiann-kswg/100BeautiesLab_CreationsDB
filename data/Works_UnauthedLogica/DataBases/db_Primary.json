@@ -199,6 +199,52 @@
     "Favor_EN": "Both personalities: GP-Comp.:general-purpose components (= generic ICs)\nDozenne (front personality): repurposing old parts\nQueen.XII (back personality): retro parts that have been discontinued and become hard to obtain",
     "Unlike_JP": "雙葉(表人格)：睡眠不足(裏人格が夕方から夜間を主として活動するため)、裏人格の暴走\nトゥエルヴ(裏人格)：朝方から夕方前にかけての活動、入手不可能なものの存在",
     "Unlike_EN": "Dozenne (front personality): sleep deprivation (as the alternate personality is primarily active from evening to nighttime), the alternate personality running rampant\nQueen.XII (back personality): activity from morning to early afternoon, the existence of things that cannot be obtained",
+    "ConversationPattern": {
+      "TalkingTone_JP": "雙葉(表人格)は一人称「私(わたくし)」で、語尾まで整った丁寧語を崩さず物腰やわらかに話す。トゥエルヴ(裏人格)は一人称「ワタシ」で尊大かつ断定的な口調になり、相手を「キサマ」「庶民ども」「凡愚」と見下して呼ぶ。夕方以降、もしくは眼鏡が外れたときに口調が切り替わる。",
+      "TalkingTone_EN": "Dozenne (front personality) speaks softly and never lets her polished, formal register slip, using the formal feminine 'I'. Queen.XII (back personality) switches to an emphatic 'I' with a haughty, declarative tone, looking down on others as 'you (combative)', 'commoners', or 'the rabble'. The register flips from evening onward, or whenever the glasses come off.",
+      "TopicPreference_JP": "どちらの人格も72ISシリーズ素子の話題には必ず食いつくが、雙葉は査定や再利用といった実用面へ、トゥエルヴは廃番・レアロットの所有欲へと話を寄せていく。",
+      "TopicPreference_EN": "Both personalities will invariably bite at any talk of the 72IS series components, but Dozenne steers toward the practical side — appraisal and repurposing — while Queen.XII steers toward her desire to possess discontinued and rare-lot items.",
+      "TalkFrequency_JP": "雙葉は接客中こそ自分から丁寧に声をかけるが、私的な会話では聞き役に回りがち。トゥエルヴは夕方から夜間にかけて饒舌になり、その日の獲物と戦果を一方的に語り続ける。",
+      "TalkFrequency_EN": "Dozenne speaks up politely of her own accord while serving customers, but tends to fall into the listener's role in private conversation. Queen.XII grows talkative from evening into the night, holding forth one-sidedly about the day's prey and spoils.",
+      "PreferredTopics_JP": "汎用集積素子部品(72ISシリーズ)のコレクションと査定、ジャンク品の再利用。雙葉は同人誌出版の話題も好み、トゥエルヴはジャンク狩りの戦果自慢に終始する。",
+      "PreferredTopics_EN": "Collecting and appraising general-purpose components (the 72IS series), and repurposing junk. Dozenne also enjoys talk of doujinshi publishing, while Queen.XII devotes herself entirely to boasting about her junk-hunting spoils.",
+      "AvoidedTopics_JP": "雙葉は裏人格の暴走と、それによる睡眠不足に触れられることを避ける。トゥエルヴは朝方から夕方前の活動や、入手不可能なものの存在を話題にされることを嫌う。",
+      "AvoidedTopics_EN": "Dozenne avoids having her alternate personality's rampages — and the sleep deprivation they cause — brought up. Queen.XII dislikes any mention of activity from morning to early afternoon, or of the existence of things that cannot be obtained.",
+      "ConversationNotes_JP": "廃番・入手困難になった型番の話題は人格切り替えの引き金になりやすく、トゥエルヴが表に出ると傲慢な恫喝へ転じるため、話題の選択はくれぐれも慎重に。雙葉は自分の身体を酷使する裏人格に困り果てており、会話の途中でも裏人格へ向けた呼びかけが混ざることがある。",
+      "ConversationNotes_EN": "Topics touching on discontinued or hard-to-find model numbers easily trigger a personality switch, and once Queen.XII surfaces she turns to arrogant threats — so choose your topics with the utmost care. Dozenne is at her wits' end over the alternate personality that overworks her body, and remarks addressed to that other self sometimes slip into the middle of a conversation.",
+      "DialogueExamples": [
+        {
+          "value_JP": "「今日は少しジャンクの仕入れが多すぎるので臨時休業してますが、トゥエルヴさんを……いえ、安価で済むようなものでしたら、少しだけ鑑定は受け付けますよ」",
+          "value_EN": "\"We're closed for the day, as the junk intake has been a little too heavy — but Queen.XII-san has... no, never mind. If it's something that can be settled cheaply, I can take on a little appraisal work.\"",
+          "about_JP": "雙葉(表人格)が接客している時",
+          "about_EN": "When Dozenne (front personality) is serving a customer"
+        },
+        {
+          "value_JP": "「トゥエルヴさんがこのオートマトンを標的にするのも納得です……これ以上不要なジャンク狩りで私の身体を痛めつけないでくださいね？」",
+          "value_EN": "\"I can see why Queen.XII-san would make this Automaton her target... but please stop hurting my body with any more needless junk hunting, won't you?\"",
+          "about_JP": "雙葉(表人格)がトゥエルヴ(裏人格)に対して",
+          "about_EN": "Dozenne (front personality) addressing Queen.XII (back personality)"
+        },
+        {
+          "value_JP": "「なかなか収穫の大きいパーツが揃ったな！ワタシの見込み通り、あのスラム街に蔓延るデカ物を獲物にして正解だったわ！」",
+          "value_EN": "\"Quite the sizable haul of parts I've lined up! Just as I foresaw — making prey of those big ones swarming that slum district was the right call!\"",
+          "about_JP": "トゥエルヴ(裏人格)がジャンク狩りをしている時①",
+          "about_EN": "When Queen.XII (back personality) is out junk hunting (1)"
+        },
+        {
+          "value_JP": "「このパーツ……最新化が進んでいるくせに少し焼け死んでいる気がしてならん……ちっ、標的を間違えたか。ワタシは興味ないし、翌朝にあの凡愚メガネに観てもらいジャンクの在庫処分してもらうか」",
+          "value_EN": "\"This part... for all how up-to-date it is, I can't shake the feeling it's a bit burnt out... Tch, did I pick the wrong target? I've no interest in it — come morning I'll have that dunce-glasses look it over and clear it out as junk stock.\"",
+          "about_JP": "トゥエルヴ(裏人格)がジャンク狩りをしている時②",
+          "about_EN": "When Queen.XII (back personality) is out junk hunting (2)"
+        },
+        {
+          "value_JP": "「このワタシ：クィーン・トゥエルヴ樣の依り代があの凡愚メガネで災難だったな。夜間行動は許可を得たとしても、身体が訛ってしかたないわ」",
+          "value_EN": "\"What a misfortune, that the vessel for I, the great Queen.XII, should be that dunce-glasses. Even with permission for nighttime activity, this body is hopelessly out of shape.\"",
+          "about_JP": "トゥエルヴ(裏人格)が雙葉(表人格)に対して",
+          "about_EN": "Queen.XII (back personality) addressing Dozenne (front personality)"
+        }
+      ]
+    },
     "InStory_JP": "72ISシリーズの収集のため暴走している7274オートマトンを乱獲していたが、ある日 ロジケスキーロマンティカ産業からレアパーツを取引条件の報酬に持ち掛けられたことからオートマトンの暴走抑圧任務を承ってしまい九蓮国に降り立つが……",
     "InStory_EN": "Had been indiscriminately hunting rampaging 7274-series Automatons in order to collect the 72IS-series comps. — until one day, being approached by Logicheskiy Romantika Industry with an offer of rare parts as a reward under the terms of a deal, she took on the mission to suppress rogue Automatons and set foot in LotusNinea...",
     "LogicspecStats": {
