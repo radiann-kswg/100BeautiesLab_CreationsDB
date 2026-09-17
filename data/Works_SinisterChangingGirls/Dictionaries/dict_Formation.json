@@ -1,0 +1,17 @@
+[
+  {
+    "Formation": "beforeChange",
+    "Formation_JP": "豹変前",
+    "Formation_EN": "Before Change"
+  },
+  {
+    "Formation": "changing",
+    "Formation_JP": "豹変中",
+    "Formation_EN": "Changing"
+  },
+  {
+    "Formation": "afterChanged",
+    "Formation_JP": "豹変後",
+    "Formation_EN": "After Changed"
+  }
+]

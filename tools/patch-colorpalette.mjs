@@ -941,9 +941,9 @@ export function patchColorPalette(opts) {
     // 末尾から処理する（先頭側のオフセットが変わらないようにするため）
     for (let i = db.length - 1; i >= 0; i--) {
         const record = db[i];
-        // 絞り込みは Num で行い、表示は Num を持たない作品でも読めるラベルにする
+        // 絞り込み・表示とも、Num を持たない作品（豹変系女子は `Drc`）ではインデックス値で行う
         const num = record.Num ?? recordLabel(record);
-        if (opts.records && !opts.records.has(record.Num)) continue;
+        if (opts.records && !opts.records.has(record.Num) && !opts.records.has(String(num))) continue;
 
         const hasExisting = 'ColorPalette' in record;
         if (hasExisting && !opts.force) {
@@ -1527,7 +1527,7 @@ patch-colorpalette.mjs — 設定画のカラーチップから ColorPalette を
 オプション:
   --work <name>     作品名（既定: NumberTales）
   --db <name>       DB 名（既定: Primary）
-  --records <list>  対象 Num（カンマ区切り / 範囲 "1-20" 可）
+  --records <list>  対象 Num またはインデックス値（カンマ区切り / 範囲 "1-20" 可）
   --all             全レコードを対象にする
   --apply           実データへ書き込む（未指定時は dry-run）
   --force           既存の ColorPalette も再生成して置き換える
