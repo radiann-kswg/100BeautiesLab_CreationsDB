@@ -19,6 +19,7 @@
         {
           "hashTag": "concept_PNGName",
           "$type": "#PNGFileName",
+          "$palette": { "source": "swatch" },
           "hashTag_JP": "設定原画",
           "hashTag_EN": "Concept Art"
         },

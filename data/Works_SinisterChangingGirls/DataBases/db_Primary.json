@@ -102,6 +102,88 @@
     "Favor_EN": "Cafes with large portion sizes",
     "Unlike_JP": "重量制限(食事後に限り引っ掛かることが多いため)",
     "Unlike_EN": "Weight restrictions (frequently triggered after eating)",
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#AC9E7F",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#594A39",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#7EAEAB",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#175D7E",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#E8E8E4",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#FFC046",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#FFE5CD",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#8DE8ED",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "Summary_JP": "「ミハイル」という国際情報広報機関を名乗っている旅人。\n真面目で気さくな好き若人と周囲から親しまれている反面 長時間ほど目的を果たせずにいると「暴食」に奔る癖があることから彼女のことを知る飲食店に恐れられている。\n胃にあるものは瞬時に身体の脂肪や肉質に変換されてしまうため、丸々と膨体した姿で現れることも。",
     "Summary_EN": "A wanderer calling herself 'Mikhail', an international information and communications agency.\nWhile known by those around her as earnest and easygoing, she is also feared by restaurants who know her for her habit of giving into 'Gluttony' when unable to accomplish her goals for long stretches of time.\nAnything in her stomach is instantly converted into body fat and mass, so she can also appear in an all-round, inflated form."
   },
@@ -152,6 +234,88 @@
     "Favor_EN": "Human friendship and affection",
     "Unlike_JP": "親友の危険\n人体実験",
     "Unlike_EN": "Her best friend's danger\nHuman experimentation",
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#FEF3D9",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#F0F3ED",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#4378C3",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#F7632D",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#9A9893",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#F9D4B7",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#9BC1E6",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#F9BBC0",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "Summary_JP": "夜月機関からある理由で独立し「白の六芒星」という機密研究機関で研究所長を務める少女。\n儚くも優しいアルビノな美少女で、人情味と愛にあふれる温厚な性格……なのだが、「人体兵器として生まれた」「中学時代は学園番長を名乗っていた」「夜月機関で先代幹部の殉職を目にし覚悟が決まっている」などと危険な一面を持つ噂が後を絶たない。\nそんな彼女の「憤怒」な一面は、特に親友の命を蔑ろにするようなことがあると突然あらわれるようで……",
     "Summary_EN": "A girl who broke away from the Yadzuki Organization for a certain reason and now serves as research director at a classified research institute called 'WhiteHexagram'.\nA frail yet gentle albino beauty, mild-mannered and overflowing with human warmth and love... and yet the rumors of her dangerous side never cease: \"born as a human weapon\", \"called herself a school delinquent leader back in middle school\", \"has been resolved ever since witnessing the previous executive's death in the line of duty at the Yadzuki Organization\".\nThat 'Wrath/Rage' side of hers seems to surface all of a sudden, especially when something treats her best friend's life as worthless..."
   },
@@ -196,6 +360,88 @@
     "Favor_EN": "Fluffy, plush bedding; Bromiss Sakuraka",
     "Unlike_JP": "拠り所も無く束縛されること、九蓮国、桜花 仁・義(よしぎ)",
     "Unlike_EN": "Being bound with nowhere to turn, LotusNinea(ns), Righteousen Sakuraka",
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#423F3F",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#FFB2AC",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#DD7C9C",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#FFBFAB",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#FF9F71",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#FFEEDE",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#AD496B",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#FF76A2",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "Summary_JP": "「新生九蓮」という新国家革命軍を名乗る少女。\n努力や安心を経験したことがなく常に他人への不信感を抱いている素直でない「怠惰」な戦争孤児。\nしかし猫相手と寝具の中ではこの上ない安らぎを感じているためか、普段見せることのない甘えた様子を露にすることも。",
     "Summary_EN": "A girl calling herself the 'Neo.LotusNinea(n)', a new state revolutionary army.\nA contrary 'Sloth(ful)' war orphan who has never experienced effort or security, always holding distrust toward others.\nHowever, perhaps because she feels the deepest comfort with cats and within bedding, she occasionally reveals an unguarded, affectionate side not normally shown."
   },
@@ -224,6 +470,88 @@
     "FromArea": { "Area": "紅雪連邦" },
     "Age": 27,
     "BirthDay": { "Day": { "Month": 12, "DayOfMonth": 12 } },
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#F8EC72",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#A6BC40",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#FFA634",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#FFEEDC",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#F7FFB9",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#FFBE9C",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#79CA42",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#FF8726",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "Summary_JP": "日中は「六花陛下」という相性で親しまれたスラム街のジャンクガレージで一人ジャンクショップを経営する、お淑やかで静かな看板娘……なのだが、実は二重人格で夜間（もしくは眼鏡が外れた）顔は「強欲」そのものなトレジャーハンター「クィーン.トゥエルヴ」として活動している。\n両人格とも汎用集積素子部品の「72IS」シリーズに対する共通の趣味はあるのだが、廃番で入手困難になった型番の話となると人格が切り替わり傲慢に恫喝されかねないので、くれぐれも彼女を相手にした話題の選択は慎重に。",
     "Summary_EN": "By day, a graceful and soft-spoken shopgirl who runs a junk shop alone in a slum-district garage known affectionately as 'Majesty Rokka'... but in reality she has a split personality, and by night (or when her glasses come off) her face shows the 'Greed(y)' herself as the treasure hunter 'Queen.XII'.\nBoth personalities share a common hobby with the general-purpose IC component '72IS' series, but if the topic turns to a discontinued hard-to-find model number, the personality can switch and she may aggressively threaten you — so please choose your words very carefully when dealing with her."
   },
@@ -285,6 +613,98 @@
     "Favor_EN": "Kind people, scenery never seen before",
     "Unlike_JP": "性行為,母親という概念",
     "Unlike_EN": "Sexual acts, the concept of motherhood",
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#589D74",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#5A4938",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#AC9E7F",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#F1617D",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#6CBA4B",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#FFEEDC",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#FCBE9F",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#E85764",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#DBF8E3",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "Summary_JP": "黒薔薇国に漂流していたところを拾われ、「扇 三春」を中心とした豹変系女子と旅を共にする成体した幼い少女。恐らく龍天国で育児に恵まれなかった孤児だということがわかるものの、その子供のような精神年齢から普段はとても人懐っこくいろんなものに興味を示している。しかし女性との交友に対し恐怖心とまでいえる強い執着心を有しており、特に\"母\"や\"生殖\"などのような命の誕生に関わる概念に触れると「嫉妬」スイッチが入り、凶悪な毒蛇のように凶暴な姿を露にしてしまう。",
     "Summary_EN": "A young girl who was found drifting in SchwarzeRoseland and now travels with a group of Sinister Changing Girls led by 'Mikhail Arch'. She is presumably an orphan who was not fortunate in receiving care in LóngTiān's.Republic, and despite her adult body, she has the mental age of a child, making her very friendly and curious about many things. However, she has a strong attachment and fear towards interactions with women, and when confronted with concepts related to the birth of life, such as 'mother' or 'reproduction', her 'Envy/Jealousy' switch is triggered, revealing a ferocious side like a venomous snake."
   },
@@ -402,6 +822,88 @@
     "Favor_EN": "The sight of people clashing, winners drowning in power, and losers crushed by despair",
     "Unlike_JP": { "hideText": "判定失敗" },
     "Unlike_EN": { "hideText": "Judgement Failed" },
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#55575D",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#FF8897",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#E0B0BC",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#B24953",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#FFAD91",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#FD9D68",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#F3D8DB",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#FFEFE3",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "Summary_JP": "もともと「財前 こさと」として若手超大物政治ジャーナリストをしていた謎の若人。\n十数年前に突如 電撃引退を宣言し各メディアから姿を消していたが、ある時この名で目撃されたという情報が相次いでおり真相を迫られている。\n好奇心旺盛で遊戯意識が強く 周りの出来事はすべて\"エンタメ\"として楽しんでいるが、時にその遊び心が「傲慢」さに変わり 夜月機関や運命線探偵、獣爾騎兵などへ強大な敵として牙を向くことも……",
     "Summary_EN": "A mysterious young person who was originally a rising young mega-celebrity political journalist under the name 'Foster Empressor'.\nThey suddenly announced a stunning retirement more than a decade ago and vanished from all media, but reports of sightings under this name have been coming one after another, and the truth is being pressed.\nHighly curious with a strong sense of play, they enjoy everything around them as 'entertainment', but sometimes that playfulness turns to 'Pride/Arrogance', and they bare their fangs as a powerful enemy against organizations like the Yadzuki, the FateLine Investigators, and the Shau'er Riders..."
   }

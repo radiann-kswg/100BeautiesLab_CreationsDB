@@ -1,5 +1,31 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### feat: ロールプレイプロンプト生成で不足フィールドを enrich 付き `*_DBLink` から補填 (2026-09-17)
+
+- **背景**: `tools/build-roleplay-prompts.mjs` は DB の実値だけを差し込むため、別作品・別 DB に
+  本体設定を持つキャラ（`$enrich: true` の `*_DBLink` で結ばれた同一存在）のプロンプトが
+  性格・趣味・呼称などを欠いたまま生成されていた。
+- **変更**: 生成対象レコードの空フィールドを、`$enrich: true` を宣言した `*_DBLink` の参照先から
+  穴埋めする（`collectEnrichLinkFields()` / `collectDeclaredTopLevelKeys()` / `enrichRecordFromLinks()`）。
+  規則は `lib/data-common.js` の `mergeFromLinkedRecord()` に合わせ、空値（`undefined`/`null`/`''`/`[]`）のみ
+  穴埋め・`hideText` 尊重・画像と `_` 始まりキーは対象外・cross-work は対象作品 typedef の宣言済み
+  トップレベル項目のみ。補填件数はサマリ行の `enriched=N` に出力。
+- **影響範囲**: `tools/build-roleplay-prompts.mjs` / `tests/data.roleplay-prompts.test.js` /
+  `docs/roleplay-prompt-generation.md`。`ConversationPattern` の充填判定は **enrich 補填後**の値で行うため
+  （CP 自体が参照先にしか無いケースがあるため）、同一存在の参照先が CP を持つレコードが新たに
+  生成対象へ入る（`plan` で NumberTales SemiPrimary 2 件 / FLInvestigator78 Dealer 2 件が未生成として残る）。
+- **下流への申し送り**: フレームワーク側のツール変更。`db_type.json` の `$enrich` 宣言の解釈は SW/enrich と
+  同じ規則を独立実装しているため、enrich のマージ規則を変えるときは両方を更新すること。
+
+### feat: 豹変系女子のロールプレイプロンプトテンプレートを追加 (2026-09-17)
+
+- `data/Works_SinisterChangingGirls/RoleplayPrompts/roleplay-prompt.tpl.md` を追加（ベースは
+  DestinyFoxRecords 版。二重人格向けに `displayName` を `Name_JP | altquote` へし、`Summary_JP` /
+  `CodeName_JP` / `BirthDay` / `AvoidedTopics_JP` の行を追加）。
+- `DB_Primary/roleplay-prompt-S.md`（六花雙葉／クィーン.トゥエルヴ）と `-N.md`（零零／千歳 玲）を生成。
+  いずれも `ConversationPattern` を自 DB に持たず、上記の enrich 補填（`AnotherRegions_DBLink` →
+  アンオースドロジカ / ナンバーテールズ）で揃っている。
+
 ### fix: 旧綴り別名解決を Python / C# クライアントへ追従 + エイリアス表のパリティ検査を追加 (2026-09-14)
 
 - **背景**: PR #34 のレビュー指摘（Copilot）。旧綴りの作品IDエイリアス（`ShouArRiders` → `ShauErRiders`）を

@@ -1,3 +1,10 @@
 {
-  "Dictionaries": {}
+  "Dictionaries": {
+    "#Dict_Formation": {
+      "DB_Label_JP": "形態辞書",
+      "DB_Label_EN": "Formation Dictionary",
+      "keyField": "Formation",
+      "compatListKey": "#List_Formation"
+    }
+  }
 }

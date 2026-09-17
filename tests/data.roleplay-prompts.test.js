@@ -17,6 +17,9 @@ import {
 	computeOutputPath,
 	extractConfigAndBody,
 	buildVars,
+	collectEnrichLinkFields,
+	collectDeclaredTopLevelKeys,
+	enrichRecordFromLinks,
 } from '../tools/build-roleplay-prompts.mjs';
 import { mergeByHeadings } from '../tools/roleplay/sections.mjs';
 // 符号化フィールドのデコードを Node 側で有効化（UI と同一ロジック）
@@ -235,5 +238,46 @@ describe('生成物の体裁（2026-07-25 回帰: 配布物に出ていた 3 件
 			expect(t.rec.Class).toContain('1桁番');
 			expect(vars.Class).toContain('1桁番(ユニデジッツ)');
 		});
+	});
+});
+
+describe('不足フィールドの enrich 補填（$enrich: true の *_DBLink）', () => {
+	const typeDef = {
+		$DefType: [{ hashTag: 'Hobby_JP' }, { hashTag: 'Summary_JP' }, { hashTag: 'AnotherRegions_DBLink', $enrich: true }],
+		$VarsDef: { $Def_Other: { $DefType: [{ hashTag: 'SameModels_DBLink', $enrich: true }, { hashTag: 'Variant_DBLink' }] } },
+	};
+	const linked = { Num: 7, Hobby_JP: '読書', Summary_JP: '参照先の概要', Drc: 'N', ProfilePNG: 'x.png', _private: 1 };
+	const loadRecords = async (w, d) => (w === 'Other' && d === 'Primary' ? [linked, { Num: 9, Hobby_JP: '別人' }] : []);
+	const ctx = {
+		work: 'Base', db: 'Primary',
+		fields: collectEnrichLinkFields(typeDef),
+		declaredKeys: collectDeclaredTopLevelKeys(typeDef),
+		loadRecords,
+	};
+
+	it('`$enrich: true` の `*_DBLink` だけを集める（ネストした $VarsDef も走査）', () => {
+		expect([...ctx.fields].sort()).toEqual(['AnotherRegions_DBLink', 'SameModels_DBLink']);
+	});
+
+	it('空フィールドだけを埋め、既存値・hideText・画像・未宣言項目は持ち込まない', async () => {
+		const base = {
+			Num: 1, Hobby_JP: '', Summary_JP: { hideText: '#List_hideText.Secret' },
+			AnotherRegions_DBLink: [{ _Work: 'Other', _DB: 'Primary', Num: 7 }],
+		};
+		const out = await enrichRecordFromLinks(base, ctx);
+		expect(out).not.toBe(base);
+		expect(out.Hobby_JP).toBe('読書');            // 空 → 穴埋め
+		expect(out.Summary_JP).toEqual(base.Summary_JP); // hideText は尊重
+		expect(out.Num).toBe(1);                       // 既存値は保持
+		expect(out.Drc).toBeUndefined();               // cross-work の未宣言項目は持ち込まない
+		expect(out.ProfilePNG).toBeUndefined();        // 画像は持ち込まない
+		expect(out._private).toBeUndefined();          // `_` 始まりは対象外
+	});
+
+	it('参照が無い / 解決できないレコードは元のまま返す', async () => {
+		const base = { Num: 2, Hobby_JP: '' };
+		expect(await enrichRecordFromLinks(base, ctx)).toBe(base);
+		const miss = { Num: 3, Hobby_JP: '', AnotherRegions_DBLink: [{ _Work: 'Other', _DB: 'Primary', Num: 999 }] };
+		expect(await enrichRecordFromLinks(miss, ctx)).toBe(miss);
 	});
 });
