@@ -792,6 +792,10 @@
     "Name_JP": "神夜崎 ユノ",
     "Name_JPReading": "かみやざき ゆの",
     "Name_EN": "Juno Theolessnight",
+    "ModelNumber": "BACCX-YC.PM6",
+    "ModelName_JP": "ヤヅキクロノス.PM6",
+    "ModelName_EN": "Yadzuki-Chronos.PM6",
+    "RaceType": "HalfWarfox(ChronoidShifter)",
     "GenderType": "Female",
     "Belonging": [{ "Faction": "夜月機関" }, { "Faction": "白の六芒星" }],
     "Height_cm": [
