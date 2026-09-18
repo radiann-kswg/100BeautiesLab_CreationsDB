@@ -22,7 +22,7 @@
 - `data/Works_SinisterChangingGirls/RoleplayPrompts/roleplay-prompt.tpl.md` を追加（ベースは
   DestinyFoxRecords 版。二重人格向けに `displayName` を `Name_JP | altquote` へし、`Summary_JP` /
   `CodeName_JP` / `BirthDay` / `AvoidedTopics_JP` の行を追加）。
-- `DB_Primary/roleplay-prompt-S.md`（六花雙葉／クィーン.トゥエルヴ）と `-N.md`（零零／千歳 玲）を生成。
+- `DB_Primary/roleplay-prompt-S.md`（六花雙葉／クィーン・トゥエルヴ）と `-N.md`（零零／千歳 玲）を生成。
   いずれも `ConversationPattern` を自 DB に持たず、上記の enrich 補填（`AnotherRegions_DBLink` →
   アンオースドロジカ / ナンバーテールズ）で揃っている。
 

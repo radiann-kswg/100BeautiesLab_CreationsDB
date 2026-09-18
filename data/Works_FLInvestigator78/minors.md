@@ -34,7 +34,7 @@
 軽間 ながめ(かるま-ながめ) / Nagame Karma
 
 **♥ Heart.3**
-トリシャ.オンパラッド / Trisia.Onparad
+トリシャ・オンパラッド / Trisia.Onparad
 
 **♠ Spade.3**
 颯 天(はやて-そら) / Skye Hayate
@@ -45,7 +45,7 @@
 ### 四番札(カトラー) / Catre-r
 
 **♣ Club.4**
-カトレック.アンバトル / Catrec.Unbattle
+カトレック・アンバトル / Catrec.Unbattle
 
 **♥ Heart.4**
 志明 あきの(しめい-あきの) / Akino Shimei
@@ -66,7 +66,7 @@
 
 **♠ Spade.5**
 五剣(いつつるぎ) / Cinqlair
-スクアッド.ブラン / Squad.Blans
+スクアッド・ブラン / Squad.Blans
 
 **♦ Diamond.5**
 愛嬌 黒(あいきょう-くらみ) / Noirs Aikyoh
@@ -97,7 +97,7 @@
 豊富 秀喜(とよとみ-ひでき) / Hideki Toyotomi
 
 **♦ Diamond.7**
-ダイモン.サルベーズ / Dimmon.Salvages
+ダイモン・サルベーズ / Dimmon.Salvages
 
 ### 八番札（エイチスト） / Eight-ist
 
@@ -130,58 +130,58 @@
 ### 十番札（ティニスト） / Ten-ist
 
 **♣ Club.10**
-ブランシュ.バーン / Blanche.Burn
+ブランシュ・バーン / Blanche.Burn
 
 **♥ Heart.10**
-ホーパー.アラン / Hoper.Aran
+ホーパー・アラン / Hoper.Aran
 
 **♠ Spade.10**
-ペディ.ディスト / Peddy.Dist
+ペディ・ディスト / Peddy.Dist
 
 **♦ Diamond.10**
-ディノ.メディック / Dinos.Medic
+ディノ・メディック / Dinos.Medic
 
 ### 小姓札（ペイジ） / Page
 
 **♣ ランスロット / Lancelot**
-リード.アンカレッヂ / Leads.Anchorage
+リード・アンカレッヂ / Leads.Anchorage
 
 **♥ ラ-ハイヤ / La.Hire**
-ディッシュ.ロマネス / Dishes.Romanes
+ディッシュ・ロマネス / Dishes.Romanes
 
 **♠ オジエ / Ogier**
-ダウス.ル.インターズ / Daus.Le.Interns
+ダウス・ル・インターズ / Daus.Le.Interns
 
 **♦ ヘクター / Hector**
-リッチ.インテリス / Ritch.Intelis
+リッチ・インテリス / Ritch.Intelis
 
 ### 騎士札（ナイツ） / Knight
 
 **♣ ランスロット / Lancelot**
-マグニム.フォン.シー / Macnimue.von.Sea
+マグニム・フォン・シー / Macnimue.von.Sea
 
 **♥ ラ-ハイヤ / La.Hire**
-アングジェリーナ.レイジ.ガスコーニュ / Anger'lina.Rage.Gascony
+アングジェリーナ・レイジ・ガスコーニュ / Anger'lina.Rage.Gascony
 
 **♠ オジエ / Ogier**
-ダウス.ル.ダノワ / Daus.Le.Danois
+ダウス・ル・ダノワ / Daus.Le.Danois
 
 **♦ ローラン / Laurent**
-ポリーン.オルゴール.デュランビート / Pauline.Orgel.Duranbeat
+ポリーン・オルゴール・デュランビート / Pauline.Orgel.Duranbeat
 
 ### 女王札（クイーン） / Queen
 
 **♣ アルジーヌ / Argine**
-オードリー.カッツェ.ブラックフレア / Audrey.Katze.Blackflare
+オードリー・カッツェ・ブラックフレア / Audrey.Katze.Blackflare
 
 **♥ ジュディス / Judith**
-ユリィ.ジューン / Yurie.Junes
+ユリィ・ジューン / Yurie.Junes
 
 **♠ アテナ / Athena**
 ミネルヴァ.パルテノン / Minerva.Parthenon
 
 **♦ レイチェル / Rachel**
-リーチェ.エリザベス / Leiche.Elizabeth
+リーチェ・エリザベス / Leiche.Elizabeth
 
 ### 王札（キング） / King
 
@@ -189,7 +189,7 @@
 ？？？
 
 **♥ シャルルマーニュ / Charlemagne**
-カール.ホワイト.ヴァレンタイン / Carl.White.Valentine
+カール・ホワイト・ヴァレンタイン / Carl.White.Valentine
 
 **♠ ダビデ / David**
 ？？？

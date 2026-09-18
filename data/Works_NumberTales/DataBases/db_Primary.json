@@ -3052,7 +3052,7 @@
     },
     "ThisMasters": [
       {
-        "value_JP": "五剣(いつつるぎ)/スクアッド.ブラン（78特殊探偵団 風の刀剣支部 五番札(シンカー)）",
+        "value_JP": "五剣(いつつるぎ)/スクアッド・ブラン（78特殊探偵団 風の刀剣支部 五番札(シンカー)）",
         "value_EN": "Cinqlair/Squad.Blans (Team.78 the Special Investigators SlashSwords Branch Cinque-r) "
       }
     ],
@@ -5553,7 +5553,7 @@
     },
     "ThisMasters": [
       {
-        "value_JP": "中月 カイン.ナイターエイド",
+        "value_JP": "中月 カイン・ナイターエイド",
         "value_EN": "Cain.Nighteraid Nakatsuki"
       }
     ],
@@ -7360,7 +7360,7 @@
     },
     "ThisMasters": [
       {
-        "value_JP": "オードリー.カッツェ.ブラックフレア/アルジーヌ（78特殊探偵団 火の棍棒支部 女王札(クイーン)）",
+        "value_JP": "オードリー・カッツェ・ブラックフレア/アルジーヌ（78特殊探偵団 火の棍棒支部 女王札(クイーン)）",
         "value_EN": "Audrey.Katze.Blackflare/Argine (Team.78 the Special Investigators FireWands Branch Queen)"
       }
     ],
@@ -8628,7 +8628,7 @@
     },
     "ThisMasters": [
       {
-        "value_JP": "ゼン.エデンズグリーン/皐月（夜月機関 第5幹部）",
+        "value_JP": "ゼン・エデンズグリーン/皐月（夜月機関 第5幹部）",
         "value_EN": "Bene.Edensgreen / 'Satsuki' (Yadzuki Org. Executive Director.5)",
         "_DBLink": {
           "_Work": "PastDivers",
@@ -9264,7 +9264,7 @@
     },
     "ThisMasters": [
       {
-        "value_JP": "ミル.ニュクスフ",
+        "value_JP": "ミル・ニュクスフ",
         "value_EN": "Lamill.NuXV",
         "_DBLink": {
           "_Work": "SinisterChangingGirls",
@@ -10466,7 +10466,7 @@
     },
     "ThisMasters": [
       {
-        "value_JP": "ライト.リヴァーブリッジ/ブライト.ゲイザー（78特殊探偵団 第17幹部/英皇国支部幹部）",
+        "value_JP": "ライト・リヴァーブリッジ/ブライト・ゲイザー（78特殊探偵団 第17幹部/英皇国支部幹部）",
         "value_EN": "Light.Reverbridge / Bright.Gazer (Team.78 the Special Investigators 17th/IK.Branch Executive)",
         "_DBLink": {
           "_Work": "FLInvestigator78",
@@ -12223,7 +12223,10 @@
       ]
     },
     "ThisMasters": [
-      { "value_JP": "メルランディア.シラユキ", "value_EN": "Merlandia.S.White" }
+      {
+        "value_JP": "メルランディア・シラユキ",
+        "value_EN": "Merlandia.S.White"
+      }
     ],
     "VRMs": { "corefolder_VRMPath": ["20/vrm_NTS-20-corefolder"] },
     "AIHints": {
@@ -18063,7 +18066,7 @@
       ]
     },
     "ThisMasters": [
-      { "value_JP": "メイリア.シラユキ", "value_EN": "Meilia.S.White" }
+      { "value_JP": "メイリア・シラユキ", "value_EN": "Meilia.S.White" }
     ],
     "AIHints": {
       "common": {
@@ -36744,7 +36747,7 @@
     },
     "ThisMasters": [
       {
-        "value_JP": "六花(ろくばな) 雙葉/クィーン.トゥエルヴ",
+        "value_JP": "六花(ろくばな) 雙葉/クィーン・トゥエルヴ",
         "value_EN": "Dozenne Hexacrys / Queen.XII",
         "_DBLink": {
           "_Work": "SinisterChangingGirls",
@@ -37392,7 +37395,7 @@
     },
     "ThisMasters": [
       {
-        "value_JP": "六花(ろくばな) 雙葉/クィーン.トゥエルヴ",
+        "value_JP": "六花(ろくばな) 雙葉/クィーン・トゥエルヴ",
         "value_EN": "Dozenne Hexacrys / Queen.XII",
         "_DBLink": {
           "_Work": "SinisterChangingGirls",
@@ -41904,7 +41907,7 @@
     },
     "ThisMasters": [
       {
-        "value_JP": "ヴェンジー.C.テンペスト/クライシア.バベル（78特殊探偵団 第16幹部/英皇国支部幹部）",
+        "value_JP": "ヴェンジー.C.テンペスト/クライシア・バベル（78特殊探偵団 第16幹部/英皇国支部幹部）",
         "value_EN": "Vengy.C.Tempest / Crisia.Babel (Team.78 the Special Investigators 16th/IK.Branch Executive)",
         "_DBLink": {
           "_Work": "FLInvestigator78",
@@ -49878,7 +49881,7 @@
     },
     "ThisMasters": [
       {
-        "value_JP": "リーチェ.エリザベス/レイチェル(78特殊探偵団 金の硬貨支部 女王札(クィーン))",
+        "value_JP": "リーチェ・エリザベス/レイチェル(78特殊探偵団 金の硬貨支部 女王札(クィーン))",
         "value_EN": "Leiche.Elizabeth / Rachel (Team.78 the Special Investigators PentacleObjects Branch Queen)"
       }
     ],

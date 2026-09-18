@@ -53,8 +53,8 @@ Claude は創作内容・設定文を自動生成しないため、値はユー�
 | [ ]  | 六花 ルノ           | Luno Hexacrys      | PD / SCG                       |
 | [x]  | 九 叶               | Canna Ninie        | SCG / ShouArRiders             |
 | [x]  | 六花 雙葉           | Dozenne Hexacrys   | SCG / UnauthedLogica           |
-| [x]  | クィーン.トゥエルヴ | Queen.XII          | SCG / UnauthedLogica           |
-| [x]  | ミル.ニュクスフ     | Lamill.NuXV        | SCG                            |
+| [x]  | クィーン・トゥエルヴ | Queen.XII          | SCG / UnauthedLogica           |
+| [x]  | ミル・ニュクスフ     | Lamill.NuXV        | SCG                            |
 | [ ]  | 神夜崎 ユノ         | Juno Theolessnight | PD / SCG                       |
 | [x]  | 財前 小里           | Foster Empressor   | SCG / PD / ShouArRiders / FL78 |
 | [x]  | 終藤 こさと         | Formar Endrof      | SCG / PD / ShouArRiders / FL78 |

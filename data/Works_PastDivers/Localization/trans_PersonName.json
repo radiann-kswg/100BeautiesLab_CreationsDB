@@ -32,12 +32,10 @@
     ]
   },
   {
-    "Term_JP": "ゼン.エデンズグリーン",
+    "Term_JP": "ゼン・エデンズグリーン",
     "Term_EN": "Bene.Edensgreen",
     "TransPolicy": "#TP_LocalizeName",
-    "Scope": [
-      "Works_PastDivers"
-    ]
+    "Scope": ["Works_PastDivers"]
   },
   {
     "Term_JP": "水無瀬 雫",
@@ -64,12 +62,10 @@
     ]
   },
   {
-    "Term_JP": "ヘクター.キロバスター",
+    "Term_JP": "ヘクター・キロバスター",
     "Term_EN": "Hector.Kilobuster",
     "TransPolicy": "#TP_KeepOriginal",
-    "Scope": [
-      "Works_PastDivers"
-    ]
+    "Scope": ["Works_PastDivers"]
   },
   {
     "Term_JP": "ルイノ",
