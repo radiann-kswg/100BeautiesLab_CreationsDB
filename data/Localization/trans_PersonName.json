@@ -66,11 +66,11 @@
     "Term_EN": "Dozenne Hexacrys",
     "TransPolicy": "#TP_LocalizeName",
     "Scope": ["Works_SinisterChangingGirls", "Works_UnauthedLogica"],
-    "Summary_JP": "もともと四蓮島で生まれた戦争孤児だったところを義妹の六花 ルノに引き取られるはずが、数年以上の記憶不振から目覚めたら紅雪連邦のジャンクガレージにいたので、仕方なくジャンクショップを経営している二重人格の少女。裏の人格「クィーン.トゥエルヴ」を巡るトラブルによく巻き込まれているが、果たしてそれは「六花 雙葉」としての過去にどれだけ関与しているのだろうか……",
+    "Summary_JP": "もともと四蓮島で生まれた戦争孤児だったところを義妹の六花 ルノに引き取られるはずが、数年以上の記憶不振から目覚めたら紅雪連邦のジャンクガレージにいたので、仕方なくジャンクショップを経営している二重人格の少女。裏の人格「クィーン・トゥエルヴ」を巡るトラブルによく巻き込まれているが、果たしてそれは「六花 雙葉」としての過去にどれだけ関与しているのだろうか……",
     "Summary_EN": "Originally a war orphan born on LotasQuadrup.Island, she was supposed to be taken in by her younger sister, Luno Hexacrys. However, after awakening from several years of memory loss, she found herself in a junk garage in the United.SnowRed.Republic. As a result, she reluctantly runs a junk shop and has a dual personality. She often gets involved in troubles surrounding her alternate personality, 'Queen.XII', but how much does that actually relate to her past as 'Dozenne Hexacrys'...?"
   },
   {
-    "Term_JP": "クィーン.トゥエルヴ",
+    "Term_JP": "クィーン・トゥエルヴ",
     "Term_EN": "Queen.XII",
     "TransPolicy": "#TP_KeepOriginal",
     "Scope": ["Works_SinisterChangingGirls", "Works_UnauthedLogica"],
@@ -78,7 +78,7 @@
     "Summary_EN": "The alternate personality of Dozenne Hexacrys, a bounty hunter who targets IC components, which are old parts of the United.SnowRed.Republic, more than anyone else. It is said that even the primary personality, Dozenne Hexacrys, has no idea how this personality manifested. However, it is certain that something happened to Dozenne Hexacrys in the vicinity (or due to other factors surrounding it) before she was supposed to be handed over to her younger sister, Luno Hexacrys."
   },
   {
-    "Term_JP": "ミル.ニュクスフ",
+    "Term_JP": "ミル・ニュクスフ",
     "Term_EN": "Lamill.NuXV",
     "TransPolicy": "#TP_LocalizeName",
     "Scope": ["Works_SinisterChangingGirls", "Works_ShauErRiders"],

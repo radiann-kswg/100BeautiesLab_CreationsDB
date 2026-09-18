@@ -325,7 +325,7 @@
       "_DB": "Primary",
       "Card": { "Suit": "Major", "SuitNum": 17 }
     },
-    "FormalName_JP": "ライト.リヴァーブリッジ",
+    "FormalName_JP": "ライト・リヴァーブリッジ",
     "FormalName_EN": "Light.Reverbridge",
     "RaceType": "Human",
     "GenderType": "Male",
@@ -355,7 +355,7 @@
       "_DB": "Primary",
       "Card": { "Suit": "Major", "SuitNum": 18 }
     },
-    "FormalName_JP": "センセシア.ムーンライト",
+    "FormalName_JP": "センセシア・ムーンライト",
     "FormalName_EN": "Sensetia.Moonlight",
     "RaceType": "HalfLunaWolf(Arcanized)",
     "GenderType": "Female",

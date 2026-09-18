@@ -19,7 +19,7 @@
       "_DB": "Primary",
       "Card": { "Suit": "FireWands", "SuitNum": 11 }
     },
-    "FormalName_JP": "リード.アンカレッヂ",
+    "FormalName_JP": "リード・アンカレッヂ",
     "FormalName_EN": "Leads.Anchorage",
     "RaceType": "Human",
     "GenderType": "Female",
@@ -32,7 +32,7 @@
       "_DB": "Primary",
       "Card": { "Suit": "FireWands", "SuitNum": 12 }
     },
-    "FormalName_JP": "マグニム.フォン.シー",
+    "FormalName_JP": "マグニム・フォン・シー",
     "FormalName_EN": "Macnimue.von.Sea",
     "RaceType": "Human",
     "GenderType": "Male",
@@ -45,7 +45,7 @@
       "_DB": "Primary",
       "Card": { "Suit": "FireWands", "SuitNum": 13 }
     },
-    "FormalName_JP": "オードリー.カッツェ.ブラックフレア",
+    "FormalName_JP": "オードリー・カッツェ・ブラックフレア",
     "FormalName_EN": "Audrey.Katze.Blackflare",
     "FromArea": { "Area": "黒薔薇国" }
   },
@@ -73,7 +73,7 @@
       "_DB": "Primary",
       "Card": { "Suit": "WaterCups", "SuitNum": 11 }
     },
-    "FormalName_JP": "ディッシュ.ロマネス",
+    "FormalName_JP": "ディッシュ・ロマネス",
     "FormalName_EN": "Dishes.Romanes",
     "RaceType": "Human",
     "GenderType": "Female",
@@ -86,7 +86,7 @@
       "_DB": "Primary",
       "Card": { "Suit": "WaterCups", "SuitNum": 12 }
     },
-    "FormalName_JP": "アングジェリーナ.レイジ.ガスコーニュ",
+    "FormalName_JP": "アングジェリーナ・レイジ・ガスコーニュ",
     "FormalName_EN": "Anger'lina.Rage.Gascony",
     "RaceType": "Human",
     "GenderType": "Female",
@@ -99,7 +99,7 @@
       "_DB": "Primary",
       "Card": { "Suit": "WaterCups", "SuitNum": 13 }
     },
-    "FormalName_JP": "ユリィ.ジューン",
+    "FormalName_JP": "ユリィ・ジューン",
     "FormalName_EN": "Yurie.Junes",
     "FromArea": { "Area": "南英州諸国" }
   },
@@ -110,7 +110,7 @@
       "_DB": "Primary",
       "Card": { "Suit": "WaterCups", "SuitNum": 14 }
     },
-    "FormalName_JP": "カール.ホワイト.ヴァレンタイン",
+    "FormalName_JP": "カール・ホワイト・ヴァレンタイン",
     "FormalName_EN": "Carl.White.Valentine"
   },
   {
@@ -133,7 +133,7 @@
       "_DB": "Primary",
       "Card": { "Suit": "SlashSwords", "SuitNum": 11 }
     },
-    "FormalName_JP": "ダウス.ル.インターズ",
+    "FormalName_JP": "ダウス・ル・インターズ",
     "FormalName_EN": "Daus.Le.Interns",
     "FromArea": { "Area": "神皇国" }
   },
@@ -144,7 +144,7 @@
       "_DB": "Primary",
       "Card": { "Suit": "SlashSwords", "SuitNum": 12 }
     },
-    "FormalName_JP": "ダウス.ル.ダノワ",
+    "FormalName_JP": "ダウス・ル・ダノワ",
     "FormalName_EN": "Daus.Le.Danois",
     "FromArea": { "Area": "神皇国" }
   },
@@ -183,7 +183,7 @@
       "_DB": "Primary",
       "Card": { "Suit": "PentacleObjects", "SuitNum": 11 }
     },
-    "FormalName_JP": "リッチ.インテリス",
+    "FormalName_JP": "リッチ・インテリス",
     "FormalName_EN": "Ritch.Intelis",
     "RaceType": "Human",
     "GenderType": "Male",
@@ -196,7 +196,7 @@
       "_DB": "Primary",
       "Card": { "Suit": "PentacleObjects", "SuitNum": 12 }
     },
-    "FormalName_JP": "ポリーン.オルゴール.デュランビート",
+    "FormalName_JP": "ポリーン・オルゴール・デュランビート",
     "FormalName_EN": "Pauline.Orgel.Duranbeat",
     "RaceType": "Human",
     "GenderType": "Female",
@@ -209,7 +209,7 @@
       "_DB": "Primary",
       "Card": { "Suit": "PentacleObjects", "SuitNum": 13 }
     },
-    "FormalName_JP": "リーチェ.エリザベス",
+    "FormalName_JP": "リーチェ・エリザベス",
     "FormalName_EN": "Leiche.Elizabeth",
     "FromArea": { "Area": "神皇国" }
   },

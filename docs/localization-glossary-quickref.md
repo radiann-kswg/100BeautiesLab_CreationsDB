@@ -29,8 +29,8 @@
 
 | 日本語 | English |
 | --- | --- |
-| クィーン.トゥエルヴ | Queen.XII |
-| ミル.ニュクスフ | Lamill.NuXV |
+| クィーン・トゥエルヴ | Queen.XII |
+| ミル・ニュクスフ | Lamill.NuXV |
 | 九 叶 | Canna Ninie |
 | 財前 小里 | Foster Empressor |
 | 終藤 こさと | Formar Endrof |

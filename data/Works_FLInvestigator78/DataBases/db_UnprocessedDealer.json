@@ -16,7 +16,7 @@
   {
     "Card": { "Suit": "FireWands", "SuitNum": 4, "Num": 26 },
     "Progress": "notProceeded",
-    "FormalName_JP": "カトレック.アンバトル",
+    "FormalName_JP": "カトレック・アンバトル",
     "FormalName_EN": "Catrec.Unbattle"
   },
   {
@@ -57,7 +57,7 @@
   {
     "Card": { "Suit": "FireWands", "SuitNum": 10, "Num": 32 },
     "Progress": "notProceeded",
-    "FormalName_JP": "ブランシュ.バーン",
+    "FormalName_JP": "ブランシュ・バーン",
     "FormalName_EN": "Blanche.Burn"
   },
   {
@@ -70,7 +70,7 @@
   {
     "Card": { "Suit": "WaterCups", "SuitNum": 3, "Num": 39 },
     "Progress": "notProceeded",
-    "FormalName_JP": "トリシャ.オンパラッド",
+    "FormalName_JP": "トリシャ・オンパラッド",
     "FormalName_EN": "Trisia.Onparad"
   },
   {
@@ -119,7 +119,7 @@
   {
     "Card": { "Suit": "WaterCups", "SuitNum": 10, "Num": 46 },
     "Progress": "notProceeded",
-    "FormalName_JP": "ホーパー.アラン",
+    "FormalName_JP": "ホーパー・アラン",
     "FormalName_EN": "Hoper.Aran"
   },
   {
@@ -149,7 +149,7 @@
     "Name_JP": "五剣",
     "Name_JPReading": "いつつるぎ",
     "Name_EN": "Cinqlair",
-    "FormalName_JP": "スクアッド.ブラン",
+    "FormalName_JP": "スクアッド・ブラン",
     "FormalName_EN": "Squad.Blans"
   },
   {
@@ -183,7 +183,7 @@
   {
     "Card": { "Suit": "SlashSwords", "SuitNum": 10, "Num": 60 },
     "Progress": "notProceeded",
-    "FormalName_JP": "ペディ.ディスト",
+    "FormalName_JP": "ペディ・ディスト",
     "FormalName_EN": "Peddy.Dist"
   },
   {
@@ -224,7 +224,7 @@
   {
     "Card": { "Suit": "PentacleObjects", "SuitNum": 7, "Num": 71 },
     "Progress": "notProceeded",
-    "FormalName_JP": "ダイモン.サルベーズ",
+    "FormalName_JP": "ダイモン・サルベーズ",
     "FormalName_EN": "Dimmon.Salvages"
   },
   {
@@ -244,7 +244,7 @@
   {
     "Card": { "Suit": "PentacleObjects", "SuitNum": 10, "Num": 74 },
     "Progress": "notProceeded",
-    "FormalName_JP": "ディノ.メディック",
+    "FormalName_JP": "ディノ・メディック",
     "FormalName_EN": "Dinos.Medic"
   }
 ]
