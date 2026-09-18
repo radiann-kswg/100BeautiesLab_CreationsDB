@@ -710,14 +710,15 @@
   },
   {
     "Drc": "W",
-    "Progress": "notProceeded",
+    "Progress": "unreleased",
     "Name_JP": "神夜崎 ユノ",
     "Name_JPReading": "かみやざき ゆの",
     "Name_EN": "Juno Theolessnight",
-    "FormalName_JP": null,
-    "FormalName_EN": null,
-    "CodeName_JP": "原罪の夕方",
-    "CodeName_EN": "Original Sin o'clock in Sunsetting",
+    "Images": { "concept_PNGName": "cnsp_imgSCG-W" },
+    "FormalName_JP": "クロノイズ.ユノ テオレスナイト",
+    "FormalName_EN": "Chronoize.Juno Theolessnight",
+    "CodeName_JP": "憂鬱の夕方",
+    "CodeName_EN": "Dejection o'clock in Sunsetting",
     "RaceType": "HalfWarfox(ChronoidShifter)",
     "GenderType": "Female",
     "Belonging": [{ "Faction": "白の六芒星" }, { "Faction": "夜月機関" }],
@@ -728,34 +729,155 @@
     },
     "Class": ["保護対象"],
     "Height_cm": [
-      { "about_JP": "推定", "about_EN": "Presumption", "value": 143 }
+      {
+        "about_JP": "仮の実体での姿",
+        "about_EN": "Appearance in temporary physical form",
+        "value": 90
+      },
+      {
+        "about_JP": "実体を失う前の推定",
+        "about_EN": "Presumption before losing physical form",
+        "value": 143
+      }
     ],
     "Weight_kg": [{ "about_JP": "不詳", "about_EN": "Unknown or Undefined" }],
-    "BustSize": { "value": "A", "about_JP": "推定", "about_EN": "Presumption" },
+    "BustSize": {
+      "value": "A",
+      "about_JP": "実体を失う前の推定",
+      "about_EN": "Presumption before losing physical form"
+    },
     "ConceptAge": [
       {
-        "value": 17,
+        "value": 14,
         "about_JP": "認知可能な状態での身体年齢",
         "about_EN": "Recognizable physical age"
       },
       {
         "value": 24,
-        "about_JP": "行方不明となった時点での年齢または享年",
-        "about_EN": "At the time of disappearance or death"
+        "about_JP": "実体を失ったときの年齢",
+        "about_EN": "At the time of losing physical form"
       }
     ],
     "BirthDay": { "Day": { "Month": 10, "DayOfMonth": 20 } },
-    "FirstPersonCalling_JP": "",
-    "SecondPersonCalling_JP": "",
-    "ThirdPersonCalling_JP": "",
-    "Character_JP": "",
-    "Hobby_JP": "",
-    "SpecialSkill_JP": "",
+    "FirstPersonCalling_JP": "わたし",
+    "FirstPersonCalling_EN": "I",
+    "SecondPersonCalling_JP": "きみ;[※名前呼び],~さん",
+    "SecondPersonCalling_EN": "you; [*by name]",
+    "ThirdPersonCalling_JP": "彼/彼女;[※名前呼び],~さん",
+    "ThirdPersonCalling_EN": "he/she; [*by name]",
+    "Character_JP": "儚げで少し悲観的な印象を見受けられる\n根はとても優しいが、しかし……",
+    "Character_EN": "Gives an ephemeral, slightly pessimistic impression\nVery kind at heart, and yet......",
+    "Hobby_JP": "世界を見守ること",
+    "Hobby_EN": "Watching over the world",
+    "SpecialSkill_JP": { "hideText_JP": "判定失敗" },
     "Favor_JP": "兄の無事",
     "Favor_EN": "Her brother's safety",
     "Unlike_JP": "兄の死",
     "Unlike_EN": "Her brother's death",
-    "Summary_JP": ""
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#F9F9F1",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#E5EAE7",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#6A88C2",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#B9F1F1",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#FFCFED",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#35ADE3",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#4245A3",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#E85764",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#45D6D1",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#F2EB7A",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "Summary_JP": "夜月機関の被験体としてある実験事故により実体を失ってしまったが、現在は六花ルノら率いる「白の六芒星」に保護されることで、仮の身体に憑依する形式では存在可能となっている。\n現在 夜月機関の総帥と幹部に勤める兄弟を義兄に持ち、いつも2人の身を案じては自分の所為で2人の身に何かあるのではないかと「憂鬱」に「悲嘆」している様子が窺える。\nただ、ここで注意すべきなのは－－－－【ERROR 500: 蟯占ｷｯ縺ｸ縺ｮ謗･邯壹′菴戊 °縺ｫ繧医ｊ諡貞凄縺輔ｌ縺ｾ縺励◆】",
+    "Summary_EN": "She lost her physical form in a certain experimental accident as a test subject of the Yadzuki Organization, but is now sheltered by 'WhiteHexagram' led by Luno Hexacrys and others, which lets her exist in a form that possesses a temporary body.\nShe now has as adoptive older brothers the two siblings who serve as the Yadzuki Organization's supreme commander and as an executive, and she can be seen forever worrying about the pair — sinking into 'Dejection' and 'Grief' at the thought that something might happen to them because of her.\nHowever, what should be noted here is————【ERROR 500: 蟯占ｷｯ縺ｸ縺ｮ謗･邯壹′菴戊 °縺ｫ繧医ｊ諡貞凄縺輔ｌ縺ｾ縺励◆】"
   },
   {
     "Drc": "NW",
