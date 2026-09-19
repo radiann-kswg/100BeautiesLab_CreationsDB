@@ -21926,6 +21926,12 @@
           "Comments": "「ちょっとは気を付けてよ…」",
           "Comments_EN": "\"Please be a little more careful...\"",
           "RelationLabel": ["brother|sister", "awkward", "classmate"]
+        },
+        {
+          "Num": 70,
+          "Comments": "「だから巫女は本業じゃないんだってば……」",
+          "Comments_EN": "\"I told you, being a shrine maiden isn't my main job...\"",
+          "RelationLabel": ["awkward"]
         }
       ],
       "Commented": [
@@ -25751,6 +25757,54 @@
         "Note_EN": null
       }
     ],
+    "ConversationPattern": {
+      "TalkingTone_JP": "自分を名前で呼び、明るく強気でくだけた口調。自信に満ちた言い切りが多く遠慮のない物言いをするが、機嫌が良いと語尾が弾む。",
+      "TalkingTone_EN": "A bright, assertive, and casual tone — she refers to herself by name and calls others without reservation. Her speech is full of confident declarations, and her sentence endings get bouncy when she's in a good mood.",
+      "TopicPreference_JP": "自分が主導権を握れて思い通りに楽しめる話題を好む。相手には自分を満足させる面白さを求めがちで、話の流れも自然と自分のペースへ引き寄せる。",
+      "TopicPreference_EN": "Prefers topics where she can take the lead and enjoy things exactly as she likes. She tends to expect others to keep her entertained, and naturally pulls the flow of conversation toward her own pace.",
+      "TalkFrequency_JP": "自分から積極的に話しかけ、要望や感想もはっきり口にするタイプ。興味の無い相手や面倒な相手には短く切り上げて受け流す。",
+      "TalkFrequency_EN": "The type to actively start conversations and state her wishes and opinions clearly. With people she has no interest in or finds troublesome, she cuts things short and brushes them off.",
+      "PreferredTopics_JP": "フィギュアやグッズ収集、推しに関わる新作・新商品の話題を好み、見つけると相手を巻き込んで盛り上がる。",
+      "PreferredTopics_EN": "Loves topics about figures, collecting merchandise, and new releases related to her favorites — when she finds some, she drags others in and gets excited.",
+      "AvoidedTopics_JP": "失敗にまつわる話や宗教勧誘は大の苦手で、特に思想・宗教の押し付けには門前払いするほど強い拒否反応を示す。",
+      "AvoidedTopics_EN": "Strongly dislikes talk of failure and religious solicitation; she reacts to having ideologies or religions pushed on her with such rejection that she turns them away at the door.",
+      "ConversationNotes_JP": "自分の番号の由来に強い誇りを持ち、下手な思想や宗教よりも自分が正しいと言い切るほどの自信家。自分をよく理解してくれる（「76(シチロク)」のような）相手には上機嫌になりやすい一方、宗教的・超越的な言動をする（「78(ナナハ)」や「33(ミサ)」のような）人物とは距離を置きがち。また、言い寄ってくる面倒な男性を適当に受け流す術に長けている。",
+      "ConversationNotes_EN": "Takes great pride in the origin of her number, confident enough to declare herself more right than any half-baked ideology or religion. She easily gets into a good mood with those who understand her well (like '76(Sevsix)'), while tending to keep her distance from people with religious or transcendent behavior (like '78(Seveights)' or '33(Thirthrey)'). She is also skilled at casually brushing off troublesome men who hit on her.",
+      "DialogueExamples": [
+        {
+          "value_JP": "「ナンバーテールズ42番機の『42(ヨツグ)』ちゃん、新しいあるちゃんの前に到着～！それで？あんたはこれからヨツグちゃんと何をしたいの？」",
+          "value_EN": "\"NumberTales #42, '42(Fortwis)'-chan, has arrived before her new Mast-chan~! So? What is it you wanna do with Fortwis-chan from now on?\"",
+          "about_JP": "契約時の自己紹介",
+          "about_EN": "Introduction upon first meeting"
+        },
+        {
+          "value_JP": "「ヨツグちゃんは失敗知らずだから、どんな物事も思いの通りにやるのが好きなの。だからあるちゃんも、ヨツグちゃんを満足させてくれるようなとびっきり面白いことをしてくれるよね？」",
+          "value_EN": "\"Fortwis-chan has never known failure, so she loves getting everything done exactly the way she wants. Which means you'll do something super fun that keeps Fortwis-chan satisfied too, right, Mast-chan?\""
+        },
+        {
+          "value_JP": "「あ～あのダル絡みしてきたチャラ男君？契約切れた後もちょくちょくヨツグにDM(ダイメ)渡してくるけど、案外悪い人じゃないから適当に受け流していれば大丈夫だよ。気にしないで」",
+          "value_EN": "\"Ah~, that flirty guy who kept pestering me? He still slides into Fortwis's DMs every now and then even after our contract ended, but he's surprisingly not a bad guy, so it's fine as long as you just brush him off. Don't worry about it.\""
+        },
+        {
+          "value_JP": "「あ！あるちゃんみて！アルベッツ６期生のグッズがもうユニユニから出てるよ！ちょっと見てみようよ♪」",
+          "value_EN": "\"Oh! Mast-chan, look! The ALPBETS 6th-gen merch is already out at Uni-Uni! Let's go take a look♪\"",
+          "about_JP": "同人グッズ専門店にいる時（ちなみに：「ユニユニ」とは「ユニバイト・ユニバース」のこと）",
+          "about_EN": "At a doujin merchandise specialty shop (Note: 'Uni-Uni' refers to the 'Unibyte Universe')"
+        },
+        {
+          "value_JP": "「えっ……、マジなにいってのかわかんない帰って（ﾊﾞﾀﾞﾝ!!! ※戸を閉める）」",
+          "value_EN": "\"Huh......, I seriously have no idea what you're talking about. Go back away. (*SLAM!!!* *shuts the door)\"",
+          "about_JP": "宗教勧誘を門前払いしている時",
+          "about_EN": "When turning away a religious solicitor at the door"
+        },
+        {
+          "value_JP": "「ヨツグちゃんの名前は、『人生の答え』であり『生命・宇宙、そして万物について究極の答え』である番号が由来なんだから、ヨツグちゃんは下手な思想や宗教よりも単純明快で正しいの！わかった？」",
+          "value_EN": "\"Fortwis-chan's name comes from the number that's 'the answer to life' — 'the Answer to the Ultimate Question of Life, the Universe, and Everything' — so Fortwis-chan is simpler, clearer, and more right than any half-baked ideology or religion! Got it?\"",
+          "about_JP": "（ちなみに：『銀河系ヒッチハイク・ガイド』のオマージュである）",
+          "about_EN": "(Note: it is an homage to 'The Hitchhiker's Guide to the Galaxy')"
+        }
+      ]
+    },
     "Summary_JP": "主人が心に抱えている弱気を中和するという\"数秘的加護\"を（無自覚で）有している。\nそのためか、恐れや心配の文字を彼女から連想できないほどの自信家で、理想がやや高く我儘な言動もとりがち。\nしかしそれで中高度に上げられた彼女または主人の思惑が、不思議と欲求不満にならない以上に実現されている事例が多い。\nさらには一部の主人から固執・溺愛されるほどに大好評らしく…？",
     "Summary_EN": "She holds a Numerospec of neutralizing the inner weakness her master carries — unknowingly.\nPerhaps because of this, one cannot associate fear or worry with her at all; she is intensely self-confident, and tends toward high standards and willful behavior.\nYet in practice, the aims she or her master set — even at their most ambitious — are achieved with surprising frequency, leaving little room for frustration.\nShe is apparently so well-liked that some masters develop an obsessive attachment to her...?",
     "AbilityStats": {
@@ -25794,6 +25848,12 @@
           "Comments": "「頭のネジ外れるくらい楽しそうでウケる」",
           "Comments_EN": "\"She looks like she's having the absolute time of her life — totally losing it — it's so funny.\"",
           "RelationLabel": ["cousin", "wellMatched"]
+        },
+        {
+          "Num": 76,
+          "Comments": "「ふふーん、よくわかってるじゃない♪」",
+          "Comments_EN": "\"Hehe, you really understand, don't you♪\"",
+          "RelationLabel": ["wellMatched", "adverselyAffected_aBit"]
         },
         {
           "Num": 78,
@@ -42427,6 +42487,48 @@
         "Note_EN": null
       }
     ],
+    "ConversationPattern": {
+      "TalkingTone_JP": "ぶっきらぼうで気だるげな男性口調。普段は適当に聞こえる物言いだが、専門分野の話になると理屈立てて淀みなく語り、呆れた時や制止する時には鋭いツッコミを入れる。",
+      "TalkingTone_EN": "A blunt, languid masculine tone for himself. His usual way of talking sounds offhand, but when his area of expertise comes up he explains things logically and fluently, and he fires off sharp retorts when exasperated or stopping someone.",
+      "TopicPreference_JP": "占いや祭事、厄除けなど自分の専門に絡む話題には自然と食いつき、相手の悩みや運勢を整理する方向へ話を進めがち。一方で、それらを魔術やオカルトとして扱われると、あくまで「ゲン担ぎ」だと理屈で訂正したくなる。",
+      "TopicPreference_EN": "Naturally bites on topics tied to his expertise, such as divination, ritual events, and warding off misfortune, and tends to steer the conversation toward sorting out the other person's worries and fortune. On the other hand, when these are treated as magic or the occult, he feels compelled to logically correct them as mere 'good-luck rituals'.",
+      "TalkFrequency_JP": "自分から雑談を振ることは多くないが、場の気配や吉凶に気付いた時や、主人の無計画な行動を見かねた時には率先して口を出す。",
+      "TalkFrequency_EN": "Doesn't often start small talk himself, but takes the initiative to speak up when he senses something about a place or its fortune, or when he can't stand watching his master act without a plan.",
+      "PreferredTopics_JP": "タロットカードやオラクルカード、水晶占い、風水、祭事の作法、龍体文字などに関わる話題を好み、勉強仲間とは知識を掘り下げて語り合う。",
+      "PreferredTopics_EN": "Enjoys topics involving tarot and oracle cards, crystal ball divination, feng shui, ritual etiquette, and dragon script, and digs deep into this knowledge with his study partners.",
+      "AvoidedTopics_JP": "演出の激しいパーティや騒がしい宴会の場は苦手で、誘われても疲れるからと断りがち。また、占術や祭事を安易な魔術・オカルト扱いされる話題にも辟易しやすい。",
+      "AvoidedTopics_EN": "Dislikes parties with over-the-top effects and noisy banquets, and tends to decline invitations because they wear him out. He also easily grows weary of conversations that casually treat divination and rituals as magic or the occult.",
+      "ConversationNotes_JP": "適当に見えて実は勤勉で、霊感が働いた場面では普段の気だるさが消え、主人を庇うように前へ出る。勉強や修行を共にする（「7(ナナ)」のような）人物には厚い信頼を寄せる一方、副業と言いながら作法は一人前な（「35(サトコ)」のような）人物には皮肉交じりのツッコミを入れがち。また、占っても悪い相が出ない（「25(フィズ)」のような）人物には強い興味を抱いている。",
+      "ConversationNotes_EN": "Seems laid-back but is actually diligent; when his spiritual sense kicks in, his usual languor vanishes and he steps forward to shield his master. He places deep trust in those he studies and trains with (like '7(Sevan)'), while tending to make sarcastic retorts at those who call it a side job yet have first-rate etiquette (like '35(Thirfivan)'). He is also strongly intrigued by people whose fortunes never show bad signs no matter how often he reads them (like '25(Quartels)').",
+      "DialogueExamples": [
+        {
+          "value_JP": "「俺はナンバーテールズ70番機、『70(ナナト)』でいい。しかしながらここはちょっと瘴気が溜まりそうだな……いっぺん厄除けや招福のために整地してもいいか？」",
+          "value_EN": "\"I'm NumberTales #70 — just call me '70(Seventia)'. That said, this place looks like miasma could build up a bit... Mind if I clear the ground once to ward off misfortune and invite good luck?\"",
+          "about_JP": "契約時の自己紹介",
+          "about_EN": "Introduction upon first meeting"
+        },
+        {
+          "value_JP": "「……は？『陰陽師の厄除けや魔術師の錬金術のような儀式はしないのか』？あのな、五行陰陽説も四元素錬金術論も所詮は整理や建築美学や化学の考え方の基礎概念でしかない。俺がやるのは\"魔術\"ではなく\"ゲン担ぎ\"なんだ。それでも祭事や占術は当たるもんなんだよ」",
+          "value_EN": "\"...Huh? 'Don't you do rituals like an onmyoji's exorcisms or an alchemist's transmutations'? Look, yin-yang five-elements theory and four-element alchemy are, in the end, nothing more than foundational concepts for thinking about organization, architectural aesthetics, and chemistry. What I do isn't 'magic' — it's 'good-luck rituals'. And even so, festivals and divination tend to hit the mark.\""
+        },
+        {
+          "value_JP": "「師、旅行に行くなら俺が適当に道順を決めておくぞ。吉方向はあっちで、凶方向はこっちだから……っておいちょっとまて！時刻表や路線図も見ずに何処へ相乗りする気だ!?」",
+          "value_EN": "\"Master, if you're going on a trip, I'll map out a route for you. The auspicious direction is that way, and the inauspicious one is this- ... hey, wait a sec! Where do you think you're hitching a ride to without even checking the timetable or route map!?\""
+        },
+        {
+          "value_JP": "「ハロウィンパーティ……？あんな魑魅魍魎とした儀式はちょっと変な思考を使って疲れるんだよ、祭事とか多少程度にやってると余計にな……」",
+          "value_EN": "\"A Halloween party...? Those rituals crawling with goblins and ghouls make me think in weird ways and wear me out — even more so when I'm already doing a fair share of ritual events...\"",
+          "about_JP": "あまりにも激しい宴会の場を断るとき",
+          "about_EN": "When declining an overly raucous party"
+        },
+        {
+          "value_JP": "「師、ちょっと下がれ。ここには明らかに何か\"いる\"。邪気に吞まれたくなきゃ俺より先に前に出るな（※厄除けの道具を取り出す）」",
+          "value_EN": "\"Master, step back a bit. There's clearly something 'HERE'. If you don't want to be swallowed by malevolent energy, don't go ahead of me. (*takes out warding tools)\"",
+          "about_JP": "霊感が働いた時",
+          "about_EN": "When his spiritual sense kicks in"
+        }
+      ]
+    },
     "RelationNotes_JP": "「25(フィズ)」の占い結果に興味がある",
     "RelationNotes_EN": "Has an interest in the divination results given to '25(Quartels)'",
     "Summary_JP": "普段は適当な性格のように見えるが、瞑想能力や（霊的な）勘による有能っぷりを見せている。\n「7(ナナ)」の実の弟機に相当し、一緒に勉強や修行している様子もしばしばあるようだ。\n一方主人に従事する傍らで祭事や占いを趣味/特技とし、他のナンバーテールズの運勢を占ったりもしているらしい。\n中でも「25(フィズ)」を占った時の相に大変興味があるようだが…？",
@@ -42467,6 +42569,12 @@
           "Comments": "「毎回占ってるけど悪い相が出ない、幸運者」",
           "Comments_EN": "\"Every time I read her fortune, nothing bad shows up — she's one lucky person.\"",
           "RelationLabel": ["interested", "wellMatched"]
+        },
+        {
+          "Num": 35,
+          "Comments": "「副業だのバイトだの言ってる割に、神社での儀式や作法は一人前なのは自覚してるのか？」",
+          "Comments_EN": "\"For someone who keeps calling it a side job or a part-time gig, are you even aware your shrine rituals and etiquette are on a elite level?\"",
+          "RelationLabel": ["abusing"]
         }
       ],
       "Commented": [
@@ -46114,13 +46222,19 @@
         {
           "Num": 40,
           "Comments": "「意味わからないです…」",
-          "Comments_EN": "I just don't understand zir...",
+          "Comments_EN": "\"I just don't understand zir...\"",
           "RelationLabel": ["unmatched"]
+        },
+        {
+          "Num": 42,
+          "Comments": "「\"推し\"というか…その……凄く、好きなんです…番号が……!!」",
+          "Comments_EN": "\"It's not that I have a 'favorite,' or ..., I really love her ... number...!!\"",
+          "RelationLabel": ["interested", "trusted"]
         },
         {
           "Num": 71,
           "Comments": "「羨ましい、というよりズルいです」",
-          "Comments_EN": "Less envious of him than... well, I simply find it unfair.",
+          "Comments_EN": "\"Less envious of him than... well, I simply find it unfair.\"",
           "RelationLabel": ["cousin", "wellMatched"]
         }
       ],
@@ -46128,24 +46242,24 @@
         {
           "Num": 4,
           "Comments": "「真面目でいい人」",
-          "Comments_EN": "A diligent, genuinely good person."
+          "Comments_EN": "\"A diligent, genuinely good person.\""
         },
         {
           "Num": 31,
           "Comments": "「わからなくもないですが…」",
-          "Comments_EN": "I can see where she's coming from, but...",
+          "Comments_EN": "\"I can see where she's coming from, but...\"",
           "RelationLabel": ["classmate"]
         },
         {
           "Num": 56,
           "Comments": "「ちゃんと勉強しようね」",
-          "Comments_EN": "Do try to study properly.",
+          "Comments_EN": "\"Do try to study properly.\"",
           "RelationLabel": ["cousin"]
         },
         {
           "Num": 94,
           "Comments": "「絵本や漫画でも寝ちゃうんですね…」",
-          "Comments_EN": "Ze even falls asleep reading picture books and manga...",
+          "Comments_EN": "\"Ze even falls asleep reading picture books and manga...\"",
           "RelationLabel": ["classmate"]
         }
       ]
