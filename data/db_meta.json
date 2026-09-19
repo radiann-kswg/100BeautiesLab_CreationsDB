@@ -224,7 +224,11 @@
           "Age",
           "AnivDay"
         ],
-        "subFields": ["ConversationPattern", "AnotherRegions_DBLink"]
+        "subFields": [
+          "ColorPalette",
+          "ConversationPattern",
+          "AnotherRegions_DBLink"
+        ]
       }
     },
     "#Works_VirtuesUs": {

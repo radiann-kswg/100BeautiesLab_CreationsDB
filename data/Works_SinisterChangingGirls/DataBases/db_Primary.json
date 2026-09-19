@@ -332,7 +332,7 @@
     "FormalName_JP": "九.蓮縢",
     "FormalName_JPReading": "ヂュウ・レンテン",
     "FormalName_EN": "Jiǔ.LiánTéng",
-    "CodeName_JP": "怠惰の朝",
+    "CodeName_JP": "怠惰の朝方",
     "CodeName_EN": "Slouth o'clock in Morning",
     "RaceType": "HalfNekomata",
     "GenderType": "Female",
@@ -711,6 +711,13 @@
   {
     "Drc": "W",
     "Progress": "unreleased",
+    "AnotherRegions_DBLink": [
+      {
+        "_Work": "PastDivers",
+        "_DB": "Primary",
+        "Chronos": { "Lunar": "Zeroth" }
+      }
+    ],
     "Name_JP": "神夜崎 ユノ",
     "Name_JPReading": "かみやざき ゆの",
     "Name_EN": "Juno Theolessnight",
