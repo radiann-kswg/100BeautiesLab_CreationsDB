@@ -360,6 +360,7 @@
           "BirthDay"
         ],
         "subFields": [
+          "ColorPalette",
           "ConversationPattern",
           "AnotherVersions_DBLink",
           "AnotherRegions_DBLink"
