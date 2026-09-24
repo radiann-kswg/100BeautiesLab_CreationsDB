@@ -1,5 +1,24 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### feat: キャラクター一覧の並び順を進捗（`Progress`）グループ順にする `$display.listOrder` / `isListTop` (2026-09-24)
+
+- **背景**: 一覧は JSON のレコード順（番号順）固定で、未着手のキャラが公開済みキャラより先に出ていた。
+- **変更**:
+  - `$DefType` の `$display.listOrder: true` を「このフィールドを一覧の並び順キーにする」宣言として追加。
+    並び順は対応する辞書 `$EnumDef_<hashTag>` の宣言順（＝進捗タグごとのグルーピング）。
+  - 辞書行の `isListTop` は 3 値。`true` = 1 つのグループにまとめて最上位（直並び・畳まない）、
+    `null`・未指定 = 中間、`false` = 末尾。同じ段の中は `listOrderNum`（小さいほど前 / 未指定は辞書の宣言順）。
+  - `isListTop: true` 以外のコードはコードごとに `<details class="list-group">` へ入り、折りたためる（既定は閉じる、
+    summary は辞書ラベル＋件数）。進捗未設定のレコードは畳まずに末尾へ。
+  - `$EnumDef_Progress` の現状値: 最上位 = `unprofiled` / `unreleased` / `released` / `accepted` / `accepted\nremadeReleased`、
+    中間 = `nowRecreating`(1) → `nowCreating`(2) → `accepted\nnowRemaking`(3)、末尾 = その他（`isListTop: false`）。
+  - 辞書に無いコードは末尾。同順位内は元の並び（番号順）を保つ（`sort` は安定）。
+- **影響範囲**: `pages/characters.js`（`renderList()`）/ `pages/characters.sass` / `pages/characters.html`（asset-version）/
+  `data/db_type.json`（`Progress.$display`）/ `data/db_meta.json`（`$EnumDef_Progress`）/ `docs/schema-meta-processing.md` §3.3。
+  並び替え・グループ化は `$display.listOrder` を宣言したフィールドがある場合のみ働くため、宣言が無い環境は従来どおり。
+- **下流への申し送り**: 一覧の表示仕様変更。フレームワークだけ取り込む場合は `$display.listOrder` 未宣言＝無効なので、
+  必要な作品側で `$DefType` と辞書行へ宣言を足してください。
+
 ### fix: cross-work `$Def_DBLinkRef` enrich に meta（`$DetailLayout`）ガードを追加 + `$enrich: false` を enrich 禁止宣言として一般化 (2026-09-24)
 
 - **背景**: `EnrichmentProcessor.enrichRecords()` のルート `_DBLink` 経路は cross-work 時に
