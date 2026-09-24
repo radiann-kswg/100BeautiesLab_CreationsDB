@@ -2,7 +2,22 @@
   {
     "Faction": "百花繚乱研究所",
     "Faction_EN": "HundredBeauties Laboratory",
-    "FactionsBaseArea": { "Area": "九蓮国" },
+    "FactionsBaseArea": {
+      "Area": "九蓮国"
+    },
+    "RegionstyleWithin": { "Regioministration": "W" },
+    "isForSecondary": false,
+    "isMaker": null,
+    "isAcademic": null
+  },
+  {
+    "Faction": "百花繚乱研究国際大使所",
+    "Faction_EN": "HundredBeauties International Embassy Laboratory",
+    "FactionsBaseArea": {
+      "Area": "九蓮国",
+      "BaseAreaAbout_JP": "世界第7恐慌大戦による同国の「夜月機関」の兵役命令と「百戦錬磨開発所」の独立などにより「百花繚乱研究所」から名義変更",
+      "BaseAreaAbout_EN": "In WP7W(World's 7th Panic Great War), separated from 'HundredBeauties Laboratory' due to the military service order of 'Symphony.XVI' in the SchwarzeRoseland."
+    },
     "RegionstyleWithin": { "Regioministration": "W" },
     "isForSecondary": false,
     "isMaker": null,
@@ -11,7 +26,11 @@
   {
     "Faction": "百戦錬磨開発所",
     "Faction_EN": "HundredBattlers Development",
-    "FactionsBaseArea": { "Area": "九蓮国" },
+    "FactionsBaseArea": {
+      "Area": "九蓮国",
+      "BaseAreaAbout_JP": "世界第7恐慌大戦による黒薔薇国の「シンフォニー.XVI」の兵役命令により「百花繚乱研究所」から分離",
+      "BaseAreaAbout_EN": "In WP7W(World's 7th Panic Great War), separated from 'HundredBeauties Laboratory' due to the military service order of 'Symphony.XVI' in the SchwarzeRoseland."
+    },
     "RegionstyleWithin": { "Regioministration": "Z" },
     "isForSecondary": false,
     "isMaker": null,

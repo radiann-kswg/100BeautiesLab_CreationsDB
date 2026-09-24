@@ -1,0 +1,85 @@
+[
+  {
+    "Class": "繚乱第0小隊",
+    "Class_JP": "ライズユニオン(百花繚乱第零)小隊",
+    "Class_EN": "RizeUnion: 100Beauties 00th Squadron",
+    "Class_Code": "ZB0",
+    "isSecondary": false
+  },
+  {
+    "Class": "繚乱准尉個体",
+    "Class_JP": "マスターオフィサー(百花繚乱准尉)個体",
+    "Class_EN": "Master-Officer: 100Beauties Junior Officer Unit",
+    "Class_Code": "ZBM",
+    "isSecondary": false
+  },
+  {
+    "Class": "繚乱第2小隊",
+    "Class_JP": "ゼロフタ(百花繚乱第弐)小隊",
+    "Class_EN": "Zero-Doublers: 100Beauties 02nd Squadron",
+    "Class_Code": "ZBD",
+    "isSecondary": false
+  },
+  {
+    "Class": "繚乱第3小隊",
+    "Class_JP": "ゼロサン(百花繚乱第参)小隊",
+    "Class_EN": "Zero-Tries: 100Beauties 03rd Squadron",
+    "Class_Code": "ZB3",
+    "isSecondary": false
+  },
+  {
+    "Class": "繚乱第4小隊",
+    "Class_JP": "ゼロヨン(百花繚乱第肆)小隊",
+    "Class_EN": "Zero-Quadres: 100Beauties 04th Squadron",
+    "Class_Code": "ZB4",
+    "isSecondary": false
+  },
+  {
+    "Class": "繚乱第5小隊",
+    "Class_JP": "ゼロゴ(百花繚乱第伍)小隊",
+    "Class_EN": "Zero-Quinters: 100Beauties 05th Squadron",
+    "Class_Code": "ZB5",
+    "isSecondary": false
+  },
+  {
+    "Class": "繚乱第6小隊",
+    "Class_JP": "ゼロロク(百花繚乱第陸)小隊",
+    "Class_EN": "Zero-Sexters: 100Beauties 06th Squadron",
+    "Class_Code": "ZB6",
+    "isSecondary": false
+  },
+  {
+    "Class": "繚乱第7小隊",
+    "Class_JP": "ゼロナナ(百花繚乱第漆)小隊",
+    "Class_EN": "Zero-Septers: 100Beauties 07th Squadron",
+    "Class_Code": "ZB7",
+    "isSecondary": false
+  },
+  {
+    "Class": "繚乱第8小隊",
+    "Class_JP": "ゼロハチ(百花繚乱第捌)小隊",
+    "Class_EN": "Zero-Octers: 100Beauties 08th Squadron",
+    "Class_Code": "ZB8",
+    "isSecondary": false
+  },
+  {
+    "Class": "繚乱第9小隊",
+    "Class_JP": "ゼロキュウ(百花繚乱第玖)小隊",
+    "Class_EN": "Zero-Novers: 100Beauties 09th Squadron",
+    "Class_Code": "ZB9",
+    "isSecondary": false
+  },
+  {
+    "Class": "繚乱補佐小隊",
+    "Class_JP": "キャリアライブ(百花繚乱補佐)小隊",
+    "Class_EN": "Carrierives: 100Beauties Auxiliary Squadron",
+    "Class_Code": "ZBC",
+    "isSecondary": false
+  },
+  {
+    "Class": "開発責任者",
+    "Class_EN": "Developer",
+    "Class_Code": "ZB.D",
+    "isSecondary": false
+  }
+]

@@ -318,9 +318,9 @@
     "RaceType_EN": "Automaton (General Purpose)"
   },
   {
-    "RaceType": "CustomAutomaton(TaleBeastType)",
-    "RaceType_JP": "カスタムオートマトン(妖獣型)",
-    "RaceType_EN": "Custom Automaton (Tale-Beast Appearance-Type)",
-    "basis": [{ "RaceType": "Automaton" }, { "RaceType": "Nekomata" }]
+    "RaceType": "CustomAutomaton",
+    "RaceType_JP": "カスタムオートマトン",
+    "RaceType_EN": "Custom Automaton",
+    "basis": [{ "RaceType": "Automaton" }, { "RaceType": "Humanoid" }]
   }
 ]

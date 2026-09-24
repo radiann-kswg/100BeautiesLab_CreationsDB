@@ -184,7 +184,8 @@
 - **List 系詳細表示**: `#ListIndex[]` / `#ListLink[]` の object 配列は、詳細表示では 1 要素 1 行の multiline 表示を優先します。
 - **bilingual multiline 表示**: `##String_JP` / `##String_EN` 系で和英のどちらかに改行が含まれる場合、詳細テーブルでは JP/EN を左右 2 列に分ける表示を優先します。
 - **basic 補助項目の重複抑制**: `Belonging` / `Area` / `BirthDay` / `AnivDay` などの basic 補助行は、`$DetailLayout.basicFields` に既に含まれる場合は重複表示しません。
-- **cross-work `_DBLink` 制約**: 別作品から `_DBLink` 参照で値を持ち込む場合は、対象作品の `db_type.json($DefType)` とグローバル `data/db_type.json($DefType)` に宣言されたトップレベル項目だけを許可します。
+- **cross-work `_DBLink` 制約**: 別作品から `_DBLink` 参照で値を持ち込む場合は、対象作品の `db_type.json($DefType)` とグローバル `data/db_type.json($DefType)` に宣言されたトップレベル項目だけを許可します。さらに `$enrich: true` の `*_DBLink`（`$Def_DBLinkRef`）経路では、対象作品の `db_meta.json` の `$DetailLayout`（`headerPills` / `basicFields` / `subFields`）に列挙された項目だけへ絞ります（typedef だけだとグローバル宣言の全項目が通ってしまうため）。
+- **`$enrich: false` は enrich 禁止宣言**: `$DefType` のエントリへ `$enrich: false` を置くと、そのフィールドは `_DBLink` 参照先から一切穴埋めされません（同一 Work / cross-work の両方に適用）。特定項目を作品横断で引き継がせたくないときの第一候補です。
 - **作品別 `db_meta.json` 欠損耐性**: 作品別 `db_meta.json` は追加価値レイヤーとして扱い、欠損時でも DB 取得 / 検索 / enrich を 500 で落とさず `_Commons` / `_Secondaries` だけをスキップして継続します。
 - **辞書の実行時合流**: enum/list 辞書は `db_meta.json(General.$VarsDef)` と `db_type.json($VarsDef)` の両方から合成される前提で扱い、片側だけを正とみなして説明しません。
 - **カタログ用メタ宣言**: 作品/DB の概要メタ（`CreationWorks`, `Databases.#DB_*`）の正式な補助 schema は、グローバル `data/db_type.json` のトップレベル `$MetaType` で管理します。
@@ -521,7 +522,8 @@ UI → Service Worker (`/pages/v1/`) → 静的 JSON 読み込み + `_DBLink`/`_
 - **同名フィールド穴埋め**: ベース側が空値（`undefined/null/''/[]` 等）の場合のみ埋め、既存値は上書きしません。
 - **`hideText` の尊重**: `{ hideText: '...' }` は意図的マスクとして扱い、参照先値で上書きしません。
 - **曖昧一致の扱い**: `_Search` による参照先特定は **1件一致のみ採用**し、曖昧・複数一致はスキップします。
-- **別作品からの持ち込み制限**: cross-work の `_DBLink` では、対象作品の schema に未宣言なトップレベル項目を持ち込みません。
+- **別作品からの持ち込み制限**: cross-work の `_DBLink` では、対象作品の schema に未宣言なトップレベル項目を持ち込みません。`$enrich: true` の `*_DBLink` 経路ではさらに、対象作品の `$DetailLayout`（`headerPills` / `basicFields` / `subFields`）に列挙されていない項目も持ち込みません。
+- **`$enrich: false`（enrich 禁止宣言）**: typedef で `$enrich: false` を宣言したフィールドは、参照先から穴埋めしません。
 - **画像の扱い**: 画像系フィールドは **別DB（別JSON）から参照・穴埋めしません**。同一DB参照の場合のみ画像穴埋めを許可します。
 - **`isPrivate: true` への参照**: `*_DBLink` 参照はクライアント側でフィルタし非表示にします（セクション全体も非表示）。
 - **複数 `_DBLink`**: 配列の場合の合成仕様は未確定のため、現状は先頭要素のみ参照対象とします。

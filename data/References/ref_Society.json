@@ -80,6 +80,35 @@
     "Links": []
   },
   {
+    "Term_JP": "世界第7恐慌大戦",
+    "Term_JPReading": "せかいだいななきょうこうたいせん",
+    "Term_EN": "WP7W / World 7th Panic Great War",
+    "TermType": null,
+    "Category": "Society",
+    "Summary_JP": "この創作世界の一部の\"岐路\"における世界戦争『世界第7恐慌大戦』についての基本資料。",
+    "Summary_EN": "Basic information about the world war 'WP7W / World 7th Panic War' in a certain 'FL_BRANCH' of this fictional world.",
+    "BodyBlocks_JP": [
+      "「第7創世期」内の人権問題や倫理問題である『第7の世界破壊』の渦中で起きた、人類と新人類の間を巡る世界戦争。",
+      "『第6の世界創造』により人類と同様の能力を発揮する産業用機器の技術開発の陰で起きた『第6の世界破壊』が終焉される間もなく、その余波が『第7の世界創造』を妨害するように『第7の世界破壊』としてこの大戦を招いた。",
+      "これにより、本来『第7の世界創造』として期待されていた「ヒューマノイド」の開発は頓挫したため、代替技術として「オートマトン」と呼ばれる機甲式ロボットの開発が進められた。",
+      "だがその応用個体である「カスタムオートマトン」でさえ\"EGhOst\"と呼ばれる過剰自我を引き起こし、「デウスマキナ」と呼ばれるオートマトンの暴走独立勢力までもが出現している。",
+      "やがてこの世界で『第8の世界創造』を生み出すことは、果てしなく程遠い空想となっていくのだった……",
+      "－－－",
+      "「……本当にごめんね。でも……これは、どうしようもできなかったことなの」"
+    ],
+    "BodyBlocks_EN": [
+      "A world war fought between humans and Newer Humans, which broke out in the midst of the 'WDP.VII,' the human rights and ethical issues within the 'WDCE.VII.'",
+      "Before the 'WDP.VI' — which had arisen in the shadow of the 'WDC.VI' and its development of industrial machinery capable of performing on par with humans — could be brought to an end, its aftermath invited this great war as the 'WDP.VII,' as if to obstruct the 'WDC.VII.'",
+      "As a result, the development of 'Humanoids,' which had originally been expected to serve as the 'WDC.VII,' fell through, and the development of armored robots known as 'Automatons' was pursued as a substitute technology.",
+      "Yet even the 'Custom Automatons,' their applied variants, came to manifest an excess ego known as 'EGhOst,' and a rogue independent force of automatons called 'DeusMakhina' has even emerged.",
+      "In time, bringing about the 'WDC.VIII' in this world would become an endlessly distant fantasy... ...",
+      "---",
+      "\"... ...I'm truly sorry. But... ...this was something that could ANYWAY be helped.\""
+    ],
+    "Aliases": ["世界第7恐慌大戦"],
+    "Links": []
+  },
+  {
     "Term_JP": "『第8の世界破壊』",
     "Term_JPReading": "だいはちのせかいはかい",
     "Term_EN": "WDP.VIII / the \"World Destruction Pandemic VIII\"",

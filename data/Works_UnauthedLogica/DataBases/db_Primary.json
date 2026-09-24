@@ -1,6 +1,6 @@
 [
   {
-    "Model": { "ModelSeries": "AttackerZeroid", "Num": 10 },
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 10, "Num_Badge": "10" },
     "Progress": "notProceeded",
     "AnotherRegions_DBLink": [
       { "_Work": "NumberTales", "_DB": "Primary", "Num": "10-alt" }
@@ -11,6 +11,7 @@
     "ModelName_JP": "人形兵ゼロイド10号機(10番機)",
     "ModelName_EN": "AttackerZeroid Unit.10 (Mk.10)",
     "Belonging": [{ "Faction": "百戦錬磨開発所" }],
+    "Class": ["練磨第0小隊", "エゴイストバスター"],
     "Height_cm": 164,
     "Weight_kg": { "hideText": "非公開" },
     "AnivDay": [
@@ -29,22 +30,36 @@
     }
   },
   {
-    "Model": { "ModelSeries": "AttackerZeroid", "Num": 61 },
-    "Progress": "notProceeded",
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 61, "Num_Badge": "61" },
+    "Progress": "nowCreating",
     "AnotherRegions_DBLink": [
       { "_Work": "NumberTales", "_DB": "Primary", "Num": 61 }
     ],
+    "Name_JP": "61(ロクイチ)\n61(ロイ)",
+    "Name_EN": "61(Síxone)\n61(Síon)",
+    "Images": {
+      "concept_PNGName": "cnsp_imgUAL-Z61"
+    },
     "FormalName_JP": "人形兵ゼロイド61番機",
     "FormalName_EN": "AttackerZeroid #61",
     "ModelNumber": "ACAM-AZR I+VI.B",
     "ModelName_JP": "人形兵ゼロイド1+6号機乙(61番機)",
     "ModelName_EN": "AttackerZeroid Unit.1+6.B (Mk.61)",
     "Belonging": [
-      { "Faction": "百花繚乱研究所" },
+      { "Faction": "百花繚乱研究国際大使所" },
       { "Faction": "ジャンクガレージ『六花陛下』" }
     ],
-    "InStory_JP": "百戦錬磨開発所に兵役パッチを付与されてしまい暴走してしまったところを偶然 九蓮国に訪れたクィーン-トゥエルヴに救われ、見事に懐いてしまったことから六花雙葉/クィーン-トゥエルヴらジャンクガレージに棲み着いている",
-    "InStory_EN": "After being fitted with a military-service patch by HundredBattlers Development and going berserk, it was rescued by chance by Queen.XII, who happened to be visiting LotusNinea — and having taken an immediate liking to her, it now lives in the JunkGarage 'Majesty Rokka' alongside Dozenne Hexacrys / Queen.XII and her crew",
+    "Class": ["繚乱第7小隊"],
+    "Hobby_JP": "ご奉仕？",
+    "Hobby_EN": "Service?",
+    "SpecialSkill_JP": "愛嬌を振り撒く",
+    "SpecialSkill_EN": "Being full of charm",
+    "Favor_JP": "ファンタジー漫画",
+    "Favor_EN": "Fantasy manga",
+    "Unlike_JP": "害虫",
+    "Unlike_EN": "Pest insects",
+    "InStory_JP": "デウスマキナに兵役パッチを付与されてしまい暴走してしまったところを偶然 九蓮国に訪れたクィーン-トゥエルヴに救われ、見事に懐いてしまったことから六花雙葉/クィーン-トゥエルヴらジャンクガレージに棲み着いている",
+    "InStory_EN": "After being fitted with a military-service patch by DeusMakhina and going berserk, it was rescued by chance by Queen.XII, who happened to be visiting LotusNinea — and having taken an immediate liking to her, it now lives in the JunkGarage 'Majesty Rokka' alongside Dozenne Hexacrys / Queen.XII and her crew",
     "LogicspecStats": {
       "LogicspecAbout_JP": {
         "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
@@ -52,7 +67,7 @@
     }
   },
   {
-    "Model": { "ModelSeries": "AttackerZeroid", "Num": 62 },
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 62, "Num_Badge": "62" },
     "Progress": "notProceeded",
     "AnotherRegions_DBLink": [
       { "_Work": "NumberTales", "_DB": "Primary", "Num": 62 }
@@ -66,6 +81,15 @@
       { "Faction": "百戦錬磨開発所" },
       { "Faction": "ジャンクガレージ『六花陛下』" }
     ],
+    "Class": ["練磨第8小隊"],
+    "Hobby_JP": "工芸品",
+    "Hobby_EN": "Crafts",
+    "SpecialSkill_JP": "バリアフリー",
+    "SpecialSkill_EN": "Things accessible (barrier-free adaptation)",
+    "Favor_JP": "女性をモチーフにしたもの",
+    "Favor_EN": "Things themed around femininity",
+    "Unlike_JP": "実用性のない改造",
+    "Unlike_EN": "Modifications with no practical value",
     "InStory_JP": "百戦錬磨開発所として兵役中に遭難してしまっただけでなくパーツエンストを起こしてしまったところを六花雙葉/クィーン-トゥエルヴに拾われ、助けられた御恩に報いるべく（百戦錬磨開発所を裏切ってでも）ジャンクガレージに協力している",
     "InStory_EN": "On active military duty under HundredBattlers Development, it not only ended up stranded but also suffered a parts-failure shutdown — and was taken in by Dozenne Hexacrys / Queen.XII. In gratitude for being rescued, it now cooperates with the JunkGarage (even at the cost of betraying HundredBattlers Development)",
     "LogicspecStats": {
@@ -75,7 +99,11 @@
     }
   },
   {
-    "Model": { "ModelSeries": "AttackerZeroid", "Num": "10-alt" },
+    "Model": {
+      "ModelSeries": "AttackerZeroid",
+      "Num": "10-alt",
+      "Num_Badge": "X"
+    },
     "Progress": "notProceeded",
     "AnotherRegions_DBLink": [
       { "_Work": "NumberTales", "_DB": "Primary", "Num": 10 }
@@ -86,6 +114,7 @@
     "ModelName_JP": "人形兵ゼロイド最終1号機",
     "ModelName_EN": "AttackerZeroid Unit.1 Final",
     "Belonging": [{ "Faction": "デウスマキナ" }],
+    "Class": ["暴走オートマトン"],
     "AnivDay": [
       {
         "Day": { "Month": 1, "DayOfMonth": 10 },
@@ -98,6 +127,16 @@
         "DayAbout_EN": "Automaton declaration of independence (in-story)"
       }
     ],
+    "Character_JP": "自分の存在に葛藤しており、その葛藤が多くのオートマトンに影響を与えている",
+    "Character_EN": "Ze is struggling with zit own existence, and this struggle is affecting too many automatons",
+    "Hobby_JP": "自分探し",
+    "Hobby_EN": "Self-discovery",
+    "SpecialSkill_JP": "オートマトンの支配",
+    "SpecialSkill_EN": "Control over automatons",
+    "Favor_JP": "従順なオートマトン",
+    "Favor_EN": "Submissive automatons",
+    "Unlike_JP": "EGhOst(過剰自我)",
+    "Unlike_EN": "EGhOst: Excess Ego",
     "Backgrounds_JP": "暴走事故により自律行動アルゴリズムや人権など、オートマトンの重大な課題を『第７の世界破壊』として轟かせてしまった",
     "Backgrounds_EN": "The runaway incident caused the critical issues surrounding automatons — such as autonomous-action algorithms and civil rights — to reverberate as 'The World Destruction Pandemic VII'",
     "InStory_JP": "禁忌的な暴走「過剰自我(EGhOst)」を最初に発現したオートマトンであり、暴走オートマトン軍団『デウスマキナ』を指揮している",
@@ -109,7 +148,7 @@
     }
   },
   {
-    "Model": { "ModelSeries": "notModel", "Num": "0" },
+    "Model": { "ModelSeries": "notModel", "Num": "0", "Num_Badge": "0" },
     "Progress": "stillTentative",
     "AnotherRegions_DBLink": [
       { "_Work": "NumberTales", "_DB": "Primary", "Num": "0" },
@@ -124,7 +163,8 @@
     "CodeName_JP": null,
     "CodeName_EN": null,
     "RaceType": "Human(withAddon)",
-    "Belonging": [{ "Faction": "百花繚乱研究所" }],
+    "Belonging": [{ "Faction": "百花繚乱研究国際大使所" }],
+    "Class": ["開発責任者"],
     "Age": 24,
     "ForMasterCalling_JP": "クライアント君",
     "ForMasterCalling_EN": "Client-kun",
@@ -137,7 +177,7 @@
     }
   },
   {
-    "Model": { "ModelSeries": "notModel", "Num": "00" },
+    "Model": { "ModelSeries": "notModel", "Num": "00", "Num_Badge": "00" },
     "Progress": "stillTentative",
     "AnotherRegions_DBLink": [
       { "_Work": "NumberTales", "_DB": "Primary", "Num": "00" }
@@ -152,6 +192,7 @@
     "CodeName_EN": null,
     "RaceType": "Human(withAddon)",
     "Belonging": [{ "Faction": "百戦錬磨開発所" }],
+    "Class": ["開発責任者"],
     "Age": 24,
     "InStory_JP": "人形兵ゼロイドを姉と開発したが、\"第７の世界破壊\"に伴う素子メーカとの企業戦争の激化による人形兵ゼロイドの兵役個体化に賛同してしまい、ロジケスキーロマンティカ産業に業務結託する形で百戦錬磨開発所として人形兵ゼロイドを用いた軍事開発を行っている",
     "InStory_EN": "Developed AttackerZeroid humanoid infantry together with his older sister, but came to support the militarization of individual units resulting from escalating corporate warfare between component manufacturers in the wake of 'The World Destruction Pandemic VII' — and now conducts military development using AttackerZeroid units under HundredBattlers Development, operating in collusion with Logicheskiy Romantika Industry.",
@@ -162,7 +203,7 @@
     }
   },
   {
-    "Model": { "ModelSeries": "notModel", "Num": "Q" },
+    "Model": { "ModelSeries": "notModel", "Num": "Q", "Num_Badge": "Q12" },
     "Progress": "stillTentative",
     "AnotherRegions_DBLink": [
       { "_Work": "SinisterChangingGirls", "_DB": "Primary", "Drc": "S" }
@@ -248,7 +289,7 @@
     "InStory_JP": "72ISシリーズの収集のため暴走している7274オートマトンを乱獲していたが、ある日 ロジケスキーロマンティカ産業からレアパーツを取引条件の報酬に持ち掛けられたことからオートマトンの暴走抑圧任務を承ってしまい九蓮国に降り立つが……",
     "InStory_EN": "Had been indiscriminately hunting rampaging 7274-series Automatons in order to collect the 72IS-series comps. — until one day, being approached by Logicheskiy Romantika Industry with an offer of rare parts as a reward under the terms of a deal, she took on the mission to suppress rogue Automatons and set foot in LotusNinea...",
     "LogicspecStats": {
-      "LogicspecAbout_JP": ""
+      "LogicspecAbout_JP": "オートマトンを狩猟する"
     }
   }
 ]
