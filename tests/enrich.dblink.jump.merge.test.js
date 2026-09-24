@@ -762,6 +762,86 @@ describe('_DBLink / _Jump merge (in-process)', () => {
     expect(e.SPCodeName_JP).toBeUndefined();
     expect(e.SPCodeName_EN).toBeUndefined();
   });
+
+  it('UnauthedLogica/Primary の cross-work AnotherRegions_DBLink は $DetailLayout 未宣言の項目を持ち込まない', async () => {
+    class RealGlobalTypeFetcher extends TestDataFetcher {
+      async readGlobalType() { return loadJson('data/db_type.json'); }
+    }
+
+    const dataFetcher = new RealGlobalTypeFetcher();
+    const proc = new globalThis.EnrichmentProcessor(dataFetcher, testConfig);
+
+    const primary = loadJson('data/Works_UnauthedLogica/DataBases/db_Primary.json');
+    const roi = primary.find(r => r?.Model?.ModelSeries === 'AttackerZeroid' && Number(r?.Model?.Num) === 61);
+    expect(roi).toBeTruthy();
+    expect(roi.Summary_JP).toBeUndefined();
+
+    // 参照先（NumberTales/Primary の 61）は Summary_JP / ColorPalette / RelationNotes_JP を持つ
+    const ntPrimary = loadJson('data/Works_NumberTales/DataBases/db_Primary.json');
+    const linked = ntPrimary.find(r => String(r?.Num) === '61');
+    expect(linked?.Summary_JP).toBeTypeOf('string');
+    expect(linked?.ColorPalette).toBeTruthy();
+
+    const out = await proc.enrichRecords([roi], '#Works_UnauthedLogica', 'Primary');
+    const e = out[0];
+
+    // $DetailLayout.basicFields / subFields に宣言済みの項目は従来どおり穴埋めされる
+    expect(e.Height_cm).toBeTruthy();
+    expect(e.ConversationPattern).toBeTruthy();
+    // typedef 側が suffix 無し（`FirstPersonCalling`）でもデータ側の `_JP` / `_EN` を許可する
+    expect(e.FirstPersonCalling_JP).toBeTruthy();
+    expect(e.SecondPersonCalling_JP).toBeTruthy();
+    expect(e.ThirdPersonCalling_JP).toBeTruthy();
+
+    // meta（$DetailLayout）に宣言が無い項目は参照先から持ち込まない
+    expect(e.Summary_JP).toBeUndefined();
+    expect(e.ColorPalette).toBeUndefined();
+    expect(e.RelationNotes_JP).toBeUndefined();
+    expect(e.AdditionalDesigned_JP).toBeUndefined();
+  });
+
+  it('typedef で $enrich: false を宣言したフィールドは _DBLink 参照先から埋めない', async () => {
+    class EnrichOptOutFetcher extends TestDataFetcher {
+      async readDB(workId, dbName) {
+        if (workId === '#Works_OtherWork' && dbName === 'Primary') {
+          return [{ Id: 'X', Name: '参照先の名前', Secret: '参照先の秘密' }];
+        }
+        return [];
+      }
+
+      async readGlobalType() {
+        return {
+          $DefType: [
+            { hashTag: 'Id', $type: '#String' },
+            { hashTag: 'Name', $type: '#String' },
+            { hashTag: 'Secret', $type: '#String', $enrich: false }
+          ]
+        };
+      }
+
+      async readWorkType() { return {}; }
+    }
+
+    const dataFetcher = new EnrichOptOutFetcher();
+    const proc = new globalThis.EnrichmentProcessor(dataFetcher, testConfig);
+
+    const rec = {
+      Id: 'BASE',
+      Name: '',
+      Secret: '',
+      _DBLink: {
+        worksTitle: 'OtherWork',
+        dbName: 'Primary',
+        _Search: [{ hashTag: 'Id', key: 'X' }]
+      }
+    };
+
+    const out = await proc.enrichRecords([rec], '#Works_MainWork', 'Primary');
+    const e = out[0];
+
+    expect(e.Name).toBe('参照先の名前');
+    expect(e.Secret).toBe('');
+  });
 });
 
 describe('AnotherRegions_DBLink same-work merge (Works_DestinyFoxRecords / Proxy DB integration)', () => {

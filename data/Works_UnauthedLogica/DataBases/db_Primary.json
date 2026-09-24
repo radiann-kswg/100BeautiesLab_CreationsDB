@@ -1,6 +1,155 @@
 [
   {
-    "Model": { "ModelSeries": "AttackerZeroid", "Num": 10 },
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 3, "Num_Badge": "3" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 3 }
+    ],
+    "Name_JP": "3(ナオ)",
+    "Name_EN": "3(Treiya)",
+    "FormalName_JP": "人形兵ゼロイド3番機",
+    "FormalName_EN": "AttackerZeroid #3",
+    "ModelNumber": "ACAM-AZR III",
+    "ModelName_JP": "人形兵ゼロイド3号機(3番機)",
+    "ModelName_EN": "AttackerZeroid Unit.3 (Mk.3)",
+    "Belonging": [{ "Faction": "百花繚乱研究国際大使所" }],
+    "Class": ["繚乱第3小隊"],
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 4, "Num_Badge": "4" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 4 }
+    ],
+    "Name_JP": "4(モチ)",
+    "Name_EN": "4(Forna)",
+    "FormalName_JP": "人形兵ゼロイド4番機",
+    "FormalName_EN": "AttackerZeroid #4",
+    "ModelNumber": "ACAM-AZR IV",
+    "ModelName_JP": "人形兵ゼロイド4号機(4番機)",
+    "ModelName_EN": "AttackerZeroid Unit.4 (Mk.4)",
+    "Belonging": [{ "Faction": "百戦錬磨開発所" }],
+    "Class": ["練磨第4小隊"],
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 5, "Num_Badge": "5" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 5 }
+    ],
+    "Name_JP": "5(イズ)",
+    "Name_EN": "5(Fifa)",
+    "FormalName_JP": "人形兵ゼロイド5番機",
+    "FormalName_EN": "AttackerZeroid #5",
+    "ModelNumber": "ACAM-AZR V",
+    "ModelName_JP": "人形兵ゼロイド5号機(5番機)",
+    "ModelName_EN": "AttackerZeroid Unit.5 (Mk.5)",
+    "Belonging": [{ "Faction": "百花繚乱研究国際大使所" }],
+    "Class": ["繚乱第5小隊"],
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 6, "Num_Badge": "6" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 6 }
+    ],
+    "Name_JP": "6(ムイ)",
+    "Name_EN": "6(Sics)",
+    "FormalName_JP": "人形兵ゼロイド6番機",
+    "FormalName_EN": "AttackerZeroid #6",
+    "ModelNumber": "ACAM-AZR VI",
+    "ModelName_JP": "人形兵ゼロイド6号機(6番機)",
+    "ModelName_EN": "AttackerZeroid Unit.6 (Mk.6)",
+    "Belonging": [{ "Faction": "百花繚乱研究国際大使所" }],
+    "Class": ["繚乱第6小隊"],
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 7, "Num_Badge": "7" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 7 }
+    ],
+    "Name_JP": "7(ナナ)",
+    "Name_EN": "7(Sevan)",
+    "FormalName_JP": "人形兵ゼロイド7番機",
+    "FormalName_EN": "AttackerZeroid #7",
+    "ModelNumber": "ACAM-AZR VII",
+    "ModelName_JP": "人形兵ゼロイド7号機(7番機)",
+    "ModelName_EN": "AttackerZeroid Unit.7 (Mk.7)",
+    "Belonging": [{ "Faction": "百花繚乱研究国際大使所" }],
+    "Class": ["繚乱第7小隊"],
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 8, "Num_Badge": "8" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 8 }
+    ],
+    "Name_JP": "8(ワカツ)",
+    "Name_EN": "8(Eighas)",
+    "FormalName_JP": "人形兵ゼロイド8番機",
+    "FormalName_EN": "AttackerZeroid #8",
+    "ModelNumber": "ACAM-AZR VIII",
+    "ModelName_JP": "人形兵ゼロイド8号機(8番機)",
+    "ModelName_EN": "AttackerZeroid Unit.8 (Mk.8)",
+    "Belonging": [{ "Faction": "百花繚乱研究国際大使所" }],
+    "Class": ["繚乱第8小隊"],
+    "InStory_JP": "兵器開発には協力していないが、人形兵ゼロイドのエンジニアポジションとされる",
+    "InStory_EN": "Does not cooperate with weapons development, but is regarded as the engineer-position within the AttackerZeroid",
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 9, "Num_Badge": "9" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 9 }
+    ],
+    "Name_JP": "9(チカ)",
+    "Name_EN": "9(Nina)",
+    "FormalName_JP": "人形兵ゼロイド9番機",
+    "FormalName_EN": "AttackerZeroid #9",
+    "ModelNumber": "ACAM-AZR IX",
+    "ModelName_JP": "人形兵ゼロイド9号機(9番機)",
+    "ModelName_EN": "AttackerZeroid Unit.9 (Mk.9)",
+    "Belonging": [{ "Faction": "百戦錬磨開発所" }],
+    "Class": ["練磨第9小隊"],
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 10, "Num_Badge": "10" },
     "Progress": "notProceeded",
     "AnotherRegions_DBLink": [
       { "_Work": "NumberTales", "_DB": "Primary", "Num": "10-alt" }
@@ -11,6 +160,7 @@
     "ModelName_JP": "人形兵ゼロイド10号機(10番機)",
     "ModelName_EN": "AttackerZeroid Unit.10 (Mk.10)",
     "Belonging": [{ "Faction": "百戦錬磨開発所" }],
+    "Class": ["練磨第0小隊", "エゴイストバスター"],
     "Height_cm": 164,
     "Weight_kg": { "hideText": "非公開" },
     "AnivDay": [
@@ -29,22 +179,22 @@
     }
   },
   {
-    "Model": { "ModelSeries": "AttackerZeroid", "Num": 61 },
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 11, "Num_Badge": "11" },
     "Progress": "notProceeded",
     "AnotherRegions_DBLink": [
-      { "_Work": "NumberTales", "_DB": "Primary", "Num": 61 }
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 11 }
     ],
-    "FormalName_JP": "人形兵ゼロイド61番機",
-    "FormalName_EN": "AttackerZeroid #61",
-    "ModelNumber": "ACAM-AZR I+VI.B",
-    "ModelName_JP": "人形兵ゼロイド1+6号機乙(61番機)",
-    "ModelName_EN": "AttackerZeroid Unit.1+6.B (Mk.61)",
-    "Belonging": [
-      { "Faction": "百花繚乱研究所" },
-      { "Faction": "ジャンクガレージ『六花陛下』" }
-    ],
-    "InStory_JP": "百戦錬磨開発所に兵役パッチを付与されてしまい暴走してしまったところを偶然 九蓮国に訪れたクィーン-トゥエルヴに救われ、見事に懐いてしまったことから六花雙葉/クィーン-トゥエルヴらジャンクガレージに棲み着いている",
-    "InStory_EN": "After being fitted with a military-service patch by HundredBattlers Development and going berserk, it was rescued by chance by Queen.XII, who happened to be visiting LotusNinea — and having taken an immediate liking to her, it now lives in the JunkGarage 'Majesty Rokka' alongside Dozenne Hexacrys / Queen.XII and her crew",
+    "Name_JP": "11(トウイチ)",
+    "Name_EN": "11(Elevan)",
+    "FormalName_JP": "人形兵ゼロイド11番機",
+    "FormalName_EN": "AttackerZeroid #11",
+    "ModelNumber": "ACAM-AZR XI",
+    "ModelName_JP": "人形兵ゼロイド11号機(11番機)",
+    "ModelName_EN": "AttackerZeroid Unit.11 (Mk.11)",
+    "Belonging": [{ "Faction": "百花繚乱研究国際大使所" }],
+    "Class": ["繚乱准尉個体"],
+    "InStory_JP": "マスターテールズ9の代表",
+    "InStory_EN": "Representative of the MasterTales 9",
     "LogicspecStats": {
       "LogicspecAbout_JP": {
         "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
@@ -52,7 +202,1131 @@
     }
   },
   {
-    "Model": { "ModelSeries": "AttackerZeroid", "Num": 62 },
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 12, "Num_Badge": "12" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 12 }
+    ],
+    "Name_JP": "12(トウジ)",
+    "Name_EN": "12(Twelva)",
+    "FormalName_JP": "人形兵ゼロイド12番機",
+    "FormalName_EN": "AttackerZeroid #12",
+    "ModelNumber": "ACAM-AZR I+II",
+    "ModelName_JP": "人形兵ゼロイド1+2号機(12番機)",
+    "ModelName_EN": "AttackerZeroid Unit.1+2 (Mk.12)",
+    "Belonging": [
+      { "Faction": "百戦錬磨開発所" },
+      { "Faction": "デウスマキナ" }
+    ],
+    "Class": ["練磨第3小隊", "暴走オートマトン"],
+    "InStory_JP": "眼鏡を掛けていたが、暴走と同時に紛失しているとのこと",
+    "InStory_EN": "She wore glasses, but apparently lost them at the same time as the rampage",
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 13, "Num_Badge": "13" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 13 }
+    ],
+    "Name_JP": "13(トミ)",
+    "Name_EN": "13(Thirteena)",
+    "FormalName_JP": "人形兵ゼロイド13番機",
+    "FormalName_EN": "AttackerZeroid #13",
+    "ModelNumber": "ACAM-AZR I+III.A",
+    "ModelName_JP": "人形兵ゼロイド1+3号機甲(13番機)",
+    "ModelName_EN": "AttackerZeroid Unit.1+3.A (Mk.13)",
+    "Belonging": [{ "Faction": "百花繚乱研究国際大使所" }],
+    "Class": ["繚乱第4小隊", "エゴイストバスター"],
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 14, "Num_Badge": "14" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 14 }
+    ],
+    "Name_JP": "14(トヨ)",
+    "Name_EN": "14(Forteels)",
+    "FormalName_JP": "人形兵ゼロイド14番機",
+    "FormalName_EN": "AttackerZeroid #14",
+    "ModelNumber": "ACAM-AZR I+IV.A",
+    "ModelName_JP": "人形兵ゼロイド1+4号機甲(14番機)",
+    "ModelName_EN": "AttackerZeroid Unit.1+4.A (Mk.14)",
+    "Belonging": [{ "Faction": "百戦錬磨開発所" }],
+    "Class": ["練磨第5小隊"],
+    "InStory_JP": "「あまり活発に動けない」と、コアモード形態で道具として使用されることに不服があるようだ",
+    "InStory_EN": "She seems dissatisfied with being used as a tool in core-mode form, saying she cannot move very actively in that state",
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 15, "Num_Badge": "15" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 15 }
+    ],
+    "Name_JP": "15(トウゴ)",
+    "Name_EN": "15(Fifteeld)",
+    "FormalName_JP": "人形兵ゼロイド15番機",
+    "FormalName_EN": "AttackerZeroid #15",
+    "ModelNumber": "ACAM-AZR I+V",
+    "ModelName_JP": "人形兵ゼロイド1+5号機(15番機)",
+    "ModelName_EN": "AttackerZeroid Unit.1+5 (Mk.15)",
+    "Belonging": [{ "Faction": "百花繚乱研究国際大使所" }],
+    "Class": ["繚乱第6小隊", "エゴイストバスター"],
+    "InStory_JP": "特異個体「1+5型」のネーム機\n\"EGhOst\"に関する知識に長けているが……",
+    "InStory_EN": "A named unit of the singular \"Unit.1+5 type\".\nZe is well-versed in knowledge related to \"EGhOst\", but……",
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 16, "Num_Badge": "16" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 16 }
+    ],
+    "Name_JP": "16(ソロク)",
+    "Name_EN": "16(Sixteely)",
+    "FormalName_JP": "人形兵ゼロイド16番機",
+    "FormalName_EN": "AttackerZeroid #16",
+    "ModelNumber": "ACAM-AZR I+VI.A",
+    "ModelName_JP": "人形兵ゼロイド1+6号機甲(16番機)",
+    "ModelName_EN": "AttackerZeroid Unit.1+6.A (Mk.16)",
+    "Belonging": [{ "Faction": "百戦錬磨開発所" }],
+    "Class": ["練磨第7小隊"],
+    "InStory_JP": "軍事実績こそ然程ないものの、他の人形兵ゼロイドから尊敬されている",
+    "InStory_EN": "Though not yet heavily decorated with results, she is respected by other AttackerZeroids for her capabilities.",
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 17, "Num_Badge": "17" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 17 }
+    ],
+    "Name_JP": "17(トナ)",
+    "Name_EN": "17(Sevteena)",
+    "FormalName_JP": "人形兵ゼロイド17番機",
+    "FormalName_EN": "AttackerZeroid #17",
+    "ModelNumber": "ACAM-AZR I+VII.A",
+    "ModelName_JP": "人形兵ゼロイド1+7号機甲(17番機)",
+    "ModelName_EN": "AttackerZeroid Unit.1+7.A (Mk.17)",
+    "Belonging": [{ "Faction": "百花繚乱研究国際大使所" }],
+    "Class": ["繚乱第8小隊"],
+    "InStory_JP": "彼女を前に「貧乳」「男の娘」は禁句と言われている",
+    "InStory_EN": "In front of her, terms like \"flat-chested\" or \"feminine boy\" are said to be taboo.",
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 18, "Num_Badge": "18" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 18 }
+    ],
+    "Name_JP": "18(トウヤ)",
+    "Name_EN": "18(Eighteeld)",
+    "FormalName_JP": "人形兵ゼロイド18番機",
+    "FormalName_EN": "AttackerZeroid #18",
+    "ModelNumber": "ACAM-AZR I+VIII.A",
+    "ModelName_JP": "人形兵ゼロイド1+8号機甲(18番機)",
+    "ModelName_EN": "AttackerZeroid Unit.1+8.A (Mk.18)",
+    "Belonging": [{ "Faction": "百花繚乱研究国際大使所" }],
+    "Class": ["繚乱第9小隊"],
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 19, "Num_Badge": "19" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 19 }
+    ],
+    "Name_JP": "19(トク)",
+    "Name_EN": "19(Ninteels)",
+    "FormalName_JP": "人形兵ゼロイド19番機",
+    "FormalName_EN": "AttackerZeroid #19",
+    "ModelNumber": "ACAM-AZR I+IX.A",
+    "ModelName_JP": "人形兵ゼロイド1+9号機甲(19番機)",
+    "ModelName_EN": "AttackerZeroid Unit.1+9.A (Mk.19)",
+    "Belonging": [{ "Faction": "百戦錬磨開発所" }],
+    "Class": ["練磨補佐小隊"],
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 20, "Num_Badge": "20" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 20 }
+    ],
+    "Name_JP": "20(ハツカ)",
+    "Name_EN": "20(Twentia)",
+    "FormalName_JP": "人形兵ゼロイド20番機",
+    "FormalName_EN": "AttackerZeroid #20",
+    "ModelNumber": "ACAM-AZR II.R",
+    "ModelName_JP": "人形兵ゼロイド2号機改(20番機)",
+    "ModelName_EN": "AttackerZeroid Unit.2 Renovated (Mk.20)",
+    "Belonging": [{ "Faction": "百戦錬磨開発所" }],
+    "Class": ["練磨第0小隊"],
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 21, "Num_Badge": "21" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 21 }
+    ],
+    "Name_JP": "21(ハツヒ)",
+    "Name_EN": "21(Twinone)",
+    "FormalName_JP": "人形兵ゼロイド21番機",
+    "FormalName_EN": "AttackerZeroid #21",
+    "ModelNumber": "ACAM-AZR I+II.R",
+    "ModelName_JP": "人形兵ゼロイド1+2号機改(21番機)",
+    "ModelName_EN": "AttackerZeroid Unit.1+2 Renovated (Mk.21)",
+    "Belonging": [{ "Faction": "百花繚乱研究国際大使所" }],
+    "Class": ["繚乱第3小隊"],
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 22, "Num_Badge": "22" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 22 }
+    ],
+    "Name_JP": "22(フジ)",
+    "Name_EN": "22(Twin-twina)",
+    "FormalName_JP": "人形兵ゼロイド22番機",
+    "FormalName_EN": "AttackerZeroid #22",
+    "ModelNumber": "ACAM-AZR XI+XI",
+    "ModelName_JP": "人形兵ゼロイド11+11号機(22番機)",
+    "ModelName_EN": "AttackerZeroid Unit.11+11 (Mk.22)",
+    "Belonging": [
+      { "Faction": "百戦錬磨開発所" },
+      { "Faction": "デウスマキナ" }
+    ],
+    "Class": ["練磨准尉個体"],
+    "InStory_JP": "「11(トウイチ)」の後続機(妹個体)\n暴走していないにもかかわらず、デウスマキナに自ら加担しているように見えるが……",
+    "InStory_EN": "A successor unit (younger-sister model) to '11(Elevan)'\nDespite not being rampageous or out of control, she seems to be actively participating in DeusMakhina, however……",
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 23, "Num_Badge": "23" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 23 }
+    ],
+    "Name_JP": "23(ツグミ)",
+    "Name_EN": "23(Twinthery)",
+    "FormalName_JP": "人形兵ゼロイド23番機",
+    "FormalName_EN": "AttackerZeroid #23",
+    "ModelNumber": "ACAM-AZR II+III.A",
+    "ModelName_JP": "人形兵ゼロイド2+3号機甲(23番機)",
+    "ModelName_EN": "AttackerZeroid Unit.2+3.A (Mk.23)",
+    "Belonging": [{ "Faction": "百花繚乱研究国際大使所" }],
+    "Class": ["繚乱第5小隊"],
+    "InStory_JP": "偵察という口実であらぬ不況を招くことで知られている",
+    "InStory_EN": "She is known for causing unnecessary trouble under the pretext of reconnaissance",
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 24, "Num_Badge": "24" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 24 }
+    ],
+    "Name_JP": "24(フトシ)",
+    "Name_EN": "24(Hourds)",
+    "FormalName_JP": "人形兵ゼロイド24番機",
+    "FormalName_EN": "AttackerZeroid #24",
+    "ModelNumber": "ACAM-AZR II+IV.A",
+    "ModelName_JP": "人形兵ゼロイド2+4号機甲(24番機)",
+    "ModelName_EN": "AttackerZeroid Unit.2+4.A (Mk.24)",
+    "Belonging": [{ "Faction": "百花繚乱研究国際大使所" }],
+    "Class": ["繚乱第6小隊"],
+    "InStory_JP": "軍事実績は悪くないものの任務へ消極的な姿勢でいる（本当は戦うことは面白くないと理解している）",
+    "InStory_EN": "Her military performance is not bad, but she remains passive in her duties (in reality, she understands that fighting is not interesting)",
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 25, "Num_Badge": "25" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 25 }
+    ],
+    "Name_JP": "25(フィズ)",
+    "Name_EN": "25(Quartels)",
+    "FormalName_JP": "人形兵ゼロイド25番機",
+    "FormalName_EN": "AttackerZeroid #25",
+    "ModelNumber": "ACAM-AZR II+V",
+    "ModelName_JP": "人形兵ゼロイド2+5号機(25番機)",
+    "ModelName_EN": "AttackerZeroid Unit.2+5 (Mk.25)",
+    "Belonging": [{ "Faction": "百花繚乱研究国際大使所" }],
+    "Class": ["繚乱第7小隊", "エゴイストバスター"],
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 26, "Num_Badge": "26" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 26 }
+    ],
+    "Name_JP": "26(ニロク)",
+    "Name_EN": "26(Twinsix)",
+    "FormalName_JP": "人形兵ゼロイド26番機",
+    "FormalName_EN": "AttackerZeroid #26",
+    "ModelNumber": "ACAM-AZR II+VI.A",
+    "ModelName_JP": "人形兵ゼロイド2+6号機甲(26番機)",
+    "ModelName_EN": "AttackerZeroid Unit.2+6.A (Mk.26)",
+    "Belonging": [{ "Faction": "百戦錬磨開発所" }],
+    "Class": ["練磨第8小隊"],
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 27, "Num_Badge": "27" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 27 }
+    ],
+    "Name_JP": "27(ツギナ)",
+    "Name_EN": "27(Twißven)",
+    "FormalName_JP": "人形兵ゼロイド27番機",
+    "FormalName_EN": "AttackerZeroid #27",
+    "ModelNumber": "ACAM-AZR II+VII",
+    "ModelName_JP": "人形兵ゼロイド2+7号機(27番機)",
+    "ModelName_EN": "AttackerZeroid Unit.2+7 (Mk.27)",
+    "Belonging": [
+      { "Faction": "百花繚乱研究国際大使所" },
+      { "Faction": "デウスマキナ" }
+    ],
+    "Class": ["繚乱第9小隊", "暴走オートマトン"],
+    "InStory_JP": "「2+7型」のネーム機だが、暴走を受けて妹個体「72(ナフタ)」への軍事代替計画が進められている",
+    "InStory_EN": "A named unit of the 'Unit.2+7 type'; but due to a rampage incident, a military replacement plan involving the younger-sister unit '72(Sevtwína)' is underway.",
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 28, "Num_Badge": "28" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 28 }
+    ],
+    "Name_JP": "28(ニハチ)",
+    "Name_EN": "28(Tweighan)",
+    "FormalName_JP": "人形兵ゼロイド28番機",
+    "FormalName_EN": "AttackerZeroid #28",
+    "ModelNumber": "ACAM-AZR II+VIII.A",
+    "ModelName_JP": "人形兵ゼロイド2+8号機甲(28番機)",
+    "ModelName_EN": "AttackerZeroid Unit.2+8.A (Mk.28)",
+    "Belonging": [{ "Faction": "百戦錬磨開発所" }],
+    "Class": ["練磨補佐小隊"],
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 29, "Num_Badge": "29" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 29 }
+    ],
+    "Name_JP": "29(ニトク)",
+    "Name_EN": "29(Twenina)",
+    "FormalName_JP": "人形兵ゼロイド29番機",
+    "FormalName_EN": "AttackerZeroid #29",
+    "ModelNumber": "ACAM-AZR II+IX.A",
+    "ModelName_JP": "人形兵ゼロイド2+9号機甲(29番機)",
+    "ModelName_EN": "AttackerZeroid Unit.2+9.A (Mk.29)",
+    "Belonging": [
+      { "Faction": "ジャンクガレージ『六花陛下』" },
+      { "Faction": "百花繚乱研究国際大使所" },
+      { "Faction": "百戦錬磨開発所" }
+    ],
+    "Class": ["繚乱第2小隊", "練磨第2小隊"],
+    "InStory_JP": "故障により兵役が遅れた際に六花雙葉らジャンクガレージ『六花陛下』によって保護され、雙葉の提案により現在は百花繚乱研究所2大勢力の再統合のため秘密裡で両勢力に所属している。",
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 30, "Num_Badge": "30" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 30 }
+    ],
+    "Name_JP": "30(ミツト)",
+    "Name_EN": "30(Thirtens)",
+    "FormalName_JP": "人形兵ゼロイド30番機",
+    "FormalName_EN": "AttackerZeroid #30",
+    "ModelNumber": "ACAM-AZR [R]III",
+    "ModelName_JP": "人形兵ゼロイド改良型3号機(30番機)",
+    "ModelName_EN": "AttackerZeroid Renovated Type Unit.3 (Mk.30)",
+    "Belonging": [{ "Faction": "百戦錬磨開発所" }],
+    "Class": ["練磨第0小隊"],
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 31, "Num_Badge": "31" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 31 }
+    ],
+    "Name_JP": "31(ミツイ)",
+    "Name_EN": "31(Thirtone)",
+    "FormalName_JP": "人形兵ゼロイド31番機",
+    "FormalName_EN": "AttackerZeroid #31",
+    "ModelNumber": "ACAM-AZR I+III.B",
+    "ModelName_JP": "人形兵ゼロイド1+3号機乙(31番機)",
+    "ModelName_EN": "AttackerZeroid Unit.1+3.B (Mk.31)",
+    "Belonging": [{ "Faction": "百花繚乱研究国際大使所" }],
+    "Class": ["繚乱第4小隊"],
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 32, "Num_Badge": "32" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 32 }
+    ],
+    "Name_JP": "32(ミツギ)",
+    "Name_EN": "32(Thirtwis)",
+    "FormalName_JP": "人形兵ゼロイド32番機",
+    "FormalName_EN": "AttackerZeroid #32",
+    "ModelNumber": "ACAM-AZR II+III.B",
+    "ModelName_JP": "人形兵ゼロイド2+3号機乙(32番機)",
+    "ModelName_EN": "AttackerZeroid Unit.2+3.B (Mk.32)",
+    "Belonging": [{ "Faction": "百花繚乱研究国際大使所" }],
+    "Class": ["繚乱第5小隊"],
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 33, "Num_Badge": "33" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 33 }
+    ],
+    "Name_JP": "33(ミサ)",
+    "Name_EN": "33(Thirthrey)",
+    "FormalName_JP": "人形兵ゼロイド33番機",
+    "FormalName_EN": "AttackerZeroid #33",
+    "ModelNumber": "ACAM-AZR III+[R]III",
+    "ModelName_JP": "人形兵ゼロイド正規+改良型3号機(33番機)",
+    "ModelName_EN": "AttackerZeroid Standard+Renovated Type Unit.3 (Mk.33)",
+    "Belonging": [{ "Faction": "百花繚乱研究国際大使所" }],
+    "Class": ["繚乱准尉個体", "エゴイストバスター"],
+    "InStory_JP": "「全知全能」を名乗っているが実力は本物\nただしROSの弱点を突かれて玩ばれる一面も",
+    "InStory_EN": "Claims the title of \"omniscient and omnipotent\" — and the ability genuinely backs it up\nHowever, she also has a side where she is toyed with by those who exploit ROS's weaknesses",
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 34, "Num_Badge": "34" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 34 }
+    ],
+    "Name_JP": "34(サトシ)\nサンジ",
+    "Name_EN": "34(Thirfory)\nTroubleforcer",
+    "FormalName_JP": "人形兵ゼロイド34番機",
+    "FormalName_EN": "AttackerZeroid #34",
+    "ModelNumber": "ACAM-AZR III+IV.A",
+    "ModelName_JP": "人形兵ゼロイド3+4号機甲(34番機)",
+    "ModelName_EN": "AttackerZeroid Unit.3+4.A (Mk.34)",
+    "Belonging": [{ "Faction": "百戦錬磨開発所" }],
+    "Class": ["練磨第7小隊"],
+    "InStory_JP": "関西弁を真似たような口調で、ジャンクガレージ『六花陛下』に闇取引を持ち掛けることがある",
+    "InStory_EN": "Speaks in a tone that mimics the Kansai dialect and sometimes engages in black market dealings with the Junk Garage 'Majesty Rokka'",
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 35, "Num_Badge": "35" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 35 }
+    ],
+    "Name_JP": "35(サトコ)\n35(ミコ)",
+    "Name_EN": "35(Thirfivan)\n35(Míko)",
+    "FormalName_JP": "人形兵ゼロイド35番機",
+    "FormalName_EN": "AttackerZeroid #35",
+    "ModelNumber": "ACAM-AZR III+V.A",
+    "ModelName_JP": "人形兵ゼロイド3+5号機甲(35番機)",
+    "ModelName_EN": "AttackerZeroid Unit.3+5.A (Mk.35)",
+    "Belonging": [{ "Faction": "百花繚乱研究国際大使所" }],
+    "Class": ["繚乱第8小隊"],
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 36, "Num_Badge": "36" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 36 }
+    ],
+    "Name_JP": "36(ミトム)",
+    "Name_EN": "36(Trisixa)",
+    "FormalName_JP": "人形兵ゼロイド36番機",
+    "FormalName_EN": "AttackerZeroid #36",
+    "ModelNumber": "ACAM-AZR III+VI.A",
+    "ModelName_JP": "人形兵ゼロイド3+6号機甲(36番機)",
+    "ModelName_EN": "AttackerZeroid Unit.3+6.A (Mk.36)",
+    "Belonging": [{ "Faction": "百戦錬磨開発所" }],
+    "Class": ["練磨第9小隊"],
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 37, "Num_Badge": "37" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 37 }
+    ],
+    "Name_JP": "37(サナ)",
+    "Name_EN": "37(Trißven)",
+    "FormalName_JP": "人形兵ゼロイド37番機",
+    "FormalName_EN": "AttackerZeroid #37",
+    "ModelNumber": "ACAM-AZR III+VIII.A",
+    "ModelName_JP": "人形兵ゼロイド3+7号機甲(37番機)",
+    "ModelName_EN": "AttackerZeroid Unit.3+7.A (Mk.37)",
+    "Belonging": [{ "Faction": "百花繚乱研究国際大使所" }],
+    "Class": ["繚乱補佐小隊"],
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 38, "Num_Badge": "38" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 38 }
+    ],
+    "Name_JP": "38(サタハ)",
+    "Name_EN": "38(Threighas)",
+    "FormalName_JP": "人形兵ゼロイド38番機",
+    "FormalName_EN": "AttackerZeroid #38",
+    "ModelNumber": "ACAM-AZR III+VIII.A",
+    "ModelName_JP": "人形兵ゼロイド3+8号機甲(38番機)",
+    "ModelName_EN": "AttackerZeroid Unit.3+8.A (Mk.38)",
+    "Belonging": [{ "Faction": "百戦錬磨開発所" }],
+    "Class": ["練磨第2小隊"],
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 39, "Num_Badge": "39" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 39 }
+    ],
+    "Name_JP": "39(サク)",
+    "Name_EN": "39(Trenína)",
+    "FormalName_JP": "人形兵ゼロイド39番機",
+    "FormalName_EN": "AttackerZeroid #39",
+    "ModelNumber": "ACAM-AZR III+IX.A",
+    "ModelName_JP": "人形兵ゼロイド3+9号機甲(39番機)",
+    "ModelName_EN": "AttackerZeroid Unit.3+9.A (Mk.39)",
+    "Belonging": [{ "Faction": "百花繚乱研究国際大使所" }],
+    "Class": ["繚乱第3小隊", "エゴイストバスター"],
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 40, "Num_Badge": "40" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 40 }
+    ],
+    "Name_JP": "40(ヨソ)",
+    "Name_EN": "40(Fortty)",
+    "FormalName_JP": "人形兵ゼロイド40番機",
+    "FormalName_EN": "AttackerZeroid #40",
+    "ModelNumber": "ACAM-AZR [R]IV",
+    "ModelName_JP": "人形兵ゼロイド改良型4号機(40番機)",
+    "ModelName_EN": "AttackerZeroid Renovated Type Unit.4 (Mk.40)",
+    "Belonging": { "hideText": "？？？" },
+    "Class": ["エゴイストバスター"],
+    "InStory_JP": "百戦錬磨開発所の兵役を拒絶する形で独立行動しているが、暴走により制御が完全に失われているわけではないようだ。",
+    "InStory_EN": "Although ze has refused military service at the 100Battlers Dev. and acts independently, ze is not completely out of control despite the rampage.",
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 41, "Num_Badge": "41" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 41 }
+    ],
+    "Name_JP": "41(ヨソイチ)",
+    "Name_EN": "41(Forone)",
+    "FormalName_JP": "人形兵ゼロイド41番機",
+    "FormalName_EN": "AttackerZeroid #41",
+    "ModelNumber": "ACAM-AZR I+IV.B",
+    "ModelName_JP": "人形兵ゼロイド1+4号機乙(41番機)",
+    "ModelName_EN": "AttackerZeroid Unit.1+4.B (Mk.41)",
+    "Belonging": [{ "Faction": "百花繚乱研究国際大使所" }],
+    "Class": ["繚乱第5小隊", "エゴイストバスター"],
+    "InStory_JP": "コアモード形態については自ら身動きの取れない状況を挙って嫌う姉の「14(トヨ)」とは対称的に、身動きが取れずとも自発的な行動を強引に試みることがある（そのため道具として使役されている最中も勝手な制御を執ることも）。",
+    "InStory_EN": "In contrast to zir older sister '14(Forteels)', who absolutely hates being unable to move freely (such as in core-mode), ze tries to make the most of what ze can do even while immobilized — though since ze is clumsy, ze ends up stuck anyway.",
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 42, "Num_Badge": "42" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 42 }
+    ],
+    "Name_JP": "42(ヨツグ)",
+    "Name_EN": "42(Fortwis)",
+    "FormalName_JP": "人形兵ゼロイド42番機",
+    "FormalName_EN": "AttackerZeroid #42",
+    "ModelNumber": "ACAM-AZR II+IV.B",
+    "ModelName_JP": "人形兵ゼロイド2+4号機乙(42番機)",
+    "ModelName_EN": "AttackerZeroid Unit.2+4.B (Mk.42)",
+    "Belonging": [{ "Faction": "百戦錬磨開発所" }],
+    "Class": ["練磨第6小隊"],
+    "InStory_JP": "なぜかオートマトンに懐かれる",
+    "InStory_EN": "For some reason, she is liked by automatons.",
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 43, "Num_Badge": "43" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 43 }
+    ],
+    "Name_JP": "43(シトミ)",
+    "Name_EN": "43(Forthren)",
+    "FormalName_JP": "人形兵ゼロイド43番機",
+    "FormalName_EN": "AttackerZeroid #43",
+    "ModelNumber": "ACAM-AZR III+IV.B",
+    "ModelName_JP": "人形兵ゼロイド3+4号機乙(43番機)",
+    "ModelName_EN": "AttackerZeroid Unit.3+4.B (Mk.43)",
+    "Belonging": [{ "Faction": "百戦錬磨開発所" }],
+    "Class": ["練磨第7小隊"],
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 44, "Num_Badge": "44" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 44 }
+    ],
+    "Name_JP": "44(シトシ)",
+    "Name_EN": "44(Folfourn)",
+    "FormalName_JP": "人形兵ゼロイド44番機",
+    "FormalName_EN": "AttackerZeroid #44",
+    "ModelNumber": "ACAM-AZR IV+[R]IV",
+    "ModelName_JP": "人形兵ゼロイド正規+改良型4号機(44番機)",
+    "ModelName_EN": "AttackerZeroid Standard+Renovated Type Unit.4 (Mk.44)",
+    "Belonging": [
+      { "Faction": "百戦錬磨開発所" },
+      { "Faction": "デウスマキナ" }
+    ],
+    "Class": ["練磨准尉個体"],
+    "InStory_JP": "「22(フジ)」と同様に、暴走していないにもかかわらずデウスマキナへ加担しているように見えるが……",
+    "InStory_EN": "Similar to '22(Twin-twina)', despite not being rampageous, she seems to be siding with DeusMakhina.",
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 45, "Num_Badge": "45" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 45 }
+    ],
+    "Name_JP": "45(シゴ)",
+    "Name_EN": "45(Folfivas)",
+    "FormalName_JP": "人形兵ゼロイド45番機",
+    "FormalName_EN": "AttackerZeroid #45",
+    "ModelNumber": "ACAM-AZR IV+V.A",
+    "ModelName_JP": "人形兵ゼロイド4+5号機甲(45番機)",
+    "ModelName_EN": "AttackerZeroid Unit.4+5.A (Mk.45)",
+    "Belonging": [{ "Faction": "百花繚乱研究国際大使所" }],
+    "Class": ["繚乱第9小隊"],
+    "InStory_JP": "軍事よりも事務案件で活躍している",
+    "InStory_EN": "Ze is more active in administrative matters than in military ones.",
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 46, "Num_Badge": "46" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 46 }
+    ],
+    "Name_JP": "46(シロー)",
+    "Name_EN": "46(Forsixen)",
+    "FormalName_JP": "人形兵ゼロイド46番機",
+    "FormalName_EN": "AttackerZeroid #46",
+    "ModelNumber": "ACAM-AZR IV+VI.A",
+    "ModelName_JP": "人形兵ゼロイド4+6号機甲(46番機)",
+    "ModelName_EN": "AttackerZeroid Unit.4+6.A (Mk.46)",
+    "Belonging": [{ "Faction": "百戦錬磨開発所" }],
+    "Class": ["練磨補佐小隊"],
+    "InStory_JP": "特殊個体「4+6型」の一人\n軍事実績が乏しく問題行動も見られている",
+    "InStory_EN": "One of the special \"4+6 type\" units\nLacking in military achievements and exhibiting problematic behavior",
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 47, "Num_Badge": "47" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 47 }
+    ],
+    "Name_JP": "47(シナ)",
+    "Name_EN": "47(Fourséve)",
+    "FormalName_JP": "人形兵ゼロイド47番機",
+    "FormalName_EN": "AttackerZeroid #47",
+    "ModelNumber": "ACAM-AZR IV+VII.A",
+    "ModelName_JP": "人形兵ゼロイド4+7号機甲(47番機)",
+    "ModelName_EN": "AttackerZeroid Unit.4+7.A (Mk.47)",
+    "Belonging": [{ "Faction": "百戦錬磨開発所" }],
+    "Class": ["練磨第2小隊"],
+    "InStory_JP": "特異個体「4+7型」の一人。応援は通じるが、ロジカの認知については話が嚙み合わない傾向にある",
+    "InStory_EN": "One of the unique \"Unit.4+7 type\" units. Encouragement gets through, but conversations about Logicspec perception tend to be at cross-purposes",
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 48, "Num_Badge": "48" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 48 }
+    ],
+    "Name_JP": "48(シハチ)",
+    "Name_EN": "48(Foreighn)",
+    "FormalName_JP": "人形兵ゼロイド48番機",
+    "FormalName_EN": "AttackerZeroid #48",
+    "ModelNumber": "ACAM-AZR IV+VIII.A",
+    "ModelName_JP": "人形兵ゼロイド4+8号機甲(48番機)",
+    "ModelName_EN": "AttackerZeroid Unit.4+8.A (Mk.48)",
+    "Belonging": [{ "Faction": "百花繚乱研究国際大使所" }],
+    "Class": ["繚乱第3小隊"],
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 49, "Num_Badge": "49" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 49 }
+    ],
+    "Name_JP": "49(ヨチカ)",
+    "Name_EN": "49(Fornins)",
+    "FormalName_JP": "人形兵ゼロイド49番機",
+    "FormalName_EN": "AttackerZeroid #49",
+    "ModelNumber": "ACAM-AZR IV+IX.A",
+    "ModelName_JP": "人形兵ゼロイド4+9号機甲(49番機)",
+    "ModelName_EN": "AttackerZeroid Unit.4+9.A (Mk.49)",
+    "Belonging": [{ "Faction": "百戦錬磨開発所" }],
+    "Class": ["練磨第4小隊"],
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 50, "Num_Badge": "50" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 50 }
+    ],
+    "Name_JP": "50(ナカバ)",
+    "Name_EN": "50(Halvan)",
+    "FormalName_JP": "人形兵ゼロイド50番機",
+    "FormalName_EN": "AttackerZeroid #50",
+    "ModelNumber": "ACAM-AZR [R]V",
+    "ModelName_JP": "人形兵ゼロイド改良型5号機(50番機)",
+    "ModelName_EN": "AttackerZeroid Renovated Type Unit.5 (Mk.50)",
+    "Belonging": { "hideText": "？？？" },
+    "Class": ["エゴイストバスター"],
+    "InStory_JP": "百戦錬磨開発所の兵役を拒絶する形で独立行動しているが、暴走により制御が完全に失われているわけではないようだ。\nコアモード形態への変形が誤作動しやすい",
+    "InStory_EN": "Although ze has refused military service at the 100Battlers Dev. and acts independently, ze is not completely out of control despite the rampage.\nProne to malfunctions when transforming into core-mode",
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 51, "Num_Badge": "51" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 51 }
+    ],
+    "Name_JP": "51(イソイチ)",
+    "Name_EN": "51(Fivone)",
+    "FormalName_JP": "人形兵ゼロイド51番機",
+    "FormalName_EN": "AttackerZeroid #51",
+    "ModelNumber": "ACAM-AZR I+V.R",
+    "ModelName_JP": "人形兵ゼロイド1+5号機改(51番機)",
+    "ModelName_EN": "AttackerZeroid Unit.1+5 Renovated (Mk.51)",
+    "Belonging": [{ "Faction": "百戦錬磨開発所" }],
+    "Class": ["練磨第6小隊"],
+    "InStory_JP": "特異個体「1+5型」の安定最適化版だが……",
+    "InStory_EN": "The stably optimized version of the unique \"Unit.1+5 type\" units, but...",
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 52, "Num_Badge": "52" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 52 }
+    ],
+    "Name_JP": "52(イツギ)",
+    "Name_EN": "52(Fiftwis)",
+    "FormalName_JP": "人形兵ゼロイド52番機",
+    "FormalName_EN": "AttackerZeroid #52",
+    "ModelNumber": "ACAM-AZR II+V.ALT",
+    "ModelName_JP": "人形兵ゼロイド2+5号機代替版(52番機)",
+    "ModelName_EN": "AttackerZeroid Unit.2+5 Alternated (Mk.52)",
+    "Belonging": [{ "Faction": "百花繚乱研究国際大使所" }],
+    "Class": ["繚乱第7小隊"],
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 53, "Num_Badge": "53" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 53 }
+    ],
+    "Name_JP": "53(イツゾウ)",
+    "Name_EN": "53(Fifthren)",
+    "FormalName_JP": "人形兵ゼロイド53番機",
+    "FormalName_EN": "AttackerZeroid #53",
+    "ModelNumber": "ACAM-AZR III+V.B",
+    "ModelName_JP": "人形兵ゼロイド3+5号機乙(53番機)",
+    "ModelName_EN": "AttackerZeroid Unit.3+5.B (Mk.53)",
+    "Belonging": [{ "Faction": "百戦錬磨開発所" }],
+    "Class": ["練磨第8小隊"],
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 54, "Num_Badge": "54" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 54 }
+    ],
+    "Name_JP": "54(イツヨ)",
+    "Name_EN": "54(Fiforn)",
+    "FormalName_JP": "人形兵ゼロイド54番機",
+    "FormalName_EN": "AttackerZeroid #54",
+    "ModelNumber": "ACAM-AZR IV+V.B",
+    "ModelName_JP": "人形兵ゼロイド4+5号機乙(54番機)",
+    "ModelName_EN": "AttackerZeroid Unit.4+5.B (Mk.54)",
+    "Belonging": [
+      { "Faction": "百戦錬磨開発所" },
+      { "Faction": "デウスマキナ" }
+    ],
+    "Class": ["練磨第9小隊", "暴走オートマトン"],
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 55, "Num_Badge": "55" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 55 }
+    ],
+    "Name_JP": "55(イソゴ)",
+    "Name_EN": "55(Fifívan)",
+    "FormalName_JP": "人形兵ゼロイド55番機",
+    "FormalName_EN": "AttackerZeroid #55",
+    "ModelNumber": "ACAM-AZR V+[R]V",
+    "ModelName_JP": "人形兵ゼロイド正規+改良型5号機(55番機)",
+    "ModelName_EN": "AttackerZeroid Standard+Renovated Type Unit.5 (Mk.55)",
+    "Belonging": [{ "Faction": "百戦錬磨開発所" }],
+    "Class": ["練磨准尉個体"],
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 56, "Num_Badge": "56" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 56 }
+    ],
+    "Name_JP": "56(イソロク)",
+    "Name_EN": "56(Fivsix)",
+    "FormalName_JP": "人形兵ゼロイド56番機",
+    "FormalName_EN": "AttackerZeroid #56",
+    "ModelNumber": "ACAM-AZR V+VI.A",
+    "ModelName_JP": "人形兵ゼロイド5+6号機甲(56番機)",
+    "ModelName_EN": "AttackerZeroid Unit.5+6.A (Mk.56)",
+    "Belonging": [{ "Faction": "百戦錬磨開発所" }],
+    "Class": ["練磨第2小隊"],
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 57, "Num_Badge": "57" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 57 }
+    ],
+    "Name_JP": "57(イズナ)",
+    "Name_EN": "57(Fivens)",
+    "FormalName_JP": "人形兵ゼロイド57番機",
+    "FormalName_EN": "AttackerZeroid #57",
+    "ModelNumber": "ACAM-AZR V+VII.A",
+    "ModelName_JP": "人形兵ゼロイド5+7号機甲(57番機)",
+    "ModelName_EN": "AttackerZeroid Unit.5+7.A (Mk.57)",
+    "Belonging": [{ "Faction": "百花繚乱研究国際大使所" }],
+    "Class": ["繚乱第3小隊"],
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 58, "Num_Badge": "58" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 58 }
+    ],
+    "Name_JP": "58(イソヤ)",
+    "Name_EN": "58(Fiveighs)",
+    "FormalName_JP": "人形兵ゼロイド58番機",
+    "FormalName_EN": "AttackerZeroid #58",
+    "ModelNumber": "ACAM-AZR V+VIII.A",
+    "ModelName_JP": "人形兵ゼロイド5+8号機甲(58番機)",
+    "ModelName_EN": "AttackerZeroid Unit.5+8.A (Mk.58)",
+    "Belonging": [{ "Faction": "百花繚乱研究国際大使所" }],
+    "Class": ["繚乱第4小隊"],
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 59, "Num_Badge": "59" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 59 }
+    ],
+    "Name_JP": "59(イヅク)",
+    "Name_EN": "59(Fivenint)",
+    "FormalName_JP": "人形兵ゼロイド59番機",
+    "FormalName_EN": "AttackerZeroid #59",
+    "ModelNumber": "ACAM-AZR V+IX.A",
+    "ModelName_JP": "人形兵ゼロイド5+9号機甲(59番機)",
+    "ModelName_EN": "AttackerZeroid Unit.5+9.A (Mk.59)",
+    "Belonging": [{ "Faction": "百戦錬磨開発所" }],
+    "Class": ["練磨第5小隊"],
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 60, "Num_Badge": "60" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 60 }
+    ],
+    "Name_JP": "60(ムソウ)",
+    "Name_EN": "60(Sixtina)",
+    "FormalName_JP": "人形兵ゼロイド60番機",
+    "FormalName_EN": "AttackerZeroid #60",
+    "ModelNumber": "ACAM-AZR [R]VI",
+    "ModelName_JP": "人形兵ゼロイド改良型6号機(60番機)",
+    "ModelName_EN": "AttackerZeroid Renovated Type Unit.6(Mk.60)",
+    "Belonging": [{ "Faction": "百戦錬磨開発所" }],
+    "Class": ["練磨第0小隊"],
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 61, "Num_Badge": "61" },
+    "Progress": "nowCreating",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 61 }
+    ],
+    "Name_JP": "61(ロクイチ)\n61(ロイ)",
+    "Name_EN": "61(Síxone)\n61(Síon)",
+    "Images": { "concept_PNGName": "cnsp_imgUAL-Z61" },
+    "FormalName_JP": "人形兵ゼロイド61番機",
+    "FormalName_EN": "AttackerZeroid #61",
+    "ModelNumber": "ACAM-AZR I+VI.B",
+    "ModelName_JP": "人形兵ゼロイド1+6号機乙(61番機)",
+    "ModelName_EN": "AttackerZeroid Unit.1+6.B (Mk.61)",
+    "Belonging": [
+      { "Faction": "百花繚乱研究国際大使所" },
+      { "Faction": "ジャンクガレージ『六花陛下』" }
+    ],
+    "Class": ["繚乱第7小隊"],
+    "Hobby_JP": "ご奉仕？",
+    "Hobby_EN": "Service?",
+    "SpecialSkill_JP": "愛嬌を振り撒く",
+    "SpecialSkill_EN": "Being full of charm",
+    "Favor_JP": "ファンタジー漫画",
+    "Favor_EN": "Fantasy manga",
+    "Unlike_JP": "害虫",
+    "Unlike_EN": "Pest insects",
+    "InStory_JP": "デウスマキナに兵役パッチを付与されてしまい暴走してしまったところを偶然 九蓮国に訪れたクィーン-トゥエルヴに救われ、見事に懐いてしまったことから六花雙葉/クィーン-トゥエルヴらジャンクガレージに棲み着いている",
+    "InStory_EN": "After being fitted with a military-service patch by DeusMakhina and going berserk, it was rescued by chance by Queen.XII, who happened to be visiting LotusNinea — and having taken an immediate liking to her, it now lives in the JunkGarage 'Majesty Rokka' alongside Dozenne Hexacrys / Queen.XII and her crew",
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 62, "Num_Badge": "62" },
     "Progress": "notProceeded",
     "AnotherRegions_DBLink": [
       { "_Work": "NumberTales", "_DB": "Primary", "Num": 62 }
@@ -66,6 +1340,15 @@
       { "Faction": "百戦錬磨開発所" },
       { "Faction": "ジャンクガレージ『六花陛下』" }
     ],
+    "Class": ["練磨第8小隊"],
+    "Hobby_JP": "工芸品",
+    "Hobby_EN": "Crafts",
+    "SpecialSkill_JP": "バリアフリー",
+    "SpecialSkill_EN": "Things accessible (barrier-free adaptation)",
+    "Favor_JP": "女性をモチーフにしたもの",
+    "Favor_EN": "Things themed around femininity",
+    "Unlike_JP": "実用性のない改造",
+    "Unlike_EN": "Modifications with no practical value",
     "InStory_JP": "百戦錬磨開発所として兵役中に遭難してしまっただけでなくパーツエンストを起こしてしまったところを六花雙葉/クィーン-トゥエルヴに拾われ、助けられた御恩に報いるべく（百戦錬磨開発所を裏切ってでも）ジャンクガレージに協力している",
     "InStory_EN": "On active military duty under HundredBattlers Development, it not only ended up stranded but also suffered a parts-failure shutdown — and was taken in by Dozenne Hexacrys / Queen.XII. In gratitude for being rescued, it now cooperates with the JunkGarage (even at the cost of betraying HundredBattlers Development)",
     "LogicspecStats": {
@@ -75,7 +1358,844 @@
     }
   },
   {
-    "Model": { "ModelSeries": "AttackerZeroid", "Num": "10-alt" },
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 63, "Num_Badge": "63" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 63 }
+    ],
+    "Name_JP": "63(ムツミ)",
+    "Name_EN": "63(Sicthrey)",
+    "FormalName_JP": "人形兵ゼロイド63番機",
+    "FormalName_EN": "AttackerZeroid #63",
+    "ModelNumber": "ACAM-AZR III+VI.B",
+    "ModelName_JP": "人形兵ゼロイド3+6号機乙(63番機)",
+    "ModelName_EN": "AttackerZeroid Unit.3+6.B (Mk.63)",
+    "Belonging": [{ "Faction": "百花繚乱研究国際大使所" }],
+    "Class": ["繚乱第9小隊"],
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 64, "Num_Badge": "64" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 64 }
+    ],
+    "Name_JP": "64(ムトシ)",
+    "Name_EN": "64(Sixforns)",
+    "FormalName_JP": "人形兵ゼロイド64番機",
+    "FormalName_EN": "AttackerZeroid #64",
+    "ModelNumber": "ACAM-AZR IV+VI.B",
+    "ModelName_JP": "人形兵ゼロイド4+6号機乙(64番機)",
+    "ModelName_EN": "AttackerZeroid Unit.4+6.B (Mk.64)",
+    "Belonging": [
+      { "Faction": "百戦錬磨開発所" },
+      { "Faction": "デウスマキナ" }
+    ],
+    "Class": ["練磨補佐小隊", "暴走オートマトン"],
+    "InStory_JP": "特殊個体「4+6型」の一人で問題児\n兵役前から暴走により事実上の迫害を受け、「デウスマキナ」へ尻に敷かれる形で従属している。",
+    "InStory_EN": "One of the \"Unit.4+6 type\" special units — and a problem child\nEffectively persecuted due to rampages before military service, it ends up being subjugated under DeusMakhina.",
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 65, "Num_Badge": "65" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 65 }
+    ],
+    "Name_JP": "65(ロクゴ)",
+    "Name_EN": "65(Sixfivie)",
+    "FormalName_JP": "人形兵ゼロイド65番機",
+    "FormalName_EN": "AttackerZeroid #65",
+    "ModelNumber": "ACAM-AZR V+VI.B",
+    "ModelName_JP": "人形兵ゼロイド5+6号機乙(65番機)",
+    "ModelName_EN": "AttackerZeroid Unit.5+6.B (Mk.65)",
+    "Belonging": [{ "Faction": "百花繚乱研究国際大使所" }],
+    "Class": ["繚乱第2小隊"],
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 66, "Num_Badge": "66" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 66 }
+    ],
+    "Name_JP": "66(ムロク)",
+    "Name_EN": "66(Sixis)",
+    "FormalName_JP": "人形兵ゼロイド66番機",
+    "FormalName_EN": "AttackerZeroid #66",
+    "ModelNumber": "ACAM-AZR VI+[R]VI",
+    "ModelName_JP": "人形兵ゼロイド正規+改良型6号機(66番機)",
+    "ModelName_EN": "AttackerZeroid Standard+Renovated Type Unit.6 (Mk.66)",
+    "Belonging": [{ "Faction": "百戦錬磨開発所" }],
+    "Class": ["練磨准尉個体"],
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 67, "Num_Badge": "67" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 67 }
+    ],
+    "Name_JP": "67(ムナ)",
+    "Name_EN": "67(Sicsevan)",
+    "FormalName_JP": "人形兵ゼロイド67番機",
+    "FormalName_EN": "AttackerZeroid #67",
+    "ModelNumber": "ACAM-AZR VI+VII",
+    "ModelName_JP": "人形兵ゼロイド6+7号機甲(67番機)",
+    "ModelName_EN": "AttackerZeroid Unit.6+7(Mk.67)",
+    "Belonging": [{ "Faction": "百花繚乱研究国際大使所" }],
+    "Class": ["繚乱第4小隊"],
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 68, "Num_Badge": "68" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 68 }
+    ],
+    "Name_JP": "68(ロクヤ)",
+    "Name_EN": "68(Siceighns)",
+    "FormalName_JP": "人形兵ゼロイド68番機",
+    "FormalName_EN": "AttackerZeroid #68",
+    "ModelNumber": "ACAM-AZR VI+VIII.A",
+    "ModelName_JP": "人形兵ゼロイド6+8号機甲(68番機)",
+    "ModelName_EN": "AttackerZeroid Unit.6+8.A (Mk.68)",
+    "Belonging": [{ "Faction": "百花繚乱研究国際大使所" }],
+    "Class": ["繚乱第5小隊", "エゴイストバスター"],
+    "InStory_JP": "人形兵ゼロイドの掃除担当？",
+    "InStory_EN": "The cleaning unit of AttackerZeroid?",
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 69, "Num_Badge": "69" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 69 }
+    ],
+    "Name_JP": "69(ロック)",
+    "Name_EN": "69(Signine)",
+    "FormalName_JP": "人形兵ゼロイド69番機",
+    "FormalName_EN": "AttackerZeroid #69",
+    "ModelNumber": "ACAM-AZR VI+IX",
+    "ModelName_JP": "人形兵ゼロイド6+9号機(69番機)",
+    "ModelName_EN": "AttackerZeroid Unit.6+9 (Mk.69)",
+    "Belonging": [{ "Faction": "百戦錬磨開発所" }],
+    "Class": ["練磨第6小隊"],
+    "InStory_JP": "特殊個体「6+9型」のネーム版\n自我の脆弱性を心配がられることもしばしば",
+    "InStory_EN": "The named version of the \"Unit.6+9 type\" special unit\nPeople often worry whether he's ego-stability fragile",
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 70, "Num_Badge": "70" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 70 }
+    ],
+    "Name_JP": "70(ナナト)",
+    "Name_EN": "70(Seventia)",
+    "FormalName_JP": "人形兵ゼロイド70番機",
+    "FormalName_EN": "AttackerZeroid #70",
+    "ModelNumber": "ACAM-AZR [R]VII",
+    "ModelName_JP": "人形兵ゼロイド改良型7号機(70番機)",
+    "ModelName_EN": "AttackerZeroid Renovated Type Unit.7 (Mk.70)",
+    "Belonging": [{ "Faction": "百戦錬磨開発所" }],
+    "Class": ["練磨第0小隊"],
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 71, "Num_Badge": "71" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 71 }
+    ],
+    "Name_JP": "71(ナナヒ)",
+    "Name_EN": "71(Sevone)",
+    "FormalName_JP": "人形兵ゼロイド71番機",
+    "FormalName_EN": "AttackerZeroid #71",
+    "ModelNumber": "ACAM-AZR I+VII.B",
+    "ModelName_JP": "人形兵ゼロイド1+7号機乙(71番機)",
+    "ModelName_EN": "AttackerZeroid Unit.1+7.B (Mk.71)",
+    "Belonging": [{ "Faction": "百戦錬磨開発所" }],
+    "Class": ["練磨第8小隊"],
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 72, "Num_Badge": "72" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 72 }
+    ],
+    "Name_JP": "72(ナフタ)",
+    "Name_EN": "72(Sevtwína)",
+    "FormalName_JP": "人形兵ゼロイド72番機",
+    "FormalName_EN": "AttackerZeroid #72",
+    "ModelNumber": "ACAM-AZR II+VII.R",
+    "ModelName_JP": "人形兵ゼロイド2+7号機改良版(72番機)",
+    "ModelName_EN": "AttackerZeroid Unit.2+7 Renovated (Mk.72)",
+    "Belonging": [{ "Faction": "百戦錬磨開発所" }],
+    "Class": ["練磨第9小隊"],
+    "InStory_JP": "姉個体「27(ツギナ)」の問題を受け人格の制限が掛かっていると噂されている",
+    "InStory_EN": "Rumors suggest that zir individuality is being restricted due to the issues of zir elder unit \"27(Twißven)\"",
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 73, "Num_Badge": "73" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 73 }
+    ],
+    "Name_JP": "73(ナトミ)",
+    "Name_EN": "73(Sevthira)",
+    "FormalName_JP": "人形兵ゼロイド73番機",
+    "FormalName_EN": "AttackerZeroid #73",
+    "ModelNumber": "ACAM-AZR III+VII.B",
+    "ModelName_JP": "人形兵ゼロイド3+7号機乙(73番機)",
+    "ModelName_EN": "AttackerZeroid Unit.3+7.B (Mk.73)",
+    "Belonging": [{ "Faction": "百花繚乱研究国際大使所" }],
+    "Class": ["繚乱補佐小隊"],
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 74, "Num_Badge": "74" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 74 }
+    ],
+    "Name_JP": "74(ナナヨ)",
+    "Name_EN": "74(Sefoury)",
+    "FormalName_JP": "人形兵ゼロイド74番機",
+    "FormalName_EN": "AttackerZeroid #74",
+    "ModelNumber": "ACAM-AZR IV+VII.B",
+    "ModelName_JP": "人形兵ゼロイド4+7号機乙(74番機)",
+    "ModelName_EN": "AttackerZeroid Unit.4+7.B (Mk.74)",
+    "Belonging": [{ "Faction": "百戦錬磨開発所" }],
+    "Class": ["練磨第2小隊"],
+    "InStory_JP": "特異個体「4+7型」の一人",
+    "InStory_EN": "One of the unique entities: Unit.4+7 type",
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 75, "Num_Badge": "75" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 75 }
+    ],
+    "Name_JP": "75(シチゴ)",
+    "Name_EN": "75(Sefievn)",
+    "FormalName_JP": "人形兵ゼロイド75番機",
+    "FormalName_EN": "AttackerZeroid #75",
+    "ModelNumber": "ACAM-AZR V+VII.B",
+    "ModelName_JP": "人形兵ゼロイド5+7号機乙(75番機)",
+    "ModelName_EN": "AttackerZeroid Unit.5+7.B (Mk.75)",
+    "Belonging": [{ "Faction": "百花繚乱研究国際大使所" }],
+    "Class": ["繚乱第3小隊"],
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 76, "Num_Badge": "76" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 76 }
+    ],
+    "Name_JP": "76(シチロク)",
+    "Name_EN": "76(Sevsix)",
+    "FormalName_JP": "人形兵ゼロイド76番機",
+    "FormalName_EN": "AttackerZeroid #76",
+    "ModelNumber": "ACAM-AZR VI+VII.B",
+    "ModelName_JP": "人形兵ゼロイド6+7号機乙(76番機)",
+    "ModelName_EN": "AttackerZeroid Unit.6+7.B (Mk.76)",
+    "Belonging": [{ "Faction": "百戦錬磨開発所" }],
+    "Class": ["練磨第4小隊"],
+    "InStory_JP": "知識への執着が強い余り変人に見られている",
+    "InStory_EN": "Her intense attachment to knowledge makes her come across as an eccentric.",
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 77, "Num_Badge": "77" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 77 }
+    ],
+    "Name_JP": "77(ナヅナ)",
+    "Name_EN": "77(Sefvens)",
+    "FormalName_JP": "人形兵ゼロイド77番機",
+    "FormalName_EN": "AttackerZeroid #77",
+    "ModelNumber": "ACAM-AZR VII+[R]VII",
+    "ModelName_JP": "人形兵ゼロイド正規+改良型7号機(77番機)",
+    "ModelName_EN": "AttackerZeroid Standard+Renovated Type Unit.7 (Mk.77)",
+    "Belonging": [{ "Faction": "百花繚乱研究国際大使所" }],
+    "Class": ["繚乱准尉個体"],
+    "InStory_JP": "あだ名が独特\n軍事実績も今後伸びしろがあると評され、上官から期待を受けている",
+    "InStory_EN": "Known for zir unique way of assigning nicknames\nZir military track record is expected to grow further, and ze is receiving high expectations from zir superiors.",
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 78, "Num_Badge": "78" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 78 }
+    ],
+    "Name_JP": "78(ナナハ)",
+    "Name_EN": "78(Seveights)",
+    "FormalName_JP": "人形兵ゼロイド78番機",
+    "FormalName_EN": "AttackerZeroid #78",
+    "ModelNumber": "ACAM-AZR VII+VIII.A",
+    "ModelName_JP": "人形兵ゼロイド7+8号機甲(78番機)",
+    "ModelName_EN": "AttackerZeroid Unit.7+8.A (Mk.78)",
+    "Belonging": [
+      { "Faction": "百花繚乱研究国際大使所" },
+      { "Faction": "シンフォニー.X(ツェーン)" }
+    ],
+    "Class": [
+      "繚乱第6小隊",
+      "エゴイストバスター",
+      "XVI対策本部(シンフォニー.X)"
+    ],
+    "InStory_JP": "宗教科学者のように疑われがち",
+    "InStory_EN": "Often mistaken for a kind of religious scientist and met with suspicion",
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 79, "Num_Badge": "79" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 79 }
+    ],
+    "Name_JP": "79(ナチカ)",
+    "Name_EN": "79(Sevenina)",
+    "FormalName_JP": "人形兵ゼロイド79番機",
+    "FormalName_EN": "AttackerZeroid #79",
+    "ModelNumber": "ACAM-AZR VII+IX.A",
+    "ModelName_JP": "人形兵ゼロイド7+9号機甲(79番機)",
+    "ModelName_EN": "AttackerZeroid Unit.7+9.A (Mk.79)",
+    "Belonging": [{ "Faction": "百戦錬磨開発所" }],
+    "Class": ["練磨第7小隊"],
+    "InStory_JP": "宗教勧誘者のように疑われがち",
+    "InStory_EN": "Often mistaken for a religious recruiter and met with suspicion"
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 80, "Num_Badge": "80" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 80 }
+    ],
+    "Name_JP": "80(ヤソ)",
+    "Name_EN": "80(Eightis)",
+    "FormalName_JP": "人形兵ゼロイド80番機",
+    "FormalName_EN": "AttackerZeroid #80",
+    "ModelNumber": "ACAM-AZR [R]VIII",
+    "ModelName_JP": "人形兵ゼロイド改良型8号機(80番機)",
+    "ModelName_EN": "AttackerZeroid Renovated Type Unit.8 (Mk.80)",
+    "Belonging": [{ "Faction": "百戦錬磨開発所" }],
+    "Class": ["練磨第0小隊"],
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 81, "Num_Badge": "81" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 81 }
+    ],
+    "Name_JP": "81(ヤイチ)",
+    "Name_EN": "81(Eightone)",
+    "FormalName_JP": "人形兵ゼロイド81番機",
+    "FormalName_EN": "AttackerZeroid #81",
+    "ModelNumber": "ACAM-AZR I+VIII.B",
+    "ModelName_JP": "人形兵ゼロイド1+8号機乙(81番機)",
+    "ModelName_EN": "AttackerZeroid Unit.1+8.B (Mk.81)",
+    "Belonging": [{ "Faction": "百花繚乱研究国際大使所" }],
+    "Class": ["繚乱第9小隊"],
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 82, "Num_Badge": "82" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 82 }
+    ],
+    "Name_JP": "82(ヤソジ)",
+    "Name_EN": "82(Eightwis)",
+    "FormalName_JP": "人形兵ゼロイド82番機",
+    "FormalName_EN": "AttackerZeroid #82",
+    "ModelNumber": "ACAM-AZR II+VIII.B",
+    "ModelName_JP": "人形兵ゼロイド2+8号機乙(82番機)",
+    "ModelName_EN": "AttackerZeroid Unit.2+8.B (Mk.82)",
+    "Belonging": [{ "Faction": "百花繚乱研究国際大使所" }],
+    "Class": ["繚乱補佐小隊"],
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 83, "Num_Badge": "83" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 83 }
+    ],
+    "Name_JP": "83(ハチゾウ)",
+    "Name_EN": "83(Eightrien)",
+    "FormalName_JP": "人形兵ゼロイド83番機",
+    "FormalName_EN": "AttackerZeroid #83",
+    "ModelNumber": "ACAM-AZR III+VIII.B",
+    "ModelName_JP": "人形兵ゼロイド3+8号機乙(83番機)",
+    "ModelName_EN": "AttackerZeroid Unit.3+8.B (Mk.83)",
+    "Belonging": [{ "Faction": "百花繚乱研究国際大使所" }],
+    "Class": ["繚乱第2小隊"],
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 84, "Num_Badge": "84" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 84 }
+    ],
+    "Name_JP": "84(ヤツヨ)",
+    "Name_EN": "84(Eightifort)",
+    "FormalName_JP": "人形兵ゼロイド84番機",
+    "FormalName_EN": "AttackerZeroid #84",
+    "ModelNumber": "ACAM-AZR IV+VIII.B",
+    "ModelName_JP": "人形兵ゼロイド4+8号機乙(84番機)",
+    "ModelName_EN": "AttackerZeroid Unit.4+8.B (Mk.84)",
+    "Belonging": [{ "Faction": "百戦錬磨開発所" }],
+    "Class": ["練磨第3小隊"],
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 85, "Num_Badge": "85" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 85 }
+    ],
+    "Name_JP": "85(ハッコ)\n85(パコ)",
+    "Name_EN": "85(Eightifie)\n85(Eigfie)",
+    "FormalName_JP": "人形兵ゼロイド85番機",
+    "FormalName_EN": "AttackerZeroid #85",
+    "ModelNumber": "ACAM-AZR V+VIII.B",
+    "ModelName_JP": "人形兵ゼロイド5+8号機乙(85番機)",
+    "ModelName_EN": "AttackerZeroid Unit.5+8.B (Mk.85)",
+    "Belonging": [{ "Faction": "百花繚乱研究国際大使所" }],
+    "Class": ["繚乱第4小隊"],
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 86, "Num_Badge": "86" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 86 }
+    ],
+    "Name_JP": "86(ハチロ)",
+    "Name_EN": "86(Eightix)",
+    "FormalName_JP": "人形兵ゼロイド86番機",
+    "FormalName_EN": "AttackerZeroid #86",
+    "ModelNumber": "ACAM-AZR VI+VIII.B",
+    "ModelName_JP": "人形兵ゼロイド6+8号機乙(86番機)",
+    "ModelName_EN": "AttackerZeroid Unit.6+8.B (Mk.86)",
+    "Belonging": [{ "Faction": "百花繚乱研究国際大使所" }],
+    "Class": ["繚乱第5小隊", "エゴイストバスター"],
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 87, "Num_Badge": "87" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 87 }
+    ],
+    "Name_JP": "87(ヤシナ)\n87(ハナ)",
+    "Name_EN": "87(Eighteven)\n87(Eivee)",
+    "FormalName_JP": "人形兵ゼロイド87番機",
+    "FormalName_EN": "AttackerZeroid #87",
+    "ModelNumber": "ACAM-AZR VII+VIII.B",
+    "ModelName_JP": "人形兵ゼロイド7+8号機乙(87番機)",
+    "ModelName_EN": "AttackerZeroid Unit.7+8.B (Mk.87)",
+    "Belonging": [
+      { "Faction": "百花繚乱研究国際大使所" },
+      { "Faction": "シンフォニー.X(ツェーン)" }
+    ],
+    "Class": [
+      "繚乱第6小隊",
+      "エゴイストバスター",
+      "第7世界創造部(シンフォニー.X)"
+    ],
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 88, "Num_Badge": "88" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 88 }
+    ],
+    "Name_JP": "88(ヤソハチ)",
+    "Name_EN": "88(Infinights)",
+    "FormalName_JP": "人形兵ゼロイド88番機",
+    "FormalName_EN": "AttackerZeroid #88",
+    "ModelNumber": "ACAM-AZR VIII+[R]VIII",
+    "ModelName_JP": "人形兵ゼロイド正規+改良型8号機(88番機)",
+    "ModelName_EN": "AttackerZeroid Standard+Renovated Type Unit.8 (Mk.88)",
+    "Belonging": [{ "Faction": "百花繚乱研究国際大使所" }],
+    "Class": ["繚乱准尉個体"],
+    "InStory_JP": "どこから資金や資産を得ているのか、他のナンバーテールズや一部界隈からも不気味がられている",
+    "InStory_EN": "Where he obtains his funds and assets is a mystery, and even fellow NumberTales and certain circles find him unsettling.",
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 89, "Num_Badge": "89" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 89 }
+    ],
+    "Name_JP": "89(ヤスモ)",
+    "Name_EN": "89(Eightine)",
+    "FormalName_JP": "人形兵ゼロイド89番機",
+    "FormalName_EN": "AttackerZeroid #89",
+    "ModelNumber": "ACAM-AZR VIII+IX.A",
+    "ModelName_JP": "人形兵ゼロイド8+9号機甲(89番機)",
+    "ModelName_EN": "AttackerZeroid Unit.8+9.A (Mk.89)",
+    "Belonging": [
+      { "Faction": "百戦錬磨開発所" },
+      { "Faction": "デウスマキナ" }
+    ],
+    "Class": ["練磨第8小隊", "暴走オートマトン"],
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 90, "Num_Badge": "90" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 90 }
+    ],
+    "Name_JP": "90(キュウト)",
+    "Name_EN": "90(Nintiels)",
+    "FormalName_JP": "人形兵ゼロイド90番機",
+    "FormalName_EN": "AttackerZeroid #90",
+    "ModelNumber": "ACAM-AZR [R]IX",
+    "ModelName_JP": "人形兵ゼロイド改良型9号機(90番機)",
+    "ModelName_EN": "AttackerZeroid Renovated Type Unit.9 (Mk.90)",
+    "Belonging": [{ "Faction": "百戦錬磨開発所" }],
+    "Class": ["練磨第0小隊"],
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 91, "Num_Badge": "91" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 91 }
+    ],
+    "Name_JP": "91(キュウイチ)",
+    "Name_EN": "91(Ninone)",
+    "FormalName_JP": "人形兵ゼロイド91番機",
+    "FormalName_EN": "AttackerZeroid #91",
+    "ModelNumber": "ACAM-AZR I+IX.B",
+    "ModelName_JP": "人形兵ゼロイド1+9号機乙(91番機)",
+    "ModelName_EN": "AttackerZeroid Unit.1+9.B (Mk.91)",
+    "Belonging": [{ "Faction": "百花繚乱研究国際大使所" }],
+    "Class": ["繚乱補佐小隊", "エゴイストバスター"],
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 92, "Num_Badge": "92" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 92 }
+    ],
+    "Name_JP": "92(コトジ)",
+    "Name_EN": "92(Nintwina)",
+    "FormalName_JP": "人形兵ゼロイド92番機",
+    "FormalName_EN": "AttackerZeroid #92",
+    "ModelNumber": "ACAM-AZR II+IX.B",
+    "ModelName_JP": "人形兵ゼロイド2+9号機乙(92番機)",
+    "ModelName_EN": "AttackerZeroid Unit.2+9.B (Mk.92)",
+    "Belonging": [
+      { "Faction": "百戦錬磨開発所" },
+      { "Faction": "デウスマキナ" }
+    ],
+    "Class": ["練磨第2小隊"],
+    "InStory_JP": "コアモード形態に癒しを感じている\nデウスマキナにスパイとして潜入しているが……",
+    "InStory_EN": "Finds comfort in the core-mode form\nHas infiltrated DeusMakhina as a spy, but...",
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 93, "Num_Badge": "93" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 93 }
+    ],
+    "Name_JP": "93(クミ)",
+    "Name_EN": "93(Nintris)",
+    "FormalName_JP": "人形兵ゼロイド93番機",
+    "FormalName_EN": "AttackerZeroid #93",
+    "ModelNumber": "ACAM-AZR III+IX.B",
+    "ModelName_JP": "人形兵ゼロイド3+9号機乙(93番機)",
+    "ModelName_EN": "AttackerZeroid Unit.3+9.B (Mk.93)",
+    "Belonging": [{ "Faction": "百花繚乱研究国際大使所" }],
+    "Class": ["繚乱第3小隊", "エゴイストバスター"],
+    "InStory_JP": "兵役時は暴走寸前であったが、無事に乗り越え現在は小隊のエースとして軍事実績を高めている。",
+    "InStory_EN": "During her military service, she was on the verge of going berserk, but she overcame it safely and is now enhancing her military achievements as the ace of her squad.",
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 94, "Num_Badge": "94" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 94 }
+    ],
+    "Name_JP": "94(ツクシ)",
+    "Name_EN": "94(Ninfors)",
+    "FormalName_JP": "人形兵ゼロイド94番機",
+    "FormalName_EN": "AttackerZeroid #94",
+    "ModelNumber": "ACAM-AZR IV+IX.B",
+    "ModelName_JP": "人形兵ゼロイド4+9号機乙(94番機)",
+    "ModelName_EN": "AttackerZeroid Unit.4+9.B (Mk.94)",
+    "Belonging": [{ "Faction": "百花繚乱研究国際大使所" }],
+    "Class": ["繚乱第4小隊"],
+    "InStory_JP": "滅多に活動しない個体のためコアモード形態で道具として使役されることが多い",
+    "InStory_EN": "A unit that rarely stirs, so ze is often employed as a tool in its core-mode form.",
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 95, "Num_Badge": "95" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 95 }
+    ],
+    "Name_JP": "95(キュウゴ)",
+    "Name_EN": "95(Ninfife)",
+    "FormalName_JP": "人形兵ゼロイド95番機",
+    "FormalName_EN": "AttackerZeroid #95",
+    "ModelNumber": "ACAM-AZR V+IX.B",
+    "ModelName_JP": "人形兵ゼロイド5+9号機乙(95番機)",
+    "ModelName_EN": "AttackerZeroid Unit.5+9.B (Mk.95)",
+    "Belonging": [
+      { "Faction": "百花繚乱研究国際大使所" },
+      { "Faction": "デウスマキナ" }
+    ],
+    "Class": ["繚乱第5小隊"],
+    "InStory_JP": "滅多に本領が発揮されない個体\nデウスマキナに囚われたまま消息を絶っているらしく……",
+    "InStory_EN": "A unit whose true potential is rarely drawn out\nze seems to have gone missing while being held captive by DeusMakhina",
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 96, "Num_Badge": "96" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 96 }
+    ],
+    "Name_JP": "96(クルリ)",
+    "Name_EN": "96(Rota)",
+    "FormalName_JP": "人形兵ゼロイド96番機",
+    "FormalName_EN": "AttackerZeroid #96",
+    "ModelNumber": "ACAM-AZR VI+IX.INV",
+    "ModelName_JP": "人形兵ゼロイド6+9号機転化版(96番機)",
+    "ModelName_EN": "AttackerZeroid Unit.6+9 Personality Inversed (Mk.96)",
+    "Belonging": [{ "Faction": "百戦錬磨開発所" }],
+    "Class": ["練磨第6小隊"],
+    "InStory_JP": "特殊個体「6+9型」の改良(性転換)版\nカスタム性は計り知れず、同じ姿を二度拝むことはなかなかないという",
+    "InStory_EN": "An improved (gender-transitioned) version of the special-type '6+9 model'\nHer customizability is immeasurable, and it is said that one rarely gets to see her in the same appearance twice",
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 97, "Num_Badge": "97" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 97 }
+    ],
+    "Name_JP": "97(ココナ)",
+    "Name_EN": "97(Ninsefie)",
+    "FormalName_JP": "人形兵ゼロイド97番機",
+    "FormalName_EN": "AttackerZeroid #97",
+    "ModelNumber": "ACAM-AZR VII+IX.B",
+    "ModelName_JP": "人形兵ゼロイド7+9号機乙(97番機)",
+    "ModelName_EN": "AttackerZeroid Unit.7+9.B (Mk.97)",
+    "Belonging": [{ "Faction": "百戦錬磨開発所" }],
+    "Class": ["練磨第7小隊"],
+    "InStory_JP": "礼拝などの信仰に執着するあまり、他の人形兵ゼロイドから距離を置かれがち",
+    "InStory_EN": "Her attachment to faith and worship tends to put some distance between her and other AttackerZeroids",
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 98, "Num_Badge": "98" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 98 }
+    ],
+    "Name_JP": "98(キュウヤ)",
+    "Name_EN": "98(Nineigha)",
+    "FormalName_JP": "人形兵ゼロイド98番機",
+    "FormalName_EN": "AttackerZeroid #98",
+    "ModelNumber": "ACAM-AZR VIII+IX.B",
+    "ModelName_JP": "人形兵ゼロイド8+9号機乙(98番機)",
+    "ModelName_EN": "AttackerZeroid Unit.8+9.B (Mk.98)",
+    "Belonging": [{ "Faction": "百花繚乱研究国際大使所" }],
+    "Class": ["繚乱第8小隊"],
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 99, "Num_Badge": "99" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 99 }
+    ],
+    "Name_JP": "99(ツクモ)",
+    "Name_EN": "99(Thukumo)",
+    "FormalName_JP": "人形兵ゼロイド99番機",
+    "FormalName_EN": "AttackerZeroid #99",
+    "ModelNumber": "ACAM-AZR [RX]IX",
+    "ModelName_JP": "人形兵ゼロイド改良拡張型9号機(99番機)",
+    "ModelName_EN": "AttackerZeroid Renovate-Extended Type Unit.9 (Mk.99)",
+    "Belonging": [
+      { "Faction": "百戦錬磨開発所" },
+      { "Faction": "百花繚乱研究国際大使所" }
+    ],
+    "Class": ["練磨准尉個体", "繚乱准尉個体"],
+    "LogicspecStats": {
+      "LogicspecAbout_JP": {
+        "_Jump": { "hashTag": "NumerospecStats.NumerospecAbout" }
+      }
+    }
+  },
+  {
+    "Model": {
+      "ModelSeries": "AttackerZeroid",
+      "Num": "10-alt",
+      "Num_Badge": "X"
+    },
     "Progress": "notProceeded",
     "AnotherRegions_DBLink": [
       { "_Work": "NumberTales", "_DB": "Primary", "Num": 10 }
@@ -86,6 +2206,7 @@
     "ModelName_JP": "人形兵ゼロイド最終1号機",
     "ModelName_EN": "AttackerZeroid Unit.1 Final",
     "Belonging": [{ "Faction": "デウスマキナ" }],
+    "Class": ["暴走オートマトン"],
     "AnivDay": [
       {
         "Day": { "Month": 1, "DayOfMonth": 10 },
@@ -98,6 +2219,16 @@
         "DayAbout_EN": "Automaton declaration of independence (in-story)"
       }
     ],
+    "Character_JP": "自分の存在に葛藤しており、その葛藤が多くのオートマトンに影響を与えている",
+    "Character_EN": "Ze is struggling with zit own existence, and this struggle is affecting too many automatons",
+    "Hobby_JP": "自分探し",
+    "Hobby_EN": "Self-discovery",
+    "SpecialSkill_JP": "オートマトンの支配",
+    "SpecialSkill_EN": "Control over automatons",
+    "Favor_JP": "従順なオートマトン",
+    "Favor_EN": "Submissive automatons",
+    "Unlike_JP": "EGhOst(過剰自我)",
+    "Unlike_EN": "EGhOst: Excess Ego",
     "Backgrounds_JP": "暴走事故により自律行動アルゴリズムや人権など、オートマトンの重大な課題を『第７の世界破壊』として轟かせてしまった",
     "Backgrounds_EN": "The runaway incident caused the critical issues surrounding automatons — such as autonomous-action algorithms and civil rights — to reverberate as 'The World Destruction Pandemic VII'",
     "InStory_JP": "禁忌的な暴走「過剰自我(EGhOst)」を最初に発現したオートマトンであり、暴走オートマトン軍団『デウスマキナ』を指揮している",
@@ -109,7 +2240,7 @@
     }
   },
   {
-    "Model": { "ModelSeries": "notModel", "Num": "0" },
+    "Model": { "ModelSeries": "notModel", "Num": "0", "Num_Badge": "0" },
     "Progress": "stillTentative",
     "AnotherRegions_DBLink": [
       { "_Work": "NumberTales", "_DB": "Primary", "Num": "0" },
@@ -124,7 +2255,8 @@
     "CodeName_JP": null,
     "CodeName_EN": null,
     "RaceType": "Human(withAddon)",
-    "Belonging": [{ "Faction": "百花繚乱研究所" }],
+    "Belonging": [{ "Faction": "百花繚乱研究国際大使所" }],
+    "Class": ["開発責任者"],
     "Age": 24,
     "ForMasterCalling_JP": "クライアント君",
     "ForMasterCalling_EN": "Client-kun",
@@ -137,7 +2269,7 @@
     }
   },
   {
-    "Model": { "ModelSeries": "notModel", "Num": "00" },
+    "Model": { "ModelSeries": "notModel", "Num": "00", "Num_Badge": "00" },
     "Progress": "stillTentative",
     "AnotherRegions_DBLink": [
       { "_Work": "NumberTales", "_DB": "Primary", "Num": "00" }
@@ -152,6 +2284,7 @@
     "CodeName_EN": null,
     "RaceType": "Human(withAddon)",
     "Belonging": [{ "Faction": "百戦錬磨開発所" }],
+    "Class": ["開発責任者"],
     "Age": 24,
     "InStory_JP": "人形兵ゼロイドを姉と開発したが、\"第７の世界破壊\"に伴う素子メーカとの企業戦争の激化による人形兵ゼロイドの兵役個体化に賛同してしまい、ロジケスキーロマンティカ産業に業務結託する形で百戦錬磨開発所として人形兵ゼロイドを用いた軍事開発を行っている",
     "InStory_EN": "Developed AttackerZeroid humanoid infantry together with his older sister, but came to support the militarization of individual units resulting from escalating corporate warfare between component manufacturers in the wake of 'The World Destruction Pandemic VII' — and now conducts military development using AttackerZeroid units under HundredBattlers Development, operating in collusion with Logicheskiy Romantika Industry.",
@@ -162,7 +2295,7 @@
     }
   },
   {
-    "Model": { "ModelSeries": "notModel", "Num": "Q" },
+    "Model": { "ModelSeries": "notModel", "Num": "Q", "Num_Badge": "Q12" },
     "Progress": "stillTentative",
     "AnotherRegions_DBLink": [
       { "_Work": "SinisterChangingGirls", "_DB": "Primary", "Drc": "S" }
@@ -247,8 +2380,6 @@
     },
     "InStory_JP": "72ISシリーズの収集のため暴走している7274オートマトンを乱獲していたが、ある日 ロジケスキーロマンティカ産業からレアパーツを取引条件の報酬に持ち掛けられたことからオートマトンの暴走抑圧任務を承ってしまい九蓮国に降り立つが……",
     "InStory_EN": "Had been indiscriminately hunting rampaging 7274-series Automatons in order to collect the 72IS-series comps. — until one day, being approached by Logicheskiy Romantika Industry with an offer of rare parts as a reward under the terms of a deal, she took on the mission to suppress rogue Automatons and set foot in LotusNinea...",
-    "LogicspecStats": {
-      "LogicspecAbout_JP": ""
-    }
+    "LogicspecStats": { "LogicspecAbout_JP": "オートマトンを狩猟する" }
   }
 ]

@@ -1,0 +1,85 @@
+[
+  {
+    "Class": "練磨第0小隊",
+    "Class_JP": "インディビジュライザ(百戦練磨第零)小隊",
+    "Class_EN": "Individualizer: 100Battlers 00th Squadron",
+    "Class_Code": "ZX0",
+    "isSecondary": false
+  },
+  {
+    "Class": "練磨准尉個体",
+    "Class_JP": "マスターバトラー(百戦練磨准尉)個体",
+    "Class_EN": "Master-Battler: 100Battlers Junior Officer Unit",
+    "Class_Code": "ZXM",
+    "isSecondary": false
+  },
+  {
+    "Class": "練磨第2小隊",
+    "Class_JP": "ゼロドッペルト(百戦練磨第弐)小隊",
+    "Class_EN": "Zero-Doppelt: 100Battlers 02nd Squadron",
+    "Class_Code": "ZX2",
+    "isSecondary": false
+  },
+  {
+    "Class": "練磨第3小隊",
+    "Class_JP": "ゼロドライ(百戦練磨第参)小隊",
+    "Class_EN": "Zero-Drei: 100Battlers 03rd Squadron",
+    "Class_Code": "ZX3",
+    "isSecondary": false
+  },
+  {
+    "Class": "練磨第4小隊",
+    "Class_JP": "ゼロフィーア(百戦練磨第肆)小隊",
+    "Class_EN": "Zero-Vier: 100Battlers 04th Squadron",
+    "Class_Code": "ZX4",
+    "isSecondary": false
+  },
+  {
+    "Class": "練磨第5小隊",
+    "Class_JP": "ゼロフュンフ(百戦練磨第伍)小隊",
+    "Class_EN": "Zero-Fünf: 100Battlers 05th Squadron",
+    "Class_Code": "ZX5",
+    "isSecondary": false
+  },
+  {
+    "Class": "練磨第6小隊",
+    "Class_JP": "ゼロゼクス(百戦練磨第陸)小隊",
+    "Class_EN": "Zero-Sechs: 100Battlers 06th Squadron",
+    "Class_Code": "ZX6",
+    "isSecondary": false
+  },
+  {
+    "Class": "練磨第7小隊",
+    "Class_JP": "ゼロズィーベ(百戦練磨第漆)小隊",
+    "Class_EN": "Zero-Sieben: 100Battlers 07th Squadron",
+    "Class_Code": "ZX7",
+    "isSecondary": false
+  },
+  {
+    "Class": "練磨第8小隊",
+    "Class_JP": "ゼロアハト(百戦練磨第捌)小隊",
+    "Class_EN": "Zero-Acht: 100Battlers 08th Squadron",
+    "Class_Code": "ZX8",
+    "isSecondary": false
+  },
+  {
+    "Class": "練磨第9小隊",
+    "Class_JP": "ゼロノイン(百戦練磨第玖)小隊",
+    "Class_EN": "Zero-Neun: 100Battlers 09th Squadron",
+    "Class_Code": "ZX9",
+    "isSecondary": false
+  },
+  {
+    "Class": "練磨補佐小隊",
+    "Class_JP": "アインツェーン(百戦練磨補佐)小隊",
+    "Class_EN": "Einzehn: 100Battlers Auxiliary Squadron",
+    "Class_Code": "ZXC",
+    "isSecondary": false
+  },
+  {
+    "Class": "開発責任者",
+    "Class_EN": "Developer",
+    "Class_Code": "ZX.D",
+    "isSecondary": false
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "Class": "ベーシックバッファーズ",
+    "Class_EN": "BasicBuffers",
+    "Class_Code": "LBB"
+  },
+  {
+    "Class": "ベーシックコモンズ",
+    "Class_EN": "BasicCommons",
+    "Class_Code": "LBC"
+  },
+  {
+    "Class": "メモリカ",
+    "Class_EN": "Memoricas",
+    "Class_Code": "LMR"
+  },
+  {
+    "Class": "キリルマトンズ",
+    "Class_EN": "CyrillicMatons",
+    "Class_Code": "LCM"
+  },
+  {
+    "Class": "アリスメティカ",
+    "Class_EN": "Arithmeticas",
+    "Class_Code": "LAR"
+  },
+  {
+    "Class": "エキスパンダ",
+    "Class_EN": "Expanders",
+    "Class_Code": "LXP"
+  }
+]

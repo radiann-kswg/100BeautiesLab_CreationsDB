@@ -18,9 +18,23 @@
         "$type": "#Number|#String|#Null",
         "hashTag_JP": "ロット番号",
         "hashTag_EN": "Lot Number"
+      },
+      {
+        "hashTag": "Num_Badge",
+        "$type": "#String",
+        "$slot": "#Index",
+        "hashTag_JP": "番号バッジ",
+        "hashTag_EN": "Number Badge",
+        "$display": { "langMode": "shared", "auto": false }
       }
     ],
-    "$badge": { "keys": ["ModelSeries", "Num"] }
+    "$badge": {
+      "keys": [
+        { "key": "ModelSeries", "codeFrom": "ModelSeries_Badge" },
+        "Num_Badge"
+      ],
+      "separator": ""
+    }
   },
   "$IndexDef_PrimaryMobs": {
     "hashTag": "Logic",
@@ -39,7 +53,7 @@
         "hashTag_EN": "Logic Number"
       }
     ],
-    "$badge": { "keys": ["LogicSeries", "Num"] }
+    "$badge": { "keys": ["LogicSeries", "Num"], "separator": "" }
   },
   "$DefType": [
     {
@@ -62,6 +76,41 @@
       "hashTag_JP": "互換論理/互換ロジック",
       "hashTag_EN": "Alternative Logic",
       "isForMobs": true
+    },
+    {
+      "hashTag": "Images",
+      "$type": [
+        {
+          "hashTag": "concept_PNGName",
+          "$type": "#PNGFileName",
+          "$palette": { "source": "swatch" },
+          "hashTag_JP": "設定原画",
+          "hashTag_EN": "Concept Art"
+        },
+        {
+          "hashTag": "conceptAlt_PNGName",
+          "$type": "#PNGFileName[]",
+          "$palette": { "source": "swatch" },
+          "hashTag_JP": "設定原画差分",
+          "hashTag_EN": "Concept Art Variations"
+        },
+        {
+          "hashTag": "designAlt_PNGPath",
+          "$type": "#PNGFilePath[]",
+          "hashTag_JP": "衣装差分など",
+          "hashTag_EN": "Design Variations"
+        },
+        {
+          "hashTag": "arts_PNGPath",
+          "$type": "#PNGFilePath[]",
+          "$palette": { "source": "illustration" },
+          "hashTag_JP": "イラスト作品",
+          "hashTag_EN": "Illustration Works"
+        }
+      ],
+      "$display": { "section": "images", "tagSpace": "internal" },
+      "hashTag_JP": "画像",
+      "hashTag_EN": "Images"
     },
     {
       "hashTag": "ForMasterCalling_JP",

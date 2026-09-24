@@ -51,7 +51,7 @@
       "_Commons": {
         "isMobs": false,
         "Progress": "notProceeded",
-        "RaceType": "CustomAutomaton(TaleBeastType)"
+        "RaceType": "CustomAutomaton"
       },
       "AI_Optout": true
     }

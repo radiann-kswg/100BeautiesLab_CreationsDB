@@ -50,7 +50,7 @@
     "Unit_EN": "Length(KMS Method)",
     "Unit_Full": "Meter/Metre",
     "Unit_Badge": "SIL",
-    "Progress": "nowRecreating",
+    "Progress": "unprofiled",
     "Name_JP": "メトレ",
     "Name_EN": "Metre_SI-L",
     "Images": {
@@ -590,7 +590,7 @@
     "Unit_EN": "Normal Direction",
     "Unit_Full": "normal",
     "Unit_Badge": "RVN",
-    "Progress": "nowRecreating",
+    "Progress": "unprofiled",
     "Name_JP": "ノーマル\nのるまん",
     "Name_EN": "NormalN",
     "Images": {

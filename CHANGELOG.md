@@ -1,5 +1,55 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### feat: キャラクター一覧の並び順を進捗（`Progress`）グループ順にする `$display.listOrder` / `isListTop` (2026-09-24)
+
+- **背景**: 一覧は JSON のレコード順（番号順）固定で、未着手のキャラが公開済みキャラより先に出ていた。
+- **変更**:
+  - `$DefType` の `$display.listOrder: true` を「このフィールドを一覧の並び順キーにする」宣言として追加。
+    並び順は対応する辞書 `$EnumDef_<hashTag>` の宣言順（＝進捗タグごとのグルーピング）。
+  - 辞書行の `isListTop` は 3 値。`true` = 1 つのグループにまとめて最上位（直並び・畳まない）、
+    `null`・未指定 = 中間、`false` = 末尾。同じ段の中は `listOrderNum`（小さいほど前 / 未指定は辞書の宣言順）。
+  - `isListTop: true` 以外のコードはコードごとに `<details class="list-group">` へ入り、折りたためる（既定は閉じる、
+    summary は辞書ラベル＋件数）。進捗未設定のレコードは畳まずに末尾へ。
+  - `$EnumDef_Progress` の現状値: 最上位 = `unprofiled` / `unreleased` / `released` / `accepted` / `accepted\nremadeReleased`、
+    中間 = `nowRecreating`(1) → `nowCreating`(2) → `accepted\nnowRemaking`(3)、末尾 = その他（`isListTop: false`）。
+  - 辞書に無いコードは末尾。同順位内は元の並び（番号順）を保つ（`sort` は安定）。
+- **影響範囲**: `pages/characters.js`（`renderList()`）/ `pages/characters.sass` / `pages/characters.html`（asset-version）/
+  `data/db_type.json`（`Progress.$display`）/ `data/db_meta.json`（`$EnumDef_Progress`）/ `docs/schema-meta-processing.md` §3.3。
+  並び替え・グループ化は `$display.listOrder` を宣言したフィールドがある場合のみ働くため、宣言が無い環境は従来どおり。
+- **下流への申し送り**: 一覧の表示仕様変更。フレームワークだけ取り込む場合は `$display.listOrder` 未宣言＝無効なので、
+  必要な作品側で `$DefType` と辞書行へ宣言を足してください。
+
+### fix: cross-work `$Def_DBLinkRef` enrich に meta（`$DetailLayout`）ガードを追加 + `$enrich: false` を enrich 禁止宣言として一般化 (2026-09-24)
+
+- **背景**: `EnrichmentProcessor.enrichRecords()` のルート `_DBLink` 経路は cross-work 時に
+  typedef（`declaredKeys`）と meta（`$DetailLayout.subFields`）の 2 段ガードを掛けていたが、
+  `$enrich: true` の `*_DBLink` suffix 経路（`$Def_DBLinkRef`）は typedef ガードだけだった。
+  typedef はグローバル `data/db_type.json($DefType)` を含むため実質「全項目許可」となり、
+  参照元作品の `$DetailLayout` が列挙していない項目（`Summary_JP` / `ColorPalette` /
+  `RelationNotes_JP` / `AdditionalDesigned_*` など）まで参照先作品から流れ込んで表示されていた
+  （例: アンオースドロジカ `AttackerZeroid/61` にナンバーテールズ側の本文が丸ごと出る）。
+- **変更**:
+  - cross-work の `$enrich` マージへ meta ガード（`layoutKeys`）を追加。参照元作品の
+    `db_meta.json` の `$DetailLayout`（`headerPills` + `basicFields` + `subFields`、`$alt` 代替キーと
+    ベース名 ↔ `_JP` / `_EN` 展開を含む）に列挙された項目だけを持ち込む。`$DetailLayout` が
+    無い作品は従来どおりスキップ（欠損耐性）。
+  - `$DefType` の `$enrich: false` を「そのフィールドは参照先から穴埋めしない」という
+    **enrich 禁止宣言**として通常フィールドにも適用（従来は `*_DBLink` フィールドの
+    解決可否のみに作用）。同一 Work / cross-work の双方に効く。
+  - cross-work の `declaredKeys`（typedef ガード）へもベース名 ↔ `_JP` / `_EN` の言語別名展開を適用。
+    グローバル typedef が `FirstPersonCalling` のように suffix 無しで宣言しているのに対し、
+    実データは `FirstPersonCalling_JP` / `_EN` を使うため、従来は meta が宣言していても
+    呼称フィールドが cross-work マージから落ちていた。
+  - `mergeFromLinkedRecord()` の meta 許可リストを `allowKeys` オプションに一本化し、ルート `_DBLink`
+    経路にも `fieldEntriesByKey` を渡すようにした。
+- **影響範囲**: `lib/data-common.js` / `tests/enrich.dblink.jump.merge.test.js` / `docs/api-sw-spec.md`。
+  cross-work `AnotherRegions_DBLink` を持つ全作品（UnauthedLogica / SinisterChangingGirls /
+  PastDivers / VirtuesUs / NumberTales / FLInvestigator78 / UnibyteLive）の enrich 出力から、
+  `$DetailLayout` 未宣言の項目が落ちる。同一 Work 内リンクと自前フィールドの表示は変わらない。
+- **下流への申し送り**: enrich のマージ規則変更。`tools/build-roleplay-prompts.mjs` の
+  `enrichRecordFromLinks()` は同じ規則を独立実装しており、**今回は未追従**（プロンプト生成物の
+  差分が出るため別途判断）。揃える場合は meta ガードと `$enrich: false` を同様に実装すること。
+
 ### feat: ロールプレイプロンプト生成で不足フィールドを enrich 付き `*_DBLink` から補填 (2026-09-17)
 
 - **背景**: `tools/build-roleplay-prompts.mjs` は DB の実値だけを差し込むため、別作品・別 DB に

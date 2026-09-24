@@ -1,8 +1,14 @@
 [
   {
     "ModelSeries": "AttackerZeroid",
+    "ModelSeries_Badge": "Z",
     "ModelSeries_JP": "人形兵ゼロイド",
     "ModelSeries_EN": "AttackerZeroid"
   },
-  { "ModelSeries": "notModel", "ModelSeries_JP": "", "ModelSeries_EN": "" }
+  {
+    "ModelSeries": "notModel",
+    "ModelSeries_Badge": "",
+    "ModelSeries_JP": "",
+    "ModelSeries_EN": ""
+  }
 ]

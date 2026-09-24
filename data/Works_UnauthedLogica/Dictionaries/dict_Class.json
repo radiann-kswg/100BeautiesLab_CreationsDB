@@ -1,22 +1,16 @@
 [
   {
-    "Class": "ベーシックコモンズ",
-    "Class_EN": "BasicCommons",
-    "Class_Code": "LBC"
+    "Class": "エゴイストバスター",
+    "Class_JP": "エゴイストバスター特殊個体",
+    "Class_EN": "EGhOst Buster Special Unit",
+    "Class_Code": "ZEB",
+    "isSecondary": false
   },
   {
-    "Class": "キリルマトンズ",
-    "Class_EN": "CyrillicMatons",
-    "Class_Code": "LCM"
-  },
-  {
-    "Class": "アリスメティカ",
-    "Class_EN": "Arithmeticas",
-    "Class_Code": "LAR"
-  },
-  {
-    "Class": "エキスパンダ",
-    "Class_EN": "Expanders",
-    "Class_Code": "LXP"
+    "Class": "暴走オートマトン",
+    "Class_JP": "暴走オートマトン",
+    "Class_EN": "Rampaging Automaton",
+    "Class_Code": ".EGO",
+    "isSecondary": null
   }
 ]

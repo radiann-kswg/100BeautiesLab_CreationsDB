@@ -6,6 +6,27 @@
       "keyField": "Class",
       "compatListKey": "#List_Class"
     },
+    "#Dict_Beauties": {
+      "DB_Label_JP": "クラス辞書(百花繚乱研軍向け)",
+      "DB_Label_EN": "Class Dictionary (for 100Beauties-Squadron)",
+      "keyField": "Class",
+      "compatListKey": "#List_Class",
+      "scopeField": { "Belonging": "百花繚乱研究国際大使所" }
+    },
+    "#Dict_Battlers": {
+      "DB_Label_JP": "クラス辞書(百戦練磨開発軍向け)",
+      "DB_Label_EN": "Class Dictionary (for 100Battlers-Dev.Corp)",
+      "keyField": "Class",
+      "compatListKey": "#List_Class",
+      "scopeField": { "Belonging": "百戦練磨開発所" }
+    },
+    "#Dict_MobClass": {
+      "DB_Label_JP": "クラス辞書(モブ種族向け)",
+      "DB_Label_EN": "Class Dictionary (for Mobs)",
+      "keyField": "Class",
+      "compatListKey": "#List_Class",
+      "scopeField": { "isMobs": true }
+    },
     "#Dict_ModelSeries": {
       "DB_Label_JP": "モデル系統辞書",
       "DB_Label_EN": "Model Series Dictionary",

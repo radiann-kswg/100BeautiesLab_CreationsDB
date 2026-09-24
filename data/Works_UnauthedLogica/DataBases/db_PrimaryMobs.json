@@ -1,5 +1,150 @@
 [
   {
+    "Logic": { "LogicSeries": "74x", "Num": "00" },
+    "Progress": "notProceeded",
+    "Name_JP": "ノアンド",
+    "Name_EN": "InvAND",
+    "FormalName_JP": "7274オートマトン00番機：ノアンド",
+    "FormalName_EN": "7274Series Automaton #00: InvAND",
+    "CodeName_JP": "72IS00:NAND",
+    "CodeName_EN": "72IS00:NAND",
+    "ModelNumber": "AM-LG 7274IS00",
+    "ModelName_JP": "汎用オートマトン7274IS00",
+    "ModelName_EN": "General-Purpose Automaton 7274IS00",
+    "Class": ["ベーシックコモンズ"],
+    "Character_JP": "",
+    "Character_EN": "",
+    "Favor_JP": null,
+    "Favor_EN": null,
+    "Unlike_JP": null,
+    "Unlike_EN": null,
+    "Strength_JP": null,
+    "Strength_EN": null,
+    "Weakness_JP": null,
+    "Weakness_EN": null,
+    "ExistingRarity": { "Rarity": "C" },
+    "LogicspecStats": {
+      "LogicspecAbout_JP": "真を偽に欺く",
+      "LogicspecAbout_EN": "Deceives TRUE states into FALSE"
+    }
+  },
+  {
+    "Logic": { "LogicSeries": "74x", "Num": "05" },
+    "Progress": "notProceeded",
+    "Name_JP": "インベルト",
+    "Name_EN": "Inverts",
+    "FormalName_JP": "7274オートマトン05番機：インベルト",
+    "FormalName_EN": "7274Series Automaton #05: Inverts",
+    "CodeName_JP": "72IS05:オープンコレクタインバート",
+    "CodeName_EN": "72IS05:OpenCollectorInvert",
+    "ModelNumber": "AM-LG 7274IS05",
+    "ModelName_JP": "汎用オートマトン7274IS05",
+    "ModelName_EN": "General-Purpose Automaton 7274IS05",
+    "Class": ["ベーシックコモンズ"],
+    "Character_JP": "",
+    "Character_EN": "",
+    "Favor_JP": null,
+    "Favor_EN": null,
+    "Unlike_JP": null,
+    "Unlike_EN": null,
+    "Strength_JP": null,
+    "Strength_EN": null,
+    "Weakness_JP": null,
+    "Weakness_EN": null,
+    "ExistingRarity": { "Rarity": "N" },
+    "LogicspecStats": {
+      "LogicspecAbout_JP": "状態を反転し、出力の引き上げを他者に委ねる",
+      "LogicspecAbout_EN": "Inverts states and leaves pulling up the output to others"
+    }
+  },
+  {
+    "Logic": { "LogicSeries": "74x", "Num": "06" },
+    "Progress": "notProceeded",
+    "Name_JP": "インヴァ",
+    "Name_EN": "Inva",
+    "FormalName_JP": "7274オートマトン06番機：インヴァ",
+    "FormalName_EN": "7274Series Automaton #06: Inva",
+    "CodeName_JP": "72IS06:オープンコレクタインバートドライブ",
+    "CodeName_EN": "72IS06:OpenCollectorInvertDrive",
+    "ModelNumber": "AM-LG 7274IS06",
+    "ModelName_JP": "汎用オートマトン7274IS06",
+    "ModelName_EN": "General-Purpose Automaton 7274IS06",
+    "Class": ["ベーシックコモンズ"],
+    "Character_JP": "",
+    "Character_EN": "",
+    "Favor_JP": null,
+    "Favor_EN": null,
+    "Unlike_JP": null,
+    "Unlike_EN": null,
+    "Strength_JP": null,
+    "Strength_EN": null,
+    "Weakness_JP": null,
+    "Weakness_EN": null,
+    "ExistingRarity": { "Rarity": "N" },
+    "LogicspecStats": {
+      "LogicspecAbout_JP": "状態を反転し、重い負荷を駆動する",
+      "LogicspecAbout_EN": "Inverts states and drives heavy loads"
+    }
+  },
+  {
+    "Logic": { "LogicSeries": "74x", "Num": "07" },
+    "Progress": "notProceeded",
+    "Name_JP": "バッファロ",
+    "Name_EN": "Buffero",
+    "FormalName_JP": "7274オートマトン07番機：バッファロ",
+    "FormalName_EN": "7274Series Automaton #07: Buffero",
+    "CodeName_JP": "72IS07:オープンコレクタバッファドライブ",
+    "CodeName_EN": "72IS07:OpenCollectorBufferDrive",
+    "ModelNumber": "AM-LG 7274IS07",
+    "ModelName_JP": "汎用オートマトン7274IS07",
+    "ModelName_EN": "General-Purpose Automaton 7274IS07",
+    "Class": ["ベーシックバッファーズ"],
+    "Character_JP": "",
+    "Character_EN": "",
+    "Favor_JP": null,
+    "Favor_EN": null,
+    "Unlike_JP": null,
+    "Unlike_EN": null,
+    "Strength_JP": null,
+    "Strength_EN": null,
+    "Weakness_JP": null,
+    "Weakness_EN": null,
+    "ExistingRarity": { "Rarity": "R+" },
+    "LogicspecStats": {
+      "LogicspecAbout_JP": "状態をそのまま保ち、重い負荷を駆動する",
+      "LogicspecAbout_EN": "Passes states through unchanged and drives heavy loads"
+    }
+  },
+  {
+    "Logic": { "LogicSeries": "74x", "Num": 11 },
+    "Progress": "notProceeded",
+    "Name_JP": "トラインアンド",
+    "Name_EN": "Tri'nAND",
+    "FormalName_JP": "7274オートマトン11番機：トラインアンド",
+    "FormalName_EN": "7274Series Automaton #11: Tri'nAND",
+    "CodeName_JP": "72IS11:トリプルトライAND",
+    "CodeName_EN": "72IS11:TripleTriAND",
+    "ModelNumber": "AM-LG 7274IS11",
+    "ModelName_JP": "汎用オートマトン7274IS11",
+    "ModelName_EN": "General-Purpose Automaton 7274IS11",
+    "Class": ["ベーシックコモンズ"],
+    "Character_JP": "",
+    "Character_EN": "",
+    "Favor_JP": null,
+    "Favor_EN": null,
+    "Unlike_JP": null,
+    "Unlike_EN": null,
+    "Strength_JP": null,
+    "Strength_EN": null,
+    "Weakness_JP": null,
+    "Weakness_EN": null,
+    "ExistingRarity": { "Rarity": "N" },
+    "LogicspecStats": {
+      "LogicspecAbout_JP": "真を検知する",
+      "LogicspecAbout_EN": "Detects TRUE states"
+    }
+  },
+  {
     "Logic": { "LogicSeries": "74x", "Num": 14 },
     "Progress": "notProceeded",
     "Name_JP": "シュミッツ",
@@ -29,6 +174,122 @@
     "LogicspecStats": {
       "LogicspecAbout_JP": "状態を切り下げ/切り上げする",
       "LogicspecAbout_EN": "Cuts off / rounds up state values"
+    }
+  },
+  {
+    "Logic": { "LogicSeries": "74x", "Num": 20 },
+    "Progress": "notProceeded",
+    "Name_JP": "クオンタナ",
+    "Name_EN": "QuantaNA'",
+    "FormalName_JP": "7274オートマトン20番機：クオンタナ",
+    "FormalName_EN": "7274Series Automaton #20: QuantaNA'",
+    "CodeName_JP": "72IS20:デュアルクオンタNAND",
+    "CodeName_EN": "72IS20:DualQuantaNAND",
+    "ModelNumber": "AM-LG 7274IS20",
+    "ModelName_JP": "汎用オートマトン7274IS20",
+    "ModelName_EN": "General-Purpose Automaton 7274IS20",
+    "Class": ["ベーシックコモンズ"],
+    "Character_JP": "",
+    "Character_EN": "",
+    "Favor_JP": null,
+    "Favor_EN": null,
+    "Unlike_JP": null,
+    "Unlike_EN": null,
+    "Strength_JP": null,
+    "Strength_EN": null,
+    "Weakness_JP": null,
+    "Weakness_EN": null,
+    "ExistingRarity": { "Rarity": "N" },
+    "LogicspecStats": {
+      "LogicspecAbout_JP": "真を検出し偽に欺く",
+      "LogicspecAbout_EN": "Detects TRUE states and deceives them into FALSE"
+    }
+  },
+  {
+    "Logic": { "LogicSeries": "74x", "Num": 27 },
+    "Progress": "notProceeded",
+    "Name_JP": "トリーノア",
+    "Name_EN": "Tr'rieNOR",
+    "FormalName_JP": "7274オートマトン27番機：トリーノア",
+    "FormalName_EN": "7274Series Automaton #27: Tr'rieNOR",
+    "CodeName_JP": "72IS27:トリプルトライNOR",
+    "CodeName_EN": "72IS27:TripleTriNOR",
+    "ModelNumber": "AM-LG 7274IS27",
+    "ModelName_JP": "汎用オートマトン7274IS27",
+    "ModelName_EN": "General-Purpose Automaton 7274IS27",
+    "Class": ["ベーシックコモンズ"],
+    "Character_JP": "",
+    "Character_EN": "",
+    "Favor_JP": null,
+    "Favor_EN": null,
+    "Unlike_JP": null,
+    "Unlike_EN": null,
+    "Strength_JP": null,
+    "Strength_EN": null,
+    "Weakness_JP": null,
+    "Weakness_EN": null,
+    "ExistingRarity": { "Rarity": "N" },
+    "LogicspecStats": {
+      "LogicspecAbout_JP": "偽を検知し真に欺く",
+      "LogicspecAbout_EN": "Detects FALSE states and deceives them into TRUE"
+    }
+  },
+  {
+    "Logic": { "LogicSeries": "74x", "Num": 30 },
+    "Progress": "notProceeded",
+    "Name_JP": "オクタナ",
+    "Name_EN": "OctaNA'",
+    "FormalName_JP": "7274オートマトン30番機：オクタナ",
+    "FormalName_EN": "7274Series Automaton #30: OctaNA'",
+    "CodeName_JP": "72IS30:オクタNAND",
+    "CodeName_EN": "72IS30:OctaNAND",
+    "ModelNumber": "AM-LG 7274IS30",
+    "ModelName_JP": "汎用オートマトン7274IS30",
+    "ModelName_EN": "General-Purpose Automaton 7274IS30",
+    "Class": ["ベーシックコモンズ"],
+    "Character_JP": "",
+    "Character_EN": "",
+    "Favor_JP": null,
+    "Favor_EN": null,
+    "Unlike_JP": null,
+    "Unlike_EN": null,
+    "Strength_JP": null,
+    "Strength_EN": null,
+    "Weakness_JP": null,
+    "Weakness_EN": null,
+    "ExistingRarity": { "Rarity": "N" },
+    "LogicspecStats": {
+      "LogicspecAbout_JP": "広範囲から真を検出し偽に欺く",
+      "LogicspecAbout_EN": "Detects TRUE states from a wide range and deceives them into FALSE"
+    }
+  },
+  {
+    "Logic": { "LogicSeries": "74x", "Num": 112 },
+    "Progress": "notProceeded",
+    "Name_JP": "フリップロ",
+    "Name_EN": "Friplop",
+    "FormalName_JP": "7274オートマトン112番機：フリップロ",
+    "FormalName_EN": "7274Series Automaton #112: Friplop",
+    "CodeName_JP": "72IS112:JKフリップフロップ-ネガティブエッヂ",
+    "CodeName_EN": "72IS112:JK-FlipFlop-NegativeEdge",
+    "ModelNumber": "AM-LG 7274IS112",
+    "ModelName_JP": "汎用オートマトン7274IS112",
+    "ModelName_EN": "General-Purpose Automaton 7274IS112",
+    "Class": ["メモリカ"],
+    "Character_JP": "",
+    "Character_EN": "",
+    "Favor_JP": null,
+    "Favor_EN": null,
+    "Unlike_JP": null,
+    "Unlike_EN": null,
+    "Strength_JP": null,
+    "Strength_EN": null,
+    "Weakness_JP": null,
+    "Weakness_EN": null,
+    "ExistingRarity": { "Rarity": "R" },
+    "LogicspecStats": {
+      "LogicspecAbout_JP": "真偽状態を設定・保存する",
+      "LogicspecAbout_EN": "Sets and stores TRUE/FALSE states"
     }
   },
   {
@@ -78,11 +339,11 @@
     "Class": ["アリスメティカ"],
     "Height_cm": [
       { "value": 150, "about_JP": "武装時", "about_EN": "armed" },
-      { "value": 82, "about_JP": "非武装時", "about_EN": "unarmed" }
+      { "value": 58, "about_JP": "非武装時", "about_EN": "unarmed" }
     ],
     "Weight_kg": [
-      { "value": 20, "about_JP": "本体", "about_EN": "main unit" },
-      { "value": 61, "about_JP": "武装", "about_EN": "armament unit" }
+      { "value": 18, "about_JP": "本体", "about_EN": "main unit" },
+      { "value": 288, "about_JP": "武装", "about_EN": "armament unit" }
     ],
     "Character_JP": "理論生前としており、汎用オートマトンの中ではほぼ唯一人語を理解できる",
     "Character_EN": "Fundamentally rational in disposition, and almost the only one among the general-purpose automatons capable of understanding human language",
@@ -115,11 +376,11 @@
     "Class": ["エキスパンダ"],
     "Height_cm": [
       { "value": 138, "about_JP": "武装時", "about_EN": "armed" },
-      { "value": 79, "about_JP": "非武装時", "about_EN": "unarmed" }
+      { "value": 52, "about_JP": "非武装時", "about_EN": "unarmed" }
     ],
     "Weight_kg": [
-      { "value": 19, "about_JP": "本体", "about_EN": "main unit" },
-      { "value": 52, "about_JP": "武装", "about_EN": "armament unit" }
+      { "value": 17, "about_JP": "本体", "about_EN": "main unit" },
+      { "value": 272, "about_JP": "武装", "about_EN": "armament unit" }
     ],
     "Character_JP": "とても礼儀正しく、躾にとても従順",
     "Character_EN": "Extremely polite and highly obedient to training",
@@ -135,6 +396,35 @@
     "LogicspecStats": {
       "LogicspecAbout_JP": "アリスメティアの能力を拡張する",
       "LogicspecAbout_EN": "Extends the capabilities of the Arithmetica series"
+    }
+  },
+  {
+    "Logic": { "LogicSeries": "74x", "Num": 273 },
+    "Progress": "notProceeded",
+    "Name_JP": "オクトフリッパー",
+    "Name_EN": "Octoflipper",
+    "FormalName_JP": "7274オートマトン273番機：オクトフリッパー",
+    "FormalName_EN": "7274Series Automaton #273: Octoflipper",
+    "CodeName_JP": "72IS273:オクタルDフリップフロップ",
+    "CodeName_EN": "72IS273:OctalD-FlipFlop",
+    "ModelNumber": "AM-LG 7274IS273",
+    "ModelName_JP": "汎用オートマトン7274IS273",
+    "ModelName_EN": "General-Purpose Automaton 7274IS273",
+    "Class": ["メモリカ"],
+    "Character_JP": "",
+    "Character_EN": "",
+    "Favor_JP": null,
+    "Favor_EN": null,
+    "Unlike_JP": null,
+    "Unlike_EN": null,
+    "Strength_JP": null,
+    "Strength_EN": null,
+    "Weakness_JP": null,
+    "Weakness_EN": null,
+    "ExistingRarity": { "Rarity": "N" },
+    "LogicspecStats": {
+      "LogicspecAbout_JP": "真偽状態をより多く設定・保存する",
+      "LogicspecAbout_EN": "Sets and stores more TRUE/FALSE states"
     }
   }
 ]
