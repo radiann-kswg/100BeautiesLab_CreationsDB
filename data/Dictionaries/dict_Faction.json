@@ -254,6 +254,15 @@
     "isAcademic": null
   },
   {
+    "Faction": "シンフォニー.X(ツェーン)",
+    "Faction_EN": "Symphony.X(Zehn)",
+    "FactionsBaseArea": { "Area": "黒薔薇国" },
+    "RegionstyleWithin": { "Regioministration": "W" },
+    "isForSecondary": false,
+    "isMaker": null,
+    "isAcademic": false
+  },
+  {
     "Faction": "シンフォニー.XVI(ゼクズィン)",
     "Faction_EN": "Symphony.XVI(Sechzehn)",
     "FactionsBaseArea": { "Area": "黒薔薇国" },
