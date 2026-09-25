@@ -52,7 +52,7 @@
       "DB_Label_EN": "Class Dictionary (for Symphony.X)",
       "keyField": "Class",
       "compatListKey": "#List_Class",
-      "scopeField": { "Belonging": "シンフォニー.XVI(ゼクズィン)" }
+      "scopeField": { "Belonging": "シンフォニー.X(ツェーン)" }
     },
     "#Dict_SymphonyXVI": {
       "DB_Label_JP": "クラス辞書(シンフォニー.XVI向け)",

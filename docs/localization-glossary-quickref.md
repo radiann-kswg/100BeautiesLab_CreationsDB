@@ -12,7 +12,7 @@
 - **インライン補完（ゴーストテキスト）**: 補完はカスタム指示ファイルを読み込みません。英訳作業中は本ファイルを隣のタブで開いておくと、近傍文脈として対訳が補完に反映されやすくなります。
 - **正典はあくまで辞書本体**。表に無い語・揺れがある語は `data/**/trans_*.json` 等の辞書と `docs/localization-en-rules.md` を確認してください。最終採否は User 判断です。
 
-- 収録: **189 対訳**（延べ抽出。生成日時: 2026-09-19T02:53:01.388Z）
+- 収録: **194 対訳**（延べ抽出。生成日時: 2026-09-25T05:11:17.986Z）
 
 ## 人名（姓・代理）
 
@@ -172,6 +172,7 @@
 | 日本語 | English |
 | --- | --- |
 | ジャンクガレージ『六花陛下』 | JunkGarage "Majesty Rokka" |
+| シンフォニー.X | Symphony.X |
 | シンフォニー.XVI | Symphony.XVI |
 | レゾンデイトルカンパニー | Raison-d'être Company |
 | 百花繚乱研究所 | HundredBeauties Laboratory |
@@ -198,6 +199,7 @@
 | 『第7の世界破壊』 | WDP.VII |
 | 『第8の世界創造』 | WDC.VIII |
 | 『第8の世界破壊』 | WDP.VIII |
+| 世界第7恐慌大戦 | WP7W |
 | 創世期 | WDCE. |
 
 ## 語彙
@@ -253,6 +255,7 @@
 | アルベッツ | ALPBETS |
 | アルベッツ被害者の会 | Victims Association against ALPBETS |
 | エイゼルベットの観測世界 | ∀sellbuet's Observational World |
+| シンフォニー.X(ツェーン) | Symphony.X |
 | シンフォニー.XVI(ゼクズィン) | Symphony.XVI |
 | スターダスト・テクノロジー | Stardusts Technology |
 | スターダスト財団 | Stardusts Foundation |
@@ -273,6 +276,7 @@
 | 超次元執筆空間の住民 | Residents of #ATELIER: the super-dimensional owners' space |
 | 南第三県専門学校 | S3 Vocational School |
 | 白の六芒星 | WhiteHexagram |
+| 百花繚乱研究国際大使所 | HundredBeauties International Embassy Laboratory |
 | 夜月機関付属大学 | Yadzuki Org. Affiliated University |
 
 ## 種族タイプ
@@ -335,7 +339,7 @@
 
 ## クラス（職掌）
 
-<small>出典: `data/Dictionaries/dict_Mikhail.json` / `data/Dictionaries/dict_NeoLotusNinean.json` / `data/Dictionaries/dict_RaisondetreCompany.json` / `data/Dictionaries/dict_Regioministrators.json` / `data/Dictionaries/dict_SymphonyXVI.json` / `data/Dictionaries/dict_WhiteHexagram.json` / `data/Dictionaries/dict_Zerbas.json`</small>
+<small>出典: `data/Dictionaries/dict_Mikhail.json` / `data/Dictionaries/dict_NeoLotusNinean.json` / `data/Dictionaries/dict_RaisondetreCompany.json` / `data/Dictionaries/dict_Regioministrators.json` / `data/Dictionaries/dict_SymphonyX.json` / `data/Dictionaries/dict_SymphonyXVI.json` / `data/Dictionaries/dict_WhiteHexagram.json` / `data/Dictionaries/dict_Zerbas.json`</small>
 
 | 日本語 | English |
 | --- | --- |
@@ -346,6 +350,7 @@
 | エニグマ課 左遷・逆行研究部 | Enigma Division, Demotion/Retrograde Research Department |
 | ベヴストザイン課 ヒューマノイド開発部 | Bewußtsein Division, Humanoid Development Department |
 | ベヴストザイン課 新人類研究部 | Bewußtsein Division, Newer Human Research Department |
+| ベヴストザイン課 第7世界創造部 | Bewußtsein Division, WDC.VII Department |
 | 機関所長 | Director of the Agency |
 | 国際情報屋 | International Information Officer |
 | 国際情報屋 運航者 | Navigator of International Information Officer |

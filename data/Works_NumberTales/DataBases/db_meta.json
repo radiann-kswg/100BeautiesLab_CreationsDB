@@ -81,7 +81,7 @@
           "sec_Category": "散狐アタストさん協賛",
           "sec_DesignedBy": ["RadianN"],
           "sec_SeriesTitle": "D-Vines",
-          "SecondarySummary_JP": "散狐アタストさんの提案により考案された「D-Vines(ディ-バインズ)」の関連キャラクター。\nシンフォニー.XVI(ゼクズィン)に所属する「錦野舞」によりナンバーテールズの互換プロダクションとして開発設計するために試作された特殊な番号のナンバーテールズ。分数や特殊な無理数の近似値上3桁の番号を持つ個体が中心となっている。",
+          "SecondarySummary_JP": "散狐アタストさんの提案により考案された「D-Vines(ディ-バインズ)」の関連キャラクター。\nシンフォニー.X(ツェーン)に所属する「錦野舞」によりナンバーテールズの互換プロダクションとして開発設計するために試作された特殊な番号のナンバーテールズ。分数や特殊な無理数の近似値上3桁の番号を持つ個体が中心となっている。",
           "StoryEra": {
             "InEra": [
               { "EraGen": 9, "YearInEra": 5 },
@@ -93,7 +93,7 @@
           },
           "_Commons": {
             "Progress": "stillTentative",
-            "Belonging": [{ "Faction": "シンフォニー.XVI(ゼクズィン)" }],
+            "Belonging": [{ "Faction": "シンフォニー.X(ツェーン)" }],
             "RaceType": "DeviatableHumanoid(TaleBeastType)",
             "isTriple": true
           }
@@ -178,7 +178,7 @@
           "sec_Category": "散狐アタストさん協賛",
           "sec_DesignedBy": ["RadianN"],
           "sec_SeriesTitle": "D-Vines",
-          "SecondarySummary_JP": "散狐アタストさんの提案により考案された。\nシンフォニー.XVI(ゼクズィン)に所属する「錦野舞」によりナンバーテールズの互換プロダクションとして開発された、胴部襷掛け方向に上下体の乖離・組み換え再接続が可能なカスタマイズ特化型ディビエイタブルヒューマノイド。上下の組み換え次第で性格に変化が生じるため、個体の外見デザイン以上のキャラクターバリエーションを有することが特徴。",
+          "SecondarySummary_JP": "散狐アタストさんの提案により考案された。\nシンフォニー.X(ツェーン)に所属する「錦野舞」によりナンバーテールズの互換プロダクションとして開発された、胴部襷掛け方向に上下体の乖離・組み換え再接続が可能なカスタマイズ特化型ディビエイタブルヒューマノイド。上下の組み換え次第で性格に変化が生じるため、個体の外見デザイン以上のキャラクターバリエーションを有することが特徴。",
           "StoryEra": {
             "InEra": [
               { "EraGen": 9, "YearInEra": 5 },
@@ -190,7 +190,7 @@
           },
           "_Commons": {
             "Progress": "stillTentative",
-            "Belonging": [{ "Faction": "シンフォニー.XVI(ゼクズィン)" }],
+            "Belonging": [{ "Faction": "シンフォニー.X(ツェーン)" }],
             "RaceType": "DeviatableHumanoid(TaleBeastType)",
             "isTriple": false
           }

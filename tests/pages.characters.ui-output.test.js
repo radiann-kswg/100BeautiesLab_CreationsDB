@@ -764,7 +764,7 @@ describe('pages/characters.js UI output', () => {
 		// Belonging は `$Def_Faction[]`（`{ Faction }` 子要素）なので、scopeField 照合対象の値を取り出して確認する
 		const dancyBelongingFactions = (Array.isArray(dancyActresssilkRaw?.Belonging) ? dancyActresssilkRaw.Belonging : [])
 			.map((item) => (item && typeof item === 'object') ? item.Faction : item);
-		expect(dancyBelongingFactions).toContain('シンフォニー.XVI(ゼクズィン)');
+		expect(dancyBelongingFactions).toContain('シンフォニー.X(ツェーン)');
 		// isPrivate チェックを通すためここだけ上書き
 		const dancyActresssilkRecord = { ...dancyActresssilkRaw, isPrivate: false };
 
@@ -775,7 +775,7 @@ describe('pages/characters.js UI output', () => {
 
 		// object 形式（`{ Faction }`）でも、辞書行の FactionsBaseArea が併記される（1 所属 1 行）
 		const belongingText = getBasicFieldValue('所属');
-		expect(belongingText).toContain('シンフォニー.XVI(ゼクズィン) / Symphony.XVI(Sechzehn)（黒薔薇国 / SchwarzeRoseland）');
+		expect(belongingText).toContain('シンフォニー.X(ツェーン) / Symphony.X(Zehn)（黒薔薇国 / SchwarzeRoseland）');
 	});
 
 	it('renders RelationToPrimary entries as links to the primary db detail view', async () => {
