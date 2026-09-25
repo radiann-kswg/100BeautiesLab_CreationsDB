@@ -474,6 +474,11 @@
     "ModelName_JP": "ナンバーテールズ1+11号機(111番機)",
     "ModelName_EN": "NumberTales Unit.1+11 (Mk.111)",
     "GenderType": "Neutral",
+    "Belonging": [
+      { "Faction": "百花繚乱研究所" },
+      { "Faction": "スターダスト・テクノロジー" }
+    ],
+    "FromArea": { "Area": "雄志結国" },
     "Class": ["マスタートリプル"],
     "Height_cm": 141,
     "Weight_kg": [
@@ -1162,6 +1167,7 @@
       { "Faction": "百花繚乱研究所" },
       { "Faction": "レゾンデイトルカンパニー" }
     ],
+    "FromArea": { "Area": "神皇国" },
     "Class": ["キャレ型", "キャレ型ハイナンバーズ開発部", "マルチアドレセンス"]
   },
   {
@@ -1183,6 +1189,7 @@
       { "Faction": "百花繚乱研究所" },
       { "Faction": "シンフォニー.XVI(ゼクズィン)" }
     ],
+    "FromArea": { "Area": "黒薔薇国" },
     "Class": ["キュビクザール型", "ヒューマノイド開発部(シンフォニー.XVI)"]
   },
   {
@@ -1206,6 +1213,7 @@
       { "Faction": "百花繚乱研究所" },
       { "Faction": "レゾンデイトルカンパニー" }
     ],
+    "FromArea": { "Area": "神皇国" },
     "Class": [
       "マスマティカコンストレイント",
       "キャレ型",
@@ -1230,6 +1238,7 @@
       { "Faction": "百花繚乱研究所" },
       { "Faction": "レゾンデイトルカンパニー" }
     ],
+    "FromArea": { "Area": "神皇国" },
     "Class": ["キャレ型", "キャレ型ハイナンバーズ開発部", "マルチアドレセンス"]
   },
   {
@@ -1249,6 +1258,7 @@
       { "Faction": "百花繚乱研究所" },
       { "Faction": "レゾンデイトルカンパニー" }
     ],
+    "FromArea": { "Area": "神皇国" },
     "Class": ["キャレ型", "キャレ型ハイナンバーズ開発部", "マルチアドレセンス"]
   },
   {
@@ -1302,13 +1312,14 @@
     "GenderType": "FemaleNeutral",
     "Belonging": [
       { "Faction": "百花繚乱研究所" },
-      { "Faction": "シンフォニー.XVI(ゼクズィン)" }
+      { "Faction": "シンフォニー.X(ツェーン)" }
     ],
+    "FromArea": { "Area": "黒薔薇国" },
     "Class": [
       "トリプルナインズ",
       "キュビクザール型",
       "インターフェイスコンストレイント",
-      "ヒューマノイド開発部(シンフォニー.XVI)",
+      "ヒューマノイド開発部(シンフォニー.X)",
       "マルチアドレセンス"
     ],
     "TailsUnit": [
@@ -1411,7 +1422,7 @@
         "Note_EN": null
       }
     ],
-    "RelationNotes_JP": "シンフォニー.XVI(ゼクズィン)の部署内では設計業務に勤める「錦野舞」やその専属契約個体「78(ナナハ)」を気に掛ける様子も見られる。",
+    "RelationNotes_JP": "シンフォニー.X(ツェーン)の部署内では設計業務に勤める「錦野舞」やその専属契約個体「78(ナナハ)」を気に掛ける様子も見られる。",
     "RelationNotes_EN": "Within the Symphony.XVI(Sechzehn) department, it is also seen to take an interest in \"Dancy Actressilk,\" who works in design, and her exclusive contract unit \"78(Seveights).\"",
     "Summary_JP": "累乗数などの番号を持つ量産販売型ナンバーテールズの開発用に、黒薔薇国の「シンフォニー.XVI」と提携して試験開発されているキュビクザール型ハイナンバーズ。\n1バイトの値域256以下で最大となる立法数の番号であることから、ターミナルアプリ開発企業向けの提供を想定して設計された。\n完成後は同番同型量産個体の「216(ニイロ)」に百花繚乱研究所の事業を託し、シンフォニー.XVIでの提携部署「ベヴストザイン課 ヒューマノイド開発部」にて開発用機として稼働している。",
     "Summary_EN": "A Kubikzahl-Series HighNumbers unit under experimental development in partnership with SchwarzeRoseland's \"Symphony.XVI\", intended for the development of mass-production sales NumberTales carrying numbers such as perfect powers.\nBecause her number is the largest cube number that fits within the 256-value range of a single byte, she was designed with supply to terminal-application development companies in mind.\nOnce completed, she entrusted HundredBeauties Laboratory's business to '216(Biunosect)', the mass-production unit of the same number and model, and now operates as a development unit at the partner department \"Bewußtsein Division, Humanoid Development Department\" within Symphony.XVI.",
@@ -1440,6 +1451,7 @@
       { "Faction": "国際ヒューマノイド技術学会" },
       { "Faction": "レゾンデイトルカンパニー" }
     ],
+    "FromArea": { "Area": "神皇国" },
     "Class": [
       "マルチアドレセンス",
       "国際協議個体",
@@ -1476,6 +1488,7 @@
     "ModelNumber": "APHR-NT I+XI.2|[x3]II",
     "ModelName_JP": "ナンバーテールズ1+11号2倍機または3倍型2号機(222番機)",
     "ModelName_EN": "NumberTales Unit.1+11 EXtended By.2 and EXtended By.3 Type Unit.2 (Mk.222)",
+    "FromArea": { "Area": "黒薔薇国" },
     "Class": ["マスタートリプル"],
     "TailsUnit": [
       {
@@ -1682,6 +1695,11 @@
     "ModelName_JP": "ナンバーテールズ3倍型2号機",
     "ModelName_EN": "NumberTales EXtended By.3 Type Unit.2",
     "GenderType": "FemaleNeutral",
+    "Belonging": [
+      { "Faction": "百花繚乱研究所" },
+      { "Faction": "シンフォニー.XVI(ゼクズィン)" }
+    ],
+    "Class": ["マスタートリプル"],
     "Height_cm": 147,
     "Weight_kg": 42,
     "BustSize": "B",
@@ -2199,6 +2217,11 @@
     "ModelName_JP": "ナンバーテールズ1+11号2倍機",
     "ModelName_EN": "NumberTales Unit.1+11 EXtended By.2",
     "GenderType": "FemaleNeutral",
+    "Belonging": [
+      { "Faction": "百花繚乱研究所" },
+      { "Faction": "シンフォニー.X(ツェーン)" }
+    ],
+    "Class": ["マスタートリプル"],
     "Height_cm": 146,
     "Weight_kg": 43,
     "BustSize": "A",
@@ -2699,6 +2722,7 @@
       { "Faction": "百花繚乱研究所" },
       { "Faction": "レゾンデイトルカンパニー" }
     ],
+    "FromArea": { "Area": "神皇国" },
     "Class": ["キャレ型", "キャレ型ハイナンバーズ開発部", "マルチアドレセンス"]
   },
   {
@@ -2723,6 +2747,7 @@
       { "Faction": "国際ヒューマノイド技術学会" },
       { "Faction": "レゾンデイトルカンパニー" }
     ],
+    "FromArea": { "Area": "神皇国" },
     "Class": [
       "マルチアドレセンス",
       "国際協議個体",
@@ -2752,6 +2777,7 @@
       { "Faction": "百花繚乱研究所" },
       { "Faction": "レゾンデイトルカンパニー" }
     ],
+    "FromArea": { "Area": "神皇国" },
     "Class": ["キャレ型", "キャレ型ハイナンバーズ開発部", "マルチアドレセンス"]
   },
   {
@@ -2777,8 +2803,10 @@
     "GenderType": "Neutral",
     "Belonging": [
       { "Faction": "百花繚乱研究所" },
+      { "Faction": "ティーポットベリー" },
       { "Faction": "国際ヒューマノイド技術学会" }
     ],
+    "FromArea": { "Area": "英皇国" },
     "Class": ["トリプルフォーズ", "国際協議個体", "バーチャリティテールズ"],
     "Backgrounds_JP": "1バイトで表現できる値の数から由来\nなお、国際ヒューマノイド技術学会協賛による特殊な型式シリーズの個体となる",
     "Backgrounds_EN": "Named after the number of values representable in one byte.\nNote: This unit is a special model series sponsored by the International Humanoid Technology Society."
@@ -2800,6 +2828,7 @@
       { "Faction": "百花繚乱研究所" },
       { "Faction": "レゾンデイトルカンパニー" }
     ],
+    "FromArea": { "Area": "神皇国" },
     "Class": ["キャレ型", "キャレ型ハイナンバーズ開発部", "マルチアドレセンス"]
   },
   {
@@ -2824,6 +2853,7 @@
       { "Faction": "国際ヒューマノイド技術学会" },
       { "Faction": "レゾンデイトルカンパニー" }
     ],
+    "FromArea": { "Area": "神皇国" },
     "Class": [
       "マルチアドレセンス",
       "国際協議個体",
@@ -2847,6 +2877,7 @@
       { "Faction": "百花繚乱研究所" },
       { "Faction": "レゾンデイトルカンパニー" }
     ],
+    "FromArea": { "Area": "黒薔薇国" },
     "Class": ["キャレ型", "キャレ型ハイナンバーズ開発部", "マルチアドレセンス"]
   },
   {
@@ -2888,9 +2919,10 @@
     "GenderType": "Neutral",
     "Belonging": [
       { "Faction": "百花繚乱研究所" },
-      { "Faction": "シンフォニー.XVI(ゼクズィン)" }
+      { "Faction": "シンフォニー.X(ツェーン)" }
     ],
-    "Class": ["キュビクザール型", "ヒューマノイド開発部(シンフォニー.XVI)"]
+    "FromArea": { "Area": "黒薔薇国" },
+    "Class": ["キュビクザール型", "ヒューマノイド開発部(シンフォニー.X)"]
   },
   {
     "Num": "361-sq",
@@ -2911,6 +2943,7 @@
       { "Faction": "百花繚乱研究所" },
       { "Faction": "レゾンデイトルカンパニー" }
     ],
+    "FromArea": { "Area": "神皇国" },
     "Class": ["キャレ型", "キャレ型ハイナンバーズ開発部", "マルチアドレセンス"]
   },
   {
@@ -2938,6 +2971,7 @@
       { "Faction": "百花繚乱研究所" },
       { "Faction": "レゾンデイトルカンパニー" }
     ],
+    "FromArea": { "Area": "神皇国" },
     "Class": ["百倍番(ハンドレッズデジッツ)", "キャレ型"]
   },
   {
@@ -3719,9 +3753,10 @@
     "GenderType": "Neutral",
     "Belonging": [
       { "Faction": "百花繚乱研究所" },
-      { "Faction": "シンフォニー.XVI(ゼクズィン)" }
+      { "Faction": "シンフォニー.X(ツェーン)" }
     ],
-    "Class": ["キュビクザール型", "ヒューマノイド開発部(シンフォニー.XVI)"]
+    "FromArea": { "Area": "黒薔薇国" },
+    "Class": ["キュビクザール型", "ヒューマノイド開発部(シンフォニー.X)"]
   },
   {
     "Num": "512-bq",
@@ -3743,8 +3778,10 @@
     "GenderType": "Neutral",
     "Belonging": [
       { "Faction": "百花繚乱研究所" },
+      { "Faction": "ティーポットベリー" },
       { "Faction": "国際ヒューマノイド技術学会" }
     ],
+    "FromArea": { "Area": "英皇国" },
     "Class": ["トリプルエイツ", "バーチャリティテールズ", "国際協議個体"],
     "Backgrounds_JP": "SI接頭辞「ki(キロバイナリ)」の半分に相当する指数に由来\nなお、国際ヒューマノイド技術学会協賛による特殊な型式シリーズの個体となる",
     "Backgrounds_EN": "Named from the exponent corresponding to half of the SI prefix 'ki(kilo binary)'.\nNote: This unit is a special model series sponsored by the International Humanoid Technology Society."
@@ -4368,23 +4405,29 @@
   {
     "Num": "729-sxp",
     "Num_Badge": "729XP",
-    "Progress": "notProceeded",
+    "Progress": "nowCreating",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 729 }],
-    "Name_JP": "729(ナブク)",
-    "Name_EN": "729(Seventwínina)",
+    "Name_JP": "729(ズィライノイル)\n9³(ズィライノイル)",
+    "Name_EN": "729(Si'weineul)\n9³(Si'weineul)",
     "FormalName_JP": "ナンバーテールズ729番想定機",
     "FormalName_EN": "NumberTales Assumed of #729",
-    "CodeName_JP": "七二九",
-    "CodeName_EN": "Seven-Two-Nine",
+    "CodeName_JP": "七二九, 9³",
+    "CodeName_EN": "Seven-Two-Nine, 9³",
     "ModelNumber": "APHR-NT SXP.III",
     "ModelName_JP": "ナンバーテールズ特殊個体：セクストパワーサード\nナンバーテールズ キュビクザール-ノイン",
     "ModelName_EN": "NumberTales Special Model: Sextpower-III\nNumberTales Unit.Kubikzahl-IX",
     "GenderType": "Neutral",
     "Belonging": [
       { "Faction": "百花繚乱研究所" },
+      { "Faction": "シンフォニー.X(ツェーン)" },
       { "Faction": "国際ヒューマノイド技術学会" }
     ],
-    "Class": ["キュビクザール型", "国際協議個体"]
+    "FromArea": { "Area": "黒薔薇国" },
+    "Class": [
+      "キュビクザール型",
+      "ヒューマノイド開発部(シンフォニー.X)",
+      "国際協議個体"
+    ]
   },
   {
     "Num": 777,
@@ -6748,10 +6791,15 @@
     "ModelName_JP": "ナンバーテールズ特殊個体：セクストパワーセカンド(仮設新64番機)",
     "ModelName_EN": "NumberTales Special Model: Sextpower-II (Tentative New-Mk.64)",
     "GenderType": "FemaleNeutral",
-    "Belonging": [{ "Faction": "国際ヒューマノイド技術学会" }],
+    "Belonging": [
+      { "Faction": "国際ヒューマノイド技術学会" },
+      { "Faction": "シンフォニー.XVI(ゼクズィン)" }
+    ],
+    "FromArea": { "Area": "雄志結国" },
     "Class": [
       "キャレ型",
       "キュビクザール型",
+      "ヒューマノイド開発部(シンフォニー.XVI)",
       "国際協議個体",
       "バイナリーコンストレイント"
     ],
@@ -7285,6 +7333,7 @@
       { "Faction": "百花繚乱研究所" },
       { "Faction": "レゾンデイトルカンパニー" }
     ],
+    "FromArea": { "Area": "神皇国" },
     "Class": ["9倍2桁番", "キャレ型", "キャレ型ハイナンバーズ開発部"],
     "AnivDay": [
       {
@@ -7313,15 +7362,15 @@
     "Name_JP": "錦野 舞",
     "Name_EN": "Dancy Actressilk",
     "RaceType": "Human",
-    "Belonging": [{ "Faction": "シンフォニー.XVI(ゼクズィン)" }],
-    "Class": ["開発者", "ヒューマノイド開発部(シンフォニー.XVI)"],
+    "Belonging": [{ "Faction": "シンフォニー.X(ツェーン)" }],
+    "Class": ["開発者", "ヒューマノイド開発部(シンフォニー.X)"],
     "BustSize": "B",
     "Age": 24,
     "ForMasterCalling_JP": "クライアントさん",
     "ForMasterCalling_EN": "Client-san",
     "RelationNotes_JP": "ナンバーテールズ開発者である零(カズナイ)姉弟の後輩。妹:歌嫁は同じくしてかつ百花繚乱研究所のアシスタントを行なっている。",
     "RelationNotes_EN": "Junior to the Norumber siblings, developers of NumberTales. Her sister, Phonia, is also an assistant at the 100 Beauties Lab.",
-    "InStory_JP": "シンフォニー.XVI(ゼクズィン)に所属後、量産販売型ナンバーテールズの相場的販売コストを抑えた互換個体ユニットの開発・提供を百花繚乱研究所（の主に零零(カズナイレイ)）と提携して行なっている\nちなみに運命線探偵としての錦野舞は、妹:歌嫁を含めおよそ7年前のパラレル存在に相当する",
+    "InStory_JP": "シンフォニー.X(ツェーン)に所属後、量産販売型ナンバーテールズの相場的販売コストを抑えた互換個体ユニットの開発・提供を百花繚乱研究所（の主に零零(カズナイレイ)）と提携して行なっている\nちなみに運命線探偵としての錦野舞は、妹:歌嫁を含めおよそ7年前のパラレル存在に相当する",
     "InStory_EN": "After joining Symphony.XVI(Sechzehn), she has been developing and providing compatible unit models with reduced market cost for mass-produced NumberTales in partnership with the 100 Beauties Lab. (mainly with Zera Norumber).\nBy the way, as a FateLine Investigators, Dancy Actressilk corresponds to a parallel existence from about 7 years ago, including her sister Phonia Actressilk.",
     "Relation": {
       "Related": [{ "Num": "∞", "RelationLabel": ["brother|sister"] }]
@@ -7359,7 +7408,7 @@
     "Age": 24,
     "ForMasterCalling_JP": "クライアントさん",
     "ForMasterCalling_EN": "Client-san",
-    "RelationNotes_JP": "ナンバーテールズ開発者である零(カズナイ)姉弟の後輩。姉:舞は同じくしてシンフォニー.XVI(ゼクズィン)に所属し黒薔薇国へ単身赴任している",
+    "RelationNotes_JP": "ナンバーテールズ開発者である零(カズナイ)姉弟の後輩。姉:舞は同じくしてシンフォニー.X(ツェーン)に所属し黒薔薇国へ単身赴任している",
     "RelationNotes_EN": "Junior to the Norumber siblings, developers of NumberTales. Her sister, Dancy, belongs to Symphony.XVI(Sechzehn) and is on a solo assignment in the Black Rose Kingdom.",
     "InStory_JP": "百花繚乱研究所の本体である元藤・千歳研究室にてN3US大学の大学院修士課程を卒業後、一時的な就職活動を経て同研究室で博士課程に進学し 主に零百(カズナイハゲム)の作業補助などといったゼミのアシスタントを務めている\nちなみに運命線探偵としての錦野歌嫁は、姉:舞を含めおよそ7年前のパラレル存在に相当する",
     "InStory_EN": "After graduating from the master's program at N3US University in the Dr.Wisterigen & Dr.Thouser Seminar, which is the mainbase of the 100 Beauties Lab, she temporarily job-hunted before entering the doctoral program at the same laboratory, where she mainly serves as an assistant in seminars such as assisting Hudret Norumber.\nBy the way, as a FateLine Investigators, Phonia Actressilk corresponds to a parallel existence from about 7 years ago, including her sister Dancy Actressilk.",

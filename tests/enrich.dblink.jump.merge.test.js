@@ -724,7 +724,7 @@ describe('_DBLink / _Jump merge (in-process)', () => {
     const ntSemiPrimary = loadJson('data/Works_NumberTales/DataBases/db_SemiPrimary.json');
     const linked = ntSemiPrimary.find(r => String(r?.Num) === '%');
     expect(linked).toBeTruthy();
-    expect(linked.Class).toEqual(['開発者', 'ヒューマノイド開発部(シンフォニー.XVI)']);
+    expect(linked.Class).toEqual(['開発者', 'ヒューマノイド開発部(シンフォニー.X)']);
     expect(linked.RelationTo_Primary).toBeTruthy();
 
     const out = await proc.enrichRecords([mai], '#Works_FLInvestigator78', 'PrimaryDealer');

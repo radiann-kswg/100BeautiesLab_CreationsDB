@@ -47550,8 +47550,8 @@
     },
     "ThisMasters": [
       {
-        "value_JP": "錦野 舞（シンフォニー.XVI(ゼクズィン) D-Vine開発部 最高責任部長）",
-        "value_EN": "Dancy Actressilk (Symphony.XVI(Sechzehn) Chief Executive in Development Department for D-Vines)",
+        "value_JP": "錦野 舞（シンフォニー.X(ツェーン) D-Vine開発部 最高責任部長）",
+        "value_EN": "Dancy Actressilk (Symphony.X(Zehn) Chief Executive in Development Department for D-Vines)",
         "_DBLink": { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": "%" }
       }
     ],
@@ -54526,7 +54526,7 @@
   {
     "Num": 95,
     "Num_Badge": "95",
-    "Progress": "notProceeded",
+    "Progress": "nowCreating",
     "Name_JP": "95(キュウゴ)",
     "Name_EN": "95(Ninfife)",
     "FormalName_JP": "ナンバーテールズ95番機",
