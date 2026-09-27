@@ -1,72 +1,86 @@
 [
   {
-    "Artifact": "応戦",
-    "Artifact_EN": "Responder",
-    "isForSecondary": false
-  },
-  {
-    "Artifact": "撹乱",
-    "Artifact_EN": "Confuser",
+    "Artifact": "哨戒近接",
+    "Artifact_JP": "哨戒近接(攻撃行動, 近接)",
+    "Artifact_EN": "SentryMelee(ActiveAttacker, Melee)",
     "isForSecondary": false
   },
   {
     "Artifact": "哨戒狙撃",
-    "Artifact_EN": "SentrySniper",
+    "Artifact_JP": "哨戒狙撃(攻撃行動, 狙撃)",
+    "Artifact_EN": "SentrySniper(ActiveAttacker, Sniper)",
     "isForSecondary": false
   },
   {
-    "Artifact": "哨戒近接",
-    "Artifact_EN": "SentryMelee",
+    "Artifact": "強襲",
+    "Artifact_JP": "強襲(攻撃行動, 中射程)",
+    "Artifact_EN": "Assaulter(ActiveAttacker, MidRange)",
+    "isForSecondary": false
+  },
+  {
+    "Artifact": "工作近接",
+    "Artifact_JP": "工作近接(攻撃操作, 近接)",
+    "Artifact_EN": "BreakWorker(Offender, Melee)",
+    "isForSecondary": false
+  },
+  {
+    "Artifact": "工作狙撃",
+    "Artifact_JP": "工作狙撃(攻撃操作, 狙撃)",
+    "Artifact_EN": "Aimer(Offender, Sniper)",
+    "isForSecondary": false
+  },
+  {
+    "Artifact": "撹乱",
+    "Artifact_JP": "撹乱(攻撃操作, 中射程)",
+    "Artifact_EN": "Confuser(Offender, MidRange)",
+    "isForSecondary": false
+  },
+  {
+    "Artifact": "遊撃",
+    "Artifact_JP": "遊撃(守備行動, 狙撃)",
+    "Artifact_EN": "Skirmisher(Guardian, Sniper)",
     "isForSecondary": false
   },
   {
     "Artifact": "死守",
-    "Artifact_EN": "Defender",
+    "Artifact_JP": "死守(守備行動, 近接)",
+    "Artifact_EN": "Defender(Guardian, Melee)",
+    "isForSecondary": false
+  },
+  {
+    "Artifact": "応戦",
+    "Artifact_JP": "応戦(守備行動, 中射程)",
+    "Artifact_EN": "Responder(Guardian, MidRange)",
+    "isForSecondary": false
+  },
+  {
+    "Artifact": "潜入",
+    "Artifact_JP": "潜入(守備操作, 狙撃)",
+    "Artifact_EN": "Infiltrator(Tuner, Sniper)",
+    "isForSecondary": false
+  },
+  {
+    "Artifact": "牽制",
+    "Artifact_JP": "牽制(守備操作, 近接)",
+    "Artifact_EN": "Contender(Tuner, Melee)",
+    "isForSecondary": false
+  },
+  {
+    "Artifact": "妨害",
+    "Artifact_JP": "妨害(守備操作, 中射程)",
+    "Artifact_EN": "Jammer(Tuner, MidRange)",
     "isForSecondary": false
   },
   {
     "Artifact": "増幅",
+    "Artifact_JP": "増幅(特殊行動)",
     "Artifact_EN": "Amplifier",
     "isForSecondary": false
   },
   {
     "Artifact": "支援",
+    "Artifact_JP": "支援(特殊操作)",
     "Artifact_EN": "Supporter",
-    "isForSecondary": false
-  },
-  {
-    "Artifact": "工作狙撃",
-    "Artifact_EN": "Aimer",
-    "isForSecondary": false
-  },
-  {
-    "Artifact": "工作近接",
-    "Artifact_EN": "BreakWorker",
-    "isForSecondary": false
-  },
-  {
-    "Artifact": "妨害",
-    "Artifact_EN": "Jammer",
-    "isForSecondary": false
-  },
-  {
-    "Artifact": "潜入",
-    "Artifact_EN": "Infiltrator",
-    "isForSecondary": false
-  },
-  {
-    "Artifact": "強襲",
-    "Artifact_EN": "Assaulter",
-    "isForSecondary": false
-  },
-  {
-    "Artifact": "遊撃",
-    "Artifact_EN": "Skirmisher",
-    "isForSecondary": false
-  },
-  {
-    "Artifact": "牽制",
-    "Artifact_EN": "Contender",
     "isForSecondary": false
   }
 ]

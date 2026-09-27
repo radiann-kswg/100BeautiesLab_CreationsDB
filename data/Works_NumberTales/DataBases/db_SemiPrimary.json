@@ -1295,11 +1295,12 @@
   {
     "Num": "216-cub",
     "Num_Badge": "216KZ",
-    "Progress": "stillTentative",
+    "Progress": "unreleased",
     "AnotherVersions_DBLink": [{ "_DB": "SelfSecondary", "Num": 216 }],
     "Name_JP": "216(リク)\n6³(リク)",
     "Name_EN": "216(Secubie)\n6³(Secubie)",
     "Images": {
+      "concept_PNGName": "Kubiczahl/cnsp_imgNTS-216KZ",
       "corefolder_PNGPath": ["216/emstk_corefolderNTS-216KZ-1"]
     },
     "FormalName_JP": "ナンバーテールズ キュビクザール-ゼクス(同位異格216番機)",
@@ -1322,6 +1323,9 @@
       "ヒューマノイド開発部(シンフォニー.X)",
       "マルチアドレセンス"
     ],
+    "Height_cm": 149,
+    "Weight_kg": 43,
+    "BustSize": "C",
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxBranched",
@@ -1340,6 +1344,24 @@
       }
     ],
     "ConceptAge": 16,
+    "FirstPersonCalling_JP": "わたし",
+    "FirstPersonCalling_EN": "I (fem. neutral)",
+    "SecondPersonCalling_JP": "[※名前呼び],きみ",
+    "SecondPersonCalling_EN": "[*by name], you",
+    "ThirdPersonCalling_JP": "[※名前呼び]",
+    "ThirdPersonCalling_EN": "[*by name]",
+    "ForMasterCalling_JP": "主人",
+    "ForMasterCalling_EN": "Master",
+    "Character_JP": "律儀で丁寧な秘書的存在\nたまに率先してお節介を焼くことも",
+    "Character_EN": "A diligent and polite secretary-like presence\nSometimes takes the initiative to meddle as well",
+    "Hobby_JP": "CLI開発・プログラミング",
+    "Hobby_EN": "CLI development, programming",
+    "SpecialSkill_JP": "色校正",
+    "SpecialSkill_EN": "Color proofing",
+    "Favor_JP": "視認性の良いもの・良質なUIデザイン",
+    "Favor_EN": "Things with good visibility, high-quality UI design",
+    "Unlike_JP": "色が反転した画面・暗所で目に刺激を与えること全般",
+    "Unlike_EN": "Screens with inverted colors, anything that stimulates the eyes in dark places",
     "ColorPalette": [
       {
         "Role": "#ColorRole_Primary",

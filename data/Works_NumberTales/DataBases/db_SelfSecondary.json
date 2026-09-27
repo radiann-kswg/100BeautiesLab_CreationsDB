@@ -976,11 +976,12 @@
   {
     "Num": 216,
     "Num_Badge": "216",
-    "Progress": "stillTentative",
+    "Progress": "unreleased",
     "AnotherVersions_DBLink": [{ "_DB": "SemiPrimary", "Num": "216-cub" }],
     "Name_JP": "216(ニイロ)",
     "Name_EN": "216(Biunosect)",
     "Images": {
+      "concept_PNGName": "kz/cnsp_imgNTS-216",
       "corefolder_PNGPath": ["216/emstk_corefolderNTS-216-1"]
     },
     "FormalName_JP": "量産型ナンバーテールズ216番機KZシリーズ(ナンバーテールズ216番機)",
@@ -990,6 +991,9 @@
     "ModelNumber": "APHR-NT [MP]216-KZ***",
     "GenderType": "FemaleNeutral",
     "Class": ["トリプルナインズ", "インターフェイスコンストレイント"],
+    "Height_cm": 149,
+    "Weight_kg": 43,
+    "BustSize": "C",
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxBranched",
