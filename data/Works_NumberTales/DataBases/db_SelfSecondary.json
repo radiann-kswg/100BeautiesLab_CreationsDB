@@ -759,7 +759,7 @@
   {
     "Num": 216,
     "Num_Badge": "216",
-    "Progress": "unreleased",
+    "Progress": "released",
     "AnotherVersions_DBLink": [{ "_DB": "SemiPrimary", "Num": "216-cub" }],
     "Name_JP": "216(ニイロ)",
     "Name_EN": "216(Biunosect)",
@@ -878,7 +878,7 @@
         "Note_EN": null
       }
     ],
-    "Summary_JP": "「キュビクザール型」ロットに相当するトリプルナインズ型量産ナンバーテールズ。\n216番機シリーズの代表個体で、「6番目の立法数」といった数学的性質だけでなく、「1バイトで平均的に三原色を扱える最大色数」といったインターフェイス用の定量的性質をモチーフにしたカスタマイズがなされており、オリジナル機である「キュビクザール-ゼクス」こと「216(リク)」の汎用軽量化個体ともいえる。",
+    "Summary_JP": "「キュビクザール型」ロットに相当するトリプルナインズ型量産ナンバーテールズ。\n216番機シリーズの代表個体で、「6番目の立法数」といった数学的性質だけでなく、「1バイトで平均的に三原色を扱える最大色数」といったインターフェイス用の定量的性質をモチーフにしたカスタマイズがなされており、オリジナル機である「キュビクザール・ゼクス」こと「216(リク)」の汎用軽量化個体ともいえる。",
     "Summary_EN": "A Triple-Nines-type mass-production NumberTales corresponding to the \"Kubikzahl-Series\" Class-Lot.\nAs the representative unit of the #216 series, she carries customizations themed not only on mathematical traits such as \"the sixth cube number\", but also on quantitative traits for interfaces such as \"the maximum number of colors that can evenly represent the three primary colors within 1 byte\", which makes her what could be called a general-purpose, lightweight variant of the original unit '216(Secubie)', also known as \"Kubikzahl-VI\".",
     "Backgrounds_JP": "ちなみに、三原色を1Byteで平均的に扱う際に取れる最大の色数でもある",
     "Backgrounds_EN": "Incidentally, 216 is also the maximum number of colors obtainable when the three primary colors are each evenly distributed across a 1-byte range (6 × 6 × 6 = 216; the web-safe color cube)."
