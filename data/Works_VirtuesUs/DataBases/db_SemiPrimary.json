@@ -86,7 +86,7 @@
     "FormalName_JPReading": "おうか ただし\nトレース・フォン・キルシュブルーテン=レーゲンス",
     "FormalName_EN": "Benevoly Cherrybroom\nTreuß.von.Kirschblüten=Regens",
     "GenderType": "Male",
-    "Belonging": [{ "Faction": "シンフォニー.XVI(ゼクズィン)" }],
+    "Belonging": [{ "Faction": "シンフォニー.XVI" }],
     "FromArea": { "Area": "黒薔薇国" },
     "Class": ["左遷・逆行研究部"],
     "Height_cm": 158,
