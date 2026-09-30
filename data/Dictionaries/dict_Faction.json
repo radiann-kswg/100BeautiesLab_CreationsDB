@@ -92,21 +92,30 @@
     "isAcademic": true
   },
   {
-    "Faction": "獣爾騎兵",
-    "Faction_EN": "Shau'er Riders",
-    "FactionsBaseArea": { "Area": "龍天国" },
-    "RegionstyleWithin": { "Regioministration": "Z" },
-    "isForSecondary": false,
-    "isMaker": false,
+    "Faction": "照梅テクノロジー",
+    "Faction_EN": "Shôbai Technology",
+    "FactionsBaseArea": { "Area": "九蓮国" },
+    "RegionstyleWithin": { "Regioministration": "W" },
+    "isForSecondary": null,
+    "isMaker": true,
     "isAcademic": false
   },
   {
-    "Faction": "界座",
-    "Faction_EN": "JièZuò",
-    "FactionsBaseArea": { "Area": "龍天国" },
-    "RegionstyleWithin": { "Regioministration": "Z" },
-    "isForSecondary": null,
-    "isMaker": true,
+    "Faction": "アルベッツ",
+    "Faction_EN": "ALPBETS",
+    "FactionsBaseArea": { "Area": "九蓮国" },
+    "RegionstyleWithin": { "Regioministration": "X" },
+    "isForSecondary": false,
+    "isMaker": null,
+    "isAcademic": null
+  },
+  {
+    "Faction": "アルベッツ被害者の会",
+    "Faction_EN": "Victims Association against ALPBETS",
+    "FactionsBaseArea": { "Area": "九蓮国" },
+    "RegionstyleWithin": { "Regioministration": "Y" },
+    "isForSecondary": false,
+    "isMaker": false,
     "isAcademic": false
   },
   {
@@ -133,6 +142,91 @@
     "Faction_EN": "Teapot-Berry Computing",
     "FactionsBaseArea": { "Area": "英皇国" },
     "RegionstyleWithin": { "Regioministration": "X" },
+    "isForSecondary": null,
+    "isMaker": true,
+    "isAcademic": false
+  },
+  {
+    "Faction": "獣爾騎兵",
+    "Faction_EN": "Shau'er Riders",
+    "FactionsBaseArea": { "Area": "龍天国" },
+    "RegionstyleWithin": { "Regioministration": "Z" },
+    "isForSecondary": false,
+    "isMaker": false,
+    "isAcademic": false
+  },
+  {
+    "Faction": "界座",
+    "Faction_EN": "JièZuò",
+    "FactionsBaseArea": { "Area": "龍天国" },
+    "RegionstyleWithin": { "Regioministration": "Z" },
+    "isForSecondary": null,
+    "isMaker": true,
+    "isAcademic": false
+  },
+  {
+    "Faction": "シンフォニー.X",
+    "Faction_JP": "シンフォニー.X(ツェーン)",
+    "Faction_EN": "Symphony.X(Zehn)",
+    "FactionsBaseArea": { "Area": "黒薔薇国" },
+    "RegionstyleWithin": { "Regioministration": "W" },
+    "isForSecondary": false,
+    "isMaker": null,
+    "isAcademic": false
+  },
+  {
+    "Faction": "シンフォニー.XVI",
+    "Faction_JP": "シンフォニー.XVI(ゼクズィン)",
+    "Faction_EN": "Symphony.XVI(Sechzehn)",
+    "FactionsBaseArea": { "Area": "黒薔薇国" },
+    "RegionstyleWithin": { "Regioministration": "Z" },
+    "isForSecondary": false,
+    "isMaker": null,
+    "isAcademic": false
+  },
+  {
+    "Faction": "シンフォニー.XI",
+    "Faction_JP": "シンフォニー.XI(エルフ)",
+    "Faction_EN": "Symphony.XI(Elf)",
+    "FactionsBaseArea": { "Area": "黒薔薇国" },
+    "RegionstyleWithin": { "Regioministration": "W" },
+    "isForSecondary": null,
+    "isMaker": true,
+    "isAcademic": false
+  },
+  {
+    "Faction": "シンフォニー.XII",
+    "Faction_JP": "シンフォニー.XII(ツヴェルフ)",
+    "Faction_EN": "Symphony.XII(Zwölf)",
+    "FactionsBaseArea": { "Area": "黒薔薇国" },
+    "RegionstyleWithin": { "Regioministration": "W" },
+    "isForSecondary": null,
+    "isMaker": null,
+    "isAcademic": null
+  },
+  {
+    "Faction": "レゾンデイトルカンパニー",
+    "Faction_EN": "Raison-d'être Company",
+    "FactionsBaseArea": { "Area": "神皇国" },
+    "RegionstyleWithin": { "Regioministration": "X" },
+    "isForSecondary": null,
+    "isMaker": true,
+    "isAcademic": false
+  },
+  {
+    "Faction": "アーヴァントガーデン学芸学会",
+    "Faction_EN": "ArvantGarden Academic Society",
+    "FactionsBaseArea": { "Area": "神皇国" },
+    "RegionstyleWithin": { "Regioministration": "W" },
+    "isForSecondary": null,
+    "isMaker": false,
+    "isAcademic": null
+  },
+  {
+    "Faction": "ガスコニール重工",
+    "Faction_EN": "Gascogneal Heavy Industries",
+    "FactionsBaseArea": { "Area": "神皇国" },
+    "RegionstyleWithin": { "Regioministration": "Z" },
     "isForSecondary": null,
     "isMaker": true,
     "isAcademic": false
@@ -165,6 +259,15 @@
     "isAcademic": false
   },
   {
+    "Faction": "白の六芒星",
+    "Faction_EN": "WhiteHexagram",
+    "FactionsBaseArea": { "Area": "雄志結国" },
+    "RegionstyleWithin": { "Regioministration": "X" },
+    "isForSecondary": false,
+    "isMaker": false,
+    "isAcademic": false
+  },
+  {
     "Faction": "国際ヒューマノイド技術学会",
     "Faction_EN": "International Humanoid Technology Society",
     "FactionsBaseArea": {
@@ -176,15 +279,6 @@
     "isForSecondary": null,
     "isMaker": false,
     "isAcademic": null
-  },
-  {
-    "Faction": "白の六芒星",
-    "Faction_EN": "WhiteHexagram",
-    "FactionsBaseArea": { "Area": "雄志結国" },
-    "RegionstyleWithin": { "Regioministration": "X" },
-    "isForSecondary": false,
-    "isMaker": false,
-    "isAcademic": false
   },
   {
     "Faction": "ジャンクガレージ『六花陛下』",
@@ -215,60 +309,6 @@
     "RegionstyleWithin": { "Regioministration": "Z" },
     "isForSecondary": null,
     "isMaker": false,
-    "isAcademic": false
-  },
-  {
-    "Faction": "アルベッツ",
-    "Faction_EN": "ALPBETS",
-    "FactionsBaseArea": { "Area": "九蓮国" },
-    "RegionstyleWithin": { "Regioministration": "X" },
-    "isForSecondary": false,
-    "isMaker": null,
-    "isAcademic": null
-  },
-  {
-    "Faction": "アルベッツ被害者の会",
-    "Faction_EN": "Victims Association against ALPBETS",
-    "FactionsBaseArea": { "Area": "九蓮国" },
-    "RegionstyleWithin": { "Regioministration": "Y" },
-    "isForSecondary": false,
-    "isMaker": false,
-    "isAcademic": false
-  },
-  {
-    "Faction": "照梅テクノロジー",
-    "Faction_EN": "Shôbai Technology",
-    "FactionsBaseArea": { "Area": "九蓮国" },
-    "RegionstyleWithin": { "Regioministration": "W" },
-    "isForSecondary": null,
-    "isMaker": true,
-    "isAcademic": false
-  },
-  {
-    "Faction": "レゾンデイトルカンパニー",
-    "Faction_EN": "Raison-d'être Company",
-    "FactionsBaseArea": { "Area": "神皇国" },
-    "RegionstyleWithin": { "Regioministration": "X" },
-    "isForSecondary": null,
-    "isMaker": true,
-    "isAcademic": null
-  },
-  {
-    "Faction": "シンフォニー.X(ツェーン)",
-    "Faction_EN": "Symphony.X(Zehn)",
-    "FactionsBaseArea": { "Area": "黒薔薇国" },
-    "RegionstyleWithin": { "Regioministration": "W" },
-    "isForSecondary": false,
-    "isMaker": null,
-    "isAcademic": false
-  },
-  {
-    "Faction": "シンフォニー.XVI(ゼクズィン)",
-    "Faction_EN": "Symphony.XVI(Sechzehn)",
-    "FactionsBaseArea": { "Area": "黒薔薇国" },
-    "RegionstyleWithin": { "Regioministration": "Z" },
-    "isForSecondary": null,
-    "isMaker": null,
     "isAcademic": false
   },
   {

@@ -96,7 +96,7 @@
           },
           "_Commons": {
             "Progress": "stillTentative",
-            "Belonging": [{ "Faction": "シンフォニー.X(ツェーン)" }],
+            "Belonging": [{ "Faction": "シンフォニー.X" }],
             "RaceType": "DeviatableHumanoid(TaleBeastType)",
             "isTriple": true
           },
@@ -199,7 +199,7 @@
           },
           "_Commons": {
             "Progress": "stillTentative",
-            "Belonging": [{ "Faction": "シンフォニー.X(ツェーン)" }],
+            "Belonging": [{ "Faction": "シンフォニー.X" }],
             "RaceType": "DeviatableHumanoid(TaleBeastType)",
             "isTriple": false
           },

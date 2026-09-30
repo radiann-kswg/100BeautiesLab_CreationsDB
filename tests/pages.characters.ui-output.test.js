@@ -764,7 +764,7 @@ describe('pages/characters.js UI output', () => {
 		// Belonging は `$Def_Faction[]`（`{ Faction }` 子要素）なので、scopeField 照合対象の値を取り出して確認する
 		const dancyBelongingFactions = (Array.isArray(dancyActresssilkRaw?.Belonging) ? dancyActresssilkRaw.Belonging : [])
 			.map((item) => (item && typeof item === 'object') ? item.Faction : item);
-		expect(dancyBelongingFactions).toContain('シンフォニー.X(ツェーン)');
+		expect(dancyBelongingFactions).toContain('シンフォニー.X');
 		// isPrivate チェックを通すためここだけ上書き
 		const dancyActresssilkRecord = { ...dancyActresssilkRaw, isPrivate: false };
 

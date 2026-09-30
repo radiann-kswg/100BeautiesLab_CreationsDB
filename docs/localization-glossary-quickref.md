@@ -12,7 +12,7 @@
 - **インライン補完（ゴーストテキスト）**: 補完はカスタム指示ファイルを読み込みません。英訳作業中は本ファイルを隣のタブで開いておくと、近傍文脈として対訳が補完に反映されやすくなります。
 - **正典はあくまで辞書本体**。表に無い語・揺れがある語は `data/**/trans_*.json` 等の辞書と `docs/localization-en-rules.md` を確認してください。最終採否は User 判断です。
 
-- 収録: **194 対訳**（延べ抽出。生成日時: 2026-09-25T05:11:17.986Z）
+- 収録: **200 対訳**（延べ抽出。生成日時: 2026-09-30T05:35:18.451Z）
 
 ## 人名（姓・代理）
 
@@ -252,10 +252,16 @@
 | 日本語 | English |
 | --- | --- |
 | N3US大学 | N3US University |
+| アーヴァントガーデン学芸学会 | ArvantGarden Academic Society |
 | アルベッツ | ALPBETS |
 | アルベッツ被害者の会 | Victims Association against ALPBETS |
 | エイゼルベットの観測世界 | ∀sellbuet's Observational World |
+| ガスコニール重工 | Gascogneal Heavy Industries |
 | シンフォニー.X(ツェーン) | Symphony.X |
+| シンフォニー.XI | Symphony.XI |
+| シンフォニー.XI(エルフ) | Symphony.XI |
+| シンフォニー.XII | Symphony.XII |
+| シンフォニー.XII(ツヴェルフ) | Symphony.XII |
 | シンフォニー.XVI(ゼクズィン) | Symphony.XVI |
 | スターダスト・テクノロジー | Stardusts Technology |
 | スターダスト財団 | Stardusts Foundation |

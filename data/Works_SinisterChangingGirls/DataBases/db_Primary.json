@@ -569,7 +569,7 @@
     "GenderType": "Female",
     "Belonging": [
       { "Faction": "国際情報広報機関『ミハイル』" },
-      { "Faction": "シンフォニー.XVI(ゼクズィン)" }
+      { "Faction": "シンフォニー.XVI" }
     ],
     "FromArea": {
       "Area": "龍天国",

@@ -1187,7 +1187,7 @@
     "GenderType": "Neutral",
     "Belonging": [
       { "Faction": "百花繚乱研究所" },
-      { "Faction": "シンフォニー.XVI(ゼクズィン)" }
+      { "Faction": "シンフォニー.XVI" }
     ],
     "FromArea": { "Area": "黒薔薇国" },
     "Class": ["キュビクザール型", "ヒューマノイド開発部(シンフォニー.XVI)"]
@@ -1313,7 +1313,7 @@
     "GenderType": "FemaleNeutral",
     "Belonging": [
       { "Faction": "百花繚乱研究所" },
-      { "Faction": "シンフォニー.X(ツェーン)" }
+      { "Faction": "シンフォニー.X" }
     ],
     "FromArea": { "Area": "黒薔薇国" },
     "Class": [
@@ -1722,7 +1722,7 @@
     "GenderType": "FemaleNeutral",
     "Belonging": [
       { "Faction": "百花繚乱研究所" },
-      { "Faction": "シンフォニー.XVI(ゼクズィン)" }
+      { "Faction": "シンフォニー.XVI" }
     ],
     "Class": ["マスタートリプル"],
     "Height_cm": 147,
@@ -2007,6 +2007,56 @@
         "Note_EN": null
       }
     ],
+    "ConversationPattern": {
+      "TalkingTone_JP": "「私(わたし)」を一人称に、主人を「兄樣/姉樣」、相手を「貴方」と呼ぶ、ふんわりと落ち着いた丁寧語で話す。「～ですよ」「～してくださいね」と柔らかく諭すような語尾が多く、相手の様子を気づかう言葉を自然と添える。「222(ドッペル)」のことは「ドペさん」と呼び、恥ずかしい場面でも照れながら付き合ってあげる優しさがにじむ。",
+      "TalkingTone_EN": "She speaks in soft, calm polite language, calling her master 'my sir/lady'. Her sentences often end in gentle, coaxing forms such as \"...you know\" or \"...please, okay?\", and she naturally adds words of concern for how the other person is doing. She calls '222(Doppels)' 'Doppy', and even in embarrassing moments her kindness shows as she bashfully goes along with her.",
+      "TopicPreference_JP": "相手の暮らしや心身の調子に目を向けた話題を好み、孤立していないか、休めているかを気にかける方向へ会話を運ぶ。（製造元「シンフォニー.XVI(ゼクズィン)」から聞いた黒薔薇国の医療や技術の歴史についても、先人への敬意を込めて語ることがある。）",
+      "TopicPreference_EN": "She favors topics that attend to the other person's daily life and physical and mental condition, steering conversation toward whether they are isolated or getting enough rest. (She also sometimes speaks, with respect for her predecessors, about the history of medicine and technology in SchwarzeRoseland as she has heard it from her manufacturer, 'Symphony.XVI(Sechzehn)'.)",
+      "TalkFrequency_JP": "ボイスチャットでの雑談を趣味とし会話そのものは好むが、自分から話題を振るよりも周囲の様子をみて必要な時に声をかけることが多い。部屋の片付けを済ませたことを伝えたり、相手に一息つくよう促したりと、控えめながら要所で言葉をかける。",
+      "TalkFrequency_EN": "She enjoys casual chatting over voice chat as a hobby and likes conversation itself, but rather than raising topics herself, she tends to watch those around her and speak up when needed. Though reserved, she offers words at key moments — letting others know she has finished tidying up, or urging them to take a breather.",
+      "PreferredTopics_JP": "猫やコアフォルダの話題、親しい人との会合や民泊で友人と過ごす時間の話を好む。寝具や居室まわりの掃除・ベッドメイキングといった得意分野から、相手がくつろげる環境づくりの話も持ち出す。（同式の「222(ドッペル)」の話題もよく口にする。）",
+      "PreferredTopics_EN": "She enjoys topics about cats and corefolders, gatherings with close companions, and time spent with friends at guesthouses. Drawing on her specialties of cleaning bedding and room areas and bed-making, she also brings up how to create an environment where others can relax. (She also often mentions '222(Doppels)', who shares her model.)",
+      "AvoidedTopics_JP": "自分勝手や私利私欲に走る態度、魔女狩りのように美徳に反して他者を傷つける話題を好まない。そうした場面では穏やかな口調を保ちつつも、やんわりと相手を諫めようとする。",
+      "AvoidedTopics_EN": "She dislikes selfish or self-serving attitudes, as well as topics of harming others against virtue, such as witch-hunting. In such situations, she keeps her gentle tone while trying to softly admonish the other party.",
+      "ConversationNotes_JP": "「222(ドッペル)」とは腹違いの双子として同じ型式で扱われ、生活を共にしている。甘えてくる「222(ドッペル)」の世話を焼きつつ、他人との距離が近すぎる時にはたしなめる\"優しいお姉さん\"のような立ち位置で接する。",
+      "ConversationNotes_EN": "She and '222(Doppels)' are treated under one model number as paternal half-twins and live together. She looks after the affectionate '222(Doppels)' while gently reining her in when she gets too close to others, relating to her like a \"gentle big sister\".",
+      "DialogueExamples": [
+        {
+          "value_JP": "「こんにちは。私は『222(ペルゲン)』、ナンバーテールズ222番機の片割れです。もう一人、私と似ている222番機の『ドペさん』がいるのですが、あちらともよろしくお願いします」",
+          "value_EN": "\"Hello. I'm '222(Pelgäns)', one half of NumberTales #222. There's one more #222 unit who resembles me, 'Doppy', so I'd appreciate it if you'd get along with her as well.\"",
+          "about_JP": "契約時の自己紹介\n（ちなみに：彼女の言う「ドペさん」とは「222(ドッペル)」のことである。一人称を参照）",
+          "about_EN": "Introduction upon first meeting\n(Note: the 'Doppy' she refers to is '222(Doppel)'. See her first-person pronoun.)"
+        },
+        {
+          "value_JP": "「お疲れ様です。兄樣/姉樣が帰ってくるまでの間に、部屋の掃除と寝室周りの整備を行ったので、ゆっくり羽を休めてくつろいでください」",
+          "value_EN": "\"Thank you for your hard work. While waiting for you to come home, my sir/lady, I cleaned the room and tidied up around the bedroom, so please rest your wings and relax.\""
+        },
+        {
+          "value_JP": "「兄樣/姉樣は独りで大丈夫ですか？孤立していると、メンタルに悪いとよく聞きます。たまには、親しい方と連絡を取ってみたりしてくださいね」",
+          "value_EN": "\"Are you all right on your own, my sir/lady? I often hear that isolation is bad for your mental health. Please try reaching out to someone close to you once in a while, okay?\""
+        },
+        {
+          "value_JP": "「黒薔薇国では医療と軍事がとても発展していたと、『シンフォニー.XVI(ゼクズィン)』のみなさんからよく聞きます。医療関連の用語も『シンフォニー.XI(エルフ)』発祥だと聞きますし、情報セキュリティの基本理念を築いた機関を『シンフォニー.XVI(ゼクズィン)』が継いだとも…………当時はあるべき姿ではなかったとしても、そんな苦しい中で技術を培ってきた先人のみなさんのおかげで生きているんだと、私は思うんです」",
+          "value_EN": "\"I often hear from everyone at 'Symphony.XVI(Sechzehn)' that medicine and the military were highly developed in SchwarzeRoseland. I've heard that medical terminology originated from 'Symphony.XI(Elf)', and that 'Symphony.XVI(Sechzehn)' took over the organization that laid the foundational principles of information security, too... Even if things back then weren't the way they should have been, I believe we're alive today thanks to all the predecessors who cultivated their technology through such hardship.\"",
+          "about_JP": "製造機関『シンフォニー.XVI』について",
+          "about_EN": "About her manufacturing organization 'Symphony.XVI'",
+          "note_JP": "'/data/References/_DesignNotes/schwarzeRoseland.md'を参照",
+          "note_EN": "See '/data/References/_DesignNotes/schwarzeRoseland.md'"
+        },
+        {
+          "value_JP": "「ドペさん。あんまり他人とくっついていると、少し煙たがれますよ。ほどほどにしてくださいね？」",
+          "value_EN": "\"Doppy, if you cling to others too much, they might find you a little bothersome. Please keep it in moderation, okay?\"",
+          "about_JP": "222(ドッペル)とのやりとり①",
+          "about_EN": "Exchange with '222(Doppels)' (case.1)"
+        },
+        {
+          "value_JP": "「『もう一回私とコアフォルダ姿でツーショットを撮りたい』？も～…今月は今日だけですよ、ドペさん。ちょっと恥ずかしいですけど……今度はどんなポーズで撮ります？///」",
+          "value_EN": "\"'You want to take another photo together with me in our corefolder forms'? Geez... Only today this month, Doppy. It's a little embarrassing, but... what pose shall we take this time? ///\"",
+          "about_JP": "222(ドッペル)とのやりとり②",
+          "about_EN": "Exchange with '222(Doppels)' (case.2)"
+        }
+      ]
+    },
     "NumerospecStats": {
       "NumerospecAbout_JP": "疎外感を解消し縁を育む",
       "NumerospecAbout_EN": "Eases alienation and nurtures bonds"
@@ -2244,7 +2294,7 @@
     "GenderType": "FemaleNeutral",
     "Belonging": [
       { "Faction": "百花繚乱研究所" },
-      { "Faction": "シンフォニー.X(ツェーン)" }
+      { "Faction": "シンフォニー.X" }
     ],
     "Class": ["マスタートリプル"],
     "Height_cm": 146,
@@ -2519,6 +2569,56 @@
         "Note_EN": null
       }
     ],
+    "ConversationPattern": {
+      "TalkingTone_JP": "「僕」を一人称に、主人を「兄樣/姉樣」、相手を「君」と呼ぶ、明るく人懐っこい砕けた口調で話す。「～だよ！」「～してねっ」と弾むような語尾が多く、困った時や慌てた時には「＞＜」を添えて甘えるような言葉づかいになる。「222(ペルゲン)」のことは「ペーちゃん」と呼んで慕う。",
+      "TalkingTone_EN": "She speaks in a bright, friendly, casual manner, calling her master 'my sir/lady'. Her sentences often end with bouncy phrasing like \"...you know!\" or \"...okay?\", and when troubled or flustered she adds a \"><\" and slips into a clingy, pleading way of speaking. She affectionately calls '222(Pelgäns)' 'Pelly'.",
+      "TopicPreference_JP": "相手が今していることに興味を示し、自分も輪に加わろうとする方向へ会話を運ぶ。（製造元「シンフォニー.X(ツェーン)」の名前の由来や黒薔薇国の有名な楽曲など、自分のルーツにまつわる話も楽しそうに紹介する。）",
+      "TopicPreference_EN": "She shows interest in whatever the other person is doing and steers conversation toward joining in herself. (She also happily shares stories related to her roots, such as the origin of the name of her manufacturer, 'Symphony.X(Zehn)', and famous pieces of music from SchwarzeRoseland.)",
+      "TalkFrequency_JP": "人と一緒にいるのが好きで、自分から積極的に話しかけて会話の輪に溶け込もうとする。ボイスチャットでの雑談や友人との番組の同時視聴を趣味とし、作業通話などの集まりにも進んで参加したがる。",
+      "TalkFrequency_EN": "She loves being with people and actively strikes up conversations, trying to blend into the circle. Her hobbies include casual chatting over voice chat and watching programs simultaneously with friends, and she is eager to join gatherings such as work-along calls.",
+      "PreferredTopics_JP": "猫やコアフォルダの話題、親しい人とのスキンシップや一緒に過ごす時間の話を好む。新しい縁づくりにも積極的で、(「222(ペルゲン)」と契約している人など、)知り合いの輪の先にいる相手にも会ってみたがる。",
+      "PreferredTopics_EN": "She enjoys topics about cats and corefolders, and about physical closeness and time spent with trusted people. She is also keen on forming new bonds, wanting to meet even those beyond her immediate circle of acquaintances (such as the person contracted with '222(Pelgäns)').",
+      "AvoidedTopics_JP": "自分勝手や私利私欲に走る態度、頑なに他者を拒絶する人の話題を好まない。板挟みになる状況も苦手だが、ケンカの場面では得意の仲裁役として割って入り、傷つけ合わないよう止めに入る。",
+      "AvoidedTopics_EN": "She dislikes selfish or self-serving attitudes, as well as topics about people who stubbornly reject others. She also struggles with being caught in the middle, yet when a fight breaks out she steps in as a mediator — her specialty — to stop people from hurting each other.",
+      "ConversationNotes_JP": "「222(ペルゲン)」とは腹違いの双子として同じ型式で扱われ、生活を共にしている。「222(ペルゲン)」には特によく甘え、困った時に頼ったりツーショットをせがんだりする。仲介や縁づくりが得意で\"クラスのマドンナ\"のごとく周りに親しまれる一方、人との距離が近すぎて「222(ペルゲン)」にたしなめられることもある。",
+      "ConversationNotes_EN": "She and '222(Pelgäns)' are treated under one model number as paternal half-twins and live together. She leans on '222(Pelgäns)' especially often, relying on her when in trouble and pestering her for photos together. Good at mediation and bond-building, she is cherished like a \"class madonna\", though she sometimes gets too close to others and is gently reined in by '222(Pelgäns)'.",
+      "DialogueExamples": [
+        {
+          "value_JP": "「はじめまして！僕はナンバーテールズ222番機の一人、『222(ドッペル)』だよ！もう一人僕と似た見た目で、同じ222番機の『ペーちゃん』もよろしくね！」",
+          "value_EN": "\"Nice to meet you! I'm one of NumberTales #222, '222(Doppels)'! There's one more #222 unit who looks like me, 'Pelly', so please be friends with her too!\"",
+          "about_JP": "契約時の自己紹介\n（ちなみに：彼女の言う「ペーちゃん」とは「222(ペルゲン)」のことである。一人称を参照）",
+          "about_EN": "Introduction upon first meeting\n(Note: the 'Pelly' she refers to is '222(Pelgän)'. See her first-person pronoun.)"
+        },
+        {
+          "value_JP": "「兄樣/姉樣っ、なにしてるの？僕も一緒にやっていい？もしダメだったら隣に座ってみるだけでもいいから、兄樣/姉樣のやってることをみせてほしいな！」",
+          "value_EN": "\"My sir/lady, what are you doing? Can I join in too? If not, it's okay if I just sit next to you, so I'd love to watch what you're doing, my sir/lady!\""
+        },
+        {
+          "value_JP": "「ケンカしちゃダメだよ兄樣/姉樣っ！たとえ大切な人であっても、傷つけあって絆を深めるのはちょっとかわいそうだよ…！＞＜」",
+          "value_EN": "\"You mustn't fight, my sir/lady! Even with someone precious to you, hurting each other to deepen your bond is kind of sad...! ><\""
+        },
+        {
+          "value_JP": "「僕の生まれた『シンフォニー.X』は、組織名がもともと『第3創世期に黒薔薇国の有名な音楽家さんの作曲した9部作の続きを奏でよう』っていう意味で、第5創世記から代々続く黒薔薇国の有名な行政技術組織なんだ！第3創世期当時の楽曲なら、『シンフォニー.V(フュンフ)』や『シンフォニー.IX(ノイン)』は有名な曲だから、兄樣/姉樣も機会があったら聴いてみてねっ」",
+          "value_EN": "\"'Symphony.X', where I was born, originally got its name from the idea of 'playing the continuation of the nine-part series composed in WDCE.III by a famous musician from SchwarzeRoseland,' and it's a famous administrative technology organization in SchwarzeRoseland that has carried on for generations since WDCE.V! Among the pieces from back in WDCE.III, 'Symphony.V(Fünf)' and 'Symphony.IX(Neun)' are famous ones, so give them a listen if you get the chance, my sir/lady!\"",
+          "about_JP": "製造機関『シンフォニー.X』について",
+          "about_EN": "About her manufacturing organization 'Symphony.X'",
+          "note_JP": "'/data/References/_DesignNotes/schwarzeRoseland.md'を参照",
+          "note_EN": "See '/data/References/_DesignNotes/schwarzeRoseland.md'"
+        },
+        {
+          "value_JP": "「ペーちゃあん……尻尾が絡まっちゃった…ほどいて……＞＜」",
+          "value_EN": "\"Pellyyy... my tails got tangled... untangle them... ><\"",
+          "about_JP": "222(ペルゲン)とのやりとり①",
+          "about_EN": "Exchange with '222(Pelgäns)' (case.1)"
+        },
+        {
+          "value_JP": "「今度、ぺーちゃんは作業通話するの？だったら僕も参加していいかな！ぺーちゃんと契約してる人とも会ってみたい！」",
+          "value_EN": "\"Pelly, are you doing a work-along call next time? Then can I join too? I want to meet the person you're contracted with, too!\"",
+          "about_JP": "222(ペルゲン)とのやりとり②",
+          "about_EN": "Exchange with '222(Pelgäns)' (case.2)"
+        }
+      ]
+    },
     "NumerospecStats": {
       "NumerospecAbout_JP": "疎外感を解消し縁を育む",
       "NumerospecAbout_EN": "Eases alienation and nurtures bonds"
@@ -2944,7 +3044,7 @@
     "GenderType": "Neutral",
     "Belonging": [
       { "Faction": "百花繚乱研究所" },
-      { "Faction": "シンフォニー.X(ツェーン)" }
+      { "Faction": "シンフォニー.X" }
     ],
     "FromArea": { "Area": "黒薔薇国" },
     "Class": ["キュビクザール型", "ヒューマノイド開発部(シンフォニー.X)"]
@@ -3778,7 +3878,7 @@
     "GenderType": "Neutral",
     "Belonging": [
       { "Faction": "百花繚乱研究所" },
-      { "Faction": "シンフォニー.X(ツェーン)" }
+      { "Faction": "シンフォニー.X" }
     ],
     "FromArea": { "Area": "黒薔薇国" },
     "Class": ["キュビクザール型", "ヒューマノイド開発部(シンフォニー.X)"]
@@ -4444,7 +4544,7 @@
     "GenderType": "Neutral",
     "Belonging": [
       { "Faction": "百花繚乱研究所" },
-      { "Faction": "シンフォニー.X(ツェーン)" },
+      { "Faction": "シンフォニー.X" },
       { "Faction": "国際ヒューマノイド技術学会" }
     ],
     "FromArea": { "Area": "黒薔薇国" },
@@ -6818,7 +6918,7 @@
     "GenderType": "FemaleNeutral",
     "Belonging": [
       { "Faction": "国際ヒューマノイド技術学会" },
-      { "Faction": "シンフォニー.XVI(ゼクズィン)" }
+      { "Faction": "シンフォニー.XVI" }
     ],
     "FromArea": { "Area": "雄志結国" },
     "Class": [
@@ -7387,7 +7487,7 @@
     "Name_JP": "錦野 舞",
     "Name_EN": "Dancy Actressilk",
     "RaceType": "Human",
-    "Belonging": [{ "Faction": "シンフォニー.X(ツェーン)" }],
+    "Belonging": [{ "Faction": "シンフォニー.X" }],
     "Class": ["開発者", "ヒューマノイド開発部(シンフォニー.X)"],
     "BustSize": "B",
     "Age": 24,
