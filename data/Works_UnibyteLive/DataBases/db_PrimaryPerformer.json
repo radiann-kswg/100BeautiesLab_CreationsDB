@@ -236,8 +236,8 @@
       "_DB": "Primary",
       "Letter": { "Alphabet": "O", "AlphaGen": 2 }
     },
-    "FormalName_JP": "扇 零夏.スフィリア",
-    "FormalName_JPReading": "おうぎ れいか.スフィリア",
+    "FormalName_JP": "扇 零夏・スフィリア",
+    "FormalName_JPReading": "おうぎ れいか・スフィリア",
     "FormalName_EN": "Arch Origth.Spheria",
     "RaceType": "Warfox",
     "GenderType": { "hideText": "？？？" },

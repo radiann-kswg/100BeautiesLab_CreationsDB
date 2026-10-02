@@ -549,8 +549,8 @@
         "arts/weakening/arts_destinyFoxRec-2021-0031"
       ]
     },
-    "FormalName_JP": "環 ひかり.フラッシュレイ",
-    "FormalName_JPReading": "たまき ひかり.フラッシュレイ",
+    "FormalName_JP": "環 ひかり・フラッシュレイ",
+    "FormalName_JPReading": "たまき ひかり・フラッシュレイ",
     "FormalName_EN": "Hikari Orvis.Flashray",
     "RaceType": "Nekomata",
     "GenderType": "Female",
@@ -604,7 +604,7 @@
         "emstk_weakeningDFR-RVN-2"
       ]
     },
-    "FormalName_JP": "法.ベクトラム すい",
+    "FormalName_JP": "法・ベクトラム すい",
     "FormalName_JPReading": "ほう.べくとらむ すい",
     "FormalName_EN": "Nor.Vectorum Vert",
     "RaceType": "LunaWolf",
