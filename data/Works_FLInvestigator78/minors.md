@@ -178,7 +178,7 @@
 ユリィ・ジューン / Yurie.Junes
 
 **♠ アテナ / Athena**
-ミネルヴァ.パルテノン / Minerva.Parthenon
+ミネルヴァ・パルテノン / Minerva.Parthenon
 
 **♦ レイチェル / Rachel**
 リーチェ・エリザベス / Leiche.Elizabeth
