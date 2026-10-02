@@ -2,6 +2,6 @@
   { "Material": "Fire", "Material_JP": "火" },
   { "Material": "Water", "Material_JP": "水" },
   { "Material": "Slash", "Material_JP": "風" },
-  { "Material": "Object", "Material_JP": "土" },
+  { "Material": "Object", "Material_JP": "形" },
   { "Material": "Quart", "Material_JP": "四" }
 ]
