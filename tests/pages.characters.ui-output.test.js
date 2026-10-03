@@ -431,7 +431,7 @@ describe('pages/characters.js UI output', () => {
 
 		const classText = getBasicFieldValue('クラス名');
 		expect(classText).toContain('幹部 / Executive Director');
-		expect(classText).toContain('弥生研究所(破滅対策本部2課) / Laboratory.3(Pandemic Affairs Countermeasures Headquarter.2)');
+		expect(classText).toContain('弥生研究所(破滅対策本部2課) / Laboratory.3 (Pandemic Affairs Countermeasures Headquarter.2)');
 	});
 
 	it('renders enum and hideText values in basic info table', async () => {
