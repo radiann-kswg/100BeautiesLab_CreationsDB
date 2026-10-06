@@ -240,11 +240,7 @@
     "FormalName_JPReading": "おうぎ つぐはる",
     "FormalName_EN": "Arch Seconec",
     "RaceType": "Warfox(Acquired)",
-    "GenderType": {
-      "value": "Arbitrary",
-      "about_JP": "ただし中身は男性寄り",
-      "about_EN": "However, the identity are more geared towards Male."
-    },
+    "GenderType": "ArbitraryMale",
     "Class": ["創造主"],
     "Height_cm": 163,
     "Weight_kg": { "hideText": "本人すら把握されていない" },

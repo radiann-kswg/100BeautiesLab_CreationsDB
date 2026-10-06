@@ -51,6 +51,12 @@
     "basis": [{ "RaceType": "Immaginaries" }]
   },
   {
+    "RaceType": "Ghostinaries(Acquired)",
+    "RaceType_JP": "亡霊概念(アルカナにより後天的に)",
+    "RaceType_EN": "Ghostinaries (Ghostly Immaginaries, Acquired by Arcana)",
+    "basis": [{ "RaceType": "Immaginaries" }]
+  },
+  {
     "RaceType": "Terrorinaries",
     "RaceType_JP": "恐怖概念",
     "RaceType_EN": "Terrorinaries (Terrifying Immaginaries)",
