@@ -5,6 +5,11 @@
     "AssignedRegioministratorRole": { "Regioministration": "W" },
     "AnotherVersions_DBLink": [
       {
+        "_Work": "SinisterChangingGirls",
+        "_DB": "Regioministrators",
+        "Regioministration": "W"
+      },
+      {
         "_Work": "UnibyteLive",
         "_DB": "PrimaryPerformer",
         "Letter": { "Alphabet": "O", "AlphaGen": 2 }
@@ -342,6 +347,14 @@
   {
     "Generation": 1,
     "Progress": "archived",
+    "AnotherVersion_DBLink": [
+      {
+        "_Work": "SinisterChangingGirls",
+        "_DB": "Regioministrators",
+        "Regioministration": "X"
+      },
+      { "_Work": "SinisterChangingGirls", "_DB": "Primary", "Drc": "NE" }
+    ],
     "Name_JP": "ラジアン(初代)\n扇小春",
     "Name_JPReading": "ラジアン\nおうぎ こはる",
     "Name_EN": "RadianN (1st Gen.)\nKoharu Arch",

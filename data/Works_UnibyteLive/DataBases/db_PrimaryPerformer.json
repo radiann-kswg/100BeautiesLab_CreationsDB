@@ -228,9 +228,12 @@
   {
     "Letter": { "Alphabet": "O", "AlphaGen": 2 },
     "Progress": "unprofiled",
-    "AssignedRegioministratorRole": { "Regioministration": "W" },
-    "AnotherVersions_DBLink": [
-      { "_Work": "DestinyFoxRecords", "_DB": "Proxy", "Generation": 3 }
+    "AnotherRegions_DBLink": [
+      {
+        "_Work": "SinisterChangingGirls",
+        "_DB": "Regioministrators",
+        "Regioministration": "W"
+      }
     ],
     "OwningAvatar_DBLink": {
       "_DB": "Primary",
@@ -241,9 +244,16 @@
     "FormalName_EN": "Arch Origth.Spheria",
     "RaceType": "Warfox",
     "GenderType": { "hideText": "？？？" },
-    "Belonging": [{ "Faction": "国際情報広報機関『ミハイル』" }],
-    "FromArea": { "Area": "四蓮島" },
-    "Class": ["『管制主』代理人"],
+    "Belonging": [
+      { "Faction": "国際情報広報機関『ミハイル』" },
+      { "Faction": "『管理主』代理人" }
+    ],
+    "FromArea": {
+      "Area": "四蓮島",
+      "BaseAreaAbout_JP": "自称",
+      "BaseAreaAbout_EN": "Self-proclaimed"
+    },
+    "Class": ["『管制主』代理人（『再生』担当）"],
     "Height_cm": 159,
     "BustSize": "G",
     "Age": { "about_JP": "不詳", "about_EN": "Unknown or Undefined" },

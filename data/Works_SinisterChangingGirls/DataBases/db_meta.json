@@ -11,6 +11,33 @@
         "StoryEraAbout_EN": "in around WDCE.VIII.6(Equivalent to in around: DC.2050)"
       },
       "_Commons": {}
+    },
+    "#DB_Regioministrators": {
+      "DB_Label_JP": "管理主",
+      "DB_Label_EN": "Regioministrators",
+      "DB_Summary": "４つの権限コードからなる、創作世界の『第８界』に存在し『第８界』を管理する重要な人物。",
+      "DB_Summary_EN": "Important figures consisting of four authority codes, existing in the '#REGION.8' of the creative world and managing the '#REGION.8'.",
+      "_Commons": {
+        "Belonging": [{ "Faction": "『管理主』" }],
+        "_ListLinkIf_Regioministration": [
+          {
+            "Regioministration": "W",
+            "Class": ["『管制主』代理人（『再生』担当）"]
+          },
+          {
+            "Regioministration": "X",
+            "Class": ["『創造主』代理人"]
+          },
+          {
+            "Regioministration": "Y",
+            "Class": ["『破壊主』代理人"]
+          },
+          {
+            "Regioministration": "Z",
+            "Class": ["『管制主』代理人（『還元』担当）"]
+          }
+        ]
+      }
     }
   },
   "General": {

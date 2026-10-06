@@ -6,12 +6,33 @@
     "hashTag_EN": "Direction",
     "$badge": { "keys": ["Drc"] }
   },
+  "$IndexDef_Regioministrators": {
+    "hashTag": "Regioministration",
+    "$type": "#DictIndex",
+    "$dict": "Regioministration",
+    "hashTag_JP": "『管理主』権限ロール",
+    "hashTag_EN": "Regioministration Authority Codes",
+    "$badge": { "keys": [{ "key": "Regioministration", "prefix": "A" }] }
+  },
   "$DefType": [
     {
       "hashTag": "Drc",
       "$type": "#Index",
       "hashTag_JP": "方角",
       "hashTag_EN": "Direction"
+    },
+    {
+      "hashTag": "Regioministration",
+      "$type": "#Index",
+      "hashTag_JP": "『管理主』権限ロール",
+      "hashTag_EN": "Regioministration Authority Codes"
+    },
+    {
+      "hashTag": "SameRegioministration_DBLink",
+      "$type": "$Def_DBLinkRef[]|#Null",
+      "$enrich": false,
+      "hashTag_JP": "同じ権限ロールを持つキャラクター",
+      "hashTag_EN": "Characters with the Same Authority Role"
     },
     {
       "hashTag": "Images",

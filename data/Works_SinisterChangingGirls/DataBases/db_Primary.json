@@ -30,6 +30,12 @@
   {
     "Drc": "NE",
     "Progress": "unreleased",
+    "AnotherRegions_DBLink": [
+      {
+        "_DB": "Regioministrators",
+        "Regioministration": "X"
+      }
+    ],
     "Name_JP": "扇 三春",
     "Name_JPReading": "おうぎ ミハイル",
     "Name_EN": "Mikhail Arch",
@@ -47,7 +53,10 @@
     "CodeName_EN": "Gluttony o'clock in Early",
     "RaceType": "OverHuman",
     "GenderType": "Female",
-    "Belonging": [{ "Faction": "国際情報広報機関『ミハイル』" }],
+    "Belonging": [
+      { "Faction": "国際情報広報機関『ミハイル』" },
+      { "Faction": "『管理主』代理人" }
+    ],
     "FromArea": {
       "Area": "四蓮島",
       "BaseAreaAbout_JP": "自称",
@@ -881,7 +890,12 @@
   {
     "Drc": "NW",
     "Progress": "unreleased",
-    "AssignedRegioministratorRole": { "Regioministration": "Y" },
+    "AnotherRegions_DBLink": [
+      { "_DB": "Regioministrators", "Regioministration": "Y" }
+    ],
+    "AnotherVersion_DBLink": [
+      { "_DB": "Regioministrators", "Regioministration": "Z" }
+    ],
     "Name_JP": "財前 小里\n終藤 こさと",
     "Name_JPReading": "ざいぜん こさと\nすどう こさと",
     "Name_EN": "Foster Empressor\nFormar Endrof",
@@ -900,7 +914,7 @@
       "about_JP": "推定",
       "about_EN": "Presumption"
     },
-    "Belonging": { "hideText": "判定失敗" },
+    "Belonging": [{ "Faction": "『管理主』代理人" }],
     "FromArea": {
       "Area": "英皇国",
       "BaseAreaAbout_JP": "引退した財前小里が活動していた場所であり、初めて終藤こさとが目撃された場所でもある",

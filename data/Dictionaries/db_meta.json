@@ -68,14 +68,12 @@
       "compatListKey": "#List_Class",
       "scopeField": { "Belonging": "国際情報広報機関『ミハイル』" }
     },
-    "#Dict_Zerbas": {
-      "DB_Label_JP": "クラス辞書(扇残冬向け)",
-      "DB_Label_EN": "Class Dictionary (for Arch Zerbas)",
+    "#Dict_RegioministratorAgents": {
+      "DB_Label_JP": "クラス辞書(『管理主』代理人向け)",
+      "DB_Label_EN": "Class Dictionary (for Regioministrator Agents)",
       "keyField": "Class",
       "compatListKey": "#List_Class",
-      "scopeField": {
-        "AssignedRegioministratorRole": { "Regioministration": "Y" }
-      }
+      "scopeField": { "Belonging": { "Faction": "『管理主』代理人" } }
     },
     "#Dict_Regioministrators": {
       "DB_Label_JP": "クラス辞書(管理主向け)",
