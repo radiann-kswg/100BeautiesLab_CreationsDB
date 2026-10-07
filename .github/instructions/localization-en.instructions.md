@@ -13,6 +13,7 @@ applyTo: "data/**/db_*.json, data/**/trans_*.json, data/**/ref_*.json, data/**/d
 - 正典: `../../docs/localization-en-rules.md` の「**英訳入力補助（エージェント共通方針）**」節（＋詳細な §0〜のキー順序・記法規則）
 - 固有名詞 早見表: `../../docs/localization-glossary-quickref.md`
 - 一括翻訳・突き合わせ(eval)・用語集同期: `tools/deepl/`（`../../docs/deepl-localization.md`）
+- Skill: 空の `_EN` を埋める → `localize-en-draft`、既存英訳・辞書・キャラスト本文の校正（候補提示のみ）→ `localize-proofread`（`.agents/skills/<name>/SKILL.md`）
 
 ## 要点（正典の抜粋）
 
