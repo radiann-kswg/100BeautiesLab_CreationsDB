@@ -26,6 +26,16 @@
     "GenderType_EN": "Arbitrary"
   },
   {
+    "GenderType": "ArbitraryMale",
+    "GenderType_JP": "任意(男性寄り)",
+    "GenderType_EN": "Arbitrary (Male-Biased)"
+  },
+  {
+    "GenderType": "ArbitraryFemale",
+    "GenderType_JP": "任意(女性寄り)",
+    "GenderType_EN": "Arbitrary (Female-Biased)"
+  },
+  {
     "GenderType": "Variable",
     "GenderType_JP": "可変",
     "GenderType_EN": "Variable"

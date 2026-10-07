@@ -30,6 +30,12 @@
   {
     "Drc": "NE",
     "Progress": "unreleased",
+    "AnotherRegions_DBLink": [
+      {
+        "_DB": "Regioministrators",
+        "Regioministration": "X"
+      }
+    ],
     "Name_JP": "扇 三春",
     "Name_JPReading": "おうぎ ミハイル",
     "Name_EN": "Mikhail Arch",
@@ -47,7 +53,10 @@
     "CodeName_EN": "Gluttony o'clock in Early",
     "RaceType": "OverHuman",
     "GenderType": "Female",
-    "Belonging": [{ "Faction": "国際情報広報機関『ミハイル』" }],
+    "Belonging": [
+      { "Faction": "国際情報広報機関『ミハイル』" },
+      { "Faction": "『管理主』代理人" }
+    ],
     "FromArea": {
       "Area": "四蓮島",
       "BaseAreaAbout_JP": "自称",
@@ -308,8 +317,8 @@
         "Note_EN": null
       }
     ],
-    "Summary_JP": "夜月機関からある理由で独立し「白の六芒星」という機密研究機関で研究所長を務める少女。\n儚くも優しいアルビノな美少女で、人情味と愛にあふれる温厚な性格……なのだが、「人体兵器として生まれた」「中学時代は学園番長を名乗っていた」「夜月機関で先代幹部の殉職を目にし覚悟が決まっている」などと危険な一面を持つ噂が後を絶たない。\nそんな彼女の「憤怒」な一面は、特に親友の命を蔑ろにするようなことがあると突然あらわれるようで……",
-    "Summary_EN": "A girl who broke away from the Yadzuki Organization for a certain reason and now serves as research director at a classified research institute called 'WhiteHexagram'.\nA frail yet gentle albino beauty, mild-mannered and overflowing with human warmth and love... and yet the rumors of her dangerous side never cease: \"born as a human weapon\", \"called herself a school delinquent leader back in middle school\", \"has been resolved ever since witnessing the previous executive's death in the line of duty at the Yadzuki Organization\".\nThat 'Wrath/Rage' side of hers seems to surface all of a sudden, especially when something treats her best friend's life as worthless..."
+    "Summary_JP": "夜月機関からある理由で独立し「白の六芒星」という機密研究機関で研究所長を務める少女。\n儚くも優しいアルビノな美少女で、人情味と愛にあふれる温厚な性格……なのだが、「『クィーン・シックス』という人体兵器として生まれた」「中学時代は学園番長を名乗っていた」「夜月機関で先代幹部の殉職を目にし覚悟が決まっている」などと危険な一面を持つ噂が後を絶たない。\nそんな彼女の「憤怒」な一面は、特に親友の命を蔑ろにするようなことがあると突然あらわれるようで……",
+    "Summary_EN": "A girl who broke away from the Yadzuki Organization for a certain reason and now serves as research director at a classified research institute called 'WhiteHexagram'.\nA frail yet gentle albino beauty, mild-mannered and overflowing with human warmth and love... and yet the rumors of her dangerous side never cease: \"born as 'Queen.VI' the human weapon\", \"called herself a school delinquent leader back in middle school\", \"has been resolved ever since witnessing the previous executive's death in the line of duty at the Yadzuki Org.\"\nThat 'Wrath/Rage' side of hers seems to surface all of a sudden, especially when something treats her best friend's life as worthless..."
   },
   {
     "Drc": "SE",
@@ -697,8 +706,8 @@
         "Note_EN": null
       }
     ],
-    "Summary_JP": "黒薔薇国に漂流していたところを拾われ、「扇 三春」を中心とした豹変系女子と旅を共にする成体した幼い少女。恐らく龍天国で育児に恵まれなかった孤児だということがわかるものの、その子供のような精神年齢から普段はとても人懐っこくいろんなものに興味を示している。しかし女性との交友に対し恐怖心とまでいえる強い執着心を有しており、特に\"母\"や\"生殖\"などのような命の誕生に関わる概念に触れると「嫉妬」スイッチが入り、凶悪な毒蛇のように凶暴な姿を露にしてしまう。",
-    "Summary_EN": "A young girl who was found drifting in SchwarzeRoseland and now travels with a group of Sinister Changing Girls led by 'Mikhail Arch'. She is presumably an orphan who was not fortunate in receiving care in LóngTiān's.Republic, and despite her adult body, she has the mental age of a child, making her very friendly and curious about many things. However, she has a strong attachment and fear towards interactions with women, and when confronted with concepts related to the birth of life, such as 'mother' or 'reproduction', her 'Envy/Jealousy' switch is triggered, revealing a ferocious side like a venomous snake."
+    "Summary_JP": "黒薔薇国に漂流していたところを拾われ、「扇 三春」を中心とした豹変系女子と旅を共にする成体した幼い少女。\n恐らく龍天国で育児に恵まれなかった孤児だということがわかるものの、その子供のような精神年齢から普段はとても人懐っこくいろんなものに興味を示している。\nしかし女性との交友に対し恐怖心とまでいえる強い執着心を有している。\n特に\"母\"や\"生殖\"などのような命の誕生に関わる概念に触れると「嫉妬」スイッチが入り、凶悪な毒蛇のように凶暴な姿を露にしてしまう。",
+    "Summary_EN": "A young girl who was found drifting in SchwarzeRoseland and now travels with a group of Sinister Changing Girls led by 'Mikhail Arch'.\nShe is presumably an orphan who was not fortunate in receiving care in LóngTiān's.Republic, and despite her adult body, she has the mental age of a child, making her very friendly and curious about many things.\nHowever, she has a strong attachment and fear towards interactions with women.\nEspecially when confronted with concepts related to the birth of life, such as 'mother' or 'reproduction', her 'Envy/Jealousy' switch is triggered, revealing a ferocious side like a venomous snake."
   },
   {
     "Drc": "W",
@@ -875,13 +884,19 @@
         "Note_EN": null
       }
     ],
-    "Summary_JP": "夜月機関の被験体としてある実験事故により実体を失ってしまったが、現在は六花ルノら率いる「白の六芒星」に保護されることで、仮の身体に憑依する形式では存在可能となっている。\n現在 夜月機関の総帥と幹部に勤める兄弟を義兄に持ち、いつも2人の身を案じては自分の所為で2人の身に何かあるのではないかと「憂鬱」に「悲嘆」している様子が窺える。\nただ、ここで注意すべきなのは－－－－【ERROR 500: 蟯占ｷｯ縺ｸ縺ｮ謗･邯壹′菴戊 °縺ｫ繧医ｊ諡貞凄縺輔ｌ縺ｾ縺励◆】",
-    "Summary_EN": "She lost her physical form in a certain experimental accident as a test subject of the Yadzuki Organization, but is now sheltered by 'WhiteHexagram' led by Luno Hexacrys and others, which lets her exist in a form that possesses a temporary body.\nShe now has as adoptive older brothers the two siblings who serve as the Yadzuki Organization's supreme commander and as an executive, and she can be seen forever worrying about the pair — sinking into 'Dejection' and 'Grief' at the thought that something might happen to them because of her.\nHowever, what should be noted here is————【ERROR 500: 蟯占ｷｯ縺ｸ縺ｮ謗･邯壹′菴戊 °縺ｫ繧医ｊ諡貞凄縺輔ｌ縺ｾ縺励◆】"
+    "Summary_JP": "夜月機関の被験体としてある実験事故により実体を失ってしまったが、現在は六花ルノら率いる「白の六芒星」に保護されることで、仮の身体に憑依する形式では存在可能となっている。\n現在 夜月機関の総帥と幹部に勤める兄弟を義兄に持ち、いつも2人の身を案じては自分の所為で2人の身に何かあるのではないかと「憂鬱」に「悲嘆」している様子が窺える。\nただ、ここで注意すべきなのは－－－－【ERROR 500: 蟯占ｷｯ縺ｸ縺ｮ謗･邯壹′菴戊?縺九↓繧医ｊ諡貞凄縺輔ｌ縺ｾ縺励◆】",
+    "Summary_EN": "She lost her physical form in a certain experimental accident as a test subject of the Yadzuki Organization, but is now sheltered by 'WhiteHexagram' led by Luno Hexacrys and others, which lets her exist in a form that possesses a temporary body.\nShe now has as adoptive older brothers the two siblings who serve as the Yadzuki Organization's head and as an executive, and she can be seen forever worrying about the pair — sinking into 'Dejection' and 'Grief' at the thought that something might happen to them because of her.\nHowever, what should be noted here is———— <! ERROR 500: %46%4c%5f%42%4c%41%4e%43%48%20%43%4f%4e%4e%45%43%54%49%4f%4e%20%52%45%46%55%53%45%44%20%42%59%20%41%4e%4f%4e%59%4d%4f%55%53 />"
   },
   {
     "Drc": "NW",
     "Progress": "unreleased",
-    "AssignedRegioministratorRole": { "Regioministration": "Y" },
+    "AnotherRegions_DBLink": [
+      { "_DB": "Regioministrators", "Regioministration": "Y" }
+    ],
+    "AnotherVersion_DBLink": [
+      { "_DB": "SemiPrimary", "Drc": "NW" },
+      { "_DB": "Regioministrators", "Regioministration": "Z" }
+    ],
     "Name_JP": "財前 小里\n終藤 こさと",
     "Name_JPReading": "ざいぜん こさと\nすどう こさと",
     "Name_EN": "Foster Empressor\nFormar Endrof",
@@ -894,13 +909,9 @@
     "FormalName_EN": "Formar Endrof\nArch Zerbas",
     "CodeName_JP": "傲慢の夜",
     "CodeName_EN": "Pride o'clock in Night",
-    "RaceType": { "hideText": "判定失敗" },
-    "GenderType": {
-      "value": "Female",
-      "about_JP": "推定",
-      "about_EN": "Presumption"
-    },
-    "Belonging": { "hideText": "判定失敗" },
+    "RaceType": "Terrorinaries",
+    "GenderType": "ArbitraryFemale",
+    "Belonging": [{ "Faction": "『管理主』代理人" }],
     "FromArea": {
       "Area": "英皇国",
       "BaseAreaAbout_JP": "引退した財前小里が活動していた場所であり、初めて終藤こさとが目撃された場所でもある",

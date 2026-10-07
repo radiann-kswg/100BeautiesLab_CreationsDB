@@ -38,7 +38,7 @@
             "Lunar": "Yayoi",
             "CodeName_JP": "弥生",
             "CodeName_EN": "March",
-            "Class": ["幹部", "弥生研究所(破滅対策本部2課)"]
+            "Class": ["幹部", "弥生研究所(新)"]
           },
           {
             "Lunar": "Udzuki",
@@ -156,7 +156,7 @@
             "Lunar": "Martius.II",
             "CodeName_JP": "弥生",
             "CodeName_EN": "March",
-            "Class": ["幹部"]
+            "Class": ["幹部", "弥生研究所(旧)"]
           },
           {
             "Lunar": "Aprilis",
@@ -204,7 +204,7 @@
             "Lunar": "Martius",
             "CodeName_JP": "弥生",
             "CodeName_EN": "March",
-            "Class": ["幹部"]
+            "Class": ["幹部", "弥生研究所(旧)", "総帥"]
           },
           {
             "Lunar": "Junius",

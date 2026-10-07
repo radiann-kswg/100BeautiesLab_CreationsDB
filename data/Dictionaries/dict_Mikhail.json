@@ -23,16 +23,5 @@
     "Class": "国際情報屋 運航者",
     "Class_EN": "Navigator of International Information Officer",
     "Class_Code": "IIN"
-  },
-  {
-    "Class": "『創造主』代理人",
-    "Class_EN": "Agent of the 'Regiowner'",
-    "Class_Code": "A.X"
-  },
-  {
-    "Class": "『管制主』代理人",
-    "Class_JP": "『管制主』代理人（『再生』担当）",
-    "Class_EN": "Agent of the 'Terministrator' ('Regeneration' Role)",
-    "Class_Code": "A.W"
   }
 ]

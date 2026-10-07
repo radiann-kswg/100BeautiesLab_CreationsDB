@@ -1,0 +1,132 @@
+[
+  {
+    "Regioministration": "W",
+    "Progress": "unprofiled",
+    "AnotherRegions_DBLink": [
+      {
+        "_Work": "UnibyteLive",
+        "_DB": "PrimaryPerformers",
+        "Letter": { "Alphabet": "O", "AlphaGen": 2 }
+      }
+    ],
+    "AnotherVersion_DBLink": [
+      { "_DB": "Regioministrators", "Regioministration": "X" },
+      { "_Work": "SinisterChangingGirls", "_DB": "Primary", "Drc": "NE" }
+    ],
+    "SameRegioministration_DBLink": [
+      { "_Work": "DestinyFoxRecords", "_DB": "Proxy", "Generation": 3 }
+    ],
+    "FormalName_JP": "扇 零夏・スフィリア",
+    "FormalName_JPReading": "おうぎ れいか・スフィリア",
+    "FormalName_EN": "Arch Origth.Spheria",
+    "RaceType": "Warfox",
+    "GenderType": "Unknown",
+    "ConceptAge": 16,
+    "BirthDay": { "Day": { "Month": 6, "DayOfMonth": 10 } },
+    "AppearanceDetail": null
+  },
+  {
+    "Regioministration": "X",
+    "Progress": "unprofiled",
+    "AnotherRegions_DBLink": [
+      { "_Work": "SinisterChangingGirls", "_DB": "Primary", "Drc": "NE" }
+    ],
+    "AnotherVersion_DBLink": [
+      {
+        "_Work": "UnibyteLive",
+        "_DB": "PrimaryPerformers",
+        "Letter": { "Alphabet": "O", "AlphaGen": 2 }
+      },
+      { "_DB": "Proxy", "Generation": 1 }
+    ],
+    "SameRegioministration_DBLink": [
+      { "_Work": "DestinyFoxRecords", "_DB": "Proxy", "Generation": 2 }
+    ],
+    "Name_JP": "扇 三春",
+    "Name_JPReading": "おうぎ ミハイル",
+    "Name_EN": "Mikhail Arch",
+    "Images": {
+      "concept_PNGName": {
+        "_DBCrossLinkPath": {
+          "_DB": "Primary",
+          "_Field": "concept_PNGName",
+          "_IsoPath": "concept/cnsp_imgSCG-NE"
+        }
+      }
+    },
+    "FormalName_JP": "扇 三春・ロールプラン",
+    "FormalName_JPReading": "おうぎ みはる・ロールプラン",
+    "FormalName_EN": "Arch Thirthal.Rollplan",
+    "RaceType": "OverHuman",
+    "GenderType": "Female",
+    "ConceptAge": 17,
+    "BirthDay": { "Day": { "Month": 7, "DayOfMonth": 1 } },
+    "ColorPalette": null
+  },
+  {
+    "Regioministration": "Y",
+    "Progress": "unprofiled",
+    "AssignedRegioministratorRole": { "Regioministration": "Y" },
+    "AnotherRegions_DBLink": [
+      { "_Work": "SinisterChangingGirls", "_DB": "Primary", "Drc": "NW" }
+    ],
+    "AnotherVersion_DBLink": [
+      { "_DB": "Regioministrators", "Regioministration": "Z" }
+    ],
+    "Name_JP": "扇 残冬",
+    "Name_JPReading": "おうぎ ざんとう",
+    "Name_EN": "Arch Zerbas",
+    "Images": {
+      "concept_PNGName": {
+        "_DBCrossLinkPath": {
+          "_DB": "Primary",
+          "_Field": "concept_PNGName",
+          "_IsoPath": "concept/cnsp_imgSCG-NW"
+        }
+      }
+    },
+    "RaceType": "Terrorinaries",
+    "GenderType": "ArbitraryFemale",
+    "FromArea": {
+      "Area": "英皇国",
+      "BaseAreaAbout_JP": "初めて目撃された場所",
+      "BaseAreaAbout_EN": "The place where they were first sighted"
+    },
+    "ConceptAge": 18,
+    "BirthDay": { "Day": { "Month": 2, "DayOfMonth": 27 } },
+    "ColorPalette": null
+  },
+  {
+    "Regioministration": "Z",
+    "Progress": "unprofiled",
+    "AssignedRegioministratorRole": { "Regioministration": "Z" },
+    "AnotherRegions_DBLink": [{ "_DB": "SemiPrimary", "Drc": "NW" }],
+    "AnotherVersion_DBLink": [
+      { "_Work": "SinisterChangingGirls", "_DB": "Primary", "Drc": "NW" },
+      { "_DB": "Regioministrators", "Regioministration": "Y" }
+    ],
+    "SameRegioministration_DBLink": [
+      {
+        "_Work": "DestinyFoxRecords",
+        "_DB": "Primary",
+        "Unit": "-(quaternion)"
+      }
+    ],
+    "Name_JP": "財前 小里",
+    "Name_JPReading": "ざいぜん こさと",
+    "Name_EN": "Foster Empressor",
+    "FormalName_JP": "扇 爾秋",
+    "FormalName_JPReading": "おうぎ ユースフォール",
+    "FormalName_EN": "Arch Falyouth",
+    "RaceType": "Ghostinaries(Acquired)",
+    "GenderType": "FemaleNeutral",
+    "FromArea": {
+      "Area": "英皇国",
+      "BaseAreaAbout_JP": "活動していた場所",
+      "BaseAreaAbout_EN": "The place where they were active"
+    },
+    "ConceptAge": 18,
+    "BirthDay": { "Day": { "Month": 7, "DayOfMonth": 22 } },
+    "ColorPalette": null
+  }
+]

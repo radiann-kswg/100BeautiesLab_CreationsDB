@@ -338,6 +338,15 @@
     "isAcademic": null
   },
   {
+    "Faction": "『管理主』代理人",
+    "Faction_EN": "Regioministrator Agents",
+    "FactionsBaseArea": null,
+    "RegionstyleWithin": null,
+    "isForSecondary": false,
+    "isMaker": false,
+    "isAcademic": false
+  },
+  {
     "Faction": "フィジカル9",
     "Faction_EN": "PHYSICAL.9",
     "FactionsBaseArea": {

@@ -13,7 +13,9 @@
     "Height_cm": 163,
     "Weight_kg": { "hideText": "非公開希望" },
     "Age": 31,
-    "BirthDay": { "Day": { "Month": 2, "DayOfMonth": 18 } }
+    "BirthDay": { "Day": { "Month": 2, "DayOfMonth": 18 } },
+    "Summary_JP": "桜花義兄弟の長兄で、九蓮国皇族の血筋から生まれた。\n現在は九蓮国の天皇陛下を務めており、就任前は夜月機関の総帥として九蓮国の技術を牽引していた。\n桜花家の呪いともいえる\"料理の才能\"について味覚は一般を超えるほどに差し支えないものの、\"料理に不要な知識\"を無意識に取り入れてしまう所為か、過学習で調理の失敗率が全体的に高い。",
+    "Summary_EN": "The eldest of the Cherrybroom sworn brothers, born of the Royal of LotusNinea bloodline.\nHe currently serves as the Sovereign of LotusNinea; before his accession, he led LotusNinea's technology as the Head of the Yadzuki Organization.\nAs for the 'culinary talent' that could be called the Cherrybroom family curse, his sense of taste is perfectly fine, even beyond that of ordinary people, but perhaps because he unconsciously takes in 'knowledge unnecessary for cooking', he overlearns, and his cooking failure rate is high across the board."
   },
   {
     "Virtues": "義",
@@ -22,7 +24,7 @@
     "Name_EN": "Righteos Cherrybroom",
     "FormalName_JP": "桜花 義\n何.義博",
     "FormalName_JPReading": "おうか よしき\nハー・ヰィボー",
-    "FormalName_EN": "Brothluv Cherrybroom\nHé.YìBó",
+    "FormalName_EN": "Righteos Cherrybroom\nHé.YìBó",
     "GenderType": "Male",
     "Belonging": [
       { "Faction": "新生九蓮" },
@@ -33,7 +35,9 @@
     "Height_cm": 160,
     "Weight_kg": { "hideText": "非公開希望" },
     "Age": 30,
-    "BirthDay": { "Day": { "Month": 12, "DayOfMonth": 18 } }
+    "BirthDay": { "Day": { "Month": 12, "DayOfMonth": 18 } },
+    "Summary_JP": "桜花義兄弟の次兄で、龍天国の戦時下中に生まれ九蓮国皇族に保護された。\n義兄弟が散り散りとなった現在は、義兄：仁の提案で実弟：悌とともに新生九蓮の運航者として、および『ミハイル』と名乗る国際情報屋の運航者としてキャンピングカーを走らせている。\n桜花家の呪いともいえる\"料理の才能\"について調理の腕前こそあるものの、戦争孤児時代の\"生き残るための殺生\"を中心としたサバイバル料理に突出しており、一般的な家庭料理で自炊している姿は一切見られない。",
+    "Summary_EN": "The second of the Cherrybroom sworn brothers, born during wartime in LóngTiān's.Republic and taken in by the Royal of LotusNinea.\nNow that the sworn brothers have scattered, at the suggestion of his sworn older brother Benevoly, he drives a camper van together with his younger brother Brothluv, both as a Navigator of Neo.LotusNinean and as a navigator of the international information broker calling itself 'Mikhail'.\nAs for the 'culinary talent' that could be called the Cherrybroom family curse, he does have cooking skills, but they excel at survival cooking centered on 'killing to survive' from his days as a war orphan, and he is never once seen cooking ordinary home meals for himself."
   },
   {
     "Virtues": "礼",
@@ -58,7 +62,9 @@
       "value": 27,
       "about_JP": "仮に生存していた場合の年齢",
       "about_EN": "Age if she were alive"
-    }
+    },
+    "Summary_JP": "桜花義姉妹の長姉で、九蓮国皇族の血筋から生まれた。\n実兄：仁が夜月機関総帥時代の時に幹部として使えていたが、ある研究事故で自らの職務を全うするべくして昏睡状態となってしまう。\n桜花家の呪いともいえる\"料理の才能\"については、使用人にすべて料理を一任したまま育ったため\"料理がどういうものか\"についてを一切知らない。\nしかし、\"喩え実妹：訫が創った暗黒料理でも\"振舞われた料理はありがたく頂いている。",
+    "Summary_EN": "The eldest of the Cherrybroom sworn sisters, born of the Royal of LotusNinea bloodline.\nShe served as an executive under her older brother Benevoly during his time as Head of the Yadzuki Organization, but in a certain research accident she fell into a coma in the course of fulfilling her duties.\nAs for the 'culinary talent' that could be called the Cherrybroom family curse, she grew up leaving all cooking to the servants, so she knows nothing whatsoever about 'what cooking even is'.\nEven so, she gratefully eats any dish served to her, 'even if it is dark cuisine made by her younger sister Trustia'."
   },
   {
     "Virtues": "智",
@@ -75,7 +81,9 @@
     "Weight_kg": { "hideText": "非公開希望" },
     "BustSize": "C",
     "Age": 25,
-    "BirthDay": { "Day": { "Month": 1, "DayOfMonth": 30 } }
+    "BirthDay": { "Day": { "Month": 1, "DayOfMonth": 30 } },
+    "Summary_JP": "桜花義姉妹の次姉で、雄志結国の投資家一族から生まれた。\n実妹：孝と同様に「クィーン・セヴン」のコードネームを持つ軍事人体兵器と恐れられており、義姉：禮の生還を巡り義兄：仁と形式上の対立関係を築くことで義兄弟姉妹の内乱を抑えている。\n８人屈指のサイコパスで、桜花家の呪いともいえる\"料理の才能\"についても\"ゲテモノを美味しく食べる\"狂気のレシピを編み出している。\nしかし自身は力加減ができず不器用なあまり、実際に調理や試食することは一切ないという。",
+    "Summary_EN": "The second of the Cherrybroom sworn sisters, born into an investor family of the United.Heroic.Nation.\nLike her younger sister Filia.Pieter, she is feared as a military human weapon bearing the codename 'Queen.VII', and by maintaining a nominal rivalry with her sworn older brother Benevoly over the return of her sworn older sister Propriet, she keeps the sworn siblings' internal strife in check.\nOne of the most psychopathic of the eight, she has even devised insane recipes for 'eating bizarre food deliciously' when it comes to the 'culinary talent' that could be called the Cherrybroom family curse.\nHowever, being so clumsy that she cannot control her own strength, she reportedly never actually cooks or taste-tests anything herself."
   },
   {
     "Virtues": "忠",
@@ -84,15 +92,20 @@
     "Name_EN": "Loyat Cherrybroom",
     "FormalName_JP": "桜花 忠\nトレース・フォン・キルシュブルーテン=レーゲンス",
     "FormalName_JPReading": "おうか ただし\nトレース・フォン・キルシュブルーテン=レーゲンス",
-    "FormalName_EN": "Benevoly Cherrybroom\nTreuß.von.Kirschblüten=Regens",
+    "FormalName_EN": "Loyat Cherrybroom\nTreuß.von.Kirschblüten=Regens",
     "GenderType": "Male",
-    "Belonging": [{ "Faction": "シンフォニー.XVI" }],
+    "Belonging": [
+      { "Faction": "シンフォニー.XVI" },
+      { "Faction": "王家英皇学会" }
+    ],
     "FromArea": { "Area": "黒薔薇国" },
     "Class": ["左遷・逆行研究部"],
     "Height_cm": 158,
     "Weight_kg": { "hideText": "本人すら把握されていない" },
     "Age": 22,
-    "BirthDay": { "Day": { "Month": 8, "DayOfMonth": 28 } }
+    "BirthDay": { "Day": { "Month": 8, "DayOfMonth": 28 } },
+    "Summary_JP": "桜花義兄弟の三男で、黒薔薇国からの亡命を経て九蓮国皇族に保護された。\n義兄弟が散り散りとなった現在は王家英皇学会を経て、政治ジャーナリストとして派遣する形式で帰郷し、シンフォニー.XVIの「左遷・逆行研究部」に所属している。\n桜花家の呪いともいえる\"料理の才能\"については、レシピ本がないと料理を率先して行おうとしないことからズボラ飯に逃避するなど、８人の中では最も常識の範囲で影響を受けている。",
+    "Summary_EN": "The third of the Cherrybroom sworn brothers, taken in by the Royal of LotusNinea after fleeing into exile from the SchwarzeRoseland.\nNow that the sworn brothers have scattered, he has gone through the IK.Royal Society, returned to his homeland on assignment as a political journalist, and belongs to the 'Demotion/Retrograde Research Department' of Symphony.XVI.\nAs for the 'culinary talent' that could be called the Cherrybroom family curse, he will not take the initiative to cook without a recipe book and escapes into lazy meals, making him the one affected most within the bounds of common sense among the eight."
   },
   {
     "Virtues": "信",
@@ -113,7 +126,9 @@
     "Belonging": [{ "Faction": "夜月機関" }],
     "FromArea": { "Area": "九蓮国" },
     "BustSize": "B",
-    "Age": 21
+    "Age": 21,
+    "Summary_JP": "桜花義姉妹の三女で、九蓮国皇族の血筋から生まれた。\n実兄：仁や実姉：禮のことを心から信頼しており、同様に義兄弟や義姉妹のことも大切にしている。\n桜花家の呪いともいえる\"料理の才能\"についてこの８人の中では最底辺クラスで、どの食材を用いても\"錆びた鋼の味をした暗黒料理\"を創ってしまううえ、味覚音痴な本人はそれで料理できているつもりでいることから、厨房出入り禁止になるなどかなり恐れられている。",
+    "Summary_EN": "The third of the Cherrybroom sworn sisters, born of the Royal of LotusNinea bloodline.\nShe trusts her older brother Benevoly and older sister Propriet from the bottom of her heart, and likewise cherishes her sworn brothers and sworn sisters.\nAs for the 'culinary talent' that could be called the Cherrybroom family curse, she ranks at the very bottom among the eight: whatever ingredients she uses, she ends up creating 'dark cuisine that tastes of rusted steel', and since she herself, with her poor sense of taste, believes she is cooking just fine, she is greatly feared, to the point of being banned from the kitchen."
   },
   {
     "Virtues": "孝",
@@ -133,7 +148,9 @@
     "GenderType": "Female",
     "Belonging": [{ "Faction": "スターダスト・テクノロジー" }],
     "FromArea": { "Area": "雄志結国" },
-    "Age": 20
+    "Age": 20,
+    "Summary_JP": "桜花義姉妹の四女で、雄志結国の投資家一族から生まれた。\n実姉：智と同様に「クィーン・イレヴン」のコードネームを持つ軍事人体兵器と恐れられていたが、世界第7恐慌大戦の平和条約を経て結集した桜花義姉妹により人間味を取り戻していく。\n桜花家の呪いともいえる\"料理の才能\"については、\"神の舌\"と称される秀でた味覚を持つものの、加熱調理器具全般が使えないことと多忙につき高級料理を嗜む時間がないことにつき、屋台料理などといった俗世な味を好む傾向にある。",
+    "Summary_EN": "The fourth of the Cherrybroom sworn sisters, born into an investor family of the United.Heroic.Nation.\nLike her older sister Wisdmer, she was feared as a military human weapon bearing the codename 'Queen.XI', but she gradually regains her humanity thanks to the Cherrybroom sworn sisters, who came together after the peace treaty of the WP7W.\nAs for the 'culinary talent' that could be called the Cherrybroom family curse, she possesses an outstanding sense of taste hailed as 'the Tongue of God', but because she cannot use any heat-based cooking appliances and is too busy to have time for fine dining, she tends to prefer down-to-earth flavors such as street-stall food."
   },
   {
     "Virtues": "悌",
@@ -149,6 +166,8 @@
     "Height_cm": 160,
     "Weight_kg": { "hideText": "非公開希望" },
     "Age": 20,
-    "BirthDay": { "Day": { "Month": 11, "DayOfMonth": 2 } }
+    "BirthDay": { "Day": { "Month": 11, "DayOfMonth": 2 } },
+    "Summary_JP": "桜花義兄弟の四男で、龍天国の戦時下中に生まれ九蓮国皇族に保護された。\n義兄弟が散り散りとなった現在は、実兄：義とともに義兄弟姉妹が再び集まることを目指して行動している。\n８人の中で知性が一番低かった影響か、なぜか桜花家の呪いとして\"料理の才能\"に影響は見られず、むしろ二流シェフと競えるほどに巧みな能力が有る。\nそのため、８人全員が揃っている時は兄姉から強く尊敬される存在だった。",
+    "Summary_EN": "The fourth of the Cherrybroom sworn brothers, born during wartime in LóngTiān's.Republic and taken in by the Royal of LotusNinea.\nNow that the sworn brothers have scattered, he is working together with his older brother Righteos toward bringing the sworn siblings back together again.\nPerhaps because he had the lowest intellect of the eight, the Cherrybroom family curse somehow shows no effect on his 'culinary talent'; on the contrary, he is skilled enough to compete with second-rate chefs.\nFor that reason, when all eight were together, he was deeply respected by his older brothers and sisters."
   }
 ]

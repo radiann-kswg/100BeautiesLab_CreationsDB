@@ -1,0 +1,22 @@
+[
+  {
+    "Class": "『管制主』代理人（『再生』担当）",
+    "Class_EN": "Agent of the 'Terministrator' ('Regeneration' Role)",
+    "Class_Code": "A.W"
+  },
+  {
+    "Class": "『創造主』代理人",
+    "Class_EN": "Agent of the 'Regiowner'",
+    "Class_Code": "A.X"
+  },
+  {
+    "Class": "『破壊主』代理人",
+    "Class_EN": "Agent of the 'Regiomitator'",
+    "Class_Code": "A.Y"
+  },
+  {
+    "Class": "『管制主』代理人（『還元』担当）",
+    "Class_EN": "Agent of the 'Terministrator' ('Reduction' Role)",
+    "Class_Code": "A.Z"
+  }
+]

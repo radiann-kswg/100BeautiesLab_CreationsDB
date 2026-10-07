@@ -12,7 +12,7 @@
 - **インライン補完（ゴーストテキスト）**: 補完はカスタム指示ファイルを読み込みません。英訳作業中は本ファイルを隣のタブで開いておくと、近傍文脈として対訳が補完に反映されやすくなります。
 - **正典はあくまで辞書本体**。表に無い語・揺れがある語は `data/**/trans_*.json` 等の辞書と `docs/localization-en-rules.md` を確認してください。最終採否は User 判断です。
 
-- 収録: **200 対訳**（延べ抽出。生成日時: 2026-09-30T05:35:18.451Z）
+- 収録: **201 対訳**（延べ抽出。生成日時: 2026-10-06T19:13:18.535Z）
 
 ## 人名（姓・代理）
 
@@ -251,6 +251,7 @@
 
 | 日本語 | English |
 | --- | --- |
+| 『管理主』代理人 | Regioministrator Agents |
 | N3US大学 | N3US University |
 | アーヴァントガーデン学芸学会 | ArvantGarden Academic Society |
 | アルベッツ | ALPBETS |
@@ -345,7 +346,7 @@
 
 ## クラス（職掌）
 
-<small>出典: `data/Dictionaries/dict_Mikhail.json` / `data/Dictionaries/dict_NeoLotusNinean.json` / `data/Dictionaries/dict_RaisondetreCompany.json` / `data/Dictionaries/dict_Regioministrators.json` / `data/Dictionaries/dict_SymphonyX.json` / `data/Dictionaries/dict_SymphonyXVI.json` / `data/Dictionaries/dict_WhiteHexagram.json` / `data/Dictionaries/dict_Zerbas.json`</small>
+<small>出典: `data/Dictionaries/dict_Mikhail.json` / `data/Dictionaries/dict_NeoLotusNinean.json` / `data/Dictionaries/dict_RaisondetreCompany.json` / `data/Dictionaries/dict_RegioministratorAgents.json` / `data/Dictionaries/dict_Regioministrators.json` / `data/Dictionaries/dict_SymphonyX.json` / `data/Dictionaries/dict_SymphonyXVI.json` / `data/Dictionaries/dict_WhiteHexagram.json`</small>
 
 | 日本語 | English |
 | --- | --- |

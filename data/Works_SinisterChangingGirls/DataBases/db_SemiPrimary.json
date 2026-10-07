@@ -1,0 +1,45 @@
+[
+  {
+    "Drc": "NW",
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_DB": "Regioministrators", "Regioministration": "Z" }
+    ],
+    "AnotherVersion_DBLink": [
+      { "_DB": "Primary", "Drc": "NW" },
+      { "_DB": "Regioministrators", "Regioministration": "Y" }
+    ],
+    "Name_JP": "財前 小里",
+    "Name_JPReading": "ざいぜん こさと",
+    "Name_EN": "Foster Empressor",
+    "FormalName_JP": "財前 小里\n扇 爾秋",
+    "FormalName_JPReading": "ざいぜん こさと\nおうぎ ユースフォール",
+    "FormalName_EN": "Foster Empressor\nArch Falyouth",
+    "CodeName_JP": "正義の夜",
+    "CodeName_EN": "Justice o'clock in Night",
+    "RaceType": "Ghostinaries(Acquired)",
+    "GenderType": "FemaleNeutral",
+    "Height_cm": 154,
+    "Weight_kg": { "hideText": "判定失敗" },
+    "Age": { "hideText": "判定失敗" },
+    "FirstPersonCalling_JP": "ボク",
+    "FirstPersonCalling_EN": "I (masc. informal)",
+    "SecondPersonCalling_JP": "キミ",
+    "SecondPersonCalling_EN": "you",
+    "ThirdPersonCalling_JP": "[※名前呼び]",
+    "ThirdPersonCalling_EN": "[*by name]",
+    "Character_JP": "社会が互いに競い合い技術を磨き上げていく様子を「エンタメ」として楽しんでいる",
+    "Character_EN": "Enjoys observing society as people compete and refine their skills, seeing it as 'entertainment'",
+    "Hobby_JP": "エンターテインメント",
+    "Hobby_EN": "Entertainment",
+    "SpecialSkill_JP": "世界の情勢をすべて知っている",
+    "SpecialSkill_EN": "Knows all the world's affairs",
+    "Favor_JP": "人々が切磋琢磨し実力が実る様子",
+    "Favor_EN": "The sight of people striving and seeing their abilities bear fruit",
+    "Unlike_JP": "面白くないこと",
+    "Unlike_EN": "Uninteresting things",
+    "ColorPalette": null,
+    "Summary_JP": "第7創世期から第8創世期に掛けて活躍していた若手超大物政治ジャーナリストをしていた謎の若人で、十数年前に突如 電撃引退を宣言し各メディアから姿を消したが、それに伴い第9創世期に至るまで実体を失っていた。\nしかしある時からドッペルゲンガーともいわれるべき「終藤 こさと」の存在が各地の機関で警戒されるようになったことを危惧し、亡霊概念として自ら蘇生を試みたという。\n彼女と「終藤 こさと」の関係は未だ謎に包まれており、彼女の引退の真相と目的も知られる由がないだろう。",
+    "Summary_EN": "A mysterious young figure who was a prominent young political journalist active from WDCE.VII through WDCE.VIII. More than a decade ago, she abruptly announced her retirement and vanished from all media, and with it, she lost her physical form until WDCE.IX.\nHowever, growing wary that 'Formar Endrof', a being who could only be called her doppelgänger, had at some point come under the watch of institutions everywhere, she is said to have attempted to revive herself as a Ghostinary.\nHer relationship with 'Formar Endrof' remains shrouded in mystery, and the truth and purpose behind her retirement are unlikely ever to be known."
+  }
+]

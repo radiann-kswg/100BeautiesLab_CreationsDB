@@ -5,6 +5,11 @@
     "AssignedRegioministratorRole": { "Regioministration": "W" },
     "AnotherVersions_DBLink": [
       {
+        "_Work": "SinisterChangingGirls",
+        "_DB": "Regioministrators",
+        "Regioministration": "W"
+      },
+      {
         "_Work": "UnibyteLive",
         "_DB": "PrimaryPerformer",
         "Letter": { "Alphabet": "O", "AlphaGen": 2 }
@@ -235,11 +240,7 @@
     "FormalName_JPReading": "おうぎ つぐはる",
     "FormalName_EN": "Arch Seconec",
     "RaceType": "Warfox(Acquired)",
-    "GenderType": {
-      "value": "Arbitrary",
-      "about_JP": "ただし中身は男性寄り",
-      "about_EN": "However, the identity are more geared towards Male."
-    },
+    "GenderType": "ArbitraryMale",
     "Class": ["創造主"],
     "Height_cm": 163,
     "Weight_kg": { "hideText": "本人すら把握されていない" },
@@ -342,6 +343,14 @@
   {
     "Generation": 1,
     "Progress": "archived",
+    "AnotherVersion_DBLink": [
+      {
+        "_Work": "SinisterChangingGirls",
+        "_DB": "Regioministrators",
+        "Regioministration": "X"
+      },
+      { "_Work": "SinisterChangingGirls", "_DB": "Primary", "Drc": "NE" }
+    ],
     "Name_JP": "ラジアン(初代)\n扇小春",
     "Name_JPReading": "ラジアン\nおうぎ こはる",
     "Name_EN": "RadianN (1st Gen.)\nKoharu Arch",

@@ -227,7 +227,8 @@
         "subFields": [
           "ColorPalette",
           "ConversationPattern",
-          "AnotherRegions_DBLink"
+          "AnotherRegions_DBLink",
+          "SameRegioministration_DBLink"
         ]
       }
     },
@@ -544,7 +545,7 @@
           },
           {
             "hashTag": "FactionsBaseArea",
-            "$type": "$Def_BaseArea",
+            "$type": "$Def_BaseArea|#Null",
             "$dictRef": { "from": "Faction", "field": "FactionsBaseArea" },
             "hashTag_JP": "活動地域",
             "hashTag_EN": "Base Area",

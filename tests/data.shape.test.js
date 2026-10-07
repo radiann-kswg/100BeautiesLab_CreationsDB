@@ -207,7 +207,7 @@ describe('database shapes', () => {
     expect(factionEntry?.$type).toBe('#DictIndex');
     expect(factionEntry?.$dict).toBe('Faction');
     expect(factionEntry?.$display?.role).toBe('factionCode');
-    expect(areaEntry?.$type).toBe('$Def_BaseArea');
+    expect(areaEntry?.$type).toBe('$Def_BaseArea|#Null');
     expect(areaEntry?.$dictRef).toEqual({ from: 'Faction', field: 'FactionsBaseArea' });
 
     // 旧形式（文字列配列）を読むための shorthand 宣言と、basicFields 用の描画宣言
