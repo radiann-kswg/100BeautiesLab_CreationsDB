@@ -589,6 +589,7 @@ UI 側は厳密構造より `about_JP` / `about_EN` を優先して整形表示�
 - `$Def_AppearanceAttr` — `AttrLabel` + 規約駆動フィールド（`vdict_*` / `value_*` / `about_*`）を持つ属性行
 - `$Def_BaseArea` — `Area`（`#DictIndex` / `$dict: "Area"`）+ `BaseAreaAbout_JP/EN` を持つ活動地域エントリ（`$display.wrapper: "baseAreaSummary"`）
 - `$Def_Faction`（2026-07-29 新設）— `Faction`（`#DictIndex` / `$dict: "Faction"`）と、そこから参照解決する `FactionsBaseArea`（`$Def_BaseArea`）を持つ所属エントリ
+- `$Def_TermOrigin`（2026-10-07 新設）— 辞書行・資料行（`Localization/trans_*` / `References/ref_*`）の `Origin[]` に使う「命名の由来言語」エントリ。`OriginLang`（`#ListIndex` / `$dict: "OriginLang"` → グローバル `#List_OriginLang`。初期値 de / zh / la / fr）+ `OriginTerm`（原綴り。例 `Zehn`）+ `OriginReading_JP`（原綴りの片仮名読み）+ `OriginNote_JP/EN`（`$display.wrapper: "termOriginSummary"`）。`_JP` / `_EN` 以外の言語を**サフィックスとして増やさず**、由来言語は辞書行の属性として持つ設計（`docs/localization-en-rules.md` §9）
 
 `$Def_Faction` で導入した宣言（他の `$Def_*` でも同じ意味で使えます）:
 

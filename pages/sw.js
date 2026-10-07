@@ -20,6 +20,7 @@ importScripts(
   '../lib/basic-renders/def-object-common.js',
   '../lib/basic-renders/faction.js',
   '../lib/basic-renders/baseArea.js',
+  '../lib/basic-renders/termOrigin.js',
   '../lib/sw-common.js',
   '../lib/data-common.js'
 );

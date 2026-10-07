@@ -380,6 +380,12 @@
   },
   "General": {
     "$VarsDef": {
+      "#List_OriginLang": [
+        { "OriginLang": "de", "OriginLang_JP": "ドイツ語", "OriginLang_EN": "German" },
+        { "OriginLang": "zh", "OriginLang_JP": "中国語", "OriginLang_EN": "Chinese" },
+        { "OriginLang": "la", "OriginLang_JP": "ラテン語", "OriginLang_EN": "Latin" },
+        { "OriginLang": "fr", "OriginLang_JP": "フランス語", "OriginLang_EN": "French" }
+      ],
       "#List_hideText": [
         {
           "hideText": "？？？",
@@ -509,6 +515,41 @@
           { "Month": 11, "Month_EN": "Nov" },
           { "Month": 12, "Month_EN": "Dec" }
         ]
+      },
+      "$Def_TermOrigin": {
+        "$display": { "wrapper": "termOriginSummary", "arrayLayout": "multiline" },
+        "$DefType": [
+          {
+            "hashTag": "OriginLang",
+            "$type": "#ListIndex|#Null",
+            "$dict": "OriginLang",
+            "hashTag_JP": "由来言語",
+            "hashTag_EN": "Origin Language"
+          },
+          {
+            "hashTag": "OriginTerm",
+            "$type": "#String|#Null",
+            "hashTag_JP": "原綴り",
+            "hashTag_EN": "Original Spelling"
+          },
+          {
+            "hashTag": "OriginReading_JP",
+            "$type": "#String|#Null",
+            "hashTag_JP": "原綴りの読み（カナ）"
+          },
+          {
+            "hashTag": "OriginNote_JP",
+            "$type": "#Summary|#Null",
+            "hashTag_JP": "由来の補足"
+          },
+          {
+            "hashTag": "OriginNote_EN",
+            "$type": "#Summary|#Null",
+            "hashTag_EN": "Origin Note"
+          }
+        ],
+        "hashTag_JP": "命名の由来言語",
+        "hashTag_EN": "Naming Origin"
       },
       "$Def_BaseArea": {
         "$display": { "wrapper": "baseAreaSummary" },

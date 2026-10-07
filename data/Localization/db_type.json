@@ -34,6 +34,13 @@
       "$display": { "section": "basic" }
     },
     {
+      "hashTag": "Origin",
+      "$type": "$Def_TermOrigin[]|#Null",
+      "hashTag_JP": "命名の由来言語",
+      "hashTag_EN": "Naming Origin",
+      "$display": { "section": "basic" }
+    },
+    {
       "hashTag": "Scope",
       "$type": "#String[]|#Null",
       "hashTag_JP": "適用作品・範囲",
@@ -73,6 +80,6 @@
     }
   ],
   "$DetailLayout": {
-    "basicFields": ["Term", "Term_EN_Alt", "Category", "TransPolicy"]
+    "basicFields": ["Term", "Term_EN_Alt", "Category", "TransPolicy", "Origin"]
   }
 }

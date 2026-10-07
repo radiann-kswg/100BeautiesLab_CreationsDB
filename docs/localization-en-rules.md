@@ -710,3 +710,19 @@ function setCommentEN(record, type, targetNum, enText) {
 | 実装方針             | `docs/implementation-playbook.md`                                   |
 | 英訳作業進捗（最新） | `_work_in_progress/2026-06-24_progress_localization-rules-audit.md` |
 | 英訳作業進捗（旧）   | `_work_in_progress/2026-06-15_progress_localization-audit.md`       |
+| 校正の判断台帳       | `_work_in_progress/2026-10-07_localize-proofread-ledger.md`（Skill `localize-proofread` の fix / suggest の採否） |
+
+---
+
+## 9. 命名の由来言語（`Origin`）— 2026-10-07〜
+
+JP / EN 以外の言語に由来する固有名詞（独語の `Symphony.X(Zehn)`、仏語の *raison d'être*、拼音の `LóngTiān`、羅語の `Venus` 等）は、**`_DE` のような新しい言語サフィックスを足さず**、辞書行・資料行の属性 `Origin` に由来を持たせる。
+
+- **置き場**: `data/Localization/trans_*.json` と `data/References/ref_*.json` の行（typedef は `data/Localization/db_type.json` / `data/References/db_type.json` の `Origin`）。
+- **形**: `"Origin": [{ "OriginLang": "de", "OriginTerm": "Zehn", "OriginReading_JP": "ツェーン", "OriginNote_JP": "...", "OriginNote_EN": "..." }]`
+  - `OriginLang` はグローバル `data/db_meta.json` の `#List_OriginLang` のコード（`de` / `zh` / `la` / `fr`。足りない言語は行を追加する。ラベルは `OriginLang_JP` / `OriginLang_EN`）
+  - `OriginTerm` は由来言語での綴り（拼音なら声調付き）。`OriginReading_JP` は作中で使う片仮名読み（標準的な読みと違う場合に特に有用）
+  - 複数言語の合成語（例: 希 *deka* + 仏 *lune*）は要素を 1 つずつ配列に並べる
+- **表示**: 基本情報テーブルに「命名の由来言語」として `由来言語：原綴り（読み） — 補足` で出る（`termOriginSummary`）。
+- **運用**: 値の記入は User。`localize-proofread` のレーン C は、`Term_EN` の括弧グロスや `Term_JPReading` に散らばった由来情報を `Origin` へ移す**候補**を出すだけで、自動では書かない。`Origin` に由来が書いてある語は、以後の校正で「綴りが標準と違う」等の `note` を再提示しない根拠になる。
+- **用語集との関係**: `Origin` は入れ子なので `tools/deepl/build-glossary-source.mjs` の JP↔EN 抽出対象にならない（DeepL 用語集には影響しない）。

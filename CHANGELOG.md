@@ -1,5 +1,17 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### feat: 命名の由来言語 `Origin`（`$Def_TermOrigin` / `#List_OriginLang`）と `localize-proofread` の恒常運用 (2026-10-07)
+
+- **背景**: `localize-proofread` のレーン C（命名由来）は、独語・仏語・拼音・羅語に由来する固有名詞の綴りを点検するが、由来を記録する器が無く、`Symphony.X(Zehn)` の括弧グロスや `Term_JPReading` に情報が散っていた。`_DE` のような言語サフィックスの追加は、`_JP`/`_EN` の 2 言語前提が `lib/` `pages/` `tools/` `pkg/` `tests/` に広く固定されている（`/_(JP|EN)$/` のコピー 8 箇所超・`{jp, en}` ラベルパック・UI トグル 2 値）ため 1,000 行級の改修になり、第三言語で表示するコンテンツも無いので見送った。
+- **変更**:
+  - `data/db_meta.json` `General.$VarsDef` に `#List_OriginLang`（de / zh / la / fr）と `$Def_TermOrigin`（`OriginLang`: `#ListIndex` + `$dict` / `OriginTerm` / `OriginReading_JP` / `OriginNote_JP/EN`、`$display.wrapper: "termOriginSummary"`）を追加。
+  - `data/Localization/db_type.json` / `data/References/db_type.json` に `Origin`（`$Def_TermOrigin[]|#Null`、`section: basic`）を追加（Localization は `basicFields` にも列挙）。既存レコードへの値の記入は無し（候補提示のみ。記入は User）。
+  - `lib/basic-renders/termOrigin.js`（新規）: `termOriginSummary` wrapper。`由来言語：原綴り（読み） — 補足` の 1 行整形。`pages/characters.js` / `pages/sw.js` で読み込み。
+  - `.agents/skills/localize-proofread/SKILL.md`: レーン C が `Origin` を読み、記入候補を出す。「恒常運用」節（トリガー＝`data/**` の JP 本文・辞書・`Works_Summary` 更新、対象＝`git diff` の差分、判断台帳 `_work_in_progress/2026-10-07_localize-proofread-ledger.md`）を追加。`AGENTS.md` にも同旨の運用ルールを 1 項目追加。
+  - docs: `docs/localization-en-rules.md` §9（`Origin` の形と運用）、`docs/schema-meta-processing.md` §4.5、`docs/wrapper-summary-registry.md`。
+- **影響範囲**: `data/db_meta.json` / `data/Localization/db_type.json` / `data/References/db_type.json`（宣言のみ）/ `lib/basic-renders/termOrigin.js`（新規）/ `pages/characters.js` / `pages/sw.js`（import 1 行ずつ）/ `tests/pages.characters.ui-output.test.js`（1 件追加）/ `.agents/skills/localize-proofread/**`・`.claude/skills/**`（生成物）/ `AGENTS.md`・`.github/copilot-instructions.md`（生成物）/ `docs/**` / `_work_in_progress/`（判断台帳・進捗ログ）。SW のルーティング・`_enrichment` の形状・API は変更なし（`Origin` は他の `$Def_*` と同じく `wrapperSummaries` に載る）。
+- **下流への申し送り**: `Origin` は `$Def_TermOrigin` を宣言した meta がある場合だけ描画される。フレームワークだけ取り込む下流は `lib/basic-renders/termOrigin.js` と `pages/*.js` の import を一緒に取り込むこと（片方だけだと wrapper 未登録で `Origin` が生値表示になる）。`_work_in_progress/` の台帳は本リポジトリ固有。
+
 ### feat: 創作ローカライズ校正 Skill `localize-proofread`（候補提示のみ） (2026-10-07)
 
 - **背景**: `localize-en-draft` と `tools/deepl/` は「空の `_EN` を埋める」導線で、既にある英訳・対訳辞書・キャラスト本文を JP 原文と作品コンセプトに照らして**校正**する手順が無かった。

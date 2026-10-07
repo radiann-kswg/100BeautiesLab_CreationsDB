@@ -52,6 +52,7 @@ import '../lib/basic-renders/type-common.js';
 import '../lib/basic-renders/def-object-common.js';
 import '../lib/basic-renders/faction.js';
 import '../lib/basic-renders/baseArea.js';
+import '../lib/basic-renders/termOrigin.js';
 import '../lib/basic-renders/keyedDialogue.js';
 import '../lib/section-renders/appearanceDetail.js';
 import '../lib/section-renders/colorPalette.js';

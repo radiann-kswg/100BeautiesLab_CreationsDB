@@ -1273,6 +1273,56 @@ describe('pages/characters.js UI output', () => {
 		expect(profileSectionText).toContain('普段人類がなんの違和感もなく数える数字だが');
 	});
 
+	// `Origin`（`$Def_TermOrigin[]`）は辞書行・資料行の「命名の由来言語」。グローバル
+	// `db_meta.json` の `#List_OriginLang` を References レイヤーでも解決できることと、
+	// `termOriginSummary` wrapper が基本情報の 1 行へ「言語：原綴り（読み）」で整形することを 1 件で確認する。
+	it('renders references Origin entries as a basic row with origin-language labels resolved from the global list', async () => {
+		charactersModule.__setCharactersTestState({
+			charState: {
+				db: 'Reference',
+				workTypeDef: numberTalesWorkTypeDef,
+				globalTypeDef,
+				workMeta: numberTalesWorkMeta,
+				imageFields: []
+			}
+		});
+
+		const originalFetch = globalThis.fetch;
+		globalThis.fetch = async (input) => {
+			const url = String(input);
+			if (url.includes('/data/Works_NumberTales/References/db_type.json')) {
+				return new Response(JSON.stringify(numberTalesReferencesTypeDef), {
+					status: 200,
+					headers: { 'Content-Type': 'application/json' }
+				});
+			}
+			if (url.includes('/data/References/db_type.json')) {
+				return new Response(JSON.stringify(sharedReferencesTypeDef), {
+					status: 200,
+					headers: { 'Content-Type': 'application/json' }
+				});
+			}
+			if (url.includes('/data/References/db_meta.json')) {
+				return new Response(JSON.stringify(sharedReferencesMeta), {
+					status: 200,
+					headers: { 'Content-Type': 'application/json' }
+				});
+			}
+			throw new Error(`Unexpected fetch in references origin test: ${url}`);
+		};
+
+		try {
+			await charactersModule.renderDetail('#Works_NumberTales', {
+				...numberTalesReferenceRecord,
+				Origin: [{ OriginLang: 'de', OriginTerm: 'Zehn', OriginReading_JP: 'ツェーン' }]
+			});
+		} finally {
+			globalThis.fetch = originalFetch;
+		}
+
+		expect(getBasicFieldValue('命名の由来言語')).toBe('ドイツ語 / German：Zehn（ツェーン）');
+	});
+
 	it('formats story era summaries from structured era points when about_JP is absent', () => {
 		expect(charactersModule.__getStoryEraSummaryForTest({
 			InEra: [
