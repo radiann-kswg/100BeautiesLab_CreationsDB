@@ -13,7 +13,9 @@
       { "_DB": "Regioministrators", "Regioministration": "X" },
       { "_Work": "SinisterChangingGirls", "_DB": "Primary", "Drc": "NE" }
     ],
-	"SameRegioministration_DBLink": [{ "_DB": "Proxy", "Generation": 3 }] ,
+    "SameRegioministration_DBLink": [
+      { "_Work": "DestinyFoxRecords", "_DB": "Proxy", "Generation": 3 }
+    ],
     "FormalName_JP": "扇 零夏・スフィリア",
     "FormalName_JPReading": "おうぎ れいか・スフィリア",
     "FormalName_EN": "Arch Origth.Spheria",
@@ -35,9 +37,11 @@
         "_DB": "PrimaryPerformers",
         "Letter": { "Alphabet": "O", "AlphaGen": 2 }
       },
-      { "_DB": "Proxy", "Generation": 1}
+      { "_DB": "Proxy", "Generation": 1 }
     ],
-	"SameRegioministration_DBLink":[{ "_DB": "Proxy", "Generation": 2 }],
+    "SameRegioministration_DBLink": [
+      { "_Work": "DestinyFoxRecords", "_DB": "Proxy", "Generation": 2 }
+    ],
     "Name_JP": "扇 三春・ロールプラン",
     "Name_JPReading": "おうぎ みはる・ロールプラン",
     "Name_EN": "Arch Thirthal.Rollplan",
@@ -75,16 +79,21 @@
     "Regioministration": "Z",
     "Progress": "unprofiled",
     "AssignedRegioministratorRole": { "Regioministration": "Z" },
+    "AnotherRegions_DBLink": [{ "_DB": "SemiPrimary", "Drc": "NW" }],
     "AnotherVersion_DBLink": [
       { "_Work": "SinisterChangingGirls", "_DB": "Primary", "Drc": "NW" },
       { "_DB": "Regioministrators", "Regioministration": "Y" }
     ],
     "SameRegioministration_DBLink": [
-      { "_DB": "Primary", "Unit": "-(quaternion)" }
+      {
+        "_Work": "DestinyFoxRecords",
+        "_DB": "Primary",
+        "Unit": "-(quaternion)"
+      }
     ],
     "Name_JP": "財前 小里",
     "Name_JPReading": "ざいぜん こさと",
-    "Name_EN": "Foster Empressor\nArch Foster",
+    "Name_EN": "Foster Empressor",
     "FormalName_JP": "扇 爾秋",
     "FormalName_JPReading": "おうぎ ユースフォール",
     "FormalName_EN": "Arch Falyouth",

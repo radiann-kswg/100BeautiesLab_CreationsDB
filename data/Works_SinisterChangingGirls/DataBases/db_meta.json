@@ -6,9 +6,21 @@
       "DB_Summary": "豹変系女子に相当する８人の一次創作キャラクター。\n七つの大罪と八方位に関連する属性が付与されている。",
       "DB_Summary_EN": "Eight primary-creation characters corresponding to Sinister Changing Girls.\nThey are assigned attributes related to the seven deadly sins and the eight directions.",
       "StoryEra": {
-        "InEra": [{ "EraGen": 8, "YearInEra": 6 }, { "byRealYear": 2050 }],
-        "StoryEraAbout_JP": "第8創世紀6年(西暦2050年相当)周辺",
-        "StoryEraAbout_EN": "in around WDCE.VIII.6(Equivalent to in around: DC.2050)"
+        "InEra": [{ "EraGen": 9, "YearInEra": 3 }, { "byRealYear": 2050 }],
+        "StoryEraAbout_JP": "第9創世紀3年(西暦2050年相当)周辺",
+        "StoryEraAbout_EN": "in around WDCE.IX.3(Equivalent to in around: DC.2050)"
+      },
+      "_Commons": {}
+    },
+    "#DB_SemiPrimary": {
+      "DB_Label_JP": "準一次創作",
+      "DB_Label_EN": "Semi-Primary",
+      "DB_Summary": "豹変系女子に相当する８人に類似するキャラクター。\n類似元と同様に、七つの大罪と八方位に関連する属性が付与されている。",
+      "DB_Summary_EN": "Characters similar to the eight primary-creation characters corresponding to Sinister Changing Girls.\nThey are assigned attributes related to the seven deadly sins and the eight directions, similar to the original characters.",
+      "StoryEra": {
+        "InEra": [{ "EraGen": 9, "YearInEra": 6 }, { "byRealYear": 2053 }],
+        "StoryEraAbout_JP": "第9創世紀6年(西暦2053年相当)周辺",
+        "StoryEraAbout_EN": "in WDCE.IX.6(Equivalent to in: DC.2053)"
       },
       "_Commons": {}
     },
