@@ -4423,7 +4423,7 @@
     "ModelName_JP": "ナンバーテールズ仮設11号3倍機(3x11番機(仮称))",
     "ModelName_EN": "NumberTales' Tentative Prototype: NumberTales Unit.11 EXtended By.3 (Mk.3x11(Tentative))",
     "GenderType": "FemaleNeutral",
-    "Class": ["仮設型ハイナンバー"],
+    "Class": ["仮設型ハイナンバーズ"],
     "Height_cm": 152,
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "D",
