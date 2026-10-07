@@ -1,5 +1,11 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### fix: `$alt` フィールドのenrichでアクティブDBを双方向に優先 (2026-10-07)
+
+- **背景**: `$alt` のマージ抑止が `primary → alternative` の片方向だけで、アクティブDBに `BirthDay` がある場合でも、リンク先DBの `AnivDay` が追加されて表示に使われることがあった。
+- **変更**: アクティブDBに `$alt` の primary 値がある場合、リンク先から対応する alternative フィールドをマージしない。既存の逆方向の抑止と合わせ、`BirthDay` / `AnivDay` のどちらがアクティブDBにあってもその値を優先する。
+- **影響範囲**: `lib/data-common.js` / `tests/enrich.dblink.jump.merge.test.js` / `docs/api-sw-spec.md`。`$alt` のリンク enrich で、アクティブDB側の値がリンク先の代替キーにより表示上覆われるケースを防ぐ。
+
 ### feat: キャラクター一覧の並び順を進捗（`Progress`）グループ順にする `$display.listOrder` / `isListTop` (2026-09-24)
 
 - **背景**: 一覧は JSON のレコード順（番号順）固定で、未着手のキャラが公開済みキャラより先に出ていた。

@@ -137,6 +137,39 @@ describe('_DBLink / _Jump merge (in-process)', () => {
     expect(e._enrichment?.derivedFactionsBaseAreas).toBeUndefined();
   });
 
+  it.each([
+    ['BirthDay', { Day: { Month: 2, DayOfMonth: 27 } }, 'AnivDay', [{ Day: { Month: 2, DayOfMonth: 26 } }]],
+    ['AnivDay', [{ Day: { Month: 2, DayOfMonth: 27 } }], 'BirthDay', { Day: { Month: 2, DayOfMonth: 26 } }]
+  ])('$activeKey がアクティブDBにある場合、リンク先の $linkedKey を優先しない', async (activeKey, activeValue, linkedKey, linkedValue) => {
+    class DayAliasDataFetcher extends TestDataFetcher {
+      async readGlobalType() {
+        return {
+          $DefType: [
+            { hashTag: 'BirthDay', $type: '$Def_Day', $alt: 'AnivDay' },
+            { hashTag: 'AnivDay', $type: '$Def_Day[]' }
+          ]
+        };
+      }
+      async readDB(_workId, dbName) {
+        return dbName === 'Linked' ? [{ Id: 'LINK', [linkedKey]: linkedValue }] : [];
+      }
+    }
+
+    const proc = new globalThis.EnrichmentProcessor(new DayAliasDataFetcher(), testConfig);
+    const [enriched] = await proc.enrichRecords([{
+      Id: 'ACTIVE',
+      [activeKey]: activeValue,
+      _DBLink: {
+        worksTitle: 'Test',
+        dbName: 'Linked',
+        _Search: [{ hashTag: 'Id', key: 'LINK' }]
+      }
+    }], '#Works_Test', 'Active');
+
+    expect(enriched[activeKey]).toEqual(activeValue);
+    expect(enriched[linkedKey]).toBeUndefined();
+  });
+
   it('ルート（旧形式）_DBLink を足場に BirthDay._Jump を参照先の実値へ置換できる', async () => {
     // NOTE: 実データは JP/EN 命名標準化・$Def_DBLinkRef 新形式への移行で、
     //   SinisterChangingGirls 'N' のクロスワークリンクが ルート _DBLink → AnotherRegions_DBLink へ移設され、

@@ -42,9 +42,21 @@
     "SameRegioministration_DBLink": [
       { "_Work": "DestinyFoxRecords", "_DB": "Proxy", "Generation": 2 }
     ],
-    "Name_JP": "扇 三春・ロールプラン",
-    "Name_JPReading": "おうぎ みはる・ロールプラン",
-    "Name_EN": "Arch Thirthal.Rollplan",
+    "Name_JP": "扇 三春",
+    "Name_JPReading": "おうぎ ミハイル",
+    "Name_EN": "Mikhail Arch",
+    "Images": {
+      "concept_PNGName": {
+        "_DBCrossLinkPath": {
+          "_DB": "Primary",
+          "_Field": "concept_PNGName",
+          "_IsoPath": "concept/cnsp_imgSCG-NE"
+        }
+      }
+    },
+    "FormalName_JP": "扇 三春・ロールプラン",
+    "FormalName_JPReading": "おうぎ みはる・ロールプラン",
+    "FormalName_EN": "Arch Thirthal.Rollplan",
     "RaceType": "OverHuman",
     "GenderType": "Female",
     "ConceptAge": 17,
@@ -64,6 +76,15 @@
     "Name_JP": "扇 残冬",
     "Name_JPReading": "おうぎ ざんとう",
     "Name_EN": "Arch Zerbas",
+    "Images": {
+      "concept_PNGName": {
+        "_DBCrossLinkPath": {
+          "_DB": "Primary",
+          "_Field": "concept_PNGName",
+          "_IsoPath": "concept/cnsp_imgSCG-NW"
+        }
+      }
+    },
     "RaceType": "Terrorinaries",
     "GenderType": "ArbitraryFemale",
     "FromArea": {
