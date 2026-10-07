@@ -23,7 +23,7 @@
     "ModelName_JP": "ナンバーテールズ試作型1号機(1番機)",
     "ModelName_EN": "NumberTales' Prototype Mk.1 as Standard Unit.1 (Mk.1)",
     "GenderType": "Neutral",
-    "Class": ["試験用個体", "1桁番", "1号機型"],
+    "Class": ["試験用個体", "1桁番", "1号機型", "デシベルモデレーターズ"],
     "Height_cm": 146,
     "Weight_kg": 39,
     "BustSize": "AA",
@@ -3947,8 +3947,8 @@
     "AnivDay": [
       {
         "Day": { "Month": 10, "DayOfMonth": 10 },
-        "DayAbout_JP": "開発記念",
-        "DayAbout_EN": "Development commemoration"
+        "DayAbout_JP": "デシベルモデレーターズ開発記念",
+        "DayAbout_EN": "Development commemoration for Decibel Moderators"
       },
       {
         "Day": { "Month": 4, "DayOfMonth": 10 },
@@ -39642,6 +39642,9 @@
     "Num": "000",
     "Num_Badge": "000",
     "Progress": "released",
+    "VariantModels_DBLink": [
+      { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 1000 }
+    ],
     "Name_JP": "000(チトセ)",
     "Name_EN": "000(Thouser)",
     "Images": {
@@ -39674,7 +39677,7 @@
       }
     ],
     "GenderType": "Neutral",
-    "Class": ["開発者代理人", "スクエアエリート"],
+    "Class": ["開発者代理人", "スクエアエリート", "デシベルモデレーターズ"],
     "Height_cm": 165,
     "Weight_kg": { "hideText": "？？？" },
     "BustSize": "A",
@@ -39687,7 +39690,13 @@
       }
     ],
     "ConceptAge": 25,
-    "BirthDay": { "Day": { "Month": 8, "DayOfMonth": 15 } },
+    "AnivDay": [
+      {
+        "Day": { "Month": 8, "DayOfMonth": 15 },
+        "DayAbout_JP": "開発記念…？",
+        "DayAbout_EN": "Development commemoration...?"
+      }
+    ],
     "FirstPersonCalling_JP": "私(わたし)",
     "FirstPersonCalling_EN": "I",
     "SecondPersonCalling_JP": "君",

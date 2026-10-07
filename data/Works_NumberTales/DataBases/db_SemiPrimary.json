@@ -41,8 +41,8 @@
     "AnivDay": [
       {
         "Day": { "Month": 10, "DayOfMonth": 10 },
-        "DayAbout_JP": "開発記念（100番機,10号機型,およびキャレ型ハイナンバーのすべてにおいて）",
-        "DayAbout_EN": "Development commemoration (as all of: Mk.100, Unit.10 lineage, and Carré-Series HighNumbers)"
+        "DayAbout_JP": "デシベルモデレーターズ開発記念",
+        "DayAbout_EN": "Development commemoration for Decibel Moderators"
       }
     ],
     "FirstPersonCalling_JP": "おれ",
@@ -5260,8 +5260,10 @@
     "ForMasterCalling_EN": "Client-san",
     "RelationNotes_JP": "ナンバーテールズ開発者である零(カズナイ)姉弟の後輩。妹:歌嫁は同じくしてかつ百花繚乱研究所のアシスタントを行なっている。",
     "RelationNotes_EN": "Junior to the Norumber siblings, developers of NumberTales. Her sister, Phonia, is also an assistant at the 100 Beauties Lab.",
-    "InStory_JP": "シンフォニー.X(ツェーン)に所属後、量産販売型ナンバーテールズの相場的販売コストを抑えた互換個体ユニットの開発・提供を百花繚乱研究所（の主に零零(カズナイレイ)）と提携して行なっている\nちなみに運命線探偵としての錦野舞は、妹:歌嫁を含めおよそ7年前のパラレル存在に相当する",
-    "InStory_EN": "After joining Symphony.XVI(Sechzehn), she has been developing and providing compatible unit models with reduced market cost for mass-produced NumberTales in partnership with the 100 Beauties Lab. (mainly with Zera Norumber).\nBy the way, as a FateLine Investigators, Dancy Actressilk corresponds to a parallel existence from about 7 years ago, including her sister Phonia Actressilk.",
+    "Backgrounds_JP": "ちなみに運命線探偵としての錦野舞は、妹:歌嫁を含めおよそ7年前のパラレル存在に相当する",
+    "Backgrounds_EN": "Note: as a FateLine Investigators, Dancy Actressilk corresponds to a parallel existence from about 7 years ago, including her sister Phonia Actressilk.",
+    "InStory_JP": "シンフォニー.X(ツェーン)に所属後、量産販売型ナンバーテールズの相場的販売コストを抑えた互換個体ユニットの開発・提供を百花繚乱研究所（の主に零零(カズナイレイ)）と提携して行なっている",
+    "InStory_EN": "After joining Symphony.XVI(Sechzehn), she has been developing and providing compatible unit models with reduced market cost for mass-produced NumberTales in partnership with the 100 Beauties Lab. (mainly with Zera Norumber).",
     "Relation": {
       "Related": [{ "Num": "∞", "RelationLabel": ["brother|sister"] }]
     },
@@ -5300,8 +5302,10 @@
     "ForMasterCalling_EN": "Client-san",
     "RelationNotes_JP": "ナンバーテールズ開発者である零(カズナイ)姉弟の後輩。姉:舞は同じくしてシンフォニー.X(ツェーン)に所属し黒薔薇国へ単身赴任している",
     "RelationNotes_EN": "Junior to the Norumber siblings, developers of NumberTales. Her sister, Dancy, belongs to Symphony.XVI(Sechzehn) and is on a solo assignment in the Black Rose Kingdom.",
-    "InStory_JP": "百花繚乱研究所の本体である元藤・千歳研究室にてN3US大学の大学院修士課程を卒業後、一時的な就職活動を経て同研究室で博士課程に進学し 主に零百(カズナイハゲム)の作業補助などといったゼミのアシスタントを務めている\nちなみに運命線探偵としての錦野歌嫁は、姉:舞を含めおよそ7年前のパラレル存在に相当する",
-    "InStory_EN": "After graduating from the master's program at N3US University in the Dr.Wisterigen & Dr.Thouser Seminar, which is the mainbase of the 100 Beauties Lab, she temporarily job-hunted before entering the doctoral program at the same laboratory, where she mainly serves as an assistant in seminars such as assisting Hudret Norumber.\nBy the way, as a FateLine Investigators, Phonia Actressilk corresponds to a parallel existence from about 7 years ago, including her sister Dancy Actressilk.",
+    "Backgrounds_JP": "ちなみに運命線探偵としての錦野歌嫁は、姉:舞を含めおよそ7年前のパラレル存在に相当する",
+    "Backgrounds_EN": "Note: as a FateLine Investigators, Phonia Actressilk corresponds to a parallel existence from about 7 years ago, including her sister Dancy Actressilk.",
+    "InStory_JP": "百花繚乱研究所の本体である元藤・千歳研究室にてN3US大学の大学院修士課程を卒業後、一時的な就職活動を経て同研究室で博士課程に進学し 主に零百(カズナイハゲム)の作業補助などといったゼミのアシスタントを務めている",
+    "InStory_EN": "After graduating from the master's program at N3US University in the Dr.Wisterigen & Dr.Thouser Seminar, which is the mainbase of the 100 Beauties Lab, she temporarily job-hunted before entering the doctoral program at the same laboratory, where she mainly serves as an assistant in seminars such as assisting Hudret Norumber.",
     "Relation": {
       "Related": [{ "Num": "%", "RelationLabel": ["brother|sister"] }]
     },
@@ -5321,5 +5325,68 @@
         }
       ]
     }
+  },
+  {
+    "Num": 1000,
+    "Num_Badge": "1000",
+    "Progress": "nowCreating",
+    "isTriple": false,
+    "VariantModels_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": "000" }
+    ],
+    "Name_JP": "1000(センリ)",
+    "Name_EN": "1000(Millodie)",
+    "Images": {
+      "corefolder_PNGPath": ["1000/emstk_corefolderNTS-1000-1"]
+    },
+    "FormalName_JP": "ナンバーテールズ ツェール(仮設1000番機)",
+    "FormalName_EN": "NumberTales Unit.Zheull(Tentative Mk.1000)",
+    "CodeName_JP": "千",
+    "CodeName_EN": "Thousand",
+    "SPCodeName_JP": "(10の乗数, 旋律)",
+    "SPCodeName_EN": "(Multiplier of 10, Melodie)",
+    "ModelNumber": "APHR-NT 0+[KRZ]X",
+    "ModelName_JP": "ナンバーテールズ キュビクザール・ヌル+ツェーン\nナンバーテールズ 仮設最終型0+10号機",
+    "ModelName_EN": "NumberTales Unit.Kubikzahl-0+X\nNumberTales Tentative Final-Renovated Type Unit.0+10",
+    "GenderType": "FemaleNeutral",
+    "Belonging": [
+      { "Faction": "百花繚乱研究所" },
+      { "Faction": "シンフォニー.X" }
+    ],
+    "FromArea": { "Area": "黒薔薇国" },
+    "Class": [
+      "開発者代理人",
+      "仮設型ハイナンバーズ",
+      "最終型ハイナンバーズ",
+      "デシベルモデレーターズ",
+      "キュビクザール型",
+      "ヒューマノイド開発部(シンフォニー.X)"
+    ],
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Fox",
+        "Count": 1,
+        "Segment": 1,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "AnivDay": [
+      {
+        "Day": { "Month": 7, "DayOfMonth": 6 },
+        "DayAbout_JP": "開発記念…？",
+        "DayAbout_EN": "Development commemoration...?"
+      }
+    ],
+    "FirstPersonCalling_JP": "私(わたし)",
+    "FirstPersonCalling_EN": "I (fem. neutral)",
+    "SecondPersonCalling_JP": "あなた",
+    "SecondPersonCalling_EN": "you",
+    "ThirdPersonCalling_JP": "彼/彼女;[※名前呼び]",
+    "ThirdPersonCalling_EN": "he/she; [*by name]",
+    "ForMasterCalling_JP": "クライアントさん",
+    "ForMasterCalling_EN": "Client-san",
+    "InStory_JP": "錦野舞の内定と錦野歌嫁の博士課程進学のためにシンフォニー.Xのインターンシップで試験開発され、729(ズィライノイル)や999(カンスト)の後続機として完成した。稀に錦野姉妹の代理として登場する",
+    "InStory_EN": "It had been developed as a test during an internship at Symphony.X for the appointment of Dancy Actressilk and the advancement of Phonia Actressilk to the doctoral program, and was completed as the successor to 729(Si'weineul) and 999(Counstop). She occasionally appears as a proxy for the  Actressilk sisters."
   }
 ]
