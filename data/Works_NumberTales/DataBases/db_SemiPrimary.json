@@ -2091,7 +2091,7 @@
           "value_EN": "\"You mustn't fight, my sir/lady! Even with someone precious to you, hurting each other to deepen your bond is kind of sad...! ><\""
         },
         {
-          "value_JP": "「僕の生まれた『シンフォニー.X』は、組織名がもともと『第3創世期に黒薔薇国の有名な音楽家さんの作曲した9部作の続きを奏でよう』っていう意味で、第5創世記から代々続く黒薔薇国の有名な行政技術組織なんだ！第3創世期当時の楽曲なら、『シンフォニー.V(フュンフ)』や『シンフォニー.IX(ノイン)』は有名な曲だから、兄樣/姉樣も機会があったら聴いてみてねっ」",
+          "value_JP": "「僕の生まれた『シンフォニー.X』は、組織名がもともと『第3創世紀に黒薔薇国の有名な音楽家さんの作曲した9部作の続きを奏でよう』っていう意味で、第5創世記から代々続く黒薔薇国の有名な行政技術組織なんだ！第3創世紀当時の楽曲なら、『シンフォニー.V(フュンフ)』や『シンフォニー.IX(ノイン)』は有名な曲だから、兄樣/姉樣も機会があったら聴いてみてねっ」",
           "value_EN": "\"'Symphony.X', where I was born, originally got its name from the idea of 'playing the continuation of the nine-part series composed in WDCE.III by a famous musician from SchwarzeRoseland,' and it's a famous administrative technology organization in SchwarzeRoseland that has carried on for generations since WDCE.V! Among the pieces from back in WDCE.III, 'Symphony.V(Fünf)' and 'Symphony.IX(Neun)' are famous ones, so give them a listen if you get the chance, my sir/lady!\"",
           "about_JP": "製造機関『シンフォニー.X』について",
           "about_EN": "About her manufacturing organization 'Symphony.X'",
@@ -5244,18 +5244,25 @@
     "Num": "%",
     "Num_Badge": "DIV",
     "Progress": "notProceeded",
-    "AnotherRegions_DBLink": {
-      "_Work": "FLInvestigator78",
-      "_DB": "PrimaryDealer",
-      "Card": { "Suit": "Dealer", "Num": 79 }
-    },
+    "AnotherRegions_DBLink": [
+      {
+        "_Work": "FLInvestigator78",
+        "_DB": "PrimaryDealer",
+        "Card": { "Suit": "Dealer", "Num": 79 }
+      },
+      {
+        "_Work": "SinisterChangingGirls",
+        "_DB": "SemiPrimary",
+        "Drc": "NNE"
+      }
+    ],
     "Name_JP": "錦野 舞",
     "Name_EN": "Dancy Actressilk",
     "RaceType": "Human",
     "Belonging": [{ "Faction": "シンフォニー.X" }],
     "Class": ["開発者", "ヒューマノイド開発部(シンフォニー.X)"],
     "BustSize": "B",
-    "Age": 24,
+    "Age": 23,
     "ForMasterCalling_JP": "クライアントさん",
     "ForMasterCalling_EN": "Client-san",
     "RelationNotes_JP": "ナンバーテールズ開発者である零(カズナイ)姉弟の後輩。妹:歌嫁は同じくしてかつ百花繚乱研究所のアシスタントを行なっている。",
@@ -5287,17 +5294,21 @@
     "Num": "∞",
     "Num_Badge": "INF",
     "Progress": "notProceeded",
-    "AnotherRegions_DBLink": {
-      "_Work": "FLInvestigator78",
-      "_DB": "PrimaryDealer",
-      "Card": { "Suit": "Dealer", "Num": 80 }
-    },
+    "AnotherRegions_DBLink": [
+      {
+        "_Work": "FLInvestigator78",
+        "_DB": "PrimaryDealer",
+        "Card": { "Suit": "Dealer", "Num": 80 }
+      }
+    ],
     "Name_JP": "錦野 歌嫁",
     "Name_EN": "Phonia Actressilk",
     "RaceType": "Human",
     "Class": ["ゼミアシスタント"],
+    "Height_cm": 167,
+    "Weight_kg": 53,
     "BustSize": "B",
-    "Age": 24,
+    "Age": 23,
     "ForMasterCalling_JP": "クライアントさん",
     "ForMasterCalling_EN": "Client-san",
     "RelationNotes_JP": "ナンバーテールズ開発者である零(カズナイ)姉弟の後輩。姉:舞は同じくしてシンフォニー.X(ツェーン)に所属し黒薔薇国へ単身赴任している",
@@ -5362,6 +5373,7 @@
       "キュビクザール型",
       "ヒューマノイド開発部(シンフォニー.X)"
     ],
+    "BustSize": "B",
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_Fox",
@@ -5371,6 +5383,7 @@
         "Note_EN": null
       }
     ],
+    "ConceptAge": 23,
     "AnivDay": [
       {
         "Day": { "Month": 7, "DayOfMonth": 6 },

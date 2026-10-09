@@ -1,6 +1,131 @@
 [
   {
-    "Drc": "NW",
+    "Drc": "NNE",
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      {
+        "_Work": "FLInvestigator78",
+        "_DB": "PrimaryDealer",
+        "Card": { "Suit": "Dealer", "Num": 79 }
+      },
+      {
+        "_Work": "NumberTales",
+        "_DB": "SemiPrimary",
+        "Num": "∞"
+      }
+    ],
+    "Name_JP": "錦野 舞",
+    "Name_EN": "Dancy Actressilk",
+    "CodeName_JP": "純潔の深夜",
+    "CodeName_EN": "Chastity o'clock in Midnight",
+    "RaceType": "Human",
+    "Belonging": [
+      { "Faction": "セブンティエイト特殊探偵団" },
+      { "Faction": "シンフォニー.X" }
+    ],
+    "Class": ["ヒューマノイド開発部(シンフォニー.X)"],
+    "Height_cm": 167,
+    "Weight_kg": 53,
+    "BustSize": "B",
+    "Age": 23
+  },
+  {
+    "Drc": "ENE",
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      {
+        "_Work": "UnibyteLive",
+        "_DB": "PrimaryPerformers",
+        "Letter": { "Alphabet": "O", "AlphaGen": 2 }
+      },
+      { "_DB": "Regioministrators", "Regioministration": "W" }
+    ],
+    "AnotherVersion_DBLink": [
+      { "_DB": "Primary", "Drc": "NE" },
+      { "_DB": "Regioministrators", "Regioministration": "X" }
+    ],
+    "Name_JP": "扇 零夏・スフィリア",
+    "Name_JPReading": "おうぎ れいか・スフィリア",
+    "Name_EN": "Arch Origth.Spheria",
+    "FormalName_JP": "扇 零夏・スフィリア",
+    "FormalName_JPReading": "おうぎ れいか・スフィリア",
+    "FormalName_EN": "Arch Origth.Spheria",
+    "CodeName_JP": "自制の明方",
+    "CodeName_EN": "Temperance o'clock in Early",
+    "RaceType": "Warfox",
+    "GenderType": "ArbitraryFemale",
+    "Belonging": [
+      { "Faction": "国際情報広報機関『ミハイル』" },
+      { "Faction": "『管理主』代理人" }
+    ],
+    "FromArea": {
+      "Area": "四蓮島",
+      "BaseAreaAbout_JP": "自称",
+      "BaseAreaAbout_EN": "Self-proclaimed"
+    },
+    "Class": ["『管制主』代理人（『再生』担当）"],
+    "Height_cm": 159,
+    "Weight_kg": { "hideText": "判定失敗" },
+    "BustSize": "I",
+    "Age": { "about_JP": "不詳", "about_EN": "Unknown or Undefined" },
+    "FirstPersonCalling_JP": "アーシ",
+    "FirstPersonCalling_EN": "Sphery (very casual, in English: by name casually, in Japanese: 'a-shi')",
+    "SecondPersonCalling_JP": "アンタ",
+    "SecondPersonCalling_EN": "guy/gal(s) (anta; very casual)",
+    "ThirdPersonCalling_JP": "~君,センパイ",
+    "ThirdPersonCalling_EN": "[*by name], senpai (very casual)",
+    "Character_JP": "気さくで陽気な若人。かなり大胆な気性なので自ら自重しているという",
+    "Character_EN": "",
+    "Hobby_JP": "流行を堪能すること、世界の要約を掴むこと",
+    "Hobby_EN": "Enjoying trends, grasping the summary of the world",
+    "SpecialSkill_JP": "姿を変えられる",
+    "SpecialSkill_EN": "Can change appearance",
+    "Favor_JP": "おしゃれで高級な喫茶店",
+    "Favor_EN": "Stylish and high-class cafes",
+    "Unlike_JP": "フードファイター（三春のような無自覚大食漢を含む）",
+    "Unlike_EN": "Food fighters (including unconscious gluttons like Mikhail)",
+    "ColorPalette": null,
+
+    "Summary_JP": "「ミハイル」という国際情報広報機関に相乗りする形で世界を旅するギャル系配信者。\nその大胆で活発な性格と派手なファッションセンスに反し、世間に浮かれすぎて見られぬよう「自制」を常日頃から掛けていると彼女を推しているリスナーからの考察が後を絶たない。\n配信者としてバーチャルアバターを有しているものの、妖狐ゆえの変化とさえみられる群を抜いたコスプレ能力があり、現実空間でもアバターに負けない魅力を発信している。",
+    "Summary_EN": ""
+  },
+  {
+    "Drc": "ESE",
+    "isPrivate": true,
+    "Progress": "notProceeded",
+    "CodeName_JP": "忍耐の朝方",
+    "CodeName_EN": "Patience o'clock in Morning"
+  },
+  {
+    "Drc": "SSE",
+    "isPrivate": true,
+    "Progress": "notProceeded",
+    "CodeName_JP": "勤勉の午前",
+    "CodeName_EN": "Diligence o'clock in Forenoon"
+  },
+  {
+    "Drc": "SSW",
+    "isPrivate": true,
+    "Progress": "notProceeded",
+    "CodeName_JP": "救恤の昼",
+    "CodeName_EN": "Charity o'clock in Daytime"
+  },
+  {
+    "Drc": "WSW",
+    "isPrivate": true,
+    "Progress": "notProceeded",
+    "CodeName_JP": "慈愛の午後",
+    "CodeName_EN": "Kindness o'clock in Afternoon"
+  },
+  {
+    "Drc": "WNW",
+    "isPrivate": true,
+    "Progress": "notProceeded",
+    "CodeName_JP": "謙虚の晩",
+    "CodeName_EN": "Humility o'clock in Evening"
+  },
+  {
+    "Drc": "NNW",
     "Progress": "notProceeded",
     "AnotherRegions_DBLink": [
       { "_DB": "Regioministrators", "Regioministration": "Z" }
@@ -19,6 +144,13 @@
     "CodeName_EN": "Justice o'clock in Night",
     "RaceType": "Ghostinaries(Acquired)",
     "GenderType": "FemaleNeutral",
+    "Belonging": [{ "Faction": "『管理主』代理人" }],
+    "FromArea": {
+      "Area": "四蓮島",
+      "BaseAreaAbout_JP": "自称",
+      "BaseAreaAbout_EN": "Self-proclaimed"
+    },
+    "Class": ["『管制主』代理人（『還元』担当）"],
     "Height_cm": 154,
     "Weight_kg": { "hideText": "判定失敗" },
     "Age": { "hideText": "判定失敗" },
@@ -39,7 +171,7 @@
     "Unlike_JP": "面白くないこと",
     "Unlike_EN": "Uninteresting things",
     "ColorPalette": null,
-    "Summary_JP": "第7創世期から第8創世期に掛けて活躍していた若手超大物政治ジャーナリストをしていた謎の若人で、十数年前に突如 電撃引退を宣言し各メディアから姿を消したが、それに伴い第9創世期に至るまで実体を失っていた。\nしかしある時からドッペルゲンガーともいわれるべき「終藤 こさと」の存在が各地の機関で警戒されるようになったことを危惧し、亡霊概念として自ら蘇生を試みたという。\n彼女と「終藤 こさと」の関係は未だ謎に包まれており、彼女の引退の真相と目的も知られる由がないだろう。",
-    "Summary_EN": "A mysterious young figure who was a prominent young political journalist active from WDCE.VII through WDCE.VIII. More than a decade ago, she abruptly announced her retirement and vanished from all media, and with it, she lost her physical form until WDCE.IX.\nHowever, growing wary that 'Formar Endrof', a being who could only be called her doppelgänger, had at some point come under the watch of institutions everywhere, she is said to have attempted to revive herself as a Ghostinary.\nHer relationship with 'Formar Endrof' remains shrouded in mystery, and the truth and purpose behind her retirement are unlikely ever to be known."
+    "Summary_JP": "第7創世紀から第8創世紀に掛けて活躍していた若手超大物政治ジャーナリストをしていた謎の若人で、十数年前に突如 電撃引退を宣言し各メディアから姿を消したが、第9創世紀に至るまで実体を失っていた。\nしかしある時からドッペルゲンガーともいわれるべき「終藤 こさと」の存在が各地の機関で警戒されるようになったことを危惧し、亡霊概念として自ら蘇生を試みたという。\n彼女と「終藤 こさと」の関係は未だ謎に包まれており、彼女の引退の真相と「正義」の目的も知られる由がないだろう。",
+    "Summary_EN": "A mysterious young figure who was a prominent young political journalist active from WDCE.VII through WDCE.VIII. More than a decade ago, she abruptly announced her retirement and vanished from all media, and she lost her physical form until WDCE.IX.\nHowever, growing wary that 'Formar Endrof', a being who could only be called her doppelgänger, had at some point come under the watch of institutions everywhere, she is said to have attempted to revive herself as a Ghostinary.\nHer relationship with 'Formar Endrof' remains shrouded in mystery, and the truth and purpose behind her retirement of 'Justice' are unlikely ever to be known."
   }
 ]

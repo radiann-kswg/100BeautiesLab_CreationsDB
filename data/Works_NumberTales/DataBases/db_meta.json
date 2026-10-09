@@ -7,22 +7,18 @@
       "DB_Summary_EN": "Among NumberTales, characters appearing in official primary works.\nEach one has numerology based on a non-negative integer up to 99.",
       "StoryEra": {
         "FromEra": [
-          { "EraGen": 9, "YearInEra": 3 },
           { "EraGen": 8, "YearInEra": 6 },
+          { "EraGen": 9, "YearInEra": 3 },
           { "byRealYear": 2050 }
         ],
         "ToEra": [
-          { "EraGen": 9, "YearInEra": 4 },
           { "EraGen": 8, "YearInEra": 7 },
+          { "EraGen": 9, "YearInEra": 4 },
           { "byRealYear": 2051 }
         ],
-        "InEra": [
-          { "EraGen": 9, "YearInEra": 3 },
-          { "EraGen": 8, "YearInEra": 6 },
-          { "byRealYear": 2050 }
-        ],
-        "StoryEraAbout_JP": "第9創世紀3〜4年(第8創世紀6〜7年,西暦2050〜2051年相当)",
-        "StoryEraAbout_EN": "between WDCE.IX.3-4(Equivalent to between: WDCE.VIII.6-7, DC.2050-2051)"
+        "InEra": [{ "EraGen": 8, "YearInEra": 6 }, { "byRealYear": 2050 }],
+        "StoryEraAbout_JP": "第8創世紀6〜7年(第9創世紀3〜4年,西暦2050〜2051年相当)",
+        "StoryEraAbout_EN": "between WDCE.VIII.6-7(Equivalent to between: WDCE.IX.3-4, DC.2050-2051)"
       },
       "_Commons": {
         "Progress": "notProceeded",
@@ -39,18 +35,18 @@
       "DB_Summary_EN": "Among NumberTales, characters designed as an anthology under official supervision and treated as quasi-primary creations.\nEach one has numerology centered on non-negative integers, including numbers extended from official primary works, repdigits (33 and multiples of 111 as master numbers), and selected milestone numbers.",
       "StoryEra": {
         "FromEra": [
-          { "EraGen": 9, "YearInEra": 3 },
           { "EraGen": 8, "YearInEra": 6 },
+          { "EraGen": 9, "YearInEra": 3 },
           { "byRealYear": 2050 }
         ],
         "ToEra": [
-          { "EraGen": 9, "YearInEra": 5 },
           { "EraGen": 8, "YearInEra": 8 },
+          { "EraGen": 9, "YearInEra": 5 },
           { "byRealYear": 2052 }
         ],
-        "InEra": [{ "EraGen": 8, "YearInEra": 6 }, { "byRealYear": 2050 }],
-        "StoryEraAbout_JP": "第9創世紀3〜5年(第8創世紀6〜8年,西暦2050〜2052年相当)",
-        "StoryEraAbout_EN": "between WDCE.IX.3-5(Equivalent to between: WDCE.VIII.6-8, DC.2050-2052)"
+        "InEra": [{ "EraGen": 8, "YearInEra": 7 }, { "byRealYear": 2051 }],
+        "StoryEraAbout_JP": "第8創世紀6〜8年(第9創世紀3〜5年,西暦2050〜2052年相当)",
+        "StoryEraAbout_EN": "between WDCE.VIII.6-8(Equivalent to between: WDCE.IX.3-5, DC.2050-2052)"
       },
       "_Commons": {
         "Progress": "notProceeded",
@@ -84,12 +80,12 @@
           "SecondarySummary_JP": "散狐アタストさんの提案により考案された「D-Vines(ディ-バインズ)」の関連キャラクター。\nシンフォニー.X(ツェーン)に所属する「錦野舞」によりナンバーテールズの互換プロダクションとして開発設計するために試作された特殊な番号のナンバーテールズ。分数や特殊な無理数の近似値上3桁の番号を持つ個体が中心となっている。",
           "StoryEra": {
             "InEra": [
-              { "EraGen": 9, "YearInEra": 5 },
               { "EraGen": 8, "YearInEra": 8 },
+              { "EraGen": 9, "YearInEra": 5 },
               { "byRealYear": 2052 }
             ],
-            "StoryEraAbout_JP": "第9創世紀5年(第8創世紀8年,西暦2052年相当)周辺",
-            "StoryEraAbout_EN": "in around WDCE.IX.5(Equivalent to in around: WDCE.VIII.8, DC.2052)"
+            "StoryEraAbout_JP": "第8創世紀8年(第9創世紀5年,西暦2052年相当)周辺",
+            "StoryEraAbout_EN": "in around WDCE.VIII.8(Equivalent to in around: WDCE.IX.5, DC.2052)"
           },
           "_Commons": {
             "Progress": "stillTentative",
@@ -137,12 +133,12 @@
           "SecondarySummary_JP": "散狐アタストさんにより原案がキャラデザされ、現在はラジアン(柏木主税)に権利を譲渡されている。\n異世界から(散狐アタストさんの代理キャラである)「エイゼルベット」によりナンバーテールズを基にして生み出され、(同じく二次創作観測キャラである)「シグマ・クロステールズ」により百花繚乱研究所のある世界へ仲介された、十六進拡張用の数字を持つ６体のバーチャル同位体。現在は百花繚乱研究所に託され、研究開発の一要因として活動している。",
           "StoryEra": {
             "InEra": [
-              { "EraGen": 9, "YearInEra": 4 },
               { "EraGen": 8, "YearInEra": 7 },
+              { "EraGen": 9, "YearInEra": 4 },
               { "byRealYear": 2051 }
             ],
-            "StoryEraAbout_JP": "第9創世紀4年(第8創世紀7年,西暦2051年相当)周辺",
-            "StoryEraAbout_EN": "in around WDCE.IX.4(Equivalent to in around: WDCE.VIII.7, DC.2051)"
+            "StoryEraAbout_JP": "第8創世紀7年(第9創世紀4年,西暦2051年相当)周辺",
+            "StoryEraAbout_EN": "in around WDCE.VIII.7(Equivalent to in around: WDCE.IX.4, DC.2051)"
           },
           "_Commons": {
             "Progress": "accepted",
@@ -161,12 +157,12 @@
           "SecondarySummary_JP": "散狐アタストさんにより原案がキャラデザされた「ヘキサデミカル・テールズ」をもとにナンバーテールズの公式副次創作としてキャラの構想を拡張した。\n百花繚乱研究所と「エイゼルベット」によりある世界からあらゆる\"観測\"を経て誕生した、特殊な十六進数を持つナンバーテールズ同位体。百花繚乱研究所にて研究開発の一要因として活動している。",
           "StoryEra": {
             "InEra": [
-              { "EraGen": 9, "YearInEra": 5 },
               { "EraGen": 8, "YearInEra": 8 },
+              { "EraGen": 9, "YearInEra": 5 },
               { "byRealYear": 2052 }
             ],
-            "StoryEraAbout_JP": "第9創世紀5年(第8創世紀8年,西暦2052年相当)周辺",
-            "StoryEraAbout_EN": "in around WDCE.IX.5(Equivalent to in around: WDCE.VIII.8, DC.2052)"
+            "StoryEraAbout_JP": "第8創世紀8年(第9創世紀5年,西暦2052年相当)周辺",
+            "StoryEraAbout_EN": "in around WDCE.VIII.8(Equivalent to in around: WDCE.IX.5, DC.2052)"
           },
           "_Commons": {
             "Progress": "notProceeded",
@@ -181,12 +177,12 @@
           "SecondarySummary_JP": "散狐アタストさんの提案により考案された。\nシンフォニー.X(ツェーン)に所属する「錦野舞」によりナンバーテールズの互換プロダクションとして開発された、胴部襷掛け方向に上下体の乖離・組み換え再接続が可能なカスタマイズ特化型ディビエイタブルヒューマノイド。上下の組み換え次第で性格に変化が生じるため、個体の外見デザイン以上のキャラクターバリエーションを有することが特徴。",
           "StoryEra": {
             "InEra": [
-              { "EraGen": 9, "YearInEra": 5 },
               { "EraGen": 8, "YearInEra": 8 },
+              { "EraGen": 9, "YearInEra": 5 },
               { "byRealYear": 2052 }
             ],
-            "StoryEraAbout_JP": "第9創世紀5年(第8創世紀8年,西暦2052年相当)周辺",
-            "StoryEraAbout_EN": "in around WDCE.IX.5(Equivalent to in around: WDCE.VIII.8, DC.2052)"
+            "StoryEraAbout_JP": "第8創世紀8年(第9創世紀5年,西暦2052年相当)周辺",
+            "StoryEraAbout_EN": "in around WDCE.VIII.8(Equivalent to in around: WDCE.IX.5, DC.2052)"
           },
           "_Commons": {
             "Progress": "stillTentative",

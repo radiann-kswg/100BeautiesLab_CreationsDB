@@ -1,0 +1,10 @@
+{
+  "Dictionaries": {
+    "#Dict_Virtues": {
+      "DB_Label_JP": "美徳辞書",
+      "DB_Label_EN": "Virtues Dictionary",
+      "keyField": "Virtues",
+      "compatListKey": "#List_Virtues"
+    }
+  }
+}

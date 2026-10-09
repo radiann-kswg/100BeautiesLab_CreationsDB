@@ -15,8 +15,8 @@
     "#DB_SemiPrimary": {
       "DB_Label_JP": "準一次創作",
       "DB_Label_EN": "Semi-Primary",
-      "DB_Summary": "豹変系女子に相当する８人に類似するキャラクター。\n類似元と同様に、七つの大罪と八方位に関連する属性が付与されている。",
-      "DB_Summary_EN": "Characters similar to the eight primary-creation characters corresponding to Sinister Changing Girls.\nThey are assigned attributes related to the seven deadly sins and the eight directions, similar to the original characters.",
+      "DB_Summary": "豹変系女子に相当する８人に類似するキャラクター。\n類似元と同様に、七つの大罪(に対応する美徳)と八方位に関連する属性が付与されている。",
+      "DB_Summary_EN": "Characters similar to the eight primary-creation characters corresponding to Sinister Changing Girls.\nThey are assigned attributes related to the seven deadly sins (as the corresponding virtues) and the eight directions, similar to the original characters.",
       "StoryEra": {
         "InEra": [{ "EraGen": 9, "YearInEra": 6 }, { "byRealYear": 2053 }],
         "StoryEraAbout_JP": "第9創世紀6年(西暦2053年相当)周辺",
@@ -53,19 +53,6 @@
     }
   },
   "General": {
-    "$VarsDef": {
-      "#List_Drc": [
-        { "Drc": "N", "Drc_JP": "北", "Drc_EN": "North" },
-        { "Drc": "NE", "Drc_JP": "北東", "Drc_EN": "Northeast" },
-        { "Drc": "E", "Drc_JP": "東", "Drc_EN": "East" },
-        { "Drc": "SE", "Drc_JP": "南東", "Drc_EN": "Southeast" },
-        { "Drc": "S", "Drc_JP": "南", "Drc_EN": "South" },
-        { "Drc": "SW", "Drc_JP": "南西", "Drc_EN": "Southwest" },
-        { "Drc": "W", "Drc_JP": "西", "Drc_EN": "West" },
-        { "Drc": "NW", "Drc_JP": "北西", "Drc_EN": "Northwest" },
-        { "Drc": "W", "Drc_JP": "西", "Drc_EN": "West" },
-        { "Drc": "NW", "Drc_JP": "北西", "Drc_EN": "Northwest" }
-      ]
-    }
+    "$VarsDef": {}
   }
 }
