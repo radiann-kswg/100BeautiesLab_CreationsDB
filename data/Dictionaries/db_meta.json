@@ -52,14 +52,14 @@
       "DB_Label_EN": "Class Dictionary (for Symphony.X)",
       "keyField": "Class",
       "compatListKey": "#List_Class",
-      "scopeField": { "Belonging": "シンフォニー.X(ツェーン)" }
+      "scopeField": { "Belonging": "シンフォニー.X" }
     },
     "#Dict_SymphonyXVI": {
       "DB_Label_JP": "クラス辞書(シンフォニー.XVI向け)",
       "DB_Label_EN": "Class Dictionary (for Symphony.XVI)",
       "keyField": "Class",
       "compatListKey": "#List_Class",
-      "scopeField": { "Belonging": "シンフォニー.XVI(ゼクズィン)" }
+      "scopeField": { "Belonging": "シンフォニー.XVI" }
     },
     "#Dict_Mikhail": {
       "DB_Label_JP": "クラス辞書(『ミハイル』向け)",
