@@ -1,5 +1,11 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### feat: 創作ローカライズ校正 Skill `localize-proofread`（候補提示のみ） (2026-10-07)
+
+- **背景**: `localize-en-draft` と `tools/deepl/` は「空の `_EN` を埋める」導線で、既にある英訳・対訳辞書・キャラスト本文を JP 原文と作品コンセプトに照らして**校正**する手順が無かった。
+- **変更**: `.agents/skills/localize-proofread/`（正典）を追加。対訳・用語（造語/固有名詞/劇中スラング）・命名由来（他言語由来の綴り/語形）・文芸（`BodyBlocks` / `#Dialogue` / `Summary_*` / 外部原稿）の 4 レーンで指摘を起こし、`.cache/localize/proofread-report.md` に候補を書く。`data/` は書き換えない（反映は User 判断で `localize-en-draft` の挿入規則に従う）。`npm run deepl:eval` のレポートを前段入力にできる。言語サフィックスの新設（`_DE` 等）はスコープ外（スキーマ変更は `multi-localized` ブランチで別対応）。
+- **影響範囲**: `.agents/skills/localize-proofread/**`（新規）/ `.claude/skills/localize-proofread/**`（生成物）/ `AGENTS.md`・`.github/copilot-instructions.md`（生成物）/ `.github/instructions/localization-en.instructions.md` / `docs/deepl-localization.md`（参照追加）。配布は既存の `.agents/skills` → `.claude/skills` ミラーのまま（Codex は `.agents/skills`、Claude は `.claude/skills`、Copilot は両方を自動探索）。スキーマ・UI・SW に変更なし。
+
 ### fix: `$alt` フィールドのenrichでアクティブDBを双方向に優先 (2026-10-07)
 
 - **背景**: `$alt` のマージ抑止が `primary → alternative` の片方向だけで、アクティブDBに `BirthDay` がある場合でも、リンク先DBの `AnivDay` が追加されて表示に使われることがあった。

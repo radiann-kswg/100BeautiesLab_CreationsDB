@@ -117,7 +117,7 @@ npm run deepl:sync-glossary          # -- --dry-run で対象だけ確認も可
 npm run deepl:eval -- --fields Summary,Character --work Works_NumberTales --limit 25
 ```
 
-`.cache/deepl/eval-report.md` に「既存 EN」「DeepL 訳」を類似度の低い順で並べる。**乖離＝誤りではない**（文体・意訳の揺れが大半）。採否は人間が判断し、必要な修正は `localization-en-rules.md` の規則（キー順序・上書き条件）に従って手作業で反映する。
+`.cache/deepl/eval-report.md` に「既存 EN」「DeepL 訳」を類似度の低い順で並べる。**乖離＝誤りではない**（文体・意訳の揺れが大半）。採否は人間が判断し、必要な修正は `localization-en-rules.md` の規則（キー順序・上書き条件）に従って手作業で反映する。このレポートを入力に、用語・命名由来・文芸表現まで含めてエージェントに校正案を出させるときは Skill **`localize-proofread`**（[`.claude/skills/localize-proofread/SKILL.md`](../.claude/skills/localize-proofread/SKILL.md)）を使う。
 
 ### 3-4. キャラ文脈（GenderType・呼称）を踏まえた下書き翻訳をしたいとき
 
@@ -175,6 +175,7 @@ cp .env.example .env
 | スクリプト（Node） | `tools/deepl/`（`build-glossary-source` / `sync-glossary` / `evaluate-translations` / `draft-translate` / `deepl-client`） |
 | スクリプト（Python） | [`tools/deepl_py/`](../tools/deepl_py/README.md)（`draft_translate.py` / `deepl_client.py` / `pronoun_normalize.py`） |
 | Claude Skill（`field_EN` 新規挿入・少数レコードの丁寧な翻訳） | [`.claude/skills/localize-en-draft/SKILL.md`](../.claude/skills/localize-en-draft/SKILL.md) |
+| Skill（既存英訳・辞書・キャラスト本文の校正、候補提示のみ） | [`.claude/skills/localize-proofread/SKILL.md`](../.claude/skills/localize-proofread/SKILL.md) |
 | Copilot 英訳補助指示 | [`.github/instructions/localization-en.instructions.md`](../.github/instructions/localization-en.instructions.md) |
 | 固有名詞 早見表（生成物） | [`localization-glossary-quickref.md`](localization-glossary-quickref.md)（`npm run deepl:build-quickref`） |
 | 作業ログ | `_work_in_progress/2026-06-28_progress_deepl-localization.md` |
