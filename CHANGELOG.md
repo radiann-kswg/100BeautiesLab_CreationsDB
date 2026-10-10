@@ -1724,9 +1724,9 @@ develop 側での `IdentityMotif` フィールド廃止（下記 refactor）を 
   - `buildEnJaMap()`: 併記形は**分割後の全断片**を個別の EN ソースキーとして登録するよう変更。これにより `ref_Society.json` の世代呼称（`WDCE.` 系）で、`Term_JP` 由来のペアと `Aliases` 由来のペアが同一の結合文字列キーに集約されて衝突していた問題（EN→JA 10件中ほぼ全てが自己参照ノイズ）を解消。
   - `isPluralPair()`（新規）: 単数形/複数形だけが異なる EN 候補（例: `Regiowner`/`Regiowners`）を検出した場合、JA→EN 用語集への登録を見送り `[文法差につき用語集登録なし]` として `glossary-conflicts.md` に候補を併記するのみに変更。JP側は文法上の数を持たないため、用語集で強制的に片方へ固定すると逆の文脈で誤訳になるため。EN→JA は元々キーが異なり衝突しないため両方とも正しく登録される。
   - `buildEnJaMap()`: `Term_JP` 由来（正式名）のペアと `Aliases` 由来（通称・略称）のペアが同一 EN キーで衝突した場合も同様に**登録を見送る**よう変更（`registerDependent`）。冗長な説明文では通称・略称、該当語自体を定義・説明する文では正式名という文脈依存の使い分けがあり、EN→JA の単一キーには機械的に固定できないため。`glossary-conflicts.md` に `[文脈依存につき用語集登録なし]` として両論併記し、訳出時は人間が文脈判断する運用にした。
-- **`data/References/ref_Society.json`**: `Aliases` からEN側の略号トークン（`WDCE.` / `WDC.VII` / `WDP.VII` / `WDC.VIII` / `WDP.VIII`）を削除（本来 JP 別表記のためのリストに EN トークンが紛れていたのが上記衝突の一因だったため）。JP側の本当の別表記（`創世期` 等）は維持。
+- **`data/References/ref_Society.json`**: `Aliases` からEN側の略号トークン（`WDCE.` / `WDC.VII` / `WDP.VII` / `WDC.VIII` / `WDP.VIII`）を削除（本来 JP 別表記のためのリストに EN トークンが紛れていたのが上記衝突の一因だったため）。JP側の本当の別表記（`創世紀` 等）は維持。
 - 背景: `npm run deepl:build-glossary` 実行時に EN→JA で 10 件の衝突が発生し、内容（文字化けした端末表示）から原因が分かりにくいとの相談を受けて調査。実際は「略号/全文併記」構造がスクリプト側で考慮されていなかったことが主因で、`創造主`（Regiowner/Regiowners）は本当の単数/複数の表記揺れ、残る10件は「正式名 vs 通称」の文脈依存の使い分けだった。いずれも用語集の単一キーには機械的に固定できないため、強制登録せず人間判断に委ねる方針で統一した。
-- 検証: `npm run deepl:build-glossary` で `WDCE.` 系の自己参照ノイズが解消し、JA→EN・EN→JA 双方に略号・全文の両方が個別に登録されることを確認（`WDCE.`→`創世期`、`the "World Development & Creation Era"`→`創世期` など）。`創造主` は JA→EN から、`WDC.VII` 系10件は EN→JA から自動除外され、それぞれ `[文法差につき用語集登録なし]` `[文脈依存につき用語集登録なし]` として記録されることを確認。`npm test`（152 passed）。
+- 検証: `npm run deepl:build-glossary` で `WDCE.` 系の自己参照ノイズが解消し、JA→EN・EN→JA 双方に略号・全文の両方が個別に登録されることを確認（`WDCE.`→`創世紀`、`the "World Development & Creation Era"`→`創世紀` など）。`創造主` は JA→EN から、`WDC.VII` 系10件は EN→JA から自動除外され、それぞれ `[文法差につき用語集登録なし]` `[文脈依存につき用語集登録なし]` として記録されることを確認。`npm test`（152 passed）。
 - ドキュメント: `docs/deepl-localization.md` §8（新規、§8-1〜8-3）に分割ロジック・単数複数・正式名/通称の扱いを追記。
 - 参照: [`docs/deepl-localization.md`](docs/deepl-localization.md) §8。
 

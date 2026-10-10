@@ -7,20 +7,24 @@
         "_Work": "UnibyteLive",
         "_DB": "PrimaryPerformers",
         "Letter": { "Alphabet": "O", "AlphaGen": 2 }
-      }
+      },
+      { "_DB": "SemiPrimary", "Drc": "ENE" }
     ],
     "AnotherVersion_DBLink": [
       { "_DB": "Regioministrators", "Regioministration": "X" },
-      { "_Work": "SinisterChangingGirls", "_DB": "Primary", "Drc": "NE" }
+      { "_DB": "Primary", "Drc": "NE" }
     ],
     "SameRegioministration_DBLink": [
       { "_Work": "DestinyFoxRecords", "_DB": "Proxy", "Generation": 3 }
     ],
+    "Name_JP": "扇 零夏・スフィリア",
+    "Name_JPReading": "おうぎ れいか・スフィリア",
+    "Name_EN": "Arch Origth.Spheria",
     "FormalName_JP": "扇 零夏・スフィリア",
     "FormalName_JPReading": "おうぎ れいか・スフィリア",
     "FormalName_EN": "Arch Origth.Spheria",
     "RaceType": "Warfox",
-    "GenderType": "Unknown",
+    "GenderType": "ArbitraryFemale",
     "ConceptAge": 16,
     "BirthDay": { "Day": { "Month": 6, "DayOfMonth": 10 } },
     "AppearanceDetail": null
@@ -37,6 +41,7 @@
         "_DB": "PrimaryPerformers",
         "Letter": { "Alphabet": "O", "AlphaGen": 2 }
       },
+      { "_DB": "SemiPrimary", "Drc": "ENE" },
       { "_DB": "Proxy", "Generation": 1 }
     ],
     "SameRegioministration_DBLink": [
@@ -71,7 +76,8 @@
       { "_Work": "SinisterChangingGirls", "_DB": "Primary", "Drc": "NW" }
     ],
     "AnotherVersion_DBLink": [
-      { "_DB": "Regioministrators", "Regioministration": "Z" }
+      { "_DB": "Regioministrators", "Regioministration": "Z" },
+      { "_DB": "SemiPrimary", "Drc": "NNW" }
     ],
     "Name_JP": "扇 残冬",
     "Name_JPReading": "おうぎ ざんとう",
@@ -100,9 +106,9 @@
     "Regioministration": "Z",
     "Progress": "unprofiled",
     "AssignedRegioministratorRole": { "Regioministration": "Z" },
-    "AnotherRegions_DBLink": [{ "_DB": "SemiPrimary", "Drc": "NW" }],
+    "AnotherRegions_DBLink": [{ "_DB": "SemiPrimary", "Drc": "NNW" }],
     "AnotherVersion_DBLink": [
-      { "_Work": "SinisterChangingGirls", "_DB": "Primary", "Drc": "NW" },
+      { "_DB": "Primary", "Drc": "NW" },
       { "_DB": "Regioministrators", "Regioministration": "Y" }
     ],
     "SameRegioministration_DBLink": [

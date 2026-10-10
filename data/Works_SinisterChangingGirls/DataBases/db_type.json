@@ -1,9 +1,14 @@
 {
   "$IndexDef": {
     "hashTag": "Drc",
-    "$type": "#ListIndex",
+    "$type": "#DictIndex",
+    "$dict": "Directions",
     "hashTag_JP": "方角",
     "hashTag_EN": "Direction",
+    "$display": {
+      "langMode": "shared",
+      "facet": { "order": 15, "hierarchy": 15, "codeFrom": "Drc" }
+    },
     "$badge": { "keys": ["Drc"] }
   },
   "$IndexDef_Regioministrators": {

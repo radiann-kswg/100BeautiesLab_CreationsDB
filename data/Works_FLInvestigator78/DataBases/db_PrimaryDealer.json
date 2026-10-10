@@ -439,11 +439,18 @@
   {
     "Card": { "Suit": "Dealer", "Num": 79 },
     "Progress": "unreleased",
-    "AnotherRegions_DBLink": {
-      "_Work": "NumberTales",
-      "_DB": "SemiPrimary",
-      "Num": "%"
-    },
+    "AnotherRegions_DBLink": [
+      {
+        "_Work": "NumberTales",
+        "_DB": "SemiPrimary",
+        "Num": "%"
+      },
+      {
+        "_Work": "SinisterChangingGirls",
+        "_DB": "SemiPrimary",
+        "Drc": "NNE"
+      }
+    ],
     "ArcanaHolding_DBLink": {
       "_DB": "Primary",
       "Card": { "Suit": "Dealer", "Num": 79 }
@@ -531,11 +538,13 @@
   {
     "Card": { "Suit": "Dealer", "Num": 80 },
     "Progress": "unreleased",
-    "AnotherRegions_DBLink": {
-      "_Work": "NumberTales",
-      "_DB": "SemiPrimary",
-      "Num": "∞"
-    },
+    "AnotherRegions_DBLink": [
+      {
+        "_Work": "NumberTales",
+        "_DB": "SemiPrimary",
+        "Num": "∞"
+      }
+    ],
     "ArcanaHolding_DBLink": {
       "_DB": "Primary",
       "Card": { "Suit": "Dealer", "Num": 80 }

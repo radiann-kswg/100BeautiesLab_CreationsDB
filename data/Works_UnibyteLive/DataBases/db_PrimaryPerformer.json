@@ -231,6 +231,11 @@
     "AnotherRegions_DBLink": [
       {
         "_Work": "SinisterChangingGirls",
+        "_DB": "SemiPrimary",
+        "Drc": "ENE"
+      },
+      {
+        "_Work": "SinisterChangingGirls",
         "_DB": "Regioministrators",
         "Regioministration": "W"
       }

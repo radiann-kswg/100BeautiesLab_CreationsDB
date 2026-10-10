@@ -1,0 +1,18 @@
+[
+  { "Drc": "N", "Drc_JP": "北", "Drc_EN": "North" },
+  { "Drc": "NE", "Drc_JP": "北東", "Drc_EN": "Northeast" },
+  { "Drc": "E", "Drc_JP": "東", "Drc_EN": "East" },
+  { "Drc": "SE", "Drc_JP": "南東", "Drc_EN": "Southeast" },
+  { "Drc": "S", "Drc_JP": "南", "Drc_EN": "South" },
+  { "Drc": "SW", "Drc_JP": "南西", "Drc_EN": "Southwest" },
+  { "Drc": "W", "Drc_JP": "西", "Drc_EN": "West" },
+  { "Drc": "NW", "Drc_JP": "北西", "Drc_EN": "Northwest" },
+  { "Drc": "NNE", "Drc_JP": "北北東", "Drc_EN": "North-Northeast" },
+  { "Drc": "ENE", "Drc_JP": "東北東", "Drc_EN": "East-Northeast" },
+  { "Drc": "ESE", "Drc_JP": "東南東", "Drc_EN": "East-Southeast" },
+  { "Drc": "SSE", "Drc_JP": "南南東", "Drc_EN": "South-Southeast" },
+  { "Drc": "SSW", "Drc_JP": "南南西", "Drc_EN": "South-Southwest" },
+  { "Drc": "WSW", "Drc_JP": "西南西", "Drc_EN": "West-Southwest" },
+  { "Drc": "WNW", "Drc_JP": "西北西", "Drc_EN": "West-Northwest" },
+  { "Drc": "NNW", "Drc_JP": "北北西", "Drc_EN": "North-Northwest" }
+]

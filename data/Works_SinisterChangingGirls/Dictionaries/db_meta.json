@@ -5,6 +5,12 @@
       "DB_Label_EN": "Formation Dictionary",
       "keyField": "Formation",
       "compatListKey": "#List_Formation"
+    },
+    "#Dict_Directions": {
+      "DB_Label_JP": "方位辞書",
+      "DB_Label_EN": "Directions Dictionary",
+      "keyField": "Drc",
+      "compatListKey": "#List_Drc"
     }
   }
 }
