@@ -615,10 +615,13 @@
   {
     "Num": 148,
     "Num_Badge": "148",
-    "Progress": "notProceeded",
+    "Progress": "nowCreating",
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "148-numberize" }],
     "Name_JP": "148(ダンバー)",
     "Name_EN": "148(Dunbar)",
+    "Images": {
+      "concept_PNGName": "hc/cnsp_imgNTS-148"
+    },
     "FormalName_JP": "量産型ナンバーテールズ148番機HCシリーズ",
     "FormalName_EN": "NumberTales #148-HC Series Mass Production Version for Sales",
     "CodeName_JP": "一四八",
@@ -626,8 +629,16 @@
     "SPCodeName_JP": "ダンバー数",
     "SPCodeName_EN": "Dunbar Number",
     "ModelNumber": "APHR-NT [MP]148-HC***",
-    "GenderType": "Neutral",
+    "GenderType": "MaleNeutral",
+    "Belonging": [
+      { "Faction": "百花繚乱研究所" },
+      { "Faction": "王家英皇学会" },
+      { "Faction": "国際ヒューマノイド技術学会" }
+    ],
+    "FromArea": { "Area": "英皇国" },
     "Class": ["トリプルフォーズ", "コミュニティーズ"],
+    "Height_cm": 140,
+    "Weight_kg": 41,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxBranched",
@@ -645,7 +656,73 @@
         "Note_EN": null
       }
     ],
-    "AppearanceDetail": null
+    "AppearanceDetail": null,
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#628786",
+        "ColorName_JP": "主色",
+        "ColorName_EN": "Primary Color",
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Ear", "#BodyPart_Tail"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#94CDD5",
+        "ColorName_JP": "副色",
+        "ColorName_EN": "Secondary Color",
+        "AppliesTo": ["#BodyPart_Tail", "#BodyPart_Ear", "#BodyPart_Chest"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#FFA457",
+        "ColorName_JP": "メインアクセントカラー（瞳, 衣装）",
+        "ColorName_EN": "Main Accent Color (Eye Color, Costume)",
+        "AppliesTo": ["#BodyPart_Eye", "#BodyPart_Waist"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#33ACE3",
+        "ColorName_JP": "サブアクセントカラー（アクセサリー）",
+        "ColorName_EN": "Sub Accent Color (Accessory Color)",
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Foot"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#CECCC6",
+        "ColorName_JP": "副色（衣装）",
+        "ColorName_EN": "Secondary Color (Costume)",
+        "AppliesTo": ["#BodyPart_Tail", "#BodyPart_Neck", "#BodyPart_Leg"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#6C715E",
+        "ColorName_JP": "副色（衣装・脚）",
+        "ColorName_EN": "Secondary Color (Costume, Legs)",
+        "AppliesTo": ["#BodyPart_Leg"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "Summary_JP": "クラスロット「コミュニティーズ」に属するトリプルフォーズ型量産ナンバーテールズ。\n148番機シリーズの代表個体で、「ダンバー数」という生体社会における定量的傾向の実測値をモチーフにしたデザインがなされていることから、対人的統括に関する性能に秀でた「48(シハチ)」の設計思想を継ぐ個体でもある。\nなお、本人は男性型であるが「14(トヨ)」や「58(イソヤ)」の影響を受け女装を好んでいる。",
+    "Summary_EN": "A Triple-Sum-4s-type mass-production NumberTales belonging to the Class-Lot \"Communities Constraint\".\nAs the representative unit of the #148 series, he carries a design themed on \"Dunbar's number\", a measured value of a quantitative tendency in living social groups, which also makes him a unit that inherits the design philosophy of '48(Foreighn)', who excels in performance related to interpersonal management.\nNote: although he is a male-type unit, he prefers cross-dressing under the influence of '14(Forteels)' and '58(Fiveighs)'.",
+    "Backgrounds_JP": "同クラスロットの290(ベルナード・キルワース)とは設計思想が異なるものの、共通のコンセプト指針を有する点では後続個体であるといえる。",
+    "Backgrounds_EN": "Although the design philosophy differs from that of 290(Bernard.Kilworth) in the same Class-Lot, it can be said that this model is a successor in terms of having a common conceptual guideline."
   },
   {
     "Num": 150,
@@ -1514,7 +1591,15 @@
     "SPCodeName_EN": "Bernard-Killworth number",
     "ModelNumber": "APHR-NT [MP]290-HC***",
     "GenderType": "Neutral",
-    "Class": ["トライデュアルトワイズ", "コミュニティーズ"]
+    "Belonging": [
+      { "Faction": "百花繚乱研究所" },
+      { "Faction": "スターダスト・テクノロジー" },
+      { "Faction": "国際ヒューマノイド技術学会" }
+    ],
+    "FromArea": { "Area": "雄志結国" },
+    "Class": ["トライデュアルトワイズ", "コミュニティーズ"],
+    "Backgrounds_JP": "同クラスロットの148(ダンバー)とは設計思想が異なるものの、共通のコンセプト指針を有する点では先駆個体であるといえる。",
+    "Backgrounds_EN": "Although the design philosophy differs from that of 148(Dunbar) in the same Class-Lot, it can be said that this model is a pioneer in terms of having a common conceptual guideline."
   },
   {
     "Num": 294,
