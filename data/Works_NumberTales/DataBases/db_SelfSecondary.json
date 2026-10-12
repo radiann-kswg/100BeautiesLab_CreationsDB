@@ -615,7 +615,7 @@
   {
     "Num": 148,
     "Num_Badge": "148",
-    "Progress": "unreleased",
+    "Progress": "stillTentative",
     "sec_Category": "プレゼントナンバー",
     "sec_DesignedBy": ["RadianN"],
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "148-numberize" }],
