@@ -368,7 +368,86 @@ function findMatchingBrace(text, openIdx) {
  */
 
 /**
+ * 画像参照を「作品/DB/フォルダ/相対パス（拡張子なし）」の照合キーへ正規化する。
+ *
+ * @description 同じ絵を別 DB から `_DBCrossLinkPath` で指す参照と、その DB 自身の参照が
+ *   同じキーになるようにする。フォルダ規則は `lib/data-common.js` の
+ *   `buildCrossLinkImageAbsolutePath()`（folderHint を一度だけ挟む）に合わせている。
+ * @param {string} work    作品名（`Works_` 接頭辞なし）
+ * @param {string} db      DB 名（`DB_` 接頭辞なし）
+ * @param {string} folder  画像サブフォルダ（`arts` / `corefolder` 等。フィールド名の `_PNG*` より前）
+ * @param {string} rel     レコードの画像パス生値
+ * @returns {string}
+ */
+export function imageRefKey(work, db, folder, rel) {
+    let r = String(rel).replace(/\\/g, '/').replace(/^\/+/, '').replace(/\.png$/i, '');
+    if (folder && r.toLowerCase().startsWith(`${folder.toLowerCase()}/`)) r = r.slice(folder.length + 1);
+    return `${work}/${db}/${folder}/${r}`;
+}
+
+/**
+ * `AI_Optout: true` のキャラが 1 人でも写っている画像のキー集合を、全作品・全 DB 横断で集める。
+ *
+ * @description 合同絵は登場キャラ全員のレコードの `Images.*` に（別 DB からは `_DBCrossLinkPath` で）
+ *   載る。opt-out は**権利上の可否**なので OR で効かせ、opt-in 側のキャラの AIHints からも外す。
+ *   レコードの opt-out は DB 単位（`#DB_*.AI_Optout`。ネスト DB も再帰で引く）と
+ *   カテゴリ単位（`findSecondaryDef()`）の OR。メタ欠損の作品・DB は既存ゲートと同じくスキップ。
+ * @param {string} [dataRoot]  `data/` ディレクトリ（テスト用に差し替え可）
+ * @returns {Set<string>} imageRefKey() 形式のキー集合
+ */
+export function collectOptoutImageKeys(dataRoot = path.join(REPO_ROOT, 'data')) {
+    const findDbEntry = (node, key) => {
+        if (!node || typeof node !== 'object') return null;
+        if (node[key]) return node[key];
+        for (const v of Object.values(node)) {
+            const hit = findDbEntry(v, key);
+            if (hit) return hit;
+        }
+        return null;
+    };
+    const readJson = (p) => {
+        try { return JSON.parse(fs.readFileSync(p, 'utf8')); } catch { return null; }
+    };
+    const folderOf = (field) => String(field).match(/^([A-Za-z0-9-]+)_PNG/)?.[1] ?? '';
+
+    const keys = new Set();
+    for (const workDir of fs.readdirSync(dataRoot).filter((d) => d.startsWith('Works_'))) {
+        const dbDir = path.join(dataRoot, workDir, 'DataBases');
+        const databases = readJson(path.join(dbDir, 'db_meta.json'))?.Databases;
+        if (!databases) continue;
+        const work = workDir.slice('Works_'.length);
+        for (const file of fs.readdirSync(dbDir)) {
+            const db = file.match(/^db_(.+)\.json$/)?.[1];
+            const entry = db ? findDbEntry(databases, `#DB_${db}`) : null;
+            if (!entry) continue;
+            const records = readJson(path.join(dbDir, file));
+            if (!Array.isArray(records)) continue;
+            const secDefs = entry._Secondaries ?? entry.Secondaries ?? null;
+            for (const rec of records) {
+                if (entry.AI_Optout !== true && findSecondaryDef(rec, secDefs)?.AI_Optout !== true) continue;
+                for (const [field, value] of Object.entries(rec?.Images ?? {})) {
+                    for (const v of [].concat(value)) {
+                        const x = v?._DBCrossLinkPath;
+                        const [w, d, f, rel] = x
+                            ? [x._Work?.replace(/^Works_/, '') || work, x._DB, x._Field || field, x._IsoPath]
+                            : [work, db, field, v];
+                        if (typeof rel === 'string' && rel && d) keys.add(imageRefKey(w, d, folderOf(f), rel));
+                    }
+                }
+            }
+        }
+    }
+    return keys;
+}
+
+/** collectOptoutImageKeys() の結果。CLI 1 回の実行中は不変なので初回だけ走査する。 */
+let optoutImageKeys = null;
+
+/**
  * レコードオブジェクトから画像 URL を割り出す。
+ *
+ * `AI_Optout` のキャラが同席する画像（collectOptoutImageKeys()）は返さない。
+ * `--force-ai-optout` でも外さない（バイパスは対象 DB 自身の可否に限る。同席キャラの権利は別）。
  * @param {any} record  パース済みレコード
  * @param {string} work
  * @param {string} db
@@ -388,6 +467,8 @@ function resolveImageInfo(record, work, db) {
     const num = record.Num;
     const dbFolder = `DB_${db}`;
     const imagesRoot = path.join(REPO_ROOT, 'data', `Works_${work}`, 'Images', dbFolder);
+    optoutImageKeys ??= collectOptoutImageKeys();
+    const isOptout = (folder, rel) => optoutImageKeys.has(imageRefKey(work, db, folder, rel));
 
     /**
      * サブディレクトリ下の実ファイルを検証して公開 URL を返すヘルパー。
@@ -396,6 +477,7 @@ function resolveImageInfo(record, work, db) {
      * @returns {string|null}
      */
     const urlIfExists = (subdir, baseName) => {
+        if (isOptout(subdir, baseName)) return null;
         const fname = baseName.endsWith('.png') ? baseName : `${baseName}.png`;
         const abs = path.join(imagesRoot, subdir, fname);
         if (!fs.existsSync(abs)) return null;
@@ -420,6 +502,7 @@ function resolveImageInfo(record, work, db) {
     const artsPaths = Array.isArray(imgs.arts_PNGPath) ? imgs.arts_PNGPath : [];
     for (const raw of artsPaths) {
         const rel = String(raw);
+        if (isOptout('arts', rel)) continue;
         if (rel.startsWith('humanoids/')) {
             // humanoid art: Num 一致チェック
             const m = rel.match(/art_img([0-9A-Za-z\-]+?)-humanoid([A-Za-z0-9]*)$/);

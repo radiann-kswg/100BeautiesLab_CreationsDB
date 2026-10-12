@@ -1,5 +1,11 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### feat(addon-ai-tag): 合同絵の `AI_Optout` を OR で判定 (2026-10-12)
+
+- **背景**: `AI_Optout` はレコード（DB / `_Secondaries` カテゴリ）単位でしか効かず、opt-out キャラと opt-in キャラが一緒に写る絵が opt-in 側の AIHints 参照画像に載りうる。
+- **変更**: `tools/patch-aihints.mjs` に `collectOptoutImageKeys()` / `imageRefKey()` を追加。全作品・全 DB（ネスト DB 含む）を走査し、opt-out レコードが `Images.*`（`_DBCrossLinkPath` 含む）で参照する画像を `resolveImageInfo()` が返さなくなる。`--force-ai-optout` でもバイパスしない。
+- **影響範囲**: `tools/patch-aihints.mjs` / `tests/patch-aihints.optout-images.test.js`（新規）/ `docs/api-sw-spec.md` §5.5。`addon-ai-tag` 限定（`develop` へは流さない）。
+
 ### feat: 創作ローカライズ校正 Skill `localize-proofread`（候補提示のみ） (2026-10-07)
 
 - **背景**: `localize-en-draft` と `tools/deepl/` は「空の `_EN` を埋める」導線で、既にある英訳・対訳辞書・キャラスト本文を JP 原文と作品コンセプトに照らして**校正**する手順が無かった。

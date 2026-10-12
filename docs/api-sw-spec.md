@@ -382,6 +382,13 @@ UI と enrich/search は、可能な限りこの `db_type.json($DefType)` に追
 - 解決順は **当たった定義の `AI_Optout` → DB レベルの `AI_Optout` → 既定 `false`**。
 - `sec_**` を一つも持たない定義（catch-all）は既定 fallback として扱われます。**`sec_SeriesTitle` が `null` の定義は複数ありうる**ため、`sec_SeriesTitle` だけをキーに opt-out を判定してはいけません（opt-in の定義を既定 opt-out に巻き込みます）。
 
+### 合同絵（複数キャラが写る画像）の `AI_Optout` は OR
+
+同じ画像を参照するレコード（別 DB / 別作品からは `_DBCrossLinkPath`）のうち **1 件でも opt-out（DB 単位 or カテゴリ単位）なら、その画像は opt-in 側レコードの AIHints 参照画像からも外れます**（`tools/patch-aihints.mjs` の `collectOptoutImageKeys()`）。
+
+- 「写っている」の判定は**データ上の参照のみ**。opt-out 側キャラのレコードが `Images.*` でその画像を参照していなければ検出されません（ファイル名のバッジ等からの推定はしない）。
+- `--force-ai-optout` でもこの除外はバイパスしません（バイパスは対象 DB 自身の可否に限る）。
+
 ### 意味論の境界（重要）
 
 `AI_Optout` は**権利上の可否**（AI 学習・LLM 取り込みへの opt-out 表明）のみを表します。**データの充填状況を表すフラグではありません。**
