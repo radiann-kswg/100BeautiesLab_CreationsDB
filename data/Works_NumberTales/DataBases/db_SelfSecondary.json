@@ -622,7 +622,8 @@
     "Name_JP": "148(ダンバー)",
     "Name_EN": "148(Dunbar)",
     "Images": {
-      "concept_PNGName": "hc/cnsp_imgNTS-148"
+      "concept_PNGName": "hc/cnsp_imgNTS-148",
+      "arts_PNGPath": ["gift/gift_imgNTS-148-corefolder,NTS-148ZE-humanoid"]
     },
     "FormalName_JP": "量産型ナンバーテールズ148番機HCシリーズ(ナンバーテールズ148番機)",
     "FormalName_EN": "NumberTales #148-HC Series Mass Production Version for Sales (NumberTales #148)",
