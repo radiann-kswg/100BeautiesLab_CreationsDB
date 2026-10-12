@@ -339,7 +339,7 @@
         "Hex": "#FFD58F",
         "ColorName_JP": "主色",
         "ColorName_EN": "Primary Color",
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Tail"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -379,7 +379,7 @@
         "Hex": "#FCBD47",
         "ColorName_JP": "メインアクセントカラー",
         "ColorName_EN": "Main Accent Color",
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Head", "#BodyPart_Chest", "#BodyPart_Arm"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -389,7 +389,7 @@
         "Hex": "#CDCBC5",
         "ColorName_JP": "サブアクセントカラー",
         "ColorName_EN": "Sub Accent Color",
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Hand", "#BodyPart_Back", "#BodyPart_Foot"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -832,15 +832,33 @@
   {
     "Num": 148,
     "Num_Badge": "148",
-    "Progress": "notProceeded",
+    "Progress": "stillTentative",
+    "sec_Category": "プレゼントナンバー",
+    "sec_DesignedBy": ["RadianN"],
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "148-numberize" }],
-    "FormalName_JP": "量産型ナンバーテールズ148番機シリーズ",
-    "FormalName_EN": "NumberTales #148 Series Mass Production Version for Sales",
+    "Name_JP": "148(ダンバー)",
+    "Name_EN": "148(Dunbar)",
+    "Images": {
+      "concept_PNGName": "hc/cnsp_imgNTS-148",
+      "arts_PNGPath": ["gift/gift_imgNTS-148-corefolder,NTS-148ZE-humanoid"]
+    },
+    "FormalName_JP": "量産型ナンバーテールズ148番機HCシリーズ(ナンバーテールズ148番機)",
+    "FormalName_EN": "NumberTales #148-HC Series Mass Production Version for Sales (NumberTales #148)",
     "CodeName_JP": "一四八",
     "CodeName_EN": "One-Four-Eight",
-    "ModelNumber": "APHR-NT [MP]148-*****",
-    "GenderType": "Neutral",
-    "Class": ["トリプルフォーズ"],
+    "SPCodeName_JP": "ダンバー数",
+    "SPCodeName_EN": "Dunbar Number",
+    "ModelNumber": "APHR-NT [MP]148-HC***",
+    "GenderType": "MaleNeutral",
+    "Belonging": [
+      { "Faction": "百花繚乱研究所" },
+      { "Faction": "王家英皇学会" },
+      { "Faction": "国際ヒューマノイド技術学会" }
+    ],
+    "FromArea": { "Area": "英皇国" },
+    "Class": ["トリプルフォーズ", "コミュニティーズ"],
+    "Height_cm": 140,
+    "Weight_kg": 41,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxBranched",
@@ -858,7 +876,75 @@
         "Note_EN": null
       }
     ],
-    "AppearanceDetail": null
+    "AppearanceDetail": null,
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#628786",
+        "ColorName_JP": "主色",
+        "ColorName_EN": "Primary Color",
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Ear", "#BodyPart_Tail"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#94CDD5",
+        "ColorName_JP": "副色",
+        "ColorName_EN": "Secondary Color",
+        "AppliesTo": ["#BodyPart_Tail", "#BodyPart_Ear", "#BodyPart_Chest"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#FFA457",
+        "ColorName_JP": "メインアクセントカラー（瞳, 衣装）",
+        "ColorName_EN": "Main Accent Color (Eye Color, Costume)",
+        "AppliesTo": ["#BodyPart_Eye", "#BodyPart_Waist"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#33ACE3",
+        "ColorName_JP": "サブアクセントカラー（アクセサリー）",
+        "ColorName_EN": "Sub Accent Color (Accessory Color)",
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Foot"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#CECCC6",
+        "ColorName_JP": "副色（衣装）",
+        "ColorName_EN": "Secondary Color (Costume)",
+        "AppliesTo": ["#BodyPart_Tail", "#BodyPart_Neck", "#BodyPart_Leg"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#6C715E",
+        "ColorName_JP": "副色（衣装・脚）",
+        "ColorName_EN": "Secondary Color (Costume, Legs)",
+        "AppliesTo": ["#BodyPart_Leg"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "Summary_JP": "クラスロット「コミュニティーズ」に属するトリプルフォーズ型量産ナンバーテールズ。\n148番機シリーズの代表個体で、「ダンバー数」という生体社会における定量的傾向の実測値をモチーフにしたデザインがなされていることから、対人的統括に関する性能に秀でた「48(シハチ)」の設計思想を継ぐ個体でもある。\nなお、本人は男性型であるが「14(トヨ)」や「58(イソヤ)」の影響を受け女装を好んでいる。",
+    "Summary_EN": "A Triple-Sum-4s-type mass-production NumberTales belonging to the Class-Lot \"Communities Constraint\".\nAs the representative unit of the #148 series, he carries a design themed on \"Dunbar's number\", a measured value of a quantitative tendency in living social groups, which also makes him a unit that inherits the design philosophy of '48(Foreighn)', who excels in performance related to interpersonal management.\nNote: although he is a male-type unit, he prefers cross-dressing under the influence of '14(Forteels)' and '58(Fiveighs)'.",
+    "Backgrounds_JP": "同クラスロットの290(ベルナード・キルワース)とは設計思想が異なるものの、共通のコンセプト指針を有する点では後続個体であるといえる。",
+    "Backgrounds_EN": "Although the design philosophy differs from that of 290(Bernard.Kilworth) in the same Class-Lot, it can be said that this model is a successor in terms of having a common conceptual guideline.",
+    "InStory_JP": "制作秘話：「ナンバーテールズ化」に参加下さったよだれさんの誕生日に、当方のナンバーテールズ化と同じ番号のナンバーテールズをプレゼントアートとして贈呈。",
+    "InStory_EN": "Behind the creations' scenes: On the birthday of Yodare(@yodare0p0), who participated in the 'NumberizationTales', a NumberTales with the same number as our own NumberizationTales was presented as a gift art."
   },
   {
     "Num": 150,
@@ -866,15 +952,17 @@
     "Progress": "notProceeded",
     "Name_JP": "150(ハクハン)",
     "Name_EN": "150(Onehalven)",
-    "FormalName_JP": "量産型ナンバーテールズ150番機シリーズ",
-    "FormalName_EN": "NumberTales #150 Series Mass Production Version for Sales",
+    "FormalName_JP": "量産型ナンバーテールズ150番機HCシリーズ",
+    "FormalName_EN": "NumberTales #150-HC Series Mass Production Version for Sales",
     "CodeName_JP": "一五〇",
     "CodeName_EN": "One-Five-Zero",
     "SPCodeName_JP": "一半百",
     "SPCodeName_EN": "One Half(of Percent)",
-    "ModelNumber": "APHR-NT [MP]150-*****",
+    "ModelNumber": "APHR-NT [MP]150-HC***",
     "GenderType": "Neutral",
-    "Class": ["トライデュアルシックスズ"]
+    "Class": ["トライデュアルシックスズ", "コミュニティーズ"],
+    "Backgrounds_JP": "ダンバー数(約147.8)の概要値としても知られているため、148(ダンバー)とも関連が深い",
+    "Backgrounds_EN": "Also known as the approximate value of Dunbar's number (about 147.8), it is closely related to 148 (Dunbar)."
   },
   {
     "Num": 153,
@@ -1018,7 +1106,12 @@
         "Hex": "#C96C9C",
         "ColorName_JP": "主色",
         "ColorName_EN": "Primary Color",
-        "AppliesTo": null,
+        "AppliesTo": [
+          "#BodyPart_Hair",
+          "#BodyPart_Ear",
+          "#BodyPart_Tail",
+          "#BodyPart_Foot"
+        ],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -1028,7 +1121,7 @@
         "Hex": "#A4A2C3",
         "ColorName_JP": "主色(衣装)",
         "ColorName_EN": "Primary Color (Costume)",
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Waist"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -1038,7 +1131,7 @@
         "Hex": "#FF7297",
         "ColorName_JP": "副色",
         "ColorName_EN": "Secondary Color",
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Tail"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -1048,7 +1141,7 @@
         "Hex": "#F9C9DE",
         "ColorName_JP": "メインアクセントカラー",
         "ColorName_EN": "Main Accent Color",
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Cheek", "#BodyPart_Foot"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -1059,7 +1152,12 @@
         "Hex": "#736E9A",
         "ColorName_JP": "サブアクセントカラー",
         "ColorName_EN": "Sub Accent Color",
-        "AppliesTo": null,
+        "AppliesTo": [
+          "#BodyPart_Shoulder",
+          "#BodyPart_Neck",
+          "#BodyPart_Chest",
+          "#BodyPart_Foot"
+        ],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -1069,7 +1167,7 @@
         "Hex": "#F26383",
         "ColorName_JP": "副色（衣装）",
         "ColorName_EN": "Secondary Color (Costume)",
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Chest"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -1079,7 +1177,7 @@
         "Hex": "#B2B0CE",
         "ColorName_JP": "補助色",
         "ColorName_EN": "Auxiliary Color",
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Leg"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -1089,7 +1187,7 @@
         "Hex": "#E2EBEF",
         "ColorName_JP": "補助色（衣装）",
         "ColorName_EN": "Auxiliary Color (Costume)",
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Neck"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -1214,7 +1312,7 @@
         "Hex": "#EAE5D6",
         "ColorName_JP": "主色",
         "ColorName_EN": "Primary Color",
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Tail", "#BodyPart_Leg"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -1224,7 +1322,7 @@
         "Hex": "#49768F",
         "ColorName_JP": "主色(衣装)",
         "ColorName_EN": "Primary Color (Costume)",
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Head", "#BodyPart_Chest", "#BodyPart_Arm"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -1234,7 +1332,7 @@
         "Hex": "#FFEE60",
         "ColorName_JP": "副色",
         "ColorName_EN": "Secondary Color",
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Tail", "#BodyPart_Hair"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -1244,7 +1342,7 @@
         "Hex": "#FFCE2B",
         "ColorName_JP": "メインアクセントカラー",
         "ColorName_EN": "Main Accent Color",
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Eye", "#BodyPart_Foot"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -1254,7 +1352,7 @@
         "Hex": "#64A6C2",
         "ColorName_JP": "サブアクセントカラー",
         "ColorName_EN": "Sub Accent Color",
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Head", "#BodyPart_Eye"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -1264,7 +1362,7 @@
         "Hex": "#FFDCAE",
         "ColorName_JP": "副色（衣装）",
         "ColorName_EN": "Secondary Color (Costume)",
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Waist"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -1802,6 +1900,30 @@
     "ModelNumber": "APHR-NT [MP]289-SQ***",
     "GenderType": "Neutral",
     "Class": ["トリプルキャリーズ"]
+  },
+  {
+    "Num": 290,
+    "Num_Badge": "290",
+    "Progress": "notProceeded",
+    "Name_JP": "290(ベルナード・キルワース)",
+    "Name_EN": "290(Bernard.Killworth)",
+    "FormalName_JP": "量産型ナンバーテールズ290番機HCシリーズ",
+    "FormalName_EN": "NumberTales #290-HC Series Mass Production Version for Sales",
+    "CodeName_JP": "二九〇",
+    "CodeName_EN": "Two-Nine-Zero",
+    "SPCodeName_JP": "ベルナード–キルワース数",
+    "SPCodeName_EN": "Bernard-Killworth number",
+    "ModelNumber": "APHR-NT [MP]290-HC***",
+    "GenderType": "Neutral",
+    "Belonging": [
+      { "Faction": "百花繚乱研究所" },
+      { "Faction": "スターダスト・テクノロジー" },
+      { "Faction": "国際ヒューマノイド技術学会" }
+    ],
+    "FromArea": { "Area": "雄志結国" },
+    "Class": ["トライデュアルトワイズ", "コミュニティーズ"],
+    "Backgrounds_JP": "同クラスロットの148(ダンバー)とは設計思想が異なるものの、共通のコンセプト指針を有する点では先駆個体であるといえる。",
+    "Backgrounds_EN": "Although the design philosophy differs from that of 148(Dunbar) in the same Class-Lot, it can be said that this model is a pioneer in terms of having a common conceptual guideline."
   },
   {
     "Num": 294,
@@ -2773,7 +2895,7 @@
         "Hex": "#FFD47A",
         "ColorName_JP": "メインアクセントカラー",
         "ColorName_EN": "Main Accent Color",
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Neck", "#BodyPart_Chest"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -3755,7 +3877,7 @@
         "Hex": "#E0B0BC",
         "ColorName_JP": "副色",
         "ColorName_EN": "Secondary Color",
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Tail"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -4162,7 +4284,7 @@
         "Hex": "#FFC4A3",
         "ColorName_JP": "主色",
         "ColorName_EN": "Primary Color",
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Tail"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -4172,7 +4294,7 @@
         "Hex": "#FF9F6A",
         "ColorName_JP": "主色(衣装)",
         "ColorName_EN": "Primary Color (Costume)",
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Foot"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -4182,7 +4304,7 @@
         "Hex": "#F7FFB9",
         "ColorName_JP": "副色",
         "ColorName_EN": "Secondary Color",
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Ear", "#BodyPart_Arm", "#BodyPart_Tail"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -4192,7 +4314,7 @@
         "Hex": "#4378C3",
         "ColorName_JP": "メインアクセントカラー",
         "ColorName_EN": "Main Accent Color",
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Foot"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -4202,7 +4324,7 @@
         "Hex": "#E8F152",
         "ColorName_JP": "サブアクセントカラー",
         "ColorName_EN": "Sub Accent Color",
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Waist"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -4212,7 +4334,7 @@
         "Hex": "#FFEE63",
         "ColorName_JP": "補助色",
         "ColorName_EN": "Auxiliary Color",
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Tail"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -4599,7 +4721,7 @@
         "Hex": "#C1A072",
         "ColorName_JP": "主色",
         "ColorName_EN": "Primary Color",
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Ear", "#BodyPart_Tail"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -4609,7 +4731,7 @@
         "Hex": "#8B9BAC",
         "ColorName_JP": "主色(衣装)",
         "ColorName_EN": "Primary Color (Costume)",
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Arm", "#BodyPart_Leg"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -4619,7 +4741,7 @@
         "Hex": "#FFD47A",
         "ColorName_JP": "副色",
         "ColorName_EN": "Secondary Color",
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Tail"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -4639,7 +4761,11 @@
         "Hex": "#ECAC42",
         "ColorName_JP": "副色（衣装）",
         "ColorName_EN": "Secondary Color (Costume)",
-        "AppliesTo": null,
+        "AppliesTo": [
+          "#BodyPart_Back",
+          "#BodyPart_Chest",
+          "#BodyPart_FaceMaking"
+        ],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -5145,7 +5271,7 @@
         "Hex": "#FFD47A",
         "ColorName_JP": "副色",
         "ColorName_EN": "Secondary Color",
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Tail"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null

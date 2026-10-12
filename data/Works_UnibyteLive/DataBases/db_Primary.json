@@ -723,13 +723,14 @@
   },
   {
     "Letter": { "Alphabet": "N", "AlphaGen": 1 },
-    "Progress": "notProceeded",
+    "Progress": "nowCreating",
     "ThisPerformer_DBLink": {
       "_DB": "PrimaryPerformer",
       "Letter": { "Alphabet": "N", "AlphaGen": 1 }
     },
     "Name_JP": "N:ギザン",
     "Name_EN": "N:Nudgee",
+    "Images": { "keycapper_PNGPath": ["N/emstk_keycapperUBL-Ng1-1.png"] },
     "FormalName_JP": "北上ギザン",
     "FormalName_JPReading": "ほくじょうギザン",
     "FormalName_EN": "Nudgee N-Compass",
