@@ -916,7 +916,7 @@
       },
       "alt_modes": null,
       "_meta": {
-        "structuralSourceHash": "sha256:10996b79df2b772a0f4f5b35a756bceff295deac2f58814b40589b733aa5a445",
+        "structuralSourceHash": "sha256:36ff8773707f55308420b6af63dfe482c541c05b446bc17d33aeef9a57ef2a8f",
         "structuralEntries": {
           "common.identity_tags": [
             "Cat (hidden under the hood cap)",
@@ -985,7 +985,7 @@
             "bound by rope"
           ]
         },
-        "lastStructuralResync": "2026-09-06"
+        "lastStructuralResync": "2026-10-12"
       }
     }
   },
@@ -3765,7 +3765,7 @@
       },
       "alt_modes": null,
       "_meta": {
-        "structuralSourceHash": "sha256:9f6029c08a8f3236f55163ff16b89e4fbfa657bb9edc9ffb0feda04e015dc8a0",
+        "structuralSourceHash": "sha256:f6342920e5c6373f843f2120e209dbaa6fe64158ed914f9a0c0e2f74e1eb3514",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox",
@@ -3834,7 +3834,7 @@
             "bound by rope"
           ]
         },
-        "lastStructuralResync": "2026-09-06"
+        "lastStructuralResync": "2026-10-12"
       }
     }
   },
@@ -5001,7 +5001,7 @@
       },
       "alt_modes": null,
       "_meta": {
-        "structuralSourceHash": "sha256:9e5b28e64416728e22a68432a6dc7375ed874da6fa233902b5aa1bb58fcfb2a9",
+        "structuralSourceHash": "sha256:e1790c3f014518530ea170b639f8e762bfe2abcd751eed8cc13fcf534f721c2c",
         "structuralEntries": {
           "common.identity_tags": [
             "Cat (drooping)",
@@ -5067,7 +5067,7 @@
             "bound by rope"
           ]
         },
-        "lastStructuralResync": "2026-09-06"
+        "lastStructuralResync": "2026-10-12"
       }
     }
   },
@@ -5491,7 +5491,7 @@
       },
       "alt_modes": null,
       "_meta": {
-        "structuralSourceHash": "sha256:85c29383bfac62c823be6df69275851cf2e8a2fb4c5614a51b835a6d7c81f0e3",
+        "structuralSourceHash": "sha256:ab7592a1fa5b4026c86ae6bd195a14540a470684993448fceed77d21064a59c6",
         "structuralEntries": {
           "common.identity_tags": [
             "Cat (drooping)",
@@ -5556,7 +5556,7 @@
             "navy leather shoes"
           ]
         },
-        "lastStructuralResync": "2026-09-06"
+        "lastStructuralResync": "2026-10-12"
       }
     }
   },
