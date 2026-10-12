@@ -1568,7 +1568,17 @@
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 148 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
-    "Images": { "concept_PNGName": "numberize/cnsp_imgNTS-148ZE" },
+    "Images": {
+      "concept_PNGName": "numberize/cnsp_imgNTS-148ZE",
+      "arts_PNGPath": [
+        {
+          "_DBCrossLinkPath": {
+            "_DB": "SelfSecondary",
+            "_IsoPath": "gift/gift_imgNTS-148-corefolder,NTS-148ZE-humanoid"
+          }
+        }
+      ]
+    },
     "Class": ["ナンバーテールズ化"],
     "TailsUnit": [
       {
