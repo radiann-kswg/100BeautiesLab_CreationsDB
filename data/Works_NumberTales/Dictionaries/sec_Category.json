@@ -20,6 +20,11 @@
     "Category_EN": "Request Number"
   },
   {
+    "Category": "プレゼントナンバー",
+    "Category_JP": "プレゼントナンバー",
+    "Category_EN": "Gift Number"
+  },
+  {
     "Category": "散狐アタストさん協賛",
     "Category_JP": "散狐アタストさん協賛",
     "Category_EN": "Sponsored by Atast(散狐アタスト)"

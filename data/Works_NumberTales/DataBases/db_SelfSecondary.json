@@ -615,15 +615,17 @@
   {
     "Num": 148,
     "Num_Badge": "148",
-    "Progress": "nowCreating",
+    "Progress": "unreleased",
+    "sec_Category": "プレゼントナンバー",
+    "sec_DesignedBy": ["RadianN"],
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "148-numberize" }],
     "Name_JP": "148(ダンバー)",
     "Name_EN": "148(Dunbar)",
     "Images": {
       "concept_PNGName": "hc/cnsp_imgNTS-148"
     },
-    "FormalName_JP": "量産型ナンバーテールズ148番機HCシリーズ",
-    "FormalName_EN": "NumberTales #148-HC Series Mass Production Version for Sales",
+    "FormalName_JP": "量産型ナンバーテールズ148番機HCシリーズ(ナンバーテールズ148番機)",
+    "FormalName_EN": "NumberTales #148-HC Series Mass Production Version for Sales (NumberTales #148)",
     "CodeName_JP": "一四八",
     "CodeName_EN": "One-Four-Eight",
     "SPCodeName_JP": "ダンバー数",
@@ -722,7 +724,9 @@
     "Summary_JP": "クラスロット「コミュニティーズ」に属するトリプルフォーズ型量産ナンバーテールズ。\n148番機シリーズの代表個体で、「ダンバー数」という生体社会における定量的傾向の実測値をモチーフにしたデザインがなされていることから、対人的統括に関する性能に秀でた「48(シハチ)」の設計思想を継ぐ個体でもある。\nなお、本人は男性型であるが「14(トヨ)」や「58(イソヤ)」の影響を受け女装を好んでいる。",
     "Summary_EN": "A Triple-Sum-4s-type mass-production NumberTales belonging to the Class-Lot \"Communities Constraint\".\nAs the representative unit of the #148 series, he carries a design themed on \"Dunbar's number\", a measured value of a quantitative tendency in living social groups, which also makes him a unit that inherits the design philosophy of '48(Foreighn)', who excels in performance related to interpersonal management.\nNote: although he is a male-type unit, he prefers cross-dressing under the influence of '14(Forteels)' and '58(Fiveighs)'.",
     "Backgrounds_JP": "同クラスロットの290(ベルナード・キルワース)とは設計思想が異なるものの、共通のコンセプト指針を有する点では後続個体であるといえる。",
-    "Backgrounds_EN": "Although the design philosophy differs from that of 290(Bernard.Kilworth) in the same Class-Lot, it can be said that this model is a successor in terms of having a common conceptual guideline."
+    "Backgrounds_EN": "Although the design philosophy differs from that of 290(Bernard.Kilworth) in the same Class-Lot, it can be said that this model is a successor in terms of having a common conceptual guideline.",
+    "InStory_JP": "制作秘話：「ナンバーテールズ化」に参加下さったよだれさんの誕生日に、当方のナンバーテールズ化と同じ番号のナンバーテールズをプレゼントアートとして贈呈。",
+    "InStory_EN": "Behind the creations' scenes: On the birthday of Yodare(@yodare0p0), who participated in the 'NumberizationTales', a NumberTales with the same number as our own NumberizationTales was presented as a gift art."
   },
   {
     "Num": 150,

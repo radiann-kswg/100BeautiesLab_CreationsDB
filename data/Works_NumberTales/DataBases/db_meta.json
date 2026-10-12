@@ -74,6 +74,17 @@
           }
         },
         {
+          "sec_Category": "プレゼントナンバー",
+          "sec_DesignedBy": ["RadianN"],
+          "sec_SeriesTitle": null,
+          "_Commons": {
+            "Progress": "nowCreating",
+            "Belonging": [{ "Faction": "百花繚乱研究所" }],
+            "RaceType": "PortableHumanoid(TaleBeastType)",
+            "isTriple": true
+          }
+        },
+        {
           "sec_Category": "散狐アタストさん協賛",
           "sec_DesignedBy": ["RadianN"],
           "sec_SeriesTitle": "D-Vines",
