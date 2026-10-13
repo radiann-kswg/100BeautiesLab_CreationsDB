@@ -615,7 +615,7 @@
   {
     "Num": 148,
     "Num_Badge": "148",
-    "Progress": "stillTentative",
+    "Progress": "released",
     "sec_Category": "プレゼントナンバー",
     "sec_DesignedBy": ["RadianN"],
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "148-numberize" }],
@@ -659,6 +659,7 @@
         "Note_EN": null
       }
     ],
+    "ConceptAge": 17,
     "AppearanceDetail": null,
     "ColorPalette": [
       {
@@ -727,7 +728,14 @@
     "Backgrounds_JP": "同クラスロットの290(ベルナード・キルワース)とは設計思想が異なるものの、共通のコンセプト指針を有する点では後続個体であるといえる。",
     "Backgrounds_EN": "Although the design philosophy differs from that of 290(Bernard.Kilworth) in the same Class-Lot, it can be said that this model is a successor in terms of having a common conceptual guideline.",
     "InStory_JP": "制作秘話：「ナンバーテールズ化」に参加下さったよだれさんの誕生日に、当方のナンバーテールズ化と同じ番号のナンバーテールズをプレゼントアートとして贈呈。",
-    "InStory_EN": "Behind the creations' scenes: On the birthday of Yodare(@yodare0p0), who participated in the 'NumberizationTales', a NumberTales with the same number as our own NumberizationTales was presented as a gift art."
+    "InStory_EN": "Behind the creations' scenes: On the birthday of Yodare(@yodare0p0), who participated in the 'NumberizationTales', a NumberTales with the same number as our own NumberizationTales was presented as a gift art.",
+    "ThisMasters": [
+      {
+        "value_JP": "創作協賛者：よだれさん（Misskey相互フォロー(@yodare0p0@misskey.io), ナンバーテールズ化企画参加者）",
+        "value_EN": "Creative Collaborator: Yodare (following/follower in Misskey(@yodare0p0@misskey.io), Participant in the NumberizingTales project)",
+        "_DBLink": { "_DB": "Secondary", "Num": "148-numberize" }
+      }
+    ]
   },
   {
     "Num": 150,
