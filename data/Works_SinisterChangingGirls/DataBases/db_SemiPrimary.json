@@ -1,7 +1,7 @@
 [
   {
     "Drc": "NNE",
-    "Progress": "notProceeded",
+    "Progress": "nowCreating",
     "AnotherRegions_DBLink": [
       {
         "_Work": "FLInvestigator78",
@@ -11,7 +11,7 @@
       {
         "_Work": "NumberTales",
         "_DB": "SemiPrimary",
-        "Num": "∞"
+        "Num": "%"
       }
     ],
     "Name_JP": "錦野 舞",
@@ -23,11 +23,11 @@
       { "Faction": "セブンティエイト特殊探偵団" },
       { "Faction": "シンフォニー.X" }
     ],
-    "Class": ["ヒューマノイド開発部(シンフォニー.X)"],
+    "Class": ["采配幹部(ディーラーズ)", "ヒューマノイド開発部(シンフォニー.X)"],
     "Height_cm": 167,
     "Weight_kg": 53,
     "BustSize": "B",
-    "Age": 23
+    "Age": 25
   },
   {
     "Drc": "ENE",
@@ -105,10 +105,33 @@
   },
   {
     "Drc": "SSW",
-    "isPrivate": true,
-    "Progress": "notProceeded",
+    "Progress": "nowCreating",
+    "AnotherRegions_DBLink": [
+      {
+        "_Work": "FLInvestigator78",
+        "_DB": "PrimaryDealer",
+        "Card": { "Suit": "Dealer", "Num": 80 }
+      },
+      {
+        "_Work": "NumberTales",
+        "_DB": "SemiPrimary",
+        "Num": "∞"
+      }
+    ],
+    "Name_JP": "錦野 歌嫁",
+    "Name_EN": "Phonia Actressilk",
     "CodeName_JP": "救恤の昼",
-    "CodeName_EN": "Charity o'clock in Daytime"
+    "CodeName_EN": "Charity o'clock in Daytime",
+    "RaceType": "Human",
+    "Belonging": [
+      { "Faction": "セブンティエイト特殊探偵団" },
+      { "Faction": "百花繚乱研究所" }
+    ],
+    "Class": ["采配幹部(ディーラーズ)", "最高情報責任者"],
+    "Height_cm": 167,
+    "Weight_kg": 53,
+    "BustSize": "B",
+    "Age": 25
   },
   {
     "Drc": "WSW",

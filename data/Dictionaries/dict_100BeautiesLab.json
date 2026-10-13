@@ -1,0 +1,29 @@
+[
+  {
+    "Class": "最高経営所長",
+    "Class_JP": "CEO(最高経営所長)",
+    "Class_EN": "CEO(Chief Executive Officer)",
+    "Class_Code": "N.CE",
+    "isSecondary": false
+  },
+  {
+    "Class": "最高技術所長",
+    "Class_JP": "CTO(最高技術所長)",
+    "Class_EN": "CTO(Chief Technology Officer)",
+    "Class_Code": "N.CT",
+    "isSecondary": false
+  },
+  {
+    "Class": "ゼミアシスタント",
+    "Class_EN": "Seminar Assistant",
+    "Class_Code": "N.SA",
+    "isSecondary": null
+  },
+  {
+    "Class": "最高情報責任者",
+    "Class_JP": "CIO(最高情報責任者)",
+    "Class_EN": "CIO(Chief Information Officer)",
+    "Class_Code": "N.CI",
+    "isSecondary": false
+  }
+]

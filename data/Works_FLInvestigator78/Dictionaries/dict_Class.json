@@ -19,11 +19,6 @@
     "Class_EN": "PentacleObjects Branch",
     "Class_Code": "FPO"
   },
-  {
-    "Class": "采配幹部(ディーラーズ)",
-    "Class_EN": "Dealers",
-    "Class_Code": "FLD"
-  },
   { "Class": "情報屋", "Class_EN": "Informant", "Class_Code": "FLI" },
   { "Class": "最高幹部", "Class_EN": "Top Executive", "Class_Code": "FTE" },
   {

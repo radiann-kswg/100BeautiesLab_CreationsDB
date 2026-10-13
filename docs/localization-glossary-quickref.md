@@ -12,7 +12,7 @@
 - **インライン補完（ゴーストテキスト）**: 補完はカスタム指示ファイルを読み込みません。英訳作業中は本ファイルを隣のタブで開いておくと、近傍文脈として対訳が補完に反映されやすくなります。
 - **正典はあくまで辞書本体**。表に無い語・揺れがある語は `data/**/trans_*.json` 等の辞書と `docs/localization-en-rules.md` を確認してください。最終採否は User 判断です。
 
-- 収録: **201 対訳**（延べ抽出。生成日時: 2026-10-09T02:55:10.377Z）
+- 収録: **204 対訳**（延べ抽出。生成日時: 2026-10-13T06:49:38.656Z）
 
 ## 人名（姓・代理）
 
@@ -175,6 +175,7 @@
 | シンフォニー.X | Symphony.X |
 | シンフォニー.XVI | Symphony.XVI |
 | レゾンデイトルカンパニー | Raison-d'être Company |
+| 百花繚乱研究国際大使所 | HundredBeauties International Embassy Laboratory |
 | 百花繚乱研究所 | HundredBeauties Laboratory |
 | 百戦錬磨開発所 | HundredBattlers Development |
 | 夜月機関 | Yadzuki Organization |
@@ -283,7 +284,6 @@
 | 超次元執筆空間の住民 | Residents of #ATELIER: the super-dimensional owners' space |
 | 南第三県専門学校 | S3 Vocational School |
 | 白の六芒星 | WhiteHexagram |
-| 百花繚乱研究国際大使所 | HundredBeauties International Embassy Laboratory |
 | 夜月機関付属大学 | Yadzuki Org. Affiliated University |
 
 ## 種族タイプ
@@ -346,7 +346,7 @@
 
 ## クラス（職掌）
 
-<small>出典: `data/Dictionaries/dict_Mikhail.json` / `data/Dictionaries/dict_NeoLotusNinean.json` / `data/Dictionaries/dict_RaisondetreCompany.json` / `data/Dictionaries/dict_RegioministratorAgents.json` / `data/Dictionaries/dict_Regioministrators.json` / `data/Dictionaries/dict_SymphonyX.json` / `data/Dictionaries/dict_SymphonyXVI.json` / `data/Dictionaries/dict_WhiteHexagram.json`</small>
+<small>出典: `data/Dictionaries/dict_100BeautiesLab.json` / `data/Dictionaries/dict_FLInvestigators.json` / `data/Dictionaries/dict_Mikhail.json` / `data/Dictionaries/dict_NeoLotusNinean.json` / `data/Dictionaries/dict_RaisondetreCompany.json` / `data/Dictionaries/dict_RegioministratorAgents.json` / `data/Dictionaries/dict_Regioministrators.json` / `data/Dictionaries/dict_SymphonyX.json` / `data/Dictionaries/dict_SymphonyXVI.json` / `data/Dictionaries/dict_WhiteHexagram.json`</small>
 
 | 日本語 | English |
 | --- | --- |
@@ -355,6 +355,7 @@
 | 『創造主』代理人 | Agent of the 'Regiowner' |
 | 『破壊主』代理人 | Agent of the 'Regiomitator' |
 | エニグマ課 左遷・逆行研究部 | Enigma Division, Demotion/Retrograde Research Department |
+| ゼミアシスタント | Seminar Assistant |
 | ベヴストザイン課 ヒューマノイド開発部 | Bewußtsein Division, Humanoid Development Department |
 | ベヴストザイン課 新人類研究部 | Bewußtsein Division, Newer Human Research Department |
 | ベヴストザイン課 第7世界創造部 | Bewußtsein Division, WDC.VII Department |
@@ -364,6 +365,8 @@
 | 国際情報屋 監督者 | Supervisor of International Information Officer |
 | 国際情報屋 監督者補佐 | Assistant Supervisor of International Information Officer |
 | 国際情報屋 同行者 | Companion of International Information Officer |
+| 采配幹部 | Dealers |
+| 采配幹部(ディーラーズ) | Dealers |
 | 新生九蓮 運航者 | Navigator of Neo.LotusNinean |
 | 新生九蓮 陛下 | Sovereign of Neo.LotusNinean |
 | 聖職課 技術修道女院部 | Clergy Division, Technical Nuns' Department |

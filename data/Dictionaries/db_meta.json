@@ -26,6 +26,20 @@
       "keyField": "GenderType",
       "compatListKey": "#List_GenderType"
     },
+    "#Dict_100BeautiesLab": {
+      "DB_Label_JP": "クラス辞書(百花繚乱研究所向け)",
+      "DB_Label_EN": "Class Dictionary (for HundredBeauties Laboratory)",
+      "keyField": "Class",
+      "compatListKey": "#List_Class",
+      "scopeField": { "Belonging": "百花繚乱研究所" }
+    },
+    "#Dict_FLInvestigators": {
+      "DB_Label_JP": "クラス辞書(「78特殊探偵団」向け)",
+      "DB_Label_EN": "Class Dictionary (for Team.78(Seventy-Eight))",
+      "keyField": "Class",
+      "compatListKey": "#List_Class",
+      "scopeField": { "Belonging": "セブンティエイト特殊探偵団" }
+    },
     "#Dict_WhiteHexagram": {
       "DB_Label_JP": "クラス辞書(白の六芒星向け)",
       "DB_Label_EN": "Class Dictionary (for WhiteHexagram)",
