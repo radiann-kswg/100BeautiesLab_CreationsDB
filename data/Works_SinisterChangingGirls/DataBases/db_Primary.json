@@ -21,6 +21,7 @@
     "CodeName_EN": "Lust o'clock in Midnight",
     "Belonging": [{ "Faction": "百花繚乱研究所" }],
     "FromArea": { "Area": "九蓮国" },
+    "Class": ["最高経営所長"],
     "Age": 25,
     "Character_JP": "素面(シラフ)時：仲間思いの姉御肌。お調子者なムードメーカ\n泥酔時：甘えん坊極まりなく、成人としての限度を超えてしまうほどの破廉恥（※弟談）",
     "Character_EN": "When sober: a caring, big-sisterly mood-maker\nWhen dead drunk: outrageously clingy and indecent to an extent exceeding adult limits (per younger sibling's account)",

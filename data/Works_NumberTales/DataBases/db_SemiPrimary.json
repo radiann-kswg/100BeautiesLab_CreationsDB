@@ -7549,6 +7549,11 @@
         "_Work": "FLInvestigator78",
         "_DB": "PrimaryDealer",
         "Card": { "Suit": "Dealer", "Num": 80 }
+      },
+      {
+        "_Work": "SinisterChangingGirls",
+        "_DB": "SemiPrimary",
+        "Drc": "SSW"
       }
     ],
     "Name_JP": "錦野 歌嫁",

@@ -6,15 +6,15 @@
       "DB_Summary": "ハンカクライブの公式一次創作作品に登場する架空のVR配信者。\nアルファベットに関連するモチーフをそれぞれ有している。",
       "DB_Summary_EN": "Fictional VR streamers appearing in official primary works of UnibyteLive.\nEach one carries motifs related to alphabet letters.",
       "StoryEra": {
-        "FromEra": [{ "EraGen": 8, "YearInEra": 2 }, { "byRealYear": 2046 }],
-        "ToEra": [{ "EraGen": 9, "YearInEra": 6 }, { "byRealYear": 2053 }],
-        "InEra": [
-          { "EraGen": 9, "YearInEra": 2 },
-          { "EraGen": 8, "YearInEra": 5 },
-          { "byRealYear": 2049 }
+        "FromEra": [
+          { "EraGen": 8, "YearInEra": 2 },
+          { "EraGen": 7, "YearInEra": 27 },
+          { "byRealYear": 2047 }
         ],
-        "StoryEraAbout_JP": "第8創世紀2〜第9創世紀6年(西暦2046〜2053年相当)",
-        "StoryEraAbout_EN": "between WDCE.VIII.2-IX.6(Equivalent to between: DC.2046-2053)"
+        "ToEra": [{ "EraGen": 8, "YearInEra": 8 }, { "byRealYear": 2053 }],
+        "InEra": [{ "EraGen": 8, "YearInEra": 4 }, { "byRealYear": 2049 }],
+        "StoryEraAbout_JP": "第8創世紀2〜第8創世紀8年(西暦2047〜2053年相当)",
+        "StoryEraAbout_EN": "between WDCE.VIII.2-VIII.8(Equivalent to between: DC.2047-2053)"
       },
       "_Commons": {
         "Belonging": [{ "Faction": "アルベッツ" }],
@@ -31,15 +31,11 @@
       "DB_Summary": "ハンカクライブの公式一次創作作品に登場するキャラクター。\nこちらには「アルベッツ」として活動する演者に関する情報をまとめている。",
       "DB_Summary_EN": "Characters appearing in official primary works of UnibyteLive.\nThis DB compiles information on performers active as 'ALPBETS'.",
       "StoryEra": {
-        "FromEra": [{ "EraGen": 8, "YearInEra": 1 }, { "byRealYear": 2045 }],
-        "ToEra": [{ "EraGen": 9, "YearInEra": 6 }, { "byRealYear": 2053 }],
-        "InEra": [
-          { "EraGen": 9, "YearInEra": 2 },
-          { "EraGen": 8, "YearInEra": 5 },
-          { "byRealYear": 2049 }
-        ],
-        "StoryEraAbout_JP": "第8創世紀1〜第9創世紀6年(西暦2045〜2053年相当)",
-        "StoryEraAbout_EN": "between WDCE.VIII.1-IX.6(Equivalent to between: DC.2045-2053)"
+        "FromEra": [{ "EraGen": 7, "YearInEra": 25 }, { "byRealYear": 2045 }],
+        "ToEra": [{ "EraGen": 8, "YearInEra": 8 }, { "byRealYear": 2053 }],
+        "InEra": [{ "EraGen": 8, "YearInEra": 4 }, { "byRealYear": 2049 }],
+        "StoryEraAbout_JP": "第7創世紀25〜第8創世紀8年(西暦2045〜2053年相当)",
+        "StoryEraAbout_EN": "between WDCE.VII.25-VIII.8(Equivalent to between: DC.2045-2053)"
       },
       "_Commons": {
         "FromArea": { "Area": "九蓮国" },

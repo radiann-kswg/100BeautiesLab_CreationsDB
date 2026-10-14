@@ -6,11 +6,11 @@
       "DB_Summary": "「夜月機関」の正式な幹部に相当する一次創作キャラクター。\n和暦の月名に関連するコードネームが付与されている。",
       "DB_Summary_EN": "Primary-creation characters corresponding to the formal executive officers of the Yadzuki Organization.\nEach one is assigned a codename related to a traditional Far-Eastern month name.",
       "StoryEra": {
-        "FromEra": [{ "EraGen": 8, "YearInEra": 3 }, { "byRealYear": 2047 }],
-        "ToEra": [{ "EraGen": 8, "YearInEra": 4 }, { "byRealYear": 2048 }],
-        "InEra": [{ "EraGen": 8, "YearInEra": 4 }, { "byRealYear": 2048 }],
-        "StoryEraAbout_JP": "第8創世紀3〜4年(西暦2047〜2048年相当)",
-        "StoryEraAbout_EN": "between WDCE.VIII.3-4(Equivalent to between: DC.2047-2048)"
+        "FromEra": [{ "EraGen": 8, "YearInEra": 2 }, { "byRealYear": 2047 }],
+        "ToEra": [{ "EraGen": 8, "YearInEra": 3 }, { "byRealYear": 2048 }],
+        "InEra": [{ "EraGen": 8, "YearInEra": 3 }, { "byRealYear": 2048 }],
+        "StoryEraAbout_JP": "第8創世紀2〜3年(西暦2047〜2048年相当)",
+        "StoryEraAbout_EN": "between WDCE.VIII.2-3(Equivalent to between: DC.2047-2048)"
       },
       "_Commons": {
         "Progress": "stillTentative",
@@ -119,12 +119,12 @@
         "FromEra": [{ "EraGen": 7, "YearInEra": 24 }, { "byRealYear": 2044 }],
         "ToEra": [
           { "EraGen": 7, "YearInEra": 26 },
-          { "EraGen": 8, "YearInEra": 2 },
+          { "EraGen": 8, "YearInEra": 1 },
           { "byRealYear": 2046 }
         ],
         "InEra": [
           { "EraGen": 7, "YearInEra": 25 },
-          { "EraGen": 8, "YearInEra": 1 },
+          { "EraGen": 8, "YearInEra": -1 },
           { "byRealYear": 2045 }
         ],
         "StoryEraAbout_JP": "第7創世紀24〜26年(西暦2044〜2046年相当)\n『第8の世界破壊』に関する重要な時期となる",

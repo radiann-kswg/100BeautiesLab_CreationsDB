@@ -1,5 +1,16 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### feat: 創世紀元年を meta 宣言（`General.StoryEraEpochs`）し `YearInEra` を元年基準へ統一 + `StoryEra` / `Age` 整合テスト (2026-10-14)
+
+- **背景**: 作品別 `db_meta.json` の `StoryEra` は `EraGen` / `YearInEra` / `byRealYear` を並置するが元年の宣言が無く、第8創世紀の起点が作品により 2045 / 2046、第9創世紀が 2048 / 2050 と食い違っていた。`Age` が DB の `InEra.byRealYear` 時点の年齢であることを機械的に確認する手段も無かった。
+- **変更**:
+  - `data/db_meta.json` の `General.StoryEraEpochs`（`$Def_StoryEra[]`・`YearInEra: 1` の点）に元年を宣言: 第6=1995 / 第7=2021 / 第8=2046 / 第9=2050。
+  - 作品別 `db_meta.json` の `YearInEra` を `byRealYear` を変えずに元年基準へ統一（43 点）。元年より前は負数で表す（`-1` = 元前1年。0 年は無い）。`StoryEraAbout_JP/EN` の年数表記も同じ値へ追従（ShauErRiders は元から整合）。
+  - `lib/wrapper-common.js` `eraSummary`: 負の `YearInEra` を「第N創世紀元前M年」/「Gen.N BCE M」で表示。
+  - `tests/data.story-era.test.js`（新規）: (1) 全 `StoryEra` 点（`_Secondaries[].StoryEra` 含む）の `YearInEra` が元年との相対年数として `byRealYear` に合うこと、(2) 実年齢キャラクター（`Age` が数値・`BirthDay` に値あり・`ConceptAge` / `AnivDay` に値なし）の `誕生年 = InEra.byRealYear - Age` が、`$enrich: true` の `*_DBLink` で結ばれた参照先（`Age` が数値で `ConceptAge` / `AnivDay` を持たないレコード）と一致すること。
+- **影響範囲**: `data/db_meta.json` / `data/Works_{FLInvestigator78,NumberTales,PastDivers,SinisterChangingGirls,UnauthedLogica,UnibyteLive,VirtuesUs}/DataBases/db_meta.json` / `lib/wrapper-common.js` / `tests/data.story-era.test.js` / `tests/wrapper-common.test.js` / `tests/meta.catalog.schema.test.js` / `docs/schema-meta-processing.md` §4.4 / `docs/wrapper-summary-registry.md`。
+- **下流への申し送り**: `$Def_StoryEra.YearInEra` に負数（元前）が入り得る。`eraSummary` の表示と `tests/data.story-era.test.js` はフレームワーク側。下流で `StoryEra` を使う場合は自作品の `data/db_meta.json` に `General.StoryEraEpochs` を宣言しないと同テストが「元年未宣言」で落ちる（`StoryEra` や `$enrich: true` の `*_DBLink` を持たない下流は同テストを除外対象にする）。
+
 ### feat(addon-ai-tag): 合同絵の `AI_Optout` を OR で判定 (2026-10-12)
 
 - **背景**: `AI_Optout` はレコード（DB / `_Secondaries` カテゴリ）単位でしか効かず、opt-out キャラと opt-in キャラが一緒に写る絵が opt-in 側の AIHints 参照画像に載りうる。

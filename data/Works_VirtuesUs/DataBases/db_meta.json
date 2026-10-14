@@ -6,9 +6,9 @@
       "DB_Summary": "このアンソロジーに相当するキャラクター。\n八徳それぞれをモチーフにしている。",
       "DB_Summary_EN": "Characters corresponding to this anthology.\nEach character is inspired by one of the Eight Virtues.",
       "StoryEra": {
-        "InEra": [{ "EraGen": 8, "YearInEra": 6 }, { "byRealYear": 2050 }],
-        "StoryEraAbout_JP": "第8創世紀6年(西暦2050年相当)周辺",
-        "StoryEraAbout_EN": "in around WDCE.VIII.6(Equivalent to in around: DC.2050)"
+        "InEra": [{ "EraGen": 8, "YearInEra": 5 }, { "byRealYear": 2050 }],
+        "StoryEraAbout_JP": "第8創世紀5年(西暦2050年相当)周辺",
+        "StoryEraAbout_EN": "in around WDCE.VIII.5(Equivalent to in around: DC.2050)"
       },
       "_Commons": { "Progress": "notProceeded", "RaceType": "Human" },
       "AI_Optout": true
