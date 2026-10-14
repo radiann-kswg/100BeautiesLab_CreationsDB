@@ -7,10 +7,14 @@
  *    - `YearInEra >= 1` … byRealYear = 元年 + YearInEra - 1
  *    - `YearInEra <= -1` … 元前（0 年は無い。-1 = 元年の前年）… byRealYear = 元年 + YearInEra
  *    - 第8創世紀以降へ遷移しない作品があるため「どの創世紀で数えるか」は問わず、記載された EraGen ごとに相対年数だけを見る。
- * 2. **`Age` と `InEra.byRealYear` の対応**: `Age`（`ConceptAge` ではなく、`hideText` でもない数値）は
- *    その DB の `StoryEra.InEra[].byRealYear` 時点の年齢とみなす。`BirthDay` には年が無く絶対値は照合できないので、
- *    同一人物を別作品 / 別 DB へ結ぶ `AnotherRegions_DBLink` の両端で「年齢差 = byRealYear 差」を確認する。
- *    `ConceptAge` はデザイン上の設定年齢で年代に連動しないため対象外。
+ *      `byRealYear` だけの点（EraGen 無し）は照合対象が無いので通す。
+ * 2. **`Age` と `InEra.byRealYear` の対応**: 実年齢を持つキャラクター（`Age` が数値、`BirthDay` に値があり、
+ *    `ConceptAge` / `AnivDay` に値が無い）について、`誕生年 = InEra.byRealYear - Age` を DB ごとに割り出し、
+ *    `$enrich: true` の `*_DBLink`（同一人物の別作品 / 別 DB 参照）で結ばれた先と一致すること。
+ *    - `ConceptAge` はデザイン上の設定年齢、`AnivDay` は生誕日ではない記念日なので、これらに値があるレコードは
+ *      年代に連動しないとみなして除外する。
+ *    - 参照先は `Age` が数値で `ConceptAge` / `AnivDay` を持たないレコードを対象にする（`BirthDay` は enrich で
+ *      参照元から穴埋めされ得るため、参照先側には要求しない）。
  */
 import { describe, it, expect } from 'vitest';
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
@@ -84,17 +88,36 @@ describe('StoryEra: 創世紀元年（General.StoryEraEpochs）との整合', ()
 	});
 });
 
-/** `Age` を数値として読む（`#Number` / `#Number_withAbout`。`hideText` は注釈化なので対象外） */
+/** 値が入っているか（`hideText` マスクも「項目として宣言あり」に数える） */
+const isSet = (v) => !(v === undefined || v === null || v === '' || (Array.isArray(v) && !v.length));
+const isMasked = (v) => !!v && typeof v === 'object' && !Array.isArray(v) && 'hideText' in v;
+
+/** `Age` を数値として読む（`#Number` / `#Number_withAbout`。`hideText` マスクは対象外） */
 function plainAge(record) {
 	const v = record?.Age;
 	if (isNum(v)) return v;
-	if (v && typeof v === 'object' && !Array.isArray(v) && !('hideText' in v) && isNum(v.value)) return v.value;
+	if (v && typeof v === 'object' && !Array.isArray(v) && !isMasked(v) && isNum(v.value)) return v.value;
 	return null;
 }
 
-/** 同一人物を別作品 / 別 DB へ結ぶ `*_DBLink`。演者⇄アバター等（別人）のリンクは含めない */
-// ponytail: 固定リスト。「同一人物」を示す宣言が typedef に入ったらそちらへ寄せる
-const SAME_PERSON_LINKS = ['AnotherRegions_DBLink'];
+/** 年代に連動する `Age` を持つか: `Age` が数値で、`ConceptAge` / `AnivDay`（年代に連動しない項目）に値が無い */
+const hasAnchoredAge = (record) => plainAge(record) !== null && !isSet(record?.ConceptAge) && !isSet(record?.AnivDay);
+/** 実年齢キャラクター（参照元の条件）: 上に加えて `BirthDay` に実値がある */
+const isRealAgePerson = (record) => hasAnchoredAge(record) && isSet(record?.BirthDay) && !isMasked(record.BirthDay);
+
+/** `$DefType` から `$enrich: true` の `*_DBLink` フィールド名を集める（コンテナの `$type: [...]` も辿る） */
+function collectEnrichLinkFields(typeDef, out = new Set()) {
+	const walk = (entries) => {
+		for (const e of Array.isArray(entries) ? entries : []) {
+			if (!e || typeof e !== 'object') continue;
+			if (typeof e.hashTag === 'string' && e.hashTag.endsWith('_DBLink') && e.$enrich === true) out.add(e.hashTag);
+			if (Array.isArray(e.$type)) walk(e.$type);
+		}
+	};
+	walk(typeDef?.$DefType);
+	return out;
+}
+
 /** `$Def_DBLinkRef` のうちインデックスではないキー（lib/data-common.js `resolveDbLinkSuffixRef` と同じ） */
 const SENTINEL = new Set(['_DB', '_Work', 'label_JP', 'label_EN']);
 
@@ -108,16 +131,18 @@ function subsetMatch(recordVal, query) {
 	return recordVal !== null && recordVal !== undefined && String(recordVal) === String(query);
 }
 
-/** 作品ごとに { inEraYear: { db: byRealYear }, records: { db: [...] } } を読む */
+/** 作品ごとに { inEraYear: { db: byRealYear }, records: { db: [...] }, linkFields: Set } を読む */
 function loadWorks() {
+	const globalLinkFields = collectEnrichLinkFields(readJson('data/db_type.json'));
 	const works = {};
 	for (const wk of workDirs) {
 		const dir = `data/${wk}/DataBases`;
 		if (!existsSync(path.resolve(repoRoot, dir))) continue;
-		const work = (works[wk.replace(/^Works_/, '')] = { inEraYear: {}, records: {} });
+		const work = (works[wk.replace(/^Works_/, '')] = { inEraYear: {}, records: {}, linkFields: new Set(globalLinkFields) });
+		if (existsSync(path.resolve(repoRoot, `${dir}/db_type.json`))) collectEnrichLinkFields(readJson(`${dir}/db_type.json`), work.linkFields);
 		const meta = existsSync(path.resolve(repoRoot, metaPath(wk))) ? readJson(metaPath(wk)) : {};
 		for (const [key, db] of Object.entries(meta?.Databases ?? {})) {
-			// ponytail: DB 直下の InEra だけ見る。`_Secondaries[].StoryEra`（sec_SeriesTitle 分岐）は Secondary 系に素の Age が入ったら対応
+			// ponytail: DB 直下の InEra だけ見る。`_Secondaries[].StoryEra`（sec_SeriesTitle 分岐）は Secondary 系に実年齢キャラが入ったら対応
 			const year = toPoints(db?.StoryEra?.InEra).map((p) => p?.byRealYear).find(isNum);
 			if (isNum(year)) work.inEraYear[key.replace(/^#DB_/, '')] = year;
 		}
@@ -133,7 +158,7 @@ function loadWorks() {
 
 const labelOf = (record) => String(record?.Name_JP ?? record?.Num ?? '').split('\n')[0];
 
-describe('Age: StoryEra.InEra.byRealYear との対応（AnotherRegions_DBLink 両端の年齢差 = 年代差）', () => {
+describe('Age: StoryEra.InEra.byRealYear から割り出した誕生年が enrich 付き DBLink の両端で一致する', () => {
 	const works = loadWorks();
 	const problems = [];
 	let compared = 0;
@@ -143,9 +168,10 @@ describe('Age: StoryEra.InEra.byRealYear との対応（AnotherRegions_DBLink �
 			const year = work.inEraYear[db];
 			if (!isNum(year)) continue;
 			for (const record of records) {
+				if (!isRealAgePerson(record)) continue;
 				const age = plainAge(record);
-				if (age === null) continue;
-				for (const field of SAME_PERSON_LINKS) {
+				const birthYear = year - age;
+				for (const field of work.linkFields) {
 					const entries = Array.isArray(record[field]) ? record[field] : record[field] ? [record[field]] : [];
 					for (const entry of entries) {
 						if (!entry || typeof entry !== 'object') continue;
@@ -157,12 +183,12 @@ describe('Age: StoryEra.InEra.byRealYear との対応（AnotherRegions_DBLink �
 						if (!targetWork || !isNum(targetYear) || !idxKey) continue;
 						const targets = (targetWork.records[targetDb] ?? []).filter((t) => subsetMatch(t?.[idxKey], entry[idxKey]));
 						for (const target of targets) {
+							if (!hasAnchoredAge(target)) continue;
 							const targetAge = plainAge(target);
-							if (targetAge === null) continue;
 							compared++;
-							if (age - targetAge !== year - targetYear) {
+							if (targetYear - targetAge !== birthYear) {
 								problems.push(
-									`${workId}/${db} ${labelOf(record)} Age ${age}@${year} ↔ ${targetWorkId}/${targetDb} ${labelOf(target)} Age ${targetAge}@${targetYear}`
+									`${workId}/${db} ${labelOf(record)} 誕生年 ${birthYear}（Age ${age} @ ${year}） ↔ ${field} → ${targetWorkId}/${targetDb} ${labelOf(target)} 誕生年 ${targetYear - targetAge}（Age ${targetAge} @ ${targetYear}）`
 								);
 							}
 						}
@@ -176,7 +202,7 @@ describe('Age: StoryEra.InEra.byRealYear との対応（AnotherRegions_DBLink �
 		expect(compared).toBeGreaterThan(0);
 	});
 
-	it('年齢差が InEra.byRealYear の差と一致する', () => {
+	it('参照元と参照先で誕生年が一致する', () => {
 		expect(problems).toEqual([]);
 	});
 });
