@@ -8,18 +8,14 @@
       "StoryEra": {
         "isMobs": false,
         "FromEra": [{ "EraGen": 7, "YearInEra": 24 }, { "byRealYear": 2044 }],
-        "ToEra": [
-          { "EraGen": 8, "YearInEra": 2 },
-          { "EraGen": 7, "YearInEra": 26 },
-          { "byRealYear": 2046 }
-        ],
+        "ToEra": [{ "EraGen": 8, "YearInEra": 3 }, { "byRealYear": 2048 }],
         "InEra": [
-          { "EraGen": 8, "YearInEra": 1 },
+          { "EraGen": 8, "YearInEra": -1 },
           { "EraGen": 7, "YearInEra": 25 },
           { "byRealYear": 2045 }
         ],
-        "StoryEraAbout_JP": "第7創世紀24年〜第8創世紀2年(西暦2044〜2046年相当)\n『第8の世界創造』に関する重要な時期となる",
-        "StoryEraAbout_EN": "between WDCE.VII.24 to WDCE.VIII.2(Equivalent to between: DC.2044-2046)\n\nThis period is significant for the \"World Development Creation VIII\" "
+        "StoryEraAbout_JP": "第7創世紀24年〜第8創世紀3年(西暦2044〜2048年相当)\n『第8の世界創造』に関する重要な時期となる",
+        "StoryEraAbout_EN": "between WDCE.VII.24 to WDCE.VIII.3(Equivalent to between: DC.2044-2048)\nThis period is significant for the \"World Development Creation VIII\" "
       },
       "_Commons": {
         "isMobs": false,
@@ -40,18 +36,14 @@
       "DB_Summary_EN": "Characters appearing in the official primary work of FateLine Investigator 78.\nThis DB compiles information on those who possess tarot-motif abilities.",
       "StoryEra": {
         "FromEra": [{ "EraGen": 7, "YearInEra": 24 }, { "byRealYear": 2044 }],
-        "ToEra": [
-          { "EraGen": 8, "YearInEra": 2 },
-          { "EraGen": 7, "YearInEra": 26 },
-          { "byRealYear": 2046 }
-        ],
+        "ToEra": [{ "EraGen": 8, "YearInEra": 3 }, { "byRealYear": 2048 }],
         "InEra": [
-          { "EraGen": 8, "YearInEra": 1 },
+          { "EraGen": 8, "YearInEra": -1 },
           { "EraGen": 7, "YearInEra": 25 },
           { "byRealYear": 2045 }
         ],
-        "StoryEraAbout_JP": "第7創世紀24年〜第8創世紀2年(西暦2044〜2046年相当)\n『第8の世界創造』に関する重要な時期となる",
-        "StoryEraAbout_EN": "between WDCE.VII.24 to WDCE.VIII.2(Equivalent to between: DC.2044-2046)\n\nThis period is significant for the \"World Development Creation VIII\" "
+        "StoryEraAbout_JP": "第7創世紀24年〜第8創世紀3年(西暦2044〜2048年相当)\n『第8の世界創造』に関する重要な時期となる",
+        "StoryEraAbout_EN": "between WDCE.VII.24 to WDCE.VIII.3(Equivalent to between: DC.2044-2048)\nThis period is significant for the \"World Development Creation VIII\" "
       },
       "_Commons": {
         "isMobs": false,
@@ -74,6 +66,17 @@
       "DB_Label_EN": "Arcana(Minors)",
       "DB_Summary": "運命線探偵の公式一次創作作品に登場する能力存在。\nこちらには主に小アルカナの数札をモチーフにした能力存在に関する情報をまとめている。",
       "DB_Summary_EN": "Characters appearing in the official primary work of FateLine Investigator 78.\nThis DB mainly compiles information on those who possess tarot-motif abilities based on the Minor Arcana.",
+      "StoryEra": {
+        "FromEra": [{ "EraGen": 8, "YearInEra": 1 }, { "byRealYear": 2046 }],
+        "ToEra": [{ "EraGen": 8, "YearInEra": 3 }, { "byRealYear": 2048 }],
+        "InEra": [
+          { "EraGen": 8, "YearInEra": 1 },
+          { "EraGen": 7, "YearInEra": 26 },
+          { "byRealYear": 2046 }
+        ],
+        "StoryEraAbout_JP": "第7創世紀26年〜第8創世紀3年(西暦2046〜2048年相当)",
+        "StoryEraAbout_EN": "between WDCE.VII.26 to WDCE.VIII.3(Equivalent to between: DC.2046-2048)"
+      },
       "_Commons": {
         "isMobs": true,
         "Belonging": [{ "Faction": "セブンティエイト特殊探偵団" }],
@@ -90,6 +93,17 @@
       "DB_Label_EN": "ArcanaHolders(Minor Arcana)",
       "DB_Summary": "運命線探偵の公式一次創作作品に登場するキャラクター。\nこちらには主に小アルカナのタロットをモチーフにした能力の保有者に関する情報をまとめている。",
       "DB_Summary_EN": "Characters appearing in the official primary work of FateLine Investigator 78.\nThis DB mainly compiles information on those who possess tarot-motif abilities based on the Minor Arcana.",
+      "StoryEra": {
+        "FromEra": [{ "EraGen": 8, "YearInEra": 1 }, { "byRealYear": 2046 }],
+        "ToEra": [{ "EraGen": 8, "YearInEra": 3 }, { "byRealYear": 2048 }],
+        "InEra": [
+          { "EraGen": 8, "YearInEra": 1 },
+          { "EraGen": 7, "YearInEra": 26 },
+          { "byRealYear": 2046 }
+        ],
+        "StoryEraAbout_JP": "第7創世紀26年〜第8創世紀3年(西暦2046〜2048年相当)",
+        "StoryEraAbout_EN": "between WDCE.VII.26 to WDCE.VIII.3(Equivalent to between: DC.2046-2048)"
+      },
       "_Commons": {
         "isMobs": false,
         "Belonging": [{ "Faction": "セブンティエイト特殊探偵団" }],

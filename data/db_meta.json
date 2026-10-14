@@ -379,6 +379,12 @@
     }
   },
   "General": {
+    "StoryEraEpochs": [
+      { "EraGen": 6, "YearInEra": 1, "byRealYear": 1995 },
+      { "EraGen": 7, "YearInEra": 1, "byRealYear": 2021 },
+      { "EraGen": 8, "YearInEra": 1, "byRealYear": 2046 },
+      { "EraGen": 9, "YearInEra": 1, "byRealYear": 2050 }
+    ],
     "$VarsDef": {
       "#List_hideText": [
         {
