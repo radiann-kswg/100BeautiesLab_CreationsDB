@@ -88,7 +88,7 @@
     "Unlike_EN": "Food fighters (including unconscious gluttons like Mikhail)",
     "ColorPalette": null,
     "Summary_JP": "「ミハイル」という国際情報広報機関に相乗りする形で世界を旅するギャル系配信者。\nその大胆で活発な性格と派手なファッションセンスに反し、世間に浮かれすぎて見られぬよう「自制」を常日頃から掛けていると彼女を推しているリスナーからの考察が後を絶たない。\n配信者としてバーチャルアバターを有しているものの、妖狐ゆえの変化とさえみられる群を抜いたコスプレ能力があり、現実空間でもアバターに負けない魅力を発信している。",
-    "Summary_EN": ""
+    "Summary_EN": "A gal-style streamer who travels the world by riding along with 'Mikhail', the International Information & Public Relations Agency.\nDespite a bold, energetic personality and a flashy fashion sense, theories keep pouring in from the listeners who support her(zir) that this streamer constantly exercises 'Temperance' so as not to look too carried away by the world.\nAlthough she(ze) has a virtual avatar as a streamer, an outstanding talent for cosplay, one that could even be mistaken for a Warfox's shapeshifting, lets her(zir) broadcast a charm in real space that rivals the avatar's own."
   },
   {
     "Drc": "ESE",
@@ -101,10 +101,23 @@
   {
     "Drc": "SSE",
     "Drc_Alt": "DSE",
-    "isPrivate": true,
     "Progress": "notProceeded",
+    "Name_JP": "ヴァーチェル・アンカレッジ",
+    "Name_EN": "Virchel.Anchorage",
+    "FormalName_JP": "ヴァーチェル・アンカレッジ\nアンカール・エンカレージャ=ヴィルゲン",
+    "FormalName_EN": "Virchel.Anchorage\nAnchors.Encourager=Virgen",
     "CodeName_JP": "勇気の朝方",
-    "CodeName_EN": "Courage o'clock in Morning"
+    "CodeName_EN": "Courage o'clock in Morning",
+    "GenderType": "Female",
+    "Belonging": [{ "Faction": "王家英皇学会" }],
+    "FromArea": { "Area": "雄志結国" },
+    "Height_cm": 155,
+    "Weight_kg": { "hideText": "？？？" },
+    "BustSize": "F",
+    "Age": 24,
+    "BirthDay": { "Day": { "Month": 9, "DayOfMonth": 1 } },
+    "Summary_JP": "雄志結国と四蓮島での戦渦に呑まれ瀕死になったところを王家英皇学会に救われた。\n救出される7年前の記憶を失っており、学会の優雅な教育を経ておとなしくも凛々しい少女として過ごしていた。\nしかしある日、彼女は雄志結国の『プロジェクト・クィーン』計画で生まれた「クィーン・エイト」であることが判明してから、才能が再開花し「勇気」に満ち溢れた戦闘能力を不意に発揮するようになったらしい……",
+    "Summary_EN": "Swallowed up by the ravages of war in United.Heroic.Nation and LotasQuadrup.Island, she was on the brink of death when the IK.Royal Society rescued her.\nHaving lost her memories of the seven years before her rescue, she spent her days as a quiet yet dignified girl, shaped by the Society's elegant education.\nHowever, one day it came to light that she was 'Queen.VIII', born of United.Heroic.Nation's 'Project.Queen' program. Since then, her talents seem to have bloomed once more, and she has begun to unexpectedly display combat abilities overflowing with 'Courage'..."
   },
   {
     "Drc": "SSW",
@@ -140,10 +153,30 @@
   {
     "Drc": "WSW",
     "Drc_Alt": "USW",
-    "isPrivate": true,
     "Progress": "notProceeded",
+    "Name_JP": "カモミール・エクヴィス",
+    "Name_EN": "Chamomile.Exvis",
+    "FormalName_JP": "カモミール・エクヴィス",
+    "FormalName_EN": "Chamomile.Exvis",
     "CodeName_JP": "慈愛の午後",
-    "CodeName_EN": "Kindness o'clock in Afternoon"
+    "CodeName_EN": "Kindness o'clock in Afternoon",
+    "GenderType": "Female",
+    "Belonging": [
+      { "Faction": "カレイドスコウプ教団" },
+      { "Faction": "アーヴァントガーデン学芸学会" }
+    ],
+    "FromArea": {
+      "Area": "英皇国",
+      "BaseAreaAbout_JP": "経歴にはそうあるが、真相は定かでない",
+      "BaseAreaAbout_EN": "According to her background, but the truth is uncertain"
+    },
+    "Height_cm": 177,
+    "Weight_kg": { "hideText": "？？？" },
+    "BustSize": "J",
+    "Age": 38,
+    "BirthDay": { "Day": { "Month": 2, "DayOfMonth": 24 } },
+    "Summary_JP": "雄志結国から国際教師として、神皇国のアーヴァントガーデン学芸学会に異動した修道女。\nすべての人を平等に愛し、すべての人を対等に導く「慈愛」深い彼女の教えは本物……なのだが、「雄志結国の軍事改造人間計画である『プロジェクト・クィーン』に強く関与した重要危険人物として亡命したのではないか」と神皇国内で噂されており、彼女がなぜこの学芸学会に教えを説いているのかは謎に包まれている。",
+    "Summary_EN": "A nun who transferred from United.Heroic.Nation to the ArvantGarden Academic Society in SaintPapis as an international teacher.\nHer teachings, deep with a 'Kindness' that loves all people equally and guides all people as equals, are genuine... and yet, rumors within SaintPapis whisper that \"she may have defected as a key dangerous figure deeply involved in 'Project.Queen', United.Heroic.Nation's military program for modified humans\", and why she preaches at this Academic Society remains shrouded in mystery."
   },
   {
     "Drc": "WNW",

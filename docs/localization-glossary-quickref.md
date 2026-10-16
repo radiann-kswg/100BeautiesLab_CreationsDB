@@ -12,7 +12,7 @@
 - **インライン補完（ゴーストテキスト）**: 補完はカスタム指示ファイルを読み込みません。英訳作業中は本ファイルを隣のタブで開いておくと、近傍文脈として対訳が補完に反映されやすくなります。
 - **正典はあくまで辞書本体**。表に無い語・揺れがある語は `data/**/trans_*.json` 等の辞書と `docs/localization-en-rules.md` を確認してください。最終採否は User 判断です。
 
-- 収録: **205 対訳**（延べ抽出。生成日時: 2026-10-15T06:29:06.525Z）
+- 収録: **206 対訳**（延べ抽出。生成日時: 2026-10-16T09:38:43.214Z）
 
 ## 人名（姓・代理）
 
@@ -260,6 +260,7 @@
 | アルベッツ被害者の会 | Victims Association against ALPBETS |
 | エイゼルベットの観測世界 | ∀sellbuet's Observational World |
 | ガスコニール重工 | Gascogneal Heavy Industries |
+| カレイドスコウプ教団 | Kaleidoscope Cult |
 | シンフォニー.X(ツェーン) | Symphony.X |
 | シンフォニー.XI | Symphony.XI |
 | シンフォニー.XI(エルフ) | Symphony.XI |
