@@ -1,26 +1,38 @@
 {
   "Databases": {
     "#DB_Primary": {
-      "DB_Label_JP": "一次創作",
+      "DB_Label_JP": "一次創作(豹変系女子)",
       "DB_Label_EN": "Primary",
       "DB_Summary": "豹変系女子に相当する８人の一次創作キャラクター。\n七つの大罪と八方位に関連する属性が付与されている。",
       "DB_Summary_EN": "Eight primary-creation characters corresponding to Sinister Changing Girls.\nThey are assigned attributes related to the seven deadly sins and the eight directions.",
       "StoryEra": {
-        "InEra": [{ "EraGen": 9, "YearInEra": 1 }, { "byRealYear": 2050 }],
-        "StoryEraAbout_JP": "第9創世紀1年(西暦2050年相当)周辺",
-        "StoryEraAbout_EN": "in around WDCE.IX.1(Equivalent to in around: DC.2050)"
+        "InEra": [{ "EraGen": 9, "YearInEra": 3 }, { "byRealYear": 2052 }],
+        "StoryEraAbout_JP": "第9創世紀3年(西暦2052年相当)周辺",
+        "StoryEraAbout_EN": "in WDCE.IX.3(Equivalent to in: DC.2052)"
+      },
+      "_Commons": {}
+    },
+    "#DB_PrimaryStabilities": {
+      "DB_Label_JP": "一次創作(スタビリティ)",
+      "DB_Label_EN": "Semi-Primary",
+      "DB_Summary": "豹変系女子に類似する「スタビリティ」という８人の一次創作キャラクター。\n豹変系女子と同様に、七つの美徳と十六方位に関連する属性が付与されている。\nなお、天地方向の八方位にも対応している。",
+      "DB_Summary_EN": "Eight primary-creation characters called 'Stabilities' similar to Sinister Changing Girls.\nThey are assigned attributes related to the seven virtues corresponding to the deadly sins and the sixteen directions, similar to the Sinister Changing Girls.\nThey also correspond to the eight directions of the celestial/terrestrial realm.",
+      "StoryEra": {
+        "InEra": [{ "EraGen": 9, "YearInEra": 3 }, { "byRealYear": 2052 }],
+        "StoryEraAbout_JP": "第9創世紀3年(西暦2052年相当)周辺",
+        "StoryEraAbout_EN": "in WDCE.IX.3(Equivalent to in: DC.2052)"
       },
       "_Commons": {}
     },
     "#DB_SemiPrimary": {
       "DB_Label_JP": "準一次創作",
       "DB_Label_EN": "Semi-Primary",
-      "DB_Summary": "豹変系女子に相当する８人に類似する「スタビリティ」という位置づけのアンソロジーキャラクター。\n類似元と同様に、七つの大罪に対応する美徳と十六方位に関連する属性が付与されている。",
-      "DB_Summary_EN": "The eight anthology characters called 'Stabilities' similar to the primary-creation characters corresponding to Sinister Changing Girls.\nThey are assigned attributes related to the seven virtues corresponding to the deadly sins and the sixteen directions, similar to the original characters.",
+      "DB_Summary": "豹変系女子(一次創作)に類似する８人のアンソロジーキャラクター。\n類似元と同様に、七つの大罪に対応する別の美徳に関連する属性が付与されている。\nなお、天地方向の八方位にも対応している。",
+      "DB_Summary_EN": "Eight anthology characters similar to corresponding to Sinister Changing Girls (in the primary-creation characters).\nThey are assigned attributes related to the seven another virtues corresponding to the deadly sins.\nThey also correspond to the eight directions of the celestial/terrestrial realm.",
       "StoryEra": {
-        "InEra": [{ "EraGen": 9, "YearInEra": 4 }, { "byRealYear": 2053 }],
-        "StoryEraAbout_JP": "第9創世紀4年(西暦2053年相当)周辺",
-        "StoryEraAbout_EN": "in WDCE.IX.4(Equivalent to in: DC.2053)"
+        "InEra": [{ "EraGen": 9, "YearInEra": 3 }, { "byRealYear": 2052 }],
+        "StoryEraAbout_JP": "第9創世紀3年(西暦2052年相当)周辺",
+        "StoryEraAbout_EN": "in WDCE.IX.3(Equivalent to in: DC.2052)"
       },
       "_Commons": {}
     },

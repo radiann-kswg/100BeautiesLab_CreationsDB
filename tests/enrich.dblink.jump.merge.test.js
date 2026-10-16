@@ -297,7 +297,7 @@ describe('_DBLink / _Jump merge (in-process)', () => {
     // UnauthedLogica 側（雙葉レコード）の値が空値フィールドへマージされる想定
     expect(e.Height_cm).toBe(155);
     // 既存値は上書きされない（SCG 側の Age: 27 を維持。UnauthedLogica 側は 26）
-    expect(e.Age).toBe(27);
+    expect(e.Age).toBe(29);
   });
 
   it('$enrich: null 入りインデックスが複数レコードに一致する場合は曖昧一致としてスキップする', async () => {

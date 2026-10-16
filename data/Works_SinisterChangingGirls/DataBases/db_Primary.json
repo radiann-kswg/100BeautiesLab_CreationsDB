@@ -22,7 +22,7 @@
     "Belonging": [{ "Faction": "百花繚乱研究所" }],
     "FromArea": { "Area": "九蓮国" },
     "Class": ["最高経営所長"],
-    "Age": 25,
+    "Age": 27,
     "Character_JP": "素面(シラフ)時：仲間思いの姉御肌。お調子者なムードメーカ\n泥酔時：甘えん坊極まりなく、成人としての限度を超えてしまうほどの破廉恥（※弟談）",
     "Character_EN": "When sober: a caring, big-sisterly mood-maker\nWhen dead drunk: outrageously clingy and indecent to an extent exceeding adult limits (per younger sibling's account)",
     "Summary_JP": "本名は「千歳玲(ちとせ-れい)」だが、ヒューマノイドの開発活動を展開するにあたりこの名前で活動している若手女性エンジニア（特に、ナンバーテールズを提供している百花繚乱研究所では若手女代表とも）。\nお調子者なムードメーカであるだけでなく 自分の生み出したヒューマノイドを含め自らの後輩や仲間のことを大切にしている姉御肌だが、ひとたび酒に酔いしれてしまうと「色欲」スイッチが入りいつも以上にみだりなスキンシップや求愛行動に奔ってしまうという悪酔が強い一面も",
@@ -218,7 +218,7 @@
     "Height_cm": 166,
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "L",
-    "Age": 25,
+    "Age": 27,
     "BirthDay": { "Day": { "Month": 4, "DayOfMonth": 7 } },
     "FirstPersonCalling_JP": "私(わたし)",
     "FirstPersonCalling_EN": "I",
@@ -344,7 +344,7 @@
     "Height_cm": 145,
     "Weight_kg": { "hideText": "？？？" },
     "BustSize": "A",
-    "Age": 19,
+    "Age": 21,
     "BirthDay": { "Day": { "Month": 1, "DayOfMonth": 22 } },
     "FirstPersonCalling_JP": "あたし",
     "FirstPersonCalling_EN": "I (fem. informal)",
@@ -470,7 +470,7 @@
     "GenderType": "Female",
     "Belonging": [{ "Faction": "ジャンクガレージ『六花陛下』" }],
     "FromArea": { "Area": "紅雪連邦" },
-    "Age": 27,
+    "Age": 29,
     "BirthDay": { "Day": { "Month": 12, "DayOfMonth": 12 } },
     "ColorPalette": [
       {
@@ -591,7 +591,7 @@
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "G",
     "Age": {
-      "value": 24,
+      "value": 25,
       "about_JP": "推定（精神年齢はおよそ6）",
       "about_EN": "Presumption (mental age is about: 6)"
     },

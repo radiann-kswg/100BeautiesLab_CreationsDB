@@ -7,12 +7,126 @@
   { "Drc": "SW", "Drc_JP": "南西", "Drc_EN": "Southwest" },
   { "Drc": "W", "Drc_JP": "西", "Drc_EN": "West" },
   { "Drc": "NW", "Drc_JP": "北西", "Drc_EN": "Northwest" },
-  { "Drc": "NNE", "Drc_JP": "北北東", "Drc_EN": "North-Northeast" },
-  { "Drc": "ENE", "Drc_JP": "東北東", "Drc_EN": "East-Northeast" },
-  { "Drc": "ESE", "Drc_JP": "東南東", "Drc_EN": "East-Southeast" },
-  { "Drc": "SSE", "Drc_JP": "南南東", "Drc_EN": "South-Southeast" },
-  { "Drc": "SSW", "Drc_JP": "南南西", "Drc_EN": "South-Southwest" },
-  { "Drc": "WSW", "Drc_JP": "西南西", "Drc_EN": "West-Southwest" },
-  { "Drc": "WNW", "Drc_JP": "西北西", "Drc_EN": "West-Northwest" },
-  { "Drc": "NNW", "Drc_JP": "北北西", "Drc_EN": "North-Northwest" }
+  {
+    "Drc": "NNE",
+    "Drc_JP": "北北東",
+    "Drc_EN": "North-Northeast"
+  },
+  {
+    "Drc": "ENE",
+    "Drc_JP": "東北東",
+    "Drc_EN": "East-Northeast"
+  },
+  {
+    "Drc": "ESE",
+    "Drc_JP": "東南東",
+    "Drc_EN": "East-Southeast"
+  },
+  {
+    "Drc": "SSE",
+    "Drc_JP": "南南東",
+    "Drc_EN": "South-Southeast"
+  },
+  {
+    "Drc": "SSW",
+    "Drc_JP": "南南西",
+    "Drc_EN": "South-Southwest"
+  },
+  {
+    "Drc": "WSW",
+    "Drc_JP": "西南西",
+    "Drc_EN": "West-Southwest"
+  },
+  {
+    "Drc": "WNW",
+    "Drc_JP": "西北西",
+    "Drc_EN": "West-Northwest"
+  },
+  {
+    "Drc": "NNW",
+    "Drc_JP": "北北西",
+    "Drc_EN": "North-Northwest"
+  },
+  { "Drc": "UC", "Drc_JP": "天", "Drc_EN": "Celestial" },
+  {
+    "Drc": "UN",
+    "Drc_JP": "北天",
+    "Drc_EN": "Celestial-North"
+  },
+  {
+    "Drc": "UNE",
+    "Drc_JP": "北東天",
+    "Drc_EN": "Celestial-Northeast"
+  },
+  {
+    "Drc": "UE",
+    "Drc_JP": "東天",
+    "Drc_EN": "Celestial-East"
+  },
+  {
+    "Drc": "USE",
+    "Drc_JP": "南東天",
+    "Drc_EN": "Celestial-Southeast"
+  },
+  {
+    "Drc": "US",
+    "Drc_JP": "南天",
+    "Drc_EN": "Celestial-South"
+  },
+  {
+    "Drc": "USW",
+    "Drc_JP": "南西天",
+    "Drc_EN": "Celestial-Southwest"
+  },
+  {
+    "Drc": "UW",
+    "Drc_JP": "西天",
+    "Drc_EN": "Celestial-West"
+  },
+  {
+    "Drc": "UNW",
+    "Drc_JP": "北西天",
+    "Drc_EN": "Celestial-Northwest"
+  },
+  { "Drc": "DC", "Drc_JP": "地", "Drc_EN": "Terrestrial" },
+  {
+    "Drc": "DN",
+    "Drc_JP": "北地",
+    "Drc_EN": "Terrestrial-North"
+  },
+  {
+    "Drc": "DNE",
+    "Drc_JP": "北東地",
+    "Drc_EN": "Terrestrial-Northeast"
+  },
+  {
+    "Drc": "DE",
+    "Drc_JP": "東地",
+    "Drc_EN": "Terrestrial-East"
+  },
+  {
+    "Drc": "DSE",
+    "Drc_JP": "南東地",
+    "Drc_EN": "Terrestrial-Southeast"
+  },
+  {
+    "Drc": "DS",
+    "Drc_JP": "南地",
+    "Drc_EN": "Terrestrial-South"
+  },
+  {
+    "Drc": "DSW",
+    "Drc_JP": "南西地",
+    "Drc_EN": "Terrestrial-Southwest"
+  },
+  {
+    "Drc": "DW",
+    "Drc_JP": "西地",
+    "Drc_EN": "Terrestrial-West"
+  },
+  {
+    "Drc": "DNW",
+    "Drc_JP": "北西地",
+    "Drc_EN": "Terrestrial-Northwest"
+  }
 ]
