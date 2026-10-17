@@ -10,6 +10,7 @@
     "GenderType": "Male",
     "Belonging": [{ "Faction": "九蓮国皇族" }, { "Faction": "夜月機関" }],
     "FromArea": { "Area": "九蓮国" },
+    "Class": ["九蓮国 天皇陛下"],
     "Height_cm": 163,
     "Weight_kg": { "hideText": "非公開希望" },
     "Age": 31,

@@ -12,7 +12,7 @@
 - **インライン補完（ゴーストテキスト）**: 補完はカスタム指示ファイルを読み込みません。英訳作業中は本ファイルを隣のタブで開いておくと、近傍文脈として対訳が補完に反映されやすくなります。
 - **正典はあくまで辞書本体**。表に無い語・揺れがある語は `data/**/trans_*.json` 等の辞書と `docs/localization-en-rules.md` を確認してください。最終採否は User 判断です。
 
-- 収録: **206 対訳**（延べ抽出。生成日時: 2026-10-16T09:38:43.214Z）
+- 収録: **210 対訳**（延べ抽出。生成日時: 2026-10-17T02:02:45.297Z）
 
 ## 人名（姓・代理）
 
@@ -348,7 +348,7 @@
 
 ## クラス（職掌）
 
-<small>出典: `data/Dictionaries/dict_100BeautiesLab.json` / `data/Dictionaries/dict_FLInvestigators.json` / `data/Dictionaries/dict_Mikhail.json` / `data/Dictionaries/dict_NeoLotusNinean.json` / `data/Dictionaries/dict_RaisondetreCompany.json` / `data/Dictionaries/dict_RegioministratorAgents.json` / `data/Dictionaries/dict_Regioministrators.json` / `data/Dictionaries/dict_SymphonyX.json` / `data/Dictionaries/dict_SymphonyXVI.json` / `data/Dictionaries/dict_WhiteHexagram.json`</small>
+<small>出典: `data/Dictionaries/dict_100BeautiesLab.json` / `data/Dictionaries/dict_FLInvestigators.json` / `data/Dictionaries/dict_IKRoyalSociety.json` / `data/Dictionaries/dict_LotusNineaRoyal.json` / `data/Dictionaries/dict_Mikhail.json` / `data/Dictionaries/dict_NeoLotusNinean.json` / `data/Dictionaries/dict_RaisondetreCompany.json` / `data/Dictionaries/dict_RegioministratorAgents.json` / `data/Dictionaries/dict_Regioministrators.json` / `data/Dictionaries/dict_SymphonyX.json` / `data/Dictionaries/dict_SymphonyXVI.json` / `data/Dictionaries/dict_WhiteHexagram.json`</small>
 
 | 日本語 | English |
 | --- | --- |
@@ -361,7 +361,10 @@
 | ベヴストザイン課 ヒューマノイド開発部 | Bewußtsein Division, Humanoid Development Department |
 | ベヴストザイン課 新人類研究部 | Bewußtsein Division, Newer Human Research Department |
 | ベヴストザイン課 第7世界創造部 | Bewußtsein Division, WDC.VII Department |
+| 英皇国 国家研究員 | Researcher of IK.Royal |
+| 英皇国 陛下 | Sovereign of IK.Royal |
 | 機関所長 | Director of the Agency |
+| 九蓮国 天皇陛下 | Sovereign of LotusNinea |
 | 国際情報屋 | International Information Officer |
 | 国際情報屋 運航者 | Navigator of International Information Officer |
 | 国際情報屋 監督者 | Supervisor of International Information Officer |
@@ -369,6 +372,7 @@
 | 国際情報屋 同行者 | Companion of International Information Officer |
 | 采配幹部 | Dealers |
 | 采配幹部(ディーラーズ) | Dealers |
+| 召使 | Servants |
 | 新生九蓮 運航者 | Navigator of Neo.LotusNinean |
 | 新生九蓮 陛下 | Sovereign of Neo.LotusNinean |
 | 聖職課 技術修道女院部 | Clergy Division, Technical Nuns' Department |

@@ -23,7 +23,12 @@
     "FormalName_EN": "Leads.Anchorage",
     "RaceType": "Human",
     "GenderType": "Female",
-    "FromArea": { "Area": "英皇国" }
+    "Belonging": [
+      { "Faction": "セブンティエイト特殊探偵団" },
+      { "Faction": "王家英皇学会" }
+    ],
+    "FromArea": { "Area": "英皇国" },
+    "Class": ["火の棍棒支部", "召使"]
   },
   {
     "Card": { "Suit": "FireWands", "SuitNum": 12, "Num": 34 },
@@ -90,6 +95,10 @@
     "FormalName_EN": "Anger'lina.Rage.Gascony",
     "RaceType": "Human",
     "GenderType": "Female",
+    "Belonging": [
+      { "Faction": "セブンティエイト特殊探偵団" },
+      { "Faction": "ガスコニール重工" }
+    ],
     "FromArea": { "Area": "神皇国" }
   },
   {
@@ -146,6 +155,7 @@
     },
     "FormalName_JP": "ダウス・ル・ダノワ",
     "FormalName_EN": "Daus.Le.Danois",
+    "GenderType": "Male",
     "FromArea": { "Area": "神皇国" }
   },
   {

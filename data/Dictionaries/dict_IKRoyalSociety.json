@@ -1,0 +1,18 @@
+[
+  {
+    "Class": "英皇国 陛下",
+    "Class_EN": "Sovereign of IK.Royal",
+    "Class_Code": "IKS"
+  },
+  {
+    "Class": "英皇国 国家研究員",
+    "Class_EN": "Researcher of IK.Royal",
+    "Class_Code": "IKR"
+  },
+  {
+    "Class": "召使",
+    "Class_JP": "召使(執事/メイド)",
+    "Class_EN": "Servants (Butlers/Maids)",
+    "Class_Code": "IKMB"
+  }
+]

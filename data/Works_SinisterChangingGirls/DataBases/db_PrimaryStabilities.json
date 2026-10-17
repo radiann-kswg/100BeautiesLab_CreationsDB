@@ -24,6 +24,7 @@
       { "Faction": "セブンティエイト特殊探偵団" },
       { "Faction": "シンフォニー.X" }
     ],
+    "FromArea": { "Area": "九蓮国" },
     "Class": ["采配幹部(ディーラーズ)", "ヒューマノイド開発部(シンフォニー.X)"],
     "Height_cm": 167,
     "Weight_kg": 53,
@@ -111,6 +112,7 @@
     "GenderType": "Female",
     "Belonging": [{ "Faction": "王家英皇学会" }],
     "FromArea": { "Area": "雄志結国" },
+    "Class": ["召使"],
     "Height_cm": 155,
     "Weight_kg": { "hideText": "？？？" },
     "BustSize": "F",
@@ -144,6 +146,7 @@
       { "Faction": "セブンティエイト特殊探偵団" },
       { "Faction": "百花繚乱研究所" }
     ],
+    "FromArea": { "Area": "九蓮国" },
     "Class": ["采配幹部(ディーラーズ)", "最高情報責任者"],
     "Height_cm": 167,
     "Weight_kg": 53,
@@ -170,6 +173,7 @@
       "BaseAreaAbout_JP": "経歴にはそうあるが、真相は定かでない",
       "BaseAreaAbout_EN": "According to her background, but the truth is uncertain"
     },
+    "Class": [],
     "Height_cm": 177,
     "Weight_kg": { "hideText": "？？？" },
     "BustSize": "J",
