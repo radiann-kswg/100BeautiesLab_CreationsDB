@@ -75,5 +75,24 @@
     "Summary_EN": null,
     "Aliases": [],
     "Links": []
+  },
+  {
+    "Term_JP": "憤怒を鎮めるイ列",
+    "Term_JPReading": "ふんぬをしずめるいれつ",
+    "Term_EN": "R to X the Wrath Extinguisher",
+    "TermType": null,
+    "Category": "OtherPropers",
+    "Summary_JP": "怒りを鎮めるための７か条からなる架空のアンガーマネジメント標語。和文版は五十音のイ列（い・き・し・ち・に・ひ・み）として構成される。",
+    "Summary_EN": "A fictional anger-management slogan made up of seven steps for calming one's wrath. The English version takes the letters R through X (R, S, T, U, V, W, X).",
+    "BodyBlocks_JP": [
+      "【憤怒を鎮めるイ列】\nい：急がない\nき：客観視する\nし：深呼吸する\nち：力を抜く\nに：逃げる(=その場から離れる)\nひ：筆跡を残さない形で描く\nみ：見られないところでやる(=見られても大丈夫な範囲に留める)／見られても不快にならない内容で助けを求める\n",
+      "－－怒ったときこそ冷静に、ゆるせないときほど慎重に。（※雄志結国のある教祖の言葉）"
+    ],
+    "BodyBlocks_EN": [
+      "[R to X the Wrath Extinguisher]\nR: Don't Rush\nS: Step back\nT: Take a deep breath\nU: Unclench\nV: Vacate the scene\nW: Write it out, then Wipe it away\nX: eXile it from sight / reach out to an eXternal ally\n",
+      "-- Stay calm when angry, and be cautious when you cannot forgive. (* A saying from a certain religious leader in United.Heroic.Nation)"
+    ],
+    "Aliases": [],
+    "Links": []
   }
 ]

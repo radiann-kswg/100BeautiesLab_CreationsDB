@@ -259,6 +259,15 @@
     "isAcademic": false
   },
   {
+    "Faction": "カレイドスコウプ教団",
+    "Faction_EN": "Kaleidoscope Cult",
+    "FactionsBaseArea": { "Area": "雄志結国" },
+    "RegionstyleWithin": { "Regioministration": "Z" },
+    "isForSecondary": false,
+    "isMaker": false,
+    "isAcademic": null
+  },
+  {
     "Faction": "白の六芒星",
     "Faction_EN": "WhiteHexagram",
     "FactionsBaseArea": { "Area": "雄志結国" },

@@ -1,0 +1,244 @@
+[
+  {
+    "Drc": "NNE",
+    "Drc_Alt": "UN",
+    "Progress": "nowCreating",
+    "AnotherRegions_DBLink": [
+      {
+        "_Work": "FLInvestigator78",
+        "_DB": "PrimaryDealer",
+        "Card": { "Suit": "Dealer", "Num": 79 }
+      },
+      {
+        "_Work": "NumberTales",
+        "_DB": "SemiPrimary",
+        "Num": "%"
+      }
+    ],
+    "Name_JP": "錦野 舞",
+    "Name_EN": "Dancy Actressilk",
+    "CodeName_JP": "純潔の深夜",
+    "CodeName_EN": "Chastity o'clock in Midnight",
+    "RaceType": "Human",
+    "Belonging": [
+      { "Faction": "セブンティエイト特殊探偵団" },
+      { "Faction": "シンフォニー.X" }
+    ],
+    "FromArea": { "Area": "九蓮国" },
+    "Class": ["采配幹部(ディーラーズ)", "ヒューマノイド開発部(シンフォニー.X)"],
+    "Height_cm": 167,
+    "Weight_kg": 53,
+    "BustSize": "B",
+    "Age": 24
+  },
+  {
+    "Drc": "ENE",
+    "Drc_Alt": "UNE",
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      {
+        "_Work": "UnibyteLive",
+        "_DB": "PrimaryPerformers",
+        "Letter": { "Alphabet": "O", "AlphaGen": 2 }
+      },
+      { "_DB": "Regioministrators", "Regioministration": "W" }
+    ],
+    "AnotherVersion_DBLink": [
+      { "_DB": "Primary", "Drc": "NE" },
+      { "_DB": "Regioministrators", "Regioministration": "X" }
+    ],
+    "Name_JP": "扇 零夏・スフィリア",
+    "Name_JPReading": "おうぎ れいか・スフィリア",
+    "Name_EN": "Arch Origth.Spheria",
+    "FormalName_JP": "扇 零夏・スフィリア",
+    "FormalName_JPReading": "おうぎ れいか・スフィリア",
+    "FormalName_EN": "Arch Origth.Spheria",
+    "CodeName_JP": "自制の明方",
+    "CodeName_EN": "Temperance o'clock in Early",
+    "RaceType": "Warfox",
+    "GenderType": "ArbitraryFemale",
+    "Belonging": [
+      { "Faction": "国際情報広報機関『ミハイル』" },
+      { "Faction": "『管理主』代理人" }
+    ],
+    "FromArea": {
+      "Area": "四蓮島",
+      "BaseAreaAbout_JP": "自称",
+      "BaseAreaAbout_EN": "Self-proclaimed"
+    },
+    "Class": ["『管制主』代理人（『再生』担当）"],
+    "Height_cm": 159,
+    "Weight_kg": { "hideText": "判定失敗" },
+    "BustSize": "I",
+    "Age": { "about_JP": "不詳", "about_EN": "Unknown or Undefined" },
+    "FirstPersonCalling_JP": "アーシ",
+    "FirstPersonCalling_EN": "Sphery (very casual, in English: by name casually, in Japanese: 'a-shi')",
+    "SecondPersonCalling_JP": "アンタ",
+    "SecondPersonCalling_EN": "guy/gal(s) (anta; very casual)",
+    "ThirdPersonCalling_JP": "~君,センパイ",
+    "ThirdPersonCalling_EN": "[*by name], senpai (very casual)",
+    "Character_JP": "気さくで陽気な若人。かなり大胆な気性なので自ら自重しているという",
+    "Character_EN": "",
+    "Hobby_JP": "流行を堪能すること、世界の要約を掴むこと",
+    "Hobby_EN": "Enjoying trends, grasping the summary of the world",
+    "SpecialSkill_JP": "姿を変えられる",
+    "SpecialSkill_EN": "Can change appearance",
+    "Favor_JP": "おしゃれで高級な喫茶店",
+    "Favor_EN": "Stylish and high-class cafes",
+    "Unlike_JP": "フードファイター（三春のような無自覚大食漢を含む）",
+    "Unlike_EN": "Food fighters (including unconscious gluttons like Mikhail)",
+    "ColorPalette": null,
+    "Summary_JP": "「ミハイル」という国際情報広報機関に相乗りする形で世界を旅するギャル系配信者。\nその大胆で活発な性格と派手なファッションセンスに反し、世間に浮かれすぎて見られぬよう「自制」を常日頃から掛けていると彼女を推しているリスナーからの考察が後を絶たない。\n配信者としてバーチャルアバターを有しているものの、妖狐ゆえの変化とさえみられる群を抜いたコスプレ能力があり、現実空間でもアバターに負けない魅力を発信している。",
+    "Summary_EN": "A gal-style streamer who travels the world by riding along with 'Mikhail', the International Information & Public Relations Agency.\nDespite a bold, energetic personality and a flashy fashion sense, theories keep pouring in from the listeners who support her(zir) that this streamer constantly exercises 'Temperance' so as not to look too carried away by the world.\nAlthough she(ze) has a virtual avatar as a streamer, an outstanding talent for cosplay, one that could even be mistaken for a Warfox's shapeshifting, lets her(zir) broadcast a charm in real space that rivals the avatar's own."
+  },
+  {
+    "Drc": "ESE",
+    "Drc_Alt": "DE",
+    "isPrivate": true,
+    "Progress": "notProceeded",
+    "CodeName_JP": "寛恕の明方",
+    "CodeName_EN": "Forgiveness o'clock in Morning"
+  },
+  {
+    "Drc": "SSE",
+    "Drc_Alt": "DSE",
+    "Progress": "notProceeded",
+    "Name_JP": "ヴァーチェル・アンカレッジ",
+    "Name_EN": "Virchel.Anchorage",
+    "FormalName_JP": "ヴァーチェル・アンカレッジ\nアンカール・エンカレージャ=ヴィルゲン",
+    "FormalName_EN": "Virchel.Anchorage\nAnchors.Encourager=Virgen",
+    "CodeName_JP": "勇気の朝方",
+    "CodeName_EN": "Courage o'clock in Morning",
+    "GenderType": "Female",
+    "Belonging": [{ "Faction": "王家英皇学会" }],
+    "FromArea": { "Area": "雄志結国" },
+    "Class": ["召使"],
+    "Height_cm": 155,
+    "Weight_kg": { "hideText": "？？？" },
+    "BustSize": "F",
+    "Age": 24,
+    "BirthDay": { "Day": { "Month": 9, "DayOfMonth": 1 } },
+    "Summary_JP": "雄志結国と四蓮島での戦渦に呑まれ瀕死になったところを王家英皇学会に救われた。\n救出される7年前の記憶を失っており、学会の優雅な教育を経ておとなしくも凛々しい少女として過ごしていた。\nしかしある日、彼女は雄志結国の『プロジェクト・クィーン』計画で生まれた「クィーン・エイト」であることが判明してから、才能が再開花し「勇気」に満ち溢れた戦闘能力を不意に発揮するようになったらしい……",
+    "Summary_EN": "Swallowed up by the ravages of war in United.Heroic.Nation and LotasQuadrup.Island, she was on the brink of death when the IK.Royal Society rescued her.\nHaving lost her memories of the seven years before her rescue, she spent her days as a quiet yet dignified girl, shaped by the Society's elegant education.\nHowever, one day it came to light that she was 'Queen.VIII', born of United.Heroic.Nation's 'Project.Queen' program. Since then, her talents seem to have bloomed once more, and she has begun to unexpectedly display combat abilities overflowing with 'Courage'..."
+  },
+  {
+    "Drc": "SSW",
+    "Drc_Alt": "US",
+    "Progress": "nowCreating",
+    "AnotherRegions_DBLink": [
+      {
+        "_Work": "FLInvestigator78",
+        "_DB": "PrimaryDealer",
+        "Card": { "Suit": "Dealer", "Num": 80 }
+      },
+      {
+        "_Work": "NumberTales",
+        "_DB": "SemiPrimary",
+        "Num": "∞"
+      }
+    ],
+    "Name_JP": "錦野 歌嫁",
+    "Name_EN": "Phonia Actressilk",
+    "CodeName_JP": "救恤の昼",
+    "CodeName_EN": "Charity o'clock in Daytime",
+    "RaceType": "Human",
+    "Belonging": [
+      { "Faction": "セブンティエイト特殊探偵団" },
+      { "Faction": "百花繚乱研究所" }
+    ],
+    "FromArea": { "Area": "九蓮国" },
+    "Class": ["采配幹部(ディーラーズ)", "最高情報責任者"],
+    "Height_cm": 167,
+    "Weight_kg": 53,
+    "BustSize": "B",
+    "Age": 24
+  },
+  {
+    "Drc": "WSW",
+    "Drc_Alt": "USW",
+    "Progress": "notProceeded",
+    "Name_JP": "カモミール・エクヴィス",
+    "Name_EN": "Chamomile.Exvis",
+    "FormalName_JP": "カモミール・エクヴィス",
+    "FormalName_EN": "Chamomile.Exvis",
+    "CodeName_JP": "慈愛の午後",
+    "CodeName_EN": "Kindness o'clock in Afternoon",
+    "GenderType": "Female",
+    "Belonging": [
+      { "Faction": "カレイドスコウプ教団" },
+      { "Faction": "アーヴァントガーデン学芸学会" }
+    ],
+    "FromArea": {
+      "Area": "英皇国",
+      "BaseAreaAbout_JP": "経歴にはそうあるが、真相は定かでない",
+      "BaseAreaAbout_EN": "According to her background, but the truth is uncertain"
+    },
+    "Class": [],
+    "Height_cm": 177,
+    "Weight_kg": { "hideText": "？？？" },
+    "BustSize": "J",
+    "Age": 38,
+    "BirthDay": { "Day": { "Month": 2, "DayOfMonth": 24 } },
+    "Summary_JP": "雄志結国から国際教師として、神皇国のアーヴァントガーデン学芸学会に異動した修道女。\nすべての人を平等に愛し、すべての人を対等に導く「慈愛」深い彼女の教えは本物……なのだが、「雄志結国の軍事改造人間計画である『プロジェクト・クィーン』に強く関与した重要危険人物として亡命したのではないか」と神皇国内で噂されており、彼女がなぜこの学芸学会に教えを説いているのかは謎に包まれている。",
+    "Summary_EN": "A nun who transferred from United.Heroic.Nation to the ArvantGarden Academic Society in SaintPapis as an international teacher.\nHer teachings, deep with a 'Kindness' that loves all people equally and guides all people as equals, are genuine... and yet, rumors within SaintPapis whisper that \"she may have defected as a key dangerous figure deeply involved in 'Project.Queen', United.Heroic.Nation's military program for modified humans\", and why she preaches at this Academic Society remains shrouded in mystery."
+  },
+  {
+    "Drc": "WNW",
+    "Drc_Alt": "DW",
+    "isPrivate": true,
+    "Progress": "notProceeded",
+    "CodeName_JP": "知識の晩",
+    "CodeName_EN": "Knowledge o'clock in Evening"
+  },
+  {
+    "Drc": "NNW",
+    "Drc_Alt": "DNW",
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_DB": "Regioministrators", "Regioministration": "Z" }
+    ],
+    "AnotherVersion_DBLink": [
+      { "_DB": "Primary", "Drc": "NW" },
+      { "_DB": "Regioministrators", "Regioministration": "Y" }
+    ],
+    "Name_JP": "財前 小里",
+    "Name_JPReading": "ざいぜん こさと",
+    "Name_EN": "Foster Empressor",
+    "FormalName_JP": "財前 小里\n扇 爾秋",
+    "FormalName_JPReading": "ざいぜん こさと\nおうぎ ユースフォール",
+    "FormalName_EN": "Foster Empressor\nArch Falyouth",
+    "CodeName_JP": "正義の夜",
+    "CodeName_EN": "Justice o'clock in Night",
+    "RaceType": "Ghostinaries(Acquired)",
+    "GenderType": "FemaleNeutral",
+    "Belonging": [{ "Faction": "『管理主』代理人" }],
+    "FromArea": {
+      "Area": "四蓮島",
+      "BaseAreaAbout_JP": "自称",
+      "BaseAreaAbout_EN": "Self-proclaimed"
+    },
+    "Class": ["『管制主』代理人（『還元』担当）"],
+    "Height_cm": 154,
+    "Weight_kg": { "hideText": "判定失敗" },
+    "Age": { "hideText": "判定失敗" },
+    "FirstPersonCalling_JP": "ボク",
+    "FirstPersonCalling_EN": "I (masc. informal)",
+    "SecondPersonCalling_JP": "キミ",
+    "SecondPersonCalling_EN": "you",
+    "ThirdPersonCalling_JP": "[※名前呼び]",
+    "ThirdPersonCalling_EN": "[*by name]",
+    "Character_JP": "社会が互いに競い合い技術を磨き上げていく様子を「エンタメ」として楽しんでいる",
+    "Character_EN": "Enjoys observing society as people compete and refine their skills, seeing it as 'entertainment'",
+    "Hobby_JP": "エンターテインメント",
+    "Hobby_EN": "Entertainment",
+    "SpecialSkill_JP": "世界の情勢をすべて知っている",
+    "SpecialSkill_EN": "Knows all the world's affairs",
+    "Favor_JP": "人々が切磋琢磨し実力が実る様子",
+    "Favor_EN": "The sight of people striving and seeing their abilities bear fruit",
+    "Unlike_JP": "面白くないこと",
+    "Unlike_EN": "Uninteresting things",
+    "ColorPalette": null,
+    "Summary_JP": "第7創世紀から第8創世紀に掛けて活躍していた若手超大物政治ジャーナリストをしていた謎の若人で、十数年前に突如 電撃引退を宣言し各メディアから姿を消したが、第9創世紀に至るまで実体を失っていた。\nしかしある時からドッペルゲンガーともいわれるべき「終藤 こさと」の存在が各地の機関で警戒されるようになったことを危惧し、亡霊概念として自ら蘇生を試みたという。\n彼女と「終藤 こさと」の関係は未だ謎に包まれており、彼女の引退の真相と「正義」の目的も知られる由がないだろう。",
+    "Summary_EN": "A mysterious young figure who was a prominent young political journalist active from WDCE.VII through WDCE.VIII. More than a decade ago, she abruptly announced her retirement and vanished from all media, and she lost her physical form until WDCE.IX.\nHowever, growing wary that 'Formar Endrof', a being who could only be called her doppelgänger, had at some point come under the watch of institutions everywhere, she is said to have attempted to revive herself as a Ghostinary.\nHer relationship with 'Formar Endrof' remains shrouded in mystery, and the truth and purpose behind her retirement of 'Justice' are unlikely ever to be known."
+  }
+]

@@ -57,6 +57,11 @@
     "isForSecondary": null
   },
   {
+    "Area": "暁美諸国",
+    "Area_EN": "Corizing Nations",
+    "isForSecondary": null
+  },
+  {
     "Area": "算象(アリスマ)諸国",
     "Area_EN": "Alismathians",
     "isForSecondary": null
@@ -74,11 +79,6 @@
   {
     "Area": "然天(ネーザ)大陸",
     "Area_EN": "Naitus Mainland",
-    "isForSecondary": null
-  },
-  {
-    "Area": "暁美諸国",
-    "Area_EN": "Corizing Nations",
     "isForSecondary": null
   },
   {

@@ -27,6 +27,12 @@
       "hashTag_EN": "Direction"
     },
     {
+      "hashTag": "Drc_Alt",
+      "$type": "#Index",
+      "hashTag_JP": "方角(別義)",
+      "hashTag_EN": "Direction (Alternative)"
+    },
+    {
       "hashTag": "Regioministration",
       "$type": "#Index",
       "hashTag_JP": "『管理主』権限ロール",

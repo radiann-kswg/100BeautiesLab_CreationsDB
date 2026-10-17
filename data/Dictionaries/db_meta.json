@@ -33,12 +33,26 @@
       "compatListKey": "#List_Class",
       "scopeField": { "Belonging": "百花繚乱研究所" }
     },
+    "#Dict_LotusNineaRoyal": {
+      "DB_Label_JP": "クラス辞書(九蓮国皇族向け)",
+      "DB_Label_EN": "Class Dictionary (for Royal of LotusNinea)",
+      "keyField": "Class",
+      "compatListKey": "#List_Class",
+      "scopeField": { "Belonging": "九蓮国皇族" }
+    },
     "#Dict_FLInvestigators": {
       "DB_Label_JP": "クラス辞書(「78特殊探偵団」向け)",
       "DB_Label_EN": "Class Dictionary (for Team.78(Seventy-Eight))",
       "keyField": "Class",
       "compatListKey": "#List_Class",
       "scopeField": { "Belonging": "セブンティエイト特殊探偵団" }
+    },
+    "#Dict_IKRoyalSociety": {
+      "DB_Label_JP": "クラス辞書(「王家英皇学会」向け)",
+      "DB_Label_EN": "Class Dictionary (for IK.Royal Society)",
+      "keyField": "Class",
+      "compatListKey": "#List_Class",
+      "scopeField": { "Belonging": "王家英皇学会" }
     },
     "#Dict_WhiteHexagram": {
       "DB_Label_JP": "クラス辞書(白の六芒星向け)",

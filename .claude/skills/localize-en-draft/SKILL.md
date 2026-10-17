@@ -43,7 +43,9 @@ description: data/Works_*/DataBases/db_*.json 等の JP フィールド（Summar
 4. **代名詞方針の決定**: レコードの `GenderType` から `docs/localization-en-rules.md` §1 の表に従いポリシーを決める。
    - `FemaleNeutral` / `Female` → `she`/`her`
    - `MaleNeutral` / `Male` → `he`/`him`
-   - `Neutral` → `ze`/`zir`（`they/them`・`he/she`・`him/her` は使わない。§1-1 の活用表に従う）
+   - `Neutral` / `Arbitrary` → `ze`/`zir`（`they/them`・`he/she`・`him/her` は使わない。§1-1 の活用表に従う）
+   - `ArbitraryFemale` → `she(ze)`/`her(zir)`（括弧併記。目的格・所有格は `her(zir)`、再帰は `herself(zirself)`）
+   - `ArbitraryMale` → `he(ze)`/`him(zir)`（括弧併記。目的格・所有格は `him(zir)`、再帰は `himself(zirself)`）
    - 未設定 / `Unknown` 等の非標準値 → 代名詞を避け、名前やキャラクター呼称で代替（原文が代名詞を使っていない場合はそれに倣う）
    - `ThirdPersonCalling_EN` はこのルールの対象外（キャラ自身の代名詞ではなく「他者の呼び方」を示すフィールドのため）。
 
