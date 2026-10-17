@@ -1,5 +1,22 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### fix: キャラシート UI の表示整理（重複行・JP/EN 混入・モバイル段組み） (2026-10-17)
+
+- **背景**: References（共通資料）やモバイル幅で、同じ値が 2 行出る・JP 表示に英文が混入する・ヒーロー帯が 2 カラムのまま潰れる等の表示崩れがあった。
+- **変更**:
+  - `pages/characters.js`
+    - `Summary`（suffix 無し・共有言語）を概要の候補に含める。従来は `Summary_JP → Summary_EN` の順だけで、JP 表示に `Summary_EN` が出ていた。
+    - 基本情報テーブルで `*_JPReading` を base と同一視（読みは `用語名` 行に「JP （読み）」としてマージ済みのため）。
+    - `$alt` で他キーから借りた値の行（enrich 済みは `_enrichment.altFallbacks`、未 enrich は labelKey の差で判定）は、貸し元が同じテーブルに居れば出さない（`Title ← Term_JP` の「資料名」重複）。汎用経路側も `shownKeys` で同様に抑止。
+    - EN ラベルの逆引きを `*_JP` キーにも適用（`FormalName_JP` → `FormalName_EN.hashTag_EN`）。EN ラベルが無いときの最終手段は CamelCase を語に分ける（`BasicInfo` → `Basic Info`）。
+    - JP 固定だった UI 文言（`画像なし` / `画像ギャラリー` / `画像データがありません` / `基本情報` / `プロフィール/テキスト` / `スペック/能力` / `関連情報` / `非公開` / `詳細情報を読み込んでいます...` / `閉じる` / `相関図を開く` / `さらに N 枚`）を `getUiCopyByLanguage()` へ寄せ、EN 表示で英語にする。
+    - ヘッダーピルのラベルと値の間に `: ` を入れる（`進捗公開済み` → `進捗: 公開済み`）。
+  - `pages/characters.sass`: `.thumb` / `.poster` の `::before` 文言を削除（JS 側 placeholder と二重で「画像なし画像なし」になっていた）。`.detail-hero` のサイズ指定を本体へ集約し、後勝ちで `@media (max-width: 720px)` の 1 カラム化を潰していた再宣言を削除。モバイルで `.control-row .grow` の `flex-basis: 320px` が縦方向の高さになって空白が出る問題を media query 側の selector に追加して解消。
+  - `lib/section-renders/relation.js`: 関係ラベル無しのコメント行を `: - コメント` → `: コメント` に。
+  - `data/db_type.json`: `Height_cm` / `Weight_kg` のラベルを `身長` / `Height`・`体重` / `Weight` に（`$display.unit` が値側に単位を付けるため `身長_cm 152 cm` と二重だった）。
+- **影響範囲**: `pages/characters.js` / `pages/characters.sass`（`.css` 再生成）/ `pages/characters.html`（asset-version）/ `lib/section-renders/relation.js` / `data/db_type.json` / `tests/pages.characters.ui-output.test.js`。
+- **下流への申し送り**: `pages/` と `lib/section-renders/relation.js` はフレームワーク側。`db_type.json` のラベル変更は本リポジトリ固有の data なので取り込み不要（下流で `Height_cm` 等の `hashTag_JP/EN` を持つなら同じ理由で単位を外すとよい）。
+
 ### feat: 創世紀元年を meta 宣言（`General.StoryEraEpochs`）し `YearInEra` を元年基準へ統一 + `StoryEra` / `Age` 整合テスト (2026-10-14)
 
 - **背景**: 作品別 `db_meta.json` の `StoryEra` は `EraGen` / `YearInEra` / `byRealYear` を並置するが元年の宣言が無く、第8創世紀の起点が作品により 2045 / 2046、第9創世紀が 2048 / 2050 と食い違っていた。`Age` が DB の `InEra.byRealYear` 時点の年齢であることを機械的に確認する手段も無かった。

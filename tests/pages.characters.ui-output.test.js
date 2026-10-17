@@ -438,7 +438,7 @@ describe('pages/characters.js UI output', () => {
 		await charactersModule.renderDetail('#Works_PastDivers', yayoiRecord);
 
 		expect(getBasicFieldValue('性別')).toBe('女性 / Female');
-		expect(getBasicFieldValue('体重_kg')).toBe('非公開希望');
+		expect(getBasicFieldValue('体重')).toBe('非公開希望');
 	});
 
 	// ChronoholderName は $DetailLayout の basicFields から subFields の先頭へ移した項目。
@@ -474,7 +474,7 @@ describe('pages/characters.js UI output', () => {
 
 		await charactersModule.renderDetail('#Works_PastDivers', record);
 
-		expect(getBasicFieldValue('Weight_kg')).toBe('Non-Public at Pleasure');
+		expect(getBasicFieldValue('Weight')).toBe('Non-Public at Pleasure');
 
 		// `_JP` だけにマスクがあり `_EN` が無い場合も、辞書 #List_hideText 経由で EN ラベルを出す
 		const detailText = document.querySelector('#detail')?.textContent || '';
