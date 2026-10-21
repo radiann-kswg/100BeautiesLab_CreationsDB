@@ -2,7 +2,7 @@
   {
     "Drc": "NNE",
     "Drc_Alt": "UN",
-    "Progress": "nowCreating",
+    "Progress": "unreleased",
     "AnotherRegions_DBLink": [
       {
         "_Work": "FLInvestigator78",
@@ -17,6 +17,7 @@
     ],
     "Name_JP": "錦野 舞",
     "Name_EN": "Dancy Actressilk",
+    "Images": { "concept_PNGName": "cnsp_imgSCG-NNE" },
     "CodeName_JP": "純潔の深夜",
     "CodeName_EN": "Chastity o'clock in Midnight",
     "RaceType": "Human",
@@ -29,7 +30,9 @@
     "Height_cm": 167,
     "Weight_kg": 53,
     "BustSize": "B",
-    "Age": 24
+    "Age": 24,
+    "Summary_JP": "九蓮国の理科大学を経て黒薔薇国の「シンフォニー.X(ツェーン)」に就職し、現在はヒューマノイド開発部の企画担当を行っている。\n要件定義も的確でタロットカードによる占いに秀でた相談しやすい人柄でありながら、部署内では「英皇国のセブンティエイト特殊探偵団で世界を救った英雄」とも噂されている。\nしかし彼女は、異性との交友経験や性的趣向が全くない「純潔」すぎる素質があり、彼女に近づこうとした男は必ず彼女を護らんとする\"何者かによって抹消されている\"という……",
+    "Summary_EN": "After graduating from a science university in LotusNinea, she joined 'Symphony.X' in SchwarzeRoseland, and now handles planning for its Humanoid Development Department.\nPrecise in requirements definition, gifted at tarot card readings and easy to consult, she is also rumored within her department to be \"the hero who saved the world with Team.78 the Special Investigators of Internic.Kingdom\".\nHowever, she has a disposition of 'Chastity' taken too far, with absolutely no experience of relationships with the opposite gender nor any sexual inclinations, and it is said that any man who tries to get close to her is invariably \"ERASED by someone\" intent on protecting her..."
   },
   {
     "Drc": "ENE",
@@ -124,7 +127,7 @@
   {
     "Drc": "SSW",
     "Drc_Alt": "US",
-    "Progress": "nowCreating",
+    "Progress": "unreleased",
     "AnotherRegions_DBLink": [
       {
         "_Work": "FLInvestigator78",
@@ -139,6 +142,7 @@
     ],
     "Name_JP": "錦野 歌嫁",
     "Name_EN": "Phonia Actressilk",
+    "Images": { "concept_PNGName": "cnsp_imgSCG-SSW" },
     "CodeName_JP": "救恤の昼",
     "CodeName_EN": "Charity o'clock in Daytime",
     "RaceType": "Human",
@@ -151,7 +155,9 @@
     "Height_cm": 167,
     "Weight_kg": 53,
     "BustSize": "B",
-    "Age": 24
+    "Age": 24,
+    "Summary_JP": "学内事業の「百花繚乱研究所」への所属を経由する形で、九蓮国の理科大学にて博士課程の選考に合格している。\n顧客が必要とするものを瞬時に判断し必要な人材を取りまとめるエース気質な人柄で、研究所内では「英皇国のセブンティエイト特殊探偵団で世界を救った英雄」とも噂されている。\nしかし彼女は、自分の創出物や肖像・著作物を需要のある他人へ積極的に提供しようとする「救恤」すぎる気質があり、彼女の物欲や所有物はまるで\"常に何者かと共有されるべきもの\"であるようだとか……",
+    "Summary_EN": "By way of joining the 'HundredBeauties Laboratory', an on-campus venture, she has passed the selection for the doctoral program at a science university in LotusNinea.\nAn ace by nature who instantly judges what clients need and brings together the right people, she is also rumored within the Laboratory to be \"the hero who saved the world with Team.78 the Special Investigators of Internic.Kingdom\".\nHowever, she has a disposition of 'Charity' taken too far, eagerly offering her own creations, likeness and works to anyone who wants them, and it seems as though her material desires and belongings are \"things ALWAYS meant to be SHARED with someone\"..."
   },
   {
     "Drc": "WSW",
