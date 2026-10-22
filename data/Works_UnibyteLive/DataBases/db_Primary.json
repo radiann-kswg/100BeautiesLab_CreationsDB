@@ -780,7 +780,7 @@
     "FormalName_EN": "Orby O-Circle",
     "CodeName_JP": "丸(O),円",
     "CodeName_EN": "O,Circle,Orb/Orbital",
-    "Class": ["運営補佐"],
+    "Class": ["運営補佐", "キーキャッパーモデラ"],
     "Height_cm": 120,
     "BustSize": "H",
     "ConceptAge": 14,
@@ -817,16 +817,22 @@
   },
   {
     "Letter": { "Alphabet": "O", "AlphaGen": 2 },
-    "Progress": "notProceeded",
+    "Progress": "nowCreating",
     "ThisPerformer_DBLink": {
       "_DB": "PrimaryPerformer",
       "Letter": { "Alphabet": "O", "AlphaGen": 2 }
     },
     "Name_JP": "O:マリル",
     "Name_EN": "O:Objeroll",
+    "Images": {
+      "keycapper_PNGPath": [
+        "O/emstk_keycapperUBL-Og2-1.png",
+        "O/emstk_keycapperUBL-Og2-2.png"
+      ]
+    },
     "FormalName_JP": "球 マリルスフィア",
     "FormalName_JPReading": "たまき マリルスフィア",
-    "FormalName_EN": "Objeroll O-SphereRoll",
+    "FormalName_EN": "Objeroll O-Sphere",
     "CodeName_JP": "球(O),手毬",
     "CodeName_EN": "O,Sphere Roll(O-Shape)",
     "GenderType": {
@@ -834,7 +840,12 @@
       "about_JP": "ただし実は……？",
       "about_EN": "However, in fact...?"
     },
-    "Class": ["現役アルベッツ", "アルベッツ6期生", "世代リーダー"],
+    "Class": [
+      "現役アルベッツ",
+      "アルベッツ6期生",
+      "世代リーダー",
+      "キーキャッパーモデラ"
+    ],
     "Height_cm": [
       {
         "about_JP": "可変\n(およそ160cmでいることが多く、キーキャッパーも同様に可変可能)",

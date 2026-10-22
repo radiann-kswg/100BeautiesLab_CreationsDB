@@ -58788,6 +58788,16 @@
     "Name_EN": "Zera Norumber",
     "Images": {
       "concept_PNGName": "cnsp_imgNTS-0",
+      "conceptAlt_PNGName": [
+        {
+          "_DBCrossLinkPath": {
+            "_Work": "SinisterChangingGirls",
+            "_DB": "Primary",
+            "_Field": "concept_PNGName",
+            "_IsoPath": "cnsp_imgSCG-N"
+          }
+        }
+      ],
       "arts_PNGPath": ["art_imgNTS-0-developper"]
     },
     "FormalName_JP": "千歳 玲",

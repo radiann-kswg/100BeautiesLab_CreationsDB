@@ -7493,7 +7493,7 @@
   {
     "Num": "%",
     "Num_Badge": "DIV",
-    "Progress": "notProceeded",
+    "Progress": "nowCreating",
     "AnotherRegions_DBLink": [
       {
         "_Work": "FLInvestigator78",
@@ -7508,6 +7508,18 @@
     ],
     "Name_JP": "錦野 舞",
     "Name_EN": "Dancy Actressilk",
+    "Images": {
+      "conceptAlt_PNGName": [
+        {
+          "_DBCrossLinkPath": {
+            "_Work": "SinisterChangingGirls",
+            "_DB": "PrimaryStabilities",
+            "_Field": "concept_PNGName",
+            "_IsoPath": "cnsp_imgSCG-NNE"
+          }
+        }
+      ]
+    },
     "RaceType": "Human",
     "Belonging": [{ "Faction": "シンフォニー.X" }],
     "Class": ["開発者", "ヒューマノイド開発部(シンフォニー.X)"],
@@ -7517,10 +7529,12 @@
     "ForMasterCalling_EN": "Client-san",
     "RelationNotes_JP": "ナンバーテールズ開発者である零(カズナイ)姉弟の後輩。妹:歌嫁は同じくしてかつ百花繚乱研究所のアシスタントを行なっている。",
     "RelationNotes_EN": "Junior to the Norumber siblings, developers of NumberTales. Her sister, Phonia, is also an assistant at the 100 Beauties Lab.",
+    "Summary_JP": "「シンフォニー.X(ツェーン)」に所属し、ナンバーテールズの国際開発と海外との業務提携を担当している。\n相談のしやすい気質や要件定義の才能を活かし、ナンバーテールズの国際進出に一役買って出ている存在。\nナンバーテールズ開発者の零零(カズナイレイ)の後輩で、数秘についてのアイディアを提供した第一人者でもある。\n趣味はタロット占いと友人との雑談。ただ男性の会話相手は一向に現れないみたいで…",
+    "Summary_EN": "A member of 'Symphony.X', she is in charge of the international development of NumberTales and of business partnerships overseas.\nMaking the most of her approachable nature and her talent for requirements definition, she has stepped up to play a part in NumberTales' international expansion.\nA junior of NumberTales developer 'Zera', she is also the foremost contributor of ideas on numerology.\nHer hobbies are tarot reading and chatting with friends. Yet a male conversation partner never seems to turn up...",
     "Backgrounds_JP": "ちなみに運命線探偵としての錦野舞は、妹:歌嫁を含めおよそ7年前のパラレル存在に相当する",
     "Backgrounds_EN": "Note: as a FateLine Investigators, Dancy Actressilk corresponds to a parallel existence from about 7 years ago, including her sister Phonia Actressilk.",
     "InStory_JP": "シンフォニー.X(ツェーン)に所属後、量産販売型ナンバーテールズの相場的販売コストを抑えた互換個体ユニットの開発・提供を百花繚乱研究所（の主に零零(カズナイレイ)）と提携して行なっている",
-    "InStory_EN": "After joining Symphony.XVI(Sechzehn), she has been developing and providing compatible unit models with reduced market cost for mass-produced NumberTales in partnership with the 100 Beauties Lab. (mainly with Zera Norumber).",
+    "InStory_EN": "After joining Symphony.X(Zehn), she has been developing and providing compatible unit models with reduced market cost for mass-produced NumberTales in partnership with the 100 Beauties Lab. (mainly with Zera Norumber).",
     "Relation": {
       "Related": [{ "Num": "∞", "RelationLabel": ["brother|sister"] }]
     },
@@ -7543,7 +7557,7 @@
   {
     "Num": "∞",
     "Num_Badge": "INF",
-    "Progress": "notProceeded",
+    "Progress": "nowCreating",
     "AnotherRegions_DBLink": [
       {
         "_Work": "FLInvestigator78",
@@ -7558,6 +7572,18 @@
     ],
     "Name_JP": "錦野 歌嫁",
     "Name_EN": "Phonia Actressilk",
+    "Images": {
+      "conceptAlt_PNGName": [
+        {
+          "_DBCrossLinkPath": {
+            "_Work": "SinisterChangingGirls",
+            "_DB": "PrimaryStabilities",
+            "_Field": "concept_PNGName",
+            "_IsoPath": "cnsp_imgSCG-SSW"
+          }
+        }
+      ]
+    },
     "RaceType": "Human",
     "Class": ["ゼミアシスタント"],
     "Height_cm": 167,
@@ -7567,7 +7593,9 @@
     "ForMasterCalling_JP": "クライアントさん",
     "ForMasterCalling_EN": "Client-san",
     "RelationNotes_JP": "ナンバーテールズ開発者である零(カズナイ)姉弟の後輩。姉:舞は同じくしてシンフォニー.X(ツェーン)に所属し黒薔薇国へ単身赴任している",
-    "RelationNotes_EN": "Junior to the Norumber siblings, developers of NumberTales. Her sister, Dancy, belongs to Symphony.XVI(Sechzehn) and is on a solo assignment in the Black Rose Kingdom.",
+    "RelationNotes_EN": "Junior to the Norumber siblings, developers of NumberTales. Her sister, Dancy, belongs to Symphony.X(Zehn) and is on a solo assignment in the Black Rose Kingdom.",
+    "Summary_JP": "ナンバーテールズの量産企画と研究所内のゼミアシスタントを担当し、舞とは双子の妹である。\n剣道と共同活動で培った統治力で、研究所内外を問わず様々な人材を取りまとめている。\nナンバーテールズ開発者の零百(カズナイハゲム)とは直属の先輩であるだけでなく、お互いに短所を補い長所を引き出し合う強力なバディとなっている。\n自分の開発物は常に他人へ還元させたい性分のため、よく趣味で開発しては公的ライセンスで提供している。",
+    "Summary_EN": "In charge of NumberTales mass-production planning and serving as a Seminar Assistant in the Laboratory, she is the younger twin sister of 'Dancy'.\nWith the leadership she honed through kendo(Far-Eastern fencing) and collaborative activities, she brings together all kinds of people both inside and outside the Laboratory.\nNumberTales developer 'Hudret' is not just her direct senior: the two make a powerful buddy pair, covering each other's weaknesses and drawing out each other's strengths.\nBy nature she always wants her creations to give back to others, so she often develops things as a hobby and releases them under public licenses.",
     "Backgrounds_JP": "ちなみに運命線探偵としての錦野歌嫁は、姉:舞を含めおよそ7年前のパラレル存在に相当する",
     "Backgrounds_EN": "Note: as a FateLine Investigators, Phonia Actressilk corresponds to a parallel existence from about 7 years ago, including her sister Dancy Actressilk.",
     "InStory_JP": "百花繚乱研究所の本体である元藤・千歳研究室にてN3US大学の大学院修士課程を卒業後、一時的な就職活動を経て同研究室で博士課程に進学し 主に零百(カズナイハゲム)の作業補助などといったゼミのアシスタントを務めている",
