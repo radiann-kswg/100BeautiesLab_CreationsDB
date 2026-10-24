@@ -66,17 +66,6 @@
     "Links": []
   },
   {
-    "Term_JP": "レゾンデイトルカンパニー",
-    "Term_JPReading": "レゾンデイトルカンパニー",
-    "Term_EN": "Raison-d'être Company",
-    "TermType": null,
-    "Category": "Faction",
-    "Summary_JP": "神皇国にある聖職業および技術業を専門とする機関で、世界創造に対し神学的かつ技巧的なキャリア養成の普及を目指す「聖職業課」と世界破壊に対し人徳的な技術開発と社会問題の解決を目指す「セラピーロボット課」「技術者倫理美学課」が存在する。",
-    "Summary_EN": "An institution in SaintPapis specializing in clerical and technical professions. It comprises the 'Clergy Division', which aims to promote theological and technical career training for world creation, as well as the 'Therapy Robot Division' and 'Engineers' Ethics & Aesthetics Division', which pursue ethically grounded technological development and solutions to social problems for world destruction.",
-    "Aliases": [],
-    "Links": []
-  },
-  {
     "Term_JP": "シンフォニー.X",
     "Term_JPReading": "シンフォニー・ツェーン",
     "Term_EN": "Symphony.X / Symphony.Zehn",
@@ -95,6 +84,17 @@
     "Category": "Faction",
     "Summary_JP": "黒薔薇国にある国家技術研究機関で、『第7の世界創造』および「多様化社会」の実現に関する研究を行う「ベヴストザイン課」と『第8の世界創造』および「左遷可能社会」の実現に関する研究を行う「エニグマ課」が存在する。",
     "Summary_EN": "A national technology research organization in the SchwarzeRoseland, with the 'Bewußtsein Division' conducting research on the realization of 'WDC.VII' and 'Diversified Society', and the 'Enigma Division' conducting research on the realization of 'WDC.VIII' and 'Assignable Society'.",
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term_JP": "レゾンデイトルカンパニー",
+    "Term_JPReading": "レゾンデイトルカンパニー",
+    "Term_EN": "Raison-d'être Company",
+    "TermType": null,
+    "Category": "Faction",
+    "Summary_JP": "神皇国にある聖職業および技術業を専門とする機関で、世界創造に対し神学的かつ技巧的なキャリア養成の普及を目指す「聖職業課」と世界破壊に対し人徳的な技術開発と社会問題の解決を目指す「セラピーロボット課」「技術者倫理美学課」が存在する。",
+    "Summary_EN": "An institution in SaintPapis specializing in clerical and technical professions. It comprises the 'Clergy Division', which aims to promote theological and technical career training for world creation, as well as the 'Therapy Robot Division' and 'Engineers' Ethics & Aesthetics Division', which pursue ethically grounded technological development and solutions to social problems for world destruction.",
     "Aliases": [],
     "Links": []
   },
