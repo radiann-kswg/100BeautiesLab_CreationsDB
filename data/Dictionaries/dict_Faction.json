@@ -232,6 +232,15 @@
     "isAcademic": false
   },
   {
+    "Faction": "アローナ工業",
+    "Faction_EN": "Athrɶna Industries",
+    "FactionsBaseArea": { "Area": "南英州諸国" },
+    "RegionstyleWithin": { "Regioministration": "W" },
+    "isForSecondary": null,
+    "isMaker": true,
+    "isAcademic": false
+  },
+  {
     "Faction": "スターダスト財団",
     "Faction_EN": "Stardusts Foundation",
     "FactionsBaseArea": { "Area": "雄志結国" },

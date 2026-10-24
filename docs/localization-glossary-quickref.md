@@ -12,7 +12,7 @@
 - **インライン補完（ゴーストテキスト）**: 補完はカスタム指示ファイルを読み込みません。英訳作業中は本ファイルを隣のタブで開いておくと、近傍文脈として対訳が補完に反映されやすくなります。
 - **正典はあくまで辞書本体**。表に無い語・揺れがある語は `data/**/trans_*.json` 等の辞書と `docs/localization-en-rules.md` を確認してください。最終採否は User 判断です。
 
-- 収録: **210 対訳**（延べ抽出。生成日時: 2026-10-17T02:02:45.297Z）
+- 収録: **211 対訳**（延べ抽出。生成日時: 2026-10-24T06:17:23.515Z）
 
 ## 人名（姓・代理）
 
@@ -258,6 +258,7 @@
 | アーヴァントガーデン学芸学会 | ArvantGarden Academic Society |
 | アルベッツ | ALPBETS |
 | アルベッツ被害者の会 | Victims Association against ALPBETS |
+| アローナ工業 | Athrɶna Industries |
 | エイゼルベットの観測世界 | ∀sellbuet's Observational World |
 | ガスコニール重工 | Gascogneal Heavy Industries |
 | カレイドスコウプ教団 | Kaleidoscope Cult |

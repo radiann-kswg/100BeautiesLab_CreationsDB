@@ -1023,13 +1023,14 @@
     "sec_SeriesTitle": "量産型マスタートリプル",
     "sec_Category": null,
     "sec_DesignedBy": ["RadianN"],
-    "Name_JP": "量産型 222(ドッペルゲン)",
-    "Name_EN": "Cloned 222(Doppelgän)",
+    "Name_JP": "222(ドゥリン)",
+    "Name_EN": "222(Doplegn)",
     "FormalName_JP": "量産型ナンバーテールズ222番機シリーズ",
     "FormalName_EN": "NumberTales #222 Series Mass Production Version for Sales",
     "CodeName_JP": "二二二",
     "CodeName_EN": "Two-Two-Two",
-    "SPCodeName_EN": "Cloned I-s",
+    "SPCodeName_JP": "ドッペルゲンガー",
+    "SPCodeName_EN": "Doppelgänger",
     "ModelNumber": "APHR-NT [MP]222-*****",
     "GenderType": "FemaleNeutral",
     "Class": ["量産型マスタートリプル"],
@@ -1749,18 +1750,31 @@
     "Num": "333-mp",
     "Num_Badge": "333MP",
     "Progress": "notProceeded",
-    "AnotherVersions_DBLink": [
-      { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 333 }
-    ],
     "sec_SeriesTitle": "量産型マスタートリプル",
     "sec_Category": null,
     "sec_DesignedBy": ["RadianN"],
-    "Name_JP": "量産型 333(トリニティア)",
-    "Name_EN": "Cloned 333(Trinitia)",
+    "VariantModels_DBLink": [
+      { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 333 }
+    ],
+    "Name_JP": "333(サザンカ)",
+    "Name_EN": "333(Thirthenca)",
     "FormalName_JP": "量産型ナンバーテールズ333番機シリーズ",
     "FormalName_EN": "NumberTales #333 Series Mass Production Version for Sales",
+    "CodeName_JP": "三三三",
+    "CodeName_EN": "Three-Three-Three",
+    "SPCodeName_JP": "三個の三",
+    "SPCodeName_EN": "Three Threes",
     "ModelNumber": "APHR-NT [MP]333-*****",
-    "Class": ["量産型マスタートリプル"]
+    "Class": ["量産型マスタートリプル"],
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxSpecial",
+        "Count": 3,
+        "Segment": 3,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ]
   },
   {
     "Num": 337,

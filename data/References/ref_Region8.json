@@ -163,6 +163,53 @@
     "Links": []
   },
   {
+    "Term_JP": "南英州諸国",
+    "Term_JPReading": "みなみえいしゅうしょこく",
+    "Term_EN": "South Internations\nInternazioni del Sud",
+    "TermType": null,
+    "Category": "Worlds",
+    "Summary_JP": "創作世界「第８界」の西部「南英州諸国」についての資料。",
+    "Summary_EN": "Reference material about the western part of the fictional world '#REGION.8': 'Internazioni del Sud'.",
+    "BodyBlocks_JP": [
+      "第８界の北西部「英州諸国」の南部に位置するエリア。",
+      "古典的記録から創世紀の創始者であり第1創世紀を制定した人物の故郷であることが知られている。",
+      "神学文化について九蓮国や雄志結国に古来から文化的影響を与えており、国際的に著名な神殿の設計および数学的思想だけでなく、銭湯(スーパースパ)やチーズ料理の発祥地ともされている。",
+      "第6創世紀以降の技術発展では黒薔薇国や神皇国といった英州諸国内の連携を中心としており、英州諸国の入り口を担うエリアでもある。",
+      "特に運命線運河の下り（九蓮国→英州諸国 方面）終端地として営業されている「アローナ港」および周辺の港町では、以上のような古典的で原始的な文化を楽しむ観光客や物流関係者で賑わっている。"
+    ],
+    "BodyBlocks_EN": [
+      "This area is located in the southern part of the 'Internation States' in the northwest part of '#REGION.8'.",
+      "According to classical records, it is known as the homeland of the founder of the WDCE, the figure who established the 'WDCE.I'.",
+      "Since ancient times, it has culturally influenced LotusNinea and United.Heroic.Nation in theology, and it is regarded not only as the origin of internationally renowned temple architecture and mathematical philosophy, but also as the birthplace of traditional bathhouses (super spas) and cheese cuisine.",
+      "Its technological development since the 'WDCE.VI' has centered on cooperation within the Internation States, such as with SchwarzeRoseland and SaintPapis, and it also serves as the gateway to the Internation States.",
+      "In particular, the 'Athrɶna Seaport', which operates as the terminus of the downbound route of the 'FateLine Canal' (from LotusNinea toward the Internation States), and its surrounding port towns are bustling with tourists and logistics workers who enjoy such classical and primordial culture."
+    ],
+    "Aliases": [],
+    "Links": [],
+    "isForSecondary": null
+  },
+  {
+    "Term_JP": "アローナ港",
+    "Term_JPReading": "あろーなこう",
+    "Term_EN": "Athrɶna Seaport\nPorto di Atrɶna",
+    "TermType": null,
+    "Category": "Worlds",
+    "Summary_JP": "創作世界「第８界」の子午線部～西部にある大陸間運河の端部「アローナ港」についての資料。",
+    "Summary_EN": "Reference material about the 'Athrɶna Seaport' located at the end of the intercontinental canal connecting the meridian region and the western part of the fictional world '#REGION.8': 'FateLine Canal'.",
+    "BodyBlocks_JP": [
+      "第８界の「運命線運河」の上り（英州諸国→九蓮国 方面）の始端地、下り（九蓮国→英州諸国 方面）の終端地に位置する南英州諸国の港。",
+      "周辺の港町は古典伝統的な文化が色濃いリゾート地として、運命線運河を渡航した者たちの憩いの場となっている。",
+      "また、第1創世紀以前の文化に関する西部古典伝承の発祥地でもあることから、古代文明に関する学術的な研究も多く行われている地帯でもある。"
+    ],
+    "BodyBlocks_EN": [
+      "A seaport of Internazioni del Sud, located at the starting point of the upbound route (from the Internation States toward LotusNinea) and the terminus of the downbound route (from LotusNinea toward the Internation States) of the 'FateLine Canal' in '#REGION.8'.",
+      "Its surrounding port towns are resort areas steeped in classical and traditional culture, serving as a place of rest for those who have traveled across the FateLine Canal.",
+      "Also, as the birthplace of the western classical traditions concerning the culture before the 'WDCE.I', it is an area where a great deal of academic research on ancient civilizations is conducted."
+    ],
+    "Aliases": [],
+    "Links": []
+  },
+  {
     "Term_JP": "雄志結国",
     "Term_JPReading": "ゆうしけっこく",
     "Term_EN": "United.Heroic.Nation",
