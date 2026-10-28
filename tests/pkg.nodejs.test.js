@@ -57,7 +57,9 @@ describe('pkg/nodejs: Works_Hidden / DB_Hidden による非公開制御', () => 
   /** 実データ上で DB_Hidden: true が宣言されている (work, db) を列挙する */
   const findHiddenDbs = () => {
     const found = [];
-    for (const workKey of Object.keys(globalMeta.CreationWorks ?? {})) {
+    for (const [workKey, workInfo] of Object.entries(globalMeta.CreationWorks ?? {})) {
+      // 作品ごと非公開なら DB_Hidden を見る前に 404 になるため対象外（Works_Hidden 側のテストで検証）
+      if (workInfo?.Works_Hidden === true) continue;
       const dirName = workKey.replace('#Works_', 'Works_');
       let workMeta;
       try {

@@ -1,0 +1,243 @@
+{
+  "$IndexDef_PrimaryStardust": {
+    "hashTag": "Sign",
+    "$type": [
+      {
+        "hashTag": "Zodiac",
+        "$type": "#IndexListKey",
+        "$dict": "Zodiac",
+        "$alt": "Planet",
+        "hashTag_JP": "星座",
+        "hashTag_EN": "Zodiac",
+        "$display": {
+          "langMode": "shared",
+          "facet": { "order": 15, "hierarchy": 15, "codeFrom": "Zodiac_Code" }
+        }
+      },
+      {
+        "hashTag": "Planet",
+        "$type": "#IndexListKey",
+        "hashTag_JP": "惑星",
+        "hashTag_EN": "Planet",
+        "$display": {
+          "langMode": "shared",
+          "facet": { "codeFrom": "Planet_Code" }
+        }
+      }
+    ],
+	"hashTag_JP": "サイン",
+	"hashTag_EN": "Sign",
+    "$badge": {
+      "keys": [
+        { "key": "Zodiac", "whenMissing": "Planet" },
+        { "key": "Planet", "whenMissing": "Zodiac" }
+      ]    }},
+    "$IndexDef_PrimaryKaleidoscope": {
+      "hashTag": "ChessPiece",
+      "$type": [
+        {
+          "hashTag": "Chess",
+          "$type": "#IndexListKey|#Null",
+          "hashTag_JP": "駒種別",
+          "hashTag_EN": "Chess Series",
+          "$display": { "langMode": "shared" }
+        },
+        {
+          "hashTag": "Num",
+          "$type": "#Number|#String|#Null",
+          "hashTag_JP": "駒別番号",
+          "hashTag_EN": "Chess Number"
+        }
+      ],"hashTag_JP": "チェス駒", "hashTag_EN": "Chess Piece",
+      "$badge": { "keys": ["Chess", "Num"], "separator": "no" }
+    },
+    "$IndexDef": {
+      "hashTag": "OtherFactor",
+      "$type":  "#IndexListKey|#Null",
+          "hashTag_JP": "その他の種別",
+          "hashTag_EN": "Other Factors",
+          "$display": {
+            "langMode": "shared",
+            "facet": { "order": 15, "hierarchy": 15, "codeFrom": "OtherFactor_Code" }
+          },
+      "$badge": { "keys": ["OtherFactor"]}
+    },
+  "$DefType": [
+    {
+      "hashTag": "Sign",
+      "$type": "#Index",
+      "hashTag_JP": "サイン",
+      "hashTag_EN": "Sign"
+    },
+    {
+      "hashTag": "ChessPiece",
+      "$type": "#Index",
+      "hashTag_JP": "チェス駒",
+      "hashTag_EN": "Chess Piece"
+    },
+    {
+      "hashTag": "OtherFactor",
+      "$type": "#Index",
+      "hashTag_JP": "その他の種別",
+      "hashTag_EN": "Other Factors"
+    },
+    {
+      "hashTag": "Images",
+      "$type": [
+        {
+          "hashTag": "concept_PNGName",
+          "$type": "#PNGFileName",
+          "hashTag_JP": "設定原画",
+          "hashTag_EN": "Concept Figure"
+        },
+        {
+          "hashTag": "conceptAlt_PNGName",
+          "$type": "#PNGFileName[]",
+          "hashTag_JP": "設定原画差分",
+          "hashTag_EN": "Concept Figure Variations"
+        },
+        {
+          "hashTag": "designAlt_PNGPath",
+          "$type": "#PNGFilePath[]",
+          "hashTag_JP": "衣装差分など",
+          "hashTag_EN": "Design Variations"
+        },
+        {
+          "hashTag": "arts_PNGPath",
+          "$type": "#PNGFilePath[]",
+          "hashTag_JP": "イラスト作品",
+          "hashTag_EN": "Illustration Works"
+        }
+      ],
+      "$display": { "section": "images", "tagSpace": "internal" },
+      "hashTag_JP": "画像",
+      "hashTag_EN": "Images"
+    },
+    {
+      "hashTag": "SameCharacter_DBLink",
+      "$type": "$Def_DBLinkRef|#Null",
+      "hashTag_JP": "同一人物",
+      "hashTag_EN": "Same Character",
+      "$enrich": true
+    },
+    {
+      "hashTag": "Relation",
+      "$type": [
+        {
+          "hashTag": "Related",
+          "$type": "$Def_Relations[]",
+          "hashTag_JP": "親密な関係",
+          "hashTag_EN": "Close Relations"
+        },
+        {
+          "hashTag": "Commented",
+          "$type": "$Def_Relations[]",
+          "hashTag_JP": "コメント",
+          "hashTag_EN": "Comments to the Characters"
+        }
+      ],
+      "hashTag_JP": "関係キャラクター",
+      "isForSecondary": null,
+      "$display": { "sectionWrapper": "relationSection", "open": true },
+      "isForMobs": false
+    },
+    {
+      "hashTag": "RelationTo_PrimaryStardust",
+      "$type": [
+        {
+          "hashTag": "Related",
+          "$type": "$Def_Relations[]",
+          "hashTag_JP": "親密な関係",
+          "hashTag_EN": "Close Related to Primary Characters"
+        },
+        {
+          "hashTag": "Commented",
+          "$type": "$Def_Relations[]",
+          "hashTag_JP": "コメント",
+          "hashTag_EN": "Comments to Primary Characters"
+        }
+      ],
+      "hashTag_JP": "スターダスト財団との関係",
+      "hashTag_EN": "Relation to Primary Characters in Stardust Foundation",
+      "isForSecondary": null,
+      "$display": { "sectionWrapper": "relationSection", "open": true },
+      "isForMobs": false
+    },
+    {
+      "hashTag": "RelationTo_PrimaryKaleidoscope",
+      "$type": [
+        {
+          "hashTag": "Related",
+          "$type": "$Def_Relations[]",
+          "hashTag_JP": "親密な関係",
+          "hashTag_EN": "Close Related to Primary Characters"
+        },
+        {
+          "hashTag": "Commented",
+          "$type": "$Def_Relations[]",
+          "hashTag_JP": "コメント",
+          "hashTag_EN": "Comments to Primary Characters"
+        }
+      ],
+      "hashTag_JP": "カレイドスコウプ教団との関係",
+      "hashTag_EN": "Relation to Primary Characters in Kaleidoscope Cult",
+      "isForSecondary": null,
+      "$display": { "sectionWrapper": "relationSection", "open": true },
+      "isForMobs": false
+    }
+  ],
+  "$VersDef": {
+    "$Def_Relations": {
+      "$DefType": [
+        {
+          "hashTag": "Card",
+          "$type": "#Index",
+          "isForSecondary": null,
+          "hashTag_JP": "カード(アルカナ)",
+          "hashTag_EN": "Card (Arcana)"
+        },
+        {
+          "hashTag": "Comments",
+          "$type": "#Dialogue",
+          "isForSecondary": null,
+          "hashTag_JP": "コメント",
+          "hashTag_EN": "Comments"
+        },
+        {
+          "hashTag": "Reply",
+          "$type": "$Def_Relations[]",
+          "isForSecondary": true,
+          "hashTag_JP": "返答コメント",
+          "hashTag_EN": "Reply Comments"
+        },
+        {
+          "hashTag": "RelationLabel",
+          "$type": "#ListIndex[]",
+          "isForSecondary": null,
+          "hashTag_JP": "関係性タグ",
+          "hashTag_EN": "Relation Label",
+          "$display": {
+            "section": "profile",
+            "tagSpace": "creation",
+            "langMode": "jp"
+          }
+        }
+      ]
+    },
+    "$Def_EffectText": {
+      "$DefType": [
+        {
+          "hashTag": "EffectText",
+          "$type": "#String_JP,#ListLink",
+          "$display": {
+            "rankFormat": "alphaLabel",
+            "listLinkEnumName": "Rank",
+            "listLinkShowEnum": true
+          },
+          "hashTag_JP": "効果(テキスト形式)",
+          "hashTag_EN": "Effect(Text Format)"
+        }
+      ]
+    }
+  }
+}

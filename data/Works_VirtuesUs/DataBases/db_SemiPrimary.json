@@ -69,6 +69,13 @@
   },
   {
     "Virtues": "智",
+    "AnotherRegions_DBLink": [
+      {
+        "_Work": "StardustVsKaleidoscope",
+        "_DB": "PrimaryStardust",
+        "Sign": { "Planet": "Earth" }
+      }
+    ],
     "Name_JP": "桜花 智",
     "Name_JPReading": "おうか さとり",
     "Name_EN": "Wisdmer Cherrybroom",
@@ -126,6 +133,8 @@
     "GenderType": "Female",
     "Belonging": [{ "Faction": "夜月機関" }],
     "FromArea": { "Area": "九蓮国" },
+    "Height_cm": 159,
+    "Weight_kg": { "hideText": "非公開希望" },
     "BustSize": "B",
     "Age": 21,
     "Summary_JP": "桜花義姉妹の三女で、九蓮国皇族の血筋から生まれた。\n実兄：仁や実姉：禮のことを心から信頼しており、同様に義兄弟や義姉妹のことも大切にしている。\n桜花家の呪いともいえる\"料理の才能\"についてこの８人の中では最底辺クラスで、どの食材を用いても\"錆びた鋼の味をした暗黒料理\"を創ってしまううえ、味覚音痴な本人はそれで料理できているつもりでいることから、厨房出入り禁止になるなどかなり恐れられている。",
@@ -138,6 +147,11 @@
         "_Work": "UnibyteLive",
         "_DB": "PrimaryPerformer",
         "Letter": { "Alphabet": "I", "AlphaGen": 2 }
+      },
+      {
+        "_Work": "StardustVsKaleidoscope",
+        "_DB": "PrimaryKaleidoscope",
+        "ChessPiece": { "Chess": "Queen", "Num": 11 }
       }
     ],
     "Name_JP": "桜花 孝",
@@ -149,6 +163,9 @@
     "GenderType": "Female",
     "Belonging": [{ "Faction": "スターダスト・テクノロジー" }],
     "FromArea": { "Area": "雄志結国" },
+    "Height_cm": 154,
+    "Weight_kg": { "hideText": "非公開希望" },
+    "BustSize": "A",
     "Age": 20,
     "Summary_JP": "桜花義姉妹の四女で、雄志結国の投資家一族から生まれた。\n実姉：智と同様に「クィーン・イレヴン」のコードネームを持つ軍事人体兵器と恐れられていたが、世界第7恐慌大戦の平和条約を経て結集した桜花義姉妹により人間味を取り戻していく。\n桜花家の呪いともいえる\"料理の才能\"については、\"神の舌\"と称される秀でた味覚を持つものの、加熱調理器具全般が使えないことと多忙につき高級料理を嗜む時間がないことにつき、屋台料理などといった俗世な味を好む傾向にある。",
     "Summary_EN": "The fourth of the Cherrybroom sworn sisters, born into an investor family of the United.Heroic.Nation.\nLike her older sister Wisdmer, she was feared as a military human weapon bearing the codename 'Queen.XI', but she gradually regains her humanity thanks to the Cherrybroom sworn sisters, who came together after the peace treaty of the WP7W.\nAs for the 'culinary talent' that could be called the Cherrybroom family curse, she possesses an outstanding sense of taste hailed as 'the Tongue of God', but because she cannot use any heat-based cooking appliances and is too busy to have time for fine dining, she tends to prefer down-to-earth flavors such as street-stall food."

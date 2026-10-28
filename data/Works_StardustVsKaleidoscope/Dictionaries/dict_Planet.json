@@ -1,0 +1,12 @@
+[
+  { "Planet": "Mercury", "Planet_JP": "水星", "Planet_Code": "MER" },
+  { "Planet": "Venus", "Planet_JP": "金星", "Planet_Code": "VEN" },
+  { "Planet": "Earth", "Planet_JP": "地球", "Planet_Code": "EAR" },
+  { "Planet": "Sun", "Planet_JP": "太陽", "Planet_Code": "SUN" },
+  { "Planet": "Mars", "Planet_JP": "火星", "Planet_Code": "MAR" },
+  { "Planet": "Jupiter", "Planet_JP": "木星", "Planet_Code": "JUP" },
+  { "Planet": "Saturn", "Planet_JP": "土星", "Planet_Code": "SAT" },
+  { "Planet": "Uranus", "Planet_JP": "天王星", "Planet_Code": "URA" },
+  { "Planet": "Neptune", "Planet_JP": "海王星", "Planet_Code": "NEP" },
+  { "Planet": "Pluto", "Planet_JP": "冥王星", "Planet_Code": "PLU" }
+]

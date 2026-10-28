@@ -197,6 +197,11 @@
         "_Work": "PastDivers",
         "_DB": "SemiPrimary",
         "Chronos": { "Lunar": "Junius.II" }
+      },
+      {
+        "_Work": "StardustVsKaleidoscope",
+        "_DB": "PrimaryKaleidoscope",
+        "ChessPiece": { "Chess": "Queen", "Num": 6 }
       }
     ],
     "Name_JP": "六花 ルノ",
@@ -215,6 +220,7 @@
       "BaseAreaAbout_JP": "残された戸籍情報によるが、事実は定かではない",
       "BaseAreaAbout_EN": "Based on the remaining family registry information, but the facts are uncertain"
     },
+    "Class": ["機関所長"],
     "Height_cm": 166,
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "L",
@@ -470,6 +476,9 @@
     "GenderType": "Female",
     "Belonging": [{ "Faction": "ジャンクガレージ『六花陛下』" }],
     "FromArea": { "Area": "紅雪連邦" },
+    "Height_cm": 155,
+    "Weight_kg": { "hideText": "非公開" },
+    "BustSize": "AA",
     "Age": 29,
     "BirthDay": { "Day": { "Month": 12, "DayOfMonth": 12 } },
     "ColorPalette": [

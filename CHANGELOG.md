@@ -1,5 +1,14 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### feat: 相関図ファセットが `$IndexDef` 子要素の `$alt` を解釈 (2026-10-28)
+
+- **背景**: 星屑の万華鏡の `Sign` は「十二宮（`Zodiac`）か惑星（`Planet`）のどちらか」を持つインデックスで、軸 `Sign.Zodiac` は `Planet` だけのレコードから値を取れなかった（`graph.facets.test.js` の実データ不変条件で失敗）。
+- **変更**:
+  - `lib/graph/graph-facets.js`: `collectFacets()` が `$IndexDef` 子要素の `$alt`（兄弟サブキー名。文字列／配列）を `alts: [{ path, dict, codeFrom }]` として軸に載せる。借り先は独立した軸にしない。`extractFacetValues()` は借り元が空のとき宣言順に借り先から値を取る。`UNSET_GROUP_KEY` の生 NUL 文字を `'\u0000unset'` エスケープへ置換（値は同一。ファイルがバイナリ扱いされるのを回避）。
+  - `pages/relations.js`: ファセットのラベル解決（`resolveFacetLabelPack`）と URL code（`encodeDrillValue`）が、借り元の辞書で引けなければ借り先の `$dict` / `$display.facet.codeFrom` で引く。
+- **影響範囲**: `$alt` を持たない既存の軸は挙動不変（`alts` は空配列）。下流は `lib/graph/` / `pages/relations.js` / `tests/graph.facets.test.js` を取り込むこと。
+- **テスト**: `tests/pkg.nodejs.test.js`（`Works_Hidden` 作品配下の `DB_Hidden` を対象外に）と `tests/enrich.dblink.jump.merge.test.js`（null インデックス合流テストを実データ非依存のフィクスチャへ）も合わせて修正。
+
 ### test: `tests/meta.catalog.schema.test.js` を実データ非依存化 (2026-10-22)
 
 - **背景**: 作品名（`Works_NumberTales`）と年代の実値（`EraGen` / `YearInEra` / `byRealYear`）をテストに直書きしていたため、上流でデータを更新するたびに中流 `JsonCharacterDB-Framework` の同期でコンフリクトしていた。

@@ -106,6 +106,13 @@
     "Drc": "SSE",
     "Drc_Alt": "DSE",
     "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      {
+        "_Work": "StardustVsKaleidoscope",
+        "_DB": "PrimaryKaleidoscope",
+        "ChessPiece": { "Chess": "Queen", "Num": 8 }
+      }
+    ],
     "Name_JP": "ヴァーチェル・アンカレッジ",
     "Name_EN": "Virchel.Anchorage",
     "FormalName_JP": "ヴァーチェル・アンカレッジ\nアンカール・エンカレージャ=ヴィルゲン",
@@ -163,12 +170,20 @@
     "Drc": "WSW",
     "Drc_Alt": "USW",
     "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      {
+        "_Work": "StardustVsKaleidoscope",
+        "_DB": "PrimaryKaleidoscope",
+        "ChessPiece": { "Chess": "King", "Num": 3 }
+      }
+    ],
     "Name_JP": "カモミール・エクヴィス",
     "Name_EN": "Chamomile.Exvis",
     "FormalName_JP": "カモミール・エクヴィス",
     "FormalName_EN": "Chamomile.Exvis",
     "CodeName_JP": "慈愛の午後",
     "CodeName_EN": "Kindness o'clock in Afternoon",
+    "RaceType": "DreamEater(Fallen)",
     "GenderType": "Female",
     "Belonging": [
       { "Faction": "カレイドスコウプ教団" },
