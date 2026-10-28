@@ -3020,8 +3020,8 @@
     "Num": 333,
     "Num_Badge": "333",
     "isTriple": false,
-    "Progress": "notProceeded",
-    "AnotherVersions_DBLink": [
+    "Progress": "nowCreating",
+    "VariantModels_DBLink": [
       { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": "333-mp" }
     ],
     "Name_JP": "333(トリニティア)",
@@ -3032,11 +3032,29 @@
     "CodeName_EN": "Three-Three-Three",
     "SPCodeName_JP": "三連三",
     "SPCodeName_EN": "Triple",
-    "ModelNumber": "APHR-NT [x3]III",
-    "ModelName_JP": "ナンバーテールズ3倍型3号機(333番機)",
-    "ModelName_EN": "NumberTales EXtended By.3 Type Unit.3 (Mk.333)",
-    "GenderType": "Neutral",
-    "Class": ["マスタートリプル"]
+    "ModelNumber": "APHR-NT Cxi.3",
+    "ModelName_JP": "ナンバーテールズ仮設3連号機(333番機)",
+    "ModelName_EN": "NumberTales Tentative Unit.Catena-3 (Mk.333)",
+    "GenderType": "FemaleNeutral",
+    "Belonging": [
+      { "Faction": "百花繚乱研究所" },
+      { "Faction": "アローナ工業" }
+    ],
+    "FromArea": {
+      "Area": "南英州諸国",
+      "BaseAreaAbout_JP": "製造工場の所在地（初稼働は九蓮国で行われた）",
+      "BaseAreaAbout_EN": "Location of the manufacturing plant (initial operation was conducted in LotusNinea)"
+    },
+    "Class": ["マスタートリプル"],
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Scorpion",
+        "Count": 3,
+        "Segment": 3,
+        "Note_JP": "編み込むように束ねられている",
+        "Note_EN": "Braided together like a plait"
+      }
+    ]
   },
   {
     "Num": "343-cub",

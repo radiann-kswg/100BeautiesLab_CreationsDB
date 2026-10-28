@@ -1,0 +1,76 @@
+{
+  "Databases": {
+    "#DB_PrimaryStardust": {
+      "DB_Label_JP": "一次創作(スターダスト財団)",
+      "DB_Label_EN": "PrimaryStardust",
+      "DB_Summary": "「スターダスト財団」の正式な幹部に相当する一次創作キャラクター。\n西洋占星術に用いられるサインなどに関連するコードネームが付与されている。",
+      "DB_Summary_EN": "Primary characters who serve as official executives of 'Stardusts Foundation.'\nThey are given code names related to the signs used in Western astrology, among others.",
+      "StoryEra": {
+        "FromEra": [{ "EraGen": 8, "YearInEra": 2 }, { "byRealYear": 2047 }],
+        "ToEra": [
+          { "EraGen": 8, "YearInEra": 4 },
+          { "byRealYear": 2049 }
+        ],
+        "InEra": [
+          { "EraGen": 8, "YearInEra": 3 },
+          { "byRealYear": 2048 }
+        ],
+        "StoryEraAbout_JP": "第8創世紀2〜4年(西暦2047〜2049年相当)",
+        "StoryEraAbout_EN": "between WDCE.VIII.2-4(Equivalent to between: DC.2047-2049)"
+      },
+      "_Commons": {
+        "Progress": "notProceeded",
+        "Belonging": [{ "Faction": "スターダスト財団" }]
+      }
+    },
+    "#DB_PrimaryKaleidoscope": {
+      "DB_Label_JP": "一次創作(カレイドスコウプ教団)",
+      "DB_Label_EN": "PrimaryKaleidoscope",
+      "DB_Summary": "「カレイドスコウプ教団」の人体兵器（改造人間）に相当する一次創作キャラクター。\nチェスに用いられる駒に関連する番号付きのコードネームが付与されている。",
+      "DB_Summary_EN": "Primary characters who serve as human weapons (modified humans) of 'Kaleidoscope Cult.'\nThey are given numbered code names related to chess pieces.",
+      "StoryEra": {
+        "FromEra": [{ "EraGen": 8, "YearInEra": 2 }, { "byRealYear": 2047 }],
+        "ToEra": [
+          { "EraGen": 8, "YearInEra": 4 },
+          { "byRealYear": 2049 }
+        ],
+        "InEra": [
+          { "EraGen": 8, "YearInEra": 3 },
+          { "byRealYear": 2048 }
+        ],
+        "StoryEraAbout_JP": "第8創世紀2〜4年(西暦2047〜2049年相当)",
+        "StoryEraAbout_EN": "between WDCE.VIII.2-4(Equivalent to between: DC.2047-2049)"
+      },
+      "_Commons": {
+        "Progress": "notProceeded",
+        "Belonging": [{ "Faction": "カレイドスコウプ教団" }]
+      }
+    },
+    "#DB_SemiPrimary": {
+      "DB_Label_JP": "準一次創作",
+      "DB_Label_EN": "Semi-Primary",
+      "DB_Summary": "",
+      "DB_Summary_EN": "",
+      "StoryEra": {
+        "FromEra": [{ "EraGen": 8, "YearInEra": 2 }, { "byRealYear": 2047 }],
+        "ToEra": [
+          { "EraGen": 8, "YearInEra": 4 },
+          { "byRealYear": 2049 }
+        ],
+        "InEra": [
+          { "EraGen": 8, "YearInEra": 3 },
+          { "byRealYear": 2048 }
+        ],
+        "StoryEraAbout_JP": "第8創世紀2〜4年(西暦2047〜2049年相当)",
+        "StoryEraAbout_EN": "between WDCE.VIII.2-4(Equivalent to between: DC.2047-2049)"
+      },
+      "_Commons": {
+        "Progress": "notProceeded",
+        "Belonging": [{ "Faction": "夜月機関" }]
+      },
+      "DB_Hidden": true
+    }
+  },
+  "General": {
+    "$VarsDef": { }}
+}

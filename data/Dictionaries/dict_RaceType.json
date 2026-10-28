@@ -238,6 +238,12 @@
     "basis": [{ "RaceType": "Human" }, { "RaceType": "DreamEater" }]
   },
   {
+    "RaceType": "DreamEater(Fallen)",
+    "RaceType_JP": "夢羊(堕天型)",
+    "RaceType_EN": "DreamEater (Fallen)",
+    "basis": [{ "RaceType": "DreamEater" }, { "RaceType": "Terrorinaries" }]
+  },
+  {
     "RaceType": "FangSpeeder",
     "RaceType_JP": "猪突猛進者"
   },

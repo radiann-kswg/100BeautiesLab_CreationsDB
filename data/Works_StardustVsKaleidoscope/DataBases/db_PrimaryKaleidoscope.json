@@ -1,0 +1,172 @@
+[
+  {
+    "ChessPiece": { "Chess": "King", "Num": 3 },
+    "AnotherRegions_DBLink": [
+      {
+        "_Work": "SinisterChangingGirls",
+        "_DB": "PrimaryStabilities",
+        "Drc": "SSE"
+      }
+    ],
+    "Name_JP": "カモミール・エクヴィス",
+    "Name_EN": "Chamomile.Exvis",
+    "FormalName_JP": "カモミール・エクヴィス",
+    "FormalName_EN": "Chamomile.Exvis",
+    "CodeName_JP": "キング・アイヴ",
+    "CodeName_EN": "King.Ives",
+    "RaceType": "DreamEater(Fallen)",
+    "GenderType": "Female",
+    "Belonging": [{ "Faction": "カレイドスコウプ教団" }],
+    "FromArea": {
+      "Area": "英皇国",
+      "BaseAreaAbout_JP": "経歴にはそうあるが、真相は定かでない",
+      "BaseAreaAbout_EN": "According to her background, but the truth is uncertain"
+    },
+    "Class": ["エデン・オブ・キング"],
+    "Height_cm": 177,
+    "Weight_kg": { "hideText": "？？？" },
+    "BustSize": "J",
+    "Age": 34
+  },
+  {
+    "ChessPiece": { "Chess": "Queen", "Num": 6 },
+    "AnotherRegions_DBLink": [
+      {
+        "_Work": "PastDivers",
+        "_DB": "SemiPrimary",
+        "Chronos": { "Lunar": "Junius.II" }
+      },
+      { "_Work": "SinisterChangingGirls", "_DB": "Primary", "Drc": "E" }
+    ],
+    "Name_JP": "六花 ルノ",
+    "Name_JPReading": "ろくばな ルノ",
+    "Name_EN": "Luno Hexacrys",
+    "FormalName_JP": "ルノ・ヘクスクリス",
+    "FormalName_EN": "Luno Hexacrys",
+    "CodeName_JP": "クィーン・シックス",
+    "CodeName_EN": "Queen.VI",
+    "RaceType": "HalfWarfox",
+    "GenderType": "Female",
+    "Belonging": [
+      { "Faction": "白の六芒星" },
+      { "Faction": "夜月機関" },
+      { "Faction": "カレイドスコウプ教団" }
+    ],
+    "FromArea": {
+      "Area": "四蓮島",
+      "BaseAreaAbout_JP": "残された戸籍情報によるが、事実は定かではない",
+      "BaseAreaAbout_EN": "Based on the remaining family registry information, but the facts are uncertain"
+    },
+    "Class": ["機関所長", "プロジェクト・クィーン"],
+    "Height_cm": 160,
+    "Weight_kg": { "hideText": "非公開" },
+    "BustSize": "J",
+    "Age": 23,
+    "Summary_JP": "",
+    "Summary_EN": ""
+  },
+  {
+    "ChessPiece": { "Chess": "Queen", "Num": 7 },
+    "SameCharacter_DBLink":
+      {
+        "_DB": "PrimaryStardust",
+        "Sign": { "Planet": "Earth" }
+      },
+    "Name_JP": "智・ヴァーチュングレイス=春洋",
+    "Name_JPReading": "さとり・ヴァーチュングレイス=はるなみ",
+    "Name_EN": "Wisdmer Virtuengrace=Springer",
+	"CodeName_JP": "クィーン・セヴン",
+    "CodeName_EN": "Queen.VII",
+    "FromArea": { "Area": "雄志結国" },
+    "Class": ["プロジェクト・クィーン"]
+  },
+  {
+    "ChessPiece": { "Chess": "Queen", "Num": 8 },
+    "AnotherRegions_DBLink": [
+      {
+        "_Work": "SinisterChangingGirls",
+        "_DB": "PrimaryStabilities",
+        "Drc": "SSE"
+      }
+    ],
+    "Name_JP": "アンカール・エンカレージャ=ヴィルゲン",
+    "Name_EN": "Anchors.Encourager=Virgen",
+    "FormalName_JP": "アンカール・エンカレージャ=ヴィルゲン",
+    "FormalName_EN": "Anchors.Encourager=Virgen",
+    "CodeName_JP": "クィーン・エイト",
+    "CodeName_EN": "Queen.VIII",
+    "GenderType": "Female",
+    "Belonging": [{ "Faction": "カレイドスコウプ教団" }],
+    "FromArea": { "Area": "雄志結国" },
+    "Class": ["プロジェクト・クィーン"],
+    "Height_cm": 154,
+    "Weight_kg": { "hideText": "？？？" },
+    "BustSize": "E",
+    "Age": 20,
+    "BirthDay": { "Day": { "Month": 1, "DayOfMonth": 30 } },
+    "Summary_JP": "",
+    "Summary_EN": ""
+  },
+  {
+    "ChessPiece": { "Chess": "Queen", "Num": 11 },
+    "AnotherRegions_DBLink": [
+      { "_Work": "VirtuesUs", "_DB": "SemiPrimary", "Virtues": "孝" },
+      {
+        "_Work": "UnibyteLive",
+        "_DB": "PrimaryPerformer",
+        "Letter": { "Alphabet": "I", "AlphaGen": 2 }
+      }
+    ],
+    "Name_JP": "孝・ヴァーチュングレイス=春洋",
+    "Name_JPReading": "たかみ・ヴァーチュングレイス=はるなみ",
+    "Name_EN": "Filia.Pieter Cherrybroom",
+    "FormalName_JP": "孝・ヴァーチュングレイス=春洋\n桜花 孝",
+    "FormalName_JPReading": "たかみ・ヴァーチュングレイス=はるなみ\nおうか たかみ",
+    "FormalName_EN": "Filia.Pieter Cherrybroom\nFilia.Pieter Virtuengrace=Springer",
+    "CodeName_JP": "クィーン・イレヴン",
+    "CodeName_EN": "Queen.XI",
+    "GenderType": "Female",
+    "Belonging": [
+      { "Faction": "スターダスト・テクノロジー" },
+      { "Faction": "カレイドスコウプ教団" }
+    ],
+    "FromArea": { "Area": "雄志結国" },
+    "Class": ["プロジェクト・クィーン"],
+    "Height_cm": 159,
+    "Weight_kg": { "hideText": "非公開希望" },
+    "BustSize": "A",
+    "Age": 22,
+    "Summary_JP": "",
+    "Summary_EN": ""
+  },
+  {
+    "ChessPiece": { "Chess": "Queen", "Num": 12 },
+    "AnotherRegions_DBLink": [
+      {
+        "_Work": "UnauthedLogica",
+        "_DB": "Primary",
+        "Model": { "ModelSeries": "notModel", "Num": "Q" }
+      },
+      { "_Work": "SinisterChangingGirls", "_DB": "Primary", "Drc": "S" }
+    ],
+    "Name_JP": "六花 雙葉",
+    "Name_JPReading": "ろくばな ふたは",
+    "Name_EN": "Dozenne Hexacrys",
+    "FormalName_JP": "六花 雙葉",
+    "FormalName_JPReading": "ろくばな ふたは",
+    "FormalName_EN": "Dozenne Hexacrys",
+    "CodeName_JP": "クィーン・トゥエルヴ",
+    "CodeName_EN": "Queen.XII",
+    "RaceType": "Human(DoubleIdentity)",
+    "GenderType": "Female",
+    "Belonging": [{ "Faction": "ジャンクガレージ『六花陛下』" }],
+    "FromArea": { "Area": "紅雪連邦" },
+    "Class": [],
+    "Height_cm": 155,
+    "Weight_kg": { "hideText": "非公開" },
+    "BustSize": "AA",
+    "Age": 25,
+    "Summary_JP": "",
+    "Summary_EN": ""
+  }
+]

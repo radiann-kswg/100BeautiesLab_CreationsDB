@@ -1,0 +1,8 @@
+[
+  { "Chess": "King", "Chess_JP": "キング", "Chess_Code": "K" },
+  { "Chess": "Queen", "Chess_JP": "クィーン", "Chess_Code": "Q" },
+  { "Chess": "Knight", "Chess_JP": "ナイト", "Chess_Code": "N" },
+  { "Chess": "Rook", "Chess_JP": "ルーク", "Chess_Code": "R" },
+  { "Chess": "Bishop", "Chess_JP": "ビショップ", "Chess_Code": "B" },
+  { "Chess": "Pawn", "Chess_JP": "ポーン", "Chess_Code": "P" }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "Class": "エデン・オブ・キング",
+    "Class_JP": "『エデン・オブ・キング』",
+    "Class_EN": "'Eden.of.King'",
+    "Class_Code": "KEK"
+  },
+  {
+    "Class": "プロジェクト・クィーン",
+    "Class_JP": "『プロジェクト・クィーン』被験者",
+    "Class_EN": "'Project.Queen' Trainee",
+    "Class_Code": "KPQ"
+  },
+  {
+    "Class": "ナイト・ユニット",
+    "Class_JP": "『プロジェクト・ナイト』被験者",
+    "Class_EN": "'Project.Knight' Trainee",
+    "Class_Code": "KPK"
+  },
+  {
+    "Class": "ルーク・ユニット",
+    "Class_JP": "『ルーク・ユニット』",
+    "Class_EN": "'Rook.Unit'",
+    "Class_Code": "KRU"
+  },
+  {
+    "Class": "ビショップ・ユニット",
+    "Class_JP": "『ビショップ・ユニット』",
+    "Class_EN": "'Bishop.Unit'",
+    "Class_Code": "KBU"
+  }
+]

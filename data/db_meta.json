@@ -330,6 +330,35 @@
         ]
       }
     },
+    "#Works_StardustVsKaleidoscope": {
+      "Title_JP": "星屑の万華鏡",
+      "CalendarColorId": "10",
+      "Title_EN": "Stardust vs. Kaleidoscope",
+      "Works_Code": "SKS",
+      "Works_Summary_JP": "雄志結国のインフラ技術と国防を担う「スターダスト財団」および同じく謎の軍事教団「カレイドスコウプ教団」に所属する特殊技術者。\n「パストダイヴァー」の後日譚に相当し、主に黄道十二星座や惑星・チェスの駒に基づいたキャラクターが存在する。",
+      "Works_Summary_EN": "Specialized engineers affiliated with 'Stardusts Foundation,' responsible for infrastructure technology and national defense in United.Heroic.Nation, or with 'Kaleidoscope Cult,' a mysterious military cult also based there.\nAs an after-story of 'PastDivers,' the title mainly features characters based on motifs such as the twelve zodiac signs, planets, and chess pieces.",
+      "$DetailLayout": {
+        "headerPills": ["Progress"],
+        "basicFields": [
+          "FormalName",
+          "CodeName",
+          "RaceType",
+          "GenderType",
+          "Belonging",
+          "FromArea",
+          "Class",
+          "Height_cm",
+          "Weight_kg",
+          "Age",
+          "BirthDay",
+          "FirstPersonCalling",
+          "SecondPersonCalling",
+          "ThirdPersonCalling"
+        ],
+        "subFields": ["AbilityStats", "AnotherRegions_DBLink"]
+      },
+      "Works_Hidden": true
+    },
     "#Works_DestinyFoxRecords": {
       "Title_JP": "運命線狐の記録\nフィジカル9",
       "CalendarColorId": "5",

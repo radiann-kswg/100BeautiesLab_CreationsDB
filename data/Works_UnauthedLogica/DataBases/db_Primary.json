@@ -2298,7 +2298,12 @@
     "Model": { "ModelSeries": "notModel", "Num": "Q", "Num_Badge": "Q12" },
     "Progress": "stillTentative",
     "AnotherRegions_DBLink": [
-      { "_Work": "SinisterChangingGirls", "_DB": "Primary", "Drc": "S" }
+      { "_Work": "SinisterChangingGirls", "_DB": "Primary", "Drc": "S" },
+      {
+        "_Work": "StardustVsKaleidoscope",
+        "_DB": "PrimaryKaleidoscope",
+        "ChessPiece": { "Chess": "Queen", "Num": 12 }
+      }
     ],
     "Name_JP": "六花 雙葉\nクィーン・トゥエルヴ",
     "Name_JPReading": "ろくばな ふたは\nクィーン・トゥエルヴ",
@@ -2309,7 +2314,6 @@
     "CodeName_EN": null,
     "RaceType": "Human(DoubleIdentity)",
     "Belonging": [{ "Faction": "ジャンクガレージ『六花陛下』" }],
-    "Height_cm": 155,
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "AA",
     "Age": 26,

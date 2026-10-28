@@ -1,0 +1,35 @@
+{
+  "Dictionaries": {
+    "#Dict_Class": {
+      "DB_Label_JP": "クラス辞書",
+      "DB_Label_EN": "Class Dictionary",
+      "keyField": "Class",
+      "compatListKey": "#List_Class"
+    },
+    "#Dict_Zodiac": {
+      "DB_Label_JP": "サイン(十二宮)種別辞書",
+      "DB_Label_EN": "Zodiac Type Dictionary",
+      "keyField": "Zodiac",
+      "compatListKey": "#List_Zodiac"
+    },
+    "#Dict_Planet": {
+      "DB_Label_JP": "サイン(惑星)種別辞書",
+      "DB_Label_EN": "Planet Type Dictionary",
+      "keyField": "Planet",
+      "compatListKey": "#List_Planet"
+    },
+    "#Dict_Chess": {
+      "DB_Label_JP": "チェス種別辞書",
+      "DB_Label_EN": "Chess Type Dictionary",
+      "keyField": "Chess",
+      "compatListKey": "#List_Chess"
+    },
+    "#Dict_KaleidoscopeCult": {
+      "DB_Label_JP": "クラス辞書(カレイドスコウプ教団向け)",
+      "DB_Label_EN": "Class Dictionary (for Kaleidoscope Cult)",
+      "keyField": "Class",
+      "compatListKey": "#List_Class",
+      "scopeField": { "Belonging": "カレイドスコウプ教団" }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "Sign": { "Planet": "Earth"},
+    "AnotherRegions_DBLink": [
+      { "_Work": "VirtuesUs", "_DB": "SemiPrimary", "Virtues": "智" }
+    ],
+	"SameCharacter_DBLink": {
+      "_DB": "PrimaryKaleidoscope", "ChessPiece": {"Chess": "Queen", "Num": 7}
+    },
+    "Name_JP": "智・ヴァーチュングレイス=春洋",
+    "Name_JPReading": "さとり・ヴァーチュングレイス=はるなみ",
+    "Name_EN": "Wisdmer Virtuengrace=Springer",
+    "FormalName_JP": "桜花 智\n智・ヴァーチュングレイス=春洋",
+    "FormalName_JPReading": "おうか さとり\nさとり・ヴァーチュングレイス=はるなみ",
+    "FormalName_EN": "Wisdmer Cherrybroom\nWisdmer Virtuengrace=Springer",
+    "CodeName_JP": "カレイド・アース",
+    "CodeName_EN": "Kaleido.Earth",
+    "GenderType": "Female",
+    "Belonging": [
+      { "Faction": "スターダスト財団" },
+      { "Faction": "カレイドスコウプ教団" }
+    ],
+    "FromArea": { "Area": "雄志結国" },
+    "Class": ["プロジェクト・クィーン"],
+    "Height_cm": 162,
+    "Weight_kg": { "hideText": "非公開希望" },
+    "BustSize": "C",
+    "Age": 23,
+    "Summary_JP": "",
+    "Summary_EN": ""
+  }
+]

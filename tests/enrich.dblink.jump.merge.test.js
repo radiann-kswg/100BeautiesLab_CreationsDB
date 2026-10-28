@@ -62,6 +62,17 @@ const testConfig = {
   withRepoBase: (p) => String(p || '')
 };
 
+/**
+ * 型番未確定（Model の子要素が全 null）の参照を持つ SinisterChangingGirls/Primary 相当の参照元
+ * @returns {Object} Height_cm を持たず Age: 29 を持つレコード
+ */
+const nullModelBase = () => ({
+  Drc: 'S',
+  Name_JP: '六花 雙葉',
+  Age: 29,
+  AnotherRegions_DBLink: [{ _Work: 'UnauthedLogica', _DB: 'Primary', Model: { ModelSeries: null, Num: null } }]
+});
+
 describe('_DBLink / _Jump merge (in-process)', () => {
   it('#ListLink wrapper は varsdef から Rank などの補助情報を補完できる', async () => {
     class ListLinkDataFetcher extends TestDataFetcher {
@@ -280,17 +291,20 @@ describe('_DBLink / _Jump merge (in-process)', () => {
     // UnauthedLogica/Primary の Model: { LogicSeries: null, Num: null }（型番未確定）を参照するケース
     // NOTE: AnotherRegions_DBLink の $enrich: true はグローバル data/db_type.json 側の宣言のため、
     //   readGlobalType を実データで返すフェッチャーを使う
+    // 実データは型番確定・身長直書きへ移行したため、参照元・参照先ともフィクスチャで固定する
     class GlobalTypeDataFetcher extends TestDataFetcher {
       async readGlobalType() { return loadJson('data/db_type.json'); }
+      async readDB(workId, dbName) {
+        if (workId === '#Works_UnauthedLogica' && dbName === 'Primary') {
+          return [{ Model: { ModelSeries: null, Num: null }, Name_JP: '雙葉', Height_cm: 155, Age: 26 }];
+        }
+        return super.readDB(workId, dbName);
+      }
     }
     const dataFetcher = new GlobalTypeDataFetcher();
     const proc = new globalThis.EnrichmentProcessor(dataFetcher, testConfig);
 
-    const scg = loadJson('data/Works_SinisterChangingGirls/DataBases/db_Primary.json');
-    const base = scg.find(r => r?.Drc === 'S');
-    expect(base).toBeTruthy();
-    expect(base.Height_cm).toBeUndefined();
-
+    const base = nullModelBase();
     const out = await proc.enrichRecords([base], '#Works_SinisterChangingGirls', 'Primary');
     const e = out[0];
 
@@ -307,8 +321,8 @@ describe('_DBLink / _Jump merge (in-process)', () => {
         if (workId === '#Works_UnauthedLogica' && dbName === 'Primary') {
           // Model が全 null のレコードが 2 件 → 曖昧一致
           return [
-            { Model: { LogicSeries: null, Num: null }, Name_JP: 'A', Height_cm: 100 },
-            { Model: { LogicSeries: null, Num: null }, Name_JP: 'B', Height_cm: 200 }
+            { Model: { ModelSeries: null, Num: null }, Name_JP: 'A', Height_cm: 100 },
+            { Model: { ModelSeries: null, Num: null }, Name_JP: 'B', Height_cm: 200 }
           ];
         }
         return super.readDB(workId, dbName);
@@ -318,9 +332,7 @@ describe('_DBLink / _Jump merge (in-process)', () => {
     const dataFetcher = new AmbiguousDataFetcher();
     const proc = new globalThis.EnrichmentProcessor(dataFetcher, testConfig);
 
-    const scg = loadJson('data/Works_SinisterChangingGirls/DataBases/db_Primary.json');
-    const base = scg.find(r => r?.Drc === 'S');
-
+    const base = nullModelBase();
     const out = await proc.enrichRecords([base], '#Works_SinisterChangingGirls', 'Primary');
     const e = out[0];
 
