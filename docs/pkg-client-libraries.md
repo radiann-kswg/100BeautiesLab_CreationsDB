@@ -20,6 +20,16 @@
 
 ## 設計方針
 
+### テキストRP推論許諾の読出し
+
+`getRecords()` / `get_records()` 等の既存取得結果は、任意の `AI_TextRP_Allowed`（boolean / `null`）を保持します。
+`_Commons` 補完後の `true` のみ許可、未指定・`null`・不正型は unknown（実行不可）です。
+Node.js の `{ applyCommons: false }` 等で補完を無効にした結果から、継承込みの許諾は判断できません。
+新しいメソッドは追加しません。優先順位・用途制限は
+[schema/meta 詳解 §4.7.1](schema-meta-processing.md#471-ai_textrp_allowed) と
+[第三者ポリシー](third-party-policy.md#テキストrp推論と学習の分離) を参照してください。
+旧 pin の欠落を許可へ補完せず、作品＋DB＋一意なインデックス条件を維持して利用側で明示的に判定します。
+
 ### 非破壊・独立原則
 
 `pkg/` のクライアントは既存の `lib/sw-common.js` / `pages/` / `api/` / `svc/` に依存しません。

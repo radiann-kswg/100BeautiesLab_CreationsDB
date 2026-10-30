@@ -579,19 +579,57 @@ export function applyCommons(records, workMeta, dbName) {
     );
   }
 
-  /** rec に合致する _Secondaries エントリの defaults を返す */
+  /**
+   * SW / FS クライアントと同じ3軸・スコア順で _Secondaries を選ぶ。
+   * カテゴリだけの定義を無条件 fallback にすると、推論許諾が別カテゴリへ漏れる。
+   */
   function findSecDefaults(rec) {
-    if (!secDefs) return {};
+    if (!Array.isArray(secDefs)) return {};
+    const criteria = [
+      { primary: true, def: ["sec_SeriesTitle", "SecondarySeriesTitle", "SecondarySeriesTitle_EN"], rec: ["sec_SeriesTitle", "SecondarySeriesTitle"] },
+      { primary: false, def: ["sec_Category", "SecondaryCategory"], rec: ["sec_Category", "SecondaryCategory"] },
+      { primary: false, def: ["sec_DesignedBy", "SecondaryDesignedBy"], rec: ["sec_DesignedBy", "SecondaryDesignedBy"] },
+    ];
+    const first = (obj, keys) => {
+      for (const key of keys) {
+        if (Object.prototype.hasOwnProperty.call(obj, key)) return obj[key];
+      }
+      return undefined;
+    };
+    const recordValue = (keys) => {
+      for (const key of keys) {
+        if (rec[key] !== null && rec[key] !== undefined) return rec[key];
+      }
+      return undefined;
+    };
+    const blank = (v) => v == null || String(v).trim() === "";
+    const values = (v) => (Array.isArray(v) ? v : [v])
+      .map((item) => item == null ? "" : String(item)).filter((item) => item !== "");
+    const matches = (expected, actual) => values(expected).every((v) => values(actual).includes(v));
     let fallback = null;
+    let best = null;
+    let bestScore = -1;
     for (const def of secDefs) {
-      const defCmn   = def._Commons;
-      if (!defCmn) continue;
-      const defTitle = def.sec_SeriesTitle ?? def.SecondarySeriesTitle;
-      if (!defTitle) { fallback ??= buildDefaults(defCmn); continue; }
-      const recTitle = rec.sec_SeriesTitle ?? rec.SecondarySeriesTitle;
-      if (recTitle === defTitle) return buildDefaults(defCmn);
+      if (!def || typeof def !== "object" || Array.isArray(def)
+        || !def._Commons || typeof def._Commons !== "object" || Array.isArray(def._Commons)) continue;
+      if (criteria.every((c) => blank(first(def, c.def)))) {
+        fallback ??= def;
+        continue;
+      }
+      const hasPrimary = !blank(first(def, criteria[0].def));
+      let score = 0;
+      let ok = true;
+      for (const c of criteria) {
+        const expected = first(def, c.def);
+        if (blank(expected)) continue;
+        const actual = recordValue(c.rec);
+        if (!c.primary && hasPrimary && blank(actual)) continue;
+        if (!matches(expected, actual)) { ok = false; break; }
+        score += c.primary ? 10 : 1;
+      }
+      if (ok && score > bestScore) { best = def; bestScore = score; }
     }
-    return fallback ?? {};
+    return buildDefaults((best ?? fallback)?._Commons);
   }
 
   return records.map((rec) => {

@@ -1,5 +1,14 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### feat: テキストRP推論許諾を従来の学習ゲートから分離 (2026-10-30)
+
+- **変更**: `data/db_type.json` に任意の `AI_TextRP_Allowed`（`#Boolean|#Null`）を宣言。既存 `_Commons` のレコード > 一致カテゴリ > DB の順で補完し、`true` のみ許可とする。`$enrich: false` により参照先キャラの許可を持ち込まない。
+- **用途**: 画像入力・デザイン模倣・追加学習のないテキストRP推論専用。テキストだけの追加学習 / FT も旧学習側のまま。`AI_Optout` の値・優先規則・学習許可の挙動と、配布用RPプロンプトは変更しない。
+- **安全側の初期状態**: 実キャラへの推測による許可は0件。現権利者を `sec_DesignedBy` / `isOwner` から推定せず、不明は unknown（実行不可）とし、User の確認後に個別有効化する。
+- **読出し**: APIルート・応答の包みは変更せず既存レコードの任意キーとして保持。本文projectionは追加せず、利用側でRPテキストを allowlist 抽出する。
+- **関連修正**: `pkg/cloudflare/worker.js` の `_Secondaries` 選択を SW / FS の3軸・スコア順へ追従。カテゴリだけの条件を無条件 fallback にする従来の挙動を修正し、別カテゴリへの推論許可の漏れを防ぐ。他の `_Commons` 項目も正しいカテゴリで補完されるため、下流も同時に取り込むこと。D1 の非公開列を再計算する場合は既存 migrate 手順が必要。
+- **影響範囲**: `data/db_type.json` / `pkg/cloudflare/worker.js` / `tests/ai.text-rp-permission.test.js` / `docs/{third-party-policy,schema-meta-processing,api-sw-spec,pkg-client-libraries}.md`。既存の画像・学習データやガイドライン本文の編集なし。
+
 ### feat: 相関図ファセットが `$IndexDef` 子要素の `$alt` を解釈 (2026-10-28)
 
 - **背景**: 星屑の万華鏡の `Sign` は「十二宮（`Zodiac`）か惑星（`Planet`）のどちらか」を持つインデックスで、軸 `Sign.Zodiac` は `Planet` だけのレコードから値を取れなかった（`graph.facets.test.js` の実データ不変条件で失敗）。

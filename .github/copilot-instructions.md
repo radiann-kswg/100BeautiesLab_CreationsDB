@@ -203,6 +203,7 @@
 - **basic 補助項目の重複抑制**: `Belonging` / `Area` / `BirthDay` / `AnivDay` などの basic 補助行は、`$DetailLayout.basicFields` に既に含まれる場合は重複表示しません。
 - **cross-work `_DBLink` 制約**: 別作品から `_DBLink` 参照で値を持ち込む場合は、対象作品の `db_type.json($DefType)` とグローバル `data/db_type.json($DefType)` に宣言されたトップレベル項目だけを許可します。さらに `$enrich: true` の `*_DBLink`（`$Def_DBLinkRef`）経路では、対象作品の `db_meta.json` の `$DetailLayout`（`headerPills` / `basicFields` / `subFields`）に列挙された項目だけへ絞ります（typedef だけだとグローバル宣言の全項目が通ってしまうため）。
 - **`$enrich: false` は enrich 禁止宣言**: `$DefType` のエントリへ `$enrich: false` を置くと、そのフィールドは `_DBLink` 参照先から一切穴埋めされません（同一 Work / cross-work の両方に適用）。特定項目を作品横断で引き継がせたくないときの第一候補です。
+- **テキストRP推論許諾**: `AI_TextRP_Allowed`（boolean / `null`、省略可）は画像入力・デザイン模倣・追加学習のない推論専用。既存 `_Commons` のレコード > 一致カテゴリ > DB の順で補完し、`true` のみ許可、未指定・不明は実行不可。`AI_Optout`（`addon-ai-tag` 管理）の値・優先規則・学習許可は変えず相互流用しません。考案者の `isOwner` から現権利者を推定したり実キャラの許可を自動入力したりせず、User が確認後に個別設定します。契約は `docs/schema-meta-processing.md` §4.7.1 / `docs/third-party-policy.md`。
 - **作品別 `db_meta.json` 欠損耐性**: 作品別 `db_meta.json` は追加価値レイヤーとして扱い、欠損時でも DB 取得 / 検索 / enrich を 500 で落とさず `_Commons` / `_Secondaries` だけをスキップして継続します。
 - **辞書の実行時合流**: enum/list 辞書は `db_meta.json(General.$VarsDef)` と `db_type.json($VarsDef)` の両方から合成される前提で扱い、片側だけを正とみなして説明しません。
 - **カタログ用メタ宣言**: 作品/DB の概要メタ（`CreationWorks`, `Databases.#DB_*`）の正式な補助 schema は、グローバル `data/db_type.json` のトップレベル `$MetaType` で管理します。

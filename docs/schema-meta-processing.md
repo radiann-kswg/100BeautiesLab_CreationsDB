@@ -675,6 +675,35 @@ UI 側は厳密構造より `about_JP` / `about_EN` を優先して整形表示�
 
 これは主に `Secondary` / `SelfSecondary` のような二次創作系 DB で使います。
 
+#### 4.7.1 `AI_TextRP_Allowed`
+
+画像入力・デザイン模倣・追加学習を含まないテキストRP推論専用の任意フィールドです。
+グローバル `$DefType` に `$type: "#Boolean|#Null"`、`$enrich: false`、
+`searchable: false`、`$display.auto: false` として宣言します。文字列 `"true"` や `1` を許可へ変換しません。
+
+| 置き場 | 優先順位 |
+| --- | --- |
+| レコード直下 `AI_TextRP_Allowed` | 最優先 |
+| 一致した `_Secondaries[]._Commons.AI_TextRP_Allowed` | 次点 |
+| DB の `_Commons.AI_TextRP_Allowed` | 既定値 |
+
+既存の `_Commons` の穴埋め規則に従います。レコードの `null`・省略は継承し、明示的な `false` は継承した
+`true` で上書きしません。確認後の個別 `true` は DB 既定の `false` より優先するため、全階層の禁止を OR する仕様ではありません。
+補完後の boolean `true` のみ許可、`false` は不許可、未指定・`null`・不正型は unknown として実行不可です。
+選ばれたカテゴリの `_Commons` の `null` は DB 既定値を覆うため、解決結果は unknown になります。
+選択されなかった `_Secondaries[]` の値は合成しません。
+各宣言値は boolean / `null` に限定し、空文字・オブジェクト等を「継承」の代用にしません。
+
+シリーズ条件は必須一致、シリーズに付随するカテゴリ・考案者はレコードに値がある場合のみ照合します。
+シリーズ条件のないカテゴリ・考案者条件は必須一致です。配列条件は全要素包含、スコアはシリーズ10・追加条件各1、
+同点は先に宣言した定義が優先、無条件定義は fallback です。SW・FS・Workers で同じ規則を使います。
+
+作品一括継承、DB / `_Secondaries[]` **直下**の同名キー、辞書からの許可推定は追加しません。
+条件付き `_ListLinkIf_*` はこの許諾の宣言場所に使いません。`_DBLink` の参照先からも許可を穴埋めしません。
+DB / カテゴリに `true` を置く場合は、その範囲の全レコードの権利・許諾が確認済みであることが前提です。
+第三者・譲渡済みを考案者名や `isOwner` だけで分類せず、不明な間は未指定のまま、User が確認後に個別設定します。
+`AI_Optout` は独立した従来の学習ゲート（`addon-ai-tag` 管理）であり、相互に許可を流用しません。
+
 ### 4.8 `isForSecondary` の三値スコープ
 
 typedef の `isForSecondary` は、DB 文脈ごとの表示・参照マージ範囲を次の三値で表します。
