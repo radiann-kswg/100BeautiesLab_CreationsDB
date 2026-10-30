@@ -570,6 +570,16 @@
       "searchable": false
     },
     {
+      "hashTag": "AI_TextRP_Allowed",
+      "$type": "#Boolean|#Null",
+      "hashTag_JP": "テキストRP推論の許可",
+      "hashTag_EN": "Text-only RP Inference Permission",
+      "description_JP": "追加学習・画像入力・キャラクターデザイン模倣を伴わないテキストRP推論専用。補完後の true のみ許可。AI_Optout とは独立。",
+      "$enrich": false,
+      "searchable": false,
+      "$display": { "auto": false, "role": "internal" }
+    },
+    {
       "$slot": "#WorkRest",
       "$slotMatch": "*",
       "$slotOrder": "subFields",
