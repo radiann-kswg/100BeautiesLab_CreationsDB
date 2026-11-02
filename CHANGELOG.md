@@ -1,5 +1,17 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### perf: SW / UI の CPU コスト削減（相関図 bootstrap 1.0s → 0.4s、一覧描画 814ms → 270ms） (2026-11-02)
+
+- **背景**: ネットワークをゼロにした後（下記 2 件）の残り時間を CPU プロファイルで追ったところ、SW 側は `db_Primary.json`（1.6MB）を 1 リクエストで 8 回パースし、`ReferenceResolver.resolveAllInAny()` が全フィールドを await 付きで深いコピーしていた。UI 側は一覧描画でレコード × field の回数だけスキーマ木を再帰探索し、`getQS()`（`URLSearchParams` 生成）と `getWorkIndexAliasDefs()` をレコードごとに呼んでいた。
+- **変更**:
+  - `lib/sw-common.js`: `DataFetcher.readDBShared(workId, dbName)` を追加（`readDB()` のリクエストスコープ・メモ化版。**読み取り専用**）。
+  - `lib/data-common.js`: `_DBLink` / `$enrich` の参照先ルックアップ（`resolveDbLinkPrimaryRecord` / `resolveDbLinkSuffixRef`）が `readLinkedDBRecords()` 経由で `readDBShared()` を使い、取り出した 1 件は `cloneLinkedRecord()`（`structuredClone`）で共有元から切り離す。`ReferenceResolver.resolveAllInAny()` は `hasHashReference()` で参照キー（`#` 始まり × 文字列値）が無ければ引数をそのまま返す。
+  - `lib/basic-renders/type-common.js`: `findNestedKey` / `findDictNameInSchema` を IIFE スコープへ出し、探索ルート（object 同一性）× キーで `WeakMap` メモ化。
+  - `pages/characters.js`: `getQS()` を `location.search` 単位でメモ化（戻り値は浅いコピー）。`getWorkIndexAliasDefs()` を indexDef / 両 typedef の同一性で直近 1 件メモ化。`asset-version` を `2026.11.02.2` へ。
+- **影響範囲**: `lib/sw-common.js` / `lib/data-common.js` / `lib/basic-renders/type-common.js` / `pages/characters.js` / `pages/characters.html` / `tests/data-common.reference-resolver.test.js`（新規）/ `docs/api-sw-spec.md` §2.1。`pkg/nodejs` は `readDBShared` を持たないため従来経路（`readDB`）へ自動フォールバック。
+- **検証**: 開発環境（Live Server・キャッシュ全命中）で `characters.html?c=NumberTales/Primary` の初期化 1243ms → **525ms**、`relations.html?r=NTS` の表示 1384ms → **673ms**（`bootstrap` 1056 → 374ms）。`npm test` 78 ファイル / 1435 件成功。
+- **下流への申し送り**: `lib/` 3 ファイルと `tests/data-common.reference-resolver.test.js` を対で取り込むこと。`_DBLink` マージの出力は不変（参照先の取り出し方が変わっただけ）。
+
 ### perf: SW の `data/**` 取得を Cache API の stale-while-revalidate へ（10 分超の再訪でも 1 秒未満） (2026-11-02)
 
 - **背景**: 直前の `perf`（下記）で 10 分以内の再訪は 0.9 秒になったが、GitHub Pages の `max-age=600` が切れると SW が条件付き要求（304）を**直列に 45 本以上**出して 10 秒へ戻った（本番実測: `/works` だけで 4.4 秒）。ネットワーク往復そのものを消さないと目標に届かない。
