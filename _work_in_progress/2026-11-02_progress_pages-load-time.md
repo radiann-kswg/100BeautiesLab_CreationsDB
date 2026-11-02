@@ -106,10 +106,38 @@ GitHub Pages 側は `Cache-Control: max-age=600` + ETag + gzip を返してい�
 - Cache API に本文がある限り経過時間に関係なく JSON のネットワーク要求は 0 なので、「10 分超の再訪」も warm と同じ経路になる
 - SW 再起動後の裏再取得（`REVALIDATED_URLS` が空に戻る経路）は 45 秒待っても SW が落ちず観測できなかった（Playwright 接続中は Chrome が SW を生かし続ける模様）。ロジックは単体テストで固定
 
+## フェーズ 3: CPU コスト削減（2026-11-02 10:25〜）
+
+(B) デプロイ後、ネットワークがゼロになった状態の残り時間を CPU プロファイル（ページ側: CDP `Profiler`、SW 側: `.cache/bench-bootstrap.mjs` で lib 一式を Node vm に読み `--cpu-prof`）で追った。
+
+| 見つかった重さ | 対処 |
+| --- | --- |
+| 一覧描画 814ms のうち、`findNestedKey` 160ms + `findDictNameInSchema` 85ms（レコード × field の回数だけスキーマ木を再帰探索） | `lib/basic-renders/type-common.js` で IIFE スコープへ出し、探索ルート × キーで `WeakMap` メモ化 |
+| `getWorkIndexAliasDefs` 71ms + `RegExp #Index\b` 32ms（レコードごと） | 直近 1 件メモ（indexDef / 両 typedef の同一性） |
+| `getQS` 36ms + `URLSearchParams` 32ms（言語判定のたびに呼ばれる） | `location.search` 単位でメモ化（戻り値は浅いコピー） |
+| SW `bootstrap` 1.0s: `JSON.parse` 約 420ms（`db_Primary.json` 1.6MB を 8 回）+ `resolveAllInAny` の await 付き深いコピー | `DataFetcher.readDBShared()`（読み取り専用・スコープ内メモ）を参照先ルックアップに使い、取り出した 1 件は `cloneLinkedRecord()` で切り離す。`resolveAllInAny()` は参照キーが無ければそのまま返す（実データに `#` 始まり × 文字列値のキーは 0 件） |
+
+### 検証（フェーズ 3・開発環境・キャッシュ全命中）
+
+| ページ | 前 | 後 |
+| --- | --- | --- |
+| `characters.html?c=NumberTales/Primary` 初期化（`🎉`） | 1243ms（一覧描画 814ms） | **525ms**（一覧描画 270ms） |
+| `relations.html?r=NTS` 表示まで | 1384ms（`bootstrap` 1056ms） | **673ms**（`bootstrap` 374〜425ms） |
+| Node 計測 `bootstrap` | 1046ms（DB 各ファイル 3〜9 回パース） | 543ms（各 2 回 = 主読込 + 共有 1 回） |
+
+- `npm test`: **78 ファイル / 1435 件成功**（`tests/data-common.reference-resolver.test.js` 新規）
+- 途中、Live Server がファイル書き込み途中の `data-common.js` を SW へ配った瞬間に `db/Primary` が 1 回 500 を返した（再現せず。直後の 4 回連続呼び出しは全て 200）
+
+### 観測した配信上の注意（Cloudflare）
+
+- 本番 `lib/*.js` は Cloudflare エッジでキャッシュされ（`cf-cache-status: HIT`）、ブラウザ向け `Cache-Control` も `max-age=14400`（4 時間）に書き換わっている。
+  origin（GitHub Pages）は `max-age=600`。SW が `importScripts` する `lib/` は URL に `?v=` が付かないため、**デプロイした SW コードが利用者に届くまで最大 4 時間**（エッジ TTL + ブラウザ TTL）かかり得る。
+  `?v=` 付きで読む `characters.js` / `page-api-bridge.js` は即時。対策はインフラ側（Cache Rule で `/lib/*` の TTL を origin 追従にする、またはデプロイ後にパージ）。Q7 のスコープ外として申し送り
+
 ## 未完了タスク
 
-- [ ] **(B) のデプロイ後の本番実測**: cold（SW 登録し直し）→ 10 分以上空けて warm で `🎉 ... < 1000ms` を確認。`relations.html` も同条件で
-- [ ] `relations.html` の `bootstrap`（キャッシュ全命中でも 1.0〜1.1 秒の CPU コスト）。`handleBootstrapEndpoint()` の `resolveCache` が DB ごとのループ内で作り直され、`db_Primary.json` 1.6MB を複数回パースしている既知の課題（`docs/api-sw-spec.md` §2.1 末尾）。別タスク
+- [ ] **(B)+(フェーズ 3) のデプロイ後の本番実測**: cold（SW 登録し直し）→ 10 分以上空けて warm で `🎉 ... < 1000ms` を確認。`relations.html` も同条件で
+- [ ] Cloudflare のエッジ / ブラウザ TTL（`/lib/*.js` 4 時間）の扱い（User 判断。インフラ設定）
 - [ ] 連続スラッシュ URL（`//pages/characters.html`）で SW scope が `https://pages` になり登録失敗する既存挙動。直すなら `ensureApiSW()` で scope / sw.js URL を正規化（別タスク・要否は User 判断）
 
 ## 参考
@@ -125,3 +153,5 @@ GitHub Pages 側は `Cache-Control: max-age=600` + ETag + gzip を返してい�
   6 件（高速化分のみ）/ コンフリクト 0 / 28 files 251 tests green
 - 両リポジトリとも `git push origin develop` 済み（中流 → 下流の順。中流は Dependabot 更新 6 件を先に merge）。
   GitHub 基準の `sync:check` は両方 0 件。詳細は各リポジトリの `_work_in_progress/2026-11-02_upstream-sync.md`
+- **その2**（上流 `b9197d8`・stale-while-revalidate）: 中流 `2663133` → `b9197d8`（3 件 / 781 件 green）、下流は中流 `9e64272` 基準（3 件 / 256 件 green）。
+  push と GitHub 基準の `sync:check` 0 件まで済み。
