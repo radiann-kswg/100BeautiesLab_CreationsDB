@@ -365,6 +365,7 @@
 | ログ | 主題 | 関連タスク | 状態 |
 | --- | --- | --- | --- |
 | [2026-07-25_remaining-task.md](./2026-07-25_remaining-task.md) | **本ファイル**（残タスクの起点） | — | 🟢 現行 |
+| [2026-11-02_progress_pages-load-time.md](./2026-11-02_progress_pages-load-time.md) | GitHub Pages のページロード時間短縮（SW の `no-store` 撤廃・進行中フェッチの束ね・`reg.update()` 非同期化） | — | ✅ 実装・テスト完了（本番実測はデプロイ後。10 分超の再訪で 1 秒を超えるなら Cache API SWR へ昇格） |
 | [2026-10-14_progress_story-era-epochs.md](./2026-10-14_progress_story-era-epochs.md) | 創世紀元年の meta 宣言（`General.StoryEraEpochs`）と `YearInEra` の元年基準統一、`StoryEra` / `Age` 整合テスト | — | ✅ 実装完了（初版は `0f01a5c6` でコミット済み。`Age` 照合を誕生年ルールへ差し替えた分は未コミット） |
 | [2026-09-11_progress_guideline-new-titles.md](./2026-09-11_progress_guideline-new-titles.md) | 創作ガイドラインの新規 4 タイトル補填（`/grilling` で合意）＋ `grilling` / `grill-me` スキル取り込み | — | ✅ 反映完了（英語版の獣爾騎兵表記統一・既存差異の要否確認は申し送り） |
 | [2026-09-06_progress_corefolder-image-resolution.md](./2026-09-06_progress_corefolder-image-resolution.md) | corefolder 画像の原寸差し替え（下流 CreationsAI Issue #1 依頼2）と、その後始末 | **T-36 / T-37** | ✅ 差し替え完了（被覆率の主色判定のみ T-37 で継続） |

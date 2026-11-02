@@ -9,6 +9,30 @@
 - **関連修正**: `pkg/cloudflare/worker.js` の `_Secondaries` 選択を SW / FS の3軸・スコア順へ追従。カテゴリだけの条件を無条件 fallback にする従来の挙動を修正し、別カテゴリへの推論許可の漏れを防ぐ。他の `_Commons` 項目も正しいカテゴリで補完されるため、下流も同時に取り込むこと。D1 の非公開列を再計算する場合は既存 migrate 手順が必要。
 - **影響範囲**: `data/db_type.json` / `pkg/cloudflare/worker.js` / `tests/ai.text-rp-permission.test.js` / `docs/{third-party-policy,schema-meta-processing,api-sw-spec,pkg-client-libraries}.md`。既存の画像・学習データやガイドライン本文の編集なし。
 
+### perf: SW の `data/**` 取得を Cache API の stale-while-revalidate へ（10 分超の再訪でも 1 秒未満） (2026-11-02)
+
+- **背景**: 直前の `perf`（下記）で 10 分以内の再訪は 0.9 秒になったが、GitHub Pages の `max-age=600` が切れると SW が条件付き要求（304）を**直列に 45 本以上**出して 10 秒へ戻った（本番実測: `/works` だけで 4.4 秒）。ネットワーク往復そのものを消さないと目標に届かない。
+- **変更**（`lib/sw-common.js` の `DataFetcher`）:
+  - `_fetchTextShared()`: Cache API（既存の `CACHE_NAME` = `100bl-api-v1`）に本文があれば即返し、無ければネットワーク → 200 を保存（404 は保存しない）。
+  - `_revalidateInBackground()`: 命中時に裏で `fetch(url, { cache: 'no-cache' })` して差し替え。SW 生存中は同じ URL を 1 回だけ（`REVALIDATED_URLS`）。`no-cache` なのは、既定モードだと `max-age` 内の HTTP キャッシュの旧コピーを保存し直して push 後の反映が遅れるため。
+  - `fileExists()`: 本文がキャッシュ済みなら `HEAD` を省く。
+  - `_openDataCache()`: `caches` が無い環境（Node / Vitest）では null を返し、従来どおりネットワークだけで動く。
+- **鮮度の約束**: `data/` push 後、最初のロードは旧データ（裏で更新）、次のロードから新データ。即時反映は UI の「キャッシュ/SWリセット」（`caches` 全削除）。詳細は `docs/api-sw-spec.md` §2.2。
+- **影響範囲**: `lib/sw-common.js` / `tests/sw.datafetcher-memo.test.js`（Cache API フェイクで SWR の 5 ケース追加）/ `docs/api-sw-spec.md`。pages / svc / api の 3 SW すべてに効く。
+- **検証**: 開発環境（Live Server）で warm リロード時の **JSON ネットワーク要求 0 本**（cold 57 本 → 0 本。残る HEAD 5 本は本文未キャッシュ DB の存在確認）。本番はデプロイ後に再計測。
+- **下流への申し送り**: `lib/sw-common.js` と `tests/sw.datafetcher-memo.test.js` を対で取り込むこと。`CACHE_NAME` を変えている下流は、そのまま自分の名前の箱に入る。
+
+### perf: SW のデータ取得で HTTP キャッシュを使い、進行中フェッチを束ねる（ページロード短縮） (2026-11-02)
+
+- **背景**: 本番（GitHub Pages）でキャラシートが 1 ページ 4〜11 秒（`NumberTales/Primary`）、初回訪問は 17 秒かかっていた。SW の `DataFetcher.fetchJSON()` / `fileExists()` が `cache: 'no-store'` で、かつメモ化が 1 API リクエスト内に閉じていたため、1 ロードで **SW 発のネットワーク要求が 149〜158 本**（辞書 21 ファイル × 各 4 回、1.6MB の `db_Primary.json` × 3 回）出ていた。
+- **変更**:
+  - `lib/sw-common.js`: `DataFetcher._fetchTextShared(url)` を追加。`fetch` の `cache` モードを既定に戻し（GitHub Pages の `max-age=600` + ETag を活かす）、進行中の同一 URL フェッチをモジュールレベル `INFLIGHT_FETCH` で 1 本へ束ねる。共有するのは本文文字列までで、パースは利用側ごと（レコード本体の `_Commons` in-place 適用が混ざらない）。
+  - `lib/page-api-bridge.js`: `ensureApiSW()` の `reg.update()` を await しない（初回訪問で sw.js + importScripts 7 本の再取得を待っていた。更新は次回ロードから効けば十分）。
+  - `pages/characters.js` の `page-api-bridge.js?v=` と `pages/characters.html` の `asset-version` を `2026.11.02.1` へ。
+- **影響範囲**: `lib/sw-common.js` / `lib/page-api-bridge.js` / `pages/characters.js` / `pages/characters.html` / `tests/sw.datafetcher-memo.test.js` / `docs/api-sw-spec.md` §2.2。pages / svc / api の 3 SW すべてに効く。
+- **挙動の変化**: `data/` を push した直後、最大 10 分は旧データが見える可能性がある（HTML / JS と同じルール）。「キャッシュ/SWリセット」ボタンは HTTP キャッシュには触れない。
+- **下流への申し送り**: `lib/` と `tests/` を取り込めば同じ効果が出る。`pages/characters.js` の変更は import の `?v=` だけ。
+
 ### feat: 相関図ファセットが `$IndexDef` 子要素の `$alt` を解釈 (2026-10-28)
 
 - **背景**: 星屑の万華鏡の `Sign` は「十二宮（`Zodiac`）か惑星（`Planet`）のどちらか」を持つインデックスで、軸 `Sign.Zodiac` は `Planet` だけのレコードから値を取れなかった（`graph.facets.test.js` の実データ不変条件で失敗）。
