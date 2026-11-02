@@ -144,7 +144,8 @@ describe('テキストRP推論のschemaと公開read契約', () => {
         }),
       },
     };
-    const response = await worker.fetch(new Request('https://example.invalid/api/v1/Test/Primary/records'), env, {});
+    // addon-ai-tag の worker は /api/ai/ 配下を受ける（develop は /api/v1/）
+    const response = await worker.fetch(new Request('https://example.invalid/api/ai/Test/Primary/records'), env, {});
     expect(response.status).toBe(200);
     const body = await response.json();
     expect(body.map((record) => record[field])).toEqual([true, false]);
