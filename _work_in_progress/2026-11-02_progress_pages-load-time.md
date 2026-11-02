@@ -200,3 +200,5 @@ GitHub Pages 側は `Cache-Control: max-age=600` + ETag + gzip を返してい�
 - **その4 デプロイ後の本番実測（Claude 内蔵ブラウザ・2026-11-02）**: `characters.html?c=NumberTales/Primary` 2 回目以降 `🎉 ... complete in` **675ms / 426ms**。
   `relations.html?r=NTS` 2 回目以降は `/pages/v1/bootstrap` が navigation 起点 **437 / 586 / 500ms** で応答、以後 50ms 超の long task なし（完了ログが無いため Performance API で代替）。
   受け入れ基準（2 回目以降 1000ms 未満）は両ページとも達成 → 軽量化・高速化はいったん区切り（コードレビュー結果は会話ログ参照）。
+- **その5（レビュー修正 `dc5e513`）**: 高速化 4 コミット分のコードレビューで出た「裏再取得が 404 なら Cache API から消す」「`_DBLink` 参照先の切り離しを守るテスト」「`cloneLinkedRecord` 1 行化」を上流で修正・push。
+  中流 `52c1f24` → `dc5e513`（5 件 / 787 件 green）、下流は中流 `c552575` 基準（5 件 / 262 件 green）。push と GitHub 基準の `sync:check` 0 件まで済み。**軽量化・高速化はここでいったん区切り。**
