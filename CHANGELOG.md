@@ -9,6 +9,14 @@
 - **関連修正**: `pkg/cloudflare/worker.js` の `_Secondaries` 選択を SW / FS の3軸・スコア順へ追従。カテゴリだけの条件を無条件 fallback にする従来の挙動を修正し、別カテゴリへの推論許可の漏れを防ぐ。他の `_Commons` 項目も正しいカテゴリで補完されるため、下流も同時に取り込むこと。D1 の非公開列を再計算する場合は既存 migrate 手順が必要。
 - **影響範囲**: `data/db_type.json` / `pkg/cloudflare/worker.js` / `tests/ai.text-rp-permission.test.js` / `docs/{third-party-policy,schema-meta-processing,api-sw-spec,pkg-client-libraries}.md`。既存の画像・学習データやガイドライン本文の編集なし。
 
+### perf: `bootstrap` の作品 / DB 収集を並行化（相関図の初回表示 20 秒 → 数秒見込み） (2026-11-02)
+
+- **背景**: その３デプロイ後の本番実測で、Cache API が空の状態から `relations.html` を開くと `/pages/v1/bootstrap` に **20.7 秒**かかった。`handleBootstrapEndpoint()` が作品 → DB を順番に `await` するため、約 230 本のネットワーク往復が数珠つなぎになっていた（2 回目以降は 0.7 秒）。
+- **変更**: `lib/sw-common.js` `handleBootstrapEndpoint()` で、作品ごとの収集（`buildWorkItem`）と作品内の DB ごとの収集を `Promise.all` で並行化。`works` / `databases` の順序は保つ（`Object.fromEntries` で DB 順どおり）。リクエストスコープのメモ化は Promise を共有する設計なので並行でも二重取得にならない。
+- **影響範囲**: `lib/sw-common.js` のみ。レスポンス形状・順序は不変（Node 計測で出力バイト数一致 6,794,841）。
+- **検証**: 開発環境（Live Server）で Cache API 空からの `bootstrap` 1056 → **578ms**、warm 270〜321ms。`npm test` 全件成功。
+- **下流への申し送り**: `lib/sw-common.js` を取り込むだけ。
+
 ### perf: SW / UI の CPU コスト削減（相関図 bootstrap 1.0s → 0.4s、一覧描画 814ms → 270ms） (2026-11-02)
 
 - **背景**: ネットワークをゼロにした後（下記 2 件）の残り時間を CPU プロファイルで追ったところ、SW 側は `db_Primary.json`（1.6MB）を 1 リクエストで 8 回パースし、`ReferenceResolver.resolveAllInAny()` が全フィールドを await 付きで深いコピーしていた。UI 側は一覧描画でレコード × field の回数だけスキーマ木を再帰探索し、`getQS()`（`URLSearchParams` 生成）と `getWorkIndexAliasDefs()` をレコードごとに呼んでいた。
@@ -16,7 +24,7 @@
   - `lib/sw-common.js`: `DataFetcher.readDBShared(workId, dbName)` を追加（`readDB()` のリクエストスコープ・メモ化版。**読み取り専用**）。
   - `lib/data-common.js`: `_DBLink` / `$enrich` の参照先ルックアップ（`resolveDbLinkPrimaryRecord` / `resolveDbLinkSuffixRef`）が `readLinkedDBRecords()` 経由で `readDBShared()` を使い、取り出した 1 件は `cloneLinkedRecord()`（`structuredClone`）で共有元から切り離す。`ReferenceResolver.resolveAllInAny()` は `hasHashReference()` で参照キー（`#` 始まり × 文字列値）が無ければ引数をそのまま返す。
   - `lib/basic-renders/type-common.js`: `findNestedKey` / `findDictNameInSchema` を IIFE スコープへ出し、探索ルート（object 同一性）× キーで `WeakMap` メモ化。
-  - `pages/characters.js`: `getQS()` を `location.search` 単位でメモ化（戻り値は浅いコピー）。`getWorkIndexAliasDefs()` を indexDef / 両 typedef の同一性で直近 1 件メモ化。`asset-version` を `2026.11.02.2` へ。
+  - `pages/characters.js`: `getQS()` を `location.search` 単位でメモ化（戻り値は浅いコピー）。`getWorkIndexAliasDefs()` を indexDef / 両 typedef の同一性で直近 1 件メモ化。一覧描画の yield を「5 件ごとの `setTimeout(0)`」から「20 件ごとの `MessageChannel`（`yieldToMain()`）」へ（非表示タブでは `setTimeout` が 1 秒単位に間引かれ、105 件の描画に 15〜20 秒かかる現象を本番で観測）。`asset-version` を `2026.11.02.2` へ。
 - **影響範囲**: `lib/sw-common.js` / `lib/data-common.js` / `lib/basic-renders/type-common.js` / `pages/characters.js` / `pages/characters.html` / `tests/data-common.reference-resolver.test.js`（新規）/ `docs/api-sw-spec.md` §2.1。`pkg/nodejs` は `readDBShared` を持たないため従来経路（`readDB`）へ自動フォールバック。
 - **検証**: 開発環境（Live Server・キャッシュ全命中）で `characters.html?c=NumberTales/Primary` の初期化 1243ms → **525ms**、`relations.html?r=NTS` の表示 1384ms → **673ms**（`bootstrap` 1056 → 374ms）。`npm test` 78 ファイル / 1435 件成功。
 - **下流への申し送り**: `lib/` 3 ファイルと `tests/data-common.reference-resolver.test.js` を対で取り込むこと。`_DBLink` マージの出力は不変（参照先の取り出し方が変わっただけ）。
