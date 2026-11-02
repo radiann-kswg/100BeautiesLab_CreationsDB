@@ -161,11 +161,22 @@ GitHub Pages 側は `Cache-Control: max-age=600` + ETag + gzip を返してい�
 - Node 計測で出力バイト数一致（6,794,841）。開発環境で Cache API 空からの `bootstrap` 1056 → **578ms**、warm 270〜321ms、グラフ件数不変（638 キャラ / 1078 本）
 - `npm test` 78 ファイル / 1435 件成功
 
+### 本番実測（その４デプロイ後・2026-11-02 11:05 JST・前面タブ）— **全ページ 1 秒未満を確認**
+
+| ページ | 結果（3 回） |
+| --- | --- |
+| `characters.html?c=NumberTales/Primary` warm | `🎉` **560 / 500 / 634ms** |
+| `relations.html?r=NTS` warm | 表示 **951 / 736 / 759ms**（`bootstrap` 473 / 364 / 355ms） |
+| `relations.html` 初回（Cache API 空） | `bootstrap` 20.7 秒 → **3.8 秒** |
+
+出発点（Primary 4〜11 秒・初回 17 秒）から、2 回目以降は約 1/10。ここで一区切り（`/ponytail-review` 実施済み。指摘は本ログ末尾の「レビュー申し送り」）。
+
 ## 未完了タスク
 
-- [ ] **フェーズ 4 のデプロイ後の本番実測**: Cache API を空にして `relations.html` 初回の `bootstrap` を測る（20.7 秒 → 数秒の見込み）。reload は 1 秒前後なので `bootstrap` 以外（グラフ配置）の内訳も取る
+- [x] フェーズ 4 のデプロイ後の本番実測（上記）
 - [ ] Cloudflare のエッジ / ブラウザ TTL（`/lib/*.js` 4 時間）の扱い（User 判断。インフラ設定）
 - [ ] 連続スラッシュ URL（`//pages/characters.html`）で SW scope が `https://pages` になり登録失敗する既存挙動。直すなら `ensureApiSW()` で scope / sw.js URL を正規化（別タスク・要否は User 判断）
+- [ ] レビュー申し送り（任意・約 -35 行）: `cloneLinkedRecord` の JSON フォールバック削除（Node 22 / SW とも `structuredClone` あり）、`yieldToMain` の `setTimeout` フォールバック削除、`getQS` / `parseQS` の統合、長い JSDoc の短縮（本文は `docs/api-sw-spec.md` §2.1 / §2.2 に既にある）
 
 ## 参考
 
@@ -184,3 +195,8 @@ GitHub Pages 側は `Cache-Control: max-age=600` + ETag + gzip を返してい�
   push と GitHub 基準の `sync:check` 0 件まで済み。
 - **その3**（上流 `61101b8` + `0b26d82`・SW / UI の CPU コスト削減）: 中流 `b9197d8` → `0b26d82`（7 件 / 784 件 green）、下流は中流 `89296d8` 基準（7 件 / 259 件 green）。
   push と GitHub 基準の `sync:check` 0 件まで済み。
+- **その4**（上流 `52c1f24`・bootstrap 並行化）: 中流 `0b26d82` → `52c1f24`（1 件 / 784 件 green）、下流は中流 `6d232fa` 基準（1 件 / 259 件 green）。
+  push と GitHub 基準の `sync:check` 0 件まで済み。あわせて `AGENTS.md` の「GitHub Pages の軽量化・高速化（恒常対応）」節を中流・下流へ手動ミラー（`agents:build` / `agents:check` 一致）。
+- **その4 デプロイ後の本番実測（Claude 内蔵ブラウザ・2026-11-02）**: `characters.html?c=NumberTales/Primary` 2 回目以降 `🎉 ... complete in` **675ms / 426ms**。
+  `relations.html?r=NTS` 2 回目以降は `/pages/v1/bootstrap` が navigation 起点 **437 / 586 / 500ms** で応答、以後 50ms 超の long task なし（完了ログが無いため Performance API で代替）。
+  受け入れ基準（2 回目以降 1000ms 未満）は両ページとも達成 → 軽量化・高速化はいったん区切り（コードレビュー結果は会話ログ参照）。
