@@ -55,21 +55,73 @@ GitHub Pages 側は `Cache-Control: max-age=600` + ETag + gzip を返してい�
 - `npm test`（Vitest）: **77 ファイル / 1427 件すべて成功**（2026-11-02 09:30）
 - ローカル（Live Server・修正後 SW）: 初期化 **0.53 秒**（warm）。Live Server は `max-age=0` で毎回 304 再検証になるため、
   これは「全ファイルがキャッシュ命中したときの CPU 側コスト」の近似値
-- 本番の「後」計測は **デプロイ後に実施**（Playwright のルーティングで SW の `importScripts` を差し替える方法は固まるため断念）
+- Playwright のルーティングで SW の `importScripts` を差し替えるデプロイ前計測は固まるため断念（本番はデプロイ後に実測）
 
-### 本番での見込み（デプロイ前の机上）
+### 本番実測（修正後・2026-11-02 09:58〜10:05 JST デプロイ直後）
 
-- 10 分以内の再訪: `data/**` は全部ディスクキャッシュ → ローカル実測に近い **0.6〜0.9 秒**の見込み
-- 10 分を超えた再訪: ユニーク約 57 ファイルの条件付き要求（304）が直列深さ 15〜20 往復 → **1.5〜2 秒**の見込み。
-  この経路で 1 秒を切るには Q2 **(B)**（Cache API の stale-while-revalidate）が要る
+| シナリオ | 修正前 | 修正後 |
+| --- | --- | --- |
+| `characters.html?c=NumberTales/Primary` 初回訪問（SW 未登録） | 17 秒 | **2.4 秒**（SW 登録 1.46s ＋ API 266 / 279 / 323ms） |
+| 同・2 回目以降（10 分以内） | 4〜11 秒 | **`🎉 Application initialization complete in 855〜896ms`**（3 回計測）。SW 発 135〜227 応答はすべて 15ms 未満＝HTTP キャッシュ命中 |
+| `relations.html?r=NTS` 2 回目以降（10 分以内） | 未計測（SW 発 359 要求が全部ネットワークだったので数秒〜十数秒と推定） | **1.3〜1.4 秒**。うち `/pages/v1/bootstrap` が 1.0〜1.1 秒。359 応答は全部キャッシュ命中なので残りは SW 内の CPU（全作品 × 全 DB の JSON パース・`_DBLink` 解決） |
+
+- 受け入れ基準（Q5）: **characters は達成**（< 1000ms）。**relations は未達**（1.3s）。relations の残りはネットワークではなく
+  `handleBootstrapEndpoint()` の CPU コストで、`resolveCache` が DB ごとのループ内で作り直されている既知の課題
+  （`docs/api-sw-spec.md` §2.1 末尾）に由来する。別タスクとして扱う
+- 副産物: URL を `https://database.numbertales-radiann.net//pages/characters.html`（スラッシュ 2 連）で開くと
+  `new URL('./', location.href).pathname` が `//pages/` になり、SW の scope が `https://pages` と解釈されて
+  `SecurityError` で登録失敗する（本件とは無関係の既存挙動。修正するなら scope / sw.js URL の連続スラッシュ正規化）
+
+### 10 分超の再訪（(A) のみ・本番 01:10 UTC）→ **10.1 秒に逆戻り**
+
+最初のキャッシュ充填（00:58 UTC）から 10 分待って再訪したところ、`/works` 4398ms・`/db/Primary` 1818ms・合計 **10.1 秒**。
+`max-age=600` が切れると SW が条件付き要求（304）を**直列に 45 本以上**出すため、HTTP キャッシュ任せでは 10 分以内しか効かない。
+机上見込み（1.5〜2 秒）より悪かったのは、`/works` が作品ごとにメタ読み → HEAD と直列に回る構造のため。
+
+→ 合意済みの段階昇格どおり **Q2 (B)** を実装。
+
+## フェーズ 2: Cache API の stale-while-revalidate（Q2 (B)・2026-11-02 10:10〜）
+
+- `lib/sw-common.js` `DataFetcher`
+  - `_fetchTextShared()`: Cache API（既存の `CACHE_NAME` = `100bl-api-v1`。`precache()` の `db_meta.json` と同じ箱）に本文があれば即返し、
+    無ければネットワーク → 200 を保存（404 は保存しない）
+  - `_revalidateInBackground()`: 命中時に裏で `fetch(url, { cache: 'no-cache' })` → 差し替え。SW 生存中は URL ごとに 1 回（`REVALIDATED_URLS`）。
+    `no-cache` にしたのは、既定モードだと `max-age` 内の HTTP キャッシュの旧コピーを保存し直して push 後の反映が遅れるため
+  - `fileExists()`: 本文がキャッシュ済みなら HEAD を省く
+  - `_openDataCache()`: `caches` が無い環境（Node / Vitest）では null → 従来どおりネットワークだけ
+- `tests/sw.datafetcher-memo.test.js`: Cache API の最小フェイク（`match` / `put`）を注入し、未命中→保存 / 404 非保存 / 命中→即返し＋裏で 1 回だけ再取得（`no-cache`）/ HEAD 省略の 5 ケース追加
+- `docs/api-sw-spec.md` §2.2 を 3 層（in-flight 束ね → Cache API SWR → HTTP キャッシュ）の説明に書き換え。`CHANGELOG.md` に別エントリ追加
+
+### 検証（フェーズ 2）
+
+- `npm test`: **77 ファイル / 1432 件すべて成功**（10:17）
+- 開発環境（Live Server・127.0.0.1:5500、User が本番と並べて起動）:
+
+| ロード | JSON GET | JSON HEAD | 備考 |
+| --- | --- | --- | --- |
+| cold（SW 登録 + Cache API 空） | 57 | 8 | Cache API に 55 件保存されることを `caches.open().keys()` で確認 |
+| warm（2 回目以降） | **0** | 5 | HEAD 5 本は本文未キャッシュの DB（SemiPrimary 等）の存在確認。残り 96 本は一覧サムネイル画像（SW の画像フォールバック経路。初期化をブロックしない） |
+| ページ内から `/pages/v1/works` を叩き直し | 0 | 0 | 36ms で応答（(A) 時点は 70〜110ms） |
+
+- Cache API に本文がある限り経過時間に関係なく JSON のネットワーク要求は 0 なので、「10 分超の再訪」も warm と同じ経路になる
+- SW 再起動後の裏再取得（`REVALIDATED_URLS` が空に戻る経路）は 45 秒待っても SW が落ちず観測できなかった（Playwright 接続中は Chrome が SW を生かし続ける模様）。ロジックは単体テストで固定
 
 ## 未完了タスク
 
-- [ ] **デプロイ後の本番実測**（Q5 の受け入れ基準: `?c=NumberTales/Primary` と `relations.html`、2 回目以降で `🎉 ... < 1000ms`）。10 分以内・10 分超の両方を取る
-- [ ] 10 分超の再訪で 1 秒を超えるなら **Q2 (B)** へ昇格（`DataFetcher._fetchTextShared` の内側に Cache API を挟む。キャッシュ名は `CACHE_NAME` と分けてバージョン付与）
-- [ ] 初回訪問の実測（目標 2 秒前後）。SW 登録後の API 3 本が各 4 秒だった件は (A) で辞書の重複が消えるので改善見込みだが未確認
+- [ ] **(B) のデプロイ後の本番実測**: cold（SW 登録し直し）→ 10 分以上空けて warm で `🎉 ... < 1000ms` を確認。`relations.html` も同条件で
+- [ ] `relations.html` の `bootstrap`（キャッシュ全命中でも 1.0〜1.1 秒の CPU コスト）。`handleBootstrapEndpoint()` の `resolveCache` が DB ごとのループ内で作り直され、`db_Primary.json` 1.6MB を複数回パースしている既知の課題（`docs/api-sw-spec.md` §2.1 末尾）。別タスク
+- [ ] 連続スラッシュ URL（`//pages/characters.html`）で SW scope が `https://pages` になり登録失敗する既存挙動。直すなら `ensureApiSW()` で scope / sw.js URL を正規化（別タスク・要否は User 判断）
 
 ## 参考
 
 - `docs/api-sw-spec.md` §2.1（リクエストスコープのメモ化）/ §2.2（本件）
 - 計測用の一時出力は `.cache/perf-probe*.txt` / `.cache/test_*.txt`（Git 管轄外）
+
+## 下流への波及（2026-11-02）
+
+- 中流 `JsonCharacterDB-Framework`: `sync:update`（`e0dd24f` → `2663133`。10/28 の相関図 `$alt` 対応 3 件を同梱）→ merge。
+  コンフリクト 0 / 52 files 776 tests green
+- 下流 `RadianNs_SecondaryWorksDB`: 中流ローカル `develop`（`786d268`）を `--no-fetch --ref` で同期 → merge。
+  6 件（高速化分のみ）/ コンフリクト 0 / 28 files 251 tests green
+- 両リポジトリとも `git push origin develop` 済み（中流 → 下流の順。中流は Dependabot 更新 6 件を先に merge）。
+  GitHub 基準の `sync:check` は両方 0 件。詳細は各リポジトリの `_work_in_progress/2026-11-02_upstream-sync.md`

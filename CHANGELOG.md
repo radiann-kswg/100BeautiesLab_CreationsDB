@@ -1,5 +1,18 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### perf: SW の `data/**` 取得を Cache API の stale-while-revalidate へ（10 分超の再訪でも 1 秒未満） (2026-11-02)
+
+- **背景**: 直前の `perf`（下記）で 10 分以内の再訪は 0.9 秒になったが、GitHub Pages の `max-age=600` が切れると SW が条件付き要求（304）を**直列に 45 本以上**出して 10 秒へ戻った（本番実測: `/works` だけで 4.4 秒）。ネットワーク往復そのものを消さないと目標に届かない。
+- **変更**（`lib/sw-common.js` の `DataFetcher`）:
+  - `_fetchTextShared()`: Cache API（既存の `CACHE_NAME` = `100bl-api-v1`）に本文があれば即返し、無ければネットワーク → 200 を保存（404 は保存しない）。
+  - `_revalidateInBackground()`: 命中時に裏で `fetch(url, { cache: 'no-cache' })` して差し替え。SW 生存中は同じ URL を 1 回だけ（`REVALIDATED_URLS`）。`no-cache` なのは、既定モードだと `max-age` 内の HTTP キャッシュの旧コピーを保存し直して push 後の反映が遅れるため。
+  - `fileExists()`: 本文がキャッシュ済みなら `HEAD` を省く。
+  - `_openDataCache()`: `caches` が無い環境（Node / Vitest）では null を返し、従来どおりネットワークだけで動く。
+- **鮮度の約束**: `data/` push 後、最初のロードは旧データ（裏で更新）、次のロードから新データ。即時反映は UI の「キャッシュ/SWリセット」（`caches` 全削除）。詳細は `docs/api-sw-spec.md` §2.2。
+- **影響範囲**: `lib/sw-common.js` / `tests/sw.datafetcher-memo.test.js`（Cache API フェイクで SWR の 5 ケース追加）/ `docs/api-sw-spec.md`。pages / svc / api の 3 SW すべてに効く。
+- **検証**: 開発環境（Live Server）で warm リロード時の **JSON ネットワーク要求 0 本**（cold 57 本 → 0 本。残る HEAD 5 本は本文未キャッシュ DB の存在確認）。本番はデプロイ後に再計測。
+- **下流への申し送り**: `lib/sw-common.js` と `tests/sw.datafetcher-memo.test.js` を対で取り込むこと。`CACHE_NAME` を変えている下流は、そのまま自分の名前の箱に入る。
+
 ### perf: SW のデータ取得で HTTP キャッシュを使い、進行中フェッチを束ねる（ページロード短縮） (2026-11-02)
 
 - **背景**: 本番（GitHub Pages）でキャラシートが 1 ページ 4〜11 秒（`NumberTales/Primary`）、初回訪問は 17 秒かかっていた。SW の `DataFetcher.fetchJSON()` / `fileExists()` が `cache: 'no-store'` で、かつメモ化が 1 API リクエスト内に閉じていたため、1 ロードで **SW 発のネットワーク要求が 149〜158 本**（辞書 21 ファイル × 各 4 回、1.6MB の `db_Primary.json` × 3 回）出ていた。
