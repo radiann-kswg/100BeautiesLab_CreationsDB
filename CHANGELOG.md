@@ -1,5 +1,15 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### fix: SW の裏再取得が 404 のとき Cache API から消す／`_DBLink` 参照先の切り離しをテストで固定 (2026-11-02)
+
+- **背景**: 高速化 4 コミット分のコードレビュー（本番で characters 675/426ms・relations の bootstrap 437〜586ms と、両ページ 1 秒未満を確認した時点）で見つかった 2 点。
+  (1) `DataFetcher._revalidateInBackground()` が 404 で何もしないため、`data/` から消した・改名した JSON を一度読んだ訪問者には直リンク `/db/<消した DB>` が「キャッシュ/SWリセット」まで旧内容を返し続け、`fileExists()` も true のままだった。
+  (2) `readDBShared()` の共有配列から取り出した 1 件を `cloneLinkedRecord()` で切り離す設計に、外しても落ちるテストが無かった。
+- **変更**: `lib/sw-common.js` の `_revalidateInBackground()` は 404 で `cache.delete(url)`（ネットワーク失敗時は従来どおり残す）。`lib/data-common.js` の `cloneLinkedRecord()` は `structuredClone` 1 行に（SW / Node 22 とも対応済みで JSON フォールバックは走らない）。
+  `tests/sw.datafetcher-memo.test.js` に 404 で消えるケース、`tests/enrich.dblink-clone.test.js`（新規）に `resolveDbLinkSuffixRef` / `resolveDbLinkPrimaryRecord` の切り離し 2 ケースを追加。`docs/api-sw-spec.md` §2.2 に 404 の扱いを追記。
+- **影響範囲**: `lib/sw-common.js` / `lib/data-common.js` / `tests/` 2 本 / `docs/api-sw-spec.md`。レスポンス形状は不変。
+- **下流への申し送り**: `lib/` 2 ファイルと `tests/` 2 本を対で取り込むこと（新規テストは実データ非依存）。
+
 ### perf: `bootstrap` の作品 / DB 収集を並行化（相関図の初回表示 20 秒 → 数秒見込み） (2026-11-02)
 
 - **背景**: その３デプロイ後の本番実測で、Cache API が空の状態から `relations.html` を開くと `/pages/v1/bootstrap` に **20.7 秒**かかった。`handleBootstrapEndpoint()` が作品 → DB を順番に `await` するため、約 230 本のネットワーク往復が数珠つなぎになっていた（2 回目以降は 0.7 秒）。
