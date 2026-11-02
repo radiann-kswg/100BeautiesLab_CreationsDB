@@ -1,5 +1,16 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### perf: SW のデータ取得で HTTP キャッシュを使い、進行中フェッチを束ねる（ページロード短縮） (2026-11-02)
+
+- **背景**: 本番（GitHub Pages）でキャラシートが 1 ページ 4〜11 秒（`NumberTales/Primary`）、初回訪問は 17 秒かかっていた。SW の `DataFetcher.fetchJSON()` / `fileExists()` が `cache: 'no-store'` で、かつメモ化が 1 API リクエスト内に閉じていたため、1 ロードで **SW 発のネットワーク要求が 149〜158 本**（辞書 21 ファイル × 各 4 回、1.6MB の `db_Primary.json` × 3 回）出ていた。
+- **変更**:
+  - `lib/sw-common.js`: `DataFetcher._fetchTextShared(url)` を追加。`fetch` の `cache` モードを既定に戻し（GitHub Pages の `max-age=600` + ETag を活かす）、進行中の同一 URL フェッチをモジュールレベル `INFLIGHT_FETCH` で 1 本へ束ねる。共有するのは本文文字列までで、パースは利用側ごと（レコード本体の `_Commons` in-place 適用が混ざらない）。
+  - `lib/page-api-bridge.js`: `ensureApiSW()` の `reg.update()` を await しない（初回訪問で sw.js + importScripts 7 本の再取得を待っていた。更新は次回ロードから効けば十分）。
+  - `pages/characters.js` の `page-api-bridge.js?v=` と `pages/characters.html` の `asset-version` を `2026.11.02.1` へ。
+- **影響範囲**: `lib/sw-common.js` / `lib/page-api-bridge.js` / `pages/characters.js` / `pages/characters.html` / `tests/sw.datafetcher-memo.test.js` / `docs/api-sw-spec.md` §2.2。pages / svc / api の 3 SW すべてに効く。
+- **挙動の変化**: `data/` を push した直後、最大 10 分は旧データが見える可能性がある（HTML / JS と同じルール）。「キャッシュ/SWリセット」ボタンは HTTP キャッシュには触れない。
+- **下流への申し送り**: `lib/` と `tests/` を取り込めば同じ効果が出る。`pages/characters.js` の変更は import の `?v=` だけ。
+
 ### feat: 相関図ファセットが `$IndexDef` 子要素の `$alt` を解釈 (2026-10-28)
 
 - **背景**: 星屑の万華鏡の `Sign` は「十二宮（`Zodiac`）か惑星（`Planet`）のどちらか」を持つインデックスで、軸 `Sign.Zodiac` は `Planet` だけのレコードから値を取れなかった（`graph.facets.test.js` の実データ不変条件で失敗）。
