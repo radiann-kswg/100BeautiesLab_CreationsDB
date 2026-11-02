@@ -115,6 +115,7 @@ GitHub Pages 側は `Cache-Control: max-age=600` + ETag + gzip を返してい�
 | 一覧描画 814ms のうち、`findNestedKey` 160ms + `findDictNameInSchema` 85ms（レコード × field の回数だけスキーマ木を再帰探索） | `lib/basic-renders/type-common.js` で IIFE スコープへ出し、探索ルート × キーで `WeakMap` メモ化 |
 | `getWorkIndexAliasDefs` 71ms + `RegExp #Index\b` 32ms（レコードごと） | 直近 1 件メモ（indexDef / 両 typedef の同一性） |
 | `getQS` 36ms + `URLSearchParams` 32ms（言語判定のたびに呼ばれる） | `location.search` 単位でメモ化（戻り値は浅いコピー） |
+| 一覧描画の yield（5 件ごとの `setTimeout(0)` × 21 回）。本番タブを **非表示**のまま測ると `🎉` が 15〜18 秒（Chrome は非表示タブの `setTimeout` を 1 秒単位に間引く） | 20 件ごとの `MessageChannel` yield（`yieldToMain()`。間引き対象外）。Playwright では非表示状態を再現できず、前面・背面とも ~500ms で変化なし。実ユーザーが別タブで開いたケースの保険 |
 | SW `bootstrap` 1.0s: `JSON.parse` 約 420ms（`db_Primary.json` 1.6MB を 8 回）+ `resolveAllInAny` の await 付き深いコピー | `DataFetcher.readDBShared()`（読み取り専用・スコープ内メモ）を参照先ルックアップに使い、取り出した 1 件は `cloneLinkedRecord()` で切り離す。`resolveAllInAny()` は参照キーが無ければそのまま返す（実データに `#` 始まり × 文字列値のキーは 0 件） |
 
 ### 検証（フェーズ 3・開発環境・キャッシュ全命中）
@@ -134,9 +135,35 @@ GitHub Pages 側は `Cache-Control: max-age=600` + ETag + gzip を返してい�
   origin（GitHub Pages）は `max-age=600`。SW が `importScripts` する `lib/` は URL に `?v=` が付かないため、**デプロイした SW コードが利用者に届くまで最大 4 時間**（エッジ TTL + ブラウザ TTL）かかり得る。
   `?v=` 付きで読む `characters.js` / `page-api-bridge.js` は即時。対策はインフラ側（Cache Rule で `/lib/*` の TTL を origin 追従にする、またはデプロイ後にパージ）。Q7 のスコープ外として申し送り
 
+### 本番実測（(B) デプロイ後・2026-11-02 10:43〜 JST）
+
+- Cloudflare エッジが (B) に切り替わったのはデプロイから約 20 分後（`cf-cache-status: EXPIRED` → 新版）
+- cold（SW 登録し直し）: SW 登録 1.56s、JSON GET 57 本（Cache API 充填）
+- warm: **JSON GET 0 本**（HEAD 5 本のみ）。API は `works` 29〜39ms / `db/Primary` 154〜237ms
+- 前面タブで測った `🎉`: **1.85 秒**（うち一覧描画 1177ms。フェーズ 3 の UI 側修正は未デプロイのため旧コード）
+- 非表示タブのまま測った回は `🎉` 15.5〜18 秒（上記 yield 間引きの件）
+
+### 本番実測（その３デプロイ後・2026-11-02 10:54 JST・前面タブ）
+
+| ページ | 条件 | 結果 |
+| --- | --- | --- |
+| `characters.html?c=NumberTales/Primary` | cold（SW 登録し直し・Cache API 空） | `🎉` 7.1s（SW 登録 1.5s + JSON 74 本の初回取得。`db/Primary` 1853ms） |
+| 同 | warm ×2 | **`🎉` 715ms / 667ms** ✅（JSON GET 0、一覧描画 312〜335ms） |
+| `relations.html?r=NTS` | 初回（Cache API に他作品の DB が無い） | `bootstrap` **20.7 秒**（約 230 本の往復が直列） |
+| 同 | reload ×2 | 表示 1.1s / 1.0s（`bootstrap` 755 / 686ms） |
+
+- Cloudflare エッジの切り替わりはデプロイから約 10 分（`Age` が 600 に達した時点で新版）。`lib/*.js` のブラウザ向け TTL 4 時間は変わらず
+- 初回 `bootstrap` 20 秒の対処として **フェーズ 4**（下記）を実施
+
+## フェーズ 4: `bootstrap` の並行化（2026-11-02 10:56〜）
+
+- `handleBootstrapEndpoint()` の「作品 → DB の直列 await」を、作品ごと（`buildWorkItem`）・DB ごとの `Promise.all` へ。順序は維持（`Object.fromEntries`）
+- Node 計測で出力バイト数一致（6,794,841）。開発環境で Cache API 空からの `bootstrap` 1056 → **578ms**、warm 270〜321ms、グラフ件数不変（638 キャラ / 1078 本）
+- `npm test` 78 ファイル / 1435 件成功
+
 ## 未完了タスク
 
-- [ ] **(B)+(フェーズ 3) のデプロイ後の本番実測**: cold（SW 登録し直し）→ 10 分以上空けて warm で `🎉 ... < 1000ms` を確認。`relations.html` も同条件で
+- [ ] **フェーズ 4 のデプロイ後の本番実測**: Cache API を空にして `relations.html` 初回の `bootstrap` を測る（20.7 秒 → 数秒の見込み）。reload は 1 秒前後なので `bootstrap` 以外（グラフ配置）の内訳も取る
 - [ ] Cloudflare のエッジ / ブラウザ TTL（`/lib/*.js` 4 時間）の扱い（User 判断。インフラ設定）
 - [ ] 連続スラッシュ URL（`//pages/characters.html`）で SW scope が `https://pages` になり登録失敗する既存挙動。直すなら `ensureApiSW()` で scope / sw.js URL を正規化（別タスク・要否は User 判断）
 
@@ -154,4 +181,6 @@ GitHub Pages 側は `Cache-Control: max-age=600` + ETag + gzip を返してい�
 - 両リポジトリとも `git push origin develop` 済み（中流 → 下流の順。中流は Dependabot 更新 6 件を先に merge）。
   GitHub 基準の `sync:check` は両方 0 件。詳細は各リポジトリの `_work_in_progress/2026-11-02_upstream-sync.md`
 - **その2**（上流 `b9197d8`・stale-while-revalidate）: 中流 `2663133` → `b9197d8`（3 件 / 781 件 green）、下流は中流 `9e64272` 基準（3 件 / 256 件 green）。
+  push と GitHub 基準の `sync:check` 0 件まで済み。
+- **その3**（上流 `61101b8` + `0b26d82`・SW / UI の CPU コスト削減）: 中流 `b9197d8` → `0b26d82`（7 件 / 784 件 green）、下流は中流 `89296d8` 基準（7 件 / 259 件 green）。
   push と GitHub 基準の `sync:check` 0 件まで済み。
