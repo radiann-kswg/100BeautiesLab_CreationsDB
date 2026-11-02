@@ -5428,6 +5428,22 @@ function matchFilter(rec, q) {
 }
 
 /**
+ * メインスレッドへ制御を返す（長い描画ループの途中でローディング表示などを更新させる）
+ * `setTimeout(0)` はバックグラウンドタブで 1 秒単位に間引かれるため、間引き対象外の MessageChannel を使う
+ * @returns {Promise<void>}
+ */
+function yieldToMain() {
+	return new Promise((resolve) => {
+		if (typeof MessageChannel === 'function') {
+			const channel = new MessageChannel();
+			channel.port1.onmessage = () => resolve();
+			channel.port2.postMessage(null);
+			return;
+		}
+		setTimeout(resolve, 0);
+	});
+}
+
 /**
  * 動的画像解決を含む拡張リストビューレンダリング
  * @param {Array} records - キャラクターレコードの配列
@@ -5721,9 +5737,11 @@ async function renderList(records, workId, onOpen, imageFields = null) {
 		}
 		(currentGroup || list).appendChild(item);
 
-		// Progressive rendering: update UI every 5 items for better perceived performance
-		if (shouldShowProgress && i % 5 === 0) {
-			await new Promise(resolve => setTimeout(resolve, 0)); // Allow UI update
+		// Progressive rendering: 20 件ごとにメインスレッドへ制御を返す（ローディング表示の更新を通す）
+		// setTimeout(0) はバックグラウンドタブで 1 秒単位に間引かれ、105 件 × 5 件ごとの yield で
+		// 描画が 15〜20 秒かかっていた（本番実測）。MessageChannel は間引きの対象外
+		if (shouldShowProgress && i % 20 === 19) {
+			await yieldToMain();
 		}
 	}
 
