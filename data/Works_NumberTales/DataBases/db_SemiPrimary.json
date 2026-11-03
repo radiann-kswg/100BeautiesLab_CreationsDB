@@ -2307,7 +2307,7 @@
     "Num": 333,
     "Num_Badge": "333",
     "isTriple": false,
-    "Progress": "nowCreating",
+    "Progress": "unreleased",
     "VariantModels_DBLink": [
       { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": "333-mp" }
     ],
@@ -2348,23 +2348,23 @@
     ],
     "ConceptAge": 9,
     "FirstPersonCalling_JP": "わたくし",
-    "FirstPersonCalling_EN": "",
+    "FirstPersonCalling_EN": "I (watakushi; formal)",
     "SecondPersonCalling_JP": "あなたさま",
-    "SecondPersonCalling_EN": "",
+    "SecondPersonCalling_EN": "you (very polite)",
     "ThirdPersonCalling_JP": "*ちら;~さま",
-    "ThirdPersonCalling_EN": "",
+    "ThirdPersonCalling_EN": "that/this person (*chira, formal); ~-sama",
     "ForMasterCalling_JP": "お客さま",
-    "ForMasterCalling_EN": "",
+    "ForMasterCalling_EN": "Customer-sama",
     "Character_JP": "おっとりしていて人懐っこいが、かなり積極的で饒舌になることがある",
-    "Character_EN": "",
+    "Character_EN": "Easygoing and friendly, but can become quite proactive and talkative",
     "Hobby_JP": "レトロ機器・アンティーク機器の鑑賞（主に電信機材）",
-    "Hobby_EN": "",
+    "Hobby_EN": "Admiring retro and antique devices (mainly telegraph equipment)",
     "SpecialSkill_JP": "言語の壁を越えられる（喩え人間でなくても）",
-    "SpecialSkill_EN": "",
+    "SpecialSkill_EN": "Can overcome language barriers (even with non-humans)",
     "Favor_JP": "通信機器・電信機材\n放送局周辺の喫茶店",
-    "Favor_EN": "",
+    "Favor_EN": "Communication devices and telegraph equipment\nCafés near broadcasting stations",
     "Unlike_JP": "ノイズ・音割れ・妨害電波\n言葉は通じても話は通じない存在",
-    "Unlike_EN": "",
+    "Unlike_EN": "Noise, audio clipping and jamming signals\nBeings who understand the words but not the conversation",
     "AppearanceDetail": [
       {
         "Formation": "humanoid",
@@ -2375,12 +2375,12 @@
           {
             "AttrLabel": "#DesignAttr_Position",
             "value_JP": "ゴスロリドレスの左裾にやや大きく",
-            "value_EN": ""
+            "value_EN": "fairly large on the left hem of the gothic lolita dress"
           },
           {
             "AttrLabel": "#DesignAttr_Color",
             "value_JP": "黄褐色",
-            "value_EN": ""
+            "value_EN": "ochre"
           },
           {
             "AttrLabel": "#DesignAttr_Notation",
@@ -2402,7 +2402,7 @@
             "AttrLabel": "#DesignAttr_Ear",
             "vdict_EarShapeType": "#EarShapeType_Fox",
             "about_JP": "薄黄色で、先端が薄灰色になっている",
-            "about_EN": ""
+            "about_EN": "pale yellow with pale gray tips"
           }
         ],
         "img_PNGName": null,
@@ -2418,12 +2418,12 @@
           {
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "スリートーンの金髪",
-            "value_EN": ""
+            "value_EN": "three-tone blonde hair"
           },
           {
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "揉み上げ2つと後ろ髪1つ(合計3つ)でそれぞれ3色をなして三つ編みされている",
-            "value_EN": ""
+            "value_EN": "two sidelocks and one back lock (three in total), each braided in three colors"
           }
         ],
         "img_PNGName": null,
@@ -2439,12 +2439,12 @@
           {
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "編み込まれるようにまとめられたサソリ型の分節尾3本",
-            "value_EN": ""
+            "value_EN": "three scorpion-type segmented tails gathered as if braided together"
           }
         ],
         "img_PNGName": null,
         "Note_JP": "分節尾1本1本は色が異なる",
-        "Note_EN": ""
+        "Note_EN": "Each segmented tail is a different color"
       },
       {
         "Formation": null,
@@ -2455,7 +2455,7 @@
           {
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "薄灰色1色と黄色2色からなる特殊な瞳孔を持つスカイブルーの目",
-            "value_EN": ""
+            "value_EN": "sky-blue eyes with unique pupils in one pale gray and two shades of yellow"
           }
         ],
         "img_PNGName": null,
@@ -2471,7 +2471,7 @@
           {
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "おっとりしているが少し積極的な一面も持つ純粋無垢な少女",
-            "value_EN": ""
+            "value_EN": "A pure and innocent girl, easygoing yet with a somewhat proactive side"
           }
         ],
         "img_PNGName": null,
@@ -2487,7 +2487,7 @@
           {
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "三色の長髪をまとめる大きくて灰色のリボン",
-            "value_EN": ""
+            "value_EN": "large gray ribbon tying up her three-colored long hair"
           }
         ],
         "img_PNGName": null,
@@ -2503,7 +2503,7 @@
           {
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "三色模様があしらわれた青く丸いブローチがついた灰色のリボン",
-            "value_EN": ""
+            "value_EN": "gray ribbon with a round blue brooch featuring a three-color motif"
           }
         ],
         "img_PNGName": null,
@@ -2535,7 +2535,7 @@
           {
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "ダイアル式通話機と通信マークをモチーフにした黄色3色と灰色2色のヘイロー",
-            "value_EN": ""
+            "value_EN": "halo in three shades of yellow and two of gray, with a dial telephone and signal-mark motif"
           }
         ],
         "img_PNGName": "attr_haloNTS-3x11",
@@ -2551,12 +2551,12 @@
           {
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "薄灰色の襟",
-            "value_EN": ""
+            "value_EN": "pale gray collar"
           }
         ],
         "img_PNGName": null,
         "Note_JP": "少し肩出しされている",
-        "Note_EN": ""
+        "Note_EN": "Slightly off-the-shoulder"
       },
       {
         "Formation": "humanoid",
@@ -2567,7 +2567,7 @@
           {
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "ローマ風と昭和レトロ風を兼ね揃えた青いゴスロリ衣装",
-            "value_EN": ""
+            "value_EN": "blue gothic lolita outfit combining Roman style and Japanese Showa-retro style"
           }
         ],
         "img_PNGName": null,
@@ -2583,7 +2583,7 @@
           {
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "小柄で可愛らしい体格",
-            "value_EN": ""
+            "value_EN": "petite and cute build"
           }
         ],
         "img_PNGName": null,
@@ -2599,7 +2599,7 @@
           {
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "灰色のリボンがあしらわれた靴底が高めな青と薄灰色の靴",
-            "value_EN": ""
+            "value_EN": "blue and pale gray thick-soled shoes adorned with gray ribbons"
           }
         ],
         "img_PNGName": null,
@@ -2607,9 +2607,97 @@
         "Note_EN": null
       }
     ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#FFCB13",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Waist",
+          "#BodyPart_Hair",
+          "#BodyPart_Eye",
+          "#BodyPart_Back"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#D3DBDC",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#FFA634",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#F9FF9C",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Waist",
+          "#BodyPart_Hair",
+          "#BodyPart_Eye",
+          "#BodyPart_Back"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#F0F3ED",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#A4DAEF",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#5B77A8",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Neck", "#BodyPart_Foot"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "RelationNotes_JP": "英皇国や英州諸国で製造された個体とはよく外交目的で各々の関係者（主人または製造関係者）とお茶を交わす一面が見受けられる。しかし「111(アイズ)」ら雄志結国で製造された個体およびその関係者については少し気まずい一面があるらしく……",
+    "RelationNotes_EN": "Is often seen having tea, for diplomatic purposes, with units built in Internic.Kingdom and the Internation States and with their respective associates (such as: masters or manufacturing staff). However, she reportedly feels a little awkward around units built in United.Heroic.Nation, such as '111(Ize)', and their associates...",
+    "Summary_JP": "量産販売型ではあるが、3桁ゾロ目の数字を持つ「マスタートリプル」という特殊クラスの個体で、とりわけその333番機オリジナル版である彼女は「22(フジ)」「トレッド」といった11号機型、および「111(アイズ)」「222(ドッペル)」「222(ペルゲン)」といった111番機系列型の設計を結集させた集大成とも言える個体である。「3(ナオ)」や「33(ミサ)」をも遥かに上回る交友・交信能力の持ち主で、おっとりしている幼い見た目に反して人慣れした積極性はとても計り知れない…………たまに時計や音響機器にも話し掛けるほど饒舌な一面もあるが。",
+    "Summary_EN": "MasterTriples are a mass-produced retail type, yet form a special class of units bearing three-digit repdigit numbers. Among them, she, the original version of Mk.333, can be called the culmination that brings together the designs of the Unit.11 lineage, such as '22(Twin-twina)' and 'Treidre'', and the Mk.111 line-series, such as '111(Ize)', '222(Doppels)' and '222(Pelgäns)'.\nHer social and communication abilities far surpass even those of '3(Treiya)' and '33(Thirthrey)', and contrary to her easygoing, childlike appearance, her well-practiced assertiveness toward people is truly immeasurable... though she also has such a talkative side that she sometimes even strikes up conversations with clocks and audio equipment.",
+    "Backgrounds_JP": "英州諸国との技術的外交目的でも開発された個体のため、製造は南英州諸国のアローナ工業に委託された。ただ途中とある理由でアローナ工業が国際ヒューマノイド学会から脱退表明を公表し333番機製造先との外交が途絶えてしまったため、以後 彼女の初回稼働と量産版の「333(サザンカ)」らの設計は止むを得ず九蓮国で行われている。",
+    "Backgrounds_EN": "As she was also developed for the purpose of technological diplomacy with the Internation States, her manufacture was outsourced to Athrɶna Industries in the South Internations. However, partway through, Athrɶna Industries announced its withdrawal from the International Humanoid Society for a certain reason, severing diplomatic ties with the Mk.333 manufacturer. Since then, her initial activation and the design of her mass-produced versions such as '333(Thirthenca)' have had no choice but to be carried out in LotusNinea.",
     "NumerospecStats": {
       "NumerospecAbout_JP": "万物と会話（交信・通信）できる",
-      "NumerospecAbout_EN": ""
+      "NumerospecAbout_EN": "Can converse with all things (as communing and communicating)"
     }
   },
   {
