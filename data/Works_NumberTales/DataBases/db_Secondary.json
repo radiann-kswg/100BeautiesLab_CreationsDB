@@ -1285,7 +1285,7 @@
     "Num_Badge": "3Dv3",
     "Progress": "unprofiled",
     "sec_SeriesTitle": "D-Vines",
-    "sec_Category": "散狐アタストさん協賛",
+    "sec_Category": "散狐アタストさん原案",
     "sec_DesignedBy": ["RadianN"],
     "VariantModels_DBLink": [
       { "_DB": "Secondary", "Num": "3/" },
@@ -1305,7 +1305,7 @@
     "Num_Badge": "7Dv7",
     "Progress": "unprofiled",
     "sec_SeriesTitle": "D-Vines",
-    "sec_Category": "散狐アタストさん協賛",
+    "sec_Category": "散狐アタストさん原案",
     "sec_DesignedBy": ["RadianN"],
     "VariantModels_DBLink": [
       { "_DB": "Secondary", "Num": "7/" },
@@ -1323,7 +1323,7 @@
     "Num_Badge": "8Dv8",
     "Progress": "unprofiled",
     "sec_SeriesTitle": "D-Vines",
-    "sec_Category": "散狐アタストさん協賛",
+    "sec_Category": "散狐アタストさん原案",
     "sec_DesignedBy": ["RadianN"],
     "VariantModels_DBLink": [
       { "_DB": "Secondary", "Num": "8/" },
@@ -1341,7 +1341,7 @@
     "Num_Badge": "22Dv22",
     "Progress": "unprofiled",
     "sec_SeriesTitle": "D-Vines",
-    "sec_Category": "散狐アタストさん協賛",
+    "sec_Category": "散狐アタストさん原案",
     "sec_DesignedBy": ["RadianN"],
     "VariantModels_DBLink": [
       { "_DB": "Secondary", "Num": "22/" },
@@ -1358,7 +1358,7 @@
     "Num": "/3",
     "Num_Badge": "Dv3",
     "sec_SeriesTitle": "D-Vines",
-    "sec_Category": "散狐アタストさん協賛",
+    "sec_Category": "散狐アタストさん原案",
     "sec_DesignedBy": ["RadianN"],
     "FormalName_JP": "D-Vines 母艦3号機",
     "FormalName_EN": "D-Vines Unit Mothership.3",
@@ -1373,7 +1373,7 @@
     "Num": "/7",
     "Num_Badge": "Dv7",
     "sec_SeriesTitle": "D-Vines",
-    "sec_Category": "散狐アタストさん協賛",
+    "sec_Category": "散狐アタストさん原案",
     "sec_DesignedBy": ["RadianN"],
     "FormalName_JP": "D-Vines 母艦7号機",
     "FormalName_EN": "D-Vines Unit Mothership.7",
@@ -1388,7 +1388,7 @@
     "Num": "/8",
     "Num_Badge": "Dv8",
     "sec_SeriesTitle": "D-Vines",
-    "sec_Category": "散狐アタストさん協賛",
+    "sec_Category": "散狐アタストさん原案",
     "sec_DesignedBy": ["RadianN"],
     "FormalName_JP": "D-Vines 母艦8号機",
     "FormalName_EN": "D-Vines Unit Mothership.8",
@@ -1401,7 +1401,7 @@
     "Num": "/22",
     "Num_Badge": "Dv22",
     "sec_SeriesTitle": "D-Vines",
-    "sec_Category": "散狐アタストさん協賛",
+    "sec_Category": "散狐アタストさん原案",
     "sec_DesignedBy": ["RadianN"],
     "FormalName_JP": "D-Vines 母艦22号機",
     "FormalName_EN": "D-Vines Unit Mothership.22",
@@ -1414,7 +1414,7 @@
     "Num": "3/",
     "Num_Badge": "3Dv",
     "sec_SeriesTitle": "D-Vines",
-    "sec_Category": "散狐アタストさん協賛",
+    "sec_Category": "散狐アタストさん原案",
     "sec_DesignedBy": ["RadianN"],
     "FormalName_JP": "D-Vines 基幹3号機",
     "FormalName_EN": "D-Vines Unit Core.3",
@@ -1427,7 +1427,7 @@
     "Num": "7/",
     "Num_Badge": "7Dv",
     "sec_SeriesTitle": "D-Vines",
-    "sec_Category": "散狐アタストさん協賛",
+    "sec_Category": "散狐アタストさん原案",
     "sec_DesignedBy": ["RadianN"],
     "FormalName_JP": "D-Vines 基幹7号機",
     "FormalName_EN": "D-Vines Unit Core.7",
@@ -1440,7 +1440,7 @@
     "Num": "8/",
     "Num_Badge": "8Dv",
     "sec_SeriesTitle": "D-Vines",
-    "sec_Category": "散狐アタストさん協賛",
+    "sec_Category": "散狐アタストさん原案",
     "sec_DesignedBy": ["RadianN"],
     "FormalName_JP": "D-Vines 基幹8号機",
     "FormalName_EN": "D-Vines Unit Core.8",
@@ -1455,7 +1455,7 @@
     "Num": "22/",
     "Num_Badge": "22Dv",
     "sec_SeriesTitle": "D-Vines",
-    "sec_Category": "散狐アタストさん協賛",
+    "sec_Category": "散狐アタストさん原案",
     "sec_DesignedBy": ["RadianN"],
     "FormalName_JP": "D-Vines 基幹22号機",
     "FormalName_EN": "D-Vines Unit Core.22",
@@ -1558,8 +1558,8 @@
         "Note_EN": null
       }
     ],
-    "AdditionalDesigned_JP": "企画参加者：おゆうわちゃん さん(https://www.pixiv.net/artworks/137497481)",
-    "AdditionalDesigned_EN": "Project Participant: おゆうわちゃん (https://www.pixiv.net/artworks/137497481)"
+    "AdditionalDesigned_JP": "ナンバーテールズ化した方：おゆうわちゃん さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_EN": "Motif Account of Numberizing: おゆうわちゃん (https://www.pixiv.net/artworks/137497481)"
   },
   {
     "Num": "148-numberize",
@@ -1660,8 +1660,8 @@
         "Note_EN": null
       }
     ],
-    "AdditionalDesigned_JP": "企画参加者：よだれ さん(https://www.pixiv.net/artworks/137497481)",
-    "AdditionalDesigned_EN": "Project Participant: よだれ (https://www.pixiv.net/artworks/137497481)"
+    "AdditionalDesigned_JP": "ナンバーテールズ化した方：よだれ さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_EN": "Motif Account of Numberizing: よだれ (https://www.pixiv.net/artworks/137497481)"
   },
   {
     "Num": "227-numberize",
@@ -1760,8 +1760,8 @@
         "Note_EN": null
       }
     ],
-    "AdditionalDesigned_JP": "企画参加者：散狐アタスト さん(https://www.pixiv.net/artworks/137497481)",
-    "AdditionalDesigned_EN": "Project Participant: 散狐アタスト (https://www.pixiv.net/artworks/137497481)"
+    "AdditionalDesigned_JP": "ナンバーテールズ化した方：散狐アタスト さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_EN": "Motif Account of Numberizing: 散狐アタスト (https://www.pixiv.net/artworks/137497481)"
   },
   {
     "Num": "232-numberize",
@@ -1861,8 +1861,8 @@
         "Note_EN": null
       }
     ],
-    "AdditionalDesigned_JP": "企画参加者：広小路トトカ さん(https://www.pixiv.net/artworks/137497481)",
-    "AdditionalDesigned_EN": "Project Participant: 広小路トトカ (https://www.pixiv.net/artworks/137497481)"
+    "AdditionalDesigned_JP": "ナンバーテールズ化した方：広小路トトカ さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_EN": "Motif Account of Numberizing: 広小路トトカ (https://www.pixiv.net/artworks/137497481)"
   },
   {
     "Num": "238-numberize",
@@ -1953,8 +1953,8 @@
         "Note_EN": null
       }
     ],
-    "AdditionalDesigned_JP": "企画参加者：「み」のひと さん(https://www.pixiv.net/artworks/137497481)",
-    "AdditionalDesigned_EN": "Project Participant: 「み」のひと (https://www.pixiv.net/artworks/137497481)"
+    "AdditionalDesigned_JP": "ナンバーテールズ化した方：「み」のひと さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_EN": "Motif Account of Numberizing: 「み」のひと (https://www.pixiv.net/artworks/137497481)"
   },
   {
     "Num": "241-numberize",
@@ -2053,8 +2053,8 @@
         "Note_EN": null
       }
     ],
-    "AdditionalDesigned_JP": "企画参加者：SIANO さん(https://www.pixiv.net/artworks/137497481)",
-    "AdditionalDesigned_EN": "Project Participant: SIANO (https://www.pixiv.net/artworks/137497481)"
+    "AdditionalDesigned_JP": "ナンバーテールズ化した方：SIANO さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_EN": "Motif Account of Numberizing: SIANO (https://www.pixiv.net/artworks/137497481)"
   },
   {
     "Num": "258-numberize",
@@ -2145,8 +2145,8 @@
         "Note_EN": null
       }
     ],
-    "AdditionalDesigned_JP": "企画参加者：CoiL25 さん(https://www.pixiv.net/artworks/137497481)",
-    "AdditionalDesigned_EN": "Project Participant: CoiL25 (https://www.pixiv.net/artworks/137497481)"
+    "AdditionalDesigned_JP": "ナンバーテールズ化した方：CoiL25 さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_EN": "Motif Account of Numberizing: CoiL25 (https://www.pixiv.net/artworks/137497481)"
   },
   {
     "Num": "263-numberize",
@@ -2247,8 +2247,8 @@
         "Note_EN": null
       }
     ],
-    "AdditionalDesigned_JP": "企画参加者：月凪葉茶 さん(https://www.pixiv.net/artworks/137497481)",
-    "AdditionalDesigned_EN": "Project Participant: 月凪葉茶 (https://www.pixiv.net/artworks/137497481)"
+    "AdditionalDesigned_JP": "ナンバーテールズ化した方：月凪葉茶 さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_EN": "Motif Account of Numberizing: 月凪葉茶 (https://www.pixiv.net/artworks/137497481)"
   },
   {
     "Num": "265-numberize",
@@ -2339,8 +2339,8 @@
         "Note_EN": null
       }
     ],
-    "AdditionalDesigned_JP": "企画参加者(敬称略)：青木凪(https://www.pixiv.net/artworks/137497481)",
-    "AdditionalDesigned_EN": "Project Participant: 青木凪 (https://www.pixiv.net/artworks/137497481)"
+    "AdditionalDesigned_JP": "ナンバーテールズ化した方(敬称略)：青木凪(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_EN": "Motif Account of Numberizing: 青木凪 (https://www.pixiv.net/artworks/137497481)"
   },
   {
     "Num": "294-numberize",
@@ -2426,8 +2426,8 @@
         "Note_EN": null
       }
     ],
-    "AdditionalDesigned_JP": "企画参加者：ALK!(プロトタイプ) さん(https://www.pixiv.net/artworks/137497481)",
-    "AdditionalDesigned_EN": "Project Participant: ALK!(プロトタイプ) (https://www.pixiv.net/artworks/137497481)"
+    "AdditionalDesigned_JP": "ナンバーテールズ化した方：ALK!(プロトタイプ) さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_EN": "Motif Account of Numberizing: ALK!(プロトタイプ) (https://www.pixiv.net/artworks/137497481)"
   },
   {
     "Num": "295-numberize",
@@ -2523,8 +2523,8 @@
         "Note_EN": null
       }
     ],
-    "AdditionalDesigned_JP": "企画参加者：いるいる さん(https://www.pixiv.net/artworks/137497481)",
-    "AdditionalDesigned_EN": "Project Participant: いるいる (https://www.pixiv.net/artworks/137497481)"
+    "AdditionalDesigned_JP": "ナンバーテールズ化した方：いるいる さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_EN": "Motif Account of Numberizing: いるいる (https://www.pixiv.net/artworks/137497481)"
   },
   {
     "Num": "337-numberize",
@@ -2617,8 +2617,8 @@
         "Note_EN": null
       }
     ],
-    "AdditionalDesigned_JP": "企画参加者：猫吉よりお さん(https://www.pixiv.net/artworks/137497481)",
-    "AdditionalDesigned_EN": "Project Participant: 猫吉よりお (https://www.pixiv.net/artworks/137497481)"
+    "AdditionalDesigned_JP": "ナンバーテールズ化した方：猫吉よりお さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_EN": "Motif Account of Numberizing: 猫吉よりお (https://www.pixiv.net/artworks/137497481)"
   },
   {
     "Num": "366-numberize",
@@ -2718,8 +2718,8 @@
         "Note_EN": null
       }
     ],
-    "AdditionalDesigned_JP": "企画参加者：うどん さん(https://www.pixiv.net/artworks/137497481)",
-    "AdditionalDesigned_EN": "Project Participant: うどん (https://www.pixiv.net/artworks/137497481)"
+    "AdditionalDesigned_JP": "ナンバーテールズ化した方：うどん さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_EN": "Motif Account of Numberizing: うどん (https://www.pixiv.net/artworks/137497481)"
   },
   {
     "Num": "376-numberize",
@@ -2810,8 +2810,8 @@
         "Note_EN": null
       }
     ],
-    "AdditionalDesigned_JP": "企画参加者：きたやこ さん(https://www.pixiv.net/artworks/137497481)",
-    "AdditionalDesigned_EN": "Project Participant: きたやこ (https://www.pixiv.net/artworks/137497481)"
+    "AdditionalDesigned_JP": "ナンバーテールズ化した方：きたやこ さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_EN": "Motif Account of Numberizing: きたやこ (https://www.pixiv.net/artworks/137497481)"
   },
   {
     "Num": "377-numberize",
@@ -2901,8 +2901,8 @@
         "Note_EN": null
       }
     ],
-    "AdditionalDesigned_JP": "企画参加者：爪葉京 さん(https://www.pixiv.net/artworks/137497481)",
-    "AdditionalDesigned_EN": "Project Participant: 爪葉京 (https://www.pixiv.net/artworks/137497481)"
+    "AdditionalDesigned_JP": "ナンバーテールズ化した方：爪葉京 さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_EN": "Motif Account of Numberizing: 爪葉京 (https://www.pixiv.net/artworks/137497481)"
   },
   {
     "Num": "387-numberize",
@@ -2993,8 +2993,8 @@
         "Note_EN": null
       }
     ],
-    "AdditionalDesigned_JP": "企画参加者：つくえちゃん さん(https://www.pixiv.net/artworks/137497481)",
-    "AdditionalDesigned_EN": "Project Participant: つくえちゃん (https://www.pixiv.net/artworks/137497481)"
+    "AdditionalDesigned_JP": "ナンバーテールズ化した方：つくえちゃん さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_EN": "Motif Account of Numberizing: つくえちゃん (https://www.pixiv.net/artworks/137497481)"
   },
   {
     "Num": "401-numberize",
@@ -3063,8 +3063,8 @@
         "Note_EN": null
       }
     ],
-    "AdditionalDesigned_JP": "企画参加者：江小森えこ さん(https://www.pixiv.net/artworks/137497481)",
-    "AdditionalDesigned_EN": "Project Participant: 江小森えこ (https://www.pixiv.net/artworks/137497481)"
+    "AdditionalDesigned_JP": "ナンバーテールズ化した方：江小森えこ さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_EN": "Motif Account of Numberizing: 江小森えこ (https://www.pixiv.net/artworks/137497481)"
   },
   {
     "Num": "411-numberize",
@@ -3152,8 +3152,8 @@
         "Note_EN": null
       }
     ],
-    "AdditionalDesigned_JP": "企画参加者：Nor東 さん(https://www.pixiv.net/artworks/137497481)",
-    "AdditionalDesigned_EN": "Project Participant: Nor東 (https://www.pixiv.net/artworks/137497481)"
+    "AdditionalDesigned_JP": "ナンバーテールズ化した方：Nor東 さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_EN": "Motif Account of Numberizing: Nor東 (https://www.pixiv.net/artworks/137497481)"
   },
   {
     "Num": "421-numberize",
@@ -3246,8 +3246,8 @@
         "Note_EN": null
       }
     ],
-    "AdditionalDesigned_JP": "企画参加者：でんねこ さん(https://www.pixiv.net/artworks/137497481)",
-    "AdditionalDesigned_EN": "Project Participant: でんねこ (https://www.pixiv.net/artworks/137497481)"
+    "AdditionalDesigned_JP": "ナンバーテールズ化した方：でんねこ さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_EN": "Motif Account of Numberizing: でんねこ (https://www.pixiv.net/artworks/137497481)"
   },
   {
     "Num": "467-numberize",
@@ -3338,8 +3338,8 @@
         "Note_EN": null
       }
     ],
-    "AdditionalDesigned_JP": "企画参加者：キノアダモスデキノ さん(https://www.pixiv.net/artworks/137497481)",
-    "AdditionalDesigned_EN": "Project Participant: キノアダモスデキノ (https://www.pixiv.net/artworks/137497481)"
+    "AdditionalDesigned_JP": "ナンバーテールズ化した方：キノアダモスデキノ さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_EN": "Motif Account of Numberizing: キノアダモスデキノ (https://www.pixiv.net/artworks/137497481)"
   },
   {
     "Num": "476-numberize",
@@ -3430,8 +3430,8 @@
         "Note_EN": null
       }
     ],
-    "AdditionalDesigned_JP": "企画参加者：ヨシアミさん(https://www.pixiv.net/artworks/137497481)",
-    "AdditionalDesigned_EN": "Project Participant: ヨシアミ (https://www.pixiv.net/artworks/137497481)"
+    "AdditionalDesigned_JP": "ナンバーテールズ化した方：ヨシアミさん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_EN": "Motif Account of Numberizing: ヨシアミ (https://www.pixiv.net/artworks/137497481)"
   },
   {
     "Num": "510-numberize",
@@ -3517,8 +3517,8 @@
         "Note_EN": null
       }
     ],
-    "AdditionalDesigned_JP": "企画参加者：エメラルド さん(https://www.pixiv.net/artworks/137497481)",
-    "AdditionalDesigned_EN": "Project Participant: エメラルド (https://www.pixiv.net/artworks/137497481)"
+    "AdditionalDesigned_JP": "ナンバーテールズ化した方：エメラルド さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_EN": "Motif Account of Numberizing: エメラルド (https://www.pixiv.net/artworks/137497481)"
   },
   {
     "Num": "558-numberize",
@@ -3608,8 +3608,8 @@
         "Note_EN": null
       }
     ],
-    "AdditionalDesigned_JP": "企画参加者：さふ さん(https://www.pixiv.net/artworks/137497481)",
-    "AdditionalDesigned_EN": "Project Participant: さふ (https://www.pixiv.net/artworks/137497481)"
+    "AdditionalDesigned_JP": "ナンバーテールズ化した方：さふ さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_EN": "Motif Account of Numberizing: さふ (https://www.pixiv.net/artworks/137497481)"
   },
   {
     "Num": "605-numberize",
@@ -3698,8 +3698,8 @@
         "Note_EN": null
       }
     ],
-    "AdditionalDesigned_JP": "企画参加者：蓬 さん(https://www.pixiv.net/artworks/137497481)",
-    "AdditionalDesigned_EN": "Project Participant: 蓬 (https://www.pixiv.net/artworks/137497481)"
+    "AdditionalDesigned_JP": "ナンバーテールズ化した方：蓬 さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_EN": "Motif Account of Numberizing: 蓬 (https://www.pixiv.net/artworks/137497481)"
   },
   {
     "Num": "625-numberize",
@@ -3790,8 +3790,8 @@
         "Note_EN": null
       }
     ],
-    "AdditionalDesigned_JP": "企画参加者：リヘナラ人形 さん(https://www.pixiv.net/artworks/137497481)",
-    "AdditionalDesigned_EN": "Project Participant: リヘナラ人形 (https://www.pixiv.net/artworks/137497481)"
+    "AdditionalDesigned_JP": "ナンバーテールズ化した方：リヘナラ人形 さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_EN": "Motif Account of Numberizing: リヘナラ人形 (https://www.pixiv.net/artworks/137497481)"
   },
   {
     "Num": "638-numberize",
@@ -3882,8 +3882,8 @@
         "Note_EN": null
       }
     ],
-    "AdditionalDesigned_JP": "企画参加者：猫餅 さん(https://www.pixiv.net/artworks/137497481)",
-    "AdditionalDesigned_EN": "Project Participant: 猫餅 (https://www.pixiv.net/artworks/137497481)"
+    "AdditionalDesigned_JP": "ナンバーテールズ化した方：猫餅 さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_EN": "Motif Account of Numberizing: 猫餅 (https://www.pixiv.net/artworks/137497481)"
   },
   {
     "Num": "670-numberize",
@@ -3969,8 +3969,8 @@
         "Note_EN": null
       }
     ],
-    "AdditionalDesigned_JP": "企画参加者：みとにゃん/Mitten さん(https://www.pixiv.net/artworks/137497481)",
-    "AdditionalDesigned_EN": "Project Participant: Mitten (https://www.pixiv.net/artworks/137497481)"
+    "AdditionalDesigned_JP": "ナンバーテールズ化した方：みとにゃん/Mitten さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_EN": "Motif Account of Numberizing: Mitten (https://www.pixiv.net/artworks/137497481)"
   },
   {
     "Num": "736-numberize",
@@ -4061,8 +4061,8 @@
         "Note_EN": null
       }
     ],
-    "AdditionalDesigned_JP": "企画参加者：みるく・フローランス さん(https://www.pixiv.net/artworks/137497481)",
-    "AdditionalDesigned_EN": "Project Participant: みるく・フローランス (https://www.pixiv.net/artworks/137497481)"
+    "AdditionalDesigned_JP": "ナンバーテールズ化した方：みるく・フローランス さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_EN": "Motif Account of Numberizing: みるく・フローランス (https://www.pixiv.net/artworks/137497481)"
   },
   {
     "Num": "773-numberize",
@@ -4152,8 +4152,8 @@
         "Note_EN": null
       }
     ],
-    "AdditionalDesigned_JP": "企画参加者：テンタクル七海 さん(https://www.pixiv.net/artworks/137497481)",
-    "AdditionalDesigned_EN": "Project Participant: テンタクル七海 (https://www.pixiv.net/artworks/137497481)"
+    "AdditionalDesigned_JP": "ナンバーテールズ化した方：テンタクル七海 さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_EN": "Motif Account of Numberizing: テンタクル七海 (https://www.pixiv.net/artworks/137497481)"
   },
   {
     "Num": "979-numberize",
@@ -4239,8 +4239,8 @@
         "Note_EN": null
       }
     ],
-    "AdditionalDesigned_JP": "企画参加者：さくらば さん(https://www.pixiv.net/artworks/137497481)",
-    "AdditionalDesigned_EN": "Project Participant: さくらば (https://www.pixiv.net/artworks/137497481)"
+    "AdditionalDesigned_JP": "ナンバーテールズ化した方：さくらば さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_EN": "Motif Account of Numberizing: さくらば (https://www.pixiv.net/artworks/137497481)"
   },
   {
     "Num": "1122-numberize",
@@ -4329,7 +4329,7 @@
         "Note_EN": null
       }
     ],
-    "AdditionalDesigned_JP": "企画参加者：しおん/猫又紫苑 さん(https://www.pixiv.net/artworks/137497481)",
-    "AdditionalDesigned_EN": "Project Participant: しおん/猫又紫苑 (https://www.pixiv.net/artworks/137497481)"
+    "AdditionalDesigned_JP": "ナンバーテールズ化した方：しおん/猫又紫苑 さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_EN": "Motif Account of Numberizing: しおん/猫又紫苑 (https://www.pixiv.net/artworks/137497481)"
   }
 ]
