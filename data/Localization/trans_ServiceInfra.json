@@ -15,5 +15,14 @@
     "Scope": ["Works_NumberTales", "Works_PastDivers"],
     "Summary_JP": "もともと「国際ヒューマノイド技術学会」により研究開発が進められていたが、その後 百花繚乱研究所の「ナンバーテールズ」や夜月機関の「ヤヅキリーパー」などといったヒューマノイドの開発に運用されるほどの有名オープンソースライブラリとなったROS(ロボット向け基本ソフトウェア)。命名はこのROSの国際リリースが発表された会場の提供企業である神皇国の「レゾンデイトルカンパニー」の社名が由来。",
     "Summary_EN": "Originally developed by the International Humanoid Technology Society, this open-source library has become renowned for its use in humanoid development by organizations such as 100 Beauties Lab's 'NumberTales' and the Yadzuki Organization's 'Yadzuki-Leaper.' The name is derived from the company 'Raison-d'être Company' of SaintPapis, which hosted the international release of ROS (Robot Operating System)."
+  },
+  {
+    "Term_JP": "RE.\nResponer",
+    "Term_JPReading": "アール・イー\nレスポナー",
+    "Term_EN": "RE.\nResponer",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_StardustVsKaleidoscope", "Works_UnibyteLive"],
+    "Summary_JP": "もともとメールバード社により開発された「Responer(レスポナー)」という国際的に最大手のSNSだったが、その後 第8創世紀により突如スターダスト財団およびスターダスト・テクノロジーに買収され、「RE.(アール・イー)」と改名された。買収後、マザーAI機能などといった民衆にとって蛇足な情報資産システムが導入され、まるで雄志結国やその他のエリア情勢を俯瞰しているような不気味さから第7創世紀時代のユーザからは不評を買っているらしいが……",
+    "Summary_EN": "Originally developed by Mailbird Inc., 'Responer' was an internationally leading SNS, but it was suddenly acquired by the Stardust Foundation and Stardust Technology in WDCE.VIII and renamed 'RE.' After the acquisition, superfluous information asset systems such as the Mother AI function were introduced, giving an eerie impression as if it were overseeing the situation in United.Heroic.Nation and other areas, and it seems to have been unpopular with users from WDCE.VII. however..."
   }
 ]
