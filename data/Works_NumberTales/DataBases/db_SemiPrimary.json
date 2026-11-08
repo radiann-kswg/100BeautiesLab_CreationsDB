@@ -3326,7 +3326,12 @@
         "Hex": "#FFCB13",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Eye", "#BodyPart_Tail", "#BodyPart_Halo"],
+        "AppliesTo": [
+          "#BodyPart_Hair",
+          "#BodyPart_Eye",
+          "#BodyPart_Tail",
+          "#BodyPart_Halo"
+        ],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
