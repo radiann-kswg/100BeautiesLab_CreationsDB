@@ -2266,7 +2266,7 @@
     "ThisMasters": [
       {
         "value_JP": "五剣(いつつるぎ)/スクアッド・ブラン（78特殊探偵団 風の刀剣支部 五番札(シンカー)）",
-        "value_EN": "Cinqlair/Squad.Blans (Team.78 the Special Investigators SlashSwords Branch Cinque-r) "
+        "value_EN": "Cinqlair/Squad.Blans (Team.78 the Special Investigators SlashSwords Branch Cinque-r)"
       }
     ]
   },
@@ -3468,7 +3468,7 @@
     },
     "ThisMasters": [
       {
-        "value_JP": "百花繚乱研究所(N3US大学 千歳研究室) ゼミアシスタント）",
+        "value_JP": "百花繚乱研究所(N3US大学 千歳研究室) ゼミアシスタント",
         "value_EN": "100 Beauties Lab. (N3US University Dr.Thouser Laboratory) Seminar Assistant)",
         "_DBLink": { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": "∞" }
       }
@@ -23207,7 +23207,7 @@
         "DayAbout_EN": "Development commemoration"
       }
     ],
-    "FirstPersonCalling_JP": "私(わたし）",
+    "FirstPersonCalling_JP": "私(わたし)",
     "FirstPersonCalling_EN": "I",
     "SecondPersonCalling_JP": "君(きみ)",
     "SecondPersonCalling_EN": "you",
@@ -35061,7 +35061,7 @@
     },
     "ThisMasters": [
       {
-        "value_JP": "百花繚乱研究所(N3US大学 千歳研究室) ゼミアシスタント）",
+        "value_JP": "百花繚乱研究所(N3US大学 千歳研究室) ゼミアシスタント",
         "value_EN": "100 Beauties Lab. (N3US University Dr.Thouser Laboratory) Seminar Assistant)",
         "_DBLink": { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": "∞" }
       }

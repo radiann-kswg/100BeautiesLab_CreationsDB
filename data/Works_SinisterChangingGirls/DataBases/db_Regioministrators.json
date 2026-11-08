@@ -2,17 +2,17 @@
   {
     "Regioministration": "W",
     "Progress": "unprofiled",
+    "AnotherVersions_DBLink": [
+      { "_DB": "Regioministrators", "Regioministration": "X" },
+      { "_DB": "Primary", "Drc": "NE" }
+    ],
     "AnotherRegions_DBLink": [
       {
         "_Work": "UnibyteLive",
-        "_DB": "PrimaryPerformers",
+        "_DB": "PrimaryPerformer",
         "Letter": { "Alphabet": "O", "AlphaGen": 2 }
       },
       { "_DB": "PrimaryStabilities", "Drc": "ENE" }
-    ],
-    "AnotherVersion_DBLink": [
-      { "_DB": "Regioministrators", "Regioministration": "X" },
-      { "_DB": "Primary", "Drc": "NE" }
     ],
     "SameRegioministration_DBLink": [
       { "_Work": "DestinyFoxRecords", "_DB": "Proxy", "Generation": 3 }
@@ -32,17 +32,17 @@
   {
     "Regioministration": "X",
     "Progress": "unprofiled",
-    "AnotherRegions_DBLink": [
-      { "_Work": "SinisterChangingGirls", "_DB": "Primary", "Drc": "NE" }
-    ],
-    "AnotherVersion_DBLink": [
+    "AnotherVersions_DBLink": [
       {
         "_Work": "UnibyteLive",
-        "_DB": "PrimaryPerformers",
+        "_DB": "PrimaryPerformer",
         "Letter": { "Alphabet": "O", "AlphaGen": 2 }
       },
       { "_DB": "PrimaryStabilities", "Drc": "ENE" },
-      { "_DB": "Proxy", "Generation": 1 }
+      { "_Work": "DestinyFoxRecords", "_DB": "Proxy", "Generation": 1 }
+    ],
+    "AnotherRegions_DBLink": [
+      { "_Work": "SinisterChangingGirls", "_DB": "Primary", "Drc": "NE" }
     ],
     "SameRegioministration_DBLink": [
       { "_Work": "DestinyFoxRecords", "_DB": "Proxy", "Generation": 2 }
@@ -72,12 +72,12 @@
     "Regioministration": "Y",
     "Progress": "unprofiled",
     "AssignedRegioministratorRole": { "Regioministration": "Y" },
-    "AnotherRegions_DBLink": [
-      { "_Work": "SinisterChangingGirls", "_DB": "Primary", "Drc": "NW" }
-    ],
-    "AnotherVersion_DBLink": [
+    "AnotherVersions_DBLink": [
       { "_DB": "Regioministrators", "Regioministration": "Z" },
       { "_DB": "PrimaryStabilities", "Drc": "NNW" }
+    ],
+    "AnotherRegions_DBLink": [
+      { "_Work": "SinisterChangingGirls", "_DB": "Primary", "Drc": "NW" }
     ],
     "Name_JP": "扇 残冬",
     "Name_JPReading": "おうぎ ざんとう",
@@ -106,11 +106,11 @@
     "Regioministration": "Z",
     "Progress": "unprofiled",
     "AssignedRegioministratorRole": { "Regioministration": "Z" },
-    "AnotherRegions_DBLink": [{ "_DB": "PrimaryStabilities", "Drc": "NNW" }],
-    "AnotherVersion_DBLink": [
+    "AnotherVersions_DBLink": [
       { "_DB": "Primary", "Drc": "NW" },
       { "_DB": "Regioministrators", "Regioministration": "Y" }
     ],
+    "AnotherRegions_DBLink": [{ "_DB": "PrimaryStabilities", "Drc": "NNW" }],
     "SameRegioministration_DBLink": [
       {
         "_Work": "DestinyFoxRecords",

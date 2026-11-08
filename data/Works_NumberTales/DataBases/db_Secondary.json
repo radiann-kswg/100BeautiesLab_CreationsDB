@@ -554,7 +554,6 @@
       "SpecialPattern": { "hideText": "極秘事項" },
       "SafetyLevel": { "SafetyLevelText": "厳重注意" }
     },
-    "Relation": { "Related": [] },
     "RelationOriginalTo_Primary": {
       "Related": [
         {

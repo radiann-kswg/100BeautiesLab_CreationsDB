@@ -900,12 +900,12 @@
   {
     "Drc": "NW",
     "Progress": "unreleased",
+    "AnotherVersions_DBLink": [
+      { "_DB": "Primary", "Drc": "NW" },
+      { "_DB": "Regioministrators", "Regioministration": "Z" }
+    ],
     "AnotherRegions_DBLink": [
       { "_DB": "Regioministrators", "Regioministration": "Y" }
-    ],
-    "AnotherVersion_DBLink": [
-      { "_DB": "SemiPrimary", "Drc": "NW" },
-      { "_DB": "Regioministrators", "Regioministration": "Z" }
     ],
     "Name_JP": "財前 小里\n終藤 こさと",
     "Name_JPReading": "ざいぜん こさと\nすどう こさと",

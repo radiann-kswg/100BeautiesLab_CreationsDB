@@ -38,17 +38,17 @@
     "Drc": "ENE",
     "Drc_Alt": "UNE",
     "Progress": "unreleased",
+    "AnotherVersions_DBLink": [
+      { "_DB": "Primary", "Drc": "NE" },
+      { "_DB": "Regioministrators", "Regioministration": "X" }
+    ],
     "AnotherRegions_DBLink": [
       {
         "_Work": "UnibyteLive",
-        "_DB": "PrimaryPerformers",
+        "_DB": "PrimaryPerformer",
         "Letter": { "Alphabet": "O", "AlphaGen": 2 }
       },
       { "_DB": "Regioministrators", "Regioministration": "W" }
-    ],
-    "AnotherVersion_DBLink": [
-      { "_DB": "Primary", "Drc": "NE" },
-      { "_DB": "Regioministrators", "Regioministration": "X" }
     ],
     "Name_JP": "扇 零夏・スフィリア",
     "Name_JPReading": "おうぎ れいか・スフィリア",
@@ -216,12 +216,12 @@
     "Drc": "NNW",
     "Drc_Alt": "DNW",
     "Progress": "notProceeded",
-    "AnotherRegions_DBLink": [
-      { "_DB": "Regioministrators", "Regioministration": "Z" }
-    ],
-    "AnotherVersion_DBLink": [
+    "AnotherVersions_DBLink": [
       { "_DB": "Primary", "Drc": "NW" },
       { "_DB": "Regioministrators", "Regioministration": "Y" }
+    ],
+    "AnotherRegions_DBLink": [
+      { "_DB": "Regioministrators", "Regioministration": "Z" }
     ],
     "Name_JP": "財前 小里",
     "Name_JPReading": "ざいぜん こさと",

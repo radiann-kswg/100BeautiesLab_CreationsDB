@@ -1780,7 +1780,7 @@
     "Num": 337,
     "Num_Badge": "337",
     "Progress": "stillTentative",
-    "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": "337-numberize" }],
+    "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "337-numberize" }],
     "FormalName_JP": "量産型ナンバーテールズ337番機シリーズ",
     "FormalName_EN": "NumberTales #337 Series Mass Production Version for Sales",
     "CodeName_JP": "三三七",
@@ -2046,7 +2046,7 @@
     "AnotherVersions_DBLink": [{ "_DB": "SemiPrimary", "Num": "400-sq" }],
     "SameMPSeries_DBLink": [
       { "_DB": "SemiPrimary", "Num": "400-dev" },
-      { "_DB": "SemiPrimary", "Num": "400-gc" }
+      { "_DB": "SelfSecondary", "Num": "400-gc" }
     ],
     "Name_JP": "400(カトリーチェ)",
     "Name_EN": "400(Quatricent)",
@@ -2066,7 +2066,7 @@
     "Progress": "notProceeded",
     "AnotherVersions_DBLink": [{ "_DB": "SemiPrimary", "Num": "400-dev" }],
     "SameMPSeries_DBLink": [
-      { "_DB": "SemiPrimary", "Num": 400 },
+      { "_DB": "SelfSecondary", "Num": 400 },
       { "_DB": "SemiPrimary", "Num": "400-sq" }
     ],
     "Name_JP": "400(マタウルウ)",
