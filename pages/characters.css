@@ -1475,7 +1475,7 @@ td {
 }
 /* Animation classes */
 .fade-in {
-  animation: fadeIn var(--dur-base) var(--ease-out) both;
+  animation: fadeIn var(--dur-base) var(--ease-out) backwards;
   animation-delay: calc(min(var(--i, 0), 12) * 40ms);
 }
 
@@ -1492,37 +1492,6 @@ html {
   scroll-behavior: smooth;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  .fade-in {
-    animation-delay: 0s;
-  }
-  .grid-item, .image-item, .chip, .ghost, .btn, .model-viewer__launch-btn, .controls__advanced > summary {
-    transition-property: background-color, border-color, color, box-shadow, opacity;
-  }
-  .grid-item:hover, .grid-item:active, .image-item:hover, .image-item:active, .chip:hover, .chip:active, .ghost:hover, .ghost:active, .btn:hover, .btn:active, .model-viewer__launch-btn:hover, .model-viewer__launch-btn:active, .controls__advanced > summary:hover, .controls__advanced > summary:active {
-    transform: none;
-  }
-  .section--collapsible > summary::after {
-    transition: color var(--dur-fast) var(--ease-out);
-  }
-  .controls__advanced > summary::before {
-    transition: none;
-  }
-  .slide-in, .pulse {
-    animation: none;
-  }
-  html {
-    scroll-behavior: auto;
-  }
-}
 /* Focus management for accessibility */
 .skip-link {
   position: absolute;
@@ -1962,6 +1931,9 @@ body[data-lang=en] .lang-toggle .lang-toggle__opt[data-opt=en] {
 }
 
 @media (max-width: 767px) {
+  #detail-view {
+    overflow: clip;
+  }
   .detail-header {
     align-items: stretch;
     position: sticky;
@@ -2644,4 +2616,43 @@ th {
 }
 .subfield-entry__reference-image .image-item img {
   aspect-ratio: 1/1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  .fade-in {
+    animation-delay: 0s;
+  }
+  .grid-item, .image-item, .chip, .ghost, .btn, .model-viewer__launch-btn, .controls__advanced > summary, .image-lightbox__close {
+    transition-property: background-color, border-color, color, box-shadow, opacity;
+  }
+  .grid-item:hover, .grid-item:active, .image-item:hover, .image-item:active, .chip:hover, .chip:active, .ghost:hover, .ghost:active, .btn:hover, .btn:active, .btn.btn-primary:hover, .btn.btn-secondary:hover, .btn.btn-error:hover, .model-viewer__launch-btn:hover:not(:disabled), .model-viewer__launch-btn:active:not(:disabled), .controls__advanced > summary:hover, .controls__advanced > summary:active, .image-lightbox__close:hover {
+    transform: none;
+  }
+  .image-item:hover img {
+    transform: none;
+  }
+  .section--collapsible:not([open]) > summary::after,
+  .controls__advanced[open] > summary::before {
+    transform: none;
+  }
+  .section--collapsible > summary::after {
+    transition: color var(--dur-fast) var(--ease-out);
+  }
+  .controls__advanced > summary::before {
+    transition: none;
+  }
+  .slide-in, .pulse, .loading-spinner {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
 }/*# sourceMappingURL=characters.css.map */
