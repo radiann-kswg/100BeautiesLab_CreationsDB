@@ -1392,7 +1392,7 @@ td
 /* Animation classes
 
 .fade-in
-	animation: fadeIn var(--dur-base) var(--ease-out) both
+	animation: fadeIn var(--dur-base) var(--ease-out) backwards
 	// 一覧カードの初回描画だけ、JS が --i（表示順）を渡して 40ms ずつずらす
 	animation-delay: calc(min(var(--i, 0), 12) * 40ms)
 
@@ -1406,37 +1406,6 @@ td
 
 html
 	scroll-behavior: smooth
-
-// Reduce motion for accessibility
-// 動きを「消す」のではなく「移動を消してフェードだけ残す」。全停止だと状態変化が見えなくなる
-@media (prefers-reduced-motion: reduce)
-	@keyframes fadeIn
-		from
-			opacity: 0
-		to
-			opacity: 1
-
-	.fade-in
-		animation-delay: 0s
-
-	.grid-item, .image-item, .chip, .ghost, .btn, .model-viewer__launch-btn, .controls__advanced > summary
-		transition-property: background-color, border-color, color, box-shadow, opacity
-
-		&:hover, &:active
-			transform: none
-
-	.section--collapsible > summary::after
-		transition: color var(--dur-fast) var(--ease-out)
-
-	// 開閉マーク（▸ → 回転）は状態だけ即時に切り替える
-	.controls__advanced > summary::before
-		transition: none
-
-	.slide-in, .pulse
-		animation: none
-
-	html
-		scroll-behavior: auto
 
 /* Focus management for accessibility
 
@@ -1825,6 +1794,9 @@ body[data-lang='en'] .lang-toggle .lang-toggle__opt[data-opt='en']
 	flex-wrap: wrap
 
 @media (max-width: 767px)
+	#detail-view
+		overflow: clip
+
 	// モバイルでは「← 一覧へ戻る」を常時到達可能にする（長い詳細をスクロールしても迷子にならない）
 	.detail-header
 		align-items: stretch
@@ -2472,3 +2444,41 @@ th
 	// 詳細ビュー共通の .image-item（4/3 固定）より正方形サムネイルを優先する
 	.image-item img
 		aspect-ratio: 1 / 1
+
+// Reduce motion for accessibility
+// 動きを「消す」のではなく「移動を消してフェードだけ残す」。全停止だと状態変化が見えなくなる
+@media (prefers-reduced-motion: reduce)
+	@keyframes fadeIn
+		from
+			opacity: 0
+		to
+			opacity: 1
+
+	.fade-in
+		animation-delay: 0s
+
+	.grid-item, .image-item, .chip, .ghost, .btn, .model-viewer__launch-btn, .controls__advanced > summary, .image-lightbox__close
+		transition-property: background-color, border-color, color, box-shadow, opacity
+
+	.grid-item:hover, .grid-item:active, .image-item:hover, .image-item:active, .chip:hover, .chip:active, .ghost:hover, .ghost:active, .btn:hover, .btn:active, .btn.btn-primary:hover, .btn.btn-secondary:hover, .btn.btn-error:hover, .model-viewer__launch-btn:hover:not(:disabled), .model-viewer__launch-btn:active:not(:disabled), .controls__advanced > summary:hover, .controls__advanced > summary:active, .image-lightbox__close:hover
+		transform: none
+
+	.image-item:hover img
+		transform: none
+
+	.section--collapsible:not([open]) > summary::after,
+	.controls__advanced[open] > summary::before
+		transform: none
+
+	.section--collapsible > summary::after
+		transition: color var(--dur-fast) var(--ease-out)
+
+	// 開閉マーク（▸ → 回転）は状態だけ即時に切り替える
+	.controls__advanced > summary::before
+		transition: none
+
+	.slide-in, .pulse, .loading-spinner
+		animation: none
+
+	html
+		scroll-behavior: auto
