@@ -870,7 +870,7 @@
         "Material": [],
         "KinematicOrStatic": null,
         "RoleType": null,
-        "DualizePattern": { "Pattern": null }
+        "DualizePattern": null
       },
       "EffectStats": {
         "Physical": { "EffectText": "希薄" },
@@ -908,7 +908,7 @@
         "Material": [],
         "KinematicOrStatic": null,
         "RoleType": null,
-        "DualizePattern": { "Pattern": null }
+        "DualizePattern": null
       },
       "EffectStats": {
         "Physical": { "EffectText": "絶大" },

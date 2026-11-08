@@ -177,7 +177,7 @@
             },
             {
               "hashTag": "DualizePattern",
-              "$type": "#ListIndex",
+              "$type": "#ListIndex|#Null",
               "hashTag_JP": "双極特性パターン",
               "hashTag_EN": "Dualize Pattern",
               "$display": { "section": "spec", "tagSpace": "creation" }

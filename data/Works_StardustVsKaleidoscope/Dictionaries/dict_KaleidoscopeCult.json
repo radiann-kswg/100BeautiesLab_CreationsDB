@@ -12,21 +12,27 @@
     "Class_Code": "KPQ"
   },
   {
-    "Class": "ナイト・ユニット",
+    "Class": "プロジェクト・ナイト",
     "Class_JP": "『プロジェクト・ナイト』被験者",
     "Class_EN": "'Project.Knight' Trainee",
     "Class_Code": "KPK"
   },
   {
     "Class": "ルーク・ユニット",
-    "Class_JP": "『ルーク・ユニット』",
-    "Class_EN": "'Rook.Unit'",
+    "Class_JP": "強化人間『ルーク・ユニット』",
+    "Class_EN": "'Rook.Unit' the Trainees",
     "Class_Code": "KRU"
   },
   {
     "Class": "ビショップ・ユニット",
-    "Class_JP": "『ビショップ・ユニット』",
-    "Class_EN": "'Bishop.Unit'",
+    "Class_JP": "強化人間『ビショップ・ユニット』",
+    "Class_EN": "'Bishop.Unit' the Trainees",
     "Class_Code": "KBU"
+  },
+  {
+    "Class": "ポウン・チルドレン",
+    "Class_JP": "孤児『ポウン・チルドレン』",
+    "Class_EN": "'Pown.Children' the Orphans",
+    "Class_Code": "KPC"
   }
 ]
