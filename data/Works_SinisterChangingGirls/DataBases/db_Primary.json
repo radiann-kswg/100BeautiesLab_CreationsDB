@@ -901,7 +901,7 @@
     "Drc": "NW",
     "Progress": "unreleased",
     "AnotherVersions_DBLink": [
-      { "_DB": "Primary", "Drc": "NW" },
+      { "_DB": "PrimaryStabilities", "Drc": "NNW" },
       { "_DB": "Regioministrators", "Regioministration": "Z" }
     ],
     "AnotherRegions_DBLink": [
