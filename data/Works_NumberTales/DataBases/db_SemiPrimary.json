@@ -2307,13 +2307,19 @@
     "Num": 333,
     "Num_Badge": "333",
     "isTriple": false,
-    "Progress": "unreleased",
+    "Progress": "released",
     "VariantModels_DBLink": [
       { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": "333-mp" }
     ],
     "Name_JP": "333(トリニティア)",
     "Name_EN": "333(Trinitia)",
-    "Images": { "concept_PNGName": "cnsp_imgNTS-333" },
+    "Images": {
+      "concept_PNGName": "cnsp_imgNTS-333",
+      "corefolder_PNGPath": [
+        "333/emstk_corefolderNTS-333-1",
+        "333/emstk_corefolderNTS-333-2"
+      ]
+    },
     "FormalName_JP": "ナンバーテールズ333番機",
     "FormalName_EN": "NumberTales #333",
     "CodeName_JP": "三三三",
@@ -2480,6 +2486,22 @@
       },
       {
         "Formation": null,
+        "BodyPart": ["#BodyPart_FaceMaking"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "丸く剃られた薄黄色の眉",
+            "value_EN": "roundly shaved pale yellow eyebrows"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
         "BodyPart": ["#BodyPart_Head", "#BodyPart_Back"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
@@ -2522,7 +2544,7 @@
             "value_EN": "two round brooches featuring a three-color motif"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_emblemNTS-333-brooch",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -2538,7 +2560,7 @@
             "value_EN": "halo in three shades of yellow and two of gray, with a dial telephone and signal-mark motif"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_haloNTS-333",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -2613,7 +2635,12 @@
         "Hex": "#FFCB13",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Eye", "#BodyPart_Tail", "#BodyPart_Halo"],
+        "AppliesTo": [
+          "#BodyPart_Hair",
+          "#BodyPart_Eye",
+          "#BodyPart_Tail",
+          "#BodyPart_Halo"
+        ],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -2710,8 +2737,8 @@
     ],
     "RelationNotes_JP": "英皇国や英州諸国で製造された個体とはよく外交目的で各々の関係者（主人または製造関係者）とお茶を交わす一面が見受けられる。しかし「111(アイズ)」ら雄志結国で製造された個体およびその関係者については少し気まずい一面があるらしく……",
     "RelationNotes_EN": "Is often seen having tea, for diplomatic purposes, with units built in Internic.Kingdom and the Internation States and with their respective associates (such as: masters or manufacturing staff). However, she reportedly feels a little awkward around units built in United.Heroic.Nation, such as '111(Ize)', and their associates...",
-    "Summary_JP": "量産販売型ではあるが、3桁ゾロ目の数字を持つ「マスタートリプル」という特殊クラスの個体で、とりわけその333番機オリジナル版である彼女は「22(フジ)」「トレッド」といった11号機型、および「111(アイズ)」「222(ドッペル)」「222(ペルゲン)」といった111番機系列の設計を結集させた集大成とも言える個体である。\n「3(ナオ)」や「33(ミサ)」をも遥かに上回る交友・交信能力の持ち主で、おっとりしている幼い見た目に反して人慣れした積極性はとても計り知れない…………たまに時計や音響機器にも話し掛けるほど饒舌な一面もあるが。",
-    "Summary_EN": "MasterTriples are a mass-produced retail type, yet form a special class of units bearing three-digit repdigit numbers. Among them, she, the original version of Mk.333, can be called the culmination that brings together the designs of the Unit.11 lineage, such as '22(Twin-twina)' and 'Treidre'', and the Mk.111 line-series, such as '111(Ize)', '222(Doppels)' and '222(Pelgäns)'.\nHer social and communication abilities far surpass even those of '3(Treiya)' and '33(Thirthrey)', and contrary to her easygoing, childlike appearance, her well-practiced assertiveness toward people is truly immeasurable... though she also has such a talkative side that she sometimes even strikes up conversations with clocks and audio equipment.",
+    "Summary_JP": "量産販売型ではあるが、3桁ゾロ目の数字を持つ「マスタートリプル」という特殊クラスの個体で、とりわけその開発用333番機である彼女は「22(フジ)」「トレッド」といった11号機型、および「111(アイズ)」「222(ドッペル)」「222(ペルゲン)」といった111番機系列の設計を結集させた集大成とも言える個体である。\n「3(ナオ)」や「33(ミサ)」をも遥かに上回る交友・交信能力の持ち主で、おっとりしている幼い見た目に反して人慣れした積極性はとても計り知れない…………たまに時計や音響機器にも話し掛けるほど饒舌な一面もあるが。",
+    "Summary_EN": "MasterTriples are a mass-produced retail type, yet form a special class of units bearing three-digit repdigit numbers. Among them, she, the Mk.333 for development, can be called the culmination that brings together the designs of the Unit.11 lineage, such as '22(Twin-twina)' and 'Treidre'', and the Mk.111 line-series, such as '111(Ize)', '222(Doppels)' and '222(Pelgäns)'.\nHer social and communication abilities far surpass even those of '3(Treiya)' and '33(Thirthrey)', and contrary to her easygoing, childlike appearance, her well-practiced assertiveness toward people is truly immeasurable... though she also has such a talkative side that she sometimes even strikes up conversations with clocks and audio equipment.",
     "Backgrounds_JP": "英州諸国との技術的外交目的でも開発された個体のため、製造は南英州諸国のアローナ工業に委託された。ただ途中とある理由でアローナ工業が国際ヒューマノイド学会から脱退表明を公表し333番機製造先との外交が途絶えてしまったため、以後 彼女の初回稼働と量産版の「333(サザンカ)」らの設計は止むを得ず九蓮国で行われている。",
     "Backgrounds_EN": "As she was also developed for the purpose of technological diplomacy with the Internation States, her manufacture was outsourced to Athrɶna Industries in the South Internations. However, partway through, Athrɶna Industries announced its withdrawal from the International Humanoid Society for a certain reason, severing diplomatic ties with the Mk.333 manufacturer. Since then, her initial activation and the design of her mass-produced versions such as '333(Thirthenca)' have had no choice but to be carried out in LotusNinea.",
     "NumerospecStats": {
