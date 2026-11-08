@@ -85,7 +85,7 @@ GitHub Pages のキャラシート（`pages/characters.html`）を、一次創�
 ## 未完了タスク
 
 - [ ] User: `http://127.0.0.1:5500/pages/characters.html?c=NumberTales/Primary` で目視・性能（2 回目以降 1000ms 未満）・reduced-motion を確認（CSS は本 PR に同梱済み）
-- [ ] 下流（`JsonCharacterDB-Framework`）へ `pages/characters.{sass,css,css.map,html,js}` を対で取り込み（取り込み先で再コンパイルしても可）
+- [x] 下流（`JsonCharacterDB-Framework`）へ `pages/characters.{sass,css,css.map,html,js}` を対で取り込み（取り込み先で再コンパイルしても可）（2026-11-08: 生成物 CSS を `4f48192` で追従させたうえで中流 `77f9cf0` → 下流 `RadianNs_SecondaryWorksDB` `9bd961a` まで merge 済み。push は別途）
 - [ ] 紹介文（`#page-lead`）の本文は User が任意のタイミングで記入
 - [ ] （任意・別 PR）`@media (hover: hover) and (pointer: fine)` の 5 箇所重複を mixin 化、既存のインライン `style` の整理
 
