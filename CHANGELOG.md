@@ -1,5 +1,17 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### feat: キャラシート UI を現代〜近未来 SF 風へ（motion トークン・セクション番号・詳細設定の折りたたみ） (2026-11-08)
+
+- **背景**: GitHub Pages のキャラシート（`pages/characters.html`）を「閲覧者がキャラの詳細を追いやすい SF 風の紹介ページ」へ寄せる UI 改修。既存の navy × aqua 配色と schema 駆動の詳細スケルトンはそのまま、**モーションの統一・視線誘導・開発者向け UI の退避** の 3 点に絞った。全 `transition: all` を個別プロパティ指定へ置き換え、`:root` に motion / frame トークンを集約して以後の調整点を 1 箇所にしている。
+- **変更**:
+  - `pages/characters.sass`: `:root` に `--ease-out` / `--ease-in-out` / `--dur-fast`(160ms) / `--dur-base`(240ms) / `--frame-line` / `--frame-glow` を追加。`.btn` / `.chip` / `.ghost` / `.grid-item` / `.image-item` / `.model-viewer__launch-btn` / form 入力の transition を色・影・transform の個別指定へ。カード hover の浮き上がりは `@media (hover: hover)` でゲート、押下は `:active { transform: scale(0.99) }`。`@keyframes fadeIn` を 20px → 8px に縮め、`.fade-in` は `--i` による最大 12 件・40ms 刻みのスタガーに対応。`prefers-reduced-motion` ブロックは opacity のみ残して transform / delay を無効化。詳細側は `.detail-body` に `counter-reset: section`、`.detail-body .section > h3` と `.section__summary > .section__title` に `counter-increment` + `::before` の `decimal-leading-zero` 番号（構造セレクタのみなので `lib/section-renders/*` が出す `.section > h3` も無変更で番号が付く）。`.detail-hero__frame`（CSS のみのコーナーマーク付き枠）、`.detail__placeholder`、`.grid-item__badge`（一覧カード右上の Index バッジ）、`.controls__advanced`（閉じた `<details>`）、`.site-header__intro:empty { display: none }` を新設。モバイルで `.detail-header`（「一覧へ戻る」行）を sticky に。`.pill` / `.detail-stat__value` に `font-variant-numeric: tabular-nums`。
+  - `pages/characters.html`: `<meta name="asset-version">` を `2026.11.08.1` へ。`#page-lead` は `site-header__intro` クラスを付けて **空**（紹介文は User が手入力。空のときは非表示）。`.control-row.small` を「相関図リンク + 言語トグル」の常時表示行と、`<details class="controls__advanced"><summary id="label-advanced">詳細設定</summary>` 配下（`#chk-resolve` / `#chk-debug` / `#btn-reset-sw` / `#btn-feature-issue`）へ分割。既存 ID はすべて維持。
+  - `pages/characters.js`: 一覧カードに `.grid-item__badge`（主 Index の表示値）を先頭子要素として追加。初回描画のみ `fade-in` + `style="--i: N"` を付与し、2 回目以降（検索・フィルタの再描画）は付けない（モジュール変数 `listPaintedOnce`）。詳細の未選択 / 未取得プレースホルダを `el('div', { class: 'detail__placeholder' }, …)` へ、ヒーローを `class: 'detail-hero detail-hero__frame'` へ。UI 文言辞書は `copy.lead` を削除し `copy.advanced`（JP「詳細設定」/ EN「Advanced settings」）を追加、`setText('#label-advanced', copy.advanced)` に差し替え。
+- **影響範囲**: `pages/characters.sass` / `pages/characters.html` / `pages/characters.js` の 3 ファイルのみ。`lib/` / `data/` / SW / API のレスポンス形状は不変。`pages/relations.*` と `index.html` は未変更（`relations.js` が使う `.btn.btn-primary` は維持）。
+- **挙動の変化**: (1) ページ冒頭の紹介文（`#page-lead`）は既定で空＝非表示。(2) 参照解決 / デバッグ / SW リセット / 機能要望リンクは「詳細設定」を開かないと見えない。(3) 詳細セクション見出しに `01` `02` … の番号が付く（折りたたみセクション・`lib/section-renders` 由来のセクション含む）。(4) `prefers-reduced-motion: reduce` では transform 系アニメーションが止まり opacity のみ。
+- **検証**: `npm test`（Vitest）通過。`pages/characters.css` / `.css.map` は User の VS Code Live Sass Compiler により再生成済み（手編集・`npx sass` は未使用）。`http://127.0.0.1:5500/pages/characters.html` の 200 応答と `asset-version: 2026.11.08.1` を確認。ロード性能（2 回目以降 1000ms 未満）は継続観測する。
+- **下流への申し送り**: `pages/characters.sass` / `.html` / `.js` の 3 点を**対で**取り込み、取り込み先で CSS を再コンパイルすること（`.sass` だけ取り込むと `.css` が旧 UI のまま残る）。新設クラスは `.site-header__intro` / `.controls__advanced` / `.grid-item__badge` / `.detail-hero__frame` / `.detail__placeholder` の 5 つで、作品名のハードコードは無い。`copy.lead` を参照する下流固有コードがあれば `copy.advanced` へ読み替えが必要。
+
 ### fix: SW の裏再取得が 404 のとき Cache API から消す／`_DBLink` 参照先の切り離しをテストで固定 (2026-11-02)
 
 - **背景**: 高速化 4 コミット分のコードレビュー（本番で characters 675/426ms・relations の bootstrap 437〜586ms と、両ページ 1 秒未満を確認した時点）で見つかった 2 点。
