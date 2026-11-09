@@ -23,9 +23,43 @@
   {
     "Drc": "USE",
     "isPrivate": true,
-    "Progress": "notProceeded",
+    "Progress": "stillTentative",
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": "00" },
+      {
+        "_Work": "UnauthedLogica",
+        "_DB": "Primary",
+        "Model": { "ModelSeries": "notModel", "Num": "00" }
+      }
+    ],
+    "Name_JP": "零 百",
+    "Name_JPReading": "かずない はげむ",
+    "Name_EN": "Hudret Norumber",
+    "Images": {
+      "conceptAlt_PNGName": [
+        {
+          "_DBCrossLinkPath": {
+            "_Work": "NumberTales",
+            "_DB": "Primary",
+            "_Field": "concept_PNGName",
+            "_IsoPath": "cnsp_imgNTS-00"
+          }
+        }
+      ]
+    },
+    "FormalName_JP": "千歳 励",
+    "FormalName_JPReading": "ちとせ はげむ",
+    "FormalName_EN": "Hadler Thouser",
     "CodeName_JP": "勤勉の午前",
-    "CodeName_EN": "Diligence o'clock in Forenoon"
+    "CodeName_EN": "Diligence o'clock in Forenoon",
+    "Belonging": [{ "Faction": "百花繚乱研究所" }],
+    "FromArea": { "Area": "九蓮国" },
+    "Class": ["最高技術所長"],
+    "Age": 27,
+    "Character_JP": "理知的で冷静だが、技術や機械に対する熱意は譲れない\n技術を冒涜する場面に出くわすと極めて思想的な一面を露にする（※姉談）",
+    "Character_EN": "Intellectual and composed, yet uncompromising in his passion for technology and machines\nWhen technology is desecrated: reveals an extremely ideological side (per older sibling's account)",
+    "Summary_JP": "本名は「千歳励(ちとせ-はげむ)」だが、ヒューマノイドの開発活動を展開するにあたりこの名前で活動している若手男性エンジニア（特に、ナンバーテールズを提供している百花繚乱研究所では最年少級メカニックとも）。\n理知的で技術に対する造詣が極めて高く 自分の製造したヒューマノイドを含め自らの設計や加工技術についてプライド高き若人だが、その桁外れの「勤勉」さは時に低能な人間に対し冷酷な態度を示しやすく 時に思想的とまでいえる苦悶を露にする一面も",
+    "Summary_EN": "A young male engineer active under this name while developing humanoids — born as 'Hadler Thouser' but known in circles like the HundredBeauties Laboratory that creates NumberTales as one of its youngest mechanics.\nNot only intellectual and deeply versed in technology, but a young man proud of his own designs and fabrication skills including the humanoids he built — yet his extraordinary 'Diligence' tends to make him cold toward incompetent people, and at times he reveals an anguish that could almost be called ideological"
   },
   {
     "Drc": "DS",

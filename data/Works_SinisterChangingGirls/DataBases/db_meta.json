@@ -27,8 +27,8 @@
     "#DB_SemiPrimary": {
       "DB_Label_JP": "準一次創作",
       "DB_Label_EN": "Semi-Primary",
-      "DB_Summary": "豹変系女子(一次創作)に類似する８人のアンソロジーキャラクター。\n類似元と同様に、七つの大罪に対応する別の美徳に関連する属性が付与されている。\nなお、天地方向の八方位にも対応している。",
-      "DB_Summary_EN": "Eight anthology characters similar to corresponding to Sinister Changing Girls (in the primary-creation characters).\nThey are assigned attributes related to the seven another virtues corresponding to the deadly sins.\nThey also correspond to the eight directions of the celestial/terrestrial realm.",
+      "DB_Summary": "豹変系女子(一次創作)に類似する８人のアンソロジーキャラクター。\n類似元と同様に、七つの大罪に対応する別の美徳に関連する属性が付与されている。ちなみにこちらは男性も含まれる。\nなお、天地方向の八方位にも対応している。",
+      "DB_Summary_EN": "Eight anthology characters similar to corresponding to Sinister Changing Girls (in the primary-creation characters).\nThey are assigned attributes related to the seven another virtues corresponding to the deadly sins. And also, these includes men/male as well.\nThey also correspond to the eight directions of the celestial/terrestrial realm.",
       "StoryEra": {
         "InEra": [{ "EraGen": 9, "YearInEra": 3 }, { "byRealYear": 2052 }],
         "StoryEraAbout_JP": "第9創世紀3年(西暦2052年相当)周辺",

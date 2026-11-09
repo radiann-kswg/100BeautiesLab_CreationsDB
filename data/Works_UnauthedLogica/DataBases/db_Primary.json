@@ -2272,7 +2272,8 @@
     "Model": { "ModelSeries": "notModel", "Num": "00", "Num_Badge": "00" },
     "Progress": "stillTentative",
     "AnotherRegions_DBLink": [
-      { "_Work": "NumberTales", "_DB": "Primary", "Num": "00" }
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": "00" },
+      { "_Work": "SinisterChangingGirls", "_DB": "SemiPrimary", "Drc": "USE" }
     ],
     "Name_JP": "零 百",
     "Name_JPReading": "かずない はげむ",
