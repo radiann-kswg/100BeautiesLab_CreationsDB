@@ -40654,6 +40654,22 @@
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_CommonOverride",
+        "Hex": "#FFD8C2",
+        "ColorName_JP": "肌色",
+        "ColorName_EN": "Skin Color",
+        "AppliesTo": [
+          "#BodyPart_Head",
+          "#BodyPart_Ear",
+          "#BodyPart_Shoulder",
+          "#BodyPart_Arm",
+          "#BodyPart_Hand"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
       }
     ],
     "Summary_JP": "体調管理や健康管理に優れており、つい最近の躯体の新調によりフィットネスのコーチングにも特化したナンバーテールズの中でもとても珍しい個体。\n旧式時から鍛錬熱心で現在のその分厚い人工筋肉から威圧的？な印象を抱かれるようにもなったが、オーバーワークはしない/させない主義なのでご安心を。\nただ、一部周囲からミーム扱いもされているらしく…",
@@ -59049,6 +59065,16 @@
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_CommonOverride",
+        "Hex": "#FFE3B5",
+        "ColorName_JP": "肌色",
+        "ColorName_EN": "Skin Color",
+        "AppliesTo": ["#BodyPart_Head"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
       }
     ],
     "ConversationPattern": {
@@ -59124,7 +59150,17 @@
     "Name_EN": "Hudret Norumber",
     "Images": {
       "concept_PNGName": "cnsp_imgNTS-00",
-      "arts_PNGPath": ["art_imgNTS-00-developper"]
+      "arts_PNGPath": ["art_imgNTS-00-developper"],
+      "conceptAlt_PNGName": [
+        {
+          "_DBCrossLinkPath": {
+            "_Work": "SinisterChangingGirls",
+            "_DB": "SemiPrimary",
+            "_Field": "concept_PNGName",
+            "_IsoPath": "cnsp_imgSCG-USE"
+          }
+        }
+      ]
     },
     "FormalName_JP": "千歳 励",
     "FormalName_JPReading": "ちとせ はげむ",
@@ -59367,6 +59403,16 @@
         "ColorName_JP": "補助色",
         "ColorName_EN": "Auxiliary Color",
         "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_CommonOverride",
+        "Hex": "#FFE3B5",
+        "ColorName_JP": "肌色",
+        "ColorName_EN": "Skin Color",
+        "AppliesTo": ["#BodyPart_Head", "#BodyPart_Ear"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null

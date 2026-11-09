@@ -9,6 +9,15 @@
 - **関連修正**: `pkg/cloudflare/worker.js` の `_Secondaries` 選択を SW / FS の3軸・スコア順へ追従。カテゴリだけの条件を無条件 fallback にする従来の挙動を修正し、別カテゴリへの推論許可の漏れを防ぐ。他の `_Commons` 項目も正しいカテゴリで補完されるため、下流も同時に取り込むこと。D1 の非公開列を再計算する場合は既存 migrate 手順が必要。
 - **影響範囲**: `data/db_type.json` / `pkg/cloudflare/worker.js` / `tests/ai.text-rp-permission.test.js` / `docs/{third-party-policy,schema-meta-processing,api-sw-spec,pkg-client-libraries}.md`。既存の画像・学習データやガイドライン本文の編集なし。
 
+### feat: `$EnumDef_ColorRole` に `#ColorRole_CommonOverride`（共通配色の上書き）を追加 (2026-11-09)
+
+- **背景**: 設定画のカラーチップに、作品共通の造形色（`$EnumDef_CommonColor` の肌・体毛など）より優先して指定された色があるキャラがいる。既存の 4 役割（主色 / 副色 / 差し色 / 補助色）では「共通配色を上書きする色」を区別できず、`#ColorRole_Secondary` で仮置きしていた。
+- **変更**: `data/db_meta.json` の `$EnumDef_ColorRole` に `#ColorRole_CommonOverride`（JP「共通配色の上書き」/ EN「Common Color Override」）を追加。色名は上書き対象の共通配色に合わせる（例: 肌色 / 体毛の色）。
+- **データ**: NumberTales の `NTS-0` / `00` / `67A`（Primary）と `NTS-1000`（SemiPrimary）の `ColorPalette` に上書き色を設定。SinisterChangingGirls の `SCG-N`（Primary）/ `USE`（SemiPrimary）/ `NNE` / `SSW`（PrimaryStabilities）に、上書き色を含む `ColorPalette` を新設した。色は各設定画のカラーチップから計測した。
+- **錦野姉妹（`NTS-DIV` / `INF`）は `SCG-NNE` / `SSW` と同じパレットを複製して持つ**: `AnotherRegions_DBLink` の `$enrich` 穴埋めは「最初に解決できたエントリ 1 件」だけが対象で、先頭が FLI の `PrimaryDealer`（パレット無し）のため、SCG 側から補完されない。並びを入れ替えると FLI から補完している性別・人称・会話パターン・能力値が失われるため、複製で対応した（User 判断）。片方を変えたら、もう片方も合わせて更新すること。
+- **影響範囲**: `data/db_meta.json`（辞書追加のみ）、NumberTales の DB 2 本、SinisterChangingGirls の DB 3 本。`lib/` / SW / UI の変更なし（役割名は既存の辞書解決で表示される）。
+- **下流への申し送り**: `db_meta.json` の辞書追加は後方互換。`tools/patch-colorpalette.mjs` の `--assign-slots` は `COLOR_SLOTS` に無い役割を扱わないため、上書き色を持つレコードは「割当できない色が残る」として書き込みがスキップされる（データを壊すことはない）。
+
 ### feat: キャラシート UI を現代〜近未来 SF 風へ（motion トークン・セクション番号・詳細設定の折りたたみ） (2026-11-08)
 
 - **背景**: GitHub Pages のキャラシート（`pages/characters.html`）を「閲覧者がキャラの詳細を追いやすい SF 風の紹介ページ」へ寄せる UI 改修。既存の navy × aqua 配色と schema 駆動の詳細スケルトンはそのまま、**モーションの統一・視線誘導・開発者向け UI の退避** の 3 点に絞った。全 `transition: all` を個別プロパティ指定へ置き換え、`:root` に motion / frame トークンを集約して以後の調整点を 1 箇所にしている。

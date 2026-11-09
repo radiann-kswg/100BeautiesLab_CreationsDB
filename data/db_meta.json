@@ -1197,6 +1197,11 @@
           "ColorRole": "Sub",
           "ColorRole_JP": "補助色",
           "ColorRole_EN": "Sub"
+        },
+        "#ColorRole_CommonOverride": {
+          "ColorRole": "CommonOverride",
+          "ColorRole_JP": "共通配色の上書き",
+          "ColorRole_EN": "Common Color Override"
         }
       },
       "$EnumDef_DesignBodyPart": {
