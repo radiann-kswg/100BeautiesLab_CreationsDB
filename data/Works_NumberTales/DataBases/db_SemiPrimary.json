@@ -3846,8 +3846,8 @@
     "Images": {
       "concept_PNGName": "cnsp_imgNTS-777",
       "conceptAlt_PNGName": [
-        "cnsp_imgNTS-777,NTS-777JPC",
-        "cnsp_imgNTS-777,NTS-777JP-orig"
+        "cnsp_imgNTS-777,NTS-777JP",
+        "cnsp_imgNTS-777,NTS-777JP-Purged"
       ]
     },
     "FormalName_JP": "ナンバーテールズ777番機",
@@ -4145,10 +4145,7 @@
     "Name_EN": "777(Lucky-sevens)\n777(Luckies)",
     "Images": {
       "concept_PNGName": "cnsp_imgNTS-777JP",
-      "conceptAlt_PNGName": [
-        "cnsp_imgNTS-777,NTS-777JPC",
-        "cnsp_imgNTS-777,NTS-777JP-orig"
-      ]
+      "conceptAlt_PNGName": ["cnsp_imgNTS-777,NTS-777JP", "cnsp_imgNTS-777,NTS-777JP-Purged"]
     },
     "FormalName_JP": "ナンバーテールズ777番機-ジャックポット",
     "FormalName_EN": "NumberTales #777.Jackpot",
