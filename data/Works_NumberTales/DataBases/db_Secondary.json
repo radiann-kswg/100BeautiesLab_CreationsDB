@@ -3,7 +3,7 @@
     "Num": "0xA",
     "Num_Badge": "0xA",
     "Progress": "accepted\nremadeReleased",
-    "sec_SeriesTitle": "ヘキサデミカル-テールズ",
+    "sec_SeriesTitle": "ヘキサデミカル・テールズ",
     "Name_JP": "0xA(エース)",
     "Name_EN": "0xA(Ace)",
     "Images": {
@@ -15,11 +15,11 @@
         "hexademical-corefolders/art_sphericateDay202406-3"
       ]
     },
-    "FormalName_JP": "ヘキサデミカル-テールズ0xA番機",
+    "FormalName_JP": "ヘキサデミカル・テールズ0xA番機",
     "FormalName_EN": "HexademicalTales #0xA",
     "ModelNumber": "AVCR-HxT 0xA",
     "GenderType": "Neutral",
-    "Class": ["ヘキサデミカル-テールズ"],
+    "Class": ["ヘキサデミカル・テールズ"],
     "Height_cm": [
       { "value": 147, "about_JP": "推定", "about_EN": "Presumption" }
     ],
@@ -204,7 +204,7 @@
     "Num": "0xB",
     "Num_Badge": "0xB",
     "Progress": "accepted\nremadeReleased",
-    "sec_SeriesTitle": "ヘキサデミカル-テールズ",
+    "sec_SeriesTitle": "ヘキサデミカル・テールズ",
     "Name_JP": "0xB(ベータ)",
     "Name_EN": "0xB(Beta)",
     "Images": {
@@ -216,11 +216,11 @@
         "hexademical-corefolders/art_sphericateDay202406-3"
       ]
     },
-    "FormalName_JP": "ヘキサデミカル-テールズ0xB番機",
+    "FormalName_JP": "ヘキサデミカル・テールズ0xB番機",
     "FormalName_EN": "HexademicalTales #0xB",
     "ModelNumber": "AVCR-HxT 0xB",
     "GenderType": "FemaleNeutral",
-    "Class": ["ヘキサデミカル-テールズ"],
+    "Class": ["ヘキサデミカル・テールズ"],
     "Height_cm": [
       { "value": 144, "about_JP": "推定", "about_EN": "Presumption" }
     ],
@@ -419,7 +419,7 @@
     "Num": "0xC",
     "Num_Badge": "0xC",
     "Progress": "accepted\nremadeReleased",
-    "sec_SeriesTitle": "ヘキサデミカル-テールズ",
+    "sec_SeriesTitle": "ヘキサデミカル・テールズ",
     "Name_JP": "0xC(セレス)",
     "Name_EN": "0xC(Ceres)",
     "Images": {
@@ -434,11 +434,11 @@
         "hexademical-corefolders/art_sphericateDay202406-3"
       ]
     },
-    "FormalName_JP": "ヘキサデミカル-テールズ0xC番機",
+    "FormalName_JP": "ヘキサデミカル・テールズ0xC番機",
     "FormalName_EN": "HexademicalTales #0xC",
     "ModelNumber": "AVCR-HxT 0xC",
     "GenderType": "MaleNeutral",
-    "Class": ["ヘキサデミカル-テールズ"],
+    "Class": ["ヘキサデミカル・テールズ"],
     "Height_cm": [
       { "value": 151, "about_JP": "推定", "about_EN": "Presumption" }
     ],
@@ -629,7 +629,7 @@
     "Num": "0xD",
     "Num_Badge": "0xD",
     "Progress": "accepted\nremadeReleased",
-    "sec_SeriesTitle": "ヘキサデミカル-テールズ",
+    "sec_SeriesTitle": "ヘキサデミカル・テールズ",
     "Name_JP": "0xD(デプス)",
     "Name_EN": "0xD(Depth)",
     "Images": {
@@ -644,11 +644,11 @@
         "hexademical-corefolders/art_sphericateDay202406-3"
       ]
     },
-    "FormalName_JP": "ヘキサデミカル-テールズ0xD番機",
+    "FormalName_JP": "ヘキサデミカル・テールズ0xD番機",
     "FormalName_EN": "HexademicalTales #0xD",
     "ModelNumber": "AVCR-HxT 0xD",
     "GenderType": "FemaleNeutral",
-    "Class": ["ヘキサデミカル-テールズ"],
+    "Class": ["ヘキサデミカル・テールズ"],
     "Height_cm": [
       { "value": 130, "about_JP": "推定", "about_EN": "Presumption" }
     ],
@@ -753,7 +753,7 @@
       "Technic": { "Rank": "A" },
       "Actuation": { "Rank": "A" }
     },
-    "InStory_JP": "「エイゼルベット」の観測者「シグマ-クロステールズ」の元で観測を受けている、ある電脳世界との間で生まれた個体\n高い記録能力から、ヘキサデミカル-テールズの躯体開発で途中から記録担当を務めることとなった",
+    "InStory_JP": "「エイゼルベット」の観測者「シグマ-クロステールズ」の元で観測を受けている、ある電脳世界との間で生まれた個体\n高い記録能力から、ヘキサデミカル・テールズの躯体開発で途中から記録担当を務めることとなった",
     "InStory_EN": "An entity born from the interaction between a certain cyber world and \"Sigma-CrossTales,\" an observer of \"∀selbuet.\"\nDue to her high recording ability, she took on the role of recording during the development of HexademicalTales' body.",
     "NumerospecStats": {
       "NumerospecAbout_JP": { "hideText": "極秘事項" },
@@ -847,7 +847,7 @@
     "Num": "0xE",
     "Num_Badge": "0xE",
     "Progress": "accepted\nremadeReleased",
-    "sec_SeriesTitle": "ヘキサデミカル-テールズ",
+    "sec_SeriesTitle": "ヘキサデミカル・テールズ",
     "Name_JP": "0xE(エネ)",
     "Name_EN": "0xE(Enè)",
     "Images": {
@@ -859,11 +859,11 @@
         "hexademical-corefolders/art_sphericateDay202406-3"
       ]
     },
-    "FormalName_JP": "ヘキサデミカル-テールズ0xE番機",
+    "FormalName_JP": "ヘキサデミカル・テールズ0xE番機",
     "FormalName_EN": "HexademicalTales #0xE",
     "ModelNumber": "AVCR-HxT 0xE",
     "GenderType": "Neutral",
-    "Class": ["ヘキサデミカル-テールズ"],
+    "Class": ["ヘキサデミカル・テールズ"],
     "Height_cm": [
       { "value": 143, "about_JP": "推定", "about_EN": "Presumption" }
     ],
@@ -1050,7 +1050,7 @@
     "Num": "0xF",
     "Num_Badge": "0xF",
     "Progress": "accepted\nremadeReleased",
-    "sec_SeriesTitle": "ヘキサデミカル-テールズ",
+    "sec_SeriesTitle": "ヘキサデミカル・テールズ",
     "Name_JP": "0xF(フォルテ)",
     "Name_EN": "0xF(Forte)",
     "Images": {
@@ -1067,11 +1067,11 @@
         "hexademical-corefolders/art_sphericateDay202406-3"
       ]
     },
-    "FormalName_JP": "ヘキサデミカル-テールズ0xF番機",
+    "FormalName_JP": "ヘキサデミカル・テールズ0xF番機",
     "FormalName_EN": "HexademicalTales #0xF",
     "ModelNumber": "AVCR-HxT 0xF",
     "GenderType": "FemaleNeutral",
-    "Class": ["ヘキサデミカル-テールズ"],
+    "Class": ["ヘキサデミカル・テールズ"],
     "Height_cm": [
       { "value": 160, "about_JP": "推定", "about_EN": "Presumption" }
     ],
@@ -1162,7 +1162,7 @@
         "Note_EN": null
       }
     ],
-    "RelationNotes_JP": "他のヘキサデミカル-テールズの心の支えになっているらしい",
+    "RelationNotes_JP": "他のヘキサデミカル・テールズの心の支えになっているらしい",
     "RelationNotes_EN": "Seems to be a source of emotional support for the other HexademicalTales",
     "AbilityStats": {
       "Speed": { "Rank": "B" },
@@ -1267,15 +1267,15 @@
       "_DB": "SelfSecondary",
       "Num": "255"
     },
-    "sec_SeriesTitle": "公式版ヘキサデミカル-テールズ",
+    "sec_SeriesTitle": "公式版ヘキサデミカル・テールズ",
     "Name_JP": "0xFF(エフエフ)",
     "Name_EN": "0xFF(eFeF)",
-    "FormalName_JP": "ヘキサデミカル-テールズ 第二最終番機(ナンバーテールズ異元255番機)",
+    "FormalName_JP": "ヘキサデミカル・テールズ 第二最終番機(ナンバーテールズ異元255番機)",
     "FormalName_EN": "HexademicalTales 2nd Final Unit (Over-dimension of NumberTales Mk.255)",
     "ModelNumber": "AVCR/APHR-HxT Final.2",
     "RaceType": "PortableHumanoid(TaleBeastType,SoftwareBody)",
     "GenderType": "Neutral",
-    "Class": ["ヘキサデミカル-テールズ", "バーチャリティテールズ"],
+    "Class": ["ヘキサデミカル・テールズ", "バーチャリティテールズ"],
     "Backgrounds_JP": "1バイト値の最大値（16進法）から由来",
     "Backgrounds_EN": "Derived from the maximum value of a 1-byte (hexadecimal)"
   },

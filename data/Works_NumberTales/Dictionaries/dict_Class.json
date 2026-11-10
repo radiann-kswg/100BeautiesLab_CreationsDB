@@ -194,6 +194,12 @@
     "isSecondary": null
   },
   {
+    "Class": "プリーミアコンストレイント",
+    "Class_EN": "Premier Constraint",
+    "Class_Code": "NNP",
+    "isSecondary": null
+  },
+  {
     "Class": "キュビクザール型",
     "Class_JP": "キュビクザール型ハイナンバーズ",
     "Class_EN": "Kubikzahl-Series HighNumbers",
@@ -201,9 +207,21 @@
     "isSecondary": false
   },
   {
+    "Class": "バーチャリティテールズ",
+    "Class_EN": "VirtualityTales",
+    "Class_Code": "NVT",
+    "isSecondary": null
+  },
+  {
     "Class": "国際協議個体",
     "Class_EN": "Internationally Negotiated Unit",
     "Class_Code": "NIN",
+    "isSecondary": null
+  },
+  {
+    "Class": "バイナリーコンストレイント",
+    "Class_EN": "Binary Constraint",
+    "Class_Code": "NBM",
     "isSecondary": null
   },
   {
@@ -220,51 +238,9 @@
     "isSecondary": null
   },
   {
-    "Class": "キャロルズ",
-    "Class_EN": "Caroles",
-    "Class_Code": "NCR",
-    "isSecondary": null
-  },
-  {
-    "Class": "バーチャリティテールズ",
-    "Class_EN": "VirtualityTales",
-    "Class_Code": "NVT",
-    "isSecondary": null
-  },
-  {
-    "Class": "カレンド",
-    "Class_EN": "Calends",
-    "Class_Code": "NCL",
-    "isSecondary": null
-  },
-  {
-    "Class": "ナルシシスツ",
-    "Class_EN": "Narcissists",
-    "Class_Code": "NNR",
-    "isSecondary": null
-  },
-  {
-    "Class": "フィジクスコンストレイント",
-    "Class_EN": "Physics Constraint",
-    "Class_Code": "NPM",
-    "isSecondary": null
-  },
-  {
-    "Class": "コミュニティーズ",
-    "Class_EN": "Communities Constraint",
-    "Class_Code": "NHC",
-    "isSecondary": null
-  },
-  {
-    "Class": "ライターノベルズ",
-    "Class_EN": "Writer Novels",
-    "Class_Code": "NWN",
-    "isSecondary": null
-  },
-  {
-    "Class": "プリーミアコンストレイント",
-    "Class_EN": "Premier Constraint",
-    "Class_Code": "NNP",
+    "Class": "インターフェイスコンストレイント",
+    "Class_EN": "Interface Constraint",
+    "Class_Code": "NUM",
     "isSecondary": null
   },
   {
@@ -274,9 +250,9 @@
     "isSecondary": null
   },
   {
-    "Class": "バイナリーコンストレイント",
-    "Class_EN": "Binary Constraint",
-    "Class_Code": "NBM",
+    "Class": "フィジクスコンストレイント",
+    "Class_EN": "Physics Constraint",
+    "Class_Code": "NPM",
     "isSecondary": null
   },
   {
@@ -286,15 +262,39 @@
     "isSecondary": null
   },
   {
-    "Class": "インターフェイスコンストレイント",
-    "Class_EN": "Interface Constraint",
-    "Class_Code": "NUM",
+    "Class": "テックシステマーズ",
+    "Class_EN": "Tech-Systemers",
+    "Class_Code": "NST",
     "isSecondary": null
   },
   {
-    "Class": "ワノマチ",
-    "Class_EN": "Wa-no-Machi",
-    "Class_Code": "NWJ",
+    "Class": "キャロルズ",
+    "Class_EN": "Caroles",
+    "Class_Code": "NCR",
+    "isSecondary": null
+  },
+  {
+    "Class": "ナルシシスツ",
+    "Class_EN": "Narcissists",
+    "Class_Code": "NNR",
+    "isSecondary": null
+  },
+  {
+    "Class": "コミュニティーズ",
+    "Class_EN": "Communities Constraint",
+    "Class_Code": "NHC",
+    "isSecondary": null
+  },
+  {
+    "Class": "カレンド",
+    "Class_EN": "Calends",
+    "Class_Code": "NCL",
+    "isSecondary": null
+  },
+  {
+    "Class": "ライターノベルズ",
+    "Class_EN": "Writer Novels",
+    "Class_Code": "NWN",
     "isSecondary": null
   },
   {
@@ -304,7 +304,20 @@
     "isSecondary": null
   },
   {
-    "Class": "ヘキサデミカル-テールズ",
+    "Class": "東龍卦",
+    "Class_JP": "東龍卦(トンロンガ)",
+    "Class_EN": "Dōng-lóng-guà",
+    "Class_Code": "NZC",
+    "isSecondary": null
+  },
+  {
+    "Class": "ワノマチ",
+    "Class_EN": "Wa-no-Machi",
+    "Class_Code": "NWJ",
+    "isSecondary": null
+  },
+  {
+    "Class": "ヘキサデミカル・テールズ",
     "Class_JP": "ヘキサデミカル・テールズ",
     "Class_EN": "HexademicalTales",
     "Class_Code": "HxT",
@@ -321,14 +334,14 @@
     "Class": "D-Vines母艦機",
     "Class_JP": "D-Vines(ディ-ヴァインズ)母艦機",
     "Class_EN": "D-Vines MotherShip Unit",
-    "Class_Code": "DVM",
+    "Class_Code": "DVsM",
     "isSecondary": true
   },
   {
     "Class": "D-Vines基幹機",
     "Class_JP": "D-Vines(ディ-ヴァインズ)基幹機",
     "Class_EN": "D-Vines Core Unit",
-    "Class_Code": "DVC",
+    "Class_Code": "DVsC",
     "isSecondary": true
   },
   {
@@ -342,7 +355,7 @@
     "Class": "ナンバーテールズ化",
     "Class_JP": "ナンバーテールズ化(他者キャラデザ企画)",
     "Class_EN": "NumberizingTales (Characterize Adaptation for followers)",
-    "Class_Code": "NTZ",
+    "Class_Code": "NTZe",
     "isSecondary": true
   }
 ]

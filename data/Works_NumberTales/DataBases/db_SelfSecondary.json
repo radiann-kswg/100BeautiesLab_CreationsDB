@@ -103,9 +103,7 @@
     "Num": "111-mp",
     "Num_Badge": "111MP",
     "Progress": "released",
-    "AnotherVersions_DBLink": [
-      { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 111 }
-    ],
+    "AnotherVersions_DBLink": [{ "_DB": "SemiPrimary", "Num": 111 }],
     "sec_SeriesTitle": "量産型マスタートリプル",
     "sec_Category": null,
     "sec_DesignedBy": ["RadianN"],
@@ -1210,9 +1208,7 @@
     "Num": "221B",
     "Num_Badge": "221B",
     "Progress": "notProceeded",
-    "SameMPSeries_DBLink": [
-      { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 221 }
-    ],
+    "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": 221 }],
     "Name_JP": "シャーロック\n221(シャーロックホーム)",
     "Name_EN": "Sherlock\n221(SherlockHome)",
     "FormalName_JP": "量産型ナンバーテールズ221番機WNシリーズ(ナンバーテールズ221B番機)",
@@ -1234,9 +1230,7 @@
     "Num": "222-mp",
     "Num_Badge": "222MP",
     "Progress": "notProceeded",
-    "AnotherVersions_DBLink": [
-      { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 222 }
-    ],
+    "AnotherVersions_DBLink": [{ "_DB": "SemiPrimary", "Num": 222 }],
     "sec_SeriesTitle": "量産型マスタートリプル",
     "sec_Category": null,
     "sec_DesignedBy": ["RadianN"],
@@ -1272,9 +1266,7 @@
     "Progress": "released",
     "sec_Category": "リクエストナンバー",
     "sec_DesignedBy": ["RadianN"],
-    "SameMPSeries_DBLink": [
-      { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": "223-jw" }
-    ],
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": "223-jw" }],
     "Name_JP": "223(ツヅサ)",
     "Name_EN": "223(Twitwenthir)",
     "Images": {
@@ -1478,9 +1470,7 @@
     "Progress": "notProceeded",
     "sec_Category": null,
     "sec_DesignedBy": ["RadianN"],
-    "SameMPSeries_DBLink": [
-      { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": 223 }
-    ],
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 223 }],
     "Name_JP": "223(フブミ)",
     "Name_EN": "223(Twitwintrey)",
     "FormalName_JP": "量産型ナンバーテールズ223番機JWシリーズ",
@@ -1686,9 +1676,7 @@
     "Num": 247,
     "Num_Badge": "247",
     "Progress": "notProceeded",
-    "AnotherVersions_DBLink": [
-      { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": "247-ma" }
-    ],
+    "AnotherVersions_DBLink": [{ "_DB": "SemiPrimary", "Num": "247-ma" }],
     "Name_JP": "247(フシナ)",
     "Name_EN": "247(Diquasept)",
     "FormalName_JP": "量産型ナンバーテールズ247番機PAシリーズ",
@@ -1708,9 +1696,7 @@
     "Num": 255,
     "Num_Badge": "255",
     "Progress": "notProceeded",
-    "AnotherVersions_DBLink": [
-      { "_Work": "NumberTales", "_DB": "Secondary", "Num": "0xFF" }
-    ],
+    "AnotherVersions_DBLink": [{ "_DB": "Secondary", "Num": "0xFF" }],
     "Name_JP": "255(エフエフ)",
     "Name_EN": "255(0xFF)",
     "FormalName_JP": "量産型ナンバーテールズ255番機VRシリーズ",
@@ -1867,6 +1853,7 @@
     "sec_SeriesTitle": "D-Vines",
     "sec_Category": "散狐アタストさん原案",
     "sec_DesignedBy": ["RadianN"],
+    "VariantModels_DBLink": [{ "_DB": "SelfSecondary", "Num": "266-am" }],
     "Name_JP": "266(ヒルベルト)",
     "Name_EN": "266(Hilbert)",
     "FormalName_JP": "ナンバーテールズ 仮設2^√2号機(ナンバーテールズ266番機, ディ-ヴァインズ8号+母艦3号開発機)",
@@ -1877,7 +1864,23 @@
     "SPCodeName_EN": "Gelfond-Schneider constant: Hilbert's seventh problem (2^√2≈2.66≈3/8)",
     "ModelNumber": "APHR-NT Dv.8/3",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル5型", "証明者", "D-Vines開発機"]
+    "Class": ["証明者", "D-Vines開発機"]
+  },
+  {
+    "Num": "266-am",
+    "Num_Badge": "266AM",
+    "VariantModels_DBLink": [{ "_DB": "SelfSecondary", "Num": 266 }],
+    "Name_JP": "正規型 266(ヒルベルト)",
+    "Name_EN": "Normalized 266(Hilbert)",
+    "FormalName_JP": "量産型ナンバーテールズ266番機AMシリーズ",
+    "FormalName_EN": "NumberTales #266-AM Series Mass Production Version for Sales",
+    "CodeName_JP": "二六六",
+    "CodeName_EN": "Two-Six-Six",
+    "SPCodeName_JP": "ゲルフォント＝シュナイダー定数: ヒルベルトの第7問題（2^√2≈2.66≈3/8）",
+    "SPCodeName_EN": "Gelfond-Schneider constant: Hilbert's seventh problem (2^√2≈2.66)",
+    "ModelNumber": "APHR-NT [MP]266-AM***",
+    "GenderType": "Neutral",
+    "Class": ["デュオトリプル5型", "証明者"]
   },
   {
     "Num": 273,
@@ -2002,21 +2005,36 @@
     "sec_SeriesTitle": "D-Vines",
     "sec_Category": "散狐アタストさん原案",
     "sec_DesignedBy": ["RadianN"],
+    "VariantModels_DBLink": [{ "_DB": "SelfSecondary", "Num": "314-am" }],
     "Name_JP": "314(マドカ)",
     "Name_EN": "314(Circcle)",
     "FormalName_JP": "ナンバーテールズ仮設π号機(ナンバーテールズ314番機, ディ-ヴァインズ22号+母艦7号開発機)",
     "FormalName_EN": "NumberTales Tentative Unit.π (NumberTales Mk.314, D-Vines Unit.22+MotherShip.7 for Development)",
     "CodeName_JP": "三一四",
     "CodeName_EN": "Three-One-Four",
-    "SPCodeName_JP": "π(円周率上3桁)",
-    "SPCodeName_EN": "π(Pi: First 3 Digits of the Circle Ratio)",
+    "SPCodeName_JP": "π(=3.14…: 円周率上3桁)≒22/7",
+    "SPCodeName_EN": "π(=3.14…: First 3 Digits of the Circle Ratio)≒22/7",
     "ModelNumber": "APHR-NT Dv.22/7",
     "GenderType": "Neutral",
-    "Class": [
-      "トリプルエイツ",
-      "レイディアントコンストレイント",
-      "D-Vines開発機"
-    ],
+    "Class": ["レイディアントコンストレイント", "D-Vines開発機"],
+    "Backgrounds_JP": "円周率(3.14)から由来",
+    "Backgrounds_EN": "Derived from the value of π(pi) (3.14)."
+  },
+  {
+    "Num": "314-am",
+    "Num_Badge": "314AM",
+    "VariantModels_DBLink": [{ "_DB": "SelfSecondary", "Num": 314 }],
+    "Name_JP": "正規型 314(マドカ)",
+    "Name_EN": "Normalized 314(Circcle)",
+    "FormalName_JP": "量産型ナンバーテールズ314番機AMシリーズ",
+    "FormalName_EN": "NumberTales #314-AM Series Mass Production Version for Sales",
+    "CodeName_JP": "三一四",
+    "CodeName_EN": "Three-One-Four",
+    "SPCodeName_JP": "π(=3.14…)",
+    "SPCodeName_EN": "π(=3.14…: First 3 Digits of the Circle Ratio)",
+    "ModelNumber": "APHR-NT [MP]314-AM***",
+    "GenderType": "Neutral",
+    "Class": ["トリプルエイツ", "レイディアントコンストレイント"],
     "Backgrounds_JP": "円周率(3.14)から由来",
     "Backgrounds_EN": "Derived from the value of π(pi) (3.14)."
   },
@@ -2062,9 +2080,7 @@
     "sec_SeriesTitle": "量産型マスタートリプル",
     "sec_Category": null,
     "sec_DesignedBy": ["RadianN"],
-    "VariantModels_DBLink": [
-      { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 333 }
-    ],
+    "VariantModels_DBLink": [{ "_DB": "SemiPrimary", "Num": 333 }],
     "Name_JP": "333(サザンカ)",
     "Name_EN": "333(Thirthenca)",
     "FormalName_JP": "量産型ナンバーテールズ333番機シリーズ",
@@ -2074,7 +2090,12 @@
     "SPCodeName_JP": "三個の三",
     "SPCodeName_EN": "Three Threes",
     "ModelNumber": "APHR-NT [MP]333-*****",
-    "Class": ["量産型マスタートリプル"],
+    "Class": [
+      "量産型マスタートリプル",
+      "テックシステマーズ",
+      "フェイタルテールズ",
+      "ワノマチ"
+    ],
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxSpecial",
@@ -2350,7 +2371,7 @@
   },
   {
     "Num": 400,
-    "Num_Badge": "400A",
+    "Num_Badge": "400",
     "Progress": "notProceeded",
     "AnotherVersions_DBLink": [{ "_DB": "SemiPrimary", "Num": "400-sq" }],
     "SameMPSeries_DBLink": [
@@ -2378,8 +2399,8 @@
       { "_DB": "SelfSecondary", "Num": 400 },
       { "_DB": "SemiPrimary", "Num": "400-sq" }
     ],
-    "Name_JP": "400(マタウルウ)",
-    "Name_EN": "400(Leap-againer)",
+    "Name_JP": "量産型 400(マタウルウ)",
+    "Name_EN": "Cloned 400(Leap-againer)",
     "FormalName_JP": "量産型ナンバーテールズ400番機GCシリーズ(ナンバーテールズ400番機乙)",
     "FormalName_EN": "NumberTales #400-GC Series Mass Production Version for Sales (NumberTales #400 valiant.B)",
     "CodeName_JP": "四〇〇",
@@ -2422,15 +2443,15 @@
     "Progress": "notProceeded",
     "Name_JP": "404(イエナキ)",
     "Name_EN": "404(Foundnot)",
-    "FormalName_JP": "量産型ナンバーテールズ404番機シリーズ",
-    "FormalName_EN": "NumberTales #404 Series Mass Production Version for Sales",
+    "FormalName_JP": "量産型ナンバーテールズ404番機STシリーズ(ナンバーテールズ404番機)",
+    "FormalName_EN": "NumberTales #404-ST Series Mass Production Version for Sales (NumberTales #404)",
     "CodeName_JP": "四〇四",
     "CodeName_EN": "Four-Zero-Four",
-    "SPCodeName_JP": "HTTP応答404",
-    "SPCodeName_EN": "HTTP Response 404",
+    "SPCodeName_JP": "HTTP応答404: Not Found",
+    "SPCodeName_EN": "HTTP Response 404: Not Found",
     "ModelNumber": "APHR-NT [MP]404-*****",
     "GenderType": "Neutral",
-    "Class": ["サイドシングルズ"]
+    "Class": ["テックシステマーズ", "サイドシングルズ"]
   },
   {
     "Num": 407,
@@ -2551,9 +2572,7 @@
     "Num": "444-mp",
     "Num_Badge": "444MP",
     "Progress": "released",
-    "AnotherVersions_DBLink": [
-      { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 444 }
-    ],
+    "AnotherVersions_DBLink": [{ "_DB": "SemiPrimary", "Num": 444 }],
     "sec_SeriesTitle": "量産型マスタートリプル",
     "sec_Category": null,
     "sec_DesignedBy": ["RadianN"],
@@ -2567,7 +2586,7 @@
     "FormalName_EN": "NumberTales #444 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]444-*****",
     "GenderType": "Neutral",
-    "Class": ["量産型マスタートリプル"],
+    "Class": ["量産型マスタートリプル", "スクエアエリート"],
     "Height_cm": 163,
     "Weight_kg": 59,
     "BustSize": "A",
@@ -3409,9 +3428,7 @@
     "Num": "555-mp",
     "Num_Badge": "555MP",
     "Progress": "notProceeded",
-    "AnotherVersions_DBLink": [
-      { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 555 }
-    ],
+    "AnotherVersions_DBLink": [{ "_DB": "SemiPrimary", "Num": 555 }],
     "sec_SeriesTitle": "量産型マスタートリプル",
     "sec_Category": null,
     "sec_DesignedBy": ["RadianN"],
@@ -3590,9 +3607,7 @@
     "Num": "666-mp",
     "Num_Badge": "666MP",
     "Progress": "released",
-    "AnotherVersions_DBLink": [
-      { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 666 }
-    ],
+    "AnotherVersions_DBLink": [{ "_DB": "SemiPrimary", "Num": 666 }],
     "sec_SeriesTitle": "量産型マスタートリプル",
     "sec_Category": null,
     "sec_DesignedBy": ["RadianN"],
@@ -4509,9 +4524,7 @@
     "Num": "777-mp",
     "Num_Badge": "777MP",
     "Progress": "released",
-    "AnotherVersions_DBLink": [
-      { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 777 }
-    ],
+    "AnotherVersions_DBLink": [{ "_DB": "SemiPrimary", "Num": 777 }],
     "sec_SeriesTitle": "量産型マスタートリプル",
     "sec_Category": null,
     "sec_DesignedBy": ["RadianN"],
@@ -4529,7 +4542,7 @@
     "FormalName_EN": "NumberTales #777 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]777-*****",
     "GenderType": "MaleNeutral",
-    "Class": ["量産型マスタートリプル"],
+    "Class": ["量産型マスタートリプル", "ワノマチ"],
     "Height_cm": 161,
     "Weight_kg": [
       { "value": 50 },
@@ -5013,9 +5026,7 @@
     "Num": "777.Jackpot-mp",
     "Num_Badge": "777JMP",
     "Progress": "released",
-    "AnotherVersions_DBLink": [
-      { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 777 }
-    ],
+    "AnotherVersions_DBLink": [{ "_DB": "SemiPrimary", "Num": 777 }],
     "sec_SeriesTitle": "量産型マスタートリプル",
     "sec_Category": null,
     "sec_DesignedBy": ["RadianN"],
@@ -5033,7 +5044,7 @@
     "FormalName_EN": "NumberTales #777.Jackpot Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]777JP-*****",
     "GenderType": "MaleNeutral",
-    "Class": ["量産型マスタートリプル"],
+    "Class": ["量産型マスタートリプル", "ワノマチ"],
     "Height_cm": 161,
     "Weight_kg": [
       { "value": 50 },
@@ -5608,9 +5619,7 @@
     "sec_SeriesTitle": "量産型マスタートリプル",
     "sec_Category": null,
     "sec_DesignedBy": ["RadianN"],
-    "VariantModels_DBLink": [
-      { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 888 }
-    ],
+    "VariantModels_DBLink": [{ "_DB": "SemiPrimary", "Num": 888 }],
     "Name_JP": "888(ヤバヤ)",
     "Name_EN": "888(Octachtate)",
     "FormalName_JP": "量産型ナンバーテールズ888番機シリーズ",
@@ -5715,9 +5724,7 @@
     "sec_SeriesTitle": "量産型マスタートリプル",
     "sec_Category": null,
     "sec_DesignedBy": ["RadianN"],
-    "VariantModels_DBLink": [
-      { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 999 }
-    ],
+    "VariantModels_DBLink": [{ "_DB": "SemiPrimary", "Num": 999 }],
     "Name_JP": "999(ノヴエニーナ)",
     "Name_EN": "999(Nov'enina)",
     "FormalName_JP": "量産型ナンバーテールズ999番機シリーズ",
@@ -5753,7 +5760,7 @@
     "ModelName_JP": "ナンバーテールズ バイツ2号機(仮設1024番機)",
     "ModelName_EN": "NumberTales Bytz-Unit.2 (Tentative Mk.1024)",
     "GenderType": "Neutral",
-    "Class": ["バイナリーコンストレイント", "国際協議個体"],
+    "Class": ["バーチャリティテールズ", "国際協議個体"],
     "Backgrounds_JP": "SI接頭辞「ki(キロバイナリ)」に由来",
     "Backgrounds_EN": "Named from the SI prefix 'ki(kilo binary)'."
   },
@@ -5797,9 +5804,7 @@
     "Num": 1122,
     "Num_Badge": "1122",
     "Progress": "notProceeded",
-    "AnotherVersions_DBLink": [
-      { "_Work": "NumberTales", "_DB": "Secondary", "Num": "1122-numberize" }
-    ],
+    "AnotherVersions_DBLink": [{ "_DB": "Secondary", "Num": "1122-numberize" }],
     "sec_SeriesTitle": null,
     "sec_Category": null,
     "sec_DesignedBy": ["RadianN"],

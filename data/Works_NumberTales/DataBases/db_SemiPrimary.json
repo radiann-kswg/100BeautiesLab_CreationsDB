@@ -453,7 +453,7 @@
     "Progress": "released",
     "isTriple": false,
     "AnotherVersions_DBLink": [
-      { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": "111-mp" }
+      { "_DB": "SelfSecondary", "Num": "111-mp" }
     ],
     "Name_JP": "111(アイズ)",
     "Name_EN": "111(Ize)",
@@ -1471,7 +1471,7 @@
     "Progress": "notProceeded",
     "isTriple": false,
     "SameMPSeries_DBLink": [
-      { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": "221B" }
+      { "_DB": "SelfSecondary", "Num": "221B" }
     ],
     "Name_JP": "チェイン\n221(チェインプライム)",
     "Name_EN": "Chains\n221(PrimeChain)",
@@ -1500,7 +1500,7 @@
     "Progress": "unprofiled",
     "isTriple": false,
     "AnotherVersions_DBLink": [
-      { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": "222-mp" }
+      { "_DB": "SelfSecondary", "Num": "222-mp" }
     ],
     "VariantModels_DBLink": [
       { "_DB": "SemiPrimary", "Num": "222A" },
@@ -1713,7 +1713,7 @@
     "Progress": "released",
     "isTriple": false,
     "AnotherVersions_DBLink": [
-      { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": "222-mp" }
+      { "_DB": "SelfSecondary", "Num": "222-mp" }
     ],
     "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": 222 }],
     "Name_JP": "222(ペルゲン)",
@@ -2285,7 +2285,7 @@
     "Progress": "released",
     "isTriple": false,
     "AnotherVersions_DBLink": [
-      { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": "222-mp" }
+      { "_DB": "SelfSecondary", "Num": "222-mp" }
     ],
     "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": 222 }],
     "Name_JP": "222(ドッペル)",
@@ -2867,7 +2867,7 @@
     "Progress": "notProceeded",
     "isTriple": false,
     "AnotherVersions_DBLink": [
-      { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": 247 }
+      { "_DB": "SelfSecondary", "Num": 247 }
     ],
     "Name_JP": "マンソーンジュ\n247(マンソーンジュ・ペンタゴン)",
     "Name_EN": "Mansonge\n247(Mansonge.Pentagone)",
@@ -2973,7 +2973,7 @@
     "Progress": "notProceeded",
     "isTriple": false,
     "AnotherVersions_DBLink": [
-      { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": 323 }
+      { "_DB": "SelfSecondary", "Num": 323 }
     ],
     "Name_JP": "トロンペ\n323(トロンペ)",
     "Name_EN": "Tromper\n323(Tromper)",
@@ -3021,9 +3021,7 @@
     "Num_Badge": "333",
     "isTriple": false,
     "Progress": "released",
-    "VariantModels_DBLink": [
-      { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": "333-mp" }
-    ],
+    "VariantModels_DBLink": [{ "_DB": "SelfSecondary", "Num": "333-mp" }],
     "Name_JP": "333(トリニティア)",
     "Name_EN": "333(Trinitia)",
     "Images": {
@@ -3052,7 +3050,12 @@
       "BaseAreaAbout_JP": "製造工場の所在地（初稼働は九蓮国で行われた）",
       "BaseAreaAbout_EN": "Location of the manufacturing plant (initial operation was conducted in LotusNinea)"
     },
-    "Class": ["マスタートリプル"],
+    "Class": [
+      "マスタートリプル",
+      "テックシステマーズ",
+      "フェイタルテールズ",
+      "ワノマチ"
+    ],
     "Height_cm": 113,
     "Weight_kg": 30,
     "BustSize": "A",
@@ -3533,7 +3536,7 @@
   },
   {
     "Num": "400-dev",
-    "Num_Badge": "400B",
+    "Num_Badge": "400DV",
     "Progress": "notProceeded",
     "AnotherVersions_DBLink": [{ "_DB": "SelfSecondary", "Num": "400-gc" }],
     "SameMPSeries_DBLink": [
@@ -3562,7 +3565,7 @@
     "isTriple": false,
     "Progress": "released",
     "AnotherVersions_DBLink": [
-      { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": "444-mp" }
+      { "_DB": "SelfSecondary", "Num": "444-mp" }
     ],
     "Name_JP": "444(シテン)",
     "Name_EN": "444(Quad-emperone)",
@@ -4349,7 +4352,7 @@
     "Progress": "notProceeded",
     "isTriple": false,
     "AnotherVersions_DBLink": [
-      { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": "555-mp" }
+      { "_DB": "SelfSecondary", "Num": "555-mp" }
     ],
     "Name_JP": "555(ハイファイブ)",
     "Name_EN": "555(High-Fiver)",
@@ -4371,7 +4374,7 @@
     "Progress": "released",
     "isTriple": false,
     "AnotherVersions_DBLink": [
-      { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": "666-mp" }
+      { "_DB": "SelfSecondary", "Num": "666-mp" }
     ],
     "Name_JP": "666(リリス)",
     "Name_EN": "666(Lilith)",
@@ -5014,7 +5017,7 @@
     "ModelName_JP": "ナンバーテールズ3倍型7号機(777番機)",
     "ModelName_EN": "NumberTales EXtended By.3 Type Unit.7 (Mk.777)",
     "GenderType": "MaleNeutral",
-    "Class": ["マスタートリプル"],
+    "Class": ["マスタートリプル", "ワノマチ"],
     "Height_cm": 161,
     "Weight_kg": [
       { "value": 50 },
@@ -5513,7 +5516,7 @@
     "ModelName_JP": "ナンバーテールズ特殊個体:ラッキーセブンアール(777番機-ジャックポット)",
     "ModelName_EN": "NumberTales Special Model: Lucky.7R (Mk.777.Jackpot)",
     "GenderType": "MaleNeutral",
-    "Class": ["マスタートリプル"],
+    "Class": ["マスタートリプル", "ワノマチ"],
     "Height_cm": 161,
     "Weight_kg": [
       { "value": 50 },
@@ -5986,9 +5989,7 @@
     "Num_Badge": "888",
     "Progress": "released",
     "isTriple": false,
-    "VariantModels_DBLink": [
-      { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": "888-mp" }
-    ],
+    "VariantModels_DBLink": [{ "_DB": "SelfSecondary", "Num": "888-mp" }],
     "Name_JP": "888(ムゲン)",
     "Name_EN": "888(Infy)",
     "Images": {
@@ -6005,7 +6006,7 @@
     "ModelName_EN": "NumberTales Final-Renovated Type Unit.8 (Mk.888)",
     "RaceType": "PortableHumanoid(PhoenixType)",
     "GenderType": "Neutral",
-    "Class": ["マスタートリプル", "最終型ハイナンバーズ"],
+    "Class": ["マスタートリプル", "最終型ハイナンバーズ", "東龍卦"],
     "Height_cm": 156,
     "Weight_kg": { "hideText": "？？？" },
     "BustSize": "A",
@@ -6554,7 +6555,7 @@
     "Progress": "notProceeded",
     "isTriple": false,
     "VariantModels_DBLink": [
-      { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": "999-mp" }
+      { "_DB": "SelfSecondary", "Num": "999-mp" }
     ],
     "Name_JP": "999(カンスト)",
     "Name_EN": "999(Counstop)",
@@ -7334,7 +7335,7 @@
     "Num_Badge": "64XP",
     "Progress": "released",
     "AnotherVersions_DBLink": [
-      { "_Work": "NumberTales", "_DB": "Primary", "Num": 64 }
+      { "_DB": "Primary", "Num": 64 }
     ],
     "Name_JP": "ゼフィア\n64(ゼフィア)",
     "Name_EN": "Secvier\n64(Secvier)",
@@ -7917,7 +7918,7 @@
     "Progress": "stillTentative",
     "isTriple": false,
     "VariantModels_DBLink": [
-      { "_Work": "NumberTales", "_DB": "Primary", "Num": "000" }
+      { "_DB": "Primary", "Num": "000" }
     ],
     "Name_JP": "1000(センリ)",
     "Name_EN": "1000(Millodie)",
