@@ -452,9 +452,7 @@
     "Num_Badge": "111",
     "Progress": "released",
     "isTriple": false,
-    "AnotherVersions_DBLink": [
-      { "_DB": "SelfSecondary", "Num": "111-mp" }
-    ],
+    "AnotherVersions_DBLink": [{ "_DB": "SelfSecondary", "Num": "111-mp" }],
     "Name_JP": "111(アイズ)",
     "Name_EN": "111(Ize)",
     "Images": {
@@ -1470,9 +1468,7 @@
     "Num_Badge": "221",
     "Progress": "notProceeded",
     "isTriple": false,
-    "SameMPSeries_DBLink": [
-      { "_DB": "SelfSecondary", "Num": "221B" }
-    ],
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": "221B" }],
     "Name_JP": "チェイン\n221(チェインプライム)",
     "Name_EN": "Chains\n221(PrimeChain)",
     "FormalName_JP": "ナンバーテールズ仮称13×17号機(同位異格221番機)",
@@ -1499,9 +1495,7 @@
     "Num_Badge": "222",
     "Progress": "unprofiled",
     "isTriple": false,
-    "AnotherVersions_DBLink": [
-      { "_DB": "SelfSecondary", "Num": "222-mp" }
-    ],
+    "AnotherVersions_DBLink": [{ "_DB": "SelfSecondary", "Num": "222-mp" }],
     "VariantModels_DBLink": [
       { "_DB": "SemiPrimary", "Num": "222A" },
       { "_DB": "SemiPrimary", "Num": "222B" }
@@ -1712,9 +1706,7 @@
     "Num_Badge": "222A",
     "Progress": "released",
     "isTriple": false,
-    "AnotherVersions_DBLink": [
-      { "_DB": "SelfSecondary", "Num": "222-mp" }
-    ],
+    "AnotherVersions_DBLink": [{ "_DB": "SelfSecondary", "Num": "222-mp" }],
     "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": 222 }],
     "Name_JP": "222(ペルゲン)",
     "Name_EN": "222(Pelgäns)",
@@ -2284,9 +2276,7 @@
     "Num_Badge": "222B",
     "Progress": "released",
     "isTriple": false,
-    "AnotherVersions_DBLink": [
-      { "_DB": "SelfSecondary", "Num": "222-mp" }
-    ],
+    "AnotherVersions_DBLink": [{ "_DB": "SelfSecondary", "Num": "222-mp" }],
     "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": 222 }],
     "Name_JP": "222(ドッペル)",
     "Name_EN": "222(Doppels)",
@@ -2866,9 +2856,7 @@
     "Num_Badge": "247MA",
     "Progress": "notProceeded",
     "isTriple": false,
-    "AnotherVersions_DBLink": [
-      { "_DB": "SelfSecondary", "Num": 247 }
-    ],
+    "AnotherVersions_DBLink": [{ "_DB": "SelfSecondary", "Num": 247 }],
     "Name_JP": "マンソーンジュ\n247(マンソーンジュ・ペンタゴン)",
     "Name_EN": "Mansonge\n247(Mansonge.Pentagone)",
     "FormalName_JP": "ナンバーテールズ仮称13×19号機(同位異格247番機)",
@@ -2972,9 +2960,7 @@
     "Num_Badge": "323MA",
     "Progress": "notProceeded",
     "isTriple": false,
-    "AnotherVersions_DBLink": [
-      { "_DB": "SelfSecondary", "Num": 323 }
-    ],
+    "AnotherVersions_DBLink": [{ "_DB": "SelfSecondary", "Num": 323 }],
     "Name_JP": "トロンペ\n323(トロンペ)",
     "Name_EN": "Tromper\n323(Tromper)",
     "FormalName_JP": "ナンバーテールズ仮称17×19号機(同位異格323番機)",
@@ -3564,9 +3550,7 @@
     "Num_Badge": "444",
     "isTriple": false,
     "Progress": "released",
-    "AnotherVersions_DBLink": [
-      { "_DB": "SelfSecondary", "Num": "444-mp" }
-    ],
+    "AnotherVersions_DBLink": [{ "_DB": "SelfSecondary", "Num": "444-mp" }],
     "Name_JP": "444(シテン)",
     "Name_EN": "444(Quad-emperone)",
     "Images": {
@@ -4351,9 +4335,7 @@
     "Num_Badge": "555",
     "Progress": "notProceeded",
     "isTriple": false,
-    "AnotherVersions_DBLink": [
-      { "_DB": "SelfSecondary", "Num": "555-mp" }
-    ],
+    "AnotherVersions_DBLink": [{ "_DB": "SelfSecondary", "Num": "555-mp" }],
     "Name_JP": "555(ハイファイブ)",
     "Name_EN": "555(High-Fiver)",
     "FormalName_JP": "ナンバーテールズ555番機",
@@ -4373,9 +4355,7 @@
     "Num_Badge": "666",
     "Progress": "released",
     "isTriple": false,
-    "AnotherVersions_DBLink": [
-      { "_DB": "SelfSecondary", "Num": "666-mp" }
-    ],
+    "AnotherVersions_DBLink": [{ "_DB": "SelfSecondary", "Num": "666-mp" }],
     "Name_JP": "666(リリス)",
     "Name_EN": "666(Lilith)",
     "Images": {
@@ -6554,9 +6534,7 @@
     "Num_Badge": "999",
     "Progress": "notProceeded",
     "isTriple": false,
-    "VariantModels_DBLink": [
-      { "_DB": "SelfSecondary", "Num": "999-mp" }
-    ],
+    "VariantModels_DBLink": [{ "_DB": "SelfSecondary", "Num": "999-mp" }],
     "Name_JP": "999(カンスト)",
     "Name_EN": "999(Counstop)",
     "FormalName_JP": "ナンバーテールズ999番機",
@@ -7334,9 +7312,7 @@
     "Num": "64-sxp",
     "Num_Badge": "64XP",
     "Progress": "released",
-    "AnotherVersions_DBLink": [
-      { "_DB": "Primary", "Num": 64 }
-    ],
+    "AnotherVersions_DBLink": [{ "_DB": "Primary", "Num": 64 }],
     "Name_JP": "ゼフィア\n64(ゼフィア)",
     "Name_EN": "Secvier\n64(Secvier)",
     "Images": {
@@ -7917,9 +7893,7 @@
     "Num_Badge": "1000",
     "Progress": "stillTentative",
     "isTriple": false,
-    "VariantModels_DBLink": [
-      { "_DB": "Primary", "Num": "000" }
-    ],
+    "VariantModels_DBLink": [{ "_DB": "Primary", "Num": "000" }],
     "Name_JP": "1000(センリ)",
     "Name_EN": "1000(Millodie)",
     "Images": {
