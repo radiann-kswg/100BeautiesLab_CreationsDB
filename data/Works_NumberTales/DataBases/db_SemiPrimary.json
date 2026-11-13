@@ -4450,8 +4450,7 @@
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_BirdTailOnly",
-        "Count": 1,
-        "Segment": 1,
+        "Count": null,
         "Note_JP": "左右の翼部と尾羽が3つの「8」のような模様をしている",
         "Note_EN": "The left and right wings and tail feathers have a pattern resembling three '8's."
       }
@@ -4808,8 +4807,7 @@
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_BirdTailOnly",
-        "Count": 1,
-        "Segment": 1,
+        "Count": null,
         "Note_JP": "左右の翼部と尾羽が3つの「9」のような模様をしている",
         "Note_EN": "The left and right wings and tail feathers have a pattern resembling three '9's."
       }

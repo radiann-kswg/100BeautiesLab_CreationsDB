@@ -126,9 +126,10 @@
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_NekomataSpecial",
-        "Count": 3,
-        "Note_JP": null,
-        "Note_EN": null
+        "Count": 1,
+        "Segment": 3,
+        "Note_JP": "3つの先端にベルトが装着されている",
+        "Note_EN": "Belts are attached to the three tips"
       }
     ],
     "ConceptAge": 14,
