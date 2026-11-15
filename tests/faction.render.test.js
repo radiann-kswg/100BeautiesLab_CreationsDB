@@ -147,6 +147,35 @@ describe('TypeResolver.resolveDictRow', () => {
 		);
 		expect(pack?.en).toBe('Scoped Class');
 	});
+
+	it('matches structured scopeField values (shaped like $Def_Faction) against Belonging', () => {
+		// data/Dictionaries/db_meta.json の Class 辞書は scopeField を
+		// `{ "Belonging": { "Faction": "…" } }`（対象フィールドの型に合わせた構造化形式）で宣言する。
+		// 行側の値を String() で比べると "[object Object]" になって永久に一致しないため、
+		// 双方をスカラーへ展開して比較できることを確認する。
+		const scope = { Belonging: { Faction: '『管理主』代理人' } };
+		const scopedMeta = {
+			Dictionaries: {
+				'#Dict_RegioministratorAgents': { keyField: 'Class', compatListKey: '#List_Class', scopeField: scope }
+			},
+			General: {
+				$VarsDef: {
+					'#List_Class': [
+						{ ...scope, Class: '『創造主』代理人', Class_EN: "Agent of the 'Regiowner'" }
+					]
+				}
+			}
+		};
+		const resolve = (belonging) => TR.resolveVarsDefLabelPack(
+			'Class', '『創造主』代理人', null, scopedMeta, 'Class', { Belonging: belonging }
+		);
+
+		// 複数所属のうち 1 つが一致すれば解決できる
+		expect(resolve([{ Faction: '国際情報広報機関『ミハイル』' }, { Faction: '『管理主』代理人' }])?.en)
+			.toBe("Agent of the 'Regiowner'");
+		// 所属が一致しなければスコープ行は使わず、共通行も無いので未解決
+		expect(resolve([{ Faction: '『管理主』' }])).toBeNull();
+	});
 });
 
 describe('enrichment $dictRef resolution', () => {

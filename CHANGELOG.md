@@ -1,5 +1,23 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### fix: `scopeField` の値に構造化形式（`{ "Belonging": { "Faction": "…" } }`）を許容 (2026-11-15)
+
+- **背景**: グローバル Class 辞書 12 本の `scopeField` を、対象フィールド `Belonging` の型（`$Def_Faction[]`）に合わせた `{ "Belonging": { "Faction": "…" } }` 形式へ統一した（User 判断。`dict_Faction.json` の `管理主` → `『管理主』` 改名と同時）。従来の解決側は辞書行側の値を `String()` で比較していたため、この形式だと `"[object Object]"` になって**永久に一致せず**、スコープ付き辞書の Class が JP/EN とも生値表示になっていた（全作品監査で未解決 125 件 → 修正後 61 件。残りは辞書行の未作成・異体字など純粋なデータ側）。
+- **変更（フレームワーク）**: `lib/basic-renders/type-common.js` の `rowMatchesRecordScope()` が、辞書行側の scope 値もレコード側と同じ `scopeValueCandidates()` で配下スカラーへ展開して比較するようにした。構造化値に複数スカラーが含まれる場合はそのすべてがレコード側に含まれることを要求する。スカラー文字列の `scopeField`（作品別 `Dictionaries/db_meta.json` の既存宣言）は従来どおり動く。`_enrichment` の形状・公開 API のシグネチャは不変。
+- **テスト**: `tests/faction.render.test.js` に構造化 `scopeField` の一致 / 不一致ケースを追加。`npm test` 79 ファイル / 1439 件通過。
+- **ドキュメント**: `docs/schema-meta-processing.md` §3.4.1 を構造化形式を正とする記述へ更新し、「`scopeField.Belonging` の値は `dict_Faction.json` の `Faction` と同一文字列にする（異体字で一致しない）」の注意を追加。
+- **下流への申し送り**: `lib/basic-renders/type-common.js` の 1 関数の内部変更のみ。下流が `scopeField` にスカラー文字列しか使っていなければ挙動差は無い。`pkg/` クライアントは従来どおり `scopeField` 合成を行わないため影響なし。
+- **既知の残課題（データ側・User 判断）**: (1) `Works_UnauthedLogica/Dictionaries/db_meta.json` の `#Dict_Battlers.scopeField` が `百戦錬磨開発所`（練）で、`dict_Faction.json` / レコードの `百戦錬磨開発所`（錬）と異体字不一致 → 解決。(2) `Works_SinisterChangingGirls` の `#DB_Regioministrators` は `_Commons.Belonging` が `『管理主』` だが `_ListLinkIf_Regioministration` の Class は `『管理主』代理人` スコープ側の値 → 解決。(3) `Works_PastDivers` の Class 5 値が辞書に未登録 → 解決。(4) NumberTales `D-Vines` 行に `Class_EN` 無し → 解決。
+
+### refactor: グローバル辞書の `Class` 用 12 本を `data/Dictionaries/Class/` へ移動（`dictFile` でサブフォルダ宣言） (2026-11-15)
+
+- **背景**: `data/Dictionaries/` 直下の辞書ファイルが 20 本を超え、そのうち 12 本が所属組織ごとの `Class` 辞書（`keyField: "Class"`）で見通しが悪くなっていた。
+- **変更（データ）**: `dict_100BeautiesLab` / `LotusNineaRoyal` / `FLInvestigators` / `IKRoyalSociety` / `WhiteHexagram` / `NeoLotusNinean` / `RaisondetreCompany` / `SymphonyX` / `SymphonyXVI` / `Mikhail` / `RegioministratorAgents` / `Regioministrators` の 12 本を `data/Dictionaries/Class/` へ `git mv`（内容は不変）。`data/Dictionaries/db_meta.json` の該当 12 エントリへ `"dictFile": "Class/dict_<辞書名>.json"` を追加。`#Dict_*`・`compatListKey` は不変。
+- **変更（フレームワーク）**: SW（`lib/sw-common.js`）と UI（`pages/characters.js`）は既存の `dictFile` 宣言をそのまま相対パスとして読むため**変更なし**。`pkg/nodejs/index.mjs` / `pkg/python/creationsdb/client.py` / `pkg/csharp/CreationsDBClient.cs` の辞書バンドル読み込みが `dictFile` を読むようにした（従来は `dict_<辞書名>.json` 決め打ちで、`sec_DesignedBy.json` の `#Dict_DesignedBy` も読めていなかったのが同時に直る）。`tools/deepl/build-glossary-source.mjs` の `collectFromDir()` はサブフォルダも再帰で拾う。
+- **影響範囲**: API レスポンス・`_enrichment` の形状は不変。変わるのは辞書 JSON の静的 URL（`data/Dictionaries/dict_<X>.json` → `data/Dictionaries/Class/dict_<X>.json`）と、R2 ミラー上の同パス（次回 `scripts/migrate.mjs` で同期）。`docs/localization-glossary-quickref.md` は出典パスのみ変化（211 対訳のまま）。
+- **検証**: `npm test` 79 ファイル / 1438 件通過。Node.js / Python クライアントで `#Dict_*` 19 本（`#Dict_Mikhail` / `#Dict_DesignedBy` 含む）の読み込みを確認。C# はビルド未実施（同じ規則の数行変更）。ブラウザでの実機確認は未実施。
+- **下流への申し送り**: `dictFile` にサブフォルダ付き相対パスを書けるのは今回の `pkg/` 3 本と `tools/deepl/` の取り込みが前提。下流で辞書をサブフォルダへ移すときは `db_meta.json` の `dictFile` 宣言を忘れないこと（未宣言だと 404 扱いでその辞書だけ静かに欠ける）。`pkg/` クライアントは従来どおり `scopeField` の合成と同一 `compatListKey` の連結を行わない（SW との既存の差分。今回は未対応）。
+
 ### feat: `$EnumDef_ColorRole` に `#ColorRole_CommonOverride`（共通配色の上書き）を追加 (2026-11-09)
 
 - **背景**: 設定画のカラーチップに、作品共通の造形色（`$EnumDef_CommonColor` の肌・体毛など）より優先して指定された色があるキャラがいる。既存の 4 役割（主色 / 副色 / 差し色 / 補助色）では「共通配色を上書きする色」を区別できず、`#ColorRole_Secondary` で仮置きしていた。

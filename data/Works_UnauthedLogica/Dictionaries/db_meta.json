@@ -14,11 +14,11 @@
       "scopeField": { "Belonging": "百花繚乱研究国際大使所" }
     },
     "#Dict_Battlers": {
-      "DB_Label_JP": "クラス辞書(百戦練磨開発軍向け)",
+      "DB_Label_JP": "クラス辞書(百戦錬磨開発軍向け)",
       "DB_Label_EN": "Class Dictionary (for 100Battlers-Dev.Corp)",
       "keyField": "Class",
       "compatListKey": "#List_Class",
-      "scopeField": { "Belonging": "百戦練磨開発所" }
+      "scopeField": { "Belonging": "百戦錬磨開発所" }
     },
     "#Dict_MobClass": {
       "DB_Label_JP": "クラス辞書(モブ種族向け)",

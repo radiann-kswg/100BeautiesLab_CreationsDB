@@ -37,12 +37,12 @@
       "_Commons": {}
     },
     "#DB_Regioministrators": {
-      "DB_Label_JP": "管理主",
+      "DB_Label_JP": "『管理主』",
       "DB_Label_EN": "Regioministrators",
       "DB_Summary": "４つの権限コードからなる、創作世界の『第８界』に存在し『第８界』を管理する重要な人物。",
       "DB_Summary_EN": "Important figures consisting of four authority codes, existing in the '#REGION.8' of the creative world and managing the '#REGION.8'.",
       "_Commons": {
-        "Belonging": [{ "Faction": "『管理主』" }],
+        "Belonging": [{ "Faction": "『管理主』代理人" }],
         "_ListLinkIf_Regioministration": [
           {
             "Regioministration": "W",

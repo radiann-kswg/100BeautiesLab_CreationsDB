@@ -12,7 +12,7 @@
 - **インライン補完（ゴーストテキスト）**: 補完はカスタム指示ファイルを読み込みません。英訳作業中は本ファイルを隣のタブで開いておくと、近傍文脈として対訳が補完に反映されやすくなります。
 - **正典はあくまで辞書本体**。表に無い語・揺れがある語は `data/**/trans_*.json` 等の辞書と `docs/localization-en-rules.md` を確認してください。最終採否は User 判断です。
 
-- 収録: **211 対訳**（延べ抽出。生成日時: 2026-11-08T02:32:15.415Z）
+- 収録: **211 対訳**（延べ抽出。生成日時: 2026-11-15T04:01:21.388Z）
 
 ## 人名（姓・代理）
 
@@ -349,7 +349,7 @@
 
 ## クラス（職掌）
 
-<small>出典: `data/Dictionaries/dict_100BeautiesLab.json` / `data/Dictionaries/dict_FLInvestigators.json` / `data/Dictionaries/dict_IKRoyalSociety.json` / `data/Dictionaries/dict_LotusNineaRoyal.json` / `data/Dictionaries/dict_Mikhail.json` / `data/Dictionaries/dict_NeoLotusNinean.json` / `data/Dictionaries/dict_RaisondetreCompany.json` / `data/Dictionaries/dict_RegioministratorAgents.json` / `data/Dictionaries/dict_Regioministrators.json` / `data/Dictionaries/dict_SymphonyX.json` / `data/Dictionaries/dict_SymphonyXVI.json` / `data/Dictionaries/dict_WhiteHexagram.json`</small>
+<small>出典: `data/Dictionaries/Class/dict_100BeautiesLab.json` / `data/Dictionaries/Class/dict_FLInvestigators.json` / `data/Dictionaries/Class/dict_IKRoyalSociety.json` / `data/Dictionaries/Class/dict_LotusNineaRoyal.json` / `data/Dictionaries/Class/dict_Mikhail.json` / `data/Dictionaries/Class/dict_NeoLotusNinean.json` / `data/Dictionaries/Class/dict_RaisondetreCompany.json` / `data/Dictionaries/Class/dict_RegioministratorAgents.json` / `data/Dictionaries/Class/dict_Regioministrators.json` / `data/Dictionaries/Class/dict_SymphonyX.json` / `data/Dictionaries/Class/dict_SymphonyXVI.json` / `data/Dictionaries/Class/dict_WhiteHexagram.json`</small>
 
 | 日本語 | English |
 | --- | --- |

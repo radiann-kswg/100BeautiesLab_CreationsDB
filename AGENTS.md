@@ -188,6 +188,7 @@
 - **`$enrich: false` は enrich 禁止宣言**: `$DefType` のエントリへ `$enrich: false` を置くと、そのフィールドは `_DBLink` 参照先から一切穴埋めされません（同一 Work / cross-work の両方に適用）。特定項目を作品横断で引き継がせたくないときの第一候補です。
 - **作品別 `db_meta.json` 欠損耐性**: 作品別 `db_meta.json` は追加価値レイヤーとして扱い、欠損時でも DB 取得 / 検索 / enrich を 500 で落とさず `_Commons` / `_Secondaries` だけをスキップして継続します。
 - **辞書の実行時合流**: enum/list 辞書は `db_meta.json(General.$VarsDef)` と `db_type.json($VarsDef)` の両方から合成される前提で扱い、片側だけを正とみなして説明しません。
+- **辞書ファイルのサブフォルダ分け**: 同じフィールド向けの辞書ファイルが複数ある場合（例: 所属組織ごとに分かれる `Class`）は、`Dictionaries/<keyField>/dict_<辞書名>.json` へまとめ、`Dictionaries/db_meta.json` の該当 `#Dict_*` に `"dictFile": "<keyField>/dict_<辞書名>.json"` を宣言します（`dictFile` は `Dictionaries/` からの相対パス。未宣言なら直下の `dict_<辞書名>.json`）。1 フィールド 1 ファイルの辞書は直下のままにします。ローダー側へフォルダ名依存の分岐は足しません。
 - **カタログ用メタ宣言**: 作品/DB の概要メタ（`CreationWorks`, `Databases.#DB_*`）の正式な補助 schema は、グローバル `data/db_type.json` のトップレベル `$MetaType` で管理します。
 - **DB 表示名の正**: DB セレクトや作品概要の DB 見出しは、作品別 `db_meta.json` の `Databases.#DB_<DbName>.DB_Label` / `DB_Label_EN` を優先し、未定義時のみ SW の既定ラベル補完に依存します。
 - **`DB_Hidden` によるDB完全非公開**: `db_meta.json` の `Databases.#DB_<DbName>` に `"DB_Hidden": true` を置くと、そのDB全体が SW の DB リストと直接アクセスの両方から 404 で遮断されます。`isPrivate`（レコード単位）と異なり DB 単位で作用します。メタ欠損時はチェックをスキップします（`docs/api-sw-spec.md` §5.3）。

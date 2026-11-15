@@ -16,7 +16,7 @@
     "GenderType": "Unknown",
     "Belonging": [
       { "Faction": "フィジカル9" },
-      { "Faction": "管理主" },
+      { "Faction": "『管理主』" },
       { "Faction": "超次元執筆空間(アトリエ)の住民" }
     ],
     "Class": ["組織長", "創造主", "第１界担当"],
@@ -64,7 +64,7 @@
     "GenderType": "Female",
     "Belonging": [
       { "Faction": "フィジカル9" },
-      { "Faction": "管理主" },
+      { "Faction": "『管理主』" },
       { "Faction": "超次元執筆空間(アトリエ)の住民" }
     ],
     "Class": ["第２界担当", "創造主", "大学同期生", "ホテルアルバイター"],
@@ -171,7 +171,7 @@
     "GenderType": "Male",
     "Belonging": [
       { "Faction": "フィジカル9" },
-      { "Faction": "管理主" },
+      { "Faction": "『管理主』" },
       { "Faction": "超次元執筆空間(アトリエ)の住民" }
     ],
     "Class": ["第３界担当", "創造主"],
@@ -216,7 +216,7 @@
     "GenderType": "Male",
     "Belonging": [
       { "Faction": "フィジカル9" },
-      { "Faction": "管理主" },
+      { "Faction": "『管理主』" },
       { "Faction": "超次元執筆空間(アトリエ)の住民" }
     ],
     "Class": ["第４界担当", "創造主", "大学同期生"],
@@ -261,7 +261,7 @@
     "GenderType": "Female",
     "Belonging": [
       { "Faction": "フィジカル9" },
-      { "Faction": "管理主" },
+      { "Faction": "『管理主』" },
       { "Faction": "超次元執筆空間(アトリエ)の住民" }
     ],
     "Class": ["第５界担当", "創造主", "大学同期生", "ホテルアルバイター"],
@@ -309,7 +309,7 @@
     "GenderType": "FemaleNeutral",
     "Belonging": [
       { "Faction": "フィジカル9" },
-      { "Faction": "管理主" },
+      { "Faction": "『管理主』" },
       { "Faction": "超次元執筆空間(アトリエ)の住民" }
     ],
     "Class": ["第６界担当", "創造主", "球面神社"],
@@ -354,7 +354,7 @@
     "GenderType": "MaleNeutral",
     "Belonging": [
       { "Faction": "フィジカル9" },
-      { "Faction": "管理主" },
+      { "Faction": "『管理主』" },
       { "Faction": "超次元執筆空間(アトリエ)の住民" }
     ],
     "Class": ["第７界担当", "創造主"],
@@ -424,7 +424,7 @@
     "GenderType": "Arbitrary",
     "Belonging": [
       { "Faction": "フィジカル9" },
-      { "Faction": "管理主" },
+      { "Faction": "『管理主』" },
       { "Faction": "超次元執筆空間(アトリエ)の住民" }
     ],
     "Class": ["第８界担当", "創造主", "代理"],
@@ -789,7 +789,7 @@
     "RaceType": "Warfox(Ghostinaries)",
     "Belonging": [
       { "Faction": "超次元執筆空間(アトリエ)の住民" },
-      { "Faction": "管理主" }
+      { "Faction": "『管理主』" }
     ],
     "Class": ["球面神社", "管制主(還元)", "代理近影"],
     "Height_cm": 164,
