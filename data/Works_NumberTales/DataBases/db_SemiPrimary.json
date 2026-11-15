@@ -6332,7 +6332,6 @@
           "tail feathers resembling a phoenix in vermilion and orange with a pattern like the character '8'"
         ],
         "silhouette_features": [
-          "tail feathers only single tail",
           "average stature (about 156cm)",
           "EarShapeType_Wing (ears resembling the orange wing sections)",
           "light pink intake long hair",
@@ -6379,7 +6378,6 @@
           "negative_keywords": null,
           "ai_tags": [
             "humanoid form",
-            "tail feathers only single tail",
             "average stature (about 156cm)",
             "teenager",
             "Large on the forehead, vermilion, '8∞8'",
@@ -6395,7 +6393,7 @@
           ],
           "negative_visuals": [],
           "natural_language_description": null,
-          "prompt_export": "humanoid form, tail feathers only single tail, average stature (about 156cm), teenager, Large on the forehead, vermilion, '8∞8', EarShapeType_Wing (ears resembling the orange wing sections), light pink intake long hair, thick and large light pink eyebrows, narrow vermilion eyes, pupils divided like '8∞8', tail feathers resembling a phoenix in vermilion and orange with a pattern like the character '8', vermilion inner sweater, casual reddish-purple outerwear resembling a haori, light orange slacks, vermilion geta, light pink socks",
+          "prompt_export": "humanoid form, average stature (about 156cm), teenager, Large on the forehead, vermilion, '8∞8', EarShapeType_Wing (ears resembling the orange wing sections), light pink intake long hair, thick and large light pink eyebrows, narrow vermilion eyes, pupils divided like '8∞8', tail feathers resembling a phoenix in vermilion and orange with a pattern like the character '8', vermilion inner sweater, casual reddish-purple outerwear resembling a haori, light orange slacks, vermilion geta, light pink socks",
           "negative_prompt_export": "",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SemiPrimary/concept/cnsp_imgNTS-888.png"
@@ -6434,7 +6432,6 @@
           ],
           "ai_tags": [
             "corefolder form",
-            "tail feathers only single tail",
             "average stature (about 156cm)",
             "teenager",
             "Large on the forehead, vermilion, '8∞8'",
@@ -6446,7 +6443,7 @@
           ],
           "negative_visuals": ["vermilion inner sweater"],
           "natural_language_description": "Corefolder form: a spherical cushion-like body in EarShapeType_Wing (ears resembling the orange wing sections); light pink intake long hair; thick and large light pink eyebrows; narrow vermilion eyes, pupils divided like '8∞8'; tail feathers resembling a phoenix in vermilion and orange with a pattern like the character '8', with the number '888' marking (Large on the forehead, vermilion, '8∞8').",
-          "prompt_export": "corefolder form, tail feathers only single tail, average stature (about 156cm), teenager, Large on the forehead, vermilion, '8∞8', EarShapeType_Wing (ears resembling the orange wing sections), light pink intake long hair, thick and large light pink eyebrows, narrow vermilion eyes, pupils divided like '8∞8', tail feathers resembling a phoenix in vermilion and orange with a pattern like the character '8'",
+          "prompt_export": "corefolder form, average stature (about 156cm), teenager, Large on the forehead, vermilion, '8∞8', EarShapeType_Wing (ears resembling the orange wing sections), light pink intake long hair, thick and large light pink eyebrows, narrow vermilion eyes, pupils divided like '8∞8', tail feathers resembling a phoenix in vermilion and orange with a pattern like the character '8'",
           "negative_prompt_export": "vermilion inner sweater",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SemiPrimary/concept/cnsp_imgNTS-888.png"
@@ -6455,7 +6452,7 @@
       },
       "alt_modes": null,
       "_meta": {
-        "structuralSourceHash": "sha256:aed2a49da7f62d08d41c6c607823cecab8e8a8e23164657017aea942f1f7d2f2",
+        "structuralSourceHash": "sha256:cd36c459ff0e1a6e917800a68fb481e4536d7f9c9cdad42dcc0caea54ac5b427",
         "structuralEntries": {
           "common.identity_tags": [
             "EarShapeType_Wing (ears resembling the orange wing sections)",
@@ -6465,7 +6462,6 @@
             "tail feathers resembling a phoenix in vermilion and orange with a pattern like the character '8'"
           ],
           "common.silhouette_features": [
-            "tail feathers only single tail",
             "average stature (about 156cm)",
             "EarShapeType_Wing (ears resembling the orange wing sections)",
             "light pink intake long hair",
@@ -6479,7 +6475,6 @@
           "forms.humanoid.form_tags": ["humanoid form"],
           "forms.humanoid.ai_tags": [
             "humanoid form",
-            "tail feathers only single tail",
             "average stature (about 156cm)",
             "teenager",
             "Large on the forehead, vermilion, '8∞8'",
@@ -6496,7 +6491,6 @@
           "forms.corefolder.form_tags": ["corefolder form"],
           "forms.corefolder.ai_tags": [
             "corefolder form",
-            "tail feathers only single tail",
             "average stature (about 156cm)",
             "teenager",
             "Large on the forehead, vermilion, '8∞8'",
@@ -6524,7 +6518,7 @@
             "bound by rope"
           ]
         },
-        "lastStructuralResync": "2026-09-06"
+        "lastStructuralResync": "2026-11-15"
       }
     }
   },
