@@ -619,7 +619,7 @@
           },
           {
             "hashTag": "Count",
-            "$type": "#Number",
+            "$type": "#Number|#Null",
             "hashTag_JP": "本数",
             "hashTag_EN": "Tail Count"
           },
