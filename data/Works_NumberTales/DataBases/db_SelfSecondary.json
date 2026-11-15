@@ -416,7 +416,7 @@
           "hero-like salmon-red numbered cape"
         ],
         "silhouette_features": [
-          "nekomata 3 tails",
+          "nekomata single tail",
           "short stature (about 141cm)",
           "Cat (hidden under the hood cap)",
           "salmon-red eyes with large yellow pupils and a mechanical appearance",
@@ -465,7 +465,7 @@
           "negative_keywords": null,
           "ai_tags": [
             "humanoid form",
-            "nekomata 3 tails",
+            "nekomata single tail",
             "short stature (about 141cm)",
             "early teenager",
             "from the left shoulder to the edge of the cape, red, Arabic numeral '111'",
@@ -482,7 +482,7 @@
           ],
           "negative_visuals": [],
           "natural_language_description": null,
-          "prompt_export": "humanoid form, nekomata 3 tails, short stature (about 141cm), early teenager, from the left shoulder to the edge of the cape, red, Arabic numeral '111', lot mark on the left cheek, red (underlined), Arabic numeral '111', Cat (hidden under the hood cap), salmon-red eyes with large yellow pupils and a mechanical appearance, expressions and gestures are not particularly noticeable, red hood cap with a salmon-red headband, short blonde hair with white bangs accent, hero-like salmon-red numbered cape, white cross-strap belt and tie, red military-style uniform, red boots",
+          "prompt_export": "humanoid form, nekomata single tail, short stature (about 141cm), early teenager, from the left shoulder to the edge of the cape, red, Arabic numeral '111', lot mark on the left cheek, red (underlined), Arabic numeral '111', Cat (hidden under the hood cap), salmon-red eyes with large yellow pupils and a mechanical appearance, expressions and gestures are not particularly noticeable, red hood cap with a salmon-red headband, short blonde hair with white bangs accent, hero-like salmon-red numbered cape, white cross-strap belt and tie, red military-style uniform, red boots",
           "negative_prompt_export": "",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SelfSecondary/concept/cnsp_imgNTS-111MP.png"
@@ -522,7 +522,7 @@
           ],
           "ai_tags": [
             "corefolder form",
-            "nekomata 3 tails",
+            "nekomata single tail",
             "short stature (about 141cm)",
             "early teenager",
             "from the left shoulder to the edge of the cape, red, Arabic numeral '111'",
@@ -536,7 +536,7 @@
           ],
           "negative_visuals": ["red military-style uniform", "red boots"],
           "natural_language_description": "Corefolder form: a spherical cushion-like body in Cat (hidden under the hood cap); salmon-red eyes with large yellow pupils and a mechanical appearance; short blonde hair with white bangs accent, with the number '111-mp' marking (from the left shoulder to the edge of the cape, red, Arabic numeral '111'; lot mark on the left cheek, red (underlined), Arabic numeral '111').",
-          "prompt_export": "corefolder form, nekomata 3 tails, short stature (about 141cm), early teenager, from the left shoulder to the edge of the cape, red, Arabic numeral '111', lot mark on the left cheek, red (underlined), Arabic numeral '111', Cat (hidden under the hood cap), salmon-red eyes with large yellow pupils and a mechanical appearance, expressions and gestures are not particularly noticeable, red hood cap with a salmon-red headband, short blonde hair with white bangs accent, hero-like salmon-red numbered cape",
+          "prompt_export": "corefolder form, nekomata single tail, short stature (about 141cm), early teenager, from the left shoulder to the edge of the cape, red, Arabic numeral '111', lot mark on the left cheek, red (underlined), Arabic numeral '111', Cat (hidden under the hood cap), salmon-red eyes with large yellow pupils and a mechanical appearance, expressions and gestures are not particularly noticeable, red hood cap with a salmon-red headband, short blonde hair with white bangs accent, hero-like salmon-red numbered cape",
           "negative_prompt_export": "red military-style uniform, red boots",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SelfSecondary/concept/cnsp_imgNTS-111MP.png",
@@ -546,7 +546,7 @@
       },
       "alt_modes": null,
       "_meta": {
-        "structuralSourceHash": "sha256:399e8a1f36af470c8f3c50116070703aad19dd730f2781c721a6adbe7a3aef89",
+        "structuralSourceHash": "sha256:ce7e8e805bd993c3091924d5fe297c6404d8b6614e067105e2b4551979640393",
         "structuralEntries": {
           "common.identity_tags": [
             "Cat (hidden under the hood cap)",
@@ -556,7 +556,7 @@
             "hero-like salmon-red numbered cape"
           ],
           "common.silhouette_features": [
-            "nekomata 3 tails",
+            "nekomata single tail",
             "short stature (about 141cm)",
             "Cat (hidden under the hood cap)",
             "salmon-red eyes with large yellow pupils and a mechanical appearance",
@@ -572,7 +572,7 @@
           "forms.humanoid.form_tags": ["humanoid form"],
           "forms.humanoid.ai_tags": [
             "humanoid form",
-            "nekomata 3 tails",
+            "nekomata single tail",
             "short stature (about 141cm)",
             "early teenager",
             "from the left shoulder to the edge of the cape, red, Arabic numeral '111'",
@@ -590,7 +590,7 @@
           "forms.corefolder.form_tags": ["corefolder form"],
           "forms.corefolder.ai_tags": [
             "corefolder form",
-            "nekomata 3 tails",
+            "nekomata single tail",
             "short stature (about 141cm)",
             "early teenager",
             "from the left shoulder to the edge of the cape, red, Arabic numeral '111'",
@@ -620,7 +620,7 @@
             "bound by rope"
           ]
         },
-        "lastStructuralResync": "2026-10-12"
+        "lastStructuralResync": "2026-11-15"
       }
     }
   },
