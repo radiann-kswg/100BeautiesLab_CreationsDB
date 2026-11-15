@@ -47,85 +47,101 @@
     "Drc_JP": "北北西",
     "Drc_EN": "North-Northwest"
   },
-  { "Drc": "UC", "Drc_JP": "天", "Drc_EN": "Celestial" },
+  { "Drc": "UC", "Drc_Alt": "UC", "Drc_JP": "天", "Drc_EN": "Celestial" },
   {
     "Drc": "UN",
+    "Drc_Alt": "UN",
     "Drc_JP": "北天",
     "Drc_EN": "Celestial-North"
   },
   {
     "Drc": "UNE",
+    "Drc_Alt": "UNE",
     "Drc_JP": "北東天",
     "Drc_EN": "Celestial-Northeast"
   },
   {
     "Drc": "UE",
+    "Drc_Alt": "UE",
     "Drc_JP": "東天",
     "Drc_EN": "Celestial-East"
   },
   {
     "Drc": "USE",
+    "Drc_Alt": "USE",
     "Drc_JP": "南東天",
     "Drc_EN": "Celestial-Southeast"
   },
   {
     "Drc": "US",
+    "Drc_Alt": "US",
     "Drc_JP": "南天",
     "Drc_EN": "Celestial-South"
   },
   {
     "Drc": "USW",
+    "Drc_Alt": "USW",
     "Drc_JP": "南西天",
     "Drc_EN": "Celestial-Southwest"
   },
   {
     "Drc": "UW",
+    "Drc_Alt": "UW",
     "Drc_JP": "西天",
     "Drc_EN": "Celestial-West"
   },
   {
     "Drc": "UNW",
+    "Drc_Alt": "UNW",
     "Drc_JP": "北西天",
     "Drc_EN": "Celestial-Northwest"
   },
-  { "Drc": "DC", "Drc_JP": "地", "Drc_EN": "Terrestrial" },
+  { "Drc": "DC", "Drc_Alt": "DC", "Drc_JP": "地", "Drc_EN": "Terrestrial" },
   {
     "Drc": "DN",
+    "Drc_Alt": "DN",
     "Drc_JP": "北地",
     "Drc_EN": "Terrestrial-North"
   },
   {
     "Drc": "DNE",
+    "Drc_Alt": "DNE",
     "Drc_JP": "北東地",
     "Drc_EN": "Terrestrial-Northeast"
   },
   {
     "Drc": "DE",
+    "Drc_Alt": "DE",
     "Drc_JP": "東地",
     "Drc_EN": "Terrestrial-East"
   },
   {
     "Drc": "DSE",
+    "Drc_Alt": "DSE",
     "Drc_JP": "南東地",
     "Drc_EN": "Terrestrial-Southeast"
   },
   {
     "Drc": "DS",
+    "Drc_Alt": "DS",
     "Drc_JP": "南地",
     "Drc_EN": "Terrestrial-South"
   },
   {
     "Drc": "DSW",
+    "Drc_Alt": "DSW",
     "Drc_JP": "南西地",
     "Drc_EN": "Terrestrial-Southwest"
   },
   {
     "Drc": "DW",
+    "Drc_Alt": "DW",
     "Drc_JP": "西地",
     "Drc_EN": "Terrestrial-West"
   },
   {
     "Drc": "DNW",
+    "Drc_Alt": "DNW",
     "Drc_JP": "北西地",
     "Drc_EN": "Terrestrial-Northwest"
   }

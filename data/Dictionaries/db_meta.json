@@ -31,84 +31,98 @@
       "DB_Label_EN": "Class Dictionary (for HundredBeauties Laboratory)",
       "keyField": "Class",
       "compatListKey": "#List_Class",
-      "scopeField": { "Belonging": "百花繚乱研究所" }
+      "dictFile": "Class/dict_100BeautiesLab.json",
+      "scopeField": { "Belonging": { "Faction": "百花繚乱研究所" } }
     },
     "#Dict_LotusNineaRoyal": {
       "DB_Label_JP": "クラス辞書(九蓮国皇族向け)",
       "DB_Label_EN": "Class Dictionary (for Royal of LotusNinea)",
       "keyField": "Class",
       "compatListKey": "#List_Class",
-      "scopeField": { "Belonging": "九蓮国皇族" }
+      "dictFile": "Class/dict_LotusNineaRoyal.json",
+      "scopeField": { "Belonging": { "Faction": "九蓮国皇族" } }
     },
     "#Dict_FLInvestigators": {
       "DB_Label_JP": "クラス辞書(「78特殊探偵団」向け)",
       "DB_Label_EN": "Class Dictionary (for Team.78(Seventy-Eight))",
       "keyField": "Class",
       "compatListKey": "#List_Class",
-      "scopeField": { "Belonging": "セブンティエイト特殊探偵団" }
+      "dictFile": "Class/dict_FLInvestigators.json",
+      "scopeField": { "Belonging": { "Faction": "セブンティエイト特殊探偵団" } }
     },
     "#Dict_IKRoyalSociety": {
       "DB_Label_JP": "クラス辞書(「王家英皇学会」向け)",
       "DB_Label_EN": "Class Dictionary (for IK.Royal Society)",
       "keyField": "Class",
       "compatListKey": "#List_Class",
-      "scopeField": { "Belonging": "王家英皇学会" }
+      "dictFile": "Class/dict_IKRoyalSociety.json",
+      "scopeField": { "Belonging": { "Faction": "王家英皇学会" } }
     },
     "#Dict_WhiteHexagram": {
       "DB_Label_JP": "クラス辞書(白の六芒星向け)",
       "DB_Label_EN": "Class Dictionary (for WhiteHexagram)",
       "keyField": "Class",
       "compatListKey": "#List_Class",
-      "scopeField": { "Belonging": "白の六芒星" }
+      "dictFile": "Class/dict_WhiteHexagram.json",
+      "scopeField": { "Belonging": { "Faction": "白の六芒星" } }
     },
     "#Dict_NeoLotusNinean": {
       "DB_Label_JP": "クラス辞書(新生九蓮向け)",
       "DB_Label_EN": "Class Dictionary (for Neo.LotusNinean)",
       "keyField": "Class",
       "compatListKey": "#List_Class",
-      "scopeField": { "Belonging": "新生九蓮" }
+      "dictFile": "Class/dict_NeoLotusNinean.json",
+      "scopeField": { "Belonging": { "Faction": "新生九蓮" } }
     },
     "#Dict_RaisondetreCompany": {
       "DB_Label_JP": "クラス辞書(レゾンデイトルカンパニー向け)",
       "DB_Label_EN": "Class Dictionary (for Raison-d'être Company)",
       "keyField": "Class",
       "compatListKey": "#List_Class",
-      "scopeField": { "Belonging": "レゾンデイトルカンパニー" }
+      "dictFile": "Class/dict_RaisondetreCompany.json",
+      "scopeField": { "Belonging": { "Faction": "レゾンデイトルカンパニー" } }
     },
     "#Dict_SymphonyX": {
       "DB_Label_JP": "クラス辞書(シンフォニー.X向け)",
       "DB_Label_EN": "Class Dictionary (for Symphony.X)",
       "keyField": "Class",
       "compatListKey": "#List_Class",
-      "scopeField": { "Belonging": "シンフォニー.X" }
+      "dictFile": "Class/dict_SymphonyX.json",
+      "scopeField": { "Belonging": { "Faction": "シンフォニー.X" } }
     },
     "#Dict_SymphonyXVI": {
       "DB_Label_JP": "クラス辞書(シンフォニー.XVI向け)",
       "DB_Label_EN": "Class Dictionary (for Symphony.XVI)",
       "keyField": "Class",
       "compatListKey": "#List_Class",
-      "scopeField": { "Belonging": "シンフォニー.XVI" }
+      "dictFile": "Class/dict_SymphonyXVI.json",
+      "scopeField": { "Belonging": { "Faction": "シンフォニー.XVI" } }
     },
     "#Dict_Mikhail": {
       "DB_Label_JP": "クラス辞書(『ミハイル』向け)",
       "DB_Label_EN": "Class Dictionary (for \"Mikhail\".IIPR)",
       "keyField": "Class",
       "compatListKey": "#List_Class",
-      "scopeField": { "Belonging": "国際情報広報機関『ミハイル』" }
+      "dictFile": "Class/dict_Mikhail.json",
+      "scopeField": {
+        "Belonging": { "Faction": "国際情報広報機関『ミハイル』" }
+      }
     },
     "#Dict_RegioministratorAgents": {
       "DB_Label_JP": "クラス辞書(『管理主』代理人向け)",
       "DB_Label_EN": "Class Dictionary (for Regioministrator Agents)",
       "keyField": "Class",
       "compatListKey": "#List_Class",
+      "dictFile": "Class/dict_RegioministratorAgents.json",
       "scopeField": { "Belonging": { "Faction": "『管理主』代理人" } }
     },
     "#Dict_Regioministrators": {
-      "DB_Label_JP": "クラス辞書(管理主向け)",
+      "DB_Label_JP": "クラス辞書(『管理主』向け)",
       "DB_Label_EN": "Class Dictionary (for Regioministrators)",
       "keyField": "Class",
       "compatListKey": "#List_Class",
-      "scopeField": { "Belonging": "管理主" }
+      "dictFile": "Class/dict_Regioministrators.json",
+      "scopeField": { "Belonging": { "Faction": "『管理主』" } }
     },
     "#Dict_Artifact": {
       "DB_Label_JP": "技巧属性辞書",

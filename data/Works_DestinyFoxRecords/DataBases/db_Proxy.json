@@ -30,7 +30,15 @@
         "birthday/arts_birthday2024",
         "birthday/arts_birthday2025-1",
         "birthday/arts_birthday2025-2",
-        "birthday/arts_birthday2026"
+        "birthday/arts_birthday2026",
+        {
+          "_DBCrossLinkPath": {
+            "_DB": "Secondary",
+            "_Work": "NumberTales",
+            "_Field": "arts_PNGPath",
+            "_IsoPath": "numberize-corefolders/art_NTS-558ZE-corefolder,DFR-G3-weakening"
+          }
+        }
       ]
     },
     "FormalName_JP": "扇 四春・オーバーロール\n扇 四春・オーダーロール",

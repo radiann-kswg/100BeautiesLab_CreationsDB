@@ -3526,7 +3526,12 @@
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 558 }],
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
-    "Images": { "concept_PNGName": "numberize/cnsp_imgNTS-558ZE" },
+    "Images": {
+      "concept_PNGName": "numberize/cnsp_imgNTS-558ZE",
+      "arts_PNGPath": [
+        "numberize-corefolders/art_NTS-558ZE-corefolder,DFR-G3-weakening"
+      ]
+    },
     "Class": ["ナンバーテールズ化"],
     "TailsUnit": [
       {

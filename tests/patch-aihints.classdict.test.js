@@ -42,7 +42,7 @@ const repoRoot = dirname(dirname(fileURLToPath(import.meta.url)));
  * @returns {Array<{ Class: string, Class_EN: string }>}
  */
 function globalClassEntries() {
-    const arr = JSON.parse(readFileSync(join(repoRoot, 'data/Dictionaries/dict_SymphonyXVI.json'), 'utf-8'));
+    const arr = JSON.parse(readFileSync(join(repoRoot, 'data/Dictionaries/Class/dict_SymphonyXVI.json'), 'utf-8'));
     return arr.filter((e) => e?.Class && e?.Class_EN);
 }
 

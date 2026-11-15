@@ -14,27 +14,27 @@
   { "Class": "水無月研究所", "Class_EN": "Laboratory.6", "Class_Code": "PD6" },
   { "Class": "文月研究所", "Class_EN": "Laboratory.7", "Class_Code": "PD7" },
   {
-    "Class": "葉月研究所 (軍事本部)",
+    "Class": "葉月研究所（軍事本部）",
     "Class_EN": "Laboratory.8 (Military Headquarter)",
     "Class_Code": "PD8"
   },
   {
-    "Class": "長月研究所 (救命本部)",
+    "Class": "長月研究所（救命本部）",
     "Class_EN": "Laboratory.9 (Lifeguards Headquarter)",
     "Class_Code": "PD9"
   },
   {
-    "Class": "神無月研究所 (破滅対策本部1課)",
+    "Class": "神無月研究所（破滅対策本部1課）",
     "Class_EN": "Laboratory.10 (Pandemic Affairs Countermeasures Headquarter.1)",
     "Class_Code": "PD10"
   },
   {
-    "Class": "霜月研究所 (仮設)",
+    "Class": "霜月研究所（仮設）",
     "Class_EN": "Laboratory.11 (Tentative)",
     "Class_Code": "PD11"
   },
   {
-    "Class": "師走研究所 (仮設)",
+    "Class": "師走研究所（仮設）",
     "Class_EN": "Laboratory.12 (Tentative)",
     "Class_Code": "PD12"
   },
