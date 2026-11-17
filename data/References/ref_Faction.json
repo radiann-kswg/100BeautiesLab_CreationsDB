@@ -5,8 +5,19 @@
     "Term_EN": "HundredBeauties Laboratory",
     "TermType": null,
     "Category": "Faction",
-    "Summary_JP": null,
-    "Summary_EN": null,
+    "Summary_JP": "N3US大学の元藤・千歳研究室のゼミ生およびOB/OGから構成される個人研究機関。九蓮国の厳しいヒューマノイド査定に合格し、「ナンバーテールズ」などのポータブルヒューマノイドの提供と研究開発が行われている。",
+    "Summary_EN": "A private research institution composed of seminar students and alumni of the Dr.Wisterigen & Dr.Thouser Seminar at N3US University. Having passed the LotusNinea's rigorous humanoid assessment, it provides, researches, and develops portable humanoids such as the 'NumberTales'.",
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term_JP": "セブンティエイト特殊探偵団",
+    "Term_JPReading": "せぶんてぃえいととくしゅたんていだん",
+    "Term_EN": "Team.78(Seventy-Eight) the Special Investigators",
+    "TermType": null,
+    "Category": "Faction",
+    "Summary_JP": "英皇国を拠点とした異能探偵団で、異変調査に特化した国際機関である。第8の世界創造で発見された\"岐路\"と呼ばれる概念についての調査が行われており、『西のタイムマシン』と呼ばれる\"基底岐路(カーネルブランチ)\"の管理と同じく『未来消失』の解決に特化している。",
+    "Summary_EN": "A team of investigators with supernatural abilities based in the Internic.Kingdom, and an international agency specializing in investigating anomalies. It investigates the concept called \"FL_BRANCH\" discovered in the 'WDC.VIII', and, alongside managing the \"KERNEL-BRANCH\" known as 'the Western Time Machine', specializes in resolving 'Future Erasure'.",
     "Aliases": [],
     "Links": []
   },
@@ -16,8 +27,8 @@
     "Term_EN": "HundredBeauties International Embassy Laboratory",
     "TermType": null,
     "Category": "Faction",
-    "Summary_JP": null,
-    "Summary_EN": null,
+    "Summary_JP": "ある\"岐路\"においてオートマトンの研究開発を行っていた百花繚乱研究所から分かたれた２機関のうち、オートマトンと人類の和解を謳う国際和解派に属する研究大使所。黒薔薇国の「シンフォニー.X(ツェーン)」（および「シンフォニー.XV(フュンズィン)」「夜月機関」）と提携し、オートマトンの暴走鎮圧と紛争解決も行っている。",
+    "Summary_EN": "Of the two institutions that split off from the HundredBeauties Laboratory, which had been researching and developing automatons in a certain \"FL_BRANCH\", this is the research embassy belonging to the International Reconciliation faction, which advocates reconciliation between automatons and humanity. It partners with 'Symphony.X(Zehn)' (as well as 'Symphony.XV(Fünfzehn)' and 'Yadzuki Org.') of the SchwarzeRoseland, and also suppresses runaway automatons and resolves conflicts.",
     "Aliases": [],
     "Links": []
   },
@@ -27,8 +38,8 @@
     "Term_EN": "HundredBattlers Development",
     "TermType": null,
     "Category": "Faction",
-    "Summary_JP": null,
-    "Summary_EN": null,
+    "Summary_JP": "ある\"岐路\"においてオートマトンの研究開発を行っていた百花繚乱研究所から分かたれた２機関のうち、暴走オートマトンの技術的及び人権的権利を謳う技術推進派に属する研究大使所。雄志結国の「スターダスト財団」（および「スターダスト・テクノロジー」「カレイドスコウプ教団」）と提携し、オートマトンによる武力行使や軍事参入も行っている。",
+    "Summary_EN": "Of the two institutions that split off from the HundredBeauties Laboratory, which had been researching and developing automatons in a certain \"FL_BRANCH\", this is the research embassy belonging to the Technology Advancement faction, which advocates the technical and human rights of runaway automatons. It partners with the 'Stardusts Foundation' (as well as 'Stardusts Technology' and the 'Kaleidoscope Cult') of the United.Heroic.Nation, and also engages in the use of armed force and military involvement through automatons.",
     "Aliases": [],
     "Links": []
   },
@@ -38,8 +49,8 @@
     "Term_EN": "JunkGarage \"Majesty Rokka\"",
     "TermType": null,
     "Category": "Faction",
-    "Summary_JP": null,
-    "Summary_EN": null,
+    "Summary_JP": "紅雪連邦の郊外に位置する個人のジャンク店で、レアなアンティーク品や生産中止のレトロパーツなどを多数揃えているとコアな層から評判となっている。とある\"岐路\"ではオートマトンの保護や修繕を行いながら「ロジケスキーロマンティカ産業」のある依頼を請けているらしい。",
+    "Summary_EN": "A privately owned junk shop located on the outskirts of the United.SnowRed.Republic, renowned among dedicated enthusiasts for its large stock of rare antiques and discontinued retro parts. In a certain \"FL_BRANCH\", it is said to be taking on a certain request from 'Logicheskiy Romantika Industry' while protecting and repairing automatons.",
     "Aliases": [],
     "Links": []
   },
@@ -49,19 +60,8 @@
     "Term_JPReading": "やづききかん",
     "TermType": null,
     "Category": "Faction",
-    "Summary_JP": null,
-    "Summary_EN": null,
-    "Aliases": [],
-    "Links": []
-  },
-  {
-    "Term_JP": "龍天国",
-    "Term_EN": "LóngTiān's.Republic",
-    "Term_JPReading": "りゅうてんこく",
-    "TermType": null,
-    "Category": "Faction",
-    "Summary_JP": null,
-    "Summary_EN": null,
+    "Summary_JP": "九蓮国の行政組織で、技術と国防の両方を担う機関である。第8の世界破壊の一つである『左遷』と呼ばれる現象についての研究が行われており、『東のタイムマシン』と呼ばれる『時空遷移』技術の研究が展開されている。",
+    "Summary_EN": "An administrative organization of the LotusNinea responsible for both technology and national defense. It conducts research on the phenomenon called 'Demotion', one of the 'WDP.VIII', and is developing research on 'ChronoShift' technology, known as 'the Eastern Time Machine'.",
     "Aliases": [],
     "Links": []
   },
@@ -83,7 +83,7 @@
     "TermType": null,
     "Category": "Faction",
     "Summary_JP": "黒薔薇国にある国家技術研究機関で、『第7の世界創造』および「多様化社会」の実現に関する研究を行う「ベヴストザイン課」と『第8の世界創造』および「左遷可能社会」の実現に関する研究を行う「エニグマ課」が存在する。",
-    "Summary_EN": "A national technology research organization in the SchwarzeRoseland, with the 'Bewußtsein Division' conducting research on the realization of 'WDC.VII' and 'Diversified Society', and the 'Enigma Division' conducting research on the realization of 'WDC.VIII' and 'Assignable Society'.",
+    "Summary_EN": "A national technology research organization in the SchwarzeRoseland, with the 'Bewußtsein Division' conducting research on the realization of 'WDC.VII' and 'the Diversification Society', and the 'Enigma Division' conducting research on the realization of 'WDC.VIII' and 'the Demotable Society'.",
     "Aliases": [],
     "Links": []
   },
@@ -104,8 +104,8 @@
     "Term_JPReading": "こくさいじょうほうこうほうきかん『ミハイル』",
     "TermType": null,
     "Category": "Faction",
-    "Summary_JP": null,
-    "Summary_EN": null,
+    "Summary_JP": "世界を放浪し、様々な異変や現象を調査する謎の情報屋。その正体は常に謎に包まれており、情報を収集する目的も提供する理由も明らかにされていない。",
+    "Summary_EN": "A mysterious information broker who wanders the world investigating various anomalies and phenomena. The broker's true identity always remains shrouded in mystery, and neither the purpose of gathering information nor the reason for providing it has been revealed.",
     "Aliases": [],
     "Links": []
   }

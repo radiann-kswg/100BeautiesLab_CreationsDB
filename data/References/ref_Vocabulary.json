@@ -49,8 +49,8 @@
     "Term_JPReading": "アーティファクト",
     "TermType": null,
     "Category": "Abilities",
-    "Summary_JP": null,
-    "Summary_EN": null,
+    "Summary_JP": "戦闘可能な能力を有している場合の属性。攻守や射程・立ち回りなどからおよそ14属性に分類することができる。",
+    "Summary_EN": "An attribute indicating the possession of combat-capable abilities. It can be roughly classified into 14 attributes based on offense, defense, range, and maneuverability.",
     "Aliases": [],
     "Links": []
   },
@@ -60,8 +60,8 @@
     "Term_JPReading": "とくしゅパターン",
     "TermType": null,
     "Category": "Abilities",
-    "Summary_JP": null,
-    "Summary_EN": null,
+    "Summary_JP": "技巧属性(アーティファクト)や各能力の属性では分類不可能な、特殊で補助的な能力パターンのことをいう。",
+    "Summary_EN": "Refers to special and auxiliary ability patterns that cannot be classified under artifact or other ability attributes.",
     "Aliases": [],
     "Links": []
   },
@@ -71,8 +71,8 @@
     "Term_JPReading": "あんぜんレベル",
     "TermType": null,
     "Category": "Abilities",
-    "Summary_JP": null,
-    "Summary_EN": null,
+    "Summary_JP": "戦闘能力の有無を問わず対人目的で一定のリスクがある場合、自身の能力が自身や他者に対する安全性を段階的に評価した指標をいう。",
+    "Summary_EN": "An indicator that evaluates the safety of one's abilities for oneself and others in a stepwise manner when there is a certain risk for interpersonal purposes, regardless of the presence of combat capabilities.",
     "Aliases": [],
     "Links": []
   },
@@ -89,7 +89,7 @@
       "－－怒ったときこそ冷静に、ゆるせないときほど慎重に。（※雄志結国のある教祖の言葉）"
     ],
     "BodyBlocks_EN": [
-      "[R to X the Wrath Extinguisher]\nR: Don't Rush\nS: Step back\nT: Take a deep breath\nU: Unclench\nV: Vacate the scene\nW: Write it out, then Wipe it away\nX: eXile it from sight / reach out to an eXternal ally\n",
+      "[R to X the Wrath Extinguisher]\nR: don't Rush\nS: Step back\nT: Take a deep breath\nU: Unclench\nV: Vacate the scene\nW: Write it out, then Wipe it away\nX: eXile it from sight / reach out to an eXternal ally\n",
       "-- Stay calm when angry, and be cautious when you cannot forgive. (* A saying from a certain religious leader in United.Heroic.Nation)"
     ],
     "Aliases": [],

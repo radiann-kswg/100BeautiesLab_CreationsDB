@@ -128,6 +128,7 @@
           "sec_DesignedBy": ["Atast"],
           "sec_SeriesTitle": "ヘキサデミカル・テールズ",
           "SecondarySummary_JP": "散狐アタストさんにより原案がキャラデザされ、現在はラジアン(柏木主税)に権利を譲渡されている。\n異世界から(散狐アタストさんの代理キャラである)「エイゼルベット」によりナンバーテールズを基にして生み出され、(同じく二次創作観測キャラである)「シグマ・クロステールズ」により百花繚乱研究所のある世界へ仲介された、十六進拡張用の数字を持つ６体のバーチャル同位体。現在は百花繚乱研究所に託され、研究開発の一要因として活動している。",
+          "SecondarySummary_EN": "Originally character-designed by Atast, with the rights now transferred to RadianN_kswg.\nSix virtual isotopes with numbers for hexadecimal extension, created from another world by '∀sellbuet' (Atast's proxy character) based on the NumberTales, and mediated into the world of the HundredBeauties Laboratory by 'Sigma-CrossTales' (likewise a secondary-creation observer character). They are now entrusted to the HundredBeauties Laboratory and active as one factor in its research and development.",
           "StoryEra": {
             "InEra": [
               { "EraGen": 8, "YearInEra": 6 },
@@ -153,6 +154,7 @@
           "sec_DesignedBy": ["RadianN"],
           "sec_SeriesTitle": "公式版ヘキサデミカル・テールズ",
           "SecondarySummary_JP": "散狐アタストさんにより原案がキャラデザされた「ヘキサデミカル・テールズ」をもとにナンバーテールズの公式副次創作としてキャラの構想を拡張した。\n百花繚乱研究所と「エイゼルベット」によりある世界からあらゆる\"観測\"を経て誕生した、特殊な十六進数を持つナンバーテールズ同位体。百花繚乱研究所にて研究開発の一要因として活動している。",
+          "SecondarySummary_EN": "The character concept was expanded as an official derivative creation of the NumberTales, based on the 'HexademicalTales' originally character-designed by Atast.\nNumberTales isotopes with special hexadecimal numbers, born from a certain world through all kinds of \"observations\" by the HundredBeauties Laboratory and '∀sellbuet'. They are active at the HundredBeauties Laboratory as one factor in its research and development.",
           "StoryEra": {
             "InEra": [
               { "EraGen": 8, "YearInEra": 7 },

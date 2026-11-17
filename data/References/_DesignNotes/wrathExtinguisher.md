@@ -16,7 +16,7 @@
 
 ## EN：英文版
 ### R to X: the Wrath Extinguisher
-- **R**: Don't **R**ush
+- **R**: don't **R**ush
 - **S**: **S**tep back
 - **T**: **T**ake a deep breath
 - **U**: **U**nclench
