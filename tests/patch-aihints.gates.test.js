@@ -31,9 +31,8 @@
  *           第三者がデザインに関与するカテゴリは必ず `true`。走査は再帰で、
  *           ネスト DB（`#DB_Secondary.#DB_UnprocessedSecondary`）の宣言も取りこぼさない。
  *       (2) NumberTales の意味論の骨格のみ実データで固定 … DB レベルの可否と、
- *           カテゴリ単位の混在を `findSecondaryDef` が撃ち分けられること。
- *     旧テストは「SelfSecondary の全カテゴリが `false`」という全称だったが、
- *     D-Vines カテゴリの opt-out 宣言（2026-08-19）で成立しなくなった。経緯は各テストの注釈。
+ *           実レコードが `findSecondaryDef` 経由で宣言どおりの可否へ解決されること。
+ *           カテゴリ混在の撃ち分けは合成データ側（`patch-aihints.secondaries.test.js`）が担保する。
  */
 
 import { describe, it, expect } from 'vitest';
@@ -213,8 +212,6 @@ describe('AI_Optout の宣言（全作品横断の規則）', () => {
         // ★ 規則テスト（列挙しない）: `sec_DesignedBy` に User 以外が入る＝第三者の権利が絡む。
         //   新しい共同 / 協賛シリーズを足したときの宣言忘れをここで検知する。
         //   ※ **片方向の含意**であり、逆（User 単独なら false）は成り立たない。
-        //     `#DB_SelfSecondary` の D-Vines は `sec_DesignedBy: ["RadianN"]` だが、
-        //     シリーズ自体が散狐アタストさんの提案による協賛企画なので `true`。
         const thirdParty = META_SCAN.secs.filter(
             ({ def }) => Array.isArray(def.sec_DesignedBy) && def.sec_DesignedBy.some((by) => by !== USER_DESIGNER)
         );
@@ -239,12 +236,7 @@ describe('AI_Optout の意味論（NumberTales 実データ）', () => {
     });
 
     it('Secondary は全 `_Secondaries` カテゴリとネスト DB が `AI_Optout: true`', () => {
-        // ★ 2026-08-19: 固定対象を SelfSecondary → Secondary へ移した。
-        //   旧テストは「SelfSecondary の全カテゴリが false」を固定していた（2026-07-17 の
-        //   「AI_Optout を権利軸へ純化」= catch-all の true を落とした修正の回帰テスト）。
-        //   同日 SelfSecondary の「散狐アタストさん協賛」(D-Vines) へ true が入り、全称が崩れた。
-        //   Secondary 側は全カテゴリが第三者デザインを含むため全称が構造的に成立し、
-        //   カテゴリ追加時も true であるべき側なので、スナップショットとして安定する。
+        // 公認二次創作 DB は「カテゴリを足しても true であるべき側」なので全称で固定する。
         const secs = DBS['#DB_Secondary']._Secondaries;
         expect(secs.length).toBeGreaterThan(0);
         expect(secs.filter((s) => s.AI_Optout !== true)).toEqual([]);
@@ -252,22 +244,22 @@ describe('AI_Optout の意味論（NumberTales 実データ）', () => {
         expect(DBS['#DB_Secondary']['#DB_UnprocessedSecondary'].AI_Optout).toBe(true);
     });
 
-    it('SelfSecondary はカテゴリ単位で opt-in / opt-out が混在し、`findSecondaryDef` が撃ち分ける', () => {
-        // ★ 混在は 2026-07-17 の「権利軸へ純化」の巻き戻しではない。
-        //   あのとき落とした catch-all の true は「キャラデザ未着手なので渡したくない」という
-        //   充填ガードの代理（その意味論は AI_Unready / 画像ゲートへ移譲済み）。
-        //   今回の D-Vines の true は第三者の関与に基づく本来の権利軸宣言で、向きが逆。
+    it('実レコードは `findSecondaryDef` 経由で宣言どおりの opt-in / opt-out へ解決される', () => {
+        // opt-out 側: Secondary の全レコードが、解決されたカテゴリ定義で opt-out になること。
+        // DB レベルは未宣言なので、カテゴリ解決が外れる（null）と黙って許可側へ落ちる。
+        // シリーズ名・Num は列挙しない＝カテゴリ再編やキャラ追加では落ちない。
+        const secDefs = DBS['#DB_Secondary']._Secondaries;
+        const secRecords = loadDb('db_Secondary.json');
+        expect(secRecords.length).toBeGreaterThan(0);
+        const leaked = secRecords
+            .filter((r) => findSecondaryDef(r, secDefs)?.AI_Optout !== true)
+            .map((r) => `Num=${JSON.stringify(r.Num)} series=${r.sec_SeriesTitle}`);
+        expect(leaked).toEqual([]);
+
         const defs = DBS['#DB_SelfSecondary']._Secondaries;
-        expect(defs.some((d) => d.AI_Optout === true)).toBe(true);
-        expect(defs.some((d) => d.AI_Optout === false)).toBe(true);
-
-        // 実データのレコードを通した結線確認（Num は列挙しない＝キャラ追加で落ちない）
         const records = loadDb('db_SelfSecondary.json');
-        const optout = records.filter((r) => findSecondaryDef(r, defs)?.AI_Optout === true);
-        expect(optout.length).toBeGreaterThan(0);
-        expect(optout.every((r) => r.sec_SeriesTitle === 'D-Vines')).toBe(true);
 
-        // 逆側: 「リクエストナンバー」が catch-all に巻き込まれず opt-in のままであること
+        // opt-in 側:「リクエストナンバー」が catch-all に巻き込まれず opt-in のままであること
         // （sec_SeriesTitle: null の定義が複数ある DB での誤スキップ = 2026-07-17 の本命バグ）。
         const optin = records.filter((r) => r.sec_Category === 'リクエストナンバー');
         expect(optin.length).toBeGreaterThan(0);

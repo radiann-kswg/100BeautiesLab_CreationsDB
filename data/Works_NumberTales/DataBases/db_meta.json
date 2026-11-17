@@ -170,28 +170,6 @@
           "AI_Optout": true
         },
         {
-          "sec_Category": "散狐アタストさん原案",
-          "sec_DesignedBy": ["RadianN"],
-          "sec_SeriesTitle": "D-Vines",
-          "SecondarySummary_JP": "散狐アタストさんの提案により考案された。\nシンフォニー.X(ツェーン)に所属する「錦野舞」によりナンバーテールズの互換プロダクションとして開発された、胴部襷掛け方向に上下体の乖離・組み換え再接続が可能なカスタマイズ特化型ディビエイタブルヒューマノイド。上下の組み換え次第で性格に変化が生じるため、個体の外見デザイン以上のキャラクターバリエーションを有することが特徴。",
-          "StoryEra": {
-            "InEra": [
-              { "EraGen": 8, "YearInEra": 7 },
-              { "EraGen": 9, "YearInEra": 3 },
-              { "byRealYear": 2052 }
-            ],
-            "StoryEraAbout_JP": "第8創世紀7年(第9創世紀3年,西暦2052年相当)周辺",
-            "StoryEraAbout_EN": "in around WDCE.VIII.7(Equivalent to in around: WDCE.IX.3, DC.2052)"
-          },
-          "_Commons": {
-            "Progress": "stillTentative",
-            "Belonging": [{ "Faction": "シンフォニー.X" }],
-            "RaceType": "DeviatableHumanoid(TaleBeastType)",
-            "isTriple": false
-          },
-          "AI_Optout": true
-        },
-        {
           "sec_Category": "自創作キャラ化企画",
           "sec_DesignedBy": ["RadianN"],
           "sec_SeriesTitle": "ナンバーテールズ化",

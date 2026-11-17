@@ -115,7 +115,7 @@ describe('CommonsProcessor secondary series commons', () => {
     expect(ctx?.self?.CommonsProcessor).toBeTypeOf('function');
 
     const metaText = loadText('data/Works_NumberTales/DataBases/db_meta.json');
-    const seriesTitle = 'D-Vines';
+    const seriesTitle = 'ヘキサデミカル・テールズ';
 
     const out0Json = vm.runInNewContext(
       `(() => {
@@ -134,7 +134,7 @@ describe('CommonsProcessor secondary series commons', () => {
 
     expect(out0.Belonging).toEqual(['既存値']);
     // 他のフィールド（未設定）は補完される
-    expect(out0.RaceType).toBe('DeviatableHumanoid(TaleBeastType)');
+    expect(out0.RaceType).toBe('PortableHumanoid(TaleBeastType,SoftwareBody)');
   });
 
   it('applies _Secondaries _Commons by sec_Category (and requires match when no sec_SeriesTitle)', () => {
