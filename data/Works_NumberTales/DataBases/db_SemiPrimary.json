@@ -452,9 +452,7 @@
     "Num_Badge": "111",
     "Progress": "released",
     "isTriple": false,
-    "AnotherVersions_DBLink": [
-      { "_DB": "SelfSecondary", "Num": "111-mp" }
-    ],
+    "AnotherVersions_DBLink": [{ "_DB": "SelfSecondary", "Num": "111-mp" }],
     "Name_JP": "111(アイズ)",
     "Name_EN": "111(Ize)",
     "Images": {
@@ -1260,9 +1258,7 @@
     "Num_Badge": "221",
     "Progress": "notProceeded",
     "isTriple": false,
-    "SameMPSeries_DBLink": [
-      { "_DB": "SelfSecondary", "Num": "221B" }
-    ],
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": "221B" }],
     "Name_JP": "チェイン\n221(チェインプライム)",
     "Name_EN": "Chains\n221(PrimeChain)",
     "FormalName_JP": "ナンバーテールズ仮称13×17号機(同位異格221番機)",
@@ -1289,9 +1285,7 @@
     "Num_Badge": "222",
     "Progress": "unprofiled",
     "isTriple": false,
-    "AnotherVersions_DBLink": [
-      { "_DB": "SelfSecondary", "Num": "222-mp" }
-    ],
+    "AnotherVersions_DBLink": [{ "_DB": "SelfSecondary", "Num": "222-mp" }],
     "VariantModels_DBLink": [
       { "_DB": "SemiPrimary", "Num": "222A" },
       { "_DB": "SemiPrimary", "Num": "222B" }
@@ -1411,9 +1405,7 @@
     "Num_Badge": "222A",
     "Progress": "released",
     "isTriple": false,
-    "AnotherVersions_DBLink": [
-      { "_DB": "SelfSecondary", "Num": "222-mp" }
-    ],
+    "AnotherVersions_DBLink": [{ "_DB": "SelfSecondary", "Num": "222-mp" }],
     "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": 222 }],
     "Name_JP": "222(ペルゲン)",
     "Name_EN": "222(Pelgäns)",
@@ -1777,9 +1769,7 @@
     "Num_Badge": "222B",
     "Progress": "released",
     "isTriple": false,
-    "AnotherVersions_DBLink": [
-      { "_DB": "SelfSecondary", "Num": "222-mp" }
-    ],
+    "AnotherVersions_DBLink": [{ "_DB": "SelfSecondary", "Num": "222-mp" }],
     "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": 222 }],
     "Name_JP": "222(ドッペル)",
     "Name_EN": "222(Doppels)",
@@ -2153,9 +2143,7 @@
     "Num_Badge": "247MA",
     "Progress": "notProceeded",
     "isTriple": false,
-    "AnotherVersions_DBLink": [
-      { "_DB": "SelfSecondary", "Num": 247 }
-    ],
+    "AnotherVersions_DBLink": [{ "_DB": "SelfSecondary", "Num": 247 }],
     "Name_JP": "マンソーンジュ\n247(マンソーンジュ・ペンタゴン)",
     "Name_EN": "Mansonge\n247(Mansonge.Pentagone)",
     "FormalName_JP": "ナンバーテールズ仮称13×19号機(同位異格247番機)",
@@ -2235,6 +2223,27 @@
     "Backgrounds_EN": "Named after the number of values representable in one byte.\nNote: This unit is a special model series sponsored by the International Humanoid Technology Society."
   },
   {
+    "Num": 266,
+    "Num_Badge": "266",
+    "Progress": "notProceeded",
+    "isTriple": false,
+    "Name_JP": "266(ヒルベルト)",
+    "Name_EN": "266(Hilbert)",
+    "FormalName_JP": "ナンバーテールズ 仮設2^√2号機(ナンバーテールズ266番機, 正規型ディ-ヴァインズ8番+母艦3番開発機)",
+    "FormalName_EN": "NumberTales Tentative Unit.2^√2 (NumberTales Mk.266, Normalized D-Vines Mk.8+MotherShip.3 for Development)",
+    "CodeName_JP": "二六六",
+    "CodeName_EN": "Two-Six-Six",
+    "SPCodeName_JP": "ゲルフォント＝シュナイダー定数: ヒルベルトの第7問題（2^√2≈2.66≈3/8）",
+    "SPCodeName_EN": "Gelfond-Schneider constant: Hilbert's seventh problem (2^√2≈2.66≈3/8)",
+    "ModelNumber": "APHR-NT Dv.8/3",
+    "RaceType": "PortableHumanoid(PhoenixType)",
+    "GenderType": "Neutral",
+    "Belonging": [{ "Faction": "シンフォニー.X" }],
+    "Class": ["証明者", "D-Vines開発機"],
+    "AdditionalDesigned_JP": "原案：散狐アタスト(https://misskey.io/@atast)",
+    "AdditionalDesigned_EN": "Original Concept：Atast(https://misskey.io/@atast)"
+  },
+  {
     "Num": "289-sq",
     "Num_Badge": "289SQ",
     "Progress": "notProceeded",
@@ -2255,13 +2264,34 @@
     "Class": ["キャレ型", "キャレ型ハイナンバーズ開発部", "マルチアドレセンス"]
   },
   {
+    "Num": 314,
+    "Num_Badge": "314",
+    "Progress": "nowCreating",
+    "isTriple": false,
+    "Name_JP": "314(マドカ)",
+    "Name_EN": "314(Circcle)",
+    "FormalName_JP": "ナンバーテールズ仮設π号機(ナンバーテールズ314番機, 正規型ディ-ヴァインズ22番+母艦7番開発機)",
+    "FormalName_EN": "NumberTales Tentative Unit.π (NumberTales Mk.314, Normalized D-Vines Mk.22+MotherShip.7 for Development)",
+    "CodeName_JP": "三一四",
+    "CodeName_EN": "Three-One-Four",
+    "SPCodeName_JP": "π(=3.14…: 円周率上3桁)≒22/7",
+    "SPCodeName_EN": "π(=3.14…: First 3 Digits of the Circle Ratio)≒22/7",
+    "ModelNumber": "APHR-NT Dv.22/7",
+    "RaceType": "PortableHumanoid(PhoenixType)",
+    "GenderType": "FemaleNeutral",
+    "Belonging": [{ "Faction": "シンフォニー.X" }],
+    "Class": ["レイディアントコンストレイント", "D-Vines開発機"],
+    "Backgrounds_JP": "円周率(3.14)から由来",
+    "Backgrounds_EN": "Derived from the value of π(pi) (3.14).",
+    "AdditionalDesigned_JP": "原案：散狐アタスト(https://misskey.io/@atast)",
+    "AdditionalDesigned_EN": "Original Concept：Atast(https://misskey.io/@atast)"
+  },
+  {
     "Num": "323-ma",
     "Num_Badge": "323MA",
     "Progress": "notProceeded",
     "isTriple": false,
-    "AnotherVersions_DBLink": [
-      { "_DB": "SelfSecondary", "Num": 323 }
-    ],
+    "AnotherVersions_DBLink": [{ "_DB": "SelfSecondary", "Num": 323 }],
     "Name_JP": "トロンペ\n323(トロンペ)",
     "Name_EN": "Tromper\n323(Tromper)",
     "FormalName_JP": "ナンバーテールズ仮称17×19号機(同位異格323番機)",
@@ -2851,9 +2881,7 @@
     "Num_Badge": "444",
     "isTriple": false,
     "Progress": "released",
-    "AnotherVersions_DBLink": [
-      { "_DB": "SelfSecondary", "Num": "444-mp" }
-    ],
+    "AnotherVersions_DBLink": [{ "_DB": "SelfSecondary", "Num": "444-mp" }],
     "Name_JP": "444(シテン)",
     "Name_EN": "444(Quad-emperone)",
     "Images": {
@@ -3423,9 +3451,7 @@
     "Num_Badge": "555",
     "Progress": "notProceeded",
     "isTriple": false,
-    "AnotherVersions_DBLink": [
-      { "_DB": "SelfSecondary", "Num": "555-mp" }
-    ],
+    "AnotherVersions_DBLink": [{ "_DB": "SelfSecondary", "Num": "555-mp" }],
     "Name_JP": "555(ハイファイブ)",
     "Name_EN": "555(High-Fiver)",
     "FormalName_JP": "ナンバーテールズ555番機",
@@ -3445,9 +3471,7 @@
     "Num_Badge": "666",
     "Progress": "released",
     "isTriple": false,
-    "AnotherVersions_DBLink": [
-      { "_DB": "SelfSecondary", "Num": "666-mp" }
-    ],
+    "AnotherVersions_DBLink": [{ "_DB": "SelfSecondary", "Num": "666-mp" }],
     "Name_JP": "666(リリス)",
     "Name_EN": "666(Lilith)",
     "Images": {
@@ -4785,9 +4809,7 @@
     "Num_Badge": "999",
     "Progress": "notProceeded",
     "isTriple": false,
-    "VariantModels_DBLink": [
-      { "_DB": "SelfSecondary", "Num": "999-mp" }
-    ],
+    "VariantModels_DBLink": [{ "_DB": "SelfSecondary", "Num": "999-mp" }],
     "Name_JP": "999(カンスト)",
     "Name_EN": "999(Counstop)",
     "FormalName_JP": "ナンバーテールズ999番機",
@@ -5672,6 +5694,86 @@
     ],
     "Backgrounds_JP": "「81(ヤイチ)」らによるハイナンバーズ開発予算計画の一環で見積もり目的で試作設計された個体。",
     "Backgrounds_EN": "A prototype designed for estimation purposes as part of the HighNumbers development budget plan led by 81(Eightone) and related units."
+  },
+  {
+    "Num": "3/3",
+    "Num_Badge": "Dv3",
+    "Progress": "unprofiled",
+    "isTriple": false,
+    "FormalName_JP": "D-Vines 3番機",
+    "FormalName_EN": "D-Vines Mk.3",
+    "ModelNumber": "ADPR-DV 3/3",
+    "RaceType": "DeviatableHumanoid(TaleBeastType)",
+    "GenderType": "Neutral",
+    "Belonging": [{ "Faction": "シンフォニー.X" }],
+    "Class": ["D-Vines"],
+    "Backgrounds_JP": "ちなみに3で割った整数は9の剰余が一定にならない",
+    "Backgrounds_EN": "Note: the integer divided by 3 does not have a constant remainder of 9",
+    "AdditionalDesigned_JP": "原案：散狐アタスト(https://misskey.io/@atast)",
+    "AdditionalDesigned_EN": "Original Concept：Atast(https://misskey.io/@atast)"
+  },
+  {
+    "Num": "7/7",
+    "Num_Badge": "Dv7",
+    "Progress": "unprofiled",
+    "isTriple": false,
+    "Name_JP": "ナッチ",
+    "Name_EN": "Sevec",
+    "Images": {
+      "concept_PNGName": "DVines/cnsp_imgNTS-Dv7",
+      "conceptAlt_PNGName": [
+        "cnsp_imgNTS-Dv7,NTS-Dv22",
+        "cnsp_imgNTS-Dv22,NTS-Dv7"
+      ]
+    },
+    "FormalName_JP": "D-Vines 7番機",
+    "FormalName_EN": "D-Vines Mk.7",
+    "ModelNumber": "ADPR-DV 7/7",
+    "RaceType": "DeviatableHumanoid(TaleBeastType)",
+    "GenderType": "Neutral",
+    "Belonging": [{ "Faction": "シンフォニー.X" }],
+    "Class": ["D-Vines"],
+    "AdditionalDesigned_JP": "原案：散狐アタスト(https://misskey.io/@atast)",
+    "AdditionalDesigned_EN": "Original Concept：Atast(https://misskey.io/@atast)"
+  },
+  {
+    "Num": "8/8",
+    "Num_Badge": "Dv8",
+    "Progress": "unprofiled",
+    "isTriple": false,
+    "FormalName_JP": "D-Vines 8番機",
+    "FormalName_EN": "D-Vines Mk.8",
+    "ModelNumber": "ADPR-DV 8/8",
+    "RaceType": "DeviatableHumanoid(TaleBeastType)",
+    "GenderType": "Neutral",
+    "Belonging": [{ "Faction": "シンフォニー.X" }],
+    "Class": ["D-Vines"],
+    "AdditionalDesigned_JP": "原案：散狐アタスト(https://misskey.io/@atast)",
+    "AdditionalDesigned_EN": "Original Concept：Atast(https://misskey.io/@atast)"
+  },
+  {
+    "Num": "22/22",
+    "Num_Badge": "Dv22",
+    "Progress": "unprofiled",
+    "isTriple": false,
+    "Name_JP": "ニニィ",
+    "Name_EN": "Twibie",
+    "Images": {
+      "concept_PNGName": "DVines/cnsp_imgNTS-Dv22",
+      "conceptAlt_PNGName": [
+        "cnsp_imgNTS-Dv22,NTS-Dv7",
+        "cnsp_imgNTS-Dv7,NTS-Dv22"
+      ]
+    },
+    "FormalName_JP": "D-Vines 22番機",
+    "FormalName_EN": "D-Vines Mk.22",
+    "ModelNumber": "ADPR-DV 22/22",
+    "RaceType": "DeviatableHumanoid(TaleBeastType)",
+    "GenderType": "FemaleNeutral",
+    "Belonging": [{ "Faction": "シンフォニー.X" }],
+    "Class": ["D-Vines"],
+    "AdditionalDesigned_JP": "原案：散狐アタスト(https://misskey.io/@atast)",
+    "AdditionalDesigned_EN": "Original Concept：Atast(https://misskey.io/@atast)"
   },
   {
     "Num": 1000,

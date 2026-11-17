@@ -328,28 +328,14 @@
     "Class_JP": "D-Vines(ディ-ヴァインズ)開発機",
     "Class_EN": "D-Vines Development Unit",
     "Class_Code": "DVfD",
-    "isSecondary": true
-  },
-  {
-    "Class": "D-Vines母艦機",
-    "Class_JP": "D-Vines(ディ-ヴァインズ)母艦機",
-    "Class_EN": "D-Vines MotherShip Unit",
-    "Class_Code": "DVsM",
-    "isSecondary": true
-  },
-  {
-    "Class": "D-Vines基幹機",
-    "Class_JP": "D-Vines(ディ-ヴァインズ)基幹機",
-    "Class_EN": "D-Vines Core Unit",
-    "Class_Code": "DVsC",
-    "isSecondary": true
+    "isSecondary": null
   },
   {
     "Class": "D-Vines",
     "Class_JP": "D-Vines(ディ-ヴァインズ)",
     "Class_EN": "D-Vines",
     "Class_Code": "DVs",
-    "isSecondary": true
+    "isSecondary": null
   },
   {
     "Class": "ナンバーテールズ化",
