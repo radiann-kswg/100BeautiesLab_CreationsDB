@@ -322,7 +322,11 @@
     "RaceType": "DeviatableHumanoid(TaleBeastType)",
     "RaceType_JP": "妖獣型ディビエイタブルヒューマノイド",
     "RaceType_EN": "Deviatable Humanoid (Tale-Beast Appearance-Type)",
-    "basis": [{ "RaceType": "Humanoid" }, { "RaceType": "Raccoonian" }]
+    "basis": [
+      { "RaceType": "Humanoid" },
+      { "RaceType": "Warfox" },
+      { "RaceType": "Birdman" }
+    ]
   },
   {
     "RaceType": "Automaton",
