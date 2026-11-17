@@ -12,7 +12,7 @@
 - **インライン補完（ゴーストテキスト）**: 補完はカスタム指示ファイルを読み込みません。英訳作業中は本ファイルを隣のタブで開いておくと、近傍文脈として対訳が補完に反映されやすくなります。
 - **正典はあくまで辞書本体**。表に無い語・揺れがある語は `data/**/trans_*.json` 等の辞書と `docs/localization-en-rules.md` を確認してください。最終採否は User 判断です。
 
-- 収録: **211 対訳**（延べ抽出。生成日時: 2026-11-15T04:01:21.388Z）
+- 収録: **211 対訳**（延べ抽出。生成日時: 2026-11-17T06:33:43.867Z）
 
 ## 人名（姓・代理）
 
@@ -174,6 +174,7 @@
 | ジャンクガレージ『六花陛下』 | JunkGarage "Majesty Rokka" |
 | シンフォニー.X | Symphony.X |
 | シンフォニー.XVI | Symphony.XVI |
+| セブンティエイト特殊探偵団 | Team.78 the Special Investigators |
 | レゾンデイトルカンパニー | Raison-d'être Company |
 | 百花繚乱研究国際大使所 | HundredBeauties International Embassy Laboratory |
 | 百花繚乱研究所 | HundredBeauties Laboratory |
@@ -270,7 +271,6 @@
 | シンフォニー.XVI(ゼクズィン) | Symphony.XVI |
 | スターダスト・テクノロジー | Stardusts Technology |
 | スターダスト財団 | Stardusts Foundation |
-| セブンティエイト特殊探偵団 | Team.78 the Special Investigators |
 | ティーポットベリー・コンピューティング | Teapot-Berry Computing |
 | デウスマキナ | DeusMakhina |
 | フィジカル9 | PHYSICAL.9 |
