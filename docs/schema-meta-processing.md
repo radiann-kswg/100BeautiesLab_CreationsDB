@@ -615,6 +615,14 @@ UI 側は厳密構造より `about_JP` / `about_EN` を優先して整形表示�
 - `$Def_BaseArea` — `Area`（`#DictIndex` / `$dict: "Area"`）+ `BaseAreaAbout_JP/EN` を持つ活動地域エントリ（`$display.wrapper: "baseAreaSummary"`）
 - `$Def_Faction`（2026-07-29 新設）— `Faction`（`#DictIndex` / `$dict: "Faction"`）と、そこから参照解決する `FactionsBaseArea`（`$Def_BaseArea`）を持つ所属エントリ
 
+`AppearanceDetail.Attrs` の形状辞書（`$EnumDef_EarShapeType` / `$EnumDef_TailShapeType`）は作品別の `$VarsDef` に置かれています。SAR は猫・爬虫類系に加え、鼠・兎・馬の耳／尾と羊の耳を宣言しています。リウロンとカミツには User が宣言した鱗耳（`#EarShapeType_Reptile`）を使い、リウロンの「龍の角」の形状説明も保持します。長さ・垂れ方などの個体差は、耳属性の `about_JP/EN` や別の形状属性に残します。SCG は形状辞書を持たず、`#DesignAttr_Shape` の `value_JP` / `value_EN` で表現します。`vdict_*` を持つ属性行はその辞書ラベルを正式な表示値とするため、未定義コードと自由記述を併記しても自由記述へのフォールバックにはなりません。NTS 固有の `TailsUnit` は別の専用構造型です。
+
+`AppearanceDetail` のように `$display.sectionWrapper` を持つフィールドは、作品の `$DetailLayout.subFields` に登録されている場合に表示されます。この登録は別作品からの `$enrich: true` 参照の許可範囲にも関係します。SCG-N / USE は生データ側の `AppearanceDetail` を省略し、既存の `AnotherRegions_DBLink` を通じて NTS-0 / 00 の外見本文を継承します。画像は既存の `Images.*._DBCrossLinkPath` による明示参照を維持します。継承元にしか無い `DesignElement`（NTS の番号印字など）の未解決コードはタグ表示を省き、属性本文はそのまま表示します。
+
+SAR のハッカとネゝコは、制服共通色の代わりに使う衣装色を `#ColorRole_CommonOverride` で記録しています。色名は上書き対象の `$EnumDef_CommonColor` のラベルを使用し、HEX と適用部位は個別パレットに保持します。同じ色を瞳と衣装で兼用している行は、衣装の上書きだけを理由に役割を変えていません。
+
+SAR の制服共通色は赤・黄・青・灰・黄土色・白・薄灰色の7色です。ハネゝカの通常制服の設定画にある黄土色の差も個別の上書きとして保持します。通常制服に限定した外見・配色は `Note_JP/EN` で私服差分との適用範囲を区別しており、SAR の `Costume` 辞書や画像による自動切替を新設したものではありません。
+
 `$Def_Faction` で導入した宣言（他の `$Def_*` でも同じ意味で使えます）:
 
 - `$dictRef: { from: "<兄弟の子要素名>", field: "<辞書行のキー>" }`

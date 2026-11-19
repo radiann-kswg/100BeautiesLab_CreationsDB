@@ -85,6 +85,22 @@
 
 以下のファイルは実装・検証が完了し、`_work_in_progress/.completed/` へ移動済みです（Git 管轄外）。
 
+### 2026-11-19 棚卸しで追加退避（19件）
+
+前回（08-09）以降に溜まった完了ログを、git・CI・本番 API で裏取りしてから退避。
+直下 42 件 → 23 件（母艦・README 含む）に整理。
+
+- 日次 triage 9 件: `2026-08-08` / `08-10` / `08-12` / `08-15` / `08-22` / `08-26` / `08-29` / `08-31` / `09-02_github-triage.md`
+  （最新 09-02 の未解決 5 項目も、jsdom×Node 不整合＝09-04 で解消・`github-actions` ラベル＝作成済み・Issue #13＝クローズ済みと確認。#28 は Issue 側で OPEN 継続）
+- AIHints 再同期 / CI 修正 3 件: `2026-08-20_progress_aihints-resync-ci-fix.md` / `2026-08-28_progress_aihints-resync-lockfile-fix.md` / `2026-09-04_progress_ci-node-version-fix.md`
+  （「次の push で緑になるか」は 2026-11-19 の「AIHints 構造的再同期」run がすべて success で確認）
+- 獣爾騎兵の改名 3 件: `2026-09-12_progress_shauer-api-alias.md` / `2026-09-12_progress_shauer-rename.md` / `2026-09-14_progress_shauer-alias-clients.md`
+  （本番 `/api/v1/ShauErRiders/dbs` と旧綴り別名 `/api/v1/ShouArRiders/dbs` がともに 200 で、R2/D1 再同期とデプロイ済みと確認。C# ビルド未確認は母艦 T-08 項目 10 へ）
+- `2026-08-20_progress_relations-url-locator.md`（09-03 に実装済み・`short-link` ログへ引継ぎ。`q=57` の過剰一致は母艦 T-08 項目 9 へ）
+- `2026-08-20_progress_task-inventory.md`（状態整理のみの棚卸しログ。本棚卸しで置換）
+- `2026-10-14_progress_story-era-epochs.md`（「未コミット」とされた誕生年ルール版は `4340a79b` でコミット済み。残りは「必要になったら」系のみ）
+- `2026-07-22_progress_issue13-numerology-skinship.md`（Issue #13 が 2026-10-30 に保留クローズ。User 判断で母艦 T-25 を 🔵 保留へ）
+
 ### 2026-08-09 棚卸しで追加退避（6件）
 
 完了済みの相関図ログ 2 件と、世代交代済みの日次 triage ログ 4 件を退避。
@@ -354,6 +370,15 @@
 ---
 
 ## 整理履歴
+
+- **2026-11-19 の棚卸しで、19件 を `.completed/` へ退避し、直下を 42件 → 23件（母艦・README 含む）に整理しました。**
+  前回 08-20 の棚卸しは状態整理のみで退避を行っていなかったため、08-09 以降の完了ログがまとめて残っていた。
+  退避判断はすべて実地で裏取り済み（`gh run list` で AIHints 再同期 run の success、本番 API で `ShauErRiders` と旧綴り別名の 200、
+  `git log` で story-era 誕生年ルール版のコミット、`gh issue view 13` で保留クローズ、`gh label list` で `github-actions` ラベルの存在）。
+  母艦の進捗ログ索引は、別ローカルで退避済みの行（`image-rename-index-badge` / `unibytelive-streaming-bilingual` 等）が残っていたため
+  実ファイルと 1:1（22 件）になるよう作り直した。持ち越しは母艦 T-08 項目 9・10 の 2 件と T-25 の保留化のみ。
+  ponytail 方針で、棚卸し専用の `wip-tidy` ログは作らず本履歴に集約した。
+  （補足: ローカルの `node_modules` の glob が 11.1.0 のままで `package.json` の `^14.0.6` と不一致。`npm install` で解消する環境差分のためタスク化はしていない）
 
 - **2026-08-09、addon-ai-tag 側の追補棚卸しとして 1件 を `.completed/` へ退避しました。**
   対象は `2026-07-29_progress_addon-ai-tag-merge.md`（未完了タスクなしで役割完了）。

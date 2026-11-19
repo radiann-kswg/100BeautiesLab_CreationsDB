@@ -129,6 +129,11 @@
      `addon-ai-tag` 側では `/api/v1` → `/api/ai` の順に叩いて 404 以外を採るプレフィックス自動検出
      （`resolveApiPrefix()`）を入れて解消済み。**`develop` 側も同じ形へ揃えると分岐が消える**。
      `develop` 単独では現状のままでも緑なので急がないが、**次にこのファイルを触るときは必ず揃える**
+  9. **キャラシートで `q=57` が番号 57 以外にも過剰一致する**（2026-08-20 に目視で発見・原因未調査。
+     検索対象へ参照解決後の値が混ざっている疑い）。同時に初回読み込みでコンソールに 404 が 1 件出ていた（対象未特定）。
+     出典: `.completed/2026-08-20_progress_relations-url-locator.md`（2026-11-19 退避）
+  10. **C# クライアントの旧綴り別名解決（PR #34）はビルド未確認**（作業時のサンドボックスに dotnet が無かった）。
+      項目 4 と同根。出典: `.completed/2026-09-14_progress_shauer-alias-clients.md`（2026-11-19 退避）
 
 ### T-09 🔴 AIHints 再同期がリポジトリ全体の `npm test` に依存する
 
@@ -232,9 +237,11 @@
 - **Claude 側の残タスク**: Localization 層の enum 解決（`data/Localization/db_meta.json` の `$VarsDef` を
   `metaForLookup` へ合流）は、UI で enum ラベル表示が必要になった時点で対応
 
-### T-25 🟢 Issue #13（モチーフ解説 / 接触反応フィールド）— Phase 1〜3 完了（2026-08-20）
+### T-25 🔵 Issue #13（モチーフ解説 / 接触反応フィールド）— Phase 1〜3 完了（2026-08-20）・**保留**（2026-11-19）
 
-- **関連ログ**: `2026-07-22_progress_issue13-numerology-skinship.md`（単一）／2026-07-21 起票
+- **保留の経緯**: Issue #13 は 2026-10-30 に「Misskey AI Bot をアーカイブしたので保留」としてクローズ。
+  実装済みのスキーマ・表示はそのまま残し、下記「残」の 1・2 は再開時まで凍結（2026-11-19 の棚卸しで User 判断）。
+- **関連ログ**: `.completed/2026-07-22_progress_issue13-numerology-skinship.md`（単一・2026-11-19 退避）／2026-07-21 起票
 - **完了分**: 4 つの設計判断を User 確認で確定し、スキーマ（`TouchReactions` / `MotifCommentaries` ＋ 辞書 2 本）・
   キャラシート表示（`keyedDialogueSummary`）・ロールプレイプロンプトの 3 段を実装。
   `pages/characters.js` の `DialogueExamples` フィールド名ハードコードも同時に解消（正味 −21 行）。
@@ -365,18 +372,16 @@
 | ログ | 主題 | 関連タスク | 状態 |
 | --- | --- | --- | --- |
 | [2026-07-25_remaining-task.md](./2026-07-25_remaining-task.md) | **本ファイル**（残タスクの起点） | — | 🟢 現行 |
-| [2026-11-02_progress_pages-load-time.md](./2026-11-02_progress_pages-load-time.md) | GitHub Pages のページロード時間短縮（SW の `no-store` 撤廃・進行中フェッチの束ね・`reg.update()` 非同期化） | — | ✅ 実装・テスト完了（本番実測はデプロイ後。10 分超の再訪で 1 秒を超えるなら Cache API SWR へ昇格） |
-| [2026-10-14_progress_story-era-epochs.md](./2026-10-14_progress_story-era-epochs.md) | 創世紀元年の meta 宣言（`General.StoryEraEpochs`）と `YearInEra` の元年基準統一、`StoryEra` / `Age` 整合テスト | — | ✅ 実装完了（初版は `0f01a5c6` でコミット済み。`Age` 照合を誕生年ルールへ差し替えた分は未コミット） |
+| [2026-11-19_progress_appearance-image-audit.md](./2026-11-19_progress_appearance-image-audit.md) | 画像と外見・配色データの検査（`ColorPalette` / `AppearanceDetail` / `Laterality` の原画照合と修正。`sub3` で実施） | **T-20 / T-23** | ⚠️ 修正は反映済み・「要確認の候補」が残 |
+| [2026-11-09_pages-perf.md](./2026-11-09_pages-perf.md) | GitHub Pages 軽量化・高速化の定期点検 | — | 🟡 案 1（VRM 添付 PNG の軽量化）が User 判断待ち |
+| [2026-11-08_progress_sf-ui-redesign.md](./2026-11-08_progress_sf-ui-redesign.md) | キャラシート UI の SF 風リデザイン（視線誘導・motion 統一） | — | 🟡 User の実機目視・紹介文（`#page-lead`）記入待ち（下流への取り込みは完了） |
+| [2026-11-02_progress_pages-load-time.md](./2026-11-02_progress_pages-load-time.md) | GitHub Pages のページロード時間短縮（SW の `no-store` 撤廃・進行中フェッチの束ね・`reg.update()` 非同期化） | — | ✅ 実装・本番実測完了（残は Cloudflare TTL / 連続スラッシュ URL の User 判断と、任意の約 −35 行削減） |
+| [2026-09-24_progress_crosswork-dblink-meta-guard.md](./2026-09-24_progress_crosswork-dblink-meta-guard.md) | cross-work `$Def_DBLinkRef` enrich の `$DetailLayout` ガード | — | 🟡 `tools/build-roleplay-prompts.mjs` 側も揃えるかが User 判断待ち（揃えると生成物に差分） |
 | [2026-09-11_progress_guideline-new-titles.md](./2026-09-11_progress_guideline-new-titles.md) | 創作ガイドラインの新規 4 タイトル補填（`/grilling` で合意）＋ `grilling` / `grill-me` スキル取り込み | — | ✅ 反映完了（英語版の獣爾騎兵表記統一・既存差異の要否確認は申し送り） |
 | [2026-09-06_progress_corefolder-image-resolution.md](./2026-09-06_progress_corefolder-image-resolution.md) | corefolder 画像の原寸差し替え（下流 CreationsAI Issue #1 依頼2）と、その後始末 | **T-36 / T-37** | ✅ 差し替え完了（被覆率の主色判定のみ T-37 で継続） |
 | [2026-09-03_progress_short-link.md](./2026-09-03_progress_short-link.md) | キャラシートの短縮リンク（`?b=`）と相関図の圧縮ロケータ（`?r=`）の新設 | — | ✅ 実装完了（実機目視は未実施） |
-| [2026-08-04_progress_unibytelive-streaming-bilingual.md](./2026-08-04_progress_unibytelive-streaming-bilingual.md) | ハンカクライブ `StreamingActivity` の配列系を和英共有フィールドへ統一 | — | ✅ 完了（残は `SUMMARY_KEYS` の schema 駆動化と既存の赤 3 件） |
-| [.completed/2026-08-02_progress_relations-graph.md](./.completed/2026-08-02_progress_relations-graph.md) | キャラクター相関図ページ（`pages/relations.html`）の新設（初期計画） | **T-13** | ✅ 完了・退避済み |
-| [.completed/2026-08-04_progress_relations-tri-grid.md](./.completed/2026-08-04_progress_relations-tri-grid.md) | 相関図の実装完走ログ（tri-grid/route/UX/遷移/導線） | **T-13** | ✅ 完了・退避済み |
-| [2026-08-02_progress_image-rename-index-badge.md](./2026-08-02_progress_image-rename-index-badge.md) | 画像ファイル名をインデックスバッジ（作品コード付き）へ一括改名（640 ファイル） | — | ✅ 完了（独立監査で受入可。指摘 8 件は相関図側の「前段」で解消済み） |
-| [2026-08-08_github-triage.md](./2026-08-08_github-triage.md) | GitHub 未解決問題の日次トリアージ | **T-25** | 🟢 現行（未解決は Issue #13 のみ） |
+| [2026-08-11_progress_colorpalette-slots.md](./2026-08-11_progress_colorpalette-slots.md) | `ColorPalette` の配色スロット確定（7 枠・`Role`・`AppliesTo`）と全作品展開 | **T-20** | ✅ 全作品展開完了（`addon-ai-tag` での `--force-palette` 再実行の要否と、`BodyPart` 自動検出の未達が残） |
 | [2026-07-29_progress_belonging-faction-typedef.md](./2026-07-29_progress_belonging-faction-typedef.md) | `Belonging` の `$Def_Faction[]` 化・`$dictRef` 参照解決 | **T-33** | ⚠️ 実装完了・実機目視と Workers 側判断が残 |
-| [2026-07-22_progress_issue13-numerology-skinship.md](./2026-07-22_progress_issue13-numerology-skinship.md) | Issue #13 の実装（モチーフ解説 / 接触反応 / `*specStats` 集約） | **T-25 / T-34 / T-35** | 🟢 Phase 1〜4 完了・実データ入力と綴り判断待ち |
 | [2026-07-18_progress_roleplay-prompt-en-phase4.md](./2026-07-18_progress_roleplay-prompt-en-phase4.md) | ロールプレイプロンプト EN 版の着手前調査 | **T-06** | 📝 着手条件は User 確認 2 件 |
 | [2026-07-17_progress_field-order-typedef.md](./2026-07-17_progress_field-order-typedef.md) | フィールドキー順の typedef 整列 | **T-04 / T-05 / T-28** | 🟢 Phase 4 以外は完了 |
 | [2026-07-13_progress_colorpalette-schema.md](./2026-07-13_progress_colorpalette-schema.md) | `ColorPalette` スキーマ・配色抽出 | **T-20** | ⚠️ 実装済み・User レビュー待ち（AIHints への導出は完了） |

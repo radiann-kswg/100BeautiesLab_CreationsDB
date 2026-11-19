@@ -24,27 +24,17 @@ function load(file) {
 
 describe('database shapes', () => {
   it('each DB file is an array of records', () => {
-    // テスト対象の作品リスト
-    const works = [
-      'Works_NumberTales',
-      'Works_ShauErRiders',
-      'Works_SinisterChangingGirls',
-      'Works_FLInvestigator78',
-      'Works_PastDivers',
-      'Works_UnauthedLogica',
-    ];
-    // 検証対象のデータベースファイル名
-    const dbFiles = ['db_Primary.json', 'db_Secondary.json', 'db_SemiPrimary.json', 'db_SelfSecondary.json', 'db_Mobs.json'];
-
-    for (const wk of works) {
-      for (const db of dbFiles) {
-        try {
-          const data = load(`data/${wk}/DataBases/${db}`);
-          // 各データベースファイルがレコードの配列であることを確認
-          expect(Array.isArray(data)).toBe(true);
-        } catch (_) {
-          // すべての作品/DB の組み合わせでファイルが存在するとは限らないのでスキップ
-        }
+    const works = Object.entries(load('data/db_meta.json').CreationWorks)
+      .filter(([, work]) => !work.Works_Shared);
+    expect(works.length).toBeGreaterThan(0);
+    for (const [key, work] of works) {
+      const dir = `data/${work.Works_Dir || key.slice(1)}/DataBases`;
+      const keys = Object.keys(load(`${dir}/db_meta.json`).Databases);
+      expect(keys.length, dir).toBeGreaterThan(0);
+      for (const db of keys) {
+        expect(db, dir).toMatch(/^#DB_\w+$/);
+        const file = `${dir}/${db.replace(/^#DB_/, 'db_')}.json`;
+        expect(load(file), file).toBeInstanceOf(Array);
       }
     }
   });
@@ -646,6 +636,41 @@ describe('EarShapeType schema', () => {
       }
     }
     expect(earAttrCount).toBeGreaterThan(0);
+  });
+
+  it('SAR/SCG AppearanceDetail ear and tail references resolve to bilingual work-scoped enums', () => {
+    const globalVars = load('data/db_meta.json').General.$VarsDef;
+    for (const work of ['Works_ShauErRiders', 'Works_SinisterChangingGirls']) {
+      const dbDir = `data/${work}/DataBases`;
+      const meta = load(`${dbDir}/db_meta.json`);
+      const workVars = meta.General.$VarsDef;
+      const dbKeys = Object.keys(meta.Databases);
+      expect(dbKeys, work).toContain('#DB_Primary');
+      for (const key of dbKeys) {
+        const file = `${key.replace(/^#DB_/, 'db_')}.json`;
+        const records = load(`${dbDir}/${file}`);
+        expect(records, `${dbDir}/${file}`).toBeInstanceOf(Array);
+        for (const rec of records) {
+          const recordId = JSON.stringify(rec[Object.keys(rec)[0]]);
+          const entries = Array.isArray(rec.AppearanceDetail) ? rec.AppearanceDetail : [];
+          for (const [entryIndex, entry] of entries.entries()) {
+            const attrs = Array.isArray(entry?.Attrs) ? entry.Attrs : [];
+            for (const [attrIndex, attr] of attrs.entries()) {
+              for (const name of ['EarShapeType', 'TailShapeType']) {
+                const code = attr?.[`vdict_${name}`];
+                if (code === null || code === undefined) continue;
+                const enumDef = { ...globalVars[`$EnumDef_${name}`], ...workVars[`$EnumDef_${name}`] };
+                const resolved = enumDef[code] || Object.values(enumDef).find((value) => value?.[name] === code);
+                const context = `${dbDir}/${file} record ${recordId} AppearanceDetail[${entryIndex}].Attrs[${attrIndex}].vdict_${name}=${JSON.stringify(code)}`;
+                expect(resolved, context).toBeDefined();
+                expect(resolved?.[`${name}_JP`], context).toEqual(expect.stringMatching(/\S/));
+                expect(resolved?.[`${name}_EN`], context).toEqual(expect.stringMatching(/\S/));
+              }
+            }
+          }
+        }
+      }
+    }
   });
 });
 

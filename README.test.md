@@ -4,12 +4,12 @@ This repository now includes a minimal test setup using Vitest.
 
 ## Prerequisites
 
-- Node.js >= 18
+- Node.js >= 22.19.0
 
 ## Install
 
 ```powershell
-npm install
+npm ci
 ```
 
 ## Run tests
@@ -32,6 +32,8 @@ npm.cmd run test:watch
 ## What is covered
 
 - Sanity check for all JSON files under `data/`.
+- Shape checks follow the work and DB catalogs, not filenames: a missing or non-array registered character DB fails the suite. Unregistered scratch files are not character DBs.
+- The Pages workflow runs `npm ci` and `npm test` in a separate job before building the site.
 - Presence checks for key meta/type definitions used by the Service Worker enrichers.
 - Minimal doc link sanity checks for known broken UI paths.
 - jsdom-based UI regression checks for `pages/characters.js` detail rendering.

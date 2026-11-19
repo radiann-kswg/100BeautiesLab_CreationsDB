@@ -28,7 +28,6 @@ import {
     decodePng,
     detectSwatchChips,
     measurePaletteCoverage,
-    hexToRgb,
     colorDistance,
     scanTopLevelRecords,
     extractSolidColors,
@@ -67,18 +66,6 @@ const UBL_WORK = path.join(REPO_ROOT, 'data', 'Works_UnibyteLive');
 
 /** Num 4 のカタログ画像に **文字として印字されている** 配色（＝作者が定めた正解） */
 const NUM4_PRINTED_CODES = ['#00B6D9', '#8DE8ED', '#7CD8EF', '#67BDBD', '#0097C9'];
-
-/**
- * 2 色の RGB 距離。
- * @param {string} a
- * @param {string} b
- * @returns {number}
- */
-function colorDistance(a, b) {
-    const [r1, g1, b1] = hexToRgb(a);
-    const [r2, g2, b2] = hexToRgb(b);
-    return Math.sqrt((r1 - r2) ** 2 + (g1 - g2) ** 2 + (b1 - b2) ** 2);
-}
 
 describe('detectSwatchChips — 設定画のカラーチップ検出', () => {
     it('Num 4 の設定画から、カタログに印字された 5 色すべてを検出する', () => {
@@ -398,17 +385,40 @@ describe('listImageFields / readCommonColors — スキーマ由来の宣言読�
         expect(listImageFields(UBL_WORK).map(f => f.field)).toContain('keycapper_PNGPath');
     });
 
-    it('db_meta.json の $EnumDef_CommonColor から共通色の HEX を読む', () => {
-        expect(readCommonColors(NTS_WORK)).toEqual(
-            expect.arrayContaining(['#FFFDF1', '#FF9669', '#FFFFFF']),
-        );
-        expect(readCommonColors(UBL_WORK)).toEqual(
-            expect.arrayContaining(['#FFFFFF', '#CEC7B6', '#F3F1E4']),
-        );
+    it.each([
+        ['Works_NumberTales', ['#FFFDF1', '#FF9669', '#FFFFFF']],
+        ['Works_UnibyteLive', ['#FFFFFF', '#CEC7B6', '#F3F1E4']],
+        ['Works_ShauErRiders', ['#EE5E4E', '#FEE26E', '#4262F6', '#FFFFFF', '#76766E', '#CABE82', '#E2E6F2']],
+    ])('%s の共通色の HEX を宣言から読む', (work, expected) => {
+        expect(readCommonColors(path.join(REPO_ROOT, 'data', work)))
+            .toEqual(expect.arrayContaining(expected));
     });
 
     it('宣言の無い作品では空配列（除外なしで動く）', () => {
-        expect(readCommonColors(path.join(REPO_ROOT, 'data', 'Works_ShauErRiders'))).toEqual([]);
+        expect(readCommonColors(path.join(REPO_ROOT, 'data', 'Works_SinisterChangingGirls'))).toEqual([]);
+    });
+
+    it('SAR の共通色上書き名が現在のメタの JP / EN ラベルと対応する', () => {
+        const dbDir = path.join(REPO_ROOT, 'data', 'Works_ShauErRiders', 'DataBases');
+        const meta = JSON.parse(fs.readFileSync(path.join(dbDir, 'db_meta.json'), 'utf8'));
+        const commonNames = Object.values(meta.General.$VarsDef.$EnumDef_CommonColor)
+            .map(color => [color.CommonColor_JP, color.CommonColor_EN]);
+        const records = JSON.parse(fs.readFileSync(path.join(dbDir, 'db_Primary.json'), 'utf8'));
+        const overrides = records.flatMap(record => (record.ColorPalette || [])
+            .filter(color => color.Role === '#ColorRole_CommonOverride'));
+
+        const cat = records.find(record => record.BeastType?.Beast === 'Cat');
+        const accent = meta.General.$VarsDef.$EnumDef_CommonColor['#CommonColor_UniformAccent1'];
+        expect(cat?.ColorPalette, 'ネゝコの靴色').toContainEqual(expect.objectContaining({
+            Hex: '#C77FAF',
+            Role: '#ColorRole_CommonOverride',
+            AppliesTo: expect.arrayContaining(['#BodyPart_Foot']),
+            ColorName_JP: accent.CommonColor_JP,
+            ColorName_EN: accent.CommonColor_EN,
+        }));
+        for (const color of overrides) {
+            expect(commonNames, color.Hex).toContainEqual([color.ColorName_JP, color.ColorName_EN]);
+        }
     });
 });
 

@@ -9,6 +9,19 @@
 - **関連修正**: `pkg/cloudflare/worker.js` の `_Secondaries` 選択を SW / FS の3軸・スコア順へ追従。カテゴリだけの条件を無条件 fallback にする従来の挙動を修正し、別カテゴリへの推論許可の漏れを防ぐ。他の `_Commons` 項目も正しいカテゴリで補完されるため、下流も同時に取り込むこと。D1 の非公開列を再計算する場合は既存 migrate 手順が必要。
 - **影響範囲**: `data/db_type.json` / `pkg/cloudflare/worker.js` / `tests/ai.text-rp-permission.test.js` / `docs/{third-party-policy,schema-meta-processing,api-sw-spec,pkg-client-libraries}.md`。既存の画像・学習データやガイドライン本文の編集なし。
 
+### fix: SAR / SCG の外見表示と NTS からの外見継承をメタ宣言で整備 (2026-11-19)
+
+- SAR / SCG の `$DetailLayout.subFields` に `AppearanceDetail`、SAR に `ColorPalette` を登録。入力済みの外見詳細が sectionWrapper の表示制御で抑止されていた状態を解消した。
+- SAR に鼠・兎・馬の耳／尾、羊の耳を含む形状enumを宣言し、NTS と同じ短い属性形式で外見を記録。SCG の形状は自由記述とし、耳・尾のenumと `#Element_NumberMark` のローカル宣言は持たせない。
+- User が追加した `#EarShapeType_Reptile`（鱗耳）はリウロンとカミツに適用。空の英語ラベルは既存の分類名 `Reptile` で補い、リウロンの角の形状説明は保持した。
+- SCG-N / USE の外見本文は複製せず、既存の `AnotherRegions_DBLink` から NTS-0 / 00 の `AppearanceDetail` を継承。画像の明示的な相互参照は維持し、Regioministrators のデータは今回の入力前へ戻した。
+- SAR の `$EnumDef_CommonColor` に既存4色に加えて黄土色 `#CABE82`・白 `#FFFFFF`・薄灰色 `#E2E6F2` を宣言し、計21行を個別パレットから除いた。白は設定画の値を共通値とし、年賀絵の `#FEFEFE` との差は作業ログへ記録した。
+- 衣装の上書きはハッカ4行・ネゝコ6行・ハネゝカ1行を `#ColorRole_CommonOverride` で記録。色名は現在の共通色ラベルへ追従し、HEX・適用部位は維持。ハネゝカの `#CDBD90` は同じ通常制服の設定画と年賀絵での色差として残した。
+- ハネゝカの通常制服の外見・配色には適用範囲の補足を付け、紫系の私服差分と区別。画像参照は維持した。
+- 表示・継承の適用範囲はメタ宣言で変わる。enrich の処理・API の形式は変更していない。外見rendererは未解決の分類タグを生コードで表示せず、継承した属性本文を保持する。辞書参照、NTS からの継承、SAR / SCG の実データ描画の回帰テストを追加した。
+- 追加レビューでネゝコの共通色上書き名を現行メタの「アクセント色①」へ同期し、JP / EN の対応を検証する回帰テストを追加。共通色の読取テストを表形式へ整理し、テスト内の重複した色距離関数を既存の共有関数へ一本化した。
+- **検証**: 追加レビュー後の `npm test` 79ファイル / 1,442件、キー順検査、差分チェックが成功。先行のローカルheadless Edge確認では形状と継承本文を表示し、再読込はキャラ一覧421.7ms・相関図517.8ms。本番同期は未実施。
+
 ### fix: `scopeField` の値に構造化形式（`{ "Belonging": { "Faction": "…" } }`）を許容 (2026-11-15)
 
 - **背景**: グローバル Class 辞書 12 本の `scopeField` を、対象フィールド `Belonging` の型（`$Def_Faction[]`）に合わせた `{ "Belonging": { "Faction": "…" } }` 形式へ統一した（User 判断。`dict_Faction.json` の `管理主` → `『管理主』` 改名と同時）。従来の解決側は辞書行側の値を `String()` で比較していたため、この形式だと `"[object Object]"` になって**永久に一致せず**、スコープ付き辞書の Class が JP/EN とも生値表示になっていた（全作品監査で未解決 125 件 → 修正後 61 件。残りは辞書行の未作成・異体字など純粋なデータ側）。
