@@ -10,7 +10,8 @@
         "StoryEraAbout_JP": "第9創世紀3年(西暦2052年相当)周辺",
         "StoryEraAbout_EN": "in WDCE.IX.3(Equivalent to in: DC.2052)"
       },
-      "_Commons": {}
+      "_Commons": {},
+      "AI_Optout": false
     },
     "#DB_PrimaryStabilities": {
       "DB_Label_JP": "一次創作(スタビリティ)",
@@ -22,7 +23,8 @@
         "StoryEraAbout_JP": "第9創世紀3年(西暦2052年相当)周辺",
         "StoryEraAbout_EN": "in WDCE.IX.3(Equivalent to in: DC.2052)"
       },
-      "_Commons": {}
+      "_Commons": {},
+      "AI_Optout": false
     },
     "#DB_SemiPrimary": {
       "DB_Label_JP": "準一次創作",
@@ -35,7 +37,7 @@
         "StoryEraAbout_EN": "in WDCE.IX.3(Equivalent to in: DC.2052)"
       },
       "_Commons": {},
-      "AI_Optout": true
+      "AI_Optout": false
     },
     "#DB_Regioministrators": {
       "DB_Label_JP": "『管理主』",
