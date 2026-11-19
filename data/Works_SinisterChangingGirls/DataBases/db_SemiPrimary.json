@@ -114,7 +114,7 @@
         "Hex": "#A6A595",
         "ColorName_JP": "副色（衣装）",
         "ColorName_EN": "Secondary Color (Costume)",
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Hand", "#BodyPart_Foot"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -124,7 +124,7 @@
         "Hex": "#CEC8B7",
         "ColorName_JP": "補助色",
         "ColorName_EN": "Auxiliary Color",
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Arm", "#BodyPart_Foot"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null

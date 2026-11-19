@@ -39,6 +39,50 @@
   },
   "General": {
     "$VarsDef": {
+      "$EnumDef_CommonColor": {
+        "#CommonColor_UniformPrimary": {
+          "CommonColor": "UniformPrimary",
+          "Hex": "#EE5E4E",
+          "CommonColor_JP": "制服の主色（上着・模様）",
+          "CommonColor_EN": "Uniform Primary (Jacket / Pattern)"
+        },
+        "#CommonColor_UniformSecondary": {
+          "CommonColor": "UniformSecondary",
+          "Hex": "#FEE26E",
+          "CommonColor_JP": "制服の副色（前立て・縁・留め具・模様）",
+          "CommonColor_EN": "Uniform Secondary (Trim / Edges / Fasteners / Pattern)"
+        },
+        "#CommonColor_UniformAccent1": {
+          "CommonColor": "UniformAccent1",
+          "Hex": "#4262F6",
+          "CommonColor_JP": "制服のアクセント色①（脚衣・靴・襟飾り）",
+          "CommonColor_EN": "Uniform Accent 1 (Legwear / Shoes / Collar Decoration)"
+        },
+        "#CommonColor_UniformAccent2": {
+          "CommonColor": "UniformAccent2",
+          "Hex": "#FFFFFF",
+          "CommonColor_JP": "制服のアクセント色②（袖口・帯・履き口）",
+          "CommonColor_EN": "Uniform Accent 2 (Cuffs / Waistbands / Boot Tops)"
+        },
+        "#CommonColor_UniformSub1": {
+          "CommonColor": "UniformSub1",
+          "Hex": "#76766E",
+          "CommonColor_JP": "制服の補助色①（脚衣・手袋・靴）",
+          "CommonColor_EN": "Uniform Sub 1 (Legwear / Gloves / Shoes)"
+        },
+        "#CommonColor_UniformSub2": {
+          "CommonColor": "UniformSub2",
+          "Hex": "#CABE82",
+          "CommonColor_JP": "制服の補助色②（ボトムス・胸元）",
+          "CommonColor_EN": "Uniform Sub 2 (Bottoms / Chest Panel)"
+        },
+        "#CommonColor_UniformSub3": {
+          "CommonColor": "UniformSub3",
+          "Hex": "#E2E6F2",
+          "CommonColor_JP": "制服の補助色③（袖・紋章・装具）",
+          "CommonColor_EN": "Uniform Sub 3 (Sleeves / Emblems / Equipment)"
+        }
+      },
       "$Def_BeastspecStats": {
         "$Def_EffectStats": {
           "#ListLink_EffectText": [
@@ -127,6 +171,65 @@
               "SpecLevelText_EN": "No Ability Strength"
             }
           }
+        }
+      },
+      "$EnumDef_EarShapeType": {
+        "#EarShapeType_Mouse": {
+          "EarShapeType": "Mouse",
+          "EarShapeType_JP": "鼠の耳",
+          "EarShapeType_EN": "Mouse"
+        },
+        "#EarShapeType_Cat": {
+          "EarShapeType": "Cat",
+          "EarShapeType_JP": "猫の耳",
+          "EarShapeType_EN": "Cat"
+        },
+        "#EarShapeType_Rabbit": {
+          "EarShapeType": "Rabbit",
+          "EarShapeType_JP": "兎の耳",
+          "EarShapeType_EN": "Rabbit"
+        },
+        "#EarShapeType_Reptile": {
+          "EarShapeType": "Reptile",
+          "EarShapeType_JP": "鱗耳",
+          "EarShapeType_EN": "Reptile"
+        },
+        "#EarShapeType_Horse": {
+          "EarShapeType": "Horse",
+          "EarShapeType_JP": "馬の耳",
+          "EarShapeType_EN": "Horse"
+        },
+        "#EarShapeType_Sheep": {
+          "EarShapeType": "Sheep",
+          "EarShapeType_JP": "羊の耳",
+          "EarShapeType_EN": "Sheep"
+        }
+      },
+      "$EnumDef_TailShapeType": {
+        "#TailShapeType_Mouse": {
+          "TailShapeType": "Mouse",
+          "TailShapeType_JP": "鼠型",
+          "TailShapeType_EN": "Mouse-type"
+        },
+        "#TailShapeType_Cat": {
+          "TailShapeType": "Cat",
+          "TailShapeType_JP": "猫型",
+          "TailShapeType_EN": "Cat-type"
+        },
+        "#TailShapeType_Rabbit": {
+          "TailShapeType": "Rabbit",
+          "TailShapeType_JP": "兎型",
+          "TailShapeType_EN": "Rabbit-type"
+        },
+        "#TailShapeType_Reptile": {
+          "TailShapeType": "Reptile",
+          "TailShapeType_JP": "爬虫類型",
+          "TailShapeType_EN": "Reptile-type"
+        },
+        "#TailShapeType_Horse": {
+          "TailShapeType": "Horse",
+          "TailShapeType_JP": "馬型",
+          "TailShapeType_EN": "Horse-type"
         }
       }
     }

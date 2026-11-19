@@ -521,6 +521,37 @@ describe('EarShapeType schema', () => {
     }
     expect(earAttrCount).toBeGreaterThan(0);
   });
+
+  it('SAR/SCG AppearanceDetail ear and tail references resolve to bilingual work-scoped enums', () => {
+    const globalVars = load('data/db_meta.json').General.$VarsDef;
+    for (const work of ['Works_ShauErRiders', 'Works_SinisterChangingGirls']) {
+      const dbDir = `data/${work}/DataBases`;
+      const workVars = load(`${dbDir}/db_meta.json`).General.$VarsDef;
+      const dbFiles = readdirSync(join(repoRoot, dbDir))
+        .filter((file) => /^db_.*\.json$/.test(file) && !['db_meta.json', 'db_type.json'].includes(file));
+      for (const file of dbFiles) {
+        for (const rec of load(`${dbDir}/${file}`)) {
+          const recordId = JSON.stringify(rec[Object.keys(rec)[0]]);
+          const entries = Array.isArray(rec.AppearanceDetail) ? rec.AppearanceDetail : [];
+          for (const [entryIndex, entry] of entries.entries()) {
+            const attrs = Array.isArray(entry?.Attrs) ? entry.Attrs : [];
+            for (const [attrIndex, attr] of attrs.entries()) {
+              for (const name of ['EarShapeType', 'TailShapeType']) {
+                const code = attr?.[`vdict_${name}`];
+                if (code === null || code === undefined) continue;
+                const enumDef = { ...globalVars[`$EnumDef_${name}`], ...workVars[`$EnumDef_${name}`] };
+                const resolved = enumDef[code] || Object.values(enumDef).find((value) => value?.[name] === code);
+                const context = `${dbDir}/${file} record ${recordId} AppearanceDetail[${entryIndex}].Attrs[${attrIndex}].vdict_${name}=${JSON.stringify(code)}`;
+                expect(resolved, context).toBeDefined();
+                expect(resolved?.[`${name}_JP`], context).toEqual(expect.stringMatching(/\S/));
+                expect(resolved?.[`${name}_EN`], context).toEqual(expect.stringMatching(/\S/));
+              }
+            }
+          }
+        }
+      }
+    }
+  });
 });
 
 describe('Works_DestinyFoxRecords / Works_Proxies merge', () => {

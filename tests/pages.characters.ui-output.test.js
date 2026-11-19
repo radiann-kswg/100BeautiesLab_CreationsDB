@@ -1534,6 +1534,69 @@ describe('pages/characters.js UI output', () => {
 		expect(sectionText).toContain('先がアクセントカラー');
 	});
 
+	it.each([
+		{ label: 'SAR Cat', work: 'ShauErRiders', matches: (record) => record?.BeastType?.Beast === 'Cat', ear: '猫の耳', tail: '猫型' },
+		{ label: 'SCG E', work: 'SinisterChangingGirls', matches: (record) => record?.Drc === 'E', ear: '狐の耳', tail: 'キツネ型' }
+	])('renders AppearanceDetail ear and tail descriptions for $label', async ({ work, matches, ear, tail }) => {
+		const workDir = `Works_${work}`;
+		const workId = `#${workDir}`;
+		const primaryRecords = loadJson(`data/${workDir}/DataBases/db_Primary.json`);
+		charactersModule.__setCharactersTestState({
+			globalDefType,
+			charState: {
+				db: 'Primary',
+				workId,
+				records: primaryRecords,
+				workTypeDef: loadJson(`data/${workDir}/DataBases/db_type.json`),
+				globalTypeDef,
+				workMeta: buildWorkMetaFixture(workDir),
+				imageFields: []
+			}
+		});
+
+		await charactersModule.renderDetail(workId, primaryRecords.find(matches));
+
+		const section = getSubFieldSectionNode('AppearanceDetail');
+		expect(section).not.toBeNull();
+		const attrText = Array.from(section.querySelectorAll('.appearance-detail__attr-row'))
+			.map((node) => node.textContent).join(' ');
+		expect(attrText).toContain(ear);
+		expect(attrText).toContain(tail);
+		expect(attrText).not.toMatch(/#(?:Ear|Tail)ShapeType_/);
+	});
+
+	it('keeps inherited SCG N AppearanceDetail attributes without an unresolved NumberMark tag', async () => {
+		const workDir = 'Works_SinisterChangingGirls';
+		const workId = `#${workDir}`;
+		const primaryRecords = loadJson(`data/${workDir}/DataBases/db_Primary.json`);
+		const sourceRecord = numberTalesPrimaryRecords.find((record) => String(record?.Num) === '0');
+		// enrich 後の継承値を再現し、参照元作品の enum 宣言は持ち込まない。
+		const inheritedRecord = {
+			...primaryRecords.find((record) => record?.Drc === 'N'),
+			AppearanceDetail: structuredClone(sourceRecord.AppearanceDetail)
+		};
+		charactersModule.__setCharactersTestState({
+			globalDefType,
+			charState: {
+				db: 'Primary',
+				workId,
+				records: primaryRecords,
+				workTypeDef: loadJson(`data/${workDir}/DataBases/db_type.json`),
+				globalTypeDef,
+				workMeta: buildWorkMetaFixture(workDir),
+				imageFields: []
+			}
+		});
+
+		await charactersModule.renderDetail(workId, inheritedRecord);
+
+		const section = getSubFieldSectionNode('AppearanceDetail');
+		expect(section).not.toBeNull();
+		expect(section.querySelectorAll('.appearance-detail__entry')).toHaveLength(sourceRecord.AppearanceDetail.length);
+		expect(section.textContent).not.toContain('#Element_NumberMark');
+		expect(section.textContent).toContain('アラビア数字の「0」');
+	});
+
 	it('resolves AppearanceDetail Costume tags via #Dict_Costume (no raw idol/usual codes)', async () => {
 		// Costume は NT ローカルの Dictionaries/dict_Costume.json（#Dict_Costume カタログ登録）から
 		// JP/EN ラベル解決される。カタログ未登録だと生コード（idol/usual）のまま表示される回帰を検知する

@@ -45,6 +45,282 @@
     "Favor_EN": "Survival instinct",
     "Unlike_JP": "モラトリアム人間",
     "Unlike_EN": "People in moratorium",
+    "AppearanceDetail": [
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Hair"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "灰色",
+            "value_EN": "gray"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "短いツインテール",
+            "value_EN": "short twin tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "左右の低い位置",
+            "value_EN": "low on both sides"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "青緑色の髪留め",
+            "value_EN": "teal hair ties"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Ear"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Ear",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Mouse",
+            "about_JP": "大きな丸い形",
+            "about_EN": "large and round"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "外側は灰色、内側は淡い桃色",
+            "value_EN": "gray outside, pale pink inside"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "頭頂",
+            "value_EN": "top of the head"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Eye"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "淡い黄色",
+            "value_EN": "pale yellow"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Tail"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "vdict_TailShapeType": "#TailShapeType_Mouse"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "細長い糸状",
+            "value_EN": "long, slender and thread-like"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "value_Num": 1
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "淡い桃色",
+            "value_EN": "pale pink"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "短い赤い線模様",
+            "value_EN": "short red line markings"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Neck", "#BodyPart_Chest", "#BodyPart_Arm"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "白い上着",
+            "value_EN": "white top"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "灰色の立ち襟と前立て",
+            "value_EN": "gray stand collar and front panel"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "大きく広がる袖口、内側は青緑色",
+            "value_EN": "wide flared cuffs with teal inner surfaces"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Waist", "#BodyPart_Leg"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "青緑色のショートパンツ",
+            "value_EN": "teal shorts"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Leg"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "淡い緑色の脚衣",
+            "value_EN": "pale green legwear"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Foot"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "黄土色のストラップ靴",
+            "value_EN": "ochre strap shoes"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#D4D9D9",
+        "ColorName_JP": "主色",
+        "ColorName_EN": "Primary Color",
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Ear"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#EFDEAD",
+        "ColorName_JP": "メインアクセントカラー（瞳）",
+        "ColorName_EN": "Main Accent Color (Eye Color)",
+        "AppliesTo": ["#BodyPart_Eye"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#B1AA6B",
+        "ColorName_JP": "サブアクセントカラー（瞳, アクセサリー）",
+        "ColorName_EN": "Sub Accent Color (Eye Color, Accessory Color)",
+        "AppliesTo": ["#BodyPart_Eye", "#BodyPart_Foot"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#7EAEAB",
+        "ColorName_JP": "副色（衣装）",
+        "ColorName_EN": "Secondary Color (Costume)",
+        "AppliesTo": ["#BodyPart_Arm"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#F9E9E8",
+        "ColorName_JP": "補助色",
+        "ColorName_EN": "Auxiliary Color",
+        "AppliesTo": ["#BodyPart_Head", "#BodyPart_Ear", "#BodyPart_Hand", "#BodyPart_Tail"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_CommonOverride",
+        "Hex": "#408784",
+        "ColorName_JP": "制服の補助色②（ボトムス・胸元）",
+        "ColorName_EN": "Uniform Sub 2 (Bottoms / Chest Panel)",
+        "AppliesTo": ["#BodyPart_Waist", "#BodyPart_Leg"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_CommonOverride",
+        "Hex": "#F6F7EF",
+        "ColorName_JP": "制服の主色（上着・模様）",
+        "ColorName_EN": "Uniform Primary (Jacket / Pattern)",
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Arm", "#BodyPart_Waist"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_CommonOverride",
+        "Hex": "#85929C",
+        "ColorName_JP": "制服の副色（前立て・縁・留め具・模様）",
+        "ColorName_EN": "Uniform Secondary (Trim / Edges / Fasteners / Pattern)",
+        "AppliesTo": ["#BodyPart_Neck", "#BodyPart_Chest"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_CommonOverride",
+        "Hex": "#D7F3E3",
+        "ColorName_JP": "制服の補助色①（脚衣・手袋・靴）",
+        "ColorName_EN": "Uniform Sub 1 (Legwear / Gloves / Shoes)",
+        "AppliesTo": ["#BodyPart_Leg", "#BodyPart_Foot"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "Summary_JP": "丸い耳と糸状の尻尾が特徴的な獣爾騎兵の1番手こと兵長。\n龍天国の指定難病である『山月病』の対策方法について数々の研究を展開している認定博士の少女。\n獣爾騎兵の研究基地外から全く外を出歩かないため、生存と勝利のために時に献身的で時に好戦的で狂気ともいえる噂が出回っており、よく知らない人間から「生きるモルモット」と評されている。\n17歳を自称しているが、戸籍情報などを調べても彼女に該当する\"17歳の少女\"は\"当の昔から存在していない\"らしく……",
     "Summary_EN": "The 1st of the Shau'er Riders and their commander, distinguished by round ears and a thread-like tail.\nA certified doctor girl conducting extensive research on countermeasures for Shanyu Disease, a designated intractable illness in LóngZhōu's.Republic.\nSince she never leaves the Shau'er Riders' research base, rumors of devotion, aggression, and even madness in pursuit of survival and victory circulate; those who don't know her well describe her as a \"living guinea pig.\"\nShe claims to be 17 years old, but even checking family registers, a \"17-year-old girl\" matching her description has \"not existed for a very long time\"...",
     "BeastspecStats": {
@@ -218,6 +494,288 @@
     "Favor_EN": "Mochi (rice cakes), events involving physical activity",
     "Unlike_JP": "餅つき",
     "Unlike_EN": "Mochi-tsuki (rice cake pounding)",
+    "AppearanceDetail": [
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Hair"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "桃色",
+            "value_EN": "pink"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "頬までのショートヘア",
+            "value_EN": "cheek-length short hair"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "中央で分かれた前髪と外跳ねの毛先",
+            "value_EN": "parted bangs and outward-flicking ends"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Ear"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Ear",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Rabbit",
+            "about_JP": "長い耳",
+            "about_EN": "long ears"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "外側は桃色、内側は淡い肌色",
+            "value_EN": "pink outside, pale skin color inside"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "右耳が立ち、左耳が前へ垂れる",
+            "value_EN": "upright right ear and forward-drooping left ear"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Eye"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "黄色",
+            "value_EN": "yellow"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Tail"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "vdict_TailShapeType": "#TailShapeType_Rabbit"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "短い尾",
+            "value_EN": "short tail"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "value_Num": 1
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "桃色、先端は淡い色",
+            "value_EN": "pink with a pale tip"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "腰の後ろ",
+            "value_EN": "behind the waist"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Neck", "#BodyPart_Chest", "#BodyPart_Arm"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "赤い上着",
+            "value_EN": "red top"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "白と黄色の襟縁、白い袖口",
+            "value_EN": "white and yellow collar trim, white cuffs"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": "通常制服（年賀絵原画・設定画左側）",
+        "Note_EN": "Usual uniform (New-Year artwork / left-side concept art)"
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Waist", "#BodyPart_Leg"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "黄土色のスカートと白い帯",
+            "value_EN": "ochre skirt and white waistband"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": "通常制服（年賀絵原画・設定画左側）",
+        "Note_EN": "Usual uniform (New-Year artwork / left-side concept art)"
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Hand"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "濃い灰色の手袋",
+            "value_EN": "dark gray gloves"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": "通常制服（年賀絵原画・設定画左側）",
+        "Note_EN": "Usual uniform (New-Year artwork / left-side concept art)"
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Leg"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "濃い灰色の長い靴下",
+            "value_EN": "long dark gray stockings"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": "通常制服（年賀絵原画・設定画左側）",
+        "Note_EN": "Usual uniform (New-Year artwork / left-side concept art)"
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Foot"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "黄色い縁取りの青い履物",
+            "value_EN": "blue footwear with yellow trim"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": "通常制服（年賀絵原画・設定画左側）",
+        "Note_EN": "Usual uniform (New-Year artwork / left-side concept art)"
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#FF8682",
+        "ColorName_JP": "主色",
+        "ColorName_EN": "Primary Color",
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Ear", "#BodyPart_Tail"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#ED5D47",
+        "ColorName_JP": "主色(衣装)",
+        "ColorName_EN": "Primary Color (Costume)",
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Arm"],
+        "Formation": null,
+        "Note_JP": "通常制服の設定画での配色",
+        "Note_EN": "Usual uniform palette in the concept art"
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#FFA9A8",
+        "ColorName_JP": "副色",
+        "ColorName_EN": "Secondary Color",
+        "AppliesTo": ["#BodyPart_Hair"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#F0D36B",
+        "ColorName_JP": "メインアクセントカラー（瞳）",
+        "ColorName_EN": "Main Accent Color (Eye Color)",
+        "AppliesTo": ["#BodyPart_Eye"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#FFEE60",
+        "ColorName_JP": "サブアクセントカラー（アクセサリー）",
+        "ColorName_EN": "Sub Accent Color (Accessory Color)",
+        "AppliesTo": ["#BodyPart_Neck", "#BodyPart_Chest", "#BodyPart_Hand"],
+        "Formation": null,
+        "Note_JP": "通常制服の設定画での配色",
+        "Note_EN": "Usual uniform palette in the concept art"
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#185DBD",
+        "ColorName_JP": "サブアクセントカラー（アクセサリー）",
+        "ColorName_EN": "Sub Accent Color (Accessory Color)",
+        "AppliesTo": ["#BodyPart_Foot", "#BodyPart_Interchangeable"],
+        "Formation": null,
+        "Note_JP": "通常制服の設定画での配色",
+        "Note_EN": "Usual uniform palette in the concept art"
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#767B7D",
+        "ColorName_JP": "副色（衣装）",
+        "ColorName_EN": "Secondary Color (Costume)",
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Arm", "#BodyPart_Hand", "#BodyPart_Leg"],
+        "Formation": null,
+        "Note_JP": "通常制服の設定画での配色",
+        "Note_EN": "Usual uniform palette in the concept art"
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#FFEEDC",
+        "ColorName_JP": "補助色",
+        "ColorName_EN": "Auxiliary Color",
+        "AppliesTo": ["#BodyPart_Head", "#BodyPart_Ear", "#BodyPart_Arm", "#BodyPart_Hand"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_CommonOverride",
+        "Hex": "#CDBD90",
+        "ColorName_JP": "制服の補助色②（ボトムス・胸元）",
+        "ColorName_EN": "Uniform Sub 2 (Bottoms / Chest Panel)",
+        "AppliesTo": ["#BodyPart_Waist", "#BodyPart_Leg"],
+        "Formation": null,
+        "Note_JP": "通常制服の設定画での配色。年賀絵では共通色 #CABE82。",
+        "Note_EN": "Usual uniform in the concept art; the New-Year artwork uses the common color #CABE82."
+      }
+    ],
     "Summary_JP": "兎の耳と尻尾が特徴的な獣爾騎兵の4番手。\nジャンプやダッシュなどに長けた高い機動力を持ち、身軽で細々とした体つきによらず獣爾騎兵の中でパワー型の戦闘要因を買って出ている。\nお転婆で元気溌剌とした気質で身体を動かすことを好んでいるものの、戦闘用に使用している武器の兼ね合いで餅つきだけは強いトラウマがあり 積極的に参入できずにいる。",
     "Summary_EN": "The 4th of the Shau'er Riders, distinguished by rabbit ears and a tail.\nPossesses high mobility with superior jumping and dashing ability, and despite her lean build, she has stepped up as a powerhouse combatant among the Shau'er Riders.\nAlthough her tomboyish and energetic personality means she loves physical activity, she has a strong trauma around mochi pounding due to the weapon she uses in combat, making it difficult to actively participate.",
     "BeastspecStats": {
@@ -272,6 +830,286 @@
     "Favor_EN": "Chadō (the art of tea ceremony)",
     "Unlike_JP": "覚悟の無いまま自分に挑む相手",
     "Unlike_EN": "Opponents who challenge him without having made up their minds",
+    "AppearanceDetail": [
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Hair"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "淡い黄白色",
+            "value_EN": "pale yellowish white"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "ショートヘア",
+            "value_EN": "short hair"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "側頭部と後頭部の尖った外跳ねの毛先",
+            "value_EN": "pointed, outward-flaring ends at the sides and back"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Eye"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "赤橙色",
+            "value_EN": "reddish orange"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Head", "#BodyPart_Ear"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Ear",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Reptile"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "龍の角",
+            "value_EN": "dragon horns"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "青緑色",
+            "value_EN": "teal"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "頭の両側",
+            "value_EN": "both sides of the head"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "鰭状の尖った形",
+            "value_EN": "pointed, fin-like shape"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Cheek", "#BodyPart_Shoulder", "#BodyPart_Hand"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "多角形の鱗",
+            "value_EN": "polygonal scales"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "淡い青緑色",
+            "value_EN": "pale teal"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Wing"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Wing",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "大きな翼膜のある翼",
+            "value_EN": "large membranous wings"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "value_Num": 2
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "外縁は濃い青緑色、翼膜は淡い青緑色",
+            "value_EN": "dark teal edges and pale teal membranes"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Tail"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "vdict_TailShapeType": "#TailShapeType_Reptile"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "value_Num": 1
+          },
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "細長く尖った先端",
+            "value_EN": "long and slender with a pointed tip"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "濃い青緑色",
+            "value_EN": "dark teal"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Chest"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "赤い袖なしの立ち襟上着",
+            "value_EN": "red sleeveless top with a stand collar"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "黄色いボタン",
+            "value_EN": "yellow buttons"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Waist", "#BodyPart_Leg"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "黄土色の短いボトムス",
+            "value_EN": "short ochre bottoms"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Leg"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "濃い灰色の脚衣",
+            "value_EN": "dark gray legwear"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Leg", "#BodyPart_Foot"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "青灰色のロングブーツ",
+            "value_EN": "blue-gray long boots"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "白い履き口と青い靴底",
+            "value_EN": "white tops and blue soles"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#F6FAEA",
+        "ColorName_JP": "主色",
+        "ColorName_EN": "Primary Color",
+        "AppliesTo": ["#BodyPart_Hair"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#26866A",
+        "ColorName_JP": "副色",
+        "ColorName_EN": "Secondary Color",
+        "AppliesTo": ["#BodyPart_Wing", "#BodyPart_Tail"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#4E5262",
+        "ColorName_JP": "副色（衣装）",
+        "ColorName_EN": "Secondary Color (Costume)",
+        "AppliesTo": ["#BodyPart_Foot"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#86C6B6",
+        "ColorName_JP": "補助色",
+        "ColorName_EN": "Auxiliary Color",
+        "AppliesTo": ["#BodyPart_Wing"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#EAE6DE",
+        "ColorName_JP": "補助色",
+        "ColorName_EN": "Auxiliary Color",
+        "AppliesTo": ["#BodyPart_Arm", "#BodyPart_Hand"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "Summary_JP": "龍の角と翼・尻尾が特徴的な獣爾騎兵の5番手。\n空中戦や立ち回りに長けた機動力を持ち、獣爾騎兵では遊撃手として戦闘力の主力を握っている。\n冷酷で不愛想な印象とは打って変わり、内面的にはとても温厚で闘いを好まない様子が窺われている。\nただそれは、一度決めた闘いで容赦も手加減もできない体質であるためらしく……",
     "Summary_EN": "The 5th of the Shau'er Riders, distinguished by dragon horns, wings, and a tail.\nPossessing high mobility suited for aerial combat and maneuvering, he serves as the main offensive force among the Shau'er Riders as a ranger.\nIn stark contrast to his cold and grim impression, he is inwardly very gentle and shows no desire for conflict.\nThat seems to be because, once he commits to a fight, he is constitutionally incapable of showing mercy or holding back...",
     "BeastspecStats": {
@@ -339,6 +1177,186 @@
     "Favor_EN": "Fruit wine",
     "Unlike_JP": "催促",
     "Unlike_EN": "Being rushed / pressured",
+    "AppearanceDetail": [
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Hair"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "黄緑色",
+            "value_EN": "yellow-green"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "左右に蛇のように伸びた襟足",
+            "value_EN": "long nape hair extending like a snake at both sides"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "左目にかかる大きな前髪",
+            "value_EN": "large fringe covering the left eye"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "頭頂の跳ねた毛",
+            "value_EN": "upward curl on top"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Eye"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "黄橙色の虹彩と赤い瞳孔",
+            "value_EN": "yellow-orange irises and red pupils"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "縦長の瞳孔",
+            "value_EN": "narrow vertical pupils"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Ear"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Ear",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Reptile",
+            "about_JP": "横に伸びる尖った形",
+            "about_EN": "pointed and extending sideways"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Tail"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "vdict_TailShapeType": "#TailShapeType_Reptile"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "value_Num": 1
+          },
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "大きな輪を描く太く長い尾",
+            "value_EN": "thick, long tail forming a large loop"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "黄緑色",
+            "value_EN": "yellow-green"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": null,
+        "Laterality": null,
+        "DesignElement": "#Element_BodyType",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "鱗肌",
+            "value_EN": "scaly skin"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Neck", "#BodyPart_Chest", "#BodyPart_Arm"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "赤い上着と黄土色の胸元・立ち襟",
+            "value_EN": "red top with an ochre chest panel and stand collar"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "白い袖口",
+            "value_EN": "white cuffs"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "両袖の丸いヘビ柄ワッペン",
+            "value_EN": "round snake-motif patches on both sleeves"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Waist"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "白い帯",
+            "value_EN": "white waistband"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#8A963A",
+        "ColorName_JP": "主色",
+        "ColorName_EN": "Primary Color",
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Tail"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#FEFADE",
+        "ColorName_JP": "補助色",
+        "ColorName_EN": "Auxiliary Color",
+        "AppliesTo": ["#BodyPart_Head"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "Summary_JP": "大きな尻尾と鱗肌が特徴的な獣爾騎兵の6番手。\n大蛇への変身能力を持ち、この形態から蛇特有な潜入動作と拘束技を得意としている。\n呑気で温厚な性格と、生い立ちなど一切の個人情報が謎に包まれていることから、\"のじゃロリ\"として神秘的に親しまれている一面がある。\nただ、お酒が入ったときや欲情気味になっているときは極めて危険な悪絡みを仕掛けてくるため、宴席へ誘う際は覚悟をしないといけないとも。",
     "Summary_EN": "The 6th of the Shau'er Riders, distinguished by a large tail and scaly skin.\nPossessing the ability to transform into a giant serpent, she specializes in serpent-like infiltration maneuvers and restraint techniques from this form.\nWith her easygoing and gentle personality, combined with all personal history being shrouded in mystery, she has a side that is mystically endeared as a 'noja-loli.'\nHowever, when alcohol is involved or she becomes aroused, she becomes extremely dangerous with troublesome behavior, so one must be prepared when inviting her to a banquet.",
     "BeastspecStats": {
@@ -397,6 +1415,233 @@
     "Favor_EN": "Running",
     "Unlike_JP": "怪我や病欠",
     "Unlike_EN": "Injuries and absences due to illness",
+    "AppearanceDetail": [
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Hair"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "灰色、前髪の一部は明るい灰色",
+            "value_EN": "gray with a light gray section in the fringe"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "長いポニーテール",
+            "value_EN": "long ponytail"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "黄色い髪飾り",
+            "value_EN": "yellow hair ornament"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Ear"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Ear",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Horse",
+            "about_JP": "細長く尖った立ち耳",
+            "about_EN": "long, pointed and upright"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "外側は灰色、内側は薄茶色",
+            "value_EN": "gray outside, light brown inside"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "頭頂",
+            "value_EN": "top of the head"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Eye"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "茶色",
+            "value_EN": "brown"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Head", "#BodyPart_Arm", "#BodyPart_Leg"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "褐色の肌",
+            "value_EN": "brown skin"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Tail"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "vdict_TailShapeType": "#TailShapeType_Horse"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "長くしなやかな尾",
+            "value_EN": "long, supple tail"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "value_Num": 1
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "灰色",
+            "value_EN": "gray"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "長い尾毛",
+            "value_EN": "long tail hair"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Arm"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "赤い半袖上着と白い袖口",
+            "value_EN": "red short-sleeved top with white cuffs"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "黄色い前立てと丸い馬柄ワッペン",
+            "value_EN": "yellow front panel and round horse-motif patch"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Waist", "#BodyPart_Leg"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "黄土色の短いボトムスと白い帯",
+            "value_EN": "short ochre bottoms and white waistband"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Hand"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "黄色い縁の濃い灰色の手袋",
+            "value_EN": "dark gray gloves with yellow trim"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Leg", "#BodyPart_Foot"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "濃い灰色の靴と青い脛当て状の部分",
+            "value_EN": "dark gray shoes with blue shin-guard-like sections"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "青い部分の黄色い縁と留め具",
+            "value_EN": "yellow trim and fasteners on the blue sections"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#AAA6A2",
+        "ColorName_JP": "主色",
+        "ColorName_EN": "Primary Color",
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Tail"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#52524E",
+        "ColorName_JP": "副色（衣装）",
+        "ColorName_EN": "Secondary Color (Costume)",
+        "AppliesTo": ["#BodyPart_Hand"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#9A8266",
+        "ColorName_JP": "補助色",
+        "ColorName_EN": "Auxiliary Color",
+        "AppliesTo": ["#BodyPart_Arm"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "Summary_JP": "褐色肌から生える立耳と長くしなやかな尻尾が特徴的な改造人間「獣爾騎兵」の7番手。\n高い走破性と車両などの牽引能力を持ち、体の身軽さからは考えられない強靭で高機動力な移動戦を得意としている。\n龍天国に本拠点を持つ獣爾騎兵の中では唯一 雄志結国の出身であるためか、兵員から異国風な印象を受けられているようだ。\nそんな中 競技や共闘に極めて積極的な性格である彼には、雄志結国と龍天国の関係が日々悪化するばかりの世界情勢に ある使命感を抱いているとか。",
     "Summary_EN": "The 7th of the Shau'er Riders, distinguished by upright ears growing from brown skin and a long, supple tail.\nPossessing high traversal capability and the ability to tow vehicles, he specializes in tenacious, high-mobility mobile warfare that belies his lean build.\nPerhaps owing to being the only member of the LóngZhōu's.Republic-based Shau'er Riders who hails from United.Heroic.Nation, he is regarded by the other riders as having a foreign air.\nAmid all this, this man of extremely proactive spirit when it comes to competition and joint combat is said to harbor a certain sense of mission as relations between United.Heroic.Nation and LóngZhōu's.Republic continue to deteriorate by the day.",
     "BeastspecStats": {
@@ -456,6 +1701,255 @@
     "Favor_EN": "Ice cream (with a prize inside)",
     "Unlike_JP": "うなぎ,水\n弟：丑刻ギウニ(出水億人)",
     "Unlike_EN": "Eel, Water\nYounger brother: Holster Oxentimes (Oxto Izumi)",
+    "AppearanceDetail": [
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Hair"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "薄紫色",
+            "value_EN": "pale purple"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "胸元から腰の両側へ広がる長い髪",
+            "value_EN": "long hair spreading down the chest and along both sides of the waist"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "左目にかかる大きな前髪",
+            "value_EN": "large fringe covering the left eye"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Material",
+            "value_JP": "滑らかで柔らかい毛質",
+            "value_EN": "smooth, soft hair"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Head"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "大きな巻き角",
+            "value_EN": "large curled horns"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "薄茶色",
+            "value_EN": "light brown"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Ear"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Ear",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Sheep",
+            "about_JP": "先の尖った垂れ耳",
+            "about_EN": "pointed drooping ears"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "白っぽい色",
+            "value_EN": "off-white"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "巻き角の内側",
+            "value_EN": "inside the curled horns"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Eye"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "淡い黄橙色",
+            "value_EN": "pale yellow-orange"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Neck", "#BodyPart_Chest"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "濃い灰色の高い襟",
+            "value_EN": "dark gray high collar"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "青い帯と四角い留め具",
+            "value_EN": "blue band and rectangular fastener"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "胸元の丸い灰色の飾り",
+            "value_EN": "round gray ornament at the chest"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Arm"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "黄土色の前身頃と濃い灰色の胸元",
+            "value_EN": "ochre front panels and dark gray chest panel"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "赤と黄色の炎状の模様",
+            "value_EN": "red and yellow flame-like patterns"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "白っぽい袖と青い内側",
+            "value_EN": "pale sleeves with blue inner sections"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Waist", "#BodyPart_Leg"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "黄土色の短いボトムス",
+            "value_EN": "short ochre bottoms"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Hand"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "濃い灰色の手袋",
+            "value_EN": "dark gray gloves"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Foot"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "青い靴",
+            "value_EN": "blue shoes"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#B6AEDA",
+        "ColorName_JP": "主色",
+        "ColorName_EN": "Primary Color",
+        "AppliesTo": ["#BodyPart_Hair"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#EAAA7A",
+        "ColorName_JP": "副色",
+        "ColorName_EN": "Secondary Color",
+        "AppliesTo": ["#BodyPart_Head"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#EEBE56",
+        "ColorName_JP": "メインアクセントカラー（瞳）",
+        "ColorName_EN": "Main Accent Color (Eye Color)",
+        "AppliesTo": ["#BodyPart_Eye"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#52524E",
+        "ColorName_JP": "副色（衣装）",
+        "ColorName_EN": "Secondary Color (Costume)",
+        "AppliesTo": ["#BodyPart_Chest"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#DAD6BE",
+        "ColorName_JP": "補助色",
+        "ColorName_EN": "Auxiliary Color",
+        "AppliesTo": ["#BodyPart_Head"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "Summary_JP": "巻き角のある垂れた耳と長く滑らかで柔らかい毛髪が特徴的な獣爾騎兵の8番手。\n山月病罹患により局所的な身体生育の停止と不眠を伴う症状を患い若くして生死の危機にあったが、子刻ハッカと南里ハッケンによる不老治療により一命を取り留めている。\nその不眠治療の一環として得た『睡魔封印』という能力で、相手の睡魔を増幅し昏睡状態級に深い睡眠を与える力を手にした。",
     "Summary_EN": "The 8th of the Shau'er Riders, distinguished by drooping ears with curled horns and long, smooth, and soft hair.\nShe suffered from localized growth arrest and insomnia due to Shanyu Disease, facing a life-threatening situation in her younger years, but survived thanks to ageless treatment by Mus Mousetimes and Hachken Southmidog.\nAs part of her insomnia treatment, she gained the ability called 'Sleep-Overdose,' which amplifies the sleepiness of others and induces a deep sleep akin to a comatose state.",
     "BeastspecStats": {
@@ -518,6 +2012,362 @@
     "Favor_EN": "Narrow, fluffy, cozy sleeping spots",
     "Unlike_JP": "子刻ハッカ\n無力な自分",
     "Unlike_EN": "Mus Mousetimes\nHer own powerlessness",
+    "AppearanceDetail": [
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Hair"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "橙色",
+            "value_EN": "orange"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "ショートヘア",
+            "value_EN": "short hair"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "額と頬横の尖った毛束",
+            "value_EN": "pointed locks over the forehead and beside the cheeks"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Ear"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Ear",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Cat",
+            "about_JP": "大きな三角形",
+            "about_EN": "large and triangular"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "外側は橙色、内側は淡いクリーム色",
+            "value_EN": "orange outside, pale cream inside"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "頭頂",
+            "value_EN": "top of the head"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Eye"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "黄緑色",
+            "value_EN": "yellow-green"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "縦長の瞳孔",
+            "value_EN": "narrow vertical pupils"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Tail"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "vdict_TailShapeType": "#TailShapeType_Cat"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "value_Num": 1
+          },
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "細長く先端は丸い",
+            "value_EN": "long and slender with a rounded tip"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "橙色",
+            "value_EN": "orange"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Neck", "#BodyPart_Chest", "#BodyPart_Arm"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "桃色の長袖上着と水色の前立て",
+            "value_EN": "pink long-sleeved top with a light blue front panel"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "袖口の白いフリルと桃色のリボン",
+            "value_EN": "white cuff ruffles and pink ribbons"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "首元と袖のリボンの黄色い小鈴",
+            "value_EN": "small yellow bells at the neck and sleeve ribbons"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "淡い黄色のエプロン",
+            "value_EN": "pale yellow apron"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Leg"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "青灰色の長い靴下",
+            "value_EN": "long blue-gray stockings"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Foot"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "桃色の編み上げブーツ",
+            "value_EN": "pink lace-up boots"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "白い縁と靴ひも",
+            "value_EN": "white trim and laces"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#DE7D5A",
+        "ColorName_JP": "主色",
+        "ColorName_EN": "Primary Color",
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Ear", "#BodyPart_Tail"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#DB653F",
+        "ColorName_JP": "主色",
+        "ColorName_EN": "Primary Color",
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Ear", "#BodyPart_Tail"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#ED9076",
+        "ColorName_JP": "副色",
+        "ColorName_EN": "Secondary Color",
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Tail"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#CAD20B",
+        "ColorName_JP": "メインアクセントカラー（瞳）",
+        "ColorName_EN": "Main Accent Color (Eye Color)",
+        "AppliesTo": ["#BodyPart_Eye"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#FCEA72",
+        "ColorName_JP": "メインアクセントカラー（瞳）",
+        "ColorName_EN": "Main Accent Color (Eye Color)",
+        "AppliesTo": ["#BodyPart_Eye"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#F75CB2",
+        "ColorName_JP": "サブアクセントカラー（アクセサリー）",
+        "ColorName_EN": "Sub Accent Color (Accessory Color)",
+        "AppliesTo": ["#BodyPart_Arm"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#849EAD",
+        "ColorName_JP": "副色（衣装）",
+        "ColorName_EN": "Secondary Color (Costume)",
+        "AppliesTo": ["#BodyPart_Arm", "#BodyPart_Leg"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#FFF8DE",
+        "ColorName_JP": "補助色",
+        "ColorName_EN": "Auxiliary Color",
+        "AppliesTo": ["#BodyPart_Head", "#BodyPart_Ear", "#BodyPart_Hand"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#F5BBA3",
+        "ColorName_JP": "補助色",
+        "ColorName_EN": "Auxiliary Color",
+        "AppliesTo": ["#BodyPart_Head", "#BodyPart_Ear", "#BodyPart_Hand"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#FDAC83",
+        "ColorName_JP": "補助色",
+        "ColorName_EN": "Auxiliary Color",
+        "AppliesTo": ["#BodyPart_Ear"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#FFEEDC",
+        "ColorName_JP": "補助色",
+        "ColorName_EN": "Auxiliary Color",
+        "AppliesTo": ["#BodyPart_Head", "#BodyPart_Ear", "#BodyPart_Hand"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_CommonOverride",
+        "Hex": "#E6EBAD",
+        "ColorName_JP": "制服の補助色②（ボトムス・胸元）",
+        "ColorName_EN": "Uniform Sub 2 (Bottoms / Chest Panel)",
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Waist"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_CommonOverride",
+        "Hex": "#FBFAC6",
+        "ColorName_JP": "制服の補助色②（ボトムス・胸元）",
+        "ColorName_EN": "Uniform Sub 2 (Bottoms / Chest Panel)",
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Waist"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_CommonOverride",
+        "Hex": "#E8AFD8",
+        "ColorName_JP": "制服の主色（上着・模様）",
+        "ColorName_EN": "Uniform Primary (Jacket / Pattern)",
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Arm", "#BodyPart_Waist"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_CommonOverride",
+        "Hex": "#B7DEEC",
+        "ColorName_JP": "制服の副色（前立て・縁・留め具・模様）",
+        "ColorName_EN": "Uniform Secondary (Trim / Edges / Fasteners / Pattern)",
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Waist"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_CommonOverride",
+        "Hex": "#C77FAF",
+        "ColorName_JP": "制服のアクセント色（脚衣・靴・襟飾り）",
+        "ColorName_EN": "Uniform Accent (Legwear / Shoes / Collar Decoration)",
+        "AppliesTo": ["#BodyPart_Foot"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_CommonOverride",
+        "Hex": "#49768F",
+        "ColorName_JP": "制服の補助色①（脚衣・手袋・靴）",
+        "ColorName_EN": "Uniform Sub 1 (Legwear / Gloves / Shoes)",
+        "AppliesTo": ["#BodyPart_Leg"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "Summary_JP": "猫の耳と尻尾が特徴的な獣爾騎兵の13番手。\n3番手の寅刻コーガを兄に持ち、様々な空間への潜入を得意とする。\n人懐っこい性格や戦闘向けではない能力のこともあり、他の兵員よりも平和的で交流意欲旺盛な一面が伺える。\nただ獣爾騎兵の兵長である子刻ハッカに対しては、昔から弱みを握られていることもあり あまり好意的な態度を示さない様子。",
     "Summary_EN": "The 13th of the Shau'er Riders, distinguished by cat ears and a tail.\nWith Pantheras Tigertimes as an older brother, she specializes in infiltrating various spaces.\nHer sociable personality and combat-unsuited abilities lend her a more peaceful and outgoing side compared to the other riders.\nHowever, toward the Shau'er Riders' commander Mus Mousetimes, she shows little goodwill, partly because weaknesses have been held over her from long ago.",
     "BeastspecStats": {

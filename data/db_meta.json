@@ -157,6 +157,8 @@
           "BirthDay"
         ],
         "subFields": [
+          "AppearanceDetail",
+          "ColorPalette",
           "BeastspecStats",
           "ConversationPattern",
           "AnotherRegions_DBLink"
@@ -225,6 +227,7 @@
           "AnivDay"
         ],
         "subFields": [
+          "AppearanceDetail",
           "ColorPalette",
           "ConversationPattern",
           "AnotherVersions_DBLink",

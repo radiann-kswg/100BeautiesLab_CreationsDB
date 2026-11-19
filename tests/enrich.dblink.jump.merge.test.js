@@ -356,6 +356,37 @@ describe('_DBLink / _Jump merge (in-process)', () => {
     expect(e.Name).toBe('TEST_NAME_OVERRIDE');
   });
 
+  it.each([
+    ['Primary', 'N', '0'],
+    ['SemiPrimary', 'USE', '00']
+  ])('SCG/%s の %s は NTS/%s の外見を継承し明示画像を維持する', async (dbName, drc, num) => {
+    class RealGlobalTypeFetcher extends TestDataFetcher {
+      async readGlobalType() { return loadJson('data/db_type.json'); }
+    }
+
+    const records = loadJson(`data/Works_SinisterChangingGirls/DataBases/db_${dbName}.json`);
+    const input = records.find(r => r.Drc === drc);
+    const linked = loadJson('data/Works_NumberTales/DataBases/db_Primary.json')
+      .find(r => String(r.Num) === num);
+
+    // キーを省略して NTS の正典を継承し、作品別の設定画リンクは SCG の宣言を使う。
+    expect(input).toBeTruthy();
+    expect(input).not.toHaveProperty('AppearanceDetail');
+    expect(linked).toBeTruthy();
+    expect(linked.AppearanceDetail.length).toBeGreaterThan(0);
+    expect(input.Images.conceptAlt_PNGName[0]._DBCrossLinkPath).toMatchObject({
+      _Work: 'NumberTales', _DB: 'Primary', _Field: 'concept_PNGName',
+      _IsoPath: linked.Images.concept_PNGName
+    });
+    const expectedImages = structuredClone(input.Images);
+
+    const proc = new globalThis.EnrichmentProcessor(new RealGlobalTypeFetcher(), testConfig);
+    const [enriched] = await proc.enrichRecords([input], '#Works_SinisterChangingGirls', dbName);
+
+    expect(enriched.AppearanceDetail).toEqual(linked.AppearanceDetail);
+    expect(enriched.Images).toEqual(expectedImages);
+  });
+
   it('別DB参照の場合、画像系フィールドは参照先で穴埋めされない', async () => {
     class MemoryDataFetcher extends TestDataFetcher {
       async readDB(workId, dbName) {

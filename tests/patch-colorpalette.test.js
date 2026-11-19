@@ -407,8 +407,10 @@ describe('listImageFields / readCommonColors — スキーマ由来の宣言読�
         );
     });
 
-    it('宣言の無い作品では空配列（除外なしで動く）', () => {
-        expect(readCommonColors(path.join(REPO_ROOT, 'data', 'Works_ShauErRiders'))).toEqual([]);
+    it('SAR の制服共通配色を宣言から読む', () => {
+        expect(readCommonColors(path.join(REPO_ROOT, 'data', 'Works_ShauErRiders'))).toEqual([
+            '#EE5E4E', '#FEE26E', '#4262F6', '#FFFFFF', '#76766E', '#CABE82', '#E2E6F2',
+        ]);
     });
 });
 

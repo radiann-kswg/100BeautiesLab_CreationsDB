@@ -31,6 +31,155 @@
     "Weight_kg": 53,
     "BustSize": "B",
     "Age": 24,
+    "AppearanceDetail": [
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Hair"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "長髪、高いポニーテール、編んだ毛束",
+            "value_EN": "long hair in a high ponytail with a braid"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "橙色",
+            "value_EN": "orange"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Hair"],
+        "Laterality": "#Lat_Left",
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "左側に垂れる編んだ毛束",
+            "value_EN": "braid hanging on the left side"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Eye"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "黄緑色",
+            "value_EN": "yellow green"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": [
+          "#BodyPart_Shoulder",
+          "#BodyPart_Chest",
+          "#BodyPart_Arm",
+          "#BodyPart_Waist"
+        ],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "半袖の上着",
+            "value_EN": "short-sleeved coat"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "大きな襟、左右の大きなポケット、左胸の小さな盾形の印",
+            "value_EN": "large lapels, large pockets on both sides, and a small shield-shaped mark on the left chest"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "灰褐色、襟：白",
+            "value_EN": "grayish brown; lapels: white"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Neck", "#BodyPart_Chest"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "シャツとネクタイ",
+            "value_EN": "shirt and tie"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "シャツ：淡い水色、ネクタイ：桃色",
+            "value_EN": "shirt: pale aqua; tie: pink"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Waist", "#BodyPart_Leg"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "ショートパンツと長い靴下",
+            "value_EN": "shorts and long socks"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "ショートパンツ：黄土色寄りの黄色、靴下：灰色",
+            "value_EN": "shorts: mustard yellow; socks: gray"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Foot"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "編み上げブーツ",
+            "value_EN": "lace-up boots"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "茶色",
+            "value_EN": "brown"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ColorPalette": [
       {
         "Role": "#ColorRole_Primary",
@@ -198,7 +347,263 @@
     "Favor_EN": "Stylish and high-class cafes",
     "Unlike_JP": "フードファイター（三春のような無自覚大食漢を含む）",
     "Unlike_EN": "Food fighters (including unconscious gluttons like Mikhail)",
-    "ColorPalette": null,
+    "AppearanceDetail": [
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Hair"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "高いポニーテール",
+            "value_EN": "high ponytail"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "橙色、後ろの毛束：黄色の差し色",
+            "value_EN": "orange with yellow accents in the trailing locks"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Ear"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Ear",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "狐の耳",
+            "value_EN": "Fox"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "大きく尖った形",
+            "value_EN": "large pointed shape"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "外側：橙色・黄色、内側：薄いクリーム色",
+            "value_EN": "outside: orange and yellow; inside: pale cream"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "頭上",
+            "value_EN": "top of the head"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Eye"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "黄色系",
+            "value_EN": "yellow"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Tail"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "キツネ型",
+            "value_EN": "Fox-type"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "大きな尾",
+            "value_EN": "large tail"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "橙色、先端：白",
+            "value_EN": "orange with a white tip"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Shoulder", "#BodyPart_Chest", "#BodyPart_Arm", "#BodyPart_Waist"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "襟付きシャツ、短いトップス、半袖ジャケット",
+            "value_EN": "collared shirt, short top, and short-sleeved jacket"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "シャツ：白、トップス：黄色、ジャケット：赤橙色",
+            "value_EN": "shirt: white; top: yellow; jacket: red orange"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "胸元の水色の四角い飾り",
+            "value_EN": "light-blue square ornament at the chest"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Waist", "#BodyPart_Leg", "#BodyPart_Foot"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "スカート、ベルト、タイツ、ブーツ",
+            "value_EN": "skirt, belt, tights, and boots"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "ブーツの履き口と靴ひも",
+            "value_EN": "boot cuffs and laces"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "スカート・ブーツの履き口：黄色、ベルト・タイツ・靴ひも：水色、ブーツ：橙色",
+            "value_EN": "skirt and boot cuffs: yellow; belt, tights, and laces: light blue; boots: orange"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#FEA656",
+        "ColorName_JP": "主色",
+        "ColorName_EN": "Primary Color",
+        "AppliesTo": [
+          "#BodyPart_Hair",
+          "#BodyPart_Ear",
+          "#BodyPart_Tail",
+          "#BodyPart_Foot"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#EB5A3A",
+        "ColorName_JP": "主色(衣装)",
+        "ColorName_EN": "Primary Color (Costume)",
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Arm"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#FEB626",
+        "ColorName_JP": "副色",
+        "ColorName_EN": "Secondary Color",
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Ear"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#FECA12",
+        "ColorName_JP": "メインアクセントカラー（瞳, アクセサリー）",
+        "ColorName_EN": "Main Accent Color (Eye Color, Accessory Color)",
+        "AppliesTo": [
+          "#BodyPart_Eye",
+          "#BodyPart_Chest",
+          "#BodyPart_Waist",
+          "#BodyPart_Leg",
+          "#BodyPart_Foot"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#33AEE3",
+        "ColorName_JP": "サブアクセントカラー（アクセサリー）",
+        "ColorName_EN": "Sub Accent Color (Accessory Color)",
+        "AppliesTo": [
+          "#BodyPart_Neck",
+          "#BodyPart_Waist",
+          "#BodyPart_Leg",
+          "#BodyPart_Foot",
+          "#BodyPart_Hand"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#E6EAE8",
+        "ColorName_JP": "副色（衣装）",
+        "ColorName_EN": "Secondary Color (Costume)",
+        "AppliesTo": [
+          "#BodyPart_Neck",
+          "#BodyPart_Chest",
+          "#BodyPart_Arm",
+          "#BodyPart_Tail"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#FEFBDF",
+        "ColorName_JP": "補助色",
+        "ColorName_EN": "Auxiliary Color",
+        "AppliesTo": [
+          "#BodyPart_Head",
+          "#BodyPart_Ear",
+          "#BodyPart_Arm",
+          "#BodyPart_Hand"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#FDBF96",
+        "ColorName_JP": "補助色",
+        "ColorName_EN": "Auxiliary Color",
+        "AppliesTo": ["#BodyPart_Head"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "Summary_JP": "「ミハイル」という国際情報広報機関に相乗りする形で世界を旅するギャル系配信者。\nその大胆で活発な性格と派手なファッションセンスに反し、世間に浮かれすぎて見られぬよう「自制」を常日頃から掛けていると彼女を推しているリスナーからの考察が後を絶たない。\n配信者としてバーチャルアバターを有しているものの、妖狐ゆえの変化とさえみられる群を抜いたコスプレ能力があり、現実空間でもアバターに負けない魅力を発信している。",
     "Summary_EN": "A gal-style streamer who travels the world by riding along with 'Mikhail', the International Information & Public Relations Agency.\nDespite a bold, energetic personality and a flashy fashion sense, theories keep pouring in from the listeners who support her(zir) that this streamer constantly exercises 'Temperance' so as not to look too carried away by the world.\nAlthough she(ze) has a virtual avatar as a streamer, an outstanding talent for cosplay, one that could even be mistaken for a Warfox's shapeshifting, lets her(zir) broadcast a charm in real space that rivals the avatar's own."
   },
@@ -271,6 +676,155 @@
     "Weight_kg": 53,
     "BustSize": "B",
     "Age": 24,
+    "AppearanceDetail": [
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Hair"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "長髪、高いポニーテール、編んだ毛束",
+            "value_EN": "long hair in a high ponytail with a braid"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "黄土色",
+            "value_EN": "ochre"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Hair"],
+        "Laterality": "#Lat_Right",
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "右側に垂れる編んだ毛束",
+            "value_EN": "braid hanging on the right side"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Eye"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "黄緑色",
+            "value_EN": "yellow green"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": [
+          "#BodyPart_Shoulder",
+          "#BodyPart_Chest",
+          "#BodyPart_Arm",
+          "#BodyPart_Waist"
+        ],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "半袖の上着",
+            "value_EN": "short-sleeved coat"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "大きな襟、左右の大きなポケット、左胸の小さな盾形の印",
+            "value_EN": "large lapels, large pockets on both sides, and a small shield-shaped mark on the left chest"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "灰褐色、襟：白",
+            "value_EN": "grayish brown; lapels: white"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Neck", "#BodyPart_Chest"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "シャツとリボン",
+            "value_EN": "shirt and ribbon"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "シャツ：茶色、リボン：緑色、襟：白",
+            "value_EN": "shirt: brown; ribbon: green; collar: white"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Waist", "#BodyPart_Leg"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "ショートパンツと長い靴下",
+            "value_EN": "shorts and long socks"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "ショートパンツ：黄土色寄りの黄色、靴下：灰色",
+            "value_EN": "shorts: mustard yellow; socks: gray"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Foot"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "編み上げブーツ",
+            "value_EN": "lace-up boots"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "茶色",
+            "value_EN": "brown"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ColorPalette": [
       {
         "Role": "#ColorRole_Primary",

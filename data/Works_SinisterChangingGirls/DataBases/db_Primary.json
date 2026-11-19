@@ -63,7 +63,7 @@
         "Hex": "#FFB2AB",
         "ColorName_JP": "副色",
         "ColorName_EN": "Secondary Color",
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Eye"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -103,7 +103,7 @@
         "Hex": "#ECAC42",
         "ColorName_JP": "補助色",
         "ColorName_EN": "Auxiliary Color",
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Neck"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -113,7 +113,7 @@
         "Hex": "#CDC7B7",
         "ColorName_JP": "補助色",
         "ColorName_EN": "Auxiliary Color",
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Hand", "#BodyPart_Foot"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -208,13 +208,177 @@
     "Favor_EN": "Cafes with large portion sizes",
     "Unlike_JP": "重量制限(食事後に限り引っ掛かることが多いため)",
     "Unlike_EN": "Weight restrictions (frequently triggered after eating)",
+    "AppearanceDetail": [
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Hair"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "ショートヘア、長めの前髪",
+            "value_EN": "short hair with longer bangs"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "黄橙色",
+            "value_EN": "yellow orange"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "顔の両側に垂れる前髪",
+            "value_EN": "bangs falling beside both sides of the face"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Eye"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "灰褐色",
+            "value_EN": "grayish brown"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Head", "#BodyPart_Chest", "#BodyPart_Back"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "獣耳形フードとケープ",
+            "value_EN": "animal-ear-shaped hood and cape"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "水色、裏地：白",
+            "value_EN": "light blue; lining: white"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "左右に長く広がるケープの裾",
+            "value_EN": "long, spreading sides of the cape hem"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Arm"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "ボタン留めの上着",
+            "value_EN": "buttoned jacket"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "くすんだ青緑色、襟：褐色、袖口・襟元の内側：白",
+            "value_EN": "muted teal; collar: brown; cuffs and inner neckline: white"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Waist", "#BodyPart_Leg", "#BodyPart_Foot"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "スカート、タイツ、編み上げ靴",
+            "value_EN": "skirt, tights, and lace-up shoes"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "膝丈のスカート",
+            "value_EN": "knee-length skirt"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "スカート：灰褐色、タイツ：濃い青色、靴：濃褐色",
+            "value_EN": "skirt: grayish brown; tights: dark blue; shoes: dark brown"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Tail"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "キツネ型",
+            "value_EN": "Fox-type"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "太い尾、先端の色境界はギザギザ",
+            "value_EN": "thick tail with a jagged color boundary at the tip"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "水色、先端：白",
+            "value_EN": "light blue with a white tip"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Leg"],
+        "Laterality": null,
+        "DesignElement": "#Element_BodyType",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "非常に大きく丸く膨らんだ身体",
+            "value_EN": "very large, round, enlarged body"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "身体に沿って大きく広がる上着とスカート",
+            "value_EN": "jacket and skirt spreading over the enlarged body"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": "設定画右側の膨体した姿。",
+        "Note_EN": "The enlarged form shown on the right of the concept art."
+      }
+    ],
     "ColorPalette": [
       {
         "Role": "#ColorRole_Primary",
         "Hex": "#AC9E7F",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Eye", "#BodyPart_Waist"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -224,7 +388,7 @@
         "Hex": "#594A39",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Foot"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -234,7 +398,7 @@
         "Hex": "#7EAEAB",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Arm"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -244,7 +408,7 @@
         "Hex": "#175D7E",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Leg"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -254,7 +418,7 @@
         "Hex": "#E8E8E4",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Foot"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -264,7 +428,7 @@
         "Hex": "#FFC046",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Hair"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -274,7 +438,7 @@
         "Hex": "#FFE5CD",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Head", "#BodyPart_Hand"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -284,7 +448,7 @@
         "Hex": "#8DE8ED",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Head", "#BodyPart_Tail"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -346,13 +510,203 @@
     "Favor_EN": "Human friendship and affection",
     "Unlike_JP": "親友の危険\n人体実験",
     "Unlike_EN": "Her best friend's danger\nHuman experimentation",
+    "AppearanceDetail": [
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Hair"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "長髪、顔の両脇の細い髪束",
+            "value_EN": "long hair with slender locks beside the face"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "白",
+            "value_EN": "white"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "左右に大きく広がる後ろ髪",
+            "value_EN": "back hair spreading broadly to both sides"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "beforeChange",
+        "BodyPart": ["#BodyPart_Eye"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "赤橙色",
+            "value_EN": "reddish orange"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": "設定画の「通常時」。",
+        "Note_EN": "The normal state labeled in the concept art."
+      },
+      {
+        "Formation": "afterChanged",
+        "BodyPart": ["#BodyPart_Ear"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Ear",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "狐の耳",
+            "value_EN": "Fox"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "大きな三角形",
+            "value_EN": "large triangular shape"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "青、内側：淡い青色",
+            "value_EN": "blue; inner surfaces: pale blue"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "頭頂",
+            "value_EN": "top of the head"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": "設定画の「憤怒時」。",
+        "Note_EN": "The wrath state labeled in the concept art."
+      },
+      {
+        "Formation": "afterChanged",
+        "BodyPart": ["#BodyPart_Eye"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "瞳：青、目の周囲：濃い灰色",
+            "value_EN": "irises: blue; around the eyes: dark gray"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "目の周囲の影のような模様",
+            "value_EN": "shadow-like markings around the eyes"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": "設定画の「憤怒時」。",
+        "Note_EN": "The wrath state labeled in the concept art."
+      },
+      {
+        "Formation": "afterChanged",
+        "BodyPart": ["#BodyPart_Hair"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "顔脇の髪束・後ろ髪の先端：淡い青色",
+            "value_EN": "face-framing locks and ends of the back hair: pale blue"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": "設定画の「憤怒時」。",
+        "Note_EN": "The wrath state labeled in the concept art."
+      },
+      {
+        "Formation": "afterChanged",
+        "BodyPart": ["#BodyPart_Tail"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "キツネ型",
+            "value_EN": "Fox-type"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "複数の大きな尾",
+            "value_EN": "multiple large tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "青、先端：淡い青色",
+            "value_EN": "blue with pale-blue tips"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "背後に扇状に広がる尾",
+            "value_EN": "tails spreading in a fan behind the body"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": "設定画の「憤怒時」。",
+        "Note_EN": "The wrath state labeled in the concept art."
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Arm"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "上着",
+            "value_EN": "jacket"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "身頃：ピンク、袖・胸中央：灰色、襟・裾の内側：白",
+            "value_EN": "body: pink; sleeves and center panel: gray; inner collar and hem: white"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Waist", "#BodyPart_Leg", "#BodyPart_Foot"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "ロングスカート、脚衣、靴",
+            "value_EN": "long skirt, legwear, and shoes"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "スカート左右の垂れ布",
+            "value_EN": "hanging panels on both sides of the skirt"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "スカート：水色、垂れ布：薄紫色、脚衣・靴：灰色、靴底：橙色",
+            "value_EN": "skirt: light blue; hanging panels: pale purple; legwear and shoes: gray; soles: orange"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ColorPalette": [
       {
         "Role": "#ColorRole_Primary",
         "Hex": "#FEF3D9",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Head", "#BodyPart_Hand"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -362,7 +716,7 @@
         "Hex": "#F0F3ED",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Hair"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -372,7 +726,7 @@
         "Hex": "#4378C3",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Ear", "#BodyPart_Tail", "#BodyPart_Eye"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -382,7 +736,7 @@
         "Hex": "#F7632D",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Eye", "#BodyPart_Foot"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -392,7 +746,7 @@
         "Hex": "#9A9893",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Arm", "#BodyPart_Leg", "#BodyPart_Foot"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -412,7 +766,7 @@
         "Hex": "#9BC1E6",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Leg", "#BodyPart_Ear", "#BodyPart_Hair", "#BodyPart_Tail"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -422,7 +776,17 @@
         "Hex": "#F9BBC0",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Chest"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#BD8AE6",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Waist", "#BodyPart_Leg"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -472,13 +836,198 @@
     "Favor_EN": "Fluffy, plush bedding; Bromiss Sakuraka",
     "Unlike_JP": "拠り所も無く束縛されること、九蓮国、桜花 仁・義(よしぎ)",
     "Unlike_EN": "Being bound with nowhere to turn, LotusNinea(ns), Righteousen Sakuraka",
+    "AppearanceDetail": [
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Hair"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "ショートヘア、外側に跳ねた毛先",
+            "value_EN": "short hair with outward-flicking ends"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "赤みのあるピンク色",
+            "value_EN": "reddish pink"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "顔の左側にかかる長い前髪",
+            "value_EN": "long bangs over the left side of the face"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Eye"],
+        "Laterality": "#Lat_Right",
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "橙色",
+            "value_EN": "orange"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Eye"],
+        "Laterality": "#Lat_Left",
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "赤紫色",
+            "value_EN": "reddish purple"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": "設定画の両眼詳細図に基づく。",
+        "Note_EN": "Based on the eye detail drawing in the concept art."
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Neck", "#BodyPart_Back"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "長いマント",
+            "value_EN": "long cape"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "暗い赤紫色",
+            "value_EN": "dark reddish purple"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "首元の横長の留め具",
+            "value_EN": "horizontal clasp at the neck"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Arm"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "半袖の上着",
+            "value_EN": "short-sleeved top"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "黒、ボタン：ピンク、袖口：薄い橙色",
+            "value_EN": "black; buttons: pink; sleeve cuffs: pale orange"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "左右に並ぶ胸のボタン、中央で交差するひも状の飾り",
+            "value_EN": "two rows of chest buttons and crossed cord-like decorations at the center"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Waist"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "短いボトムス",
+            "value_EN": "short bottoms"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "橙色",
+            "value_EN": "orange"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Leg", "#BodyPart_Foot"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "脚衣と編み上げブーツ",
+            "value_EN": "legwear and lace-up boots"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "脚衣：暗い赤紫色、ブーツ：黒、靴の一部・靴底の縁：ピンク",
+            "value_EN": "legwear: dark reddish purple; boots: black; boot panels and sole edging: pink"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Leg"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "着用クッション",
+            "value_EN": "wearable cushion"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "大きな球状、表面の縦の縫い目",
+            "value_EN": "large sphere with vertical seams on the surface"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "黒",
+            "value_EN": "black"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "首から下を覆う形",
+            "value_EN": "covering the body below the neck"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": "設定画右側の姿。原画の「着用クッション」の注記に従う。",
+        "Note_EN": "The view on the right of the concept art, labeled as a wearable cushion."
+      }
+    ],
     "ColorPalette": [
       {
         "Role": "#ColorRole_Primary",
         "Hex": "#423F3F",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Foot"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -488,7 +1037,7 @@
         "Hex": "#FFB2AC",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Arm"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -498,7 +1047,7 @@
         "Hex": "#DD7C9C",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Hair"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -508,7 +1057,7 @@
         "Hex": "#FFBFAB",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Head"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -518,7 +1067,7 @@
         "Hex": "#FF9F71",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Waist", "#BodyPart_Eye"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -528,7 +1077,7 @@
         "Hex": "#FFEEDE",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Head", "#BodyPart_Hand"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -538,7 +1087,7 @@
         "Hex": "#AD496B",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Back", "#BodyPart_Leg", "#BodyPart_Eye"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -548,7 +1097,7 @@
         "Hex": "#FF76A2",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Foot"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -585,13 +1134,166 @@
     "BustSize": "AA",
     "Age": 29,
     "BirthDay": { "Day": { "Month": 12, "DayOfMonth": 12 } },
+    "AppearanceDetail": [
+      {
+        "Formation": "beforeChange",
+        "BodyPart": ["#BodyPart_Hair"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "長髪、低いポニーテール",
+            "value_EN": "long hair in a low ponytail"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "淡い黄緑色",
+            "value_EN": "pale yellow green"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "首元に近い結び目",
+            "value_EN": "tie near the neck"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "beforeChange",
+        "BodyPart": ["#BodyPart_Eye"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "瞳：黄緑色系、眼鏡のフレーム：明るい緑色",
+            "value_EN": "eyes: yellow green; glasses frames: bright green"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "眼鏡",
+            "value_EN": "glasses"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "横長の角形フレーム",
+            "value_EN": "narrow rectangular frames"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "afterChanged",
+        "BodyPart": ["#BodyPart_Hair"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "ほどいた長髪",
+            "value_EN": "loose long hair"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "淡い黄緑色",
+            "value_EN": "pale yellow green"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "背中に広がる髪",
+            "value_EN": "hair spreading down the back"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "afterChanged",
+        "BodyPart": ["#BodyPart_Eye"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "橙色",
+            "value_EN": "orange"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "眼鏡を外した顔",
+            "value_EN": "face without glasses"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Shoulder", "#BodyPart_Chest", "#BodyPart_Arm"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "半袖ジャケットとインナー",
+            "value_EN": "short-sleeved jacket and inner top"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "大きな襟",
+            "value_EN": "large lapels"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "ジャケット：橙色、襟：白、インナー：黄緑色",
+            "value_EN": "jacket: orange; lapels: white; inner top: yellow green"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Waist", "#BodyPart_Leg", "#BodyPart_Foot"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "ショートパンツ、靴下、靴",
+            "value_EN": "shorts, socks, and shoes"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "膝下丈の靴下",
+            "value_EN": "knee-high socks"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "ショートパンツ・靴下：黄色、靴：緑色、靴底：白",
+            "value_EN": "shorts and socks: yellow; shoes: green; soles: white"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ColorPalette": [
       {
         "Role": "#ColorRole_Primary",
         "Hex": "#F8EC72",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Waist", "#BodyPart_Leg"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -601,7 +1303,7 @@
         "Hex": "#A6BC40",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Eye"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -611,7 +1313,7 @@
         "Hex": "#FFA634",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Arm", "#BodyPart_Waist"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -621,7 +1323,7 @@
         "Hex": "#FFEEDC",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Arm", "#BodyPart_Leg"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -631,7 +1333,7 @@
         "Hex": "#F7FFB9",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Hair"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -651,7 +1353,7 @@
         "Hex": "#79CA42",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Foot", "#BodyPart_Eye"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -661,7 +1363,7 @@
         "Hex": "#FF8726",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Shoulder", "#BodyPart_Chest"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -728,13 +1430,188 @@
     "Favor_EN": "Kind people, scenery never seen before",
     "Unlike_JP": "性行為,母親という概念",
     "Unlike_EN": "Sexual acts, the concept of motherhood",
+    "AppearanceDetail": [
+      {
+        "Formation": "beforeChange",
+        "BodyPart": ["#BodyPart_Hair"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "長髪、頬横の巻いた毛束",
+            "value_EN": "long hair with curled cheek-side locks"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "濃い緑色、毛先：明るい緑色",
+            "value_EN": "dark green with brighter-green tips"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "afterChanged",
+        "BodyPart": ["#BodyPart_Hair", "#BodyPart_Ear"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "長髪、頭の左右に横へ張り出す尖った部分",
+            "value_EN": "long hair and pointed parts projecting sideways from both sides of the head"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "淡い緑色、差し色：桃色",
+            "value_EN": "pale green with pink accents"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "beforeChange",
+        "BodyPart": ["#BodyPart_Tail"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "長く太い尾",
+            "value_EN": "long, thick tail"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "緑色、下側の帯：明るい緑色",
+            "value_EN": "green with a brighter-green band along the underside"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "afterChanged",
+        "BodyPart": ["#BodyPart_Tail"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "非常に太く、大きく曲がった尾",
+            "value_EN": "very thick, broadly curved tail"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "淡い緑色、帯：桃色・薄いクリーム色",
+            "value_EN": "pale green with pink and pale-cream bands"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "身体の後ろ",
+            "value_EN": "behind the body"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Neck", "#BodyPart_Chest", "#BodyPart_Waist"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "袖なしワンピース",
+            "value_EN": "sleeveless dress"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "立ち襟、胸の渦模様、裾の帯",
+            "value_EN": "stand collar, chest swirls, and hem bands"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "濃い茶色、胸の模様：桃色、裾の帯：灰褐色・白・桃色",
+            "value_EN": "dark brown; chest motifs: pink; hem bands: grayish brown, white, and pink"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "afterChanged",
+        "BodyPart": ["#BodyPart_Eye"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "桃色系の瞳",
+            "value_EN": "pink eyes"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "afterChanged",
+        "BodyPart": ["#BodyPart_Head"],
+        "Laterality": null,
+        "DesignElement": "#Element_Expression",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "開いた口から見える尖った歯",
+            "value_EN": "pointed teeth visible in the open mouth"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Foot"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "靴",
+            "value_EN": "shoes"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "丸いつま先",
+            "value_EN": "rounded toes"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "桃色",
+            "value_EN": "pink"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ColorPalette": [
       {
         "Role": "#ColorRole_Primary",
         "Hex": "#589D74",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Tail"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -744,7 +1621,7 @@
         "Hex": "#5A4938",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Neck", "#BodyPart_Chest", "#BodyPart_Waist"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -754,7 +1631,7 @@
         "Hex": "#AC9E7F",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Waist"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -764,7 +1641,7 @@
         "Hex": "#F1617D",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Foot"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -774,7 +1651,7 @@
         "Hex": "#6CBA4B",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Tail"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -784,7 +1661,7 @@
         "Hex": "#FFEEDC",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Arm", "#BodyPart_Leg"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -794,7 +1671,7 @@
         "Hex": "#FCBE9F",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Cheek"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -804,7 +1681,7 @@
         "Hex": "#E85764",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Tail", "#BodyPart_Waist"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -814,7 +1691,7 @@
         "Hex": "#DBF8E3",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Tail"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -896,13 +1773,161 @@
     "Favor_EN": "Her brother's safety",
     "Unlike_JP": "兄の死",
     "Unlike_EN": "Her brother's death",
+    "AppearanceDetail": [
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Hair"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "ショートヘア、頭頂の立った一房",
+            "value_EN": "short hair with one raised tuft at the crown"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "白に近い淡い灰色",
+            "value_EN": "nearly white pale gray"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "額に垂れる前髪",
+            "value_EN": "bangs falling over the forehead"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Ear"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Ear",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "三角形の獣耳",
+            "value_EN": "triangular animal ears"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "頭の左右から横に張り出す形",
+            "value_EN": "projecting sideways from both sides of the head"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Eye"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "瞳：黄・水色、目の下の線：水色",
+            "value_EN": "eyes: yellow and light blue; under-eye marks: light blue"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "目の下の小さな線",
+            "value_EN": "small marks beneath the eyes"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "胸元の深く開いた服",
+            "value_EN": "outfit with a deep neckline"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "青紫色、胸の模様：水色・黄色",
+            "value_EN": "blue purple; chest motif: light blue and yellow"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "胸の結晶状の模様",
+            "value_EN": "crystal-like chest motif"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Back", "#BodyPart_Waist"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "左右に広がる大きな扇状の部分、重なった帯状の部分",
+            "value_EN": "large spreading fan-shaped parts with overlapping ribbon-like parts"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "扇状の部分：白、縁取り：水色・桃色、帯状の部分：青",
+            "value_EN": "fan-shaped parts: white; edging: light blue and pink; ribbon-like parts: blue"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "身体の後ろ",
+            "value_EN": "behind the body"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist"],
+        "Laterality": null,
+        "DesignElement": "#Element_BodyType",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "身体全体がまとまった球状の姿",
+            "value_EN": "body gathered into a sphere"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "白、外側の線：水色・桃色、帯状の部分：青",
+            "value_EN": "white; outer lines: light blue and pink; ribbon-like parts: blue"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "球体の上に残る頭部",
+            "value_EN": "head remaining at the top of the sphere"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": "設定画の球状の姿。",
+        "Note_EN": "The spherical view in the concept art."
+      }
+    ],
     "ColorPalette": [
       {
         "Role": "#ColorRole_Primary",
         "Hex": "#F9F9F1",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Head", "#BodyPart_Leg"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -912,7 +1937,7 @@
         "Hex": "#E5EAE7",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Hair"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -922,7 +1947,7 @@
         "Hex": "#6A88C2",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Back"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -932,7 +1957,7 @@
         "Hex": "#B9F1F1",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Back"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -942,7 +1967,7 @@
         "Hex": "#FFCFED",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Back"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -952,7 +1977,7 @@
         "Hex": "#35ADE3",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Back"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -962,7 +1987,7 @@
         "Hex": "#4245A3",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Waist"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -972,7 +1997,7 @@
         "Hex": "#E85764",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Back"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -982,7 +2007,7 @@
         "Hex": "#45D6D1",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Chest"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -992,7 +2017,7 @@
         "Hex": "#F2EB7A",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Eye", "#BodyPart_Chest"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -1068,13 +2093,172 @@
     "Favor_EN": "The sight of people clashing, winners drowning in power, and losers crushed by despair",
     "Unlike_JP": { "hideText": "判定失敗" },
     "Unlike_EN": { "hideText": "Judgement Failed" },
+    "AppearanceDetail": [
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Hair"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "長髪、頬横の短い毛束",
+            "value_EN": "long hair with short cheek-side locks"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "淡い桃色",
+            "value_EN": "pale pink"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "前髪、背中へ伸びる後ろ髪",
+            "value_EN": "bangs and back hair extending down the back"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Eye"],
+        "Laterality": "#Lat_Left",
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "左目の周囲：黒い陰影",
+            "value_EN": "dark shading around the left eye"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": "設定画のジャケット非着用時。",
+        "Note_EN": "The jacketless view in the concept art."
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Head"],
+        "Laterality": null,
+        "DesignElement": "#Element_Expression",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "大きく開いた口",
+            "value_EN": "wide-open mouth"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": "設定画のジャケット非着用時。",
+        "Note_EN": "The jacketless view in the concept art."
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Shoulder", "#BodyPart_Chest", "#BodyPart_Arm"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "半袖ジャケット、ベスト、ネクタイ、長袖",
+            "value_EN": "short-sleeved jacket, vest, tie, and long sleeves"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "広がった長袖の袖口",
+            "value_EN": "flared long-sleeve cuffs"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "ジャケット：濃灰色、襟・長袖：白、ベスト・ネクタイ：桃色",
+            "value_EN": "jacket: dark gray; lapels and long sleeves: white; vest and tie: pink"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": "設定画のジャケット着用時。",
+        "Note_EN": "The view with the jacket in the concept art."
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Arm"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "ベストと長袖",
+            "value_EN": "vest and long sleeves"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "ベストの脇の縫い目状の線、裂けた袖先",
+            "value_EN": "stitch-like lines at the vest sides and torn sleeve ends"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "ベスト：桃色、長袖：白",
+            "value_EN": "vest: pink; long sleeves: white"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": "設定画のジャケット非着用時。",
+        "Note_EN": "The jacketless view in the concept art."
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Waist", "#BodyPart_Leg", "#BodyPart_Foot"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "スカート、長い靴下、ショートブーツ",
+            "value_EN": "skirt, long socks, and ankle boots"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "スカート・ブーツ：桃色、靴下：濃灰色、靴底：白",
+            "value_EN": "skirt and boots: pink; socks: dark gray; soles: white"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": "設定画のジャケット着用時。",
+        "Note_EN": "The view with the jacket in the concept art."
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Waist", "#BodyPart_Leg", "#BodyPart_Foot"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "スカート、靴下、ショートブーツ",
+            "value_EN": "skirt, socks, and ankle boots"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "裂けたスカートの裾と靴下の上端",
+            "value_EN": "torn skirt hem and sock tops"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "スカート・ブーツ：桃色、靴下：濃灰色",
+            "value_EN": "skirt and boots: pink; socks: dark gray"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": "設定画のジャケット非着用時。",
+        "Note_EN": "The jacketless view in the concept art."
+      }
+    ],
     "ColorPalette": [
       {
         "Role": "#ColorRole_Primary",
         "Hex": "#55575D",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Leg"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -1084,7 +2268,7 @@
         "Hex": "#FF8897",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Neck", "#BodyPart_Waist", "#BodyPart_Foot"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -1094,7 +2278,7 @@
         "Hex": "#E0B0BC",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Chest"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -1104,7 +2288,7 @@
         "Hex": "#B24953",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Eye"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -1124,7 +2308,7 @@
         "Hex": "#FD9D68",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Eye"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -1134,7 +2318,7 @@
         "Hex": "#F3D8DB",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Hair"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -1144,7 +2328,7 @@
         "Hex": "#FFEFE3",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Head"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
