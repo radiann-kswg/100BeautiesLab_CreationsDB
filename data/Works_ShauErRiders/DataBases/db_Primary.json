@@ -2350,8 +2350,8 @@
       {
         "Role": "#ColorRole_CommonOverride",
         "Hex": "#C77FAF",
-        "ColorName_JP": "制服のアクセント色（脚衣・靴・襟飾り）",
-        "ColorName_EN": "Uniform Accent (Legwear / Shoes / Collar Decoration)",
+        "ColorName_JP": "制服のアクセント色①（脚衣・靴・襟飾り）",
+        "ColorName_EN": "Uniform Accent 1 (Legwear / Shoes / Collar Decoration)",
         "AppliesTo": ["#BodyPart_Foot"],
         "Formation": null,
         "Note_JP": null,
