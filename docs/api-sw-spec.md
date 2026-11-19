@@ -463,8 +463,11 @@ UI と enrich/search は、可能な限りこの `db_type.json($DefType)` に追
 > 「その進捗段階なら AIHints を生成してよい」という**内部ツールの都合**を述べているだけで、
 > AI 学習の許諾を意味しません。権利面の判断は必ず `AI_Optout` と `guideline.md` を参照してください。
 
-適用状況（2026-08-19 時点）:
+適用状況（2026-11-19 時点）:
 
+- `Works_ShauErRiders`（獣爾騎兵）: `#DB_Primary` と `#Ref_*` 2 件は `AI_Optout: false`（2026-11-19）。
+- `Works_SinisterChangingGirls`（豹変系女子）: `#DB_Primary` / `#DB_PrimaryStabilities` / `#DB_SemiPrimary` / `#DB_Regioministrators` / `#Ref_Vocabulary` はすべて `false`（2026-11-19）。
+  - **opt-out の DB が opt-in の DB の画像を `_DBCrossLinkPath` で参照していると、その画像は opt-in 側の AIHints でも参照画像に使われません**（`collectOptoutImageKeys()` の OR 判定）。`#DB_Regioministrators` は当初 `true` で、X / Y が `#DB_Primary` の `NE` / `NW` の設定原画を参照していたため、この 2 件へ AIHints を付与できませんでした。同日 User 判断で `false` に変更して解消しています（`docs/ai-hints-usage.md` §9.12）。DB 単位の可否を切り替えるときは、その DB が他 DB の画像を参照していないかも確認してください。
 - `Works_NumberTales/DataBases/db_meta.json`: `#DB_Primary` / `#DB_SemiPrimary` / `#DB_SelfSecondary` は **DB レベルで** `AI_Optout: false`（いずれも User 自身の創作物のため権利上の opt-out は不要）。
 - `#DB_SelfSecondary` は **カテゴリ単位で混在**する。「散狐アタストさん協賛」（`sec_SeriesTitle: "D-Vines"`）のみ `AI_Optout: true`、他の 3 カテゴリ（「リクエストナンバー」/「量産型マスタートリプル」/ catch-all）は `false`。D-Vines は散狐アタストさんの提案による協賛シリーズであり User 単独作ではないため、権利軸の opt-out を宣言している。
 - `#DB_Secondary`（公認二次創作）は `_Secondaries` の全カテゴリが `AI_Optout: true`（第三者デザインを含むため）。ネストされた `#DB_Secondary.#DB_UnprocessedSecondary`（`DB_Hidden: true` の空き枠 DB）も **DB レベルで** `AI_Optout: true`。

@@ -46,6 +46,17 @@
 | `forms.*.prompt_export` | string | 生成 AI へ渡すプロンプト文字列（展開済み） |
 | `forms.*.negative_prompt_export` | string | ネガティブプロンプト文字列 |
 
+> **形態キーと索引キーは作品ごとに違います**（2026-11-19）。
+>
+> | 作品 | `forms` のキー | `idx_key`（`idx_value` の例） |
+> |------|----------------|-------------------------------|
+> | ナンバーテールズ | `corefolder` / `humanoid` | `Num`（`57`） |
+> | 獣爾騎兵 | `normal` / `beasted` | `BeastType.Beast`（`Mouse`） |
+> | 豹変系女子 | `beforeChange` / `afterChanged` | `Drc`（`E`） |
+>
+> 形態キーの正は各作品の `db_type.json` の `$VersDef.$Def_AIHintsForms`、索引キーの正は `$IndexDef` です
+> （`docs/ai-hints-usage.md` §2.1 / §9.12）。`aihints.forms` カラムと `?form=<form>` はこのキーをそのまま使います。
+
 ---
 
 ## 2. D1 aihints テーブル

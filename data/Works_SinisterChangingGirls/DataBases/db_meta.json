@@ -65,7 +65,7 @@
           }
         ]
       },
-      "AI_Optout": true
+      "AI_Optout": false
     }
   },
   "General": {

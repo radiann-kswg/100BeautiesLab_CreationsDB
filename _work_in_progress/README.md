@@ -36,6 +36,7 @@
 
 | ログ                                                                                                                               | 主題                                                           | 状態                              |
 | ---------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- | --------------------------------- |
+| [2026-11-19_progress_aihints-shauer-sinister.md](./2026-11-19_progress_aihints-shauer-sinister.md) | AIHints を獣爾騎兵・豹変系女子へ拡張（作品別の形態キー / 索引キー、17 件へ付与） | 🟢 現行（下流 2 リポジトリの形態キー対応と、創作判断が要る枠の入力が残る） |
 | [2026-09-06_progress_aihints-seed-semiprimary-selfsecondary.md](./2026-09-06_progress_aihints-seed-semiprimary-selfsecondary.md) | AIHints seed 本体（SemiPrimary 11 件 / SelfSecondary 7 件）。下流 CreationsAI Issue #1 依頼1 | 🟢 現行（視覚 TODO の補完が残る） |
 | [2026-08-19_progress_aihints-optout-dvines.md](./2026-08-19_progress_aihints-optout-dvines.md)                     | `D-Vines` / 未整理枠への `AI_Optout` 宣言 ＋ opt-out テスト回路の整備 | 🟢 現行（`migrate-aihints` のカテゴリ単位対応が残る） |
 | [2026-08-08_progress_aihints-refactor.md](./2026-08-08_progress_aihints-refactor.md)                                               | `develop` 取り込みマージ ＋ AIHints 固有コードの同種リファクタ | 🟢 現行（実地実行の確認が残る）   |

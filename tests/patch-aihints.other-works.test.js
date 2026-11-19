@@ -23,6 +23,7 @@ import {
     buildSeedAihints,
     loadAiFormKeys,
     loadAiUnreadyProgressValues,
+    patchFileText,
     resolveLinkFills,
     resolveRecordKeyPath,
     resyncStructuralAihints,
@@ -141,6 +142,15 @@ describe('buildSeedAihints — 構造ソースから直接組み立てる', () =
         expect(aihints.forms.normal.reference_images).toBeNull();
     });
 
+    it('参照画像を持たない既存形態は残さない（固有エントリを消した形態が複製として残らない）', () => {
+        const rec = {
+            AppearanceDetail: [entry(null, '#Element_Motif', 'white hair')],
+            AIHints: { forms: { afterChanged: { ai_tags: ['afterChanged form', 'fox ears'], reference_images: null } } },
+        };
+        const { aihints } = buildSeedAihints(rec, null, {}, FORMS);
+        expect(Object.keys(aihints.forms)).toEqual(['beforeChange']);
+    });
+
     it('翼（#Element_Wing）は体の部位として扱い、衣装側へ落とさない', () => {
         const rec = { AppearanceDetail: [entry(null, '#Element_Wing', 'large membranous wings')] };
         const { aihints, warnings } = buildSeedAihints(rec, null, {}, ['normal']);
@@ -243,6 +253,26 @@ describe.each(SEEDED)('実データ: %s / %s の AIHints', (work, db) => {
 
     it('AIHints を持つレコードがある（seed 済み）', () => {
         expect(withHints.length).toBeGreaterThan(0);
+    });
+
+    it('メインループが全レコードを索引キーで拾う（「対象なし」で素通りしない）', async () => {
+        // 2026-11-19 まで record.Num 決め打ちで、この 2 作品は 0 件のまま正常終了していた。
+        // 状態（resync-unchanged / resync-applied）は外見データの編集で変わるため固定しない。
+        const text = fs.readFileSync(path.join(repoRoot, `data/Works_${work}/DataBases/db_${db}.json`), 'utf-8');
+        const { results } = patchFileText(text, {
+            work, db, records: null, resyncStructural: true,
+            keyPath: resolveRecordKeyPath(work, db),
+            linkFills: await resolveLinkFills(records, work, db),
+        });
+        expect(results.length).toBe(records.length);
+    });
+
+    it('設定原画が無く年賀絵を持つレコードは、年賀絵の先頭を代表参照にする', () => {
+        for (const rec of withHints) {
+            const first = rec.Images?.newYear_PNGPath?.[0];
+            if (rec.Images?.concept_PNGName || !first) continue;
+            expect(rec.AIHints.common.reference_images?.main, label(rec)).toMatch(new RegExp(`/newYear/${first}\\.png$`));
+        }
     });
 
     it('キー構成が作品の $VersDef 型定義どおり（_meta を除く）', () => {

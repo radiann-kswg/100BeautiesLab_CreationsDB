@@ -1,5 +1,29 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### feat: AIHints を獣爾騎兵・豹変系女子へ拡張（形態キー・索引キーを作品別 typedef から解決） (2026-11-19)
+
+> `addon-ai-tag` ブランチ限定。詳細は `_work_in_progress/2026-11-19_progress_aihints-shauer-sinister.md` / `docs/ai-hints-usage.md` §2.1・§9.12。
+
+- **背景**: 2 作品の `AI_Optout: false` 化（User）を受けた対応。`tools/patch-aihints.mjs` は `record.Num` と `corefolder` / `humanoid` 決め打ちで、両作品を「対象なし」のまま正常終了していた。`$Def_AIHints` 一式も NumberTales の `$VersDef` にしか無かった。
+- **型定義（DB 構造）**: `Works_ShauErRiders` / `Works_SinisterChangingGirls` の `DataBases/db_type.json` に `$VersDef`（`$Def_AIHints` ほか計 7 定義）を追加。形態キーは User 指定で、獣爾騎兵が `normal`（通常時 / In normal form）・`beasted`（獣化時 / In beast form）、豹変系女子が `beforeChange`（豹変前）・`afterChanged`（豹変後）。豹変系女子は `AppearanceDetail.Formation` と同じ値での統一運用とし、表示名は `dict_Formation.json` から転記した。NumberTales 固有の `work_common` / `alt_modes` は未使用枠（`#Null`）として宣言。
+- **ツール（`tools/patch-aihints.mjs`）**:
+  - 索引キーを `$IndexDef` から解決（D1 投入と同じ `resolveIdxKey()`）。`--records Mouse` / `--records NE` のように指定できる。
+  - 形態キーを `$Def_AIHintsForms` から解決。`corefolder` を宣言しない作品は TODO 雛形を使わず、`buildSeedAihints()` が `AppearanceDetail` / `ColorPalette` / 参照画像から直接組み立てる（provenance も同時に記録）。型定義の無い作品は `skipped-no-typedef` で止まり、NumberTales の雛形は流れない。
+  - `resolveLinkFills()`: `$enrich: true` の `*_DBLink`（同一存在）から空の構造ソース（`AppearanceDetail` / `ColorPalette` / `GenderType` / `Height_cm`）を補う。解決規則は `tools/build-roleplay-prompts.mjs` の `enrichRecordFromLinks()` を再利用。**参照先が AI 不可（`AI_Optout`・非公開・Hidden・メタ未登録）なら持ち込まず、2 番目以降の参照へも進まない。**
+  - `isPrivate: true` のレコードは `skipped-private`（D1 投入が `isPrivate` を見ないため入口で止める）。
+  - 設定原画が無いレコードは年賀絵原画（`Images.newYear_PNGPath`）の先頭を代表参照にする（User 判断）。
+  - `Num` を持たない作品の番号印字は `marking: …` と出力（索引値を番号扱いしない）。
+  - `#Element_Wing` を「体の部位」へ分類（従来は未登録で衣装側へ落ちていた）。
+- **データ**: 17 件へ AIHints を付与（獣爾騎兵 Primary 6 / 豹変系女子 Primary 8・PrimaryStabilities 3）。豹変系女子 `N` は `AnotherRegions_DBLink` 経由でナンバーテールズ `0` の `AppearanceDetail` を継承して生成。巳刻カミツは User 判断で `forms.beasted`（束縛形態。参照画像だけを手で据えた形態）も付与。整形のため対象 3 DB へ prettier を適用（既存の長い配列 7 か所の折り返しを含む）。
+- **`#DB_Regioministrators` を `AI_Optout: false` へ（User 判断）**: 豹変系女子 `NE` / `NW` の設定原画を、当初 `AI_Optout: true` だった同 DB の X / Y が `_DBCrossLinkPath` で参照しており、既存の権利ガード（`collectOptoutImageKeys()`）が参照画像から外すため 2 件は `skipped-no-image` だった。User 判断で同 DB を `false` に変更し、2 件へ付与した。『管理主』4 件自身は自前の画像と `AppearanceDetail` を持たないため未付与のまま（`skipped-no-image`）。**この変更で同 DB の 4 件は AI 利用可の表明になる**（CreationsAI の `ai_training` 判定にも波及）。
+- **NumberTales への影響**: `#Element_Wing` の分類変更に合わせ、翼を持つ SemiPrimary `666` / SelfSecondary `666-mp`（リリス）の AIHints を User 判断で新分類へ揃えた（`--apply-appearancedetail` → `--fill-todos` → provenance の更新）。変わったのは 2 件の `common.silhouette_features`（翼を追加）/ `forms.*.outfit_features`（翼を削除）/ `forms.*.silhouette_notes.body_description`（翼を追加）/ corefolder の `natural_language_description` と `_meta` のみで、他のレコード・他のフィールドは不変。それ以外の既存 AIHints は 1 バイトも変わっていない（`--resync-structural` は 3 DB とも no-op）。`*_DBLink` 穴埋めは全作品・全モードで効くが、NumberTales で該当するのは AIHints 未付与の 10 件（`GenderType`）のみ。
+- **下流への申し送り**:
+  - GeneratorsAI / ShapeChangerAI は `forms` を `humanoid` / `corefolder` 固定で読むため、新しい形態キーは下流が対応するまで無視される（`common` と `AppearanceDetail` は使われる）。
+  - GeneratorsAI の `tests/test_other_works.py` は「AIHints を持たない作品」を前提にしており、反映後に落ちる見込み。
+  - CreationsAI のデータセット再生成とサブモジュール更新が必要。D1 の `aihints` には `idx_key` が `BeastType.Beast` / `Drc` の行が増える。
+  - `tools/patch-aihints.mjs` は下流の除外対象のまま。新規テスト `tests/patch-aihints.other-works.test.js` も**対で除外**が必要。
+- **検証**: `npm test` 91 ファイル / 1731 件、`data:order:check` 0/1465、`agents:check` 一致、`--resync-structural` は AIHints を持つ 6 DB とも no-op（`#DB_Regioministrators` は AIHints 0 件）、`--force` の全件再生成でバイト一致。下流 2 リポジトリでの実行確認と D1 / Worker への反映は未実施。
+
 ### feat: テキストRP推論許諾を従来の学習ゲートから分離 (2026-10-30)
 
 - **変更**: `data/db_type.json` に任意の `AI_TextRP_Allowed`（`#Boolean|#Null`）を宣言。既存 `_Commons` のレコード > 一致カテゴリ > DB の順で補完し、`true` のみ許可とする。`$enrich: false` により参照先キャラの許可を持ち込まない。

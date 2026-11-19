@@ -561,7 +561,109 @@
       }
     ],
     "Summary_JP": "「ミハイル」という国際情報広報機関を名乗っている旅人。\n真面目で気さくな好き若人と周囲から親しまれている反面 長時間ほど目的を果たせずにいると「暴食」に奔る癖があることから彼女のことを知る飲食店に恐れられている。\n胃にあるものは瞬時に身体の脂肪や肉質に変換されてしまうため、丸々と膨体した姿で現れることも。",
-    "Summary_EN": "A wanderer calling herself 'Mikhail', an international information and communications agency.\nWhile known by those around her as earnest and easygoing, she is also feared by restaurants who know her for her habit of giving into 'Gluttony' when unable to accomplish her goals for long stretches of time.\nAnything in her stomach is instantly converted into body fat and mass, so she can also appear in an all-round, inflated form."
+    "Summary_EN": "A wanderer calling herself 'Mikhail', an international information and communications agency.\nWhile known by those around her as earnest and easygoing, she is also feared by restaurants who know her for her habit of giving into 'Gluttony' when unable to accomplish her goals for long stretches of time.\nAnything in her stomach is instantly converted into body fat and mass, so she can also appear in an all-round, inflated form.",
+    "AIHints": {
+      "common": {
+        "identity_tags": [
+          "short hair with longer bangs, yellow orange, bangs falling beside both sides of the face",
+          "grayish brown",
+          "animal-ear-shaped hood and cape, light blue; lining: white, long, spreading sides of the cape hem",
+          "buttoned jacket, muted teal; collar: brown; cuffs and inner neckline: white",
+          "skirt, tights, and lace-up shoes, knee-length skirt, skirt: grayish brown; tights: dark blue; shoes: dark brown",
+          "Fox-type, thick tail with a jagged color boundary at the tip, light blue with a white tip",
+          "very large, round, enlarged body, jacket and skirt spreading over the enlarged body"
+        ],
+        "silhouette_features": [
+          "short hair with longer bangs, yellow orange, bangs falling beside both sides of the face",
+          "grayish brown",
+          "Fox-type, thick tail with a jagged color boundary at the tip, light blue with a white tip",
+          "very large, round, enlarged body, jacket and skirt spreading over the enlarged body"
+        ],
+        "immutable_traits": null,
+        "expression_tendency": null,
+        "age_appearance": null,
+        "palette_priority": {
+          "primary": "#AC9E7F",
+          "secondary": "#594A39",
+          "accent": "#7EAEAB"
+        },
+        "natural_language_description": null,
+        "reference_images": {
+          "main": "https://database.numbertales-radiann.net/data/Works_SinisterChangingGirls/Images/DB_Primary/concept/cnsp_imgSCG-NE.png",
+          "concept": "https://database.numbertales-radiann.net/data/Works_SinisterChangingGirls/Images/DB_Primary/concept/cnsp_imgSCG-NE.png"
+        }
+      },
+      "work_common": null,
+      "forms": {
+        "beforeChange": {
+          "form_tags": ["beforeChange form"],
+          "outfit_features": [
+            "animal-ear-shaped hood and cape, light blue; lining: white, long, spreading sides of the cape hem",
+            "buttoned jacket, muted teal; collar: brown; cuffs and inner neckline: white",
+            "skirt, tights, and lace-up shoes, knee-length skirt, skirt: grayish brown; tights: dark blue; shoes: dark brown"
+          ],
+          "silhouette_notes": {
+            "body_description": [
+              "short hair with longer bangs, yellow orange, bangs falling beside both sides of the face",
+              "grayish brown",
+              "Fox-type, thick tail with a jagged color boundary at the tip, light blue with a white tip",
+              "very large, round, enlarged body, jacket and skirt spreading over the enlarged body"
+            ],
+            "attached_items": []
+          },
+          "immutable_constraints": null,
+          "negative_keywords": null,
+          "ai_tags": [
+            "beforeChange form",
+            "short hair with longer bangs, yellow orange, bangs falling beside both sides of the face",
+            "grayish brown",
+            "animal-ear-shaped hood and cape, light blue; lining: white, long, spreading sides of the cape hem",
+            "buttoned jacket, muted teal; collar: brown; cuffs and inner neckline: white",
+            "skirt, tights, and lace-up shoes, knee-length skirt, skirt: grayish brown; tights: dark blue; shoes: dark brown",
+            "Fox-type, thick tail with a jagged color boundary at the tip, light blue with a white tip",
+            "very large, round, enlarged body, jacket and skirt spreading over the enlarged body"
+          ],
+          "negative_visuals": [],
+          "natural_language_description": null,
+          "prompt_export": "beforeChange form, short hair with longer bangs, yellow orange, bangs falling beside both sides of the face, grayish brown, animal-ear-shaped hood and cape, light blue; lining: white, long, spreading sides of the cape hem, buttoned jacket, muted teal; collar: brown; cuffs and inner neckline: white, skirt, tights, and lace-up shoes, knee-length skirt, skirt: grayish brown; tights: dark blue; shoes: dark brown, Fox-type, thick tail with a jagged color boundary at the tip, light blue with a white tip, very large, round, enlarged body, jacket and skirt spreading over the enlarged body",
+          "negative_prompt_export": "",
+          "reference_images": null
+        }
+      },
+      "alt_modes": null,
+      "_meta": {
+        "structuralSourceHash": "sha256:cf64f1c713d869fc01400ea4cfe320ee3fd2651cb2e35efc59af3f7655a1d4a4",
+        "structuralEntries": {
+          "common.identity_tags": [
+            "short hair with longer bangs, yellow orange, bangs falling beside both sides of the face",
+            "grayish brown",
+            "animal-ear-shaped hood and cape, light blue; lining: white, long, spreading sides of the cape hem",
+            "buttoned jacket, muted teal; collar: brown; cuffs and inner neckline: white",
+            "skirt, tights, and lace-up shoes, knee-length skirt, skirt: grayish brown; tights: dark blue; shoes: dark brown",
+            "Fox-type, thick tail with a jagged color boundary at the tip, light blue with a white tip",
+            "very large, round, enlarged body, jacket and skirt spreading over the enlarged body"
+          ],
+          "common.silhouette_features": [
+            "short hair with longer bangs, yellow orange, bangs falling beside both sides of the face",
+            "grayish brown",
+            "Fox-type, thick tail with a jagged color boundary at the tip, light blue with a white tip",
+            "very large, round, enlarged body, jacket and skirt spreading over the enlarged body"
+          ],
+          "forms.beforeChange.form_tags": ["beforeChange form"],
+          "forms.beforeChange.ai_tags": [
+            "beforeChange form",
+            "short hair with longer bangs, yellow orange, bangs falling beside both sides of the face",
+            "grayish brown",
+            "animal-ear-shaped hood and cape, light blue; lining: white, long, spreading sides of the cape hem",
+            "buttoned jacket, muted teal; collar: brown; cuffs and inner neckline: white",
+            "skirt, tights, and lace-up shoes, knee-length skirt, skirt: grayish brown; tights: dark blue; shoes: dark brown",
+            "Fox-type, thick tail with a jagged color boundary at the tip, light blue with a white tip",
+            "very large, round, enlarged body, jacket and skirt spreading over the enlarged body"
+          ]
+        },
+        "lastStructuralResync": "2026-11-19"
+      }
+    }
   },
   {
     "Drc": "E",
@@ -3022,6 +3124,106 @@
       }
     ],
     "Summary_JP": "もともと「財前 こさと」として若手超大物政治ジャーナリストをしていた謎の若人。\n十数年前に突如 電撃引退を宣言し各メディアから姿を消していたが、ある時この名で目撃されたという情報が相次いでおり真相を迫られている。\n好奇心旺盛で遊戯意識が強く 周りの出来事はすべて\"エンタメ\"として楽しんでいるが、時にその遊び心が「傲慢」さに変わり 夜月機関や運命線探偵、獣爾騎兵などへ強大な敵として牙を向くことも……",
-    "Summary_EN": "A mysterious young person who was originally a rising young mega-celebrity political journalist under the name 'Foster Empressor'.\nThey suddenly announced a stunning retirement more than a decade ago and vanished from all media, but reports of sightings under this name have been coming one after another, and the truth is being pressed.\nHighly curious with a strong sense of play, they enjoy everything around them as 'entertainment', but sometimes that playfulness turns to 'Pride/Arrogance', and they bare their fangs as a powerful enemy against organizations like the Yadzuki, the FateLine Investigators, and the Shau'er Riders..."
+    "Summary_EN": "A mysterious young person who was originally a rising young mega-celebrity political journalist under the name 'Foster Empressor'.\nThey suddenly announced a stunning retirement more than a decade ago and vanished from all media, but reports of sightings under this name have been coming one after another, and the truth is being pressed.\nHighly curious with a strong sense of play, they enjoy everything around them as 'entertainment', but sometimes that playfulness turns to 'Pride/Arrogance', and they bare their fangs as a powerful enemy against organizations like the Yadzuki, the FateLine Investigators, and the Shau'er Riders...",
+    "AIHints": {
+      "common": {
+        "identity_tags": [
+          "long hair with short cheek-side locks, pale pink, bangs and back hair extending down the back",
+          "dark shading around the left eye",
+          "short-sleeved jacket, vest, tie, and long sleeves, flared long-sleeve cuffs, jacket: dark gray; lapels and long sleeves: white; vest and tie: pink",
+          "vest and long sleeves, stitch-like lines at the vest sides and torn sleeve ends, vest: pink; long sleeves: white",
+          "skirt, long socks, and ankle boots, skirt and boots: pink; socks: dark gray; soles: white",
+          "skirt, socks, and ankle boots, torn skirt hem and sock tops, skirt and boots: pink; socks: dark gray"
+        ],
+        "silhouette_features": [
+          "average stature (about 155cm)",
+          "long hair with short cheek-side locks, pale pink, bangs and back hair extending down the back",
+          "dark shading around the left eye"
+        ],
+        "immutable_traits": null,
+        "expression_tendency": ["wide-open mouth"],
+        "age_appearance": null,
+        "palette_priority": {
+          "primary": "#55575D",
+          "secondary": "#FF8897",
+          "accent": "#E0B0BC"
+        },
+        "natural_language_description": null,
+        "reference_images": {
+          "main": "https://database.numbertales-radiann.net/data/Works_SinisterChangingGirls/Images/DB_Primary/concept/cnsp_imgSCG-NW.png",
+          "concept": "https://database.numbertales-radiann.net/data/Works_SinisterChangingGirls/Images/DB_Primary/concept/cnsp_imgSCG-NW.png"
+        }
+      },
+      "work_common": null,
+      "forms": {
+        "beforeChange": {
+          "form_tags": ["beforeChange form"],
+          "outfit_features": [
+            "short-sleeved jacket, vest, tie, and long sleeves, flared long-sleeve cuffs, jacket: dark gray; lapels and long sleeves: white; vest and tie: pink",
+            "vest and long sleeves, stitch-like lines at the vest sides and torn sleeve ends, vest: pink; long sleeves: white",
+            "skirt, long socks, and ankle boots, skirt and boots: pink; socks: dark gray; soles: white",
+            "skirt, socks, and ankle boots, torn skirt hem and sock tops, skirt and boots: pink; socks: dark gray"
+          ],
+          "silhouette_notes": {
+            "body_description": [
+              "long hair with short cheek-side locks, pale pink, bangs and back hair extending down the back",
+              "dark shading around the left eye"
+            ],
+            "attached_items": []
+          },
+          "immutable_constraints": null,
+          "negative_keywords": null,
+          "ai_tags": [
+            "beforeChange form",
+            "average stature (about 155cm)",
+            "long hair with short cheek-side locks, pale pink, bangs and back hair extending down the back",
+            "dark shading around the left eye",
+            "wide-open mouth",
+            "short-sleeved jacket, vest, tie, and long sleeves, flared long-sleeve cuffs, jacket: dark gray; lapels and long sleeves: white; vest and tie: pink",
+            "vest and long sleeves, stitch-like lines at the vest sides and torn sleeve ends, vest: pink; long sleeves: white",
+            "skirt, long socks, and ankle boots, skirt and boots: pink; socks: dark gray; soles: white",
+            "skirt, socks, and ankle boots, torn skirt hem and sock tops, skirt and boots: pink; socks: dark gray"
+          ],
+          "negative_visuals": [],
+          "natural_language_description": null,
+          "prompt_export": "beforeChange form, average stature (about 155cm), long hair with short cheek-side locks, pale pink, bangs and back hair extending down the back, dark shading around the left eye, wide-open mouth, short-sleeved jacket, vest, tie, and long sleeves, flared long-sleeve cuffs, jacket: dark gray; lapels and long sleeves: white; vest and tie: pink, vest and long sleeves, stitch-like lines at the vest sides and torn sleeve ends, vest: pink; long sleeves: white, skirt, long socks, and ankle boots, skirt and boots: pink; socks: dark gray; soles: white, skirt, socks, and ankle boots, torn skirt hem and sock tops, skirt and boots: pink; socks: dark gray",
+          "negative_prompt_export": "",
+          "reference_images": null
+        }
+      },
+      "alt_modes": null,
+      "_meta": {
+        "structuralSourceHash": "sha256:b01ab898ced1b53e15e1994a17c43089e9bdc7a8af7750647b36110d17366904",
+        "structuralEntries": {
+          "common.identity_tags": [
+            "long hair with short cheek-side locks, pale pink, bangs and back hair extending down the back",
+            "dark shading around the left eye",
+            "short-sleeved jacket, vest, tie, and long sleeves, flared long-sleeve cuffs, jacket: dark gray; lapels and long sleeves: white; vest and tie: pink",
+            "vest and long sleeves, stitch-like lines at the vest sides and torn sleeve ends, vest: pink; long sleeves: white",
+            "skirt, long socks, and ankle boots, skirt and boots: pink; socks: dark gray; soles: white",
+            "skirt, socks, and ankle boots, torn skirt hem and sock tops, skirt and boots: pink; socks: dark gray"
+          ],
+          "common.silhouette_features": [
+            "average stature (about 155cm)",
+            "long hair with short cheek-side locks, pale pink, bangs and back hair extending down the back",
+            "dark shading around the left eye"
+          ],
+          "common.expression_tendency": ["wide-open mouth"],
+          "forms.beforeChange.form_tags": ["beforeChange form"],
+          "forms.beforeChange.ai_tags": [
+            "beforeChange form",
+            "average stature (about 155cm)",
+            "long hair with short cheek-side locks, pale pink, bangs and back hair extending down the back",
+            "dark shading around the left eye",
+            "wide-open mouth",
+            "short-sleeved jacket, vest, tie, and long sleeves, flared long-sleeve cuffs, jacket: dark gray; lapels and long sleeves: white; vest and tie: pink",
+            "vest and long sleeves, stitch-like lines at the vest sides and torn sleeve ends, vest: pink; long sleeves: white",
+            "skirt, long socks, and ankle boots, skirt and boots: pink; socks: dark gray; soles: white",
+            "skirt, socks, and ankle boots, torn skirt hem and sock tops, skirt and boots: pink; socks: dark gray"
+          ]
+        },
+        "lastStructuralResync": "2026-11-19"
+      }
+    }
   }
 ]

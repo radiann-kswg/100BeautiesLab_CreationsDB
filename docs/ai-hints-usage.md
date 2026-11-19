@@ -28,6 +28,22 @@ GitHub 上に AI タグを置いただけでは、現在の生成 AI（ChatGPT �
 - `forms.<form>` は **その形態固有の衣装・装備・形態識別タグ・参照画像・即貼付プロンプト**を保持します。
 - 画像の存在しない形態 (例: ヒューマノイド姿のイラスト未制作) は、対応する `forms.<form>` を **省略可** とします。`forms.<form>.reference_images` のみを省略しても構いません。
 
+### 2.1 形態キーは作品ごとに違う
+
+`forms` のキーは作品別に決まり、**`data/Works_<作品>/DataBases/db_type.json` の `$VersDef.$Def_AIHintsForms` が正**です。
+`tools/patch-aihints.mjs` もここから読みます（ツール側に作品名の分岐は持ちません）。宣言順の先頭が**既定形態**です。
+
+| 作品                               | 形態キー（先頭が既定形態）                           | `AppearanceDetail.Formation` との関係                                    |
+| ---------------------------------- | ---------------------------------------------------- | ------------------------------------------------------------------------ |
+| ナンバーテールズ                   | `corefolder` / `humanoid`                            | 同じ値をそのまま使う                                                     |
+| 獣爾騎兵（`ShauErRiders`）         | `normal`（通常時）/ `beasted`（獣化時）              | 同じ値を使う。現状のエントリは全て `null`（全形態共通）で、辞書は未整備  |
+| 豹変系女子（`SinisterChangingGirls`） | `beforeChange`（豹変前）/ `afterChanged`（豹変後） | 同じ値をそのまま使う。`changing`（豹変中）は未宣言のため AIHints に置かない |
+
+- `Formation: null` のエントリは**全形態共通**として、各形態と `common` の両方へ入ります。
+- 形態キーを増やすときは、**先に型定義へ宣言**してください。未宣言のキーが `forms` に現れると
+  `tests/patch-aihints.other-works.test.js` が落ちます（型定義とデータのずれを止めるための規則）。
+- corefolder を宣言しない作品の生成手順は §9.12 を参照してください。
+
 ---
 
 ## 3. `common` 層のフィールド
@@ -66,6 +82,7 @@ GitHub 上に AI タグを置いただけでは、現在の生成 AI（ChatGPT �
 
 - `forms.corefolder.form_tags` の先頭: `"corefolder form"` (必須)
 - `forms.humanoid.form_tags` の先頭: `"humanoid form"` (必須)
+- 他作品も同じ規約で `"<形態キー> form"`（例: `"normal form"` / `"beforeChange form"`）を先頭に置く
 - 補助タグ例: `"with safety device harness"`, `"casual private outfit"`, `"on-duty outfit"` 等
 
 ### 4.2 `ai_tags` の合成順 (前半が強く効くため統一)
@@ -187,6 +204,14 @@ https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primar
 | ある形態の画像のみ存在 (例: corefolder 画像のみ)              | 存在する形態の `forms.<form>` のみを付与し、もう一方は省略                                                                                                                                                              |
 | `AI_Optout: true` が設定（DB または `_Secondaries` カテゴリ） | **付与不可**。DB レベルは `tools/patch-aihints.mjs` の全モードが exit 2 で拒否、カテゴリ単位は該当レコードを `skipped-ai-optout`（緊急時のみ `--force-ai-optout` でバイパス）。詳細は `docs/api-sw-spec.md` §5.5 を参照 |
 
+上表に加えて、次の 3 つも付与を止めます（2026-11-19 追加）。
+
+| 状態                                                                  | 挙動                                                                                                                                                                                             |
+| --------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `isPrivate: true` のレコード                                          | `skipped-private`。D1 投入（`migrate-aihints.mjs`）は `isPrivate` を見ないため、付与の入口で止める                                                                                              |
+| corefolder を宣言しない作品で `AppearanceDetail` が無い               | `skipped-no-source`。`$enrich: true` の `*_DBLink` から補えた場合は生成する（§9.12）                                                                                                             |
+| 手持ちの画像が `AI_Optout` のレコードからも参照されている             | その画像は参照画像に使わない（`collectOptoutImageKeys()`）。他に画像が無ければ `skipped-no-image`。例: 豹変系女子 `NE` / `NW` は、設定原画を `_DBCrossLinkPath` で参照する `#DB_Regioministrators` が opt-out だった間は付与できなかった（2026-11-19 に User 判断で同 DB を `AI_Optout: false` として解消） |
+
 ### 「付与不可」と「付与不要」は別軸（重要）
 
 上表の 2 つの否定は意味が異なり、実装も分かれている。
@@ -252,7 +277,9 @@ https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primar
 >
 > `SelfSecondary` の `skipped-ai-optout=2`（Num `266` / `314`）は、2026-08-19 に「散狐アタストさん協賛」（`sec_SeriesTitle: "D-Vines"`）カテゴリへ `AI_Optout: true` を宣言したことによる。散狐アタストさんの提案による協賛シリーズで User 単独作ではないため、権利軸の opt-out を立てている。**seed するときはこの 2 件を除いて進めること**（`--force-ai-optout` で通してはいけない）。
 >
-> **`Secondary` / `Proxy` 等、および他作品**（`Works_FLInvestigator78` / `Works_ShouArRiders` / `Works_SinisterChangingGirls` / `Works_UnauthedLogica` / `Works_PastDivers` / `Works_DestinyFoxRecords`）へ適用する際は、画像ディレクトリ構造・`Images.*_PNGPath` 規則・作品別 schema（`db_type.json($VersDef)`）の差異を個別に検証の上、`--work` / `--db` の両オプションと画像パス解決ロジックを随時調整してください。なお `#DB_Secondary` は `_Secondaries` の全カテゴリが `AI_Optout: true`（第三者デザインを含むため）であり、対象外です（ネストされた `#DB_UnprocessedSecondary` も `DB_Hidden: true` / `AI_Optout: true`）。
+> **獣爾騎兵（`Works_ShauErRiders`）/ 豹変系女子（`Works_SinisterChangingGirls`）**（2026-11-19）: `AI_Optout: false` 化に合わせて対応済みです。本セクションの TODO 雛形・視覚解析フローは使わず、§9.12 の経路で生成します。
+>
+> **`Secondary` / `Proxy` 等、およびその他の作品**（`Works_FLInvestigator78` / `Works_UnauthedLogica` / `Works_PastDivers` / `Works_DestinyFoxRecords` ほか）へ適用する際は、まず作品別 schema（`db_type.json($VersDef)`）へ `$Def_AIHints` 一式を宣言してください（未宣言の作品は `skipped-no-typedef` で止まり、NumberTales の雛形は流れません）。そのうえで画像ディレクトリ構造・`Images.*_PNGPath` 規則の差異を個別に検証してください。なお `#DB_Secondary` は `_Secondaries` の全カテゴリが `AI_Optout: true`（第三者デザインを含むため）であり、対象外です（ネストされた `#DB_UnprocessedSecondary` も `DB_Hidden: true` / `AI_Optout: true`）。
 
 ### 9.1 ワークフロー全体像
 
@@ -596,3 +623,101 @@ node tools/patch-aihints.mjs --work NumberTales --db Primary --all --apply-color
 - `ColorPalette` は `develop` 側の本体スキーマ（`data/db_type.json` の `ColorPalette` / `data/db_meta.json` の `$Def_ColorPalette`）であり、AIHints 非依存。作品・DB を跨いで同じ経路が使える。
 - `Hex` は設定画のカラーチップ実測値であり、既存の創作物の転記にあたる（新規の創作内容を生成するものではない）。
 - `ColorName_JP` / `ColorName_EN` / `Formation` / `Note_*` は創作内容のため本モードでは扱わない。
+
+### 9.12 corefolder を持たない作品（獣爾騎兵 / 豹変系女子）の生成経路
+
+2026-11-19 に `AI_Optout: false` となった 2 作品向けの経路。**§9.1〜9.8 の TODO 雛形・視覚解析フローは使いません。**
+ツールは `$Def_AIHintsForms` に `corefolder` が**無い**作品を自動でこの経路へ流します（専用フラグは無く、`--suggest` の有無も無関係）。
+
+#### 基本方針
+
+- **雛形を経由しない**: NumberTales の雛形は球体コアフォルダ等の作品固有文言を含むため使わず、
+  `AppearanceDetail` → タグ（§9.9 と同じ決定論ビルダー）、`ColorPalette` → `palette_priority`、`Images` → 参照画像、を 1 回で組み立てる。
+- **創作判断が要る枠は null のまま**: `natural_language_description` / `immutable_constraints` / `negative_keywords`、
+  および `Expression` エントリが無いレコードの `expression_tendency` は User の手入力枠として残す。`TODO:` 文字列は出力しない。
+- **provenance を最初から記録**: 生成と同時に `_meta` を書くため、直後の `--resync-structural` は no-op になる。以後の保守は §9.10 と同じ。
+- **索引は `$IndexDef` から解決**: `--records` とログの `#<値>` は、獣爾騎兵が `BeastType.Beast`（`Mouse` 等）、豹変系女子が `Drc`（`NE` 等）。
+  D1 の `idx_value`（`migrate-aihints.mjs`）と同じ解決関数を使う。
+
+#### コマンド
+
+```powershell
+# dry-run（内訳を確認）
+node tools/patch-aihints.mjs --work ShauErRiders --db Primary --all
+node tools/patch-aihints.mjs --work SinisterChangingGirls --db Primary --all
+node tools/patch-aihints.mjs --work SinisterChangingGirls --db PrimaryStabilities --all
+
+# 適用（新規レコードだけが patched になる。既存は skipped-existing）
+node tools/patch-aihints.mjs --work ShauErRiders --db Primary --all --apply
+
+# 適用後は必ず整形する（ツールは AIHints ブロックを独自インデントで書くため）
+npx prettier --write data/Works_ShauErRiders/DataBases/db_Primary.json
+```
+
+#### どの形態が作られるか
+
+| 形態                                 | 作られる条件                                                                                   |
+| ------------------------------------ | ---------------------------------------------------------------------------------------------- |
+| 既定形態（`normal` / `beforeChange`） | `AppearanceDetail` があれば必ず。中身は「全形態共通（`Formation: null`）＋ その形態の固有エントリ」 |
+| それ以外（`beasted` / `afterChanged`） | その形態の固有エントリ（`Formation` が形態キーと一致）を持つレコードだけ                       |
+
+既定形態と同じ中身の複製を置かないための規則です（下流が「その姿が定義済み」と誤解するため）。
+
+**例外: 参照画像だけある形態。** 固有の `AppearanceDetail` は無いが、その姿を描いた画像があるレコード
+（巳刻カミツの `beasted` = 束縛形態）は、`AIHints.forms.<形態キー>.reference_images` を手で置いてから `--force` で再生成します。
+参照画像つきの既存形態は再生成でも保持され、タグは全形態共通のエントリから入ります。
+
+```jsonc
+// 1. 既存の AIHints.forms へ参照画像だけを手で足す
+"beasted": { "reference_images": { "main": "https://database.numbertales-radiann.net/data/Works_ShauErRiders/Images/DB_Primary/newYear/art_imgSAR-EZ6-B.png" } }
+```
+
+```powershell
+# 2. そのレコードだけ再生成する（人が書いた内容があればブロックされる）
+node tools/patch-aihints.mjs --work ShauErRiders --db Primary --records Snake --force --apply
+```
+
+> 形態固有の特徴（束縛形態なら「四肢を納めた大蛇姿」）は、`Formation: "beasted"` の `AppearanceDetail` を
+> 入力するまで文面には入りません。入力後は `--resync-structural` で構造由来のタグへ反映されます。
+
+#### 参照画像
+
+- `common.reference_images.main` / `concept` は設定原画（`Images.concept_PNGName`）。
+- **設定原画が無いレコードは、年賀絵原画（`Images.newYear_PNGPath`）の先頭を `main` にする**（獣爾騎兵の Dragon / Snake / Horse）。
+  フィールド名はツールに固定で持っている。別のフィールドを代表参照にしたい作品が出たら typedef 宣言へ寄せること。
+- `forms.<form>.reference_images` は、上記の「手で置いた参照画像」が無ければ `null`。
+
+#### `*_DBLink`（同一存在）からの構造ソース穴埋め
+
+レコード自身の構造ソースが空のとき、`$enrich: true` の `*_DBLink`（`AnotherRegions_DBLink` 等）の参照先から補います。
+UI / SW の enrich と同じ見え方に揃えるためで、解決規則は `tools/build-roleplay-prompts.mjs` の `enrichRecordFromLinks()` を再利用しています。
+この穴埋めは**全作品・全モード**で効きます（構造ソースのハッシュも穴埋め後のレコードから計算する）。
+
+- 対象は `AppearanceDetail` / `ColorPalette` / `GenderType` / `Height_cm` の 4 つだけ。`TailsUnit` は作品固有 typedef のため対象外。
+- 空の項目だけを補い、DB へは書き戻さない（`_Commons` 継承と同じ扱い）。
+- 対象作品の `$DetailLayout` に載る項目だけ（`AGENTS.md`「cross-work `_DBLink` 制約」）。
+- **権利ガード**: 参照先が AI 不可（DB / カテゴリ単位の `AI_Optout`・`isPrivate`・`DB_Hidden` / `Works_Hidden`・メタ未登録）なら何も持ち込まない。
+  先頭の解決済み参照が AI 不可でも、2 番目以降の参照へは進まない（UI の enrich が使うのと違う参照先を拾わないため）。
+
+例: 豹変系女子 `N`（零 零）は自前の `AppearanceDetail` を持たず、`AnotherRegions_DBLink` の先頭
+（ナンバーテールズ Primary の `0`）から 7 件を継承して生成している。番号印字（`#Element_NumberMark`）も継承されるが、
+`Num` を持たない作品では索引値を番号扱いせず、`immutable_traits` は `marking: …` の形で出力する。
+
+#### 適用状況（2026-11-19）
+
+| DB                                       | 付与 | 見送り                                                                                                  |
+| ---------------------------------------- | ---: | ------------------------------------------------------------------------------------------------------- |
+| `ShauErRiders` / `Primary`               |    6 | `skipped-no-image` 3（Ox / Tiger / Dog）、`skipped-progress` 1（Sheep = `nowCreating`）                 |
+| `SinisterChangingGirls` / `Primary`      |    8 | なし（全 8 件）                                                                                         |
+| `SinisterChangingGirls` / `PrimaryStabilities` |    3 | `skipped-no-image` 3、`skipped-private` 2                                                         |
+| `SinisterChangingGirls` / `SemiPrimary`  |    0 | `skipped-private` 7、`skipped-progress` 1（`USE` = `stillTentative`）                                   |
+| `SinisterChangingGirls` / `Regioministrators` |    0 | `skipped-no-image` 4（X / Y の画像は `#DB_Primary` からの `_DBCrossLinkPath` 借用のみ、W / Z は画像なし） |
+
+> **`#DB_Regioministrators` について**: 当初は `AI_Optout: true` で、X / Y が `NE` / `NW` の設定原画を
+> `_DBCrossLinkPath` で参照していたため、既存の権利ガード（`collectOptoutImageKeys()`）により `NE` / `NW` は
+> `skipped-no-image` だった。2026-11-19 に User 判断で同 DB を `AI_Optout: false` とし、2 件へ付与した。
+> 『管理主』4 件自身は、自前の画像と `AppearanceDetail` を持たないため AIHints 未付与のまま。
+
+> **下流（GeneratorsAI / ShapeChangerAI）への注意**: 2026-11-19 時点の両リポジトリは `forms` のキーを
+> `humanoid` / `corefolder` 固定で読むため、本節の形態キー（`normal` / `beasted` / `beforeChange` / `afterChanged`）は
+> 下流が対応するまで無視され、`common` と `AppearanceDetail` だけが使われます。

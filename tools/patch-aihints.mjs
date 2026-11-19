@@ -84,21 +84,13 @@ function findDbEntry(node, key) {
 // 作品別スキーマの解決（索引キー / 形態キー）
 // ────────────────────────────────────────────────────────────────────────────
 
-/** 作品別 typedef のキャッシュ（CLI 1 回の実行中は不変） */
-const workTypeCache = new Map();
-
 /**
  * 作品別 typedef（`data/Works_<work>/DataBases/db_type.json`）を読む。
  * @param {string} work
  * @returns {Record<string, any>} 欠損・不正時は {}
  */
 function loadWorkType(work) {
-    if (!workTypeCache.has(work)) {
-        workTypeCache.set(work, readJsonOrNull(
-            path.join(REPO_ROOT, 'data', `Works_${work}`, 'DataBases', 'db_type.json'),
-        ) ?? {});
-    }
-    return workTypeCache.get(work);
+    return readJsonOrNull(path.join(REPO_ROOT, 'data', `Works_${work}`, 'DataBases', 'db_type.json')) ?? {};
 }
 
 /**
@@ -3971,8 +3963,9 @@ function applyAppearanceDetailToAihintsInRecord(text, openIdx, closeIdx, record,
  *   創作判断が要る枠（natural_language_description / immutable_constraints 等）は null のまま残る。
  *
  *   形態は、既定形態（formKeys[0]）を必ず作り、それ以外は固有の AppearanceDetail エントリがある場合か、
- *   既に AIHints.forms に置かれている場合だけ作る。後者は「参照画像だけ手で据えた形態」
+ *   既存の AIHints.forms に参照画像つきで置かれている場合だけ作る。後者は「参照画像だけ手で据えた形態」
  *   （例: 巳刻カミツの beasted = 束縛形態）を `--force` の再生成で失わないため。
+ *   参照画像を持たない既存形態は残さない（固有エントリを消した形態が既定形態の複製として残るのを防ぐ）。
  *
  * @param {any} record  `_Commons` / `*_DBLink` 穴埋め適用後のレコード
  * @param {Record<string, any>|null} commonRefs  buildCommonReferenceImages() の返り値
@@ -3983,7 +3976,8 @@ function applyAppearanceDetailToAihintsInRecord(text, openIdx, closeIdx, record,
  */
 export function buildSeedAihints(record, commonRefs, varsDef, formKeys, label) {
     const keptForms = Object.entries(record.AIHints?.forms ?? {})
-        .map(([key, form]) => [key, { reference_images: form?.reference_images ?? null }]);
+        .filter(([, form]) => form?.reference_images)
+        .map(([key, form]) => [key, { reference_images: form.reference_images }]);
     const base = {
         common: { reference_images: commonRefs },
         forms: { [formKeys[0]]: null, ...Object.fromEntries(keptForms) },
@@ -4062,7 +4056,7 @@ export async function resolveLinkFills(records, work, db, dataRoot = path.join(R
  * @param {CliOptions} opts
  * @returns {{ newText: string, results: PatchResult[] }}
  */
-function patchFileText(text, opts) {
+export function patchFileText(text, opts) {
     /** @type {PatchResult[]} */
     const results = [];
     const ranges = locateTopLevelRecords(text);

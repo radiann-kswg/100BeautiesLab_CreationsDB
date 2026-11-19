@@ -4778,6 +4778,7 @@
           "average stature (about 150cm)",
           "Fox",
           "reddish-purple eyes with gray special pupils",
+          "wings inspired by the motif of '666' (with heart-shaped tips)",
           "light purple, curly and unusual hairstyle, long hair tied to the side",
           "exactly 6 tails total, no more no less"
         ],
@@ -4804,7 +4805,6 @@
         "corefolder": {
           "form_tags": ["corefolder form"],
           "outfit_features": [
-            "wings inspired by the motif of '666' (with heart-shaped tips)",
             "brooch with three '6's arranged in rotational symmetry and hexagonal shape",
             "slightly classical magenta collar, belt with a hexagonal brooch"
           ],
@@ -4813,6 +4813,7 @@
               "spherical core body with the head as the only protruding part on top",
               "Fox",
               "reddish-purple eyes with gray special pupils",
+              "wings inspired by the motif of '666' (with heart-shaped tips)",
               "light purple, curly and unusual hairstyle, long hair tied to the side"
             ],
             "attached_items": [
@@ -4856,7 +4857,7 @@
             "slightly classical magenta collar, demonic and casual pink apron dress, belt with a hexagonal brooch on the waist",
             "high-heeled shoes in reddish-purple"
           ],
-          "natural_language_description": "Corefolder form: a spherical cushion-like body in Fox; reddish-purple eyes with gray special pupils; light purple, curly and unusual hairstyle, long hair tied to the side, with the number '666' marking (halo, brooch, and wings are themed around '666', magenta, Arabic numeral '666' themed design); halo with three '6's arranged in rotational symmetry (with a circle in the center).",
+          "natural_language_description": "Corefolder form: a spherical cushion-like body in Fox; reddish-purple eyes with gray special pupils; wings inspired by the motif of '666' (with heart-shaped tips); light purple, curly and unusual hairstyle, long hair tied to the side, with the number '666' marking (halo, brooch, and wings are themed around '666', magenta, Arabic numeral '666' themed design); halo with three '6's arranged in rotational symmetry (with a circle in the center).",
           "prompt_export": "corefolder form, fox 6 tails, average stature (about 150cm), teenager, halo, brooch, and wings are themed around '666', magenta, Arabic numeral '666' themed design, Fox, reddish-purple eyes with gray special pupils, seductive gestures and occasionally demonic behavior, halo with three '6's arranged in rotational symmetry (with a circle in the center), wings inspired by the motif of '666' (with heart-shaped tips), light purple, curly and unusual hairstyle, long hair tied to the side, brooch with three '6's arranged in rotational symmetry and hexagonal shape, slightly classical magenta collar, belt with a hexagonal brooch",
           "negative_prompt_export": "brooch with three '6's arranged in rotational symmetry and hexagonal shape, slightly classical magenta collar, demonic and casual pink apron dress, belt with a hexagonal brooch on the waist, high-heeled shoes in reddish-purple",
           "reference_images": {
@@ -4867,7 +4868,6 @@
         "humanoid": {
           "form_tags": ["humanoid form"],
           "outfit_features": [
-            "wings inspired by the motif of '666' (with heart-shaped tips)",
             "brooch with three '6's arranged in rotational symmetry and hexagonal shape",
             "slightly classical magenta collar, demonic and casual pink apron dress, belt with a hexagonal brooch on the waist",
             "high-heeled shoes in reddish-purple"
@@ -4876,6 +4876,7 @@
             "body_description": [
               "Fox",
               "reddish-purple eyes with gray special pupils",
+              "wings inspired by the motif of '666' (with heart-shaped tips)",
               "light purple, curly and unusual hairstyle, long hair tied to the side"
             ],
             "attached_items": [
@@ -4928,6 +4929,7 @@
             "average stature (about 150cm)",
             "Fox",
             "reddish-purple eyes with gray special pupils",
+            "wings inspired by the motif of '666' (with heart-shaped tips)",
             "light purple, curly and unusual hairstyle, long hair tied to the side"
           ],
           "common.immutable_traits": [
