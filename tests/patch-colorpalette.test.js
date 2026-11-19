@@ -407,7 +407,15 @@ describe('listImageFields / readCommonColors — スキーマ由来の宣言読�
         const overrides = records.flatMap(record => (record.ColorPalette || [])
             .filter(color => color.Role === '#ColorRole_CommonOverride'));
 
-        expect(overrides.length).toBeGreaterThan(0);
+        const cat = records.find(record => record.BeastType?.Beast === 'Cat');
+        const accent = meta.General.$VarsDef.$EnumDef_CommonColor['#CommonColor_UniformAccent1'];
+        expect(cat?.ColorPalette, 'ネゝコの靴色').toContainEqual(expect.objectContaining({
+            Hex: '#C77FAF',
+            Role: '#ColorRole_CommonOverride',
+            AppliesTo: expect.arrayContaining(['#BodyPart_Foot']),
+            ColorName_JP: accent.CommonColor_JP,
+            ColorName_EN: accent.CommonColor_EN,
+        }));
         for (const color of overrides) {
             expect(commonNames, color.Hex).toContainEqual([color.ColorName_JP, color.ColorName_EN]);
         }
