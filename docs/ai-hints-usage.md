@@ -36,7 +36,7 @@ GitHub 上に AI タグを置いただけでは、現在の生成 AI（ChatGPT �
 | 作品                               | 形態キー（先頭が既定形態）                           | `AppearanceDetail.Formation` との関係                                    |
 | ---------------------------------- | ---------------------------------------------------- | ------------------------------------------------------------------------ |
 | ナンバーテールズ                   | `corefolder` / `humanoid`                            | 同じ値をそのまま使う                                                     |
-| 獣爾騎兵（`ShauErRiders`）         | `normal`（通常時）/ `beasted`（獣化時）              | 同じ値を使う。現状のエントリは全て `null`（全形態共通）で、辞書は未整備  |
+| 獣爾騎兵（`ShauErRiders`）         | `normal`（通常時）/ `beasted`（獣化時）              | 同じ値を使う（辞書は `Dictionaries/dict_Formation.json`）。現状のエントリは全て `null`（全形態共通） |
 | 豹変系女子（`SinisterChangingGirls`） | `beforeChange`（豹変前）/ `afterChanged`（豹変後） | 同じ値をそのまま使う。`changing`（豹変中）は未宣言のため AIHints に置かない |
 
 - `Formation: null` のエントリは**全形態共通**として、各形態と `common` の両方へ入ります。
@@ -635,7 +635,8 @@ node tools/patch-aihints.mjs --work NumberTales --db Primary --all --apply-color
   `AppearanceDetail` → タグ（§9.9 と同じ決定論ビルダー）、`ColorPalette` → `palette_priority`、`Images` → 参照画像、を 1 回で組み立てる。
 - **創作判断が要る枠は null のまま**: `natural_language_description` / `immutable_constraints` / `negative_keywords`、
   および `Expression` エントリが無いレコードの `expression_tendency` は User の手入力枠として残す。`TODO:` 文字列は出力しない。
-- **provenance を最初から記録**: 生成と同時に `_meta` を書くため、直後の `--resync-structural` は no-op になる。以後の保守は §9.10 と同じ。
+- **provenance を最初から記録**: 生成と同時に `_meta` を書くため、直後の `--resync-structural` は no-op になる。
+  外見データを直したあとの保守は、後述「外見データを直したとき」を参照（§9.10 の再同期だけでは足りない）。
 - **索引は `$IndexDef` から解決**: `--records` とログの `#<値>` は、獣爾騎兵が `BeastType.Beast`（`Mouse` 等）、豹変系女子が `Drc`（`NE` 等）。
   D1 の `idx_value`（`migrate-aihints.mjs`）と同じ解決関数を使う。
 
@@ -702,6 +703,27 @@ UI / SW の enrich と同じ見え方に揃えるためで、解決規則は `to
 例: 豹変系女子 `N`（零 零）は自前の `AppearanceDetail` を持たず、`AnotherRegions_DBLink` の先頭
 （ナンバーテールズ Primary の `0`）から 7 件を継承して生成している。番号印字（`#Element_NumberMark`）も継承されるが、
 `Num` を持たない作品では索引値を番号扱いせず、`immutable_traits` は `marking: …` の形で出力する。
+
+#### 外見データを直したとき（保守）
+
+`--resync-structural`（push のたびに CI が実行）が差し替えるのは、構造由来として記録している配列
+（`identity_tags` / `silhouette_features` / `immutable_traits` / `expression_tendency` / `form_tags` / `ai_tags`）と
+`prompt_export` 系だけです。**`outfit_features` / `silhouette_notes` / `negative_visuals` は再同期の対象外**のため、
+`AppearanceDetail` の文言を直した直後は、これらの配列に古い文言が残ります。
+
+この経路の作品では全配列が `AppearanceDetail` 由来なので、**直したレコードは `--force` で再生成**してください
+（人が書いた内容があればブロックされます。適用後は prettier）。
+
+```powershell
+# 再同期の dry-run で resync-applied が出たレコードが、再生成の対象
+node tools/patch-aihints.mjs --work SinisterChangingGirls --db Primary --all --resync-structural
+node tools/patch-aihints.mjs --work SinisterChangingGirls --db Primary --records N --force --apply
+npx prettier --write data/Works_SinisterChangingGirls/DataBases/db_Primary.json
+```
+
+`*_DBLink` の**参照先**を直した場合も同じです。構造ソースのハッシュは穴埋め後のレコードから計算するため、
+参照先の変更は参照元の `resync-applied` として現れます（例: 2026-11-19 にナンバーテールズ `0` の外見英訳を
+`develop` で修正 → マージ後に豹変系女子 `N` が `resync-applied` になり、`--force` で再生成した）。
 
 #### 適用状況（2026-11-19）
 

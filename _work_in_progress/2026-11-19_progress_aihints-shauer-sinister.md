@@ -31,7 +31,9 @@ GeneratorsAI / ShapeChangerAI 向けに、ナンバーテールズと同様の `
 | `NE` / `NW`（権利ガードで未付与だった） | `#DB_Regioministrators` を `AI_Optout: false` に変更して付与する |
 | ナンバーテールズ `666` / `666-mp` の翼 | 新しい分類（体の部位）へ揃える |
 
-`Formation` の辞書値・ラベルは創作内容のため、エージェントは追加・改名していない（獣爾騎兵の Formation 辞書は未整備のまま）。
+`Formation` の辞書値・ラベルは創作内容のため、本ブランチのエージェントは追加・改名していない。
+獣爾騎兵の Formation 辞書（`normal` / `beasted`）は、同日 `develop` 側（`1c70567d`）で User 指定のラベルのまま追加され、
+マージ（`3e3e52f0`）で本ブランチへ入った。
 
 ## 変更点の要約
 
@@ -135,14 +137,16 @@ ponytail-review で 5 件を指摘し、実装側の 4 件（不要形態の残�
 
 - [x] ~~豹変系女子 `NE` / `NW` が未付与~~ → `#DB_Regioministrators` を `AI_Optout: false` にして付与済み。
 - [x] ~~NumberTales `666` / `666-mp` の翼~~ → 新分類へ揃えた。
-- [ ] `develop` 側でも対象 3 DB へ prettier をかけるか。`addon-ai-tag` だけ整形済みだと、
-      同じ行を `develop` で編集したときにマージで衝突しやすい（折り返し 7 か所のみ）。
+- [x] ~~`develop` 側でも対象 DB へ prettier をかけるか~~ → `develop`（`1c70567d`）で 5 DB を整形済み。
+- [ ] **再同期の対象を広げるか**（後述「追記: `develop` マージ後の確認」の気づき）。`--resync-structural` は
+      `outfit_features` / `silhouette_notes` / `negative_visuals` を更新しないため、外見データを直すたびに
+      該当レコードの `--force` 再生成が要る。ツール側で再同期の対象へ含めれば CI だけで追従できるが、
+      ナンバーテールズの保守挙動も変わるため User 判断。
 
 ### データ入力待ち（User）
 
-- [ ] 巳刻カミツの束縛形態の固有特徴。`Formation: "beasted"` の `AppearanceDetail` を入力すれば、
-      `--resync-structural` で `forms.beasted` へ反映される（現状は全形態共通の 7 件のみ）。
-      入力には獣爾騎兵の Formation 辞書（`normal` / `beasted`）が要る（`develop` 側の構造・ラベルは User 判断）。
+- [ ] 巳刻カミツの束縛形態の固有特徴。`Formation: "beasted"` の `AppearanceDetail` を入力したら、
+      `--records Snake --force --apply` で再生成する（現状は全形態共通の 7 件のみ。辞書は `develop` 側で追加済み）。
 - [ ] 創作判断が要る枠（`natural_language_description` / `immutable_constraints` / `negative_keywords` / `expression_tendency`）。
 
 ### 下流への申し送り
@@ -159,6 +163,49 @@ ponytail-review で 5 件を指摘し、実装側の 4 件（不要形態の残�
 
 - ナンバーテールズ Primary の `0` / `00` は設定原画と `AppearanceDetail` を持つが AIHints 未付与。
 - `migrate-aihints.mjs` の per-record `_Secondaries` opt-out 判定は未対応のまま（台帳 A6）。
+
+---
+
+## 追記: `develop` マージ後の確認（同日）
+
+`develop` 側の整備（`1c70567d`。ログは `2026-11-19_progress_aihints-develop-db-prep.md`）と、
+そのマージ（`3e3e52f0`）を `sub1` で確認した。
+
+| 確認項目 | 結果 |
+| --- | --- |
+| `develop` に AIHints 系が漏れていないか | `AIHints` / `AI_Optout` / `$Def_AIHints` / `tools/patch-aihints.mjs` / 専用テスト・ドキュメントはいずれも `develop` に無い |
+| 整形 | AIHints を持つ 6 DB すべてで、`develop` と本ブランチの差は AIHints ブロックだけ（`JSON.parse` 後に AIHints を除いて比較） |
+| 衝突の痕跡 | 衝突マーカーなし。`CHANGELOG.md` は両ブランチのエントリを両方保持 |
+| 獣爾騎兵の形態辞書 | `normal`（通常時 / In normal form）・`beasted`（獣化時 / In beast form）。`$Def_AIHintsForms` のキー・ラベルと一致 |
+| AIHints の件数 | 獣爾騎兵 6 / 豹変系女子 8・3・0 / ナンバーテールズ 92・11・7（マージ前と同じ） |
+
+### 豹変系女子 `N` の再生成
+
+`develop` でナンバーテールズ `0` の外見英訳 2 値が修正された（`green-brown eyes` → `red eyes`、
+`long light teal scarf …` → `long light red scarf …`）。`N` はこの外見を `AnotherRegions_DBLink` 経由で継承しているため、
+マージ後の `--resync-structural` dry-run で **`N` だけが `resync-applied`** になった（参照先の変更を、穴埋め後の
+レコードから計算したハッシュで検出できている）。
+
+`--records N --force --apply` で再生成し、旧い 2 値が `db_Primary.json` から消えたことを確認した。
+変わったのは `N` の AIHints（`identity_tags` / `silhouette_features` / `outfit_features` / `body_description` /
+`ai_tags` / `prompt_export` / `_meta`）だけで、他のレコードと `N` の AIHints 以外のフィールドは不変。
+
+### 気づき: 再同期だけでは古い文言が残る
+
+`--resync-structural` を `N` に当てた場合を試算すると、`forms.beforeChange.outfit_features` と
+`forms.beforeChange.silhouette_notes.body_description` に旧い 2 値が残った。再同期が差し替えるのは
+構造由来として記録している配列だけで、`outfit_features` / `silhouette_notes` / `negative_visuals` は対象外のため。
+
+- corefolder を宣言しない作品ではこれらも `AppearanceDetail` 由来なので、**外見データを直したレコードは
+  `--force` で再生成する**運用にした（`docs/ai-hints-usage.md` §9.12「外見データを直したとき」）。
+- push 後の再同期 CI は `resync-applied` のレコードを自動で直すが、上記 3 配列は直さない。CI の PR が出たら
+  対象レコードを `--force` で再生成する必要がある。
+- 根本対応（再同期の対象へ 3 配列を加える）はナンバーテールズの保守挙動も変えるため、未着手（User 判断待ち）。
+
+### 検証（マージ + `N` 再生成後）
+
+`npm test` 91 ファイル / 1731 件、`data:order:check` 0/1465、`agents:check` 一致、
+`--resync-structural` は AIHints を持つ 6 DB とも no-op、対象 JSON は prettier 準拠。
 
 ## 参考リンク
 

@@ -137,15 +137,15 @@
           "same humanoid form",
           "cat ear accessories",
           "light brown medium hair",
-          "green-brown eyes",
-          "long light teal scarf (ends with stripe pattern)",
+          "red eyes",
+          "long light red scarf (ends with stripe pattern)",
           "casual suit resembling a white coat"
         ],
         "silhouette_features": [
           "slightly tall stature (about 165cm)",
           "same humanoid form",
           "light brown medium hair",
-          "green-brown eyes"
+          "red eyes"
         ],
         "immutable_traits": [
           "marking: fairly large on the left chest of the white coat, below the left lapel, light brown (with dark outline), Arabic numeral '0'"
@@ -169,14 +169,14 @@
           "form_tags": ["beforeChange form"],
           "outfit_features": [
             "cat ear accessories",
-            "long light teal scarf (ends with stripe pattern)",
+            "long light red scarf (ends with stripe pattern)",
             "casual suit resembling a white coat"
           ],
           "silhouette_notes": {
             "body_description": [
               "same humanoid form",
               "light brown medium hair",
-              "green-brown eyes"
+              "red eyes"
             ],
             "attached_items": []
           },
@@ -189,34 +189,34 @@
             "same humanoid form",
             "cat ear accessories",
             "light brown medium hair",
-            "green-brown eyes",
-            "long light teal scarf (ends with stripe pattern)",
+            "red eyes",
+            "long light red scarf (ends with stripe pattern)",
             "casual suit resembling a white coat"
           ],
           "negative_visuals": [],
           "natural_language_description": null,
-          "prompt_export": "beforeChange form, slightly tall stature (about 165cm), fairly large on the left chest of the white coat, below the left lapel, light brown (with dark outline), Arabic numeral '0', same humanoid form, cat ear accessories, light brown medium hair, green-brown eyes, long light teal scarf (ends with stripe pattern), casual suit resembling a white coat",
+          "prompt_export": "beforeChange form, slightly tall stature (about 165cm), fairly large on the left chest of the white coat, below the left lapel, light brown (with dark outline), Arabic numeral '0', same humanoid form, cat ear accessories, light brown medium hair, red eyes, long light red scarf (ends with stripe pattern), casual suit resembling a white coat",
           "negative_prompt_export": "",
           "reference_images": null
         }
       },
       "alt_modes": null,
       "_meta": {
-        "structuralSourceHash": "sha256:8d398931a0ccdf02480798de90776cdabe362826d5fc1d3fb23baef26cdcff0f",
+        "structuralSourceHash": "sha256:8e92a3b60733caa41a86fdc6caa074cc9f2924567c0310d9b2a6f59547eb0bb7",
         "structuralEntries": {
           "common.identity_tags": [
             "same humanoid form",
             "cat ear accessories",
             "light brown medium hair",
-            "green-brown eyes",
-            "long light teal scarf (ends with stripe pattern)",
+            "red eyes",
+            "long light red scarf (ends with stripe pattern)",
             "casual suit resembling a white coat"
           ],
           "common.silhouette_features": [
             "slightly tall stature (about 165cm)",
             "same humanoid form",
             "light brown medium hair",
-            "green-brown eyes"
+            "red eyes"
           ],
           "common.immutable_traits": [
             "marking: fairly large on the left chest of the white coat, below the left lapel, light brown (with dark outline), Arabic numeral '0'"
@@ -229,8 +229,8 @@
             "same humanoid form",
             "cat ear accessories",
             "light brown medium hair",
-            "green-brown eyes",
-            "long light teal scarf (ends with stripe pattern)",
+            "red eyes",
+            "long light red scarf (ends with stripe pattern)",
             "casual suit resembling a white coat"
           ]
         },
