@@ -372,6 +372,7 @@
 | ログ | 主題 | 関連タスク | 状態 |
 | --- | --- | --- | --- |
 | [2026-07-25_remaining-task.md](./2026-07-25_remaining-task.md) | **本ファイル**（残タスクの起点） | — | 🟢 現行 |
+| [2026-11-19_progress_aihints-develop-db-prep.md](./2026-11-19_progress_aihints-develop-db-prep.md) | AIHints 拡張に合わせた `develop` 側の DB 整備（獣爾騎兵の形態辞書・ナンバーテールズ `0` の外見英訳修正・5 DB の整形。`main` で実施） | — | 🟡 `addon-ai-tag` 側で豹変系女子 `N` の AIHints 作り直し待ち・カミツの `beasted` 外見は User 入力待ち |
 | [2026-11-19_progress_appearance-image-audit.md](./2026-11-19_progress_appearance-image-audit.md) | 画像と外見・配色データの検査（`ColorPalette` / `AppearanceDetail` / `Laterality` の原画照合と修正。`sub3` で実施） | **T-20 / T-23** | ⚠️ 修正は反映済み・「要確認の候補」が残 |
 | [2026-11-09_pages-perf.md](./2026-11-09_pages-perf.md) | GitHub Pages 軽量化・高速化の定期点検 | — | 🟡 案 1（VRM 添付 PNG の軽量化）が User 判断待ち |
 | [2026-11-08_progress_sf-ui-redesign.md](./2026-11-08_progress_sf-ui-redesign.md) | キャラシート UI の SF 風リデザイン（視線誘導・motion 統一） | — | 🟡 User の実機目視・紹介文（`#page-lead`）記入待ち（下流への取り込みは完了） |

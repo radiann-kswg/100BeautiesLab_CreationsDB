@@ -1,0 +1,12 @@
+[
+  {
+    "Formation": "normal",
+    "Formation_JP": "通常時",
+    "Formation_EN": "In normal form"
+  },
+  {
+    "Formation": "beasted",
+    "Formation_JP": "獣化時",
+    "Formation_EN": "In beast form"
+  }
+]
