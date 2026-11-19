@@ -424,7 +424,7 @@
           "exactly 3 tails total, no more no less"
         ],
         "immutable_traits": [
-          "number '111-mp' marking: from the left shoulder to the edge of the cape, red, Arabic numeral '111'",
+          "number '111-mp' marking: on the hem of the cape hanging from the left shoulder, red, Arabic numeral '111'",
           "number '111-mp' marking: lot mark on the left cheek, red (underlined), Arabic numeral '111'"
         ],
         "expression_tendency": [
@@ -468,7 +468,7 @@
             "nekomata single tail",
             "short stature (about 141cm)",
             "early teenager",
-            "from the left shoulder to the edge of the cape, red, Arabic numeral '111'",
+            "on the hem of the cape hanging from the left shoulder, red, Arabic numeral '111'",
             "lot mark on the left cheek, red (underlined), Arabic numeral '111'",
             "Cat (hidden under the hood cap)",
             "salmon-red eyes with large yellow pupils and a mechanical appearance",
@@ -482,7 +482,7 @@
           ],
           "negative_visuals": [],
           "natural_language_description": null,
-          "prompt_export": "humanoid form, nekomata single tail, short stature (about 141cm), early teenager, from the left shoulder to the edge of the cape, red, Arabic numeral '111', lot mark on the left cheek, red (underlined), Arabic numeral '111', Cat (hidden under the hood cap), salmon-red eyes with large yellow pupils and a mechanical appearance, expressions and gestures are not particularly noticeable, red hood cap with a salmon-red headband, short blonde hair with white bangs accent, hero-like salmon-red numbered cape, white cross-strap belt and tie, red military-style uniform, red boots",
+          "prompt_export": "humanoid form, nekomata single tail, short stature (about 141cm), early teenager, on the hem of the cape hanging from the left shoulder, red, Arabic numeral '111', lot mark on the left cheek, red (underlined), Arabic numeral '111', Cat (hidden under the hood cap), salmon-red eyes with large yellow pupils and a mechanical appearance, expressions and gestures are not particularly noticeable, red hood cap with a salmon-red headband, short blonde hair with white bangs accent, hero-like salmon-red numbered cape, white cross-strap belt and tie, red military-style uniform, red boots",
           "negative_prompt_export": "",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SelfSecondary/concept/cnsp_imgNTS-111MP.png"
@@ -525,7 +525,7 @@
             "nekomata single tail",
             "short stature (about 141cm)",
             "early teenager",
-            "from the left shoulder to the edge of the cape, red, Arabic numeral '111'",
+            "on the hem of the cape hanging from the left shoulder, red, Arabic numeral '111'",
             "lot mark on the left cheek, red (underlined), Arabic numeral '111'",
             "Cat (hidden under the hood cap)",
             "salmon-red eyes with large yellow pupils and a mechanical appearance",
@@ -536,7 +536,7 @@
           ],
           "negative_visuals": ["red military-style uniform", "red boots"],
           "natural_language_description": "Corefolder form: a spherical cushion-like body in Cat (hidden under the hood cap); salmon-red eyes with large yellow pupils and a mechanical appearance; short blonde hair with white bangs accent, with the number '111-mp' marking (from the left shoulder to the edge of the cape, red, Arabic numeral '111'; lot mark on the left cheek, red (underlined), Arabic numeral '111').",
-          "prompt_export": "corefolder form, nekomata single tail, short stature (about 141cm), early teenager, from the left shoulder to the edge of the cape, red, Arabic numeral '111', lot mark on the left cheek, red (underlined), Arabic numeral '111', Cat (hidden under the hood cap), salmon-red eyes with large yellow pupils and a mechanical appearance, expressions and gestures are not particularly noticeable, red hood cap with a salmon-red headband, short blonde hair with white bangs accent, hero-like salmon-red numbered cape",
+          "prompt_export": "corefolder form, nekomata single tail, short stature (about 141cm), early teenager, on the hem of the cape hanging from the left shoulder, red, Arabic numeral '111', lot mark on the left cheek, red (underlined), Arabic numeral '111', Cat (hidden under the hood cap), salmon-red eyes with large yellow pupils and a mechanical appearance, expressions and gestures are not particularly noticeable, red hood cap with a salmon-red headband, short blonde hair with white bangs accent, hero-like salmon-red numbered cape",
           "negative_prompt_export": "red military-style uniform, red boots",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SelfSecondary/concept/cnsp_imgNTS-111MP.png",
@@ -546,7 +546,7 @@
       },
       "alt_modes": null,
       "_meta": {
-        "structuralSourceHash": "sha256:ce7e8e805bd993c3091924d5fe297c6404d8b6614e067105e2b4551979640393",
+        "structuralSourceHash": "sha256:acea4401e5be93766a4ddb38ffa2dbde116958ee9f4d90b84721ee0eca335bf6",
         "structuralEntries": {
           "common.identity_tags": [
             "Cat (hidden under the hood cap)",
@@ -563,7 +563,7 @@
             "short blonde hair with white bangs accent"
           ],
           "common.immutable_traits": [
-            "number '111-mp' marking: from the left shoulder to the edge of the cape, red, Arabic numeral '111'",
+            "number '111-mp' marking: on the hem of the cape hanging from the left shoulder, red, Arabic numeral '111'",
             "number '111-mp' marking: lot mark on the left cheek, red (underlined), Arabic numeral '111'"
           ],
           "common.expression_tendency": [
@@ -575,7 +575,7 @@
             "nekomata single tail",
             "short stature (about 141cm)",
             "early teenager",
-            "from the left shoulder to the edge of the cape, red, Arabic numeral '111'",
+            "on the hem of the cape hanging from the left shoulder, red, Arabic numeral '111'",
             "lot mark on the left cheek, red (underlined), Arabic numeral '111'",
             "Cat (hidden under the hood cap)",
             "salmon-red eyes with large yellow pupils and a mechanical appearance",
@@ -593,7 +593,7 @@
             "nekomata single tail",
             "short stature (about 141cm)",
             "early teenager",
-            "from the left shoulder to the edge of the cape, red, Arabic numeral '111'",
+            "on the hem of the cape hanging from the left shoulder, red, Arabic numeral '111'",
             "lot mark on the left cheek, red (underlined), Arabic numeral '111'",
             "Cat (hidden under the hood cap)",
             "salmon-red eyes with large yellow pupils and a mechanical appearance",
@@ -620,7 +620,7 @@
             "bound by rope"
           ]
         },
-        "lastStructuralResync": "2026-11-15"
+        "lastStructuralResync": "2026-11-19"
       }
     }
   },
@@ -3071,14 +3071,14 @@
             "around the fastening area on the left hem of the basewear (not very noticeable due to the color), gray, Arabic numeral '444'",
             "slightly classical ochre basewear, fastener with the same motif as the halo, long back hem like a cape",
             "thin and light dark cyan outerwear",
-            "light blue leggings",
+            "light blue pants with flared hems",
             "ochre boots"
           ],
           "negative_visuals": [
             "slightly classical ochre cape, fastener with the same motif as the halo, long back hem like a cape"
           ],
           "natural_language_description": null,
-          "prompt_export": "humanoid form, fox 4 tails, slightly tall stature (about 163cm), lot mark on the left cheek, dark cyan (underlined), Arabic numeral '444', Fox, dark cyan eyes with gray special pupils and a mechanical appearance, expressions and gestures are not particularly noticeable, light blue cheek pattern accent, halo consisting of three squares/diamonds, cyan blue short hair, around the fastening area on the left hem of the basewear (not very noticeable due to the color), gray, Arabic numeral '444', slightly classical ochre basewear, fastener with the same motif as the halo, long back hem like a cape, thin and light dark cyan outerwear, light blue leggings, ochre boots",
+          "prompt_export": "humanoid form, fox 4 tails, slightly tall stature (about 163cm), lot mark on the left cheek, dark cyan (underlined), Arabic numeral '444', Fox, dark cyan eyes with gray special pupils and a mechanical appearance, expressions and gestures are not particularly noticeable, light blue cheek pattern accent, halo consisting of three squares/diamonds, cyan blue short hair, around the fastening area on the left hem of the basewear (not very noticeable due to the color), gray, Arabic numeral '444', slightly classical ochre basewear, fastener with the same motif as the halo, long back hem like a cape, thin and light dark cyan outerwear, light blue pants with flared hems, ochre boots",
           "negative_prompt_export": "slightly classical ochre cape, fastener with the same motif as the halo, long back hem like a cape",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SelfSecondary/concept/cnsp_imgNTS-444MP.png"
@@ -3087,7 +3087,7 @@
       },
       "alt_modes": null,
       "_meta": {
-        "structuralSourceHash": "sha256:1a9969e8f2076429f4f1ec44f4a35ff87f690e6b148256cf0dcd7c5f3ef78961",
+        "structuralSourceHash": "sha256:7951f86b1e3a1f79cd6b1125b25c74f01b4c954ab4af6b0134201c333c2f9a47",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox",
@@ -3157,11 +3157,11 @@
             "around the fastening area on the left hem of the basewear (not very noticeable due to the color), gray, Arabic numeral '444'",
             "slightly classical ochre basewear, fastener with the same motif as the halo, long back hem like a cape",
             "thin and light dark cyan outerwear",
-            "light blue leggings",
+            "light blue pants with flared hems",
             "ochre boots"
           ]
         },
-        "lastStructuralResync": "2026-10-12"
+        "lastStructuralResync": "2026-11-19"
       }
     }
   },
@@ -3851,11 +3851,7 @@
         "Hex": "#BC8797",
         "ColorName_JP": "主色",
         "ColorName_EN": "Primary Color",
-        "AppliesTo": [
-          "#BodyPart_Hair",
-          "#BodyPart_Ear",
-          "#BodyPart_Tail"
-        ],
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Ear", "#BodyPart_Tail"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -4060,7 +4056,7 @@
       },
       "alt_modes": null,
       "_meta": {
-        "structuralSourceHash": "sha256:2e78c5e4047edac06d97bc3e629131cf9c30617bac6d4b0b269e0f56fa3bafd8",
+        "structuralSourceHash": "sha256:e7282ff6f1b408bda6448e7fabcb465b6ae79302e51c1d2a642454ed450a79b6",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox",
@@ -4136,7 +4132,7 @@
             "high-heeled shoes in reddish-purple"
           ]
         },
-        "lastStructuralResync": "2026-10-12"
+        "lastStructuralResync": "2026-11-19"
       }
     }
   },

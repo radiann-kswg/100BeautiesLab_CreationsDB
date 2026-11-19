@@ -794,7 +794,7 @@
           "exactly 1 tail total, no more no less"
         ],
         "immutable_traits": [
-          "number '111' marking: from the left shoulder to the edge of the cape, dark red, Arabic numeral '111'"
+          "number '111' marking: on the hem of the cape hanging from the left shoulder, dark red, Arabic numeral '111'"
         ],
         "expression_tendency": ["eyes turn red when enraged"],
         "age_appearance": "early teenager",
@@ -835,7 +835,7 @@
             "nekomata single tail",
             "short stature (about 141cm)",
             "early teenager",
-            "from the left shoulder to the edge of the cape, dark red, Arabic numeral '111'",
+            "on the hem of the cape hanging from the left shoulder, dark red, Arabic numeral '111'",
             "Cat (hidden under the hood cap)",
             "salmon-red eyes with large yellow pupils",
             "eyes turn red when enraged",
@@ -848,7 +848,7 @@
           ],
           "negative_visuals": [],
           "natural_language_description": null,
-          "prompt_export": "humanoid form, nekomata single tail, short stature (about 141cm), early teenager, from the left shoulder to the edge of the cape, dark red, Arabic numeral '111', Cat (hidden under the hood cap), salmon-red eyes with large yellow pupils, eyes turn red when enraged, dark red hood cap with a salmon-red headband, short blonde hair with white bangs accent, hero-like salmon-red numbered cape, white cross-strap belt and tie, dark red military-style uniform, dark red boots",
+          "prompt_export": "humanoid form, nekomata single tail, short stature (about 141cm), early teenager, on the hem of the cape hanging from the left shoulder, dark red, Arabic numeral '111', Cat (hidden under the hood cap), salmon-red eyes with large yellow pupils, eyes turn red when enraged, dark red hood cap with a salmon-red headband, short blonde hair with white bangs accent, hero-like salmon-red numbered cape, white cross-strap belt and tie, dark red military-style uniform, dark red boots",
           "negative_prompt_export": "",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SemiPrimary/concept/cnsp_imgNTS-111.png"
@@ -891,7 +891,7 @@
             "nekomata single tail",
             "short stature (about 141cm)",
             "early teenager",
-            "from the left shoulder to the edge of the cape, dark red, Arabic numeral '111'",
+            "on the hem of the cape hanging from the left shoulder, dark red, Arabic numeral '111'",
             "Cat (hidden under the hood cap)",
             "salmon-red eyes with large yellow pupils",
             "eyes turn red when enraged",
@@ -904,7 +904,7 @@
             "dark red boots"
           ],
           "natural_language_description": "Corefolder form: a spherical cushion-like body in Cat (hidden under the hood cap); salmon-red eyes with large yellow pupils; short blonde hair with white bangs accent, with the number '111' marking (from the left shoulder to the edge of the cape, dark red, Arabic numeral '111').",
-          "prompt_export": "corefolder form, nekomata single tail, short stature (about 141cm), early teenager, from the left shoulder to the edge of the cape, dark red, Arabic numeral '111', Cat (hidden under the hood cap), salmon-red eyes with large yellow pupils, eyes turn red when enraged, dark red hood cap with a salmon-red headband, short blonde hair with white bangs accent, hero-like salmon-red numbered cape",
+          "prompt_export": "corefolder form, nekomata single tail, short stature (about 141cm), early teenager, on the hem of the cape hanging from the left shoulder, dark red, Arabic numeral '111', Cat (hidden under the hood cap), salmon-red eyes with large yellow pupils, eyes turn red when enraged, dark red hood cap with a salmon-red headband, short blonde hair with white bangs accent, hero-like salmon-red numbered cape",
           "negative_prompt_export": "dark red military-style uniform, dark red boots",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SemiPrimary/concept/cnsp_imgNTS-111.png",
@@ -914,7 +914,7 @@
       },
       "alt_modes": null,
       "_meta": {
-        "structuralSourceHash": "sha256:36ff8773707f55308420b6af63dfe482c541c05b446bc17d33aeef9a57ef2a8f",
+        "structuralSourceHash": "sha256:96f0cc5c827ee0da076b70f027687365ddf9b34c2e6ba388290302f5ad73ce18",
         "structuralEntries": {
           "common.identity_tags": [
             "Cat (hidden under the hood cap)",
@@ -931,7 +931,7 @@
             "short blonde hair with white bangs accent"
           ],
           "common.immutable_traits": [
-            "number '111' marking: from the left shoulder to the edge of the cape, dark red, Arabic numeral '111'"
+            "number '111' marking: on the hem of the cape hanging from the left shoulder, dark red, Arabic numeral '111'"
           ],
           "common.expression_tendency": ["eyes turn red when enraged"],
           "forms.humanoid.form_tags": ["humanoid form"],
@@ -940,7 +940,7 @@
             "nekomata single tail",
             "short stature (about 141cm)",
             "early teenager",
-            "from the left shoulder to the edge of the cape, dark red, Arabic numeral '111'",
+            "on the hem of the cape hanging from the left shoulder, dark red, Arabic numeral '111'",
             "Cat (hidden under the hood cap)",
             "salmon-red eyes with large yellow pupils",
             "eyes turn red when enraged",
@@ -957,7 +957,7 @@
             "nekomata single tail",
             "short stature (about 141cm)",
             "early teenager",
-            "from the left shoulder to the edge of the cape, dark red, Arabic numeral '111'",
+            "on the hem of the cape hanging from the left shoulder, dark red, Arabic numeral '111'",
             "Cat (hidden under the hood cap)",
             "salmon-red eyes with large yellow pupils",
             "eyes turn red when enraged",
@@ -983,7 +983,7 @@
             "bound by rope"
           ]
         },
-        "lastStructuralResync": "2026-10-12"
+        "lastStructuralResync": "2026-11-19"
       }
     }
   },
@@ -2206,7 +2206,7 @@
       },
       "alt_modes": null,
       "_meta": {
-        "structuralSourceHash": "sha256:31cabd814e1f7a13d168ffbb8e8a4f2b081bd5aa91efdbbc3e7d1dc2a2183822",
+        "structuralSourceHash": "sha256:a3ff50c8cfc58456be6c23fe4d053bae9819fbaa6216fe80b9bf7b1f140bb93f",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox (hanging in a shape overlapping the cap)",
@@ -2272,7 +2272,7 @@
             "bound by rope"
           ]
         },
-        "lastStructuralResync": "2026-09-06"
+        "lastStructuralResync": "2026-11-19"
       }
     }
   },
@@ -4144,18 +4144,17 @@
             "light blue cheek pattern accent",
             "halo consisting of three squares/diamonds",
             "cyan blue short hair",
-            "around the fastening area on the left hem of the cape, dark yellow, Arabic numeral '444'",
             "around the fastening area on the left hem of the basewear, dark yellow, Arabic numeral '444'",
             "slightly classical ochre basewear, fastener with the same motif as the halo, long back hem like a cape",
             "thin and light dark cyan outerwear",
-            "light blue leggings",
+            "light blue pants with flared hems",
             "ochre boots"
           ],
           "negative_visuals": [
             "slightly classical ochre cape, fastener with the same motif as the halo, long back hem like a cape"
           ],
           "natural_language_description": null,
-          "prompt_export": "humanoid form, fox 4 tails, slightly tall stature (about 163cm), Fox, dark cyan eyes with dark yellow special pupils, stands majestically (normal state), occasionally becomes overly defensive to protect pride (when something unexpected happens), light blue cheek pattern accent, halo consisting of three squares/diamonds, cyan blue short hair, around the fastening area on the left hem of the cape, dark yellow, Arabic numeral '444', around the fastening area on the left hem of the basewear, dark yellow, Arabic numeral '444', slightly classical ochre basewear, fastener with the same motif as the halo, long back hem like a cape, thin and light dark cyan outerwear, light blue leggings, ochre boots",
+          "prompt_export": "humanoid form, fox 4 tails, slightly tall stature (about 163cm), Fox, dark cyan eyes with dark yellow special pupils, stands majestically (normal state), occasionally becomes overly defensive to protect pride (when something unexpected happens), light blue cheek pattern accent, halo consisting of three squares/diamonds, cyan blue short hair, around the fastening area on the left hem of the basewear, dark yellow, Arabic numeral '444', slightly classical ochre basewear, fastener with the same motif as the halo, long back hem like a cape, thin and light dark cyan outerwear, light blue pants with flared hems, ochre boots",
           "negative_prompt_export": "slightly classical ochre cape, fastener with the same motif as the halo, long back hem like a cape",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SemiPrimary/concept/cnsp_imgNTS-444.png"
@@ -4203,6 +4202,7 @@
             "light blue cheek pattern accent",
             "halo consisting of three squares/diamonds",
             "cyan blue short hair",
+            "around the fastening area on the left hem of the cape, dark yellow, Arabic numeral '444'",
             "slightly classical ochre cape, fastener with the same motif as the halo, long back hem like a cape"
           ],
           "negative_visuals": [
@@ -4212,7 +4212,7 @@
             "ochre boots"
           ],
           "natural_language_description": "Corefolder form: a spherical cushion-like body in Fox; dark cyan eyes with dark yellow special pupils; light blue cheek pattern accent; cyan blue short hair, with the number '444' TODO: marking placement for #444; halo consisting of three squares/diamonds.",
-          "prompt_export": "corefolder form, fox 4 tails, slightly tall stature (about 163cm), Fox, dark cyan eyes with dark yellow special pupils, stands majestically (normal state), occasionally becomes overly defensive to protect pride (when something unexpected happens), light blue cheek pattern accent, halo consisting of three squares/diamonds, cyan blue short hair, slightly classical ochre cape, fastener with the same motif as the halo, long back hem like a cape",
+          "prompt_export": "corefolder form, fox 4 tails, slightly tall stature (about 163cm), Fox, dark cyan eyes with dark yellow special pupils, stands majestically (normal state), occasionally becomes overly defensive to protect pride (when something unexpected happens), light blue cheek pattern accent, halo consisting of three squares/diamonds, cyan blue short hair, around the fastening area on the left hem of the cape, dark yellow, Arabic numeral '444', slightly classical ochre cape, fastener with the same motif as the halo, long back hem like a cape",
           "negative_prompt_export": "slightly classical ochre basewear, fastener with the same motif as the halo, long back hem like a cape, thin and light dark cyan outerwear, light blue leggings, ochre boots",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SemiPrimary/concept/cnsp_imgNTS-444.png",
@@ -4222,7 +4222,7 @@
       },
       "alt_modes": null,
       "_meta": {
-        "structuralSourceHash": "sha256:f6342920e5c6373f843f2120e209dbaa6fe64158ed914f9a0c0e2f74e1eb3514",
+        "structuralSourceHash": "sha256:d9b96edb1321e2ea66baea15a8788cda1171f7a7e1754d5227884d04eecc4430",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox",
@@ -4242,24 +4242,6 @@
           "common.expression_tendency": [
             "stands majestically (normal state), occasionally becomes overly defensive to protect pride (when something unexpected happens)"
           ],
-          "forms.humanoid.form_tags": ["humanoid form"],
-          "forms.humanoid.ai_tags": [
-            "humanoid form",
-            "fox 4 tails",
-            "slightly tall stature (about 163cm)",
-            "Fox",
-            "dark cyan eyes with dark yellow special pupils",
-            "stands majestically (normal state), occasionally becomes overly defensive to protect pride (when something unexpected happens)",
-            "light blue cheek pattern accent",
-            "halo consisting of three squares/diamonds",
-            "cyan blue short hair",
-            "around the fastening area on the left hem of the cape, dark yellow, Arabic numeral '444'",
-            "around the fastening area on the left hem of the basewear, dark yellow, Arabic numeral '444'",
-            "slightly classical ochre basewear, fastener with the same motif as the halo, long back hem like a cape",
-            "thin and light dark cyan outerwear",
-            "light blue leggings",
-            "ochre boots"
-          ],
           "forms.corefolder.form_tags": ["corefolder form"],
           "forms.corefolder.ai_tags": [
             "corefolder form",
@@ -4271,6 +4253,7 @@
             "light blue cheek pattern accent",
             "halo consisting of three squares/diamonds",
             "cyan blue short hair",
+            "around the fastening area on the left hem of the cape, dark yellow, Arabic numeral '444'",
             "slightly classical ochre cape, fastener with the same motif as the halo, long back hem like a cape"
           ],
           "forms.corefolder.immutable_constraints": [
@@ -4289,9 +4272,26 @@
             "blazer",
             "fashion outfit",
             "bound by rope"
+          ],
+          "forms.humanoid.form_tags": ["humanoid form"],
+          "forms.humanoid.ai_tags": [
+            "humanoid form",
+            "fox 4 tails",
+            "slightly tall stature (about 163cm)",
+            "Fox",
+            "dark cyan eyes with dark yellow special pupils",
+            "stands majestically (normal state), occasionally becomes overly defensive to protect pride (when something unexpected happens)",
+            "light blue cheek pattern accent",
+            "halo consisting of three squares/diamonds",
+            "cyan blue short hair",
+            "around the fastening area on the left hem of the basewear, dark yellow, Arabic numeral '444'",
+            "slightly classical ochre basewear, fastener with the same motif as the halo, long back hem like a cape",
+            "thin and light dark cyan outerwear",
+            "light blue pants with flared hems",
+            "ochre boots"
           ]
         },
-        "lastStructuralResync": "2026-10-12"
+        "lastStructuralResync": "2026-11-19"
       }
     }
   },
@@ -4914,7 +4914,7 @@
       },
       "alt_modes": null,
       "_meta": {
-        "structuralSourceHash": "sha256:6c22cd87865db8f9a2ef4c83a5a6d35eb628673842c638efb318acc74561e2e7",
+        "structuralSourceHash": "sha256:9901d9040e047f6b581b9cc245feda424c00ad17988a3362ddf92a8c2d6d060b",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox",
@@ -4987,7 +4987,7 @@
             "high-heeled shoes in reddish-purple"
           ]
         },
-        "lastStructuralResync": "2026-09-06"
+        "lastStructuralResync": "2026-11-19"
       }
     }
   },
@@ -6376,7 +6376,7 @@
           "EarShapeType_Wing (ears resembling the orange wing sections)",
           "light pink intake long hair",
           "thick and large light pink eyebrows",
-          "narrow vermilion eyes, pupils divided like '8∞8'",
+          "narrow vermilion eyes, pupils that together resemble '8∞8' split across both eyes",
           "tail feathers resembling a phoenix in vermilion and orange with a pattern like the character '8'"
         ],
         "silhouette_features": [
@@ -6384,12 +6384,12 @@
           "EarShapeType_Wing (ears resembling the orange wing sections)",
           "light pink intake long hair",
           "thick and large light pink eyebrows",
-          "narrow vermilion eyes, pupils divided like '8∞8'",
+          "narrow vermilion eyes, pupils that together resemble '8∞8' split across both eyes",
           "tail feathers resembling a phoenix in vermilion and orange with a pattern like the character '8'",
           "exactly 1 tail total, no more no less"
         ],
         "immutable_traits": [
-          "number '888' marking: Large on the forehead, vermilion, '8∞8'"
+          "number '888' marking: large in the center of the forehead, vermilion, '8∞8'"
         ],
         "expression_tendency": null,
         "age_appearance": "teenager",
@@ -6428,11 +6428,11 @@
             "humanoid form",
             "average stature (about 156cm)",
             "teenager",
-            "Large on the forehead, vermilion, '8∞8'",
+            "large in the center of the forehead, vermilion, '8∞8'",
             "EarShapeType_Wing (ears resembling the orange wing sections)",
             "light pink intake long hair",
             "thick and large light pink eyebrows",
-            "narrow vermilion eyes, pupils divided like '8∞8'",
+            "narrow vermilion eyes, pupils that together resemble '8∞8' split across both eyes",
             "tail feathers resembling a phoenix in vermilion and orange with a pattern like the character '8'",
             "vermilion inner sweater",
             "casual reddish-purple outerwear resembling a haori",
@@ -6441,7 +6441,7 @@
           ],
           "negative_visuals": [],
           "natural_language_description": null,
-          "prompt_export": "humanoid form, average stature (about 156cm), teenager, Large on the forehead, vermilion, '8∞8', EarShapeType_Wing (ears resembling the orange wing sections), light pink intake long hair, thick and large light pink eyebrows, narrow vermilion eyes, pupils divided like '8∞8', tail feathers resembling a phoenix in vermilion and orange with a pattern like the character '8', vermilion inner sweater, casual reddish-purple outerwear resembling a haori, light orange slacks, vermilion geta, light pink socks",
+          "prompt_export": "humanoid form, average stature (about 156cm), teenager, large in the center of the forehead, vermilion, '8∞8', EarShapeType_Wing (ears resembling the orange wing sections), light pink intake long hair, thick and large light pink eyebrows, narrow vermilion eyes, pupils that together resemble '8∞8' split across both eyes, tail feathers resembling a phoenix in vermilion and orange with a pattern like the character '8', vermilion inner sweater, casual reddish-purple outerwear resembling a haori, light orange slacks, vermilion geta, light pink socks",
           "negative_prompt_export": "",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SemiPrimary/concept/cnsp_imgNTS-888.png"
@@ -6482,16 +6482,16 @@
             "corefolder form",
             "average stature (about 156cm)",
             "teenager",
-            "Large on the forehead, vermilion, '8∞8'",
+            "large in the center of the forehead, vermilion, '8∞8'",
             "EarShapeType_Wing (ears resembling the orange wing sections)",
             "light pink intake long hair",
             "thick and large light pink eyebrows",
-            "narrow vermilion eyes, pupils divided like '8∞8'",
+            "narrow vermilion eyes, pupils that together resemble '8∞8' split across both eyes",
             "tail feathers resembling a phoenix in vermilion and orange with a pattern like the character '8'"
           ],
           "negative_visuals": ["vermilion inner sweater"],
           "natural_language_description": "Corefolder form: a spherical cushion-like body in EarShapeType_Wing (ears resembling the orange wing sections); light pink intake long hair; thick and large light pink eyebrows; narrow vermilion eyes, pupils divided like '8∞8'; tail feathers resembling a phoenix in vermilion and orange with a pattern like the character '8', with the number '888' marking (Large on the forehead, vermilion, '8∞8').",
-          "prompt_export": "corefolder form, average stature (about 156cm), teenager, Large on the forehead, vermilion, '8∞8', EarShapeType_Wing (ears resembling the orange wing sections), light pink intake long hair, thick and large light pink eyebrows, narrow vermilion eyes, pupils divided like '8∞8', tail feathers resembling a phoenix in vermilion and orange with a pattern like the character '8'",
+          "prompt_export": "corefolder form, average stature (about 156cm), teenager, large in the center of the forehead, vermilion, '8∞8', EarShapeType_Wing (ears resembling the orange wing sections), light pink intake long hair, thick and large light pink eyebrows, narrow vermilion eyes, pupils that together resemble '8∞8' split across both eyes, tail feathers resembling a phoenix in vermilion and orange with a pattern like the character '8'",
           "negative_prompt_export": "vermilion inner sweater",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SemiPrimary/concept/cnsp_imgNTS-888.png"
@@ -6500,13 +6500,13 @@
       },
       "alt_modes": null,
       "_meta": {
-        "structuralSourceHash": "sha256:cd36c459ff0e1a6e917800a68fb481e4536d7f9c9cdad42dcc0caea54ac5b427",
+        "structuralSourceHash": "sha256:e2173a2abfdbb532521ca776aa56a43de1f15c112776c2dfcc3aa61783321724",
         "structuralEntries": {
           "common.identity_tags": [
             "EarShapeType_Wing (ears resembling the orange wing sections)",
             "light pink intake long hair",
             "thick and large light pink eyebrows",
-            "narrow vermilion eyes, pupils divided like '8∞8'",
+            "narrow vermilion eyes, pupils that together resemble '8∞8' split across both eyes",
             "tail feathers resembling a phoenix in vermilion and orange with a pattern like the character '8'"
           ],
           "common.silhouette_features": [
@@ -6514,22 +6514,22 @@
             "EarShapeType_Wing (ears resembling the orange wing sections)",
             "light pink intake long hair",
             "thick and large light pink eyebrows",
-            "narrow vermilion eyes, pupils divided like '8∞8'",
+            "narrow vermilion eyes, pupils that together resemble '8∞8' split across both eyes",
             "tail feathers resembling a phoenix in vermilion and orange with a pattern like the character '8'"
           ],
           "common.immutable_traits": [
-            "number '888' marking: Large on the forehead, vermilion, '8∞8'"
+            "number '888' marking: large in the center of the forehead, vermilion, '8∞8'"
           ],
           "forms.humanoid.form_tags": ["humanoid form"],
           "forms.humanoid.ai_tags": [
             "humanoid form",
             "average stature (about 156cm)",
             "teenager",
-            "Large on the forehead, vermilion, '8∞8'",
+            "large in the center of the forehead, vermilion, '8∞8'",
             "EarShapeType_Wing (ears resembling the orange wing sections)",
             "light pink intake long hair",
             "thick and large light pink eyebrows",
-            "narrow vermilion eyes, pupils divided like '8∞8'",
+            "narrow vermilion eyes, pupils that together resemble '8∞8' split across both eyes",
             "tail feathers resembling a phoenix in vermilion and orange with a pattern like the character '8'",
             "vermilion inner sweater",
             "casual reddish-purple outerwear resembling a haori",
@@ -6541,11 +6541,11 @@
             "corefolder form",
             "average stature (about 156cm)",
             "teenager",
-            "Large on the forehead, vermilion, '8∞8'",
+            "large in the center of the forehead, vermilion, '8∞8'",
             "EarShapeType_Wing (ears resembling the orange wing sections)",
             "light pink intake long hair",
             "thick and large light pink eyebrows",
-            "narrow vermilion eyes, pupils divided like '8∞8'",
+            "narrow vermilion eyes, pupils that together resemble '8∞8' split across both eyes",
             "tail feathers resembling a phoenix in vermilion and orange with a pattern like the character '8'"
           ],
           "forms.corefolder.immutable_constraints": [
@@ -6566,7 +6566,7 @@
             "bound by rope"
           ]
         },
-        "lastStructuralResync": "2026-11-15"
+        "lastStructuralResync": "2026-11-19"
       }
     }
   },
@@ -7091,8 +7091,8 @@
         "identity_tags": [
           "Fox (pink heart-shaped pattern on the tip)",
           "pale golden hair with a large ponytail at the back of the head (appears to be two-tone upon closer inspection), tied with a ribbon in three colors, each face having a different color",
-          "earrings in blue, purple, and magenta",
-          "earrings in yellow, orange, and magenta",
+          "earrings in blue, purple, and magenta on the left ear",
+          "earrings in yellow, orange, and magenta on the right ear",
           "three scorpion-type segmented tails (freely movable like arms)",
           "vivid eyes with magenta pupils and cyan-blue irises",
           "purple ribbon with two round brooches featuring a three-color motif",
@@ -7162,8 +7162,8 @@
             "around the edge of the fabric on the left hem of the cape, dark color, Arabic numeral '33', followed by a small parenthetical '(3×11)'",
             "Fox (pink heart-shaped pattern on the tip)",
             "pale golden hair with a large ponytail at the back of the head (appears to be two-tone upon closer inspection), tied with a ribbon in three colors, each face having a different color",
-            "earrings in blue, purple, and magenta",
-            "earrings in yellow, orange, and magenta",
+            "earrings in blue, purple, and magenta on the left ear",
+            "earrings in yellow, orange, and magenta on the right ear",
             "three scorpion-type segmented tails (freely movable like arms)",
             "vivid eyes with magenta pupils and cyan-blue irises",
             "a bright and outgoing character who is tolerant of otaku/nerd hobbies, a maidenly side that becomes tearful and confused when receiving strong affection",
@@ -7177,7 +7177,7 @@
           ],
           "negative_visuals": [],
           "natural_language_description": null,
-          "prompt_export": "humanoid form, scorpion 3 tails, average stature (about 152cm), teenager, around the edge of the fabric on the left hem of the cape, dark color, Arabic numeral '33', followed by a small parenthetical '(3×11)', Fox (pink heart-shaped pattern on the tip), pale golden hair with a large ponytail at the back of the head (appears to be two-tone upon closer inspection), tied with a ribbon in three colors, each face having a different color, earrings in blue, purple, and magenta, earrings in yellow, orange, and magenta, three scorpion-type segmented tails (freely movable like arms), vivid eyes with magenta pupils and cyan-blue irises, a bright and outgoing character who is tolerant of otaku/nerd hobbies, a maidenly side that becomes tearful and confused when receiving strong affection, purple ribbon with two round brooches featuring a three-color motif, two round brooches featuring a three-color motif, halo featuring heart shapes, a three-color motif, and six bands, bright pink cape with a white collar, flashy Victorian Lolita dress in CMY primary colors, large breasts, fashion boots in purple and bright pink",
+          "prompt_export": "humanoid form, scorpion 3 tails, average stature (about 152cm), teenager, around the edge of the fabric on the left hem of the cape, dark color, Arabic numeral '33', followed by a small parenthetical '(3×11)', Fox (pink heart-shaped pattern on the tip), pale golden hair with a large ponytail at the back of the head (appears to be two-tone upon closer inspection), tied with a ribbon in three colors, each face having a different color, earrings in blue, purple, and magenta on the left ear, earrings in yellow, orange, and magenta on the right ear, three scorpion-type segmented tails (freely movable like arms), vivid eyes with magenta pupils and cyan-blue irises, a bright and outgoing character who is tolerant of otaku/nerd hobbies, a maidenly side that becomes tearful and confused when receiving strong affection, purple ribbon with two round brooches featuring a three-color motif, two round brooches featuring a three-color motif, halo featuring heart shapes, a three-color motif, and six bands, bright pink cape with a white collar, flashy Victorian Lolita dress in CMY primary colors, large breasts, fashion boots in purple and bright pink",
           "negative_prompt_export": "",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SemiPrimary/concept/cnsp_imgNTS-3x11.png"
@@ -7229,8 +7229,8 @@
             "around the edge of the fabric on the left hem of the cape, dark color, Arabic numeral '33', followed by a small parenthetical '(3×11)'",
             "Fox (pink heart-shaped pattern on the tip)",
             "pale golden hair with a large ponytail at the back of the head (appears to be two-tone upon closer inspection), tied with a ribbon in three colors, each face having a different color",
-            "earrings in blue, purple, and magenta",
-            "earrings in yellow, orange, and magenta",
+            "earrings in blue, purple, and magenta on the left ear",
+            "earrings in yellow, orange, and magenta on the right ear",
             "three scorpion-type segmented tails (freely movable like arms)",
             "vivid eyes with magenta pupils and cyan-blue irises",
             "a bright and outgoing character who is tolerant of otaku/nerd hobbies, a maidenly side that becomes tearful and confused when receiving strong affection",
@@ -7244,7 +7244,7 @@
             "fashion boots in purple and bright pink"
           ],
           "natural_language_description": "Corefolder form: a spherical cushion-like body in Fox (pink heart-shaped pattern on the tip); pale golden hair with a large ponytail at the back of the head (appears to be two-tone upon closer inspection), tied with a ribbon in three colors, each face having a different color; three scorpion-type segmented tails (freely movable like arms); vivid eyes with magenta pupils and cyan-blue irises, with the number '3x11' marking (around the edge of the fabric on the left hem of the cape, dark color, Arabic numeral '33', followed by a small parenthetical '(3×11)'); two round brooches featuring a three-color motif.",
-          "prompt_export": "corefolder form, scorpion 3 tails, average stature (about 152cm), teenager, around the edge of the fabric on the left hem of the cape, dark color, Arabic numeral '33', followed by a small parenthetical '(3×11)', Fox (pink heart-shaped pattern on the tip), pale golden hair with a large ponytail at the back of the head (appears to be two-tone upon closer inspection), tied with a ribbon in three colors, each face having a different color, earrings in blue, purple, and magenta, earrings in yellow, orange, and magenta, three scorpion-type segmented tails (freely movable like arms), vivid eyes with magenta pupils and cyan-blue irises, a bright and outgoing character who is tolerant of otaku/nerd hobbies, a maidenly side that becomes tearful and confused when receiving strong affection, purple ribbon with two round brooches featuring a three-color motif, two round brooches featuring a three-color motif, halo featuring heart shapes, a three-color motif, and six bands, bright pink cape with a white collar",
+          "prompt_export": "corefolder form, scorpion 3 tails, average stature (about 152cm), teenager, around the edge of the fabric on the left hem of the cape, dark color, Arabic numeral '33', followed by a small parenthetical '(3×11)', Fox (pink heart-shaped pattern on the tip), pale golden hair with a large ponytail at the back of the head (appears to be two-tone upon closer inspection), tied with a ribbon in three colors, each face having a different color, earrings in blue, purple, and magenta on the left ear, earrings in yellow, orange, and magenta on the right ear, three scorpion-type segmented tails (freely movable like arms), vivid eyes with magenta pupils and cyan-blue irises, a bright and outgoing character who is tolerant of otaku/nerd hobbies, a maidenly side that becomes tearful and confused when receiving strong affection, purple ribbon with two round brooches featuring a three-color motif, two round brooches featuring a three-color motif, halo featuring heart shapes, a three-color motif, and six bands, bright pink cape with a white collar",
           "negative_prompt_export": "flashy Victorian Lolita dress in CMY primary colors, fashion boots in purple and bright pink",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SemiPrimary/concept/cnsp_imgNTS-3x11.png",
@@ -7257,13 +7257,13 @@
       },
       "alt_modes": null,
       "_meta": {
-        "structuralSourceHash": "sha256:068061e3b6989ad41c2653269f57d3418a771980a46cbdbe5eae7bd1b9e9f9ec",
+        "structuralSourceHash": "sha256:2b0a7ed29b4a842eda6efc6551fca90bf9334b9711f7d59bf28600df3936fc91",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox (pink heart-shaped pattern on the tip)",
             "pale golden hair with a large ponytail at the back of the head (appears to be two-tone upon closer inspection), tied with a ribbon in three colors, each face having a different color",
-            "earrings in blue, purple, and magenta",
-            "earrings in yellow, orange, and magenta",
+            "earrings in blue, purple, and magenta on the left ear",
+            "earrings in yellow, orange, and magenta on the right ear",
             "three scorpion-type segmented tails (freely movable like arms)",
             "vivid eyes with magenta pupils and cyan-blue irises",
             "purple ribbon with two round brooches featuring a three-color motif",
@@ -7294,8 +7294,8 @@
             "around the edge of the fabric on the left hem of the cape, dark color, Arabic numeral '33', followed by a small parenthetical '(3×11)'",
             "Fox (pink heart-shaped pattern on the tip)",
             "pale golden hair with a large ponytail at the back of the head (appears to be two-tone upon closer inspection), tied with a ribbon in three colors, each face having a different color",
-            "earrings in blue, purple, and magenta",
-            "earrings in yellow, orange, and magenta",
+            "earrings in blue, purple, and magenta on the left ear",
+            "earrings in yellow, orange, and magenta on the right ear",
             "three scorpion-type segmented tails (freely movable like arms)",
             "vivid eyes with magenta pupils and cyan-blue irises",
             "a bright and outgoing character who is tolerant of otaku/nerd hobbies, a maidenly side that becomes tearful and confused when receiving strong affection",
@@ -7316,8 +7316,8 @@
             "around the edge of the fabric on the left hem of the cape, dark color, Arabic numeral '33', followed by a small parenthetical '(3×11)'",
             "Fox (pink heart-shaped pattern on the tip)",
             "pale golden hair with a large ponytail at the back of the head (appears to be two-tone upon closer inspection), tied with a ribbon in three colors, each face having a different color",
-            "earrings in blue, purple, and magenta",
-            "earrings in yellow, orange, and magenta",
+            "earrings in blue, purple, and magenta on the left ear",
+            "earrings in yellow, orange, and magenta on the right ear",
             "three scorpion-type segmented tails (freely movable like arms)",
             "vivid eyes with magenta pupils and cyan-blue irises",
             "a bright and outgoing character who is tolerant of otaku/nerd hobbies, a maidenly side that becomes tearful and confused when receiving strong affection",
@@ -7344,7 +7344,7 @@
             "bound by rope"
           ]
         },
-        "lastStructuralResync": "2026-11-03"
+        "lastStructuralResync": "2026-11-19"
       }
     }
   },
