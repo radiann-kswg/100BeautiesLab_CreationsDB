@@ -578,6 +578,7 @@ node tools/patch-aihints.mjs --work NumberTales --db Primary --all --resync-stru
 #### 集計ラベルの読み方
 
 - `resync-applied`: 構造ソースが変化しており、構造由来の記録済み文字列を差し替えた。
+- `resync-rebuilt`: corefolder を宣言しない作品で、構造ソースの変化を受けて AIHints を丸ごと作り直した（§9.12）。
 - `resync-unchanged`: `structuralSourceHash` が一致（構造ソース無変更）のため no-op。
 
 #### CI 連携
@@ -636,7 +637,7 @@ node tools/patch-aihints.mjs --work NumberTales --db Primary --all --apply-color
 - **創作判断が要る枠は null のまま**: `natural_language_description` / `immutable_constraints` / `negative_keywords`、
   および `Expression` エントリが無いレコードの `expression_tendency` は User の手入力枠として残す。`TODO:` 文字列は出力しない。
 - **provenance を最初から記録**: 生成と同時に `_meta` を書くため、直後の `--resync-structural` は no-op になる。
-  外見データを直したあとの保守は、後述「外見データを直したとき」を参照（§9.10 の再同期だけでは足りない）。
+  外見データを直したあとの保守は再同期だけで足りる（後述「外見データを直したとき」）。
 - **索引は `$IndexDef` から解決**: `--records` とログの `#<値>` は、獣爾騎兵が `BeastType.Beast`（`Mouse` 等）、豹変系女子が `Drc`（`NE` 等）。
   D1 の `idx_value`（`migrate-aihints.mjs`）と同じ解決関数を使う。
 
@@ -706,24 +707,38 @@ UI / SW の enrich と同じ見え方に揃えるためで、解決規則は `to
 
 #### 外見データを直したとき（保守）
 
-`--resync-structural`（push のたびに CI が実行）が差し替えるのは、構造由来として記録している配列
+`--resync-structural`（push のたびに CI が実行）だけで追従します。
+
+ナンバーテールズの再同期が差し替えるのは、構造由来として記録している配列
 （`identity_tags` / `silhouette_features` / `immutable_traits` / `expression_tendency` / `form_tags` / `ai_tags`）と
-`prompt_export` 系だけです。**`outfit_features` / `silhouette_notes` / `negative_visuals` は再同期の対象外**のため、
-`AppearanceDetail` の文言を直した直後は、これらの配列に古い文言が残ります。
+`prompt_export` 系だけで、`outfit_features` / `silhouette_notes` / `negative_visuals` は対象外です。
+しかしこの経路の作品では、それらも含めた全配列が `AppearanceDetail` 由来です。そこで
+**corefolder を宣言しない作品の再同期は、構造ソースが変わっていて人が書いた内容が無ければ、レコードの AIHints を丸ごと作り直します**
+（集計ラベル `resync-rebuilt`）。`AppearanceDetail` の文言・形態、`ColorPalette` の HEX、`Height_cm` のどれを直しても、
+古い値はどの配列にも残りません。
 
-この経路の作品では全配列が `AppearanceDetail` 由来なので、**直したレコードは `--force` で再生成**してください
-（人が書いた内容があればブロックされます。適用後は prettier）。
+| 作り直しで残すもの                                           | 理由                                                                 |
+| ------------------------------------------------------------ | -------------------------------------------------------------------- |
+| `common.reference_images` と、各形態の `reference_images`    | 再同期は参照画像に触れない（作り直すのは `--fix-refs` / `--force`）  |
+| 参照画像を手で据えた形態（例: 巳刻カミツの `beasted`）       | 固有エントリが無くても形態ごと保持する                               |
+| `ColorPalette` に対応する Role が無い配色スロットへ入れた値  | `ColorPalette` が与えるスロットだけを導出値で差し替える              |
+| `ConceptAge` が無いレコードの `age_appearance`               | 導出元が無いため、入っている値をそのまま使う                         |
+| `work_common` / `alt_modes` / スキーマ外のトップレベルキー   | ツールが組み立てない項目                                             |
 
-```powershell
-# 再同期の dry-run で resync-applied が出たレコードが、再生成の対象
-node tools/patch-aihints.mjs --work SinisterChangingGirls --db Primary --all --resync-structural
-node tools/patch-aihints.mjs --work SinisterChangingGirls --db Primary --records N --force --apply
-npx prettier --write data/Works_SinisterChangingGirls/DataBases/db_Primary.json
-```
+**人が書いた内容があるレコードは作り直しません。** `natural_language_description` / `immutable_constraints` /
+`negative_keywords`、手で足したタグなどが入っている場合は、従来どおり構造由来の配列だけを更新して警告を出します
+（集計ラベル `resync-applied`）。このとき `outfit_features` / `silhouette_notes` / `negative_visuals` に残る古い文言は、
+手で直すか、人が書いた内容を控えたうえで `--force --force-destructive` で作り直してください。
 
 `*_DBLink` の**参照先**を直した場合も同じです。構造ソースのハッシュは穴埋め後のレコードから計算するため、
-参照先の変更は参照元の `resync-applied` として現れます（例: 2026-11-19 にナンバーテールズ `0` の外見英訳を
-`develop` で修正 → マージ後に豹変系女子 `N` が `resync-applied` になり、`--force` で再生成した）。
+参照先の変更は参照元の再同期として現れます（例: 2026-11-19 にナンバーテールズ `0` の外見英訳を `develop` で修正 →
+マージ後に豹変系女子 `N` が再同期の対象になった）。
+
+```powershell
+# 手元で確かめるとき（CI と同じ処理）
+node tools/patch-aihints.mjs --work SinisterChangingGirls --db Primary --all --resync-structural --apply
+npx prettier --write data/Works_SinisterChangingGirls/DataBases/db_Primary.json
+```
 
 #### 適用状況（2026-11-19）
 

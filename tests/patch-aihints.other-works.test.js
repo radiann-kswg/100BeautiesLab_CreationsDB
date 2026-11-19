@@ -23,6 +23,7 @@ import {
     buildSeedAihints,
     loadAiFormKeys,
     loadAiUnreadyProgressValues,
+    loadMergedVarsDef,
     patchFileText,
     resolveLinkFills,
     resolveRecordKeyPath,
@@ -172,6 +173,115 @@ describe('番号印字の接頭辞', () => {
         const rec = { Num: 7, AppearanceDetail: marks, AIHints: { forms: { humanoid: {} } } };
         const { aihints } = buildAihintsFromAppearanceDetail(rec, {});
         expect(aihints.common.immutable_traits).toEqual(["number '7' marking: on the left chest"]);
+    });
+});
+
+describe('--resync-structural — corefolder を持たない作品は丸ごと作り直す', () => {
+    // 再同期が差し替えるのは構造由来として記録した配列だけで、outfit_features / silhouette_notes /
+    // negative_visuals は対象外。この経路の作品ではそれらも AppearanceDetail 由来なので、
+    // 外見データを直したのに古い文言が残らないよう作り直す（2026-11-19。N の英訳修正で判明）。
+    const REF = { main: 'https://example.invalid/ref.png' };
+
+    /** 生成済みの AIHints を持つレコードを作る（work の形態キーと語彙は実データの宣言を使う） */
+    const seeded = (work, appearance) => {
+        const rec = { Key: 'T', AppearanceDetail: appearance, ColorPalette: [{ Role: '#ColorRole_Primary', Hex: '#111111' }] };
+        const { aihints } = buildSeedAihints(rec, REF, loadMergedVarsDef(work), loadAiFormKeys(work));
+        return { ...rec, AIHints: aihints };
+    };
+    /** 1 レコードの DB テキストへ再同期をかける */
+    const resync = (work, record) => {
+        const text = JSON.stringify([record], null, 2);
+        const { newText, results } = patchFileText(text, { work, db: 'Primary', records: null, resyncStructural: true, keyPath: 'Key' });
+        return { status: results[0].status, changed: newText !== text, after: JSON.parse(newText)[0].AIHints };
+    };
+    const appearance = () => [
+        entry(null, '#Element_CostumeItem', 'teal scarf'),
+        entry(null, '#Element_Motif', 'green eyes'),
+    ];
+
+    it('外見の文言を直すと、再同期の対象外だった配列も新しい文言になる', () => {
+        const rec = seeded('ShauErRiders', appearance());
+        rec.AppearanceDetail[0].Attrs[0].value_EN = 'red scarf';
+        rec.AppearanceDetail[1].Attrs[0].value_EN = 'red eyes';
+        const { status, after } = resync('ShauErRiders', rec);
+        expect(status).toBe('resync-rebuilt');
+        expect(JSON.stringify(after)).not.toMatch(/teal scarf|green eyes/);
+        expect(after.forms.normal.outfit_features).toEqual(['red scarf']);
+        expect(after.forms.normal.silhouette_notes.body_description).toEqual(['red eyes']);
+        expect(after.forms.normal.prompt_export).toContain('red scarf');
+    });
+
+    it('参照画像は据え置く（手で据えた形態の参照画像も残る）', () => {
+        const rec = seeded('ShauErRiders', appearance());
+        rec.AIHints.forms.beasted = { reference_images: { main: 'B' } };
+        rec.AppearanceDetail[0].Attrs[0].value_EN = 'red scarf';
+        const { after } = resync('ShauErRiders', rec);
+        expect(after.common.reference_images).toEqual(REF);
+        expect(after.forms.beasted.reference_images).toEqual({ main: 'B' });
+        expect(after.forms.beasted.ai_tags).toContain('red scarf');
+    });
+
+    it('配色（ColorPalette）の変更も反映する', () => {
+        const rec = seeded('ShauErRiders', appearance());
+        rec.ColorPalette[0].Hex = '#222222';
+        const { status, after } = resync('ShauErRiders', rec);
+        expect(status).toBe('resync-rebuilt');
+        expect(after.common.palette_priority.primary).toBe('#222222');
+    });
+
+    it('ColorPalette に対応する Role が無いスロットへ手で入れた配色は、作り直しても残す', () => {
+        const rec = seeded('ShauErRiders', appearance());
+        rec.AIHints.common.palette_priority.accent = '#ABCDEF'; // ColorPalette に Accent は無い
+        rec.ColorPalette[0].Hex = '#222222';
+        const { status, after } = resync('ShauErRiders', rec);
+        expect(status).toBe('resync-rebuilt');
+        expect(after.common.palette_priority).toEqual({ primary: '#222222', secondary: null, accent: '#ABCDEF' });
+    });
+
+    it('手で入れた見た目年齢（ConceptAge が無いレコード）は作り直しても残す', () => {
+        const rec = seeded('ShauErRiders', appearance());
+        rec.AIHints.common.age_appearance = 'young adult';
+        rec.AppearanceDetail[0].Attrs[0].value_EN = 'red scarf';
+        const { status, after } = resync('ShauErRiders', rec);
+        expect(status).toBe('resync-rebuilt');
+        expect(after.common.age_appearance).toBe('young adult');
+    });
+
+    it('ツールが組み立てないトップレベル項目は作り直しても持ち越す', () => {
+        const rec = seeded('ShauErRiders', appearance());
+        rec.AIHints.work_common = { reference_images: { normal_reference: ['https://example.invalid/sheet.png'] } };
+        rec.AppearanceDetail[0].Attrs[0].value_EN = 'red scarf';
+        const { status, after } = resync('ShauErRiders', rec);
+        expect(status).toBe('resync-rebuilt');
+        expect(after.work_common).toEqual({ reference_images: { normal_reference: ['https://example.invalid/sheet.png'] } });
+    });
+
+    it('人が書いた内容があれば作り直さず、構造由来の配列だけを更新する', () => {
+        const rec = seeded('ShauErRiders', appearance());
+        rec.AIHints.common.natural_language_description = 'A hand-written summary.';
+        rec.AppearanceDetail[0].Attrs[0].value_EN = 'red scarf';
+        const { status, after } = resync('ShauErRiders', rec);
+        expect(status).toBe('resync-applied');
+        expect(after.common.natural_language_description).toBe('A hand-written summary.');
+        expect(after.forms.normal.ai_tags).toContain('red scarf');
+    });
+
+    it('構造ソースが変わっていなければ何も書き換えない', () => {
+        const { status, changed } = resync('ShauErRiders', seeded('ShauErRiders', appearance()));
+        expect(status).toBe('resync-unchanged');
+        expect(changed).toBe(false);
+    });
+
+    it('corefolder を宣言する作品（NumberTales）は従来どおり作り直さない', () => {
+        // NumberTales の outfit_features 等は視覚解析・手入力由来がありうるため、差し替えは記録済みの配列に限る
+        const rec = { Key: 'T', AppearanceDetail: appearance(), AIHints: { forms: { humanoid: {} } } };
+        rec.AIHints = buildAihintsFromAppearanceDetail(rec, loadMergedVarsDef('NumberTales')).aihints;
+        rec.AIHints = resyncStructuralAihints(rec.AIHints, rec, loadMergedVarsDef('NumberTales')).aihints;
+        rec.AppearanceDetail[0].Attrs[0].value_EN = 'red scarf';
+        const { status, after } = resync('NumberTales', rec);
+        expect(status).toBe('resync-applied');
+        expect(after.forms.humanoid.ai_tags).toContain('red scarf');
+        expect(after.forms.humanoid.outfit_features).toEqual(['teal scarf']);
     });
 });
 

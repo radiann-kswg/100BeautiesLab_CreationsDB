@@ -98,7 +98,7 @@ User 判断で新分類へ揃えた。手順は 2026-09-06 の seed と同じ段
 
 ### 4. テスト・ドキュメント
 
-- `tests/patch-aihints.other-works.test.js`（新規 46 件）: スキーマ解決 / `buildSeedAihints` / `resolveLinkFills` の権利ガード /
+- `tests/patch-aihints.other-works.test.js`（新規。当初 46 件、再同期の改修で 55 件）: スキーマ解決 / `buildSeedAihints` / `resolveLinkFills` の権利ガード /
   実データの型定義適合・付与ゲート・参照画像の実在。件数やレコード名は固定していない。
 - `docs/ai-hints-usage.md` §2.1・§7・§9.12、`docs/aihints-spec.md` §1、`docs/api-sw-spec.md` §5.5、`AGENTS.md`（＋生成物）、`CHANGELOG.md`。
 
@@ -138,15 +138,13 @@ ponytail-review で 5 件を指摘し、実装側の 4 件（不要形態の残�
 - [x] ~~豹変系女子 `NE` / `NW` が未付与~~ → `#DB_Regioministrators` を `AI_Optout: false` にして付与済み。
 - [x] ~~NumberTales `666` / `666-mp` の翼~~ → 新分類へ揃えた。
 - [x] ~~`develop` 側でも対象 DB へ prettier をかけるか~~ → `develop`（`1c70567d`）で 5 DB を整形済み。
-- [ ] **再同期の対象を広げるか**（後述「追記: `develop` マージ後の確認」の気づき）。`--resync-structural` は
-      `outfit_features` / `silhouette_notes` / `negative_visuals` を更新しないため、外見データを直すたびに
-      該当レコードの `--force` 再生成が要る。ツール側で再同期の対象へ含めれば CI だけで追従できるが、
-      ナンバーテールズの保守挙動も変わるため User 判断。
+- [x] ~~再同期だけでは古い文言が残る~~ → corefolder を宣言しない作品は再同期時に丸ごと作り直すよう改修した
+      （後述「追記: 再同期で丸ごと作り直す」）。ナンバーテールズの保守挙動は変えていない。
 
 ### データ入力待ち（User）
 
-- [ ] 巳刻カミツの束縛形態の固有特徴。`Formation: "beasted"` の `AppearanceDetail` を入力したら、
-      `--records Snake --force --apply` で再生成する（現状は全形態共通の 7 件のみ。辞書は `develop` 側で追加済み）。
+- [ ] 巳刻カミツの束縛形態の固有特徴。`Formation: "beasted"` の `AppearanceDetail` を入力すれば、
+      push 後の再同期 CI が `forms.beasted` へ反映する（現状は全形態共通の 7 件のみ。辞書は `develop` 側で追加済み）。
 - [ ] 創作判断が要る枠（`natural_language_description` / `immutable_constraints` / `negative_keywords` / `expression_tendency`）。
 
 ### 下流への申し送り
@@ -196,16 +194,61 @@ ponytail-review で 5 件を指摘し、実装側の 4 件（不要形態の残�
 `forms.beforeChange.silhouette_notes.body_description` に旧い 2 値が残った。再同期が差し替えるのは
 構造由来として記録している配列だけで、`outfit_features` / `silhouette_notes` / `negative_visuals` は対象外のため。
 
-- corefolder を宣言しない作品ではこれらも `AppearanceDetail` 由来なので、**外見データを直したレコードは
-  `--force` で再生成する**運用にした（`docs/ai-hints-usage.md` §9.12「外見データを直したとき」）。
-- push 後の再同期 CI は `resync-applied` のレコードを自動で直すが、上記 3 配列は直さない。CI の PR が出たら
-  対象レコードを `--force` で再生成する必要がある。
-- 根本対応（再同期の対象へ 3 配列を加える）はナンバーテールズの保守挙動も変えるため、未着手（User 判断待ち）。
+corefolder を宣言しない作品ではこれらも `AppearanceDetail` 由来なので、このままでは外見データを直すたびに
+`--force` の手作業が要り、忘れると古い文言がデータに残る。User 判断でツールを改修した（次節）。
 
 ### 検証（マージ + `N` 再生成後）
 
 `npm test` 91 ファイル / 1731 件、`data:order:check` 0/1465、`agents:check` 一致、
 `--resync-structural` は AIHints を持つ 6 DB とも no-op、対象 JSON は prettier 準拠。
+
+---
+
+## 追記: 再同期で丸ごと作り直す（同日・User 判断）
+
+### 変更
+
+`tools/patch-aihints.mjs` の `--resync-structural` に、corefolder を宣言しない作品だけの分岐を足した。
+
+- 条件: 構造ソースのハッシュが記録と違い、かつ `detectHumanAuthoredContent()` が 0 件。
+- 動作: `buildSeedAihints()` でレコードの AIHints を丸ごと作り直す（集計ラベル `resync-rebuilt`）。
+- 人が書いた内容があるレコードは、従来どおり構造由来の配列だけを更新して警告を出す（`resync-applied`）。
+- ナンバーテールズ（corefolder を宣言する作品）は分岐に入らない。`outfit_features` 等に視覚解析・手入力由来の
+  値がありうるため、差し替えは記録済みの配列に限る従来の方針のまま。
+
+### 作り直しで残すもの
+
+| 残すもの | 実装 |
+| --- | --- |
+| `common.reference_images` | 既存値を `buildSeedAihints()` へ渡す（再同期は参照画像に触れない） |
+| 参照画像を手で据えた形態 | `reference_images` を持つ既存形態だけを持ち越す |
+| `ColorPalette` に対応しない配色スロット | 既存の配色を渡したうえで、`ColorPalette` が与えるスロットだけ導出値で上書きする |
+| `ConceptAge` が無いレコードの `age_appearance` | 既存値を渡す（ビルダーは `ConceptAge` があればそちらを優先する） |
+| `work_common` / `alt_modes` / スキーマ外のトップレベルキー | そのまま持ち越す |
+
+> **実装中の気づき**: `detectHumanAuthoredContent()` は、ビルダーが既存値を流用する項目（配色・`ConceptAge` が無いときの
+> `age_appearance`・ツールが組み立てないトップレベルキー）を「人が書いた内容」として検出しない（ビルダー出力に
+> 既存値がそのまま現れ、ツール由来と見なされるため）。作り直しで黙って消えないよう、`buildSeedAihints()` 側で持ち越している。
+
+### テスト（`tests/patch-aihints.other-works.test.js` に 9 件追加、計 55 件）
+
+外見の文言を直すと対象外だった配列も更新される / 参照画像と手で据えた形態を残す / `ColorPalette` の変更を反映する /
+対応する Role が無い配色スロットを残す / 手で入れた見た目年齢を残す / トップレベル項目を持ち越す /
+人が書いた内容があれば作り直さない / 構造ソースが同じなら何も書き換えない / ナンバーテールズは従来どおり。
+
+作り直しの分岐を無効にすると該当テストが落ちることを確認した。実データでも、獣爾騎兵 Mouse の外見文言をメモリ上で
+書き換えて再同期を通し、Mouse だけが `resync-rebuilt` になり、旧い文言がどの配列にも残らないことを確かめた
+（ファイルは変更していない）。
+
+### 検証
+
+`npm test` 91 ファイル / 1740 件、`data:order:check` 0/1465、`agents:check` 一致。
+`--force` の全件再生成は整形後にバイト一致、`--resync-structural` は 6 DB とも no-op（この改修で実データは変えていない）。
+
+`ConceptAge` を直した場合も作り直しになり、`age_appearance` と `ai_tags` の年齢帯が更新されることを確かめた
+（古い年齢帯は `ai_tags` の記録に含まれるためツール由来と判定される）。
+
+未確認: push 後の再同期 CI（Linux）での実行。
 
 ## 参考リンク
 

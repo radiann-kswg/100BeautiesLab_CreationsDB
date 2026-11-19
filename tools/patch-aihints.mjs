@@ -333,6 +333,9 @@ Options:
                       構造ソース（TailsUnit / AppearanceDetail / ColorPalette / GenderType /
                       ConceptAge / Height_cm / Num）が変わっていなければ no-op
                       --force で全面上書きする --apply-appearancedetail の安全版
+                      corefolder を宣言しない作品（ShauErRiders / SinisterChangingGirls）は全配列が
+                      構造ソース由来のため、人が書いた内容が無ければ丸ごと作り直す（resync-rebuilt）。
+                      人が書いた内容があるレコードは従来どおり構造由来の配列だけを更新する
   --apply-colorpalette  DB の ColorPalette（設定画のカラーチップ由来の構造化フィールド）から
                       common.palette_priority を機械導出する。画像の目視は不要
                       Role=Primary/Secondary/Accent → primary/secondary/accent へ対応付け
@@ -3975,18 +3978,33 @@ function applyAppearanceDetailToAihintsInRecord(text, openIdx, closeIdx, record,
  * @returns {{ aihints: any|null, warnings: string[] }} AppearanceDetail が無ければ aihints は null
  */
 export function buildSeedAihints(record, commonRefs, varsDef, formKeys, label) {
-    const keptForms = Object.entries(record.AIHints?.forms ?? {})
+    // 作り直しても、ツールが組み立てないトップレベル項目（work_common / alt_modes / スキーマ外キー）は持ち越す
+    const { common: _common, forms: prevForms, _meta, ...keptTopLevel } = record.AIHints ?? {};
+    const keptForms = Object.entries(prevForms ?? {})
         .filter(([, form]) => form?.reference_images)
         .map(([key, form]) => [key, { reference_images: form.reference_images }]);
     const base = {
-        common: { reference_images: commonRefs },
+        ...keptTopLevel,
+        // ビルダーが既存値を流用する項目（ConceptAge が無いときの age_appearance / 配色）を渡す。
+        // どちらも「人が書いた内容」の検出には掛からないため、ここで渡さないと作り直しで黙って消える
+        common: {
+            age_appearance: _common?.age_appearance ?? null,
+            palette_priority: _common?.palette_priority ?? null,
+            reference_images: commonRefs,
+        },
         forms: { [formKeys[0]]: null, ...Object.fromEntries(keptForms) },
     };
     const built = buildAihintsFromAppearanceDetail({ ...record, AIHints: base }, varsDef, label);
     if (!built.hasSource) return { aihints: null, warnings: built.warnings };
     built.aihints.forms = reorderObjectKeys(built.aihints.forms, formKeys);
-    // provenance（_meta）と palette_priority を最初から入れ、直後の --resync-structural を no-op にする
-    const { aihints } = resyncStructuralAihints(built.aihints, { ...record, AIHints: built.aihints }, varsDef);
+    // 配色は ColorPalette が与えるスロットだけ導出値で差し替える（ColorPalette を直したら追従する）。
+    // 対応する Role が無いスロットへ手で入れた値は残す（人が書いた内容の検出は配色を見ないため、ここで守る）。
+    const palette = derivePaletteFromColorPalette(record);
+    const seeded = palette
+        ? applyColorPaletteToAihints(built.aihints, palette, { force: true }).aihints
+        : built.aihints;
+    // provenance（_meta）を最初から入れ、直後の --resync-structural を no-op にする
+    const { aihints } = resyncStructuralAihints(seeded, { ...record, AIHints: seeded }, varsDef);
     return { aihints, warnings: built.warnings };
 }
 
@@ -4065,6 +4083,8 @@ export function patchFileText(text, opts) {
     const aiUnreadyProgress = loadAiUnreadyProgressValues(opts.work);
     // 形態キーは作品の typedef から引く。corefolder を宣言する作品だけが TODO 雛形（NumberTales 流）を使う。
     const formKeys = loadAiFormKeys(opts.work);
+    // corefolder を宣言しない作品の AIHints は、全配列が構造ソースから導出される（buildSeedAihints）。
+    const seedPath = formKeys.length > 0 && !formKeys.includes('corefolder');
 
     // レコード末尾から先頭へ向かって差し込むことで、前方のインデックスを安定保持。
     for (let i = ranges.length - 1; i >= 0; i--) {
@@ -4210,6 +4230,27 @@ export function patchFileText(text, opts) {
                 continue;
             }
             const varsDef = loadMergedVarsDef(opts.work);
+
+            // seedPath の作品は、再同期が触らない配列（outfit_features / silhouette_notes / negative_visuals）も
+            // 構造ソース由来。外見データを直したのに古い文言が残らないよう、構造ソースが変わっていて
+            // 人が書いた内容が無ければ丸ごと作り直す。参照画像は据え置く（そちらは --fix-refs の守備範囲）。
+            if (seedPath && record.AIHints?._meta?.structuralSourceHash !== computeStructuralSourceHash(record)) {
+                const human = detectHumanAuthoredContent(record.AIHints, record, varsDef);
+                if (human.length === 0) {
+                    const seed = buildSeedAihints(
+                        record, record.AIHints.common?.reference_images ?? null, varsDef, formKeys, num,
+                    );
+                    for (const w of seed.warnings) console.warn(`[resync-structural] ${w}`);
+                    if (seed.aihints) {
+                        text = replaceAihintsInRecord(text, openIdx, closeIdx, stringifyAihintsBlock(seed.aihints));
+                        results.push({ num, status: 'resync-rebuilt' });
+                        continue;
+                    }
+                } else {
+                    console.warn(`[resync-structural] #${num} 人が書いた内容があるため作り直さず、構造由来の配列だけを更新します: ${human.slice(0, 3).join(', ')}${human.length > 3 ? ' ...' : ''}`);
+                }
+            }
+
             const { aihints: newAihints, changed, warnings, skipped } =
                 resyncStructuralAihints(record.AIHints, record, varsDef);
             for (const w of warnings) console.warn(`[resync-structural] #${num} ${w}`);
@@ -4350,7 +4391,7 @@ export function patchFileText(text, opts) {
             scaffold = opts.suggest
                 ? buildSuggestedScaffold(record, imageInfo, opts.work)
                 : buildScaffold(record, imageInfo, opts.work);
-        } else if (formKeys.length > 0) {
+        } else if (seedPath) {
             // corefolder を持たない作品は TODO 雛形を経由せず、構造ソースから直接組み立てる（--suggest の有無は無関係）
             const seed = buildSeedAihints(
                 record, buildCommonReferenceImages(imageInfo.common), loadMergedVarsDef(opts.work), formKeys, num,
