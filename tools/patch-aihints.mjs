@@ -30,13 +30,20 @@
  *
  * 想定 DB:
  * - `data/Works_<work>/DataBases/db_<db>.json`
- * - 当面は NumberTales / Primary を主対象に検証。他作品でも同じ画像規約なら使える。
+ * - 形態キーと索引キーは作品の `db_type.json`（`$VersDef.$Def_AIHintsForms` / `$IndexDef`）から解決する。
+ *   `corefolder` を宣言する作品（NumberTales）は上記の TODO 雛形を使い、宣言しない作品
+ *   （獣爾騎兵 / 豹変系女子）は雛形を経由せず構造ソースから直接組み立てる（buildSeedAihints）。
  */
 
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
+// 索引キーの解決は D1 投入（migrate-aihints.mjs）と同じ関数を使い、ログ・--records と idx_value を揃える
+import { resolveIdxKey } from '../pkg/cloudflare/scripts/migrate-common.mjs';
+import {
+    collectEnrichLinkFields, collectDeclaredTopLevelKeys, enrichRecordFromLinks,
+} from './build-roleplay-prompts.mjs';
 
 // ────────────────────────────────────────────────────────────────────────────
 // 定数 / パス解決
@@ -47,6 +54,75 @@ const REPO_ROOT = path.resolve(__dirname, '..');
 
 /** 公開 URL の baseオリジン（CNAME） */
 const PUBLIC_ORIGIN = 'https://database.numbertales-radiann.net';
+
+/**
+ * JSON を読む。欠損・不正は null（メタ欠損時にチェックをスキップする既存の耐性設計に合わせる）。
+ * @param {string} p
+ * @returns {any|null}
+ */
+const readJsonOrNull = (p) => {
+    try { return JSON.parse(fs.readFileSync(p, 'utf8')); } catch { return null; }
+};
+
+/**
+ * `Databases` 木から DB エントリを再帰で引く（`#DB_Secondary.#DB_UnprocessedSecondary` 等のネスト DB を含む）。
+ * @param {any} node
+ * @param {string} key  `#DB_<DbName>`
+ * @returns {any|null}
+ */
+function findDbEntry(node, key) {
+    if (!node || typeof node !== 'object') return null;
+    if (node[key]) return node[key];
+    for (const v of Object.values(node)) {
+        const hit = findDbEntry(v, key);
+        if (hit) return hit;
+    }
+    return null;
+}
+
+// ────────────────────────────────────────────────────────────────────────────
+// 作品別スキーマの解決（索引キー / 形態キー）
+// ────────────────────────────────────────────────────────────────────────────
+
+/** 作品別 typedef のキャッシュ（CLI 1 回の実行中は不変） */
+const workTypeCache = new Map();
+
+/**
+ * 作品別 typedef（`data/Works_<work>/DataBases/db_type.json`）を読む。
+ * @param {string} work
+ * @returns {Record<string, any>} 欠損・不正時は {}
+ */
+function loadWorkType(work) {
+    if (!workTypeCache.has(work)) {
+        workTypeCache.set(work, readJsonOrNull(
+            path.join(REPO_ROOT, 'data', `Works_${work}`, 'DataBases', 'db_type.json'),
+        ) ?? {});
+    }
+    return workTypeCache.get(work);
+}
+
+/**
+ * レコードの索引値を引くドットパス（例: `Num` / `BeastType.Beast` / `Drc`）を返す。
+ * 索引が `Num` でない作品（獣爾騎兵・豹変系女子など）を `record.Num` 決め打ちで素通りさせないため。
+ * @param {string} work
+ * @param {string} db
+ * @returns {string}
+ */
+export function resolveRecordKeyPath(work, db) {
+    const type = loadWorkType(work);
+    return resolveIdxKey(type[`$IndexDef_${db}`] ?? type.$IndexDef);
+}
+
+/**
+ * 作品が宣言する AIHints の形態キーを宣言順で返す（`$VersDef.$Def_AIHintsForms`）。先頭が既定形態。
+ * 形態構造は作品ごとに違うため、ツールへ作品名の分岐を持たずスキーマから解決する。
+ * @param {string} work
+ * @returns {string[]} 未宣言なら []
+ */
+export function loadAiFormKeys(work) {
+    const defs = loadWorkType(work).$VersDef?.$Def_AIHintsForms?.$DefType;
+    return Array.isArray(defs) ? defs.map((d) => d?.hashTag).filter((k) => typeof k === 'string') : [];
+}
 
 // ────────────────────────────────────────────────────────────────────────────
 // CLI 引数のパース
@@ -206,8 +282,14 @@ function printHelpAndExit() {
 
 Options:
   --work <name>       作品名（既定: NumberTales）
+                      形態キーは作品の db_type.json（$VersDef.$Def_AIHintsForms）から引く。corefolder を
+                      宣言しない作品（ShauErRiders / SinisterChangingGirls）は TODO 雛形を使わず、
+                      AppearanceDetail / ColorPalette / 参照画像から直接組み立てる（--suggest は無関係）。
+                      AppearanceDetail が無いレコードは skipped-no-source（$enrich: true の *_DBLink から補えた場合は生成）
   --db <name>         DB 名（既定: Primary。例: Secondary, SemiPrimary）
-  --records <spec>    対象 Num（例: 41-60, 41,42,47, 41-45,50）
+  --records <spec>    対象の索引値（例: 41-60, 41,42,47, 41-45,50）
+                      索引は作品の $IndexDef で決まる（NumberTales: Num / ShauErRiders: BeastType.Beast
+                      → Mouse,Rabbit / SinisterChangingGirls: Drc → NE,E）
                       特殊番号トークン（"000" / "2-alt" / "10-alt" / "67-old" 等の string Num）も指定可
                       （純整数は number / string 両形式で内部マッチするため後方互換あり）
   --all               全レコード対象
@@ -362,6 +444,7 @@ function findMatchingBrace(text, openIdx) {
 /**
  * @typedef {Object} CommonRefs
  * @property {string|null} concept           メインコンセプト画像 URL
+ * @property {string|null} main              concept が無いときの代表参照 URL（年賀絵原画の先頭）
  * @property {string[]} concept_variants     コンセプトバリアント URL 集（conceptAlt）
  * @property {string|null} catalog           設定画像 URL（catalog/chr-dsgn_catalog<N>）
  * @property {string|null} design_sheet      デザインシート URL（designAlt）
@@ -396,18 +479,7 @@ export function imageRefKey(work, db, folder, rel) {
  * @returns {Set<string>} imageRefKey() 形式のキー集合
  */
 export function collectOptoutImageKeys(dataRoot = path.join(REPO_ROOT, 'data')) {
-    const findDbEntry = (node, key) => {
-        if (!node || typeof node !== 'object') return null;
-        if (node[key]) return node[key];
-        for (const v of Object.values(node)) {
-            const hit = findDbEntry(v, key);
-            if (hit) return hit;
-        }
-        return null;
-    };
-    const readJson = (p) => {
-        try { return JSON.parse(fs.readFileSync(p, 'utf8')); } catch { return null; }
-    };
+    const readJson = readJsonOrNull;
     const folderOf = (field) => String(field).match(/^([A-Za-z0-9-]+)_PNG/)?.[1] ?? '';
 
     const keys = new Set();
@@ -459,7 +531,7 @@ function resolveImageInfo(record, work, db) {
         corefolderImages: [],
         corefolderArtImages: [],
         humanoidImages: [],
-        common: { concept: null, concept_variants: [], catalog: null, design_sheet: null },
+        common: { concept: null, main: null, concept_variants: [], catalog: null, design_sheet: null },
     };
     const imgs = record && record.Images;
     if (!imgs || typeof imgs !== 'object') return out;
@@ -542,6 +614,11 @@ function resolveImageInfo(record, work, db) {
     // concept (単一 PNG 名)
     if (typeof imgs.concept_PNGName === 'string' && imgs.concept_PNGName) {
         out.common.concept = urlIfExists('concept', imgs.concept_PNGName);
+    }
+    // shortcut: 設定原画が無いレコードの代表参照は年賀絵原画（newYear_PNGPath）の先頭に固定
+    //   （獣爾騎兵向け・2026-11-19 User 判断）。別のフィールドを代表参照にしたい作品が出たら typedef 宣言へ寄せる。
+    if (!out.common.concept && Array.isArray(imgs.newYear_PNGPath) && imgs.newYear_PNGPath.length > 0) {
+        out.common.main = urlIfExists('newYear', String(imgs.newYear_PNGPath[0]));
     }
     // conceptAlt (複数 PNG 名) → concept_variants[]
     const conceptAlt = Array.isArray(imgs.conceptAlt_PNGName) ? imgs.conceptAlt_PNGName : [];
@@ -1260,13 +1337,15 @@ function buildScaffold(record, imageInfo, work) {
  * @returns {Record<string, any>|null}
  */
 function buildCommonReferenceImages(c) {
-    const hasAny = c.concept || c.concept_variants.length > 0 || c.catalog || c.design_sheet;
+    const hasAny = c.concept || c.main || c.concept_variants.length > 0 || c.catalog || c.design_sheet;
     if (!hasAny) return null;
     /** @type {Record<string, any>} */
     const ref = {};
     if (c.concept) {
         ref.main = c.concept;
         ref.concept = c.concept;
+    } else if (c.main) {
+        ref.main = c.main;
     }
     if (c.concept_variants.length > 0) ref.concept_variants = c.concept_variants;
     if (c.catalog) ref.catalog = c.catalog;
@@ -3193,6 +3272,7 @@ const ELEMENT_CATEGORY = new Map([
     ['#Element_Motif', 'body'],
     ['#Element_BodyType', 'body'],
     ['#Element_Ear', 'body'],
+    ['#Element_Wing', 'body'], // 翼は耳と同じ体の部位。未登録だと misc（衣装側）へ落ちていた
     ['#Element_Expression', 'expression'],
     ['#Element_CostumeItem', 'outfit'],
     ['#Element_Halo', 'attached'],
@@ -3598,9 +3678,10 @@ function buildCorefolderNldFromAppearanceDetail(num, silhouetteNotes, markingPhr
  *
  * @param {any} record  パース済みレコード（AppearanceDetail と AIHints を含む）
  * @param {Record<string, any>} varsDef  loadMergedVarsDef() の返り値
+ * @param {number|string} [label]  警告ログ用のレコード識別子（`Num` を持たない作品の索引値）
  * @returns {{ aihints: any, hasSource: boolean, formationsTouched: string[], warnings: string[] }}
  */
-export function buildAihintsFromAppearanceDetail(record, varsDef) {
+export function buildAihintsFromAppearanceDetail(record, varsDef, label = record.Num) {
     const num = record.Num;
     const baseAihints = record.AIHints ?? {};
     const existingCommon = baseAihints.common ?? {};
@@ -3630,9 +3711,9 @@ export function buildAihintsFromAppearanceDetail(record, varsDef) {
         const category = ELEMENT_CATEGORY.get(entry.DesignElement) ?? 'misc';
         if (category === 'skip') continue;
         if (category === 'misc' && entry.DesignElement) {
-            warnings.push(`#${num}: 未知の DesignElement "${entry.DesignElement}" を outfit_features 側へフォールバック分類`);
+            warnings.push(`#${label}: 未知の DesignElement "${entry.DesignElement}" を outfit_features 側へフォールバック分類`);
         }
-        const phrase = buildAttrPhraseEN(entry.Attrs, varsDef, warnings, num);
+        const phrase = buildAttrPhraseEN(entry.Attrs, varsDef, warnings, label);
         if (!phrase) continue;
         classifiedEntries.push({ formation: (typeof entry.Formation === 'string' ? entry.Formation : null), category, phrase });
     }
@@ -3785,8 +3866,9 @@ export function buildAihintsFromAppearanceDetail(record, varsDef) {
     const newCommon = {
         identity_tags: identityTags,
         silhouette_features: silhouetteFeatures,
+        // `Num` を持たない作品の索引値（方角・干支など）は番号ではないため、番号扱いの接頭辞を付けない
         immutable_traits: markingLinesShared.length > 0
-            ? markingLinesShared.map((p) => `number '${num}' marking: ${p}`)
+            ? markingLinesShared.map((p) => (num === undefined ? `marking: ${p}` : `number '${num}' marking: ${p}`))
             : null,
         expression_tendency: expressionTendency.length > 0 ? expressionTendency : null,
         age_appearance: (typeof ageBand === 'string' && ageBand) ? ageBand : null,
@@ -3838,14 +3920,15 @@ export function buildAihintsFromAppearanceDetail(record, varsDef) {
  * @param {number} closeIdx
  * @param {any} record
  * @param {Record<string, any>} varsDef
+ * @param {number|string} [label]  警告ログ用のレコード識別子
  * @returns {{ text: string, changed: boolean, status: 'appearancedetail-applied'|'appearancedetail-unchanged'|'appearancedetail-cleared'|'appearancedetail-no-source'|'skipped-no-aihints', warnings: string[] }}
  */
-function applyAppearanceDetailToAihintsInRecord(text, openIdx, closeIdx, record, varsDef) {
+function applyAppearanceDetailToAihintsInRecord(text, openIdx, closeIdx, record, varsDef, label) {
     if (!record.AIHints) {
         return { text, changed: false, status: 'skipped-no-aihints', warnings: [] };
     }
 
-    const { aihints: newAihints, hasSource, warnings } = buildAihintsFromAppearanceDetail(record, varsDef);
+    const { aihints: newAihints, hasSource, warnings } = buildAihintsFromAppearanceDetail(record, varsDef, label);
 
     /** @type {any} */
     let finalAihints;
@@ -3875,6 +3958,103 @@ function applyAppearanceDetailToAihintsInRecord(text, openIdx, closeIdx, record,
     };
 }
 
+// ============================================================================
+// corefolder を持たない作品向けの生成経路（構造ソース → AIHints / `*_DBLink` からの穴埋め）
+// ============================================================================
+
+/**
+ * 構造ソース（AppearanceDetail / ColorPalette）と参照画像だけから AIHints を新規に組み立てる。
+ *
+ * @description
+ *   ナンバーテールズ用の TODO 雛形（buildScaffold / buildSuggestedScaffold）は球体コアフォルダ等の
+ *   作品固有文言を含むため、corefolder を宣言しない作品では使わず、決定論ビルダーの出力をそのまま採る。
+ *   創作判断が要る枠（natural_language_description / immutable_constraints 等）は null のまま残る。
+ *
+ *   形態は、既定形態（formKeys[0]）を必ず作り、それ以外は固有の AppearanceDetail エントリがある場合か、
+ *   既に AIHints.forms に置かれている場合だけ作る。後者は「参照画像だけ手で据えた形態」
+ *   （例: 巳刻カミツの beasted = 束縛形態）を `--force` の再生成で失わないため。
+ *
+ * @param {any} record  `_Commons` / `*_DBLink` 穴埋め適用後のレコード
+ * @param {Record<string, any>|null} commonRefs  buildCommonReferenceImages() の返り値
+ * @param {Record<string, any>} varsDef  loadMergedVarsDef() の返り値
+ * @param {string[]} formKeys  loadAiFormKeys() の返り値（1 件以上）
+ * @param {number|string} [label]  警告ログ用のレコード識別子
+ * @returns {{ aihints: any|null, warnings: string[] }} AppearanceDetail が無ければ aihints は null
+ */
+export function buildSeedAihints(record, commonRefs, varsDef, formKeys, label) {
+    const keptForms = Object.entries(record.AIHints?.forms ?? {})
+        .map(([key, form]) => [key, { reference_images: form?.reference_images ?? null }]);
+    const base = {
+        common: { reference_images: commonRefs },
+        forms: { [formKeys[0]]: null, ...Object.fromEntries(keptForms) },
+    };
+    const built = buildAihintsFromAppearanceDetail({ ...record, AIHints: base }, varsDef, label);
+    if (!built.hasSource) return { aihints: null, warnings: built.warnings };
+    built.aihints.forms = reorderObjectKeys(built.aihints.forms, formKeys);
+    // provenance（_meta）と palette_priority を最初から入れ、直後の --resync-structural を no-op にする
+    const { aihints } = resyncStructuralAihints(built.aihints, { ...record, AIHints: built.aihints }, varsDef);
+    return { aihints, warnings: built.warnings };
+}
+
+/** `*_DBLink` 経由で穴埋めしてよい構造ソース（TailsUnit は作品固有 typedef のため対象外） */
+const LINK_FILL_FIELDS = ['AppearanceDetail', 'ColorPalette', 'GenderType', 'Height_cm'];
+
+/**
+ * `$enrich: true` の `*_DBLink`（同一存在への参照）から、各レコードの空の構造ソースを補う値を解決する。
+ *
+ * @description
+ *   UI / SW の enrich と同じ見え方に揃えるため、解決規則は `tools/build-roleplay-prompts.mjs` の
+ *   enrichRecordFromLinks()（先頭の解決済み参照のみ・空値だけ穴埋め・別作品は宣言済み項目のみ）に委ねる。
+ *   そのうえで AIHints 固有の制約を 2 つ足す:
+ *   - **権利**: 参照先が AI 不可（DB / カテゴリ単位の `AI_Optout`・非公開・Hidden・メタ未登録）なら
+ *     何も持ち込まない。「解決はするが構造ソースを渡さない」形にして 2 番目以降の参照へ進ませない
+ *     （UI の enrich が使うのと違う参照先を拾わないため）。
+ *   - **範囲**: 対象作品の `$DetailLayout` に載る項目だけ（AGENTS.md「cross-work `_DBLink` 制約」）。
+ *
+ * @param {any[]} records  対象 DB の全レコード（生値）
+ * @param {string} work
+ * @param {string} db
+ * @param {string} [dataRoot]  `data/` ディレクトリ（テスト用に差し替え可）
+ * @returns {Promise<Array<Record<string, any>>>} records と同じ並びの「補う値」（無ければ {}）
+ */
+export async function resolveLinkFills(records, work, db, dataRoot = path.join(REPO_ROOT, 'data')) {
+    const dbDir = (w) => path.join(dataRoot, `Works_${w}`, 'DataBases');
+    const globalType = readJsonOrNull(path.join(dataRoot, 'db_type.json'));
+    const workType = readJsonOrNull(path.join(dbDir(work), 'db_type.json'));
+    const globalMeta = readJsonOrNull(path.join(dataRoot, 'db_meta.json'));
+    const fields = collectEnrichLinkFields(globalType, workType);
+    const layout = globalMeta?.CreationWorks?.[`#Works_${work}`]?.$DetailLayout ?? {};
+    const listed = new Set([layout.headerPills, layout.basicFields, layout.subFields].flat());
+    const fillable = LINK_FILL_FIELDS.filter((k) => listed.has(k));
+    if (!fields.size || !fillable.length) return records.map(() => ({}));
+
+    const withheld = Object.fromEntries(LINK_FILL_FIELDS.map((k) => [k, null]));
+    const cache = new Map();
+    const loadRecords = async (w, d) => {
+        const key = `${w}/${d}`;
+        if (!cache.has(key)) {
+            const entry = findDbEntry(readJsonOrNull(path.join(dbDir(w), 'db_meta.json'))?.Databases, `#DB_${d}`);
+            const dbDenied = !entry || entry.AI_Optout === true || entry.DB_Hidden === true
+                || globalMeta?.CreationWorks?.[`#Works_${w}`]?.Works_Hidden === true;
+            const secDefs = entry?._Secondaries ?? entry?.Secondaries ?? null;
+            const recs = readJsonOrNull(path.join(dbDir(w), `db_${d}.json`));
+            cache.set(key, (Array.isArray(recs) ? recs : []).map((r) => (
+                dbDenied || r?.isPrivate === true || findSecondaryDef(r, secDefs)?.AI_Optout === true
+                    ? { ...r, ...withheld }
+                    : r
+            )));
+        }
+        return cache.get(key);
+    };
+    const declaredKeys = collectDeclaredTopLevelKeys(globalType, workType);
+
+    return Promise.all(records.map(async (rec) => {
+        const enriched = await enrichRecordFromLinks(rec, { work, db, fields, loadRecords, declaredKeys });
+        return Object.fromEntries(fillable
+            .filter((k) => isEmptyForCommons(rec?.[k]) && !isEmptyForCommons(enriched?.[k]))
+            .map((k) => [k, enriched[k]]));
+    }));
+}
 
 /**
  * 1ファイル分のパッチ処理。テキスト編集と結果集計を返す。
@@ -3889,6 +4069,8 @@ function patchFileText(text, opts) {
 
     // scaffold ゲート用。work 単位で決まるためループ外で 1 回だけ解決する。
     const aiUnreadyProgress = loadAiUnreadyProgressValues(opts.work);
+    // 形態キーは作品の typedef から引く。corefolder を宣言する作品だけが TODO 雛形（NumberTales 流）を使う。
+    const formKeys = loadAiFormKeys(opts.work);
 
     // レコード末尾から先頭へ向かって差し込むことで、前方のインデックスを安定保持。
     for (let i = ranges.length - 1; i >= 0; i--) {
@@ -3901,7 +4083,8 @@ function patchFileText(text, opts) {
             // 構造異常はスキップ（テスト data.sanity.test.js でカバー済みのはず）
             continue;
         }
-        const num = record.Num;
+        // 索引値。`Num` 以外を索引にする作品（`BeastType.Beast` / `Drc` 等）は resolveDbTarget() が解決したパスで引く
+        const num = getByPath(record, opts.keyPath ?? 'Num');
         // num は通常 number だが、特殊番号レコード（例: "000", "2-alt"）は string も許容
         if (num === undefined || num === null || (typeof num !== 'number' && typeof num !== 'string')) continue;
         if (opts.records !== null && !opts.records.has(num)) continue;
@@ -3923,6 +4106,12 @@ function patchFileText(text, opts) {
         // _Commons 継承（DB レベル → カテゴリ別の順で空値のみ穴埋め）。
         // 継承値は以降の AIHints 生成の入力にだけ効き、DB へは書き戻らない。
         record = applyCommonsToRecord(record, opts.dbCommons, secDef?._Commons ?? null);
+
+        // `$enrich: true` の `*_DBLink`（同一存在）が持つ構造ソースで、まだ空の項目だけ補う。
+        // 値は main() が resolveLinkFills() で事前解決したもの。_Commons と同じく DB へは書き戻らない。
+        for (const [key, value] of Object.entries(opts.linkFills?.[i] ?? {})) {
+            if (isEmptyForCommons(record[key])) record = { ...record, [key]: value };
+        }
 
         const hasAihints = Object.prototype.hasOwnProperty.call(record, 'AIHints');
 
@@ -4010,7 +4199,7 @@ function patchFileText(text, opts) {
             }
             const varsDef = loadMergedVarsDef(opts.work);
             const { text: newText, changed, status, warnings } = applyAppearanceDetailToAihintsInRecord(
-                text, openIdx, closeIdx, record, varsDef,
+                text, openIdx, closeIdx, record, varsDef, num,
             );
             text = newText;
             for (const w of warnings) console.warn(`[apply-appearancedetail] ${w}`);
@@ -4116,10 +4305,18 @@ function patchFileText(text, opts) {
             }
         }
 
+        // 非公開レコードの外見を AI 向けに書き出さない。D1 投入（migrate-aihints.mjs）は isPrivate を
+        // 見ないため、付与の入口で止める（非公開レコードを含む DB を対象にするのは豹変系女子からが初）。
+        if (record.isPrivate === true) {
+            results.push({ num, status: 'skipped-private' });
+            continue;
+        }
+
         const imageInfo = resolveImageInfo(record, opts.work, opts.db);
         const hasAnyImage = imageInfo.corefolderUrl !== null
             || imageInfo.humanoidImages.length > 0
             || imageInfo.common.concept !== null
+            || imageInfo.common.main !== null
             || imageInfo.common.concept_variants.length > 0
             || imageInfo.common.catalog !== null
             || imageInfo.common.design_sheet !== null;
@@ -4154,9 +4351,27 @@ function patchFileText(text, opts) {
             continue;
         }
 
-        const scaffold = opts.suggest
-            ? buildSuggestedScaffold(record, imageInfo, opts.work)
-            : buildScaffold(record, imageInfo, opts.work);
+        let scaffold;
+        if (formKeys.includes('corefolder')) {
+            scaffold = opts.suggest
+                ? buildSuggestedScaffold(record, imageInfo, opts.work)
+                : buildScaffold(record, imageInfo, opts.work);
+        } else if (formKeys.length > 0) {
+            // corefolder を持たない作品は TODO 雛形を経由せず、構造ソースから直接組み立てる（--suggest の有無は無関係）
+            const seed = buildSeedAihints(
+                record, buildCommonReferenceImages(imageInfo.common), loadMergedVarsDef(opts.work), formKeys, num,
+            );
+            for (const w of seed.warnings) console.warn(`[seed] ${w}`);
+            if (!seed.aihints) {
+                results.push({ num, status: 'skipped-no-source', note: 'AppearanceDetail が無い（*_DBLink 穴埋め後も空）' });
+                continue;
+            }
+            scaffold = seed.aihints;
+        } else {
+            // 形態構造が未宣言の作品へ NumberTales の雛形を流し込まない
+            results.push({ num, status: 'skipped-no-typedef', note: `Works_${opts.work} の db_type.json に $VersDef.$Def_AIHintsForms が未宣言` });
+            continue;
+        }
         const block = stringifyAihintsBlock(scaffold);
 
         if (hasAihints && opts.force) {
@@ -4290,6 +4505,7 @@ function resolveDbTarget(opts) {
     //   opt-in の定義まで既定 opt-out に巻き込んで弾いていた。
     opts.secondaryDefs = dbEntry?._Secondaries ?? dbEntry?.Secondaries ?? null;
     opts.dbCommons = dbEntry?._Commons ?? null;
+    opts.keyPath = resolveRecordKeyPath(opts.work, opts.db);
     const optoutCount = (opts.secondaryDefs ?? []).filter((s) => s?.AI_Optout === true).length;
     if (optoutCount > 0) {
         console.log(`[INFO] _Secondaries: ${opts.secondaryDefs.length} 定義中 ${optoutCount} 件が AI_Optout: true（レコード単位で判定）`);
@@ -4298,19 +4514,23 @@ function resolveDbTarget(opts) {
     return dbPath;
 }
 
-function main() {
+async function main() {
     const opts = parseArgs(process.argv.slice(2));
     const dbPath = resolveDbTarget(opts);
 
     const original = fs.readFileSync(dbPath, 'utf8');
 
     // 念のため事前に JSON 全体パースして整合性を確認
+    let allRecords;
     try {
-        JSON.parse(original);
+        allRecords = JSON.parse(original);
     } catch (e) {
         console.error(`Source DB is not valid JSON: ${e.message}`);
         process.exit(1);
     }
+
+    // `*_DBLink`（同一存在）からの構造ソース穴埋めを先に解決する（patchFileText は同期処理のため）
+    opts.linkFills = Array.isArray(allRecords) ? await resolveLinkFills(allRecords, opts.work, opts.db) : [];
 
     // --gen-vision-tasks モード: 読み取り専用でタスクマニフェストを生成して終了。
     if (opts.genVisionTasks) {
@@ -4414,5 +4634,5 @@ const invokedPath = process.argv[1] ?? '';
 if (invokedPath
     && (import.meta.url === `file://${invokedPath.replace(/\\/g, '/')}`
         || import.meta.url.endsWith(path.basename(invokedPath)))) {
-    main();
+    await main();
 }

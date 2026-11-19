@@ -130,7 +130,113 @@
       }
     ],
     "Summary_JP": "本名は「千歳玲(ちとせ-れい)」だが、ヒューマノイドの開発活動を展開するにあたりこの名前で活動している若手女性エンジニア（特に、ナンバーテールズを提供している百花繚乱研究所では若手女代表とも）。\nお調子者なムードメーカであるだけでなく 自分の生み出したヒューマノイドを含め自らの後輩や仲間のことを大切にしている姉御肌だが、ひとたび酒に酔いしれてしまうと「色欲」スイッチが入りいつも以上にみだりなスキンシップや求愛行動に奔ってしまうという悪酔が強い一面も",
-    "Summary_EN": "A young female engineer active under this name while developing humanoids — born as 'Zeena Thouser' but known in circles like the HundredBeauties Laboratory that creates NumberTales as a representative of younger women in the field.\nNot only an easygoing mood-maker, but a big-sisterly figure who cherishes her juniors and companions including the humanoids she created — yet once she gets dead drunk, her 'Lust' switch flips and she falls into indelicate skinship and courtship behavior far beyond her usual self"
+    "Summary_EN": "A young female engineer active under this name while developing humanoids — born as 'Zeena Thouser' but known in circles like the HundredBeauties Laboratory that creates NumberTales as a representative of younger women in the field.\nNot only an easygoing mood-maker, but a big-sisterly figure who cherishes her juniors and companions including the humanoids she created — yet once she gets dead drunk, her 'Lust' switch flips and she falls into indelicate skinship and courtship behavior far beyond her usual self",
+    "AIHints": {
+      "common": {
+        "identity_tags": [
+          "same humanoid form",
+          "cat ear accessories",
+          "light brown medium hair",
+          "green-brown eyes",
+          "long light teal scarf (ends with stripe pattern)",
+          "casual suit resembling a white coat"
+        ],
+        "silhouette_features": [
+          "slightly tall stature (about 165cm)",
+          "same humanoid form",
+          "light brown medium hair",
+          "green-brown eyes"
+        ],
+        "immutable_traits": [
+          "marking: fairly large on the left chest of the white coat, below the left lapel, light brown (with dark outline), Arabic numeral '0'"
+        ],
+        "expression_tendency": null,
+        "age_appearance": null,
+        "palette_priority": {
+          "primary": "#FFD184",
+          "secondary": "#FFB2AB",
+          "accent": "#FF8682"
+        },
+        "natural_language_description": null,
+        "reference_images": {
+          "main": "https://database.numbertales-radiann.net/data/Works_SinisterChangingGirls/Images/DB_Primary/concept/cnsp_imgSCG-N.png",
+          "concept": "https://database.numbertales-radiann.net/data/Works_SinisterChangingGirls/Images/DB_Primary/concept/cnsp_imgSCG-N.png"
+        }
+      },
+      "work_common": null,
+      "forms": {
+        "beforeChange": {
+          "form_tags": ["beforeChange form"],
+          "outfit_features": [
+            "cat ear accessories",
+            "long light teal scarf (ends with stripe pattern)",
+            "casual suit resembling a white coat"
+          ],
+          "silhouette_notes": {
+            "body_description": [
+              "same humanoid form",
+              "light brown medium hair",
+              "green-brown eyes"
+            ],
+            "attached_items": []
+          },
+          "immutable_constraints": null,
+          "negative_keywords": null,
+          "ai_tags": [
+            "beforeChange form",
+            "slightly tall stature (about 165cm)",
+            "fairly large on the left chest of the white coat, below the left lapel, light brown (with dark outline), Arabic numeral '0'",
+            "same humanoid form",
+            "cat ear accessories",
+            "light brown medium hair",
+            "green-brown eyes",
+            "long light teal scarf (ends with stripe pattern)",
+            "casual suit resembling a white coat"
+          ],
+          "negative_visuals": [],
+          "natural_language_description": null,
+          "prompt_export": "beforeChange form, slightly tall stature (about 165cm), fairly large on the left chest of the white coat, below the left lapel, light brown (with dark outline), Arabic numeral '0', same humanoid form, cat ear accessories, light brown medium hair, green-brown eyes, long light teal scarf (ends with stripe pattern), casual suit resembling a white coat",
+          "negative_prompt_export": "",
+          "reference_images": null
+        }
+      },
+      "alt_modes": null,
+      "_meta": {
+        "structuralSourceHash": "sha256:8d398931a0ccdf02480798de90776cdabe362826d5fc1d3fb23baef26cdcff0f",
+        "structuralEntries": {
+          "common.identity_tags": [
+            "same humanoid form",
+            "cat ear accessories",
+            "light brown medium hair",
+            "green-brown eyes",
+            "long light teal scarf (ends with stripe pattern)",
+            "casual suit resembling a white coat"
+          ],
+          "common.silhouette_features": [
+            "slightly tall stature (about 165cm)",
+            "same humanoid form",
+            "light brown medium hair",
+            "green-brown eyes"
+          ],
+          "common.immutable_traits": [
+            "marking: fairly large on the left chest of the white coat, below the left lapel, light brown (with dark outline), Arabic numeral '0'"
+          ],
+          "forms.beforeChange.form_tags": ["beforeChange form"],
+          "forms.beforeChange.ai_tags": [
+            "beforeChange form",
+            "slightly tall stature (about 165cm)",
+            "fairly large on the left chest of the white coat, below the left lapel, light brown (with dark outline), Arabic numeral '0'",
+            "same humanoid form",
+            "cat ear accessories",
+            "light brown medium hair",
+            "green-brown eyes",
+            "long light teal scarf (ends with stripe pattern)",
+            "casual suit resembling a white coat"
+          ]
+        },
+        "lastStructuralResync": "2026-11-19"
+      }
+    }
   },
   {
     "Drc": "NE",
@@ -746,7 +852,12 @@
         "Hex": "#9A9893",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Arm", "#BodyPart_Leg", "#BodyPart_Foot"],
+        "AppliesTo": [
+          "#BodyPart_Chest",
+          "#BodyPart_Arm",
+          "#BodyPart_Leg",
+          "#BodyPart_Foot"
+        ],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -766,7 +877,12 @@
         "Hex": "#9BC1E6",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": ["#BodyPart_Leg", "#BodyPart_Ear", "#BodyPart_Hair", "#BodyPart_Tail"],
+        "AppliesTo": [
+          "#BodyPart_Leg",
+          "#BodyPart_Ear",
+          "#BodyPart_Hair",
+          "#BodyPart_Tail"
+        ],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -793,7 +909,137 @@
       }
     ],
     "Summary_JP": "夜月機関からある理由で独立し「白の六芒星」という機密研究機関で研究所長を務める少女。\n儚くも優しいアルビノな美少女で、人情味と愛にあふれる温厚な性格……なのだが、「『クィーン・シックス』という人体兵器として生まれた」「中学時代は学園番長を名乗っていた」「夜月機関で先代幹部の殉職を目にし覚悟が決まっている」などと危険な一面を持つ噂が後を絶たない。\nそんな彼女の「憤怒」な一面は、特に親友の命を蔑ろにするようなことがあると突然あらわれるようで……",
-    "Summary_EN": "A girl who broke away from the Yadzuki Organization for a certain reason and now serves as research director at a classified research institute called 'WhiteHexagram'.\nA frail yet gentle albino beauty, mild-mannered and overflowing with human warmth and love... and yet the rumors of her dangerous side never cease: \"born as 'Queen.VI' the human weapon\", \"called herself a school delinquent leader back in middle school\", \"has been resolved ever since witnessing the previous executive's death in the line of duty at the Yadzuki Org.\"\nThat 'Wrath/Rage' side of hers seems to surface all of a sudden, especially when something treats her best friend's life as worthless..."
+    "Summary_EN": "A girl who broke away from the Yadzuki Organization for a certain reason and now serves as research director at a classified research institute called 'WhiteHexagram'.\nA frail yet gentle albino beauty, mild-mannered and overflowing with human warmth and love... and yet the rumors of her dangerous side never cease: \"born as 'Queen.VI' the human weapon\", \"called herself a school delinquent leader back in middle school\", \"has been resolved ever since witnessing the previous executive's death in the line of duty at the Yadzuki Org.\"\nThat 'Wrath/Rage' side of hers seems to surface all of a sudden, especially when something treats her best friend's life as worthless...",
+    "AIHints": {
+      "common": {
+        "identity_tags": [
+          "long hair with slender locks beside the face, white, back hair spreading broadly to both sides",
+          "jacket, body: pink; sleeves and center panel: gray; inner collar and hem: white",
+          "long skirt, legwear, and shoes, hanging panels on both sides of the skirt, skirt: light blue; hanging panels: pale purple; legwear and shoes: gray; soles: orange"
+        ],
+        "silhouette_features": [
+          "slightly tall stature (about 166cm)",
+          "long hair with slender locks beside the face, white, back hair spreading broadly to both sides"
+        ],
+        "immutable_traits": null,
+        "expression_tendency": null,
+        "age_appearance": null,
+        "palette_priority": {
+          "primary": "#FEF3D9",
+          "secondary": "#F0F3ED",
+          "accent": "#4378C3"
+        },
+        "natural_language_description": null,
+        "reference_images": {
+          "main": "https://database.numbertales-radiann.net/data/Works_SinisterChangingGirls/Images/DB_Primary/concept/cnsp_imgSCG-E.png",
+          "concept": "https://database.numbertales-radiann.net/data/Works_SinisterChangingGirls/Images/DB_Primary/concept/cnsp_imgSCG-E.png"
+        }
+      },
+      "work_common": null,
+      "forms": {
+        "beforeChange": {
+          "form_tags": ["beforeChange form"],
+          "outfit_features": [
+            "jacket, body: pink; sleeves and center panel: gray; inner collar and hem: white",
+            "long skirt, legwear, and shoes, hanging panels on both sides of the skirt, skirt: light blue; hanging panels: pale purple; legwear and shoes: gray; soles: orange"
+          ],
+          "silhouette_notes": {
+            "body_description": [
+              "long hair with slender locks beside the face, white, back hair spreading broadly to both sides",
+              "reddish orange"
+            ],
+            "attached_items": []
+          },
+          "immutable_constraints": null,
+          "negative_keywords": null,
+          "ai_tags": [
+            "beforeChange form",
+            "slightly tall stature (about 166cm)",
+            "long hair with slender locks beside the face, white, back hair spreading broadly to both sides",
+            "jacket, body: pink; sleeves and center panel: gray; inner collar and hem: white",
+            "long skirt, legwear, and shoes, hanging panels on both sides of the skirt, skirt: light blue; hanging panels: pale purple; legwear and shoes: gray; soles: orange",
+            "reddish orange"
+          ],
+          "negative_visuals": [],
+          "natural_language_description": null,
+          "prompt_export": "beforeChange form, slightly tall stature (about 166cm), long hair with slender locks beside the face, white, back hair spreading broadly to both sides, jacket, body: pink; sleeves and center panel: gray; inner collar and hem: white, long skirt, legwear, and shoes, hanging panels on both sides of the skirt, skirt: light blue; hanging panels: pale purple; legwear and shoes: gray; soles: orange, reddish orange",
+          "negative_prompt_export": "",
+          "reference_images": null
+        },
+        "afterChanged": {
+          "form_tags": ["afterChanged form"],
+          "outfit_features": [
+            "jacket, body: pink; sleeves and center panel: gray; inner collar and hem: white",
+            "long skirt, legwear, and shoes, hanging panels on both sides of the skirt, skirt: light blue; hanging panels: pale purple; legwear and shoes: gray; soles: orange"
+          ],
+          "silhouette_notes": {
+            "body_description": [
+              "long hair with slender locks beside the face, white, back hair spreading broadly to both sides",
+              "Fox, large triangular shape, blue; inner surfaces: pale blue, top of the head",
+              "irises: blue; around the eyes: dark gray, shadow-like markings around the eyes",
+              "face-framing locks and ends of the back hair: pale blue",
+              "Fox-type, multiple large tails, blue with pale-blue tips, tails spreading in a fan behind the body"
+            ],
+            "attached_items": []
+          },
+          "immutable_constraints": null,
+          "negative_keywords": null,
+          "ai_tags": [
+            "afterChanged form",
+            "slightly tall stature (about 166cm)",
+            "long hair with slender locks beside the face, white, back hair spreading broadly to both sides",
+            "jacket, body: pink; sleeves and center panel: gray; inner collar and hem: white",
+            "long skirt, legwear, and shoes, hanging panels on both sides of the skirt, skirt: light blue; hanging panels: pale purple; legwear and shoes: gray; soles: orange",
+            "Fox, large triangular shape, blue; inner surfaces: pale blue, top of the head",
+            "irises: blue; around the eyes: dark gray, shadow-like markings around the eyes",
+            "face-framing locks and ends of the back hair: pale blue",
+            "Fox-type, multiple large tails, blue with pale-blue tips, tails spreading in a fan behind the body"
+          ],
+          "negative_visuals": [],
+          "natural_language_description": null,
+          "prompt_export": "afterChanged form, slightly tall stature (about 166cm), long hair with slender locks beside the face, white, back hair spreading broadly to both sides, jacket, body: pink; sleeves and center panel: gray; inner collar and hem: white, long skirt, legwear, and shoes, hanging panels on both sides of the skirt, skirt: light blue; hanging panels: pale purple; legwear and shoes: gray; soles: orange, Fox, large triangular shape, blue; inner surfaces: pale blue, top of the head, irises: blue; around the eyes: dark gray, shadow-like markings around the eyes, face-framing locks and ends of the back hair: pale blue, Fox-type, multiple large tails, blue with pale-blue tips, tails spreading in a fan behind the body",
+          "negative_prompt_export": "",
+          "reference_images": null
+        }
+      },
+      "alt_modes": null,
+      "_meta": {
+        "structuralSourceHash": "sha256:f8b5ebafb415641597c4d702bc7fd51eb43af5869d3ada2c1eca3765f437b28e",
+        "structuralEntries": {
+          "common.identity_tags": [
+            "long hair with slender locks beside the face, white, back hair spreading broadly to both sides",
+            "jacket, body: pink; sleeves and center panel: gray; inner collar and hem: white",
+            "long skirt, legwear, and shoes, hanging panels on both sides of the skirt, skirt: light blue; hanging panels: pale purple; legwear and shoes: gray; soles: orange"
+          ],
+          "common.silhouette_features": [
+            "slightly tall stature (about 166cm)",
+            "long hair with slender locks beside the face, white, back hair spreading broadly to both sides"
+          ],
+          "forms.beforeChange.form_tags": ["beforeChange form"],
+          "forms.beforeChange.ai_tags": [
+            "beforeChange form",
+            "slightly tall stature (about 166cm)",
+            "long hair with slender locks beside the face, white, back hair spreading broadly to both sides",
+            "jacket, body: pink; sleeves and center panel: gray; inner collar and hem: white",
+            "long skirt, legwear, and shoes, hanging panels on both sides of the skirt, skirt: light blue; hanging panels: pale purple; legwear and shoes: gray; soles: orange",
+            "reddish orange"
+          ],
+          "forms.afterChanged.form_tags": ["afterChanged form"],
+          "forms.afterChanged.ai_tags": [
+            "afterChanged form",
+            "slightly tall stature (about 166cm)",
+            "long hair with slender locks beside the face, white, back hair spreading broadly to both sides",
+            "jacket, body: pink; sleeves and center panel: gray; inner collar and hem: white",
+            "long skirt, legwear, and shoes, hanging panels on both sides of the skirt, skirt: light blue; hanging panels: pale purple; legwear and shoes: gray; soles: orange",
+            "Fox, large triangular shape, blue; inner surfaces: pale blue, top of the head",
+            "irises: blue; around the eyes: dark gray, shadow-like markings around the eyes",
+            "face-framing locks and ends of the back hair: pale blue",
+            "Fox-type, multiple large tails, blue with pale-blue tips, tails spreading in a fan behind the body"
+          ]
+        },
+        "lastStructuralResync": "2026-11-19"
+      }
+    }
   },
   {
     "Drc": "SE",
@@ -1104,7 +1350,116 @@
       }
     ],
     "Summary_JP": "「新生九蓮」という新国家革命軍を名乗る少女。\n努力や安心を経験したことがなく常に他人への不信感を抱いている素直でない「怠惰」な戦争孤児。\nしかし猫相手と寝具の中ではこの上ない安らぎを感じているためか、普段見せることのない甘えた様子を露にすることも。",
-    "Summary_EN": "A girl calling herself the 'Neo.LotusNinea(n)', a new state revolutionary army.\nA contrary 'Sloth(ful)' war orphan who has never experienced effort or security, always holding distrust toward others.\nHowever, perhaps because she feels the deepest comfort with cats and within bedding, she occasionally reveals an unguarded, affectionate side not normally shown."
+    "Summary_EN": "A girl calling herself the 'Neo.LotusNinea(n)', a new state revolutionary army.\nA contrary 'Sloth(ful)' war orphan who has never experienced effort or security, always holding distrust toward others.\nHowever, perhaps because she feels the deepest comfort with cats and within bedding, she occasionally reveals an unguarded, affectionate side not normally shown.",
+    "AIHints": {
+      "common": {
+        "identity_tags": [
+          "short hair with outward-flicking ends, reddish pink, long bangs over the left side of the face",
+          "orange",
+          "reddish purple",
+          "long cape, dark reddish purple, horizontal clasp at the neck",
+          "short-sleeved top, black; buttons: pink; sleeve cuffs: pale orange, two rows of chest buttons and crossed cord-like decorations at the center",
+          "short bottoms, orange",
+          "legwear and lace-up boots, legwear: dark reddish purple; boots: black; boot panels and sole edging: pink",
+          "wearable cushion, large sphere with vertical seams on the surface, black, covering the body below the neck"
+        ],
+        "silhouette_features": [
+          "short stature (about 145cm)",
+          "short hair with outward-flicking ends, reddish pink, long bangs over the left side of the face",
+          "orange",
+          "reddish purple"
+        ],
+        "immutable_traits": null,
+        "expression_tendency": null,
+        "age_appearance": null,
+        "palette_priority": {
+          "primary": "#423F3F",
+          "secondary": "#FFB2AC",
+          "accent": "#DD7C9C"
+        },
+        "natural_language_description": null,
+        "reference_images": {
+          "main": "https://database.numbertales-radiann.net/data/Works_SinisterChangingGirls/Images/DB_Primary/concept/cnsp_imgSCG-SE.png",
+          "concept": "https://database.numbertales-radiann.net/data/Works_SinisterChangingGirls/Images/DB_Primary/concept/cnsp_imgSCG-SE.png"
+        }
+      },
+      "work_common": null,
+      "forms": {
+        "beforeChange": {
+          "form_tags": ["beforeChange form"],
+          "outfit_features": [
+            "long cape, dark reddish purple, horizontal clasp at the neck",
+            "short-sleeved top, black; buttons: pink; sleeve cuffs: pale orange, two rows of chest buttons and crossed cord-like decorations at the center",
+            "short bottoms, orange",
+            "legwear and lace-up boots, legwear: dark reddish purple; boots: black; boot panels and sole edging: pink",
+            "wearable cushion, large sphere with vertical seams on the surface, black, covering the body below the neck"
+          ],
+          "silhouette_notes": {
+            "body_description": [
+              "short hair with outward-flicking ends, reddish pink, long bangs over the left side of the face",
+              "orange",
+              "reddish purple"
+            ],
+            "attached_items": []
+          },
+          "immutable_constraints": null,
+          "negative_keywords": null,
+          "ai_tags": [
+            "beforeChange form",
+            "short stature (about 145cm)",
+            "short hair with outward-flicking ends, reddish pink, long bangs over the left side of the face",
+            "orange",
+            "reddish purple",
+            "long cape, dark reddish purple, horizontal clasp at the neck",
+            "short-sleeved top, black; buttons: pink; sleeve cuffs: pale orange, two rows of chest buttons and crossed cord-like decorations at the center",
+            "short bottoms, orange",
+            "legwear and lace-up boots, legwear: dark reddish purple; boots: black; boot panels and sole edging: pink",
+            "wearable cushion, large sphere with vertical seams on the surface, black, covering the body below the neck"
+          ],
+          "negative_visuals": [],
+          "natural_language_description": null,
+          "prompt_export": "beforeChange form, short stature (about 145cm), short hair with outward-flicking ends, reddish pink, long bangs over the left side of the face, orange, reddish purple, long cape, dark reddish purple, horizontal clasp at the neck, short-sleeved top, black; buttons: pink; sleeve cuffs: pale orange, two rows of chest buttons and crossed cord-like decorations at the center, short bottoms, orange, legwear and lace-up boots, legwear: dark reddish purple; boots: black; boot panels and sole edging: pink, wearable cushion, large sphere with vertical seams on the surface, black, covering the body below the neck",
+          "negative_prompt_export": "",
+          "reference_images": null
+        }
+      },
+      "alt_modes": null,
+      "_meta": {
+        "structuralSourceHash": "sha256:57728b8a81d3ae2a3117894f8dc77eb363c21cb4badbadb5c24f27637fdd3d34",
+        "structuralEntries": {
+          "common.identity_tags": [
+            "short hair with outward-flicking ends, reddish pink, long bangs over the left side of the face",
+            "orange",
+            "reddish purple",
+            "long cape, dark reddish purple, horizontal clasp at the neck",
+            "short-sleeved top, black; buttons: pink; sleeve cuffs: pale orange, two rows of chest buttons and crossed cord-like decorations at the center",
+            "short bottoms, orange",
+            "legwear and lace-up boots, legwear: dark reddish purple; boots: black; boot panels and sole edging: pink",
+            "wearable cushion, large sphere with vertical seams on the surface, black, covering the body below the neck"
+          ],
+          "common.silhouette_features": [
+            "short stature (about 145cm)",
+            "short hair with outward-flicking ends, reddish pink, long bangs over the left side of the face",
+            "orange",
+            "reddish purple"
+          ],
+          "forms.beforeChange.form_tags": ["beforeChange form"],
+          "forms.beforeChange.ai_tags": [
+            "beforeChange form",
+            "short stature (about 145cm)",
+            "short hair with outward-flicking ends, reddish pink, long bangs over the left side of the face",
+            "orange",
+            "reddish purple",
+            "long cape, dark reddish purple, horizontal clasp at the neck",
+            "short-sleeved top, black; buttons: pink; sleeve cuffs: pale orange, two rows of chest buttons and crossed cord-like decorations at the center",
+            "short bottoms, orange",
+            "legwear and lace-up boots, legwear: dark reddish purple; boots: black; boot panels and sole edging: pink",
+            "wearable cushion, large sphere with vertical seams on the surface, black, covering the body below the neck"
+          ]
+        },
+        "lastStructuralResync": "2026-11-19"
+      }
+    }
   },
   {
     "Drc": "S",
@@ -1370,7 +1725,122 @@
       }
     ],
     "Summary_JP": "日中は「六花陛下」という相性で親しまれたスラム街のジャンクガレージで一人ジャンクショップを経営する、お淑やかで静かな看板娘……なのだが、実は二重人格で夜間（もしくは眼鏡が外れた）顔は「強欲」そのものなトレジャーハンター「クィーン・トゥエルヴ」として活動している。\n両人格とも汎用集積素子部品の「72IS」シリーズに対する共通の趣味はあるのだが、廃番で入手困難になった型番の話となると人格が切り替わり傲慢に恫喝されかねないので、くれぐれも彼女を相手にした話題の選択は慎重に。",
-    "Summary_EN": "By day, a graceful and soft-spoken shopgirl who runs a junk shop alone in a slum-district garage known affectionately as 'Majesty Rokka'... but in reality she has a split personality, and by night (or when her glasses come off) her face shows the 'Greed(y)' herself as the treasure hunter 'Queen.XII'.\nBoth personalities share a common hobby with the general-purpose IC component '72IS' series, but if the topic turns to a discontinued hard-to-find model number, the personality can switch and she may aggressively threaten you — so please choose your words very carefully when dealing with her."
+    "Summary_EN": "By day, a graceful and soft-spoken shopgirl who runs a junk shop alone in a slum-district garage known affectionately as 'Majesty Rokka'... but in reality she has a split personality, and by night (or when her glasses come off) her face shows the 'Greed(y)' herself as the treasure hunter 'Queen.XII'.\nBoth personalities share a common hobby with the general-purpose IC component '72IS' series, but if the topic turns to a discontinued hard-to-find model number, the personality can switch and she may aggressively threaten you — so please choose your words very carefully when dealing with her.",
+    "AIHints": {
+      "common": {
+        "identity_tags": [
+          "short-sleeved jacket and inner top, large lapels, jacket: orange; lapels: white; inner top: yellow green",
+          "shorts, socks, and shoes, knee-high socks, shorts and socks: yellow; shoes: green; soles: white"
+        ],
+        "silhouette_features": ["average stature (about 155cm)"],
+        "immutable_traits": null,
+        "expression_tendency": null,
+        "age_appearance": null,
+        "palette_priority": {
+          "primary": "#F8EC72",
+          "secondary": "#A6BC40",
+          "accent": "#FFA634"
+        },
+        "natural_language_description": null,
+        "reference_images": {
+          "main": "https://database.numbertales-radiann.net/data/Works_SinisterChangingGirls/Images/DB_Primary/concept/cnsp_imgSCG-S.png",
+          "concept": "https://database.numbertales-radiann.net/data/Works_SinisterChangingGirls/Images/DB_Primary/concept/cnsp_imgSCG-S.png"
+        }
+      },
+      "work_common": null,
+      "forms": {
+        "beforeChange": {
+          "form_tags": ["beforeChange form"],
+          "outfit_features": [
+            "short-sleeved jacket and inner top, large lapels, jacket: orange; lapels: white; inner top: yellow green",
+            "shorts, socks, and shoes, knee-high socks, shorts and socks: yellow; shoes: green; soles: white",
+            "eyes: yellow green; glasses frames: bright green, glasses, narrow rectangular frames"
+          ],
+          "silhouette_notes": {
+            "body_description": [
+              "long hair in a low ponytail, pale yellow green, tie near the neck"
+            ],
+            "attached_items": []
+          },
+          "immutable_constraints": null,
+          "negative_keywords": null,
+          "ai_tags": [
+            "beforeChange form",
+            "average stature (about 155cm)",
+            "short-sleeved jacket and inner top, large lapels, jacket: orange; lapels: white; inner top: yellow green",
+            "shorts, socks, and shoes, knee-high socks, shorts and socks: yellow; shoes: green; soles: white",
+            "long hair in a low ponytail, pale yellow green, tie near the neck",
+            "eyes: yellow green; glasses frames: bright green, glasses, narrow rectangular frames"
+          ],
+          "negative_visuals": [],
+          "natural_language_description": null,
+          "prompt_export": "beforeChange form, average stature (about 155cm), short-sleeved jacket and inner top, large lapels, jacket: orange; lapels: white; inner top: yellow green, shorts, socks, and shoes, knee-high socks, shorts and socks: yellow; shoes: green; soles: white, long hair in a low ponytail, pale yellow green, tie near the neck, eyes: yellow green; glasses frames: bright green, glasses, narrow rectangular frames",
+          "negative_prompt_export": "",
+          "reference_images": null
+        },
+        "afterChanged": {
+          "form_tags": ["afterChanged form"],
+          "outfit_features": [
+            "short-sleeved jacket and inner top, large lapels, jacket: orange; lapels: white; inner top: yellow green",
+            "shorts, socks, and shoes, knee-high socks, shorts and socks: yellow; shoes: green; soles: white"
+          ],
+          "silhouette_notes": {
+            "body_description": [
+              "loose long hair, pale yellow green, hair spreading down the back",
+              "orange, face without glasses"
+            ],
+            "attached_items": []
+          },
+          "immutable_constraints": null,
+          "negative_keywords": null,
+          "ai_tags": [
+            "afterChanged form",
+            "average stature (about 155cm)",
+            "short-sleeved jacket and inner top, large lapels, jacket: orange; lapels: white; inner top: yellow green",
+            "shorts, socks, and shoes, knee-high socks, shorts and socks: yellow; shoes: green; soles: white",
+            "loose long hair, pale yellow green, hair spreading down the back",
+            "orange, face without glasses"
+          ],
+          "negative_visuals": [
+            "eyes: yellow green; glasses frames: bright green, glasses, narrow rectangular frames"
+          ],
+          "natural_language_description": null,
+          "prompt_export": "afterChanged form, average stature (about 155cm), short-sleeved jacket and inner top, large lapels, jacket: orange; lapels: white; inner top: yellow green, shorts, socks, and shoes, knee-high socks, shorts and socks: yellow; shoes: green; soles: white, loose long hair, pale yellow green, hair spreading down the back, orange, face without glasses",
+          "negative_prompt_export": "eyes: yellow green; glasses frames: bright green, glasses, narrow rectangular frames",
+          "reference_images": null
+        }
+      },
+      "alt_modes": null,
+      "_meta": {
+        "structuralSourceHash": "sha256:92a71af6411116dc022cc71287771d450e032a3e5dfd776d22ee697d758d60d8",
+        "structuralEntries": {
+          "common.identity_tags": [
+            "short-sleeved jacket and inner top, large lapels, jacket: orange; lapels: white; inner top: yellow green",
+            "shorts, socks, and shoes, knee-high socks, shorts and socks: yellow; shoes: green; soles: white"
+          ],
+          "common.silhouette_features": ["average stature (about 155cm)"],
+          "forms.beforeChange.form_tags": ["beforeChange form"],
+          "forms.beforeChange.ai_tags": [
+            "beforeChange form",
+            "average stature (about 155cm)",
+            "short-sleeved jacket and inner top, large lapels, jacket: orange; lapels: white; inner top: yellow green",
+            "shorts, socks, and shoes, knee-high socks, shorts and socks: yellow; shoes: green; soles: white",
+            "long hair in a low ponytail, pale yellow green, tie near the neck",
+            "eyes: yellow green; glasses frames: bright green, glasses, narrow rectangular frames"
+          ],
+          "forms.afterChanged.form_tags": ["afterChanged form"],
+          "forms.afterChanged.ai_tags": [
+            "afterChanged form",
+            "average stature (about 155cm)",
+            "short-sleeved jacket and inner top, large lapels, jacket: orange; lapels: white; inner top: yellow green",
+            "shorts, socks, and shoes, knee-high socks, shorts and socks: yellow; shoes: green; soles: white",
+            "loose long hair, pale yellow green, hair spreading down the back",
+            "orange, face without glasses"
+          ]
+        },
+        "lastStructuralResync": "2026-11-19"
+      }
+    }
   },
   {
     "Drc": "SW",
@@ -1698,7 +2168,125 @@
       }
     ],
     "Summary_JP": "黒薔薇国に漂流していたところを拾われ、「扇 三春」を中心とした豹変系女子と旅を共にする成体した幼い少女。\n恐らく龍天国で育児に恵まれなかった孤児だということがわかるものの、その子供のような精神年齢から普段はとても人懐っこくいろんなものに興味を示している。\nしかし女性との交友に対し恐怖心とまでいえる強い執着心を有している。\n特に\"母\"や\"生殖\"などのような命の誕生に関わる概念に触れると「嫉妬」スイッチが入り、凶悪な毒蛇のように凶暴な姿を露にしてしまう。",
-    "Summary_EN": "A young girl who was found drifting in SchwarzeRoseland and now travels with a group of Sinister Changing Girls led by 'Mikhail Arch'.\nShe is presumably an orphan who was not fortunate in receiving care in LóngTiān's.Republic, and despite her adult body, she has the mental age of a child, making her very friendly and curious about many things.\nHowever, she has a strong attachment and fear towards interactions with women.\nEspecially when confronted with concepts related to the birth of life, such as 'mother' or 'reproduction', her 'Envy/Jealousy' switch is triggered, revealing a ferocious side like a venomous snake."
+    "Summary_EN": "A young girl who was found drifting in SchwarzeRoseland and now travels with a group of Sinister Changing Girls led by 'Mikhail Arch'.\nShe is presumably an orphan who was not fortunate in receiving care in LóngTiān's.Republic, and despite her adult body, she has the mental age of a child, making her very friendly and curious about many things.\nHowever, she has a strong attachment and fear towards interactions with women.\nEspecially when confronted with concepts related to the birth of life, such as 'mother' or 'reproduction', her 'Envy/Jealousy' switch is triggered, revealing a ferocious side like a venomous snake.",
+    "AIHints": {
+      "common": {
+        "identity_tags": [
+          "sleeveless dress, stand collar, chest swirls, and hem bands, dark brown; chest motifs: pink; hem bands: grayish brown, white, and pink",
+          "shoes, rounded toes, pink"
+        ],
+        "silhouette_features": ["average stature (about 159cm)"],
+        "immutable_traits": null,
+        "expression_tendency": null,
+        "age_appearance": null,
+        "palette_priority": {
+          "primary": "#589D74",
+          "secondary": "#5A4938",
+          "accent": "#AC9E7F"
+        },
+        "natural_language_description": null,
+        "reference_images": {
+          "main": "https://database.numbertales-radiann.net/data/Works_SinisterChangingGirls/Images/DB_Primary/concept/cnsp_imgSCG-SW.png",
+          "concept": "https://database.numbertales-radiann.net/data/Works_SinisterChangingGirls/Images/DB_Primary/concept/cnsp_imgSCG-SW.png"
+        }
+      },
+      "work_common": null,
+      "forms": {
+        "beforeChange": {
+          "form_tags": ["beforeChange form"],
+          "outfit_features": [
+            "sleeveless dress, stand collar, chest swirls, and hem bands, dark brown; chest motifs: pink; hem bands: grayish brown, white, and pink",
+            "shoes, rounded toes, pink"
+          ],
+          "silhouette_notes": {
+            "body_description": [
+              "long hair with curled cheek-side locks, dark green with brighter-green tips",
+              "long, thick tail, green with a brighter-green band along the underside"
+            ],
+            "attached_items": []
+          },
+          "immutable_constraints": null,
+          "negative_keywords": null,
+          "ai_tags": [
+            "beforeChange form",
+            "average stature (about 159cm)",
+            "sleeveless dress, stand collar, chest swirls, and hem bands, dark brown; chest motifs: pink; hem bands: grayish brown, white, and pink",
+            "shoes, rounded toes, pink",
+            "long hair with curled cheek-side locks, dark green with brighter-green tips",
+            "long, thick tail, green with a brighter-green band along the underside"
+          ],
+          "negative_visuals": [],
+          "natural_language_description": null,
+          "prompt_export": "beforeChange form, average stature (about 159cm), sleeveless dress, stand collar, chest swirls, and hem bands, dark brown; chest motifs: pink; hem bands: grayish brown, white, and pink, shoes, rounded toes, pink, long hair with curled cheek-side locks, dark green with brighter-green tips, long, thick tail, green with a brighter-green band along the underside",
+          "negative_prompt_export": "",
+          "reference_images": null
+        },
+        "afterChanged": {
+          "form_tags": ["afterChanged form"],
+          "outfit_features": [
+            "sleeveless dress, stand collar, chest swirls, and hem bands, dark brown; chest motifs: pink; hem bands: grayish brown, white, and pink",
+            "shoes, rounded toes, pink"
+          ],
+          "silhouette_notes": {
+            "body_description": [
+              "long hair and pointed parts projecting sideways from both sides of the head, pale green with pink accents",
+              "very thick, broadly curved tail, pale green with pink and pale-cream bands, behind the body",
+              "pink eyes"
+            ],
+            "attached_items": []
+          },
+          "immutable_constraints": null,
+          "negative_keywords": null,
+          "ai_tags": [
+            "afterChanged form",
+            "average stature (about 159cm)",
+            "sleeveless dress, stand collar, chest swirls, and hem bands, dark brown; chest motifs: pink; hem bands: grayish brown, white, and pink",
+            "shoes, rounded toes, pink",
+            "long hair and pointed parts projecting sideways from both sides of the head, pale green with pink accents",
+            "very thick, broadly curved tail, pale green with pink and pale-cream bands, behind the body",
+            "pink eyes",
+            "pointed teeth visible in the open mouth"
+          ],
+          "negative_visuals": [],
+          "natural_language_description": null,
+          "prompt_export": "afterChanged form, average stature (about 159cm), sleeveless dress, stand collar, chest swirls, and hem bands, dark brown; chest motifs: pink; hem bands: grayish brown, white, and pink, shoes, rounded toes, pink, long hair and pointed parts projecting sideways from both sides of the head, pale green with pink accents, very thick, broadly curved tail, pale green with pink and pale-cream bands, behind the body, pink eyes, pointed teeth visible in the open mouth",
+          "negative_prompt_export": "",
+          "reference_images": null
+        }
+      },
+      "alt_modes": null,
+      "_meta": {
+        "structuralSourceHash": "sha256:c0a87d45751fe77ccc39a74f387c0bee65b4fb4c0b379bcf624fb6fe06fd2825",
+        "structuralEntries": {
+          "common.identity_tags": [
+            "sleeveless dress, stand collar, chest swirls, and hem bands, dark brown; chest motifs: pink; hem bands: grayish brown, white, and pink",
+            "shoes, rounded toes, pink"
+          ],
+          "common.silhouette_features": ["average stature (about 159cm)"],
+          "forms.beforeChange.form_tags": ["beforeChange form"],
+          "forms.beforeChange.ai_tags": [
+            "beforeChange form",
+            "average stature (about 159cm)",
+            "sleeveless dress, stand collar, chest swirls, and hem bands, dark brown; chest motifs: pink; hem bands: grayish brown, white, and pink",
+            "shoes, rounded toes, pink",
+            "long hair with curled cheek-side locks, dark green with brighter-green tips",
+            "long, thick tail, green with a brighter-green band along the underside"
+          ],
+          "forms.afterChanged.form_tags": ["afterChanged form"],
+          "forms.afterChanged.ai_tags": [
+            "afterChanged form",
+            "average stature (about 159cm)",
+            "sleeveless dress, stand collar, chest swirls, and hem bands, dark brown; chest motifs: pink; hem bands: grayish brown, white, and pink",
+            "shoes, rounded toes, pink",
+            "long hair and pointed parts projecting sideways from both sides of the head, pale green with pink accents",
+            "very thick, broadly curved tail, pale green with pink and pale-cream bands, behind the body",
+            "pink eyes",
+            "pointed teeth visible in the open mouth"
+          ]
+        },
+        "lastStructuralResync": "2026-11-19"
+      }
+    }
   },
   {
     "Drc": "W",
@@ -2024,7 +2612,106 @@
       }
     ],
     "Summary_JP": "夜月機関の被験体としてある実験事故により実体を失ってしまったが、現在は六花ルノら率いる「白の六芒星」に保護されることで、仮の身体に憑依する形式では存在可能となっている。\n現在 夜月機関の総帥と幹部に勤める兄弟を義兄に持ち、いつも2人の身を案じては自分の所為で2人の身に何かあるのではないかと「憂鬱」に「悲嘆」している様子が窺える。\nただ、ここで注意すべきなのは－－－－【ERROR 500: 蟯占ｷｯ縺ｸ縺ｮ謗･邯壹′菴戊?縺九↓繧医ｊ諡貞凄縺輔ｌ縺ｾ縺励◆】",
-    "Summary_EN": "She lost her physical form in a certain experimental accident as a test subject of the Yadzuki Organization, but is now sheltered by 'WhiteHexagram' led by Luno Hexacrys and others, which lets her exist in a form that possesses a temporary body.\nShe now has as adoptive older brothers the two siblings who serve as the Yadzuki Organization's head and as an executive, and she can be seen forever worrying about the pair — sinking into 'Dejection' and 'Grief' at the thought that something might happen to them because of her.\nHowever, what should be noted here is———— <! ERROR 500: %46%4c%5f%42%4c%41%4e%43%48%20%43%4f%4e%4e%45%43%54%49%4f%4e%20%52%45%46%55%53%45%44%20%42%59%20%41%4e%4f%4e%59%4d%4f%55%53 />"
+    "Summary_EN": "She lost her physical form in a certain experimental accident as a test subject of the Yadzuki Organization, but is now sheltered by 'WhiteHexagram' led by Luno Hexacrys and others, which lets her exist in a form that possesses a temporary body.\nShe now has as adoptive older brothers the two siblings who serve as the Yadzuki Organization's head and as an executive, and she can be seen forever worrying about the pair — sinking into 'Dejection' and 'Grief' at the thought that something might happen to them because of her.\nHowever, what should be noted here is———— <! ERROR 500: %46%4c%5f%42%4c%41%4e%43%48%20%43%4f%4e%4e%45%43%54%49%4f%4e%20%52%45%46%55%53%45%44%20%42%59%20%41%4e%4f%4e%59%4d%4f%55%53 />",
+    "AIHints": {
+      "common": {
+        "identity_tags": [
+          "short hair with one raised tuft at the crown, nearly white pale gray, bangs falling over the forehead",
+          "triangular animal ears, projecting sideways from both sides of the head",
+          "eyes: yellow and light blue; under-eye marks: light blue, small marks beneath the eyes",
+          "outfit with a deep neckline, blue purple; chest motif: light blue and yellow, crystal-like chest motif",
+          "large spreading fan-shaped parts with overlapping ribbon-like parts, fan-shaped parts: white; edging: light blue and pink; ribbon-like parts: blue, behind the body",
+          "body gathered into a sphere, white; outer lines: light blue and pink; ribbon-like parts: blue, head remaining at the top of the sphere"
+        ],
+        "silhouette_features": [
+          "short hair with one raised tuft at the crown, nearly white pale gray, bangs falling over the forehead",
+          "triangular animal ears, projecting sideways from both sides of the head",
+          "eyes: yellow and light blue; under-eye marks: light blue, small marks beneath the eyes",
+          "large spreading fan-shaped parts with overlapping ribbon-like parts, fan-shaped parts: white; edging: light blue and pink; ribbon-like parts: blue, behind the body",
+          "body gathered into a sphere, white; outer lines: light blue and pink; ribbon-like parts: blue, head remaining at the top of the sphere"
+        ],
+        "immutable_traits": null,
+        "expression_tendency": null,
+        "age_appearance": null,
+        "palette_priority": {
+          "primary": "#F9F9F1",
+          "secondary": "#E5EAE7",
+          "accent": "#6A88C2"
+        },
+        "natural_language_description": null,
+        "reference_images": {
+          "main": "https://database.numbertales-radiann.net/data/Works_SinisterChangingGirls/Images/DB_Primary/concept/cnsp_imgSCG-W.png",
+          "concept": "https://database.numbertales-radiann.net/data/Works_SinisterChangingGirls/Images/DB_Primary/concept/cnsp_imgSCG-W.png"
+        }
+      },
+      "work_common": null,
+      "forms": {
+        "beforeChange": {
+          "form_tags": ["beforeChange form"],
+          "outfit_features": [
+            "outfit with a deep neckline, blue purple; chest motif: light blue and yellow, crystal-like chest motif"
+          ],
+          "silhouette_notes": {
+            "body_description": [
+              "short hair with one raised tuft at the crown, nearly white pale gray, bangs falling over the forehead",
+              "triangular animal ears, projecting sideways from both sides of the head",
+              "eyes: yellow and light blue; under-eye marks: light blue, small marks beneath the eyes",
+              "large spreading fan-shaped parts with overlapping ribbon-like parts, fan-shaped parts: white; edging: light blue and pink; ribbon-like parts: blue, behind the body",
+              "body gathered into a sphere, white; outer lines: light blue and pink; ribbon-like parts: blue, head remaining at the top of the sphere"
+            ],
+            "attached_items": []
+          },
+          "immutable_constraints": null,
+          "negative_keywords": null,
+          "ai_tags": [
+            "beforeChange form",
+            "short hair with one raised tuft at the crown, nearly white pale gray, bangs falling over the forehead",
+            "triangular animal ears, projecting sideways from both sides of the head",
+            "eyes: yellow and light blue; under-eye marks: light blue, small marks beneath the eyes",
+            "outfit with a deep neckline, blue purple; chest motif: light blue and yellow, crystal-like chest motif",
+            "large spreading fan-shaped parts with overlapping ribbon-like parts, fan-shaped parts: white; edging: light blue and pink; ribbon-like parts: blue, behind the body",
+            "body gathered into a sphere, white; outer lines: light blue and pink; ribbon-like parts: blue, head remaining at the top of the sphere"
+          ],
+          "negative_visuals": [],
+          "natural_language_description": null,
+          "prompt_export": "beforeChange form, short hair with one raised tuft at the crown, nearly white pale gray, bangs falling over the forehead, triangular animal ears, projecting sideways from both sides of the head, eyes: yellow and light blue; under-eye marks: light blue, small marks beneath the eyes, outfit with a deep neckline, blue purple; chest motif: light blue and yellow, crystal-like chest motif, large spreading fan-shaped parts with overlapping ribbon-like parts, fan-shaped parts: white; edging: light blue and pink; ribbon-like parts: blue, behind the body, body gathered into a sphere, white; outer lines: light blue and pink; ribbon-like parts: blue, head remaining at the top of the sphere",
+          "negative_prompt_export": "",
+          "reference_images": null
+        }
+      },
+      "alt_modes": null,
+      "_meta": {
+        "structuralSourceHash": "sha256:07a0482feb46b776ba620ea7d7f00eb29d457010c79c3ae0f431adf83c949bbb",
+        "structuralEntries": {
+          "common.identity_tags": [
+            "short hair with one raised tuft at the crown, nearly white pale gray, bangs falling over the forehead",
+            "triangular animal ears, projecting sideways from both sides of the head",
+            "eyes: yellow and light blue; under-eye marks: light blue, small marks beneath the eyes",
+            "outfit with a deep neckline, blue purple; chest motif: light blue and yellow, crystal-like chest motif",
+            "large spreading fan-shaped parts with overlapping ribbon-like parts, fan-shaped parts: white; edging: light blue and pink; ribbon-like parts: blue, behind the body",
+            "body gathered into a sphere, white; outer lines: light blue and pink; ribbon-like parts: blue, head remaining at the top of the sphere"
+          ],
+          "common.silhouette_features": [
+            "short hair with one raised tuft at the crown, nearly white pale gray, bangs falling over the forehead",
+            "triangular animal ears, projecting sideways from both sides of the head",
+            "eyes: yellow and light blue; under-eye marks: light blue, small marks beneath the eyes",
+            "large spreading fan-shaped parts with overlapping ribbon-like parts, fan-shaped parts: white; edging: light blue and pink; ribbon-like parts: blue, behind the body",
+            "body gathered into a sphere, white; outer lines: light blue and pink; ribbon-like parts: blue, head remaining at the top of the sphere"
+          ],
+          "forms.beforeChange.form_tags": ["beforeChange form"],
+          "forms.beforeChange.ai_tags": [
+            "beforeChange form",
+            "short hair with one raised tuft at the crown, nearly white pale gray, bangs falling over the forehead",
+            "triangular animal ears, projecting sideways from both sides of the head",
+            "eyes: yellow and light blue; under-eye marks: light blue, small marks beneath the eyes",
+            "outfit with a deep neckline, blue purple; chest motif: light blue and yellow, crystal-like chest motif",
+            "large spreading fan-shaped parts with overlapping ribbon-like parts, fan-shaped parts: white; edging: light blue and pink; ribbon-like parts: blue, behind the body",
+            "body gathered into a sphere, white; outer lines: light blue and pink; ribbon-like parts: blue, head remaining at the top of the sphere"
+          ]
+        },
+        "lastStructuralResync": "2026-11-19"
+      }
+    }
   },
   {
     "Drc": "NW",

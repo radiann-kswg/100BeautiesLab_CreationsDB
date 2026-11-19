@@ -275,7 +275,12 @@
         "Hex": "#F9E9E8",
         "ColorName_JP": "補助色",
         "ColorName_EN": "Auxiliary Color",
-        "AppliesTo": ["#BodyPart_Head", "#BodyPart_Ear", "#BodyPart_Hand", "#BodyPart_Tail"],
+        "AppliesTo": [
+          "#BodyPart_Head",
+          "#BodyPart_Ear",
+          "#BodyPart_Hand",
+          "#BodyPart_Tail"
+        ],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -341,6 +346,117 @@
       },
       "SpecialPattern": [],
       "SpecLevel": { "Rank": "Z" }
+    },
+    "AIHints": {
+      "common": {
+        "identity_tags": [
+          "gray, short twin tails, low on both sides, teal hair ties",
+          "Mouse (large and round), gray outside, pale pink inside, top of the head",
+          "pale yellow",
+          "Mouse-type, long, slender and thread-like, 1, pale pink, short red line markings",
+          "white top, gray stand collar and front panel, wide flared cuffs with teal inner surfaces",
+          "teal shorts",
+          "pale green legwear",
+          "ochre strap shoes"
+        ],
+        "silhouette_features": [
+          "petite stature (about 129cm)",
+          "gray, short twin tails, low on both sides, teal hair ties",
+          "Mouse (large and round), gray outside, pale pink inside, top of the head",
+          "pale yellow",
+          "Mouse-type, long, slender and thread-like, 1, pale pink, short red line markings"
+        ],
+        "immutable_traits": null,
+        "expression_tendency": null,
+        "age_appearance": null,
+        "palette_priority": {
+          "primary": "#D4D9D9",
+          "secondary": null,
+          "accent": "#EFDEAD"
+        },
+        "natural_language_description": null,
+        "reference_images": {
+          "main": "https://database.numbertales-radiann.net/data/Works_ShauErRiders/Images/DB_Primary/concept/cnsp_imgSAR-EZ1.png",
+          "concept": "https://database.numbertales-radiann.net/data/Works_ShauErRiders/Images/DB_Primary/concept/cnsp_imgSAR-EZ1.png"
+        }
+      },
+      "work_common": null,
+      "forms": {
+        "normal": {
+          "form_tags": ["normal form"],
+          "outfit_features": [
+            "white top, gray stand collar and front panel, wide flared cuffs with teal inner surfaces",
+            "teal shorts",
+            "pale green legwear",
+            "ochre strap shoes"
+          ],
+          "silhouette_notes": {
+            "body_description": [
+              "gray, short twin tails, low on both sides, teal hair ties",
+              "Mouse (large and round), gray outside, pale pink inside, top of the head",
+              "pale yellow",
+              "Mouse-type, long, slender and thread-like, 1, pale pink, short red line markings"
+            ],
+            "attached_items": []
+          },
+          "immutable_constraints": null,
+          "negative_keywords": null,
+          "ai_tags": [
+            "normal form",
+            "petite stature (about 129cm)",
+            "gray, short twin tails, low on both sides, teal hair ties",
+            "Mouse (large and round), gray outside, pale pink inside, top of the head",
+            "pale yellow",
+            "Mouse-type, long, slender and thread-like, 1, pale pink, short red line markings",
+            "white top, gray stand collar and front panel, wide flared cuffs with teal inner surfaces",
+            "teal shorts",
+            "pale green legwear",
+            "ochre strap shoes"
+          ],
+          "negative_visuals": [],
+          "natural_language_description": null,
+          "prompt_export": "normal form, petite stature (about 129cm), gray, short twin tails, low on both sides, teal hair ties, Mouse (large and round), gray outside, pale pink inside, top of the head, pale yellow, Mouse-type, long, slender and thread-like, 1, pale pink, short red line markings, white top, gray stand collar and front panel, wide flared cuffs with teal inner surfaces, teal shorts, pale green legwear, ochre strap shoes",
+          "negative_prompt_export": "",
+          "reference_images": null
+        }
+      },
+      "alt_modes": null,
+      "_meta": {
+        "structuralSourceHash": "sha256:8beac31145b9e18200aaa36eb9a0eca235da4c0f46a125e73d96ad9a27501fca",
+        "structuralEntries": {
+          "common.identity_tags": [
+            "gray, short twin tails, low on both sides, teal hair ties",
+            "Mouse (large and round), gray outside, pale pink inside, top of the head",
+            "pale yellow",
+            "Mouse-type, long, slender and thread-like, 1, pale pink, short red line markings",
+            "white top, gray stand collar and front panel, wide flared cuffs with teal inner surfaces",
+            "teal shorts",
+            "pale green legwear",
+            "ochre strap shoes"
+          ],
+          "common.silhouette_features": [
+            "petite stature (about 129cm)",
+            "gray, short twin tails, low on both sides, teal hair ties",
+            "Mouse (large and round), gray outside, pale pink inside, top of the head",
+            "pale yellow",
+            "Mouse-type, long, slender and thread-like, 1, pale pink, short red line markings"
+          ],
+          "forms.normal.form_tags": ["normal form"],
+          "forms.normal.ai_tags": [
+            "normal form",
+            "petite stature (about 129cm)",
+            "gray, short twin tails, low on both sides, teal hair ties",
+            "Mouse (large and round), gray outside, pale pink inside, top of the head",
+            "pale yellow",
+            "Mouse-type, long, slender and thread-like, 1, pale pink, short red line markings",
+            "white top, gray stand collar and front panel, wide flared cuffs with teal inner surfaces",
+            "teal shorts",
+            "pale green legwear",
+            "ochre strap shoes"
+          ]
+        },
+        "lastStructuralResync": "2026-11-19"
+      }
     }
   },
   {
@@ -750,7 +866,12 @@
         "Hex": "#767B7D",
         "ColorName_JP": "副色（衣装）",
         "ColorName_EN": "Secondary Color (Costume)",
-        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Arm", "#BodyPart_Hand", "#BodyPart_Leg"],
+        "AppliesTo": [
+          "#BodyPart_Chest",
+          "#BodyPart_Arm",
+          "#BodyPart_Hand",
+          "#BodyPart_Leg"
+        ],
         "Formation": null,
         "Note_JP": "通常制服の設定画での配色",
         "Note_EN": "Usual uniform palette in the concept art"
@@ -760,7 +881,12 @@
         "Hex": "#FFEEDC",
         "ColorName_JP": "補助色",
         "ColorName_EN": "Auxiliary Color",
-        "AppliesTo": ["#BodyPart_Head", "#BodyPart_Ear", "#BodyPart_Arm", "#BodyPart_Hand"],
+        "AppliesTo": [
+          "#BodyPart_Head",
+          "#BodyPart_Ear",
+          "#BodyPart_Arm",
+          "#BodyPart_Hand"
+        ],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -796,6 +922,122 @@
       },
       "SpecialPattern": [],
       "SpecLevel": { "Rank": "S" }
+    },
+    "AIHints": {
+      "common": {
+        "identity_tags": [
+          "pink, cheek-length short hair, parted bangs and outward-flicking ends",
+          "Rabbit (long ears), pink outside, pale skin color inside, upright right ear and forward-drooping left ear",
+          "yellow",
+          "Rabbit-type, short tail, 1, pink with a pale tip, behind the waist",
+          "red top, white and yellow collar trim, white cuffs",
+          "ochre skirt and white waistband",
+          "dark gray gloves",
+          "long dark gray stockings",
+          "blue footwear with yellow trim"
+        ],
+        "silhouette_features": [
+          "short stature (about 144cm)",
+          "pink, cheek-length short hair, parted bangs and outward-flicking ends",
+          "Rabbit (long ears), pink outside, pale skin color inside, upright right ear and forward-drooping left ear",
+          "yellow",
+          "Rabbit-type, short tail, 1, pink with a pale tip, behind the waist"
+        ],
+        "immutable_traits": null,
+        "expression_tendency": null,
+        "age_appearance": null,
+        "palette_priority": {
+          "primary": "#FF8682",
+          "secondary": "#FFA9A8",
+          "accent": "#F0D36B"
+        },
+        "natural_language_description": null,
+        "reference_images": {
+          "main": "https://database.numbertales-radiann.net/data/Works_ShauErRiders/Images/DB_Primary/concept/cnsp_imgSAR-EZ4.png",
+          "concept": "https://database.numbertales-radiann.net/data/Works_ShauErRiders/Images/DB_Primary/concept/cnsp_imgSAR-EZ4.png"
+        }
+      },
+      "work_common": null,
+      "forms": {
+        "normal": {
+          "form_tags": ["normal form"],
+          "outfit_features": [
+            "red top, white and yellow collar trim, white cuffs",
+            "ochre skirt and white waistband",
+            "dark gray gloves",
+            "long dark gray stockings",
+            "blue footwear with yellow trim"
+          ],
+          "silhouette_notes": {
+            "body_description": [
+              "pink, cheek-length short hair, parted bangs and outward-flicking ends",
+              "Rabbit (long ears), pink outside, pale skin color inside, upright right ear and forward-drooping left ear",
+              "yellow",
+              "Rabbit-type, short tail, 1, pink with a pale tip, behind the waist"
+            ],
+            "attached_items": []
+          },
+          "immutable_constraints": null,
+          "negative_keywords": null,
+          "ai_tags": [
+            "normal form",
+            "short stature (about 144cm)",
+            "pink, cheek-length short hair, parted bangs and outward-flicking ends",
+            "Rabbit (long ears), pink outside, pale skin color inside, upright right ear and forward-drooping left ear",
+            "yellow",
+            "Rabbit-type, short tail, 1, pink with a pale tip, behind the waist",
+            "red top, white and yellow collar trim, white cuffs",
+            "ochre skirt and white waistband",
+            "dark gray gloves",
+            "long dark gray stockings",
+            "blue footwear with yellow trim"
+          ],
+          "negative_visuals": [],
+          "natural_language_description": null,
+          "prompt_export": "normal form, short stature (about 144cm), pink, cheek-length short hair, parted bangs and outward-flicking ends, Rabbit (long ears), pink outside, pale skin color inside, upright right ear and forward-drooping left ear, yellow, Rabbit-type, short tail, 1, pink with a pale tip, behind the waist, red top, white and yellow collar trim, white cuffs, ochre skirt and white waistband, dark gray gloves, long dark gray stockings, blue footwear with yellow trim",
+          "negative_prompt_export": "",
+          "reference_images": null
+        }
+      },
+      "alt_modes": null,
+      "_meta": {
+        "structuralSourceHash": "sha256:9f4c7619056200a4b3185a7129a5e38da8453f7a096fed7bb4e9355cf3f023e3",
+        "structuralEntries": {
+          "common.identity_tags": [
+            "pink, cheek-length short hair, parted bangs and outward-flicking ends",
+            "Rabbit (long ears), pink outside, pale skin color inside, upright right ear and forward-drooping left ear",
+            "yellow",
+            "Rabbit-type, short tail, 1, pink with a pale tip, behind the waist",
+            "red top, white and yellow collar trim, white cuffs",
+            "ochre skirt and white waistband",
+            "dark gray gloves",
+            "long dark gray stockings",
+            "blue footwear with yellow trim"
+          ],
+          "common.silhouette_features": [
+            "short stature (about 144cm)",
+            "pink, cheek-length short hair, parted bangs and outward-flicking ends",
+            "Rabbit (long ears), pink outside, pale skin color inside, upright right ear and forward-drooping left ear",
+            "yellow",
+            "Rabbit-type, short tail, 1, pink with a pale tip, behind the waist"
+          ],
+          "forms.normal.form_tags": ["normal form"],
+          "forms.normal.ai_tags": [
+            "normal form",
+            "short stature (about 144cm)",
+            "pink, cheek-length short hair, parted bangs and outward-flicking ends",
+            "Rabbit (long ears), pink outside, pale skin color inside, upright right ear and forward-drooping left ear",
+            "yellow",
+            "Rabbit-type, short tail, 1, pink with a pale tip, behind the waist",
+            "red top, white and yellow collar trim, white cuffs",
+            "ochre skirt and white waistband",
+            "dark gray gloves",
+            "long dark gray stockings",
+            "blue footwear with yellow trim"
+          ]
+        },
+        "lastStructuralResync": "2026-11-19"
+      }
     }
   },
   {
@@ -1130,6 +1372,130 @@
       },
       "SpecialPattern": [],
       "SpecLevel": { "Rank": "S+" }
+    },
+    "AIHints": {
+      "common": {
+        "identity_tags": [
+          "pale yellowish white, short hair, pointed, outward-flaring ends at the sides and back",
+          "reddish orange",
+          "Reptile, dragon horns, teal, both sides of the head, pointed, fin-like shape",
+          "polygonal scales, pale teal",
+          "large membranous wings, 2, dark teal edges and pale teal membranes",
+          "Reptile-type, 1, long and slender with a pointed tip, dark teal",
+          "red sleeveless top with a stand collar, yellow buttons",
+          "short ochre bottoms",
+          "dark gray legwear",
+          "blue-gray long boots, white tops and blue soles"
+        ],
+        "silhouette_features": [
+          "tall stature (about 170cm)",
+          "pale yellowish white, short hair, pointed, outward-flaring ends at the sides and back",
+          "reddish orange",
+          "Reptile, dragon horns, teal, both sides of the head, pointed, fin-like shape",
+          "polygonal scales, pale teal",
+          "large membranous wings, 2, dark teal edges and pale teal membranes",
+          "Reptile-type, 1, long and slender with a pointed tip, dark teal"
+        ],
+        "immutable_traits": null,
+        "expression_tendency": null,
+        "age_appearance": null,
+        "palette_priority": {
+          "primary": "#F6FAEA",
+          "secondary": "#26866A",
+          "accent": null
+        },
+        "natural_language_description": null,
+        "reference_images": {
+          "main": "https://database.numbertales-radiann.net/data/Works_ShauErRiders/Images/DB_Primary/newYear/art_imgSAR-EZ5.png"
+        }
+      },
+      "work_common": null,
+      "forms": {
+        "normal": {
+          "form_tags": ["normal form"],
+          "outfit_features": [
+            "red sleeveless top with a stand collar, yellow buttons",
+            "short ochre bottoms",
+            "dark gray legwear",
+            "blue-gray long boots, white tops and blue soles"
+          ],
+          "silhouette_notes": {
+            "body_description": [
+              "pale yellowish white, short hair, pointed, outward-flaring ends at the sides and back",
+              "reddish orange",
+              "Reptile, dragon horns, teal, both sides of the head, pointed, fin-like shape",
+              "polygonal scales, pale teal",
+              "large membranous wings, 2, dark teal edges and pale teal membranes",
+              "Reptile-type, 1, long and slender with a pointed tip, dark teal"
+            ],
+            "attached_items": []
+          },
+          "immutable_constraints": null,
+          "negative_keywords": null,
+          "ai_tags": [
+            "normal form",
+            "tall stature (about 170cm)",
+            "pale yellowish white, short hair, pointed, outward-flaring ends at the sides and back",
+            "reddish orange",
+            "Reptile, dragon horns, teal, both sides of the head, pointed, fin-like shape",
+            "polygonal scales, pale teal",
+            "large membranous wings, 2, dark teal edges and pale teal membranes",
+            "Reptile-type, 1, long and slender with a pointed tip, dark teal",
+            "red sleeveless top with a stand collar, yellow buttons",
+            "short ochre bottoms",
+            "dark gray legwear",
+            "blue-gray long boots, white tops and blue soles"
+          ],
+          "negative_visuals": [],
+          "natural_language_description": null,
+          "prompt_export": "normal form, tall stature (about 170cm), pale yellowish white, short hair, pointed, outward-flaring ends at the sides and back, reddish orange, Reptile, dragon horns, teal, both sides of the head, pointed, fin-like shape, polygonal scales, pale teal, large membranous wings, 2, dark teal edges and pale teal membranes, Reptile-type, 1, long and slender with a pointed tip, dark teal, red sleeveless top with a stand collar, yellow buttons, short ochre bottoms, dark gray legwear, blue-gray long boots, white tops and blue soles",
+          "negative_prompt_export": "",
+          "reference_images": null
+        }
+      },
+      "alt_modes": null,
+      "_meta": {
+        "structuralSourceHash": "sha256:a88dc4c3b6c809dec3d060689ac784755aa398497a657949123501ef2c50b80d",
+        "structuralEntries": {
+          "common.identity_tags": [
+            "pale yellowish white, short hair, pointed, outward-flaring ends at the sides and back",
+            "reddish orange",
+            "Reptile, dragon horns, teal, both sides of the head, pointed, fin-like shape",
+            "polygonal scales, pale teal",
+            "large membranous wings, 2, dark teal edges and pale teal membranes",
+            "Reptile-type, 1, long and slender with a pointed tip, dark teal",
+            "red sleeveless top with a stand collar, yellow buttons",
+            "short ochre bottoms",
+            "dark gray legwear",
+            "blue-gray long boots, white tops and blue soles"
+          ],
+          "common.silhouette_features": [
+            "tall stature (about 170cm)",
+            "pale yellowish white, short hair, pointed, outward-flaring ends at the sides and back",
+            "reddish orange",
+            "Reptile, dragon horns, teal, both sides of the head, pointed, fin-like shape",
+            "polygonal scales, pale teal",
+            "large membranous wings, 2, dark teal edges and pale teal membranes",
+            "Reptile-type, 1, long and slender with a pointed tip, dark teal"
+          ],
+          "forms.normal.form_tags": ["normal form"],
+          "forms.normal.ai_tags": [
+            "normal form",
+            "tall stature (about 170cm)",
+            "pale yellowish white, short hair, pointed, outward-flaring ends at the sides and back",
+            "reddish orange",
+            "Reptile, dragon horns, teal, both sides of the head, pointed, fin-like shape",
+            "polygonal scales, pale teal",
+            "large membranous wings, 2, dark teal edges and pale teal membranes",
+            "Reptile-type, 1, long and slender with a pointed tip, dark teal",
+            "red sleeveless top with a stand collar, yellow buttons",
+            "short ochre bottoms",
+            "dark gray legwear",
+            "blue-gray long boots, white tops and blue soles"
+          ]
+        },
+        "lastStructuralResync": "2026-11-19"
+      }
     }
   },
   {
@@ -1381,6 +1747,162 @@
       },
       "SpecialPattern": [],
       "SpecLevel": { "Rank": "A" }
+    },
+    "AIHints": {
+      "common": {
+        "identity_tags": [
+          "yellow-green, long nape hair extending like a snake at both sides, large fringe covering the left eye, upward curl on top",
+          "yellow-orange irises and red pupils, narrow vertical pupils",
+          "Reptile (pointed and extending sideways)",
+          "Reptile-type, 1, thick, long tail forming a large loop, yellow-green",
+          "scaly skin",
+          "red top with an ochre chest panel and stand collar, white cuffs, round snake-motif patches on both sleeves",
+          "white waistband"
+        ],
+        "silhouette_features": [
+          "average stature (about 157cm)",
+          "yellow-green, long nape hair extending like a snake at both sides, large fringe covering the left eye, upward curl on top",
+          "yellow-orange irises and red pupils, narrow vertical pupils",
+          "Reptile (pointed and extending sideways)",
+          "Reptile-type, 1, thick, long tail forming a large loop, yellow-green",
+          "scaly skin"
+        ],
+        "immutable_traits": null,
+        "expression_tendency": null,
+        "age_appearance": null,
+        "palette_priority": {
+          "primary": "#8A963A",
+          "secondary": null,
+          "accent": null
+        },
+        "natural_language_description": null,
+        "reference_images": {
+          "main": "https://database.numbertales-radiann.net/data/Works_ShauErRiders/Images/DB_Primary/newYear/art_imgSAR-EZ6-A.png"
+        }
+      },
+      "work_common": null,
+      "forms": {
+        "normal": {
+          "form_tags": ["normal form"],
+          "outfit_features": [
+            "red top with an ochre chest panel and stand collar, white cuffs, round snake-motif patches on both sleeves",
+            "white waistband"
+          ],
+          "silhouette_notes": {
+            "body_description": [
+              "yellow-green, long nape hair extending like a snake at both sides, large fringe covering the left eye, upward curl on top",
+              "yellow-orange irises and red pupils, narrow vertical pupils",
+              "Reptile (pointed and extending sideways)",
+              "Reptile-type, 1, thick, long tail forming a large loop, yellow-green",
+              "scaly skin"
+            ],
+            "attached_items": []
+          },
+          "immutable_constraints": null,
+          "negative_keywords": null,
+          "ai_tags": [
+            "normal form",
+            "average stature (about 157cm)",
+            "yellow-green, long nape hair extending like a snake at both sides, large fringe covering the left eye, upward curl on top",
+            "yellow-orange irises and red pupils, narrow vertical pupils",
+            "Reptile (pointed and extending sideways)",
+            "Reptile-type, 1, thick, long tail forming a large loop, yellow-green",
+            "scaly skin",
+            "red top with an ochre chest panel and stand collar, white cuffs, round snake-motif patches on both sleeves",
+            "white waistband"
+          ],
+          "negative_visuals": [],
+          "natural_language_description": null,
+          "prompt_export": "normal form, average stature (about 157cm), yellow-green, long nape hair extending like a snake at both sides, large fringe covering the left eye, upward curl on top, yellow-orange irises and red pupils, narrow vertical pupils, Reptile (pointed and extending sideways), Reptile-type, 1, thick, long tail forming a large loop, yellow-green, scaly skin, red top with an ochre chest panel and stand collar, white cuffs, round snake-motif patches on both sleeves, white waistband",
+          "negative_prompt_export": "",
+          "reference_images": null
+        },
+        "beasted": {
+          "form_tags": ["beasted form"],
+          "outfit_features": [
+            "red top with an ochre chest panel and stand collar, white cuffs, round snake-motif patches on both sleeves",
+            "white waistband"
+          ],
+          "silhouette_notes": {
+            "body_description": [
+              "yellow-green, long nape hair extending like a snake at both sides, large fringe covering the left eye, upward curl on top",
+              "yellow-orange irises and red pupils, narrow vertical pupils",
+              "Reptile (pointed and extending sideways)",
+              "Reptile-type, 1, thick, long tail forming a large loop, yellow-green",
+              "scaly skin"
+            ],
+            "attached_items": []
+          },
+          "immutable_constraints": null,
+          "negative_keywords": null,
+          "ai_tags": [
+            "beasted form",
+            "average stature (about 157cm)",
+            "yellow-green, long nape hair extending like a snake at both sides, large fringe covering the left eye, upward curl on top",
+            "yellow-orange irises and red pupils, narrow vertical pupils",
+            "Reptile (pointed and extending sideways)",
+            "Reptile-type, 1, thick, long tail forming a large loop, yellow-green",
+            "scaly skin",
+            "red top with an ochre chest panel and stand collar, white cuffs, round snake-motif patches on both sleeves",
+            "white waistband"
+          ],
+          "negative_visuals": [],
+          "natural_language_description": null,
+          "prompt_export": "beasted form, average stature (about 157cm), yellow-green, long nape hair extending like a snake at both sides, large fringe covering the left eye, upward curl on top, yellow-orange irises and red pupils, narrow vertical pupils, Reptile (pointed and extending sideways), Reptile-type, 1, thick, long tail forming a large loop, yellow-green, scaly skin, red top with an ochre chest panel and stand collar, white cuffs, round snake-motif patches on both sleeves, white waistband",
+          "negative_prompt_export": "",
+          "reference_images": {
+            "main": "https://database.numbertales-radiann.net/data/Works_ShauErRiders/Images/DB_Primary/newYear/art_imgSAR-EZ6-B.png"
+          }
+        }
+      },
+      "alt_modes": null,
+      "_meta": {
+        "structuralSourceHash": "sha256:890afb295500c5741ae621b74a43609414c63abfc75de767af262dc14faa8dc2",
+        "structuralEntries": {
+          "common.identity_tags": [
+            "yellow-green, long nape hair extending like a snake at both sides, large fringe covering the left eye, upward curl on top",
+            "yellow-orange irises and red pupils, narrow vertical pupils",
+            "Reptile (pointed and extending sideways)",
+            "Reptile-type, 1, thick, long tail forming a large loop, yellow-green",
+            "scaly skin",
+            "red top with an ochre chest panel and stand collar, white cuffs, round snake-motif patches on both sleeves",
+            "white waistband"
+          ],
+          "common.silhouette_features": [
+            "average stature (about 157cm)",
+            "yellow-green, long nape hair extending like a snake at both sides, large fringe covering the left eye, upward curl on top",
+            "yellow-orange irises and red pupils, narrow vertical pupils",
+            "Reptile (pointed and extending sideways)",
+            "Reptile-type, 1, thick, long tail forming a large loop, yellow-green",
+            "scaly skin"
+          ],
+          "forms.normal.form_tags": ["normal form"],
+          "forms.normal.ai_tags": [
+            "normal form",
+            "average stature (about 157cm)",
+            "yellow-green, long nape hair extending like a snake at both sides, large fringe covering the left eye, upward curl on top",
+            "yellow-orange irises and red pupils, narrow vertical pupils",
+            "Reptile (pointed and extending sideways)",
+            "Reptile-type, 1, thick, long tail forming a large loop, yellow-green",
+            "scaly skin",
+            "red top with an ochre chest panel and stand collar, white cuffs, round snake-motif patches on both sleeves",
+            "white waistband"
+          ],
+          "forms.beasted.form_tags": ["beasted form"],
+          "forms.beasted.ai_tags": [
+            "beasted form",
+            "average stature (about 157cm)",
+            "yellow-green, long nape hair extending like a snake at both sides, large fringe covering the left eye, upward curl on top",
+            "yellow-orange irises and red pupils, narrow vertical pupils",
+            "Reptile (pointed and extending sideways)",
+            "Reptile-type, 1, thick, long tail forming a large loop, yellow-green",
+            "scaly skin",
+            "red top with an ochre chest panel and stand collar, white cuffs, round snake-motif patches on both sleeves",
+            "white waistband"
+          ]
+        },
+        "lastStructuralResync": "2026-11-19"
+      }
     }
   },
   {
@@ -1662,6 +2184,123 @@
       },
       "SpecialPattern": [],
       "SpecLevel": { "Rank": "B" }
+    },
+    "AIHints": {
+      "common": {
+        "identity_tags": [
+          "gray with a light gray section in the fringe, long ponytail, yellow hair ornament",
+          "Horse (long, pointed and upright), gray outside, light brown inside, top of the head",
+          "brown",
+          "brown skin",
+          "Horse-type, long, supple tail, 1, gray, long tail hair",
+          "red short-sleeved top with white cuffs, yellow front panel and round horse-motif patch",
+          "short ochre bottoms and white waistband",
+          "dark gray gloves with yellow trim",
+          "dark gray shoes with blue shin-guard-like sections, yellow trim and fasteners on the blue sections"
+        ],
+        "silhouette_features": [
+          "tall stature (about 180cm)",
+          "gray with a light gray section in the fringe, long ponytail, yellow hair ornament",
+          "Horse (long, pointed and upright), gray outside, light brown inside, top of the head",
+          "brown",
+          "brown skin",
+          "Horse-type, long, supple tail, 1, gray, long tail hair"
+        ],
+        "immutable_traits": null,
+        "expression_tendency": null,
+        "age_appearance": null,
+        "palette_priority": {
+          "primary": "#AAA6A2",
+          "secondary": null,
+          "accent": null
+        },
+        "natural_language_description": null,
+        "reference_images": {
+          "main": "https://database.numbertales-radiann.net/data/Works_ShauErRiders/Images/DB_Primary/newYear/art_imgSAR-EZ7.png"
+        }
+      },
+      "work_common": null,
+      "forms": {
+        "normal": {
+          "form_tags": ["normal form"],
+          "outfit_features": [
+            "red short-sleeved top with white cuffs, yellow front panel and round horse-motif patch",
+            "short ochre bottoms and white waistband",
+            "dark gray gloves with yellow trim",
+            "dark gray shoes with blue shin-guard-like sections, yellow trim and fasteners on the blue sections"
+          ],
+          "silhouette_notes": {
+            "body_description": [
+              "gray with a light gray section in the fringe, long ponytail, yellow hair ornament",
+              "Horse (long, pointed and upright), gray outside, light brown inside, top of the head",
+              "brown",
+              "brown skin",
+              "Horse-type, long, supple tail, 1, gray, long tail hair"
+            ],
+            "attached_items": []
+          },
+          "immutable_constraints": null,
+          "negative_keywords": null,
+          "ai_tags": [
+            "normal form",
+            "tall stature (about 180cm)",
+            "gray with a light gray section in the fringe, long ponytail, yellow hair ornament",
+            "Horse (long, pointed and upright), gray outside, light brown inside, top of the head",
+            "brown",
+            "brown skin",
+            "Horse-type, long, supple tail, 1, gray, long tail hair",
+            "red short-sleeved top with white cuffs, yellow front panel and round horse-motif patch",
+            "short ochre bottoms and white waistband",
+            "dark gray gloves with yellow trim",
+            "dark gray shoes with blue shin-guard-like sections, yellow trim and fasteners on the blue sections"
+          ],
+          "negative_visuals": [],
+          "natural_language_description": null,
+          "prompt_export": "normal form, tall stature (about 180cm), gray with a light gray section in the fringe, long ponytail, yellow hair ornament, Horse (long, pointed and upright), gray outside, light brown inside, top of the head, brown, brown skin, Horse-type, long, supple tail, 1, gray, long tail hair, red short-sleeved top with white cuffs, yellow front panel and round horse-motif patch, short ochre bottoms and white waistband, dark gray gloves with yellow trim, dark gray shoes with blue shin-guard-like sections, yellow trim and fasteners on the blue sections",
+          "negative_prompt_export": "",
+          "reference_images": null
+        }
+      },
+      "alt_modes": null,
+      "_meta": {
+        "structuralSourceHash": "sha256:7e6142b4001549a0bfa06bef501963ba94af8ae927ef158ee498af55359db759",
+        "structuralEntries": {
+          "common.identity_tags": [
+            "gray with a light gray section in the fringe, long ponytail, yellow hair ornament",
+            "Horse (long, pointed and upright), gray outside, light brown inside, top of the head",
+            "brown",
+            "brown skin",
+            "Horse-type, long, supple tail, 1, gray, long tail hair",
+            "red short-sleeved top with white cuffs, yellow front panel and round horse-motif patch",
+            "short ochre bottoms and white waistband",
+            "dark gray gloves with yellow trim",
+            "dark gray shoes with blue shin-guard-like sections, yellow trim and fasteners on the blue sections"
+          ],
+          "common.silhouette_features": [
+            "tall stature (about 180cm)",
+            "gray with a light gray section in the fringe, long ponytail, yellow hair ornament",
+            "Horse (long, pointed and upright), gray outside, light brown inside, top of the head",
+            "brown",
+            "brown skin",
+            "Horse-type, long, supple tail, 1, gray, long tail hair"
+          ],
+          "forms.normal.form_tags": ["normal form"],
+          "forms.normal.ai_tags": [
+            "normal form",
+            "tall stature (about 180cm)",
+            "gray with a light gray section in the fringe, long ponytail, yellow hair ornament",
+            "Horse (long, pointed and upright), gray outside, light brown inside, top of the head",
+            "brown",
+            "brown skin",
+            "Horse-type, long, supple tail, 1, gray, long tail hair",
+            "red short-sleeved top with white cuffs, yellow front panel and round horse-motif patch",
+            "short ochre bottoms and white waistband",
+            "dark gray gloves with yellow trim",
+            "dark gray shoes with blue shin-guard-like sections, yellow trim and fasteners on the blue sections"
+          ]
+        },
+        "lastStructuralResync": "2026-11-19"
+      }
     }
   },
   {
@@ -2387,6 +3026,117 @@
       },
       "SpecialPattern": [],
       "SpecLevel": { "Rank": "D" }
+    },
+    "AIHints": {
+      "common": {
+        "identity_tags": [
+          "orange, short hair, pointed locks over the forehead and beside the cheeks",
+          "Cat (large and triangular), orange outside, pale cream inside, top of the head",
+          "yellow-green, narrow vertical pupils",
+          "Cat-type, 1, long and slender with a rounded tip, orange",
+          "pink long-sleeved top with a light blue front panel, white cuff ruffles and pink ribbons, small yellow bells at the neck and sleeve ribbons",
+          "pale yellow apron",
+          "long blue-gray stockings",
+          "pink lace-up boots, white trim and laces"
+        ],
+        "silhouette_features": [
+          "short stature (about 145cm)",
+          "orange, short hair, pointed locks over the forehead and beside the cheeks",
+          "Cat (large and triangular), orange outside, pale cream inside, top of the head",
+          "yellow-green, narrow vertical pupils",
+          "Cat-type, 1, long and slender with a rounded tip, orange"
+        ],
+        "immutable_traits": null,
+        "expression_tendency": null,
+        "age_appearance": null,
+        "palette_priority": {
+          "primary": "#DE7D5A",
+          "secondary": "#ED9076",
+          "accent": "#CAD20B"
+        },
+        "natural_language_description": null,
+        "reference_images": {
+          "main": "https://database.numbertales-radiann.net/data/Works_ShauErRiders/Images/DB_Primary/concept/cnsp_imgSAR-EZ13.png",
+          "concept": "https://database.numbertales-radiann.net/data/Works_ShauErRiders/Images/DB_Primary/concept/cnsp_imgSAR-EZ13.png"
+        }
+      },
+      "work_common": null,
+      "forms": {
+        "normal": {
+          "form_tags": ["normal form"],
+          "outfit_features": [
+            "pink long-sleeved top with a light blue front panel, white cuff ruffles and pink ribbons, small yellow bells at the neck and sleeve ribbons",
+            "pale yellow apron",
+            "long blue-gray stockings",
+            "pink lace-up boots, white trim and laces"
+          ],
+          "silhouette_notes": {
+            "body_description": [
+              "orange, short hair, pointed locks over the forehead and beside the cheeks",
+              "Cat (large and triangular), orange outside, pale cream inside, top of the head",
+              "yellow-green, narrow vertical pupils",
+              "Cat-type, 1, long and slender with a rounded tip, orange"
+            ],
+            "attached_items": []
+          },
+          "immutable_constraints": null,
+          "negative_keywords": null,
+          "ai_tags": [
+            "normal form",
+            "short stature (about 145cm)",
+            "orange, short hair, pointed locks over the forehead and beside the cheeks",
+            "Cat (large and triangular), orange outside, pale cream inside, top of the head",
+            "yellow-green, narrow vertical pupils",
+            "Cat-type, 1, long and slender with a rounded tip, orange",
+            "pink long-sleeved top with a light blue front panel, white cuff ruffles and pink ribbons, small yellow bells at the neck and sleeve ribbons",
+            "pale yellow apron",
+            "long blue-gray stockings",
+            "pink lace-up boots, white trim and laces"
+          ],
+          "negative_visuals": [],
+          "natural_language_description": null,
+          "prompt_export": "normal form, short stature (about 145cm), orange, short hair, pointed locks over the forehead and beside the cheeks, Cat (large and triangular), orange outside, pale cream inside, top of the head, yellow-green, narrow vertical pupils, Cat-type, 1, long and slender with a rounded tip, orange, pink long-sleeved top with a light blue front panel, white cuff ruffles and pink ribbons, small yellow bells at the neck and sleeve ribbons, pale yellow apron, long blue-gray stockings, pink lace-up boots, white trim and laces",
+          "negative_prompt_export": "",
+          "reference_images": null
+        }
+      },
+      "alt_modes": null,
+      "_meta": {
+        "structuralSourceHash": "sha256:515ac8e446de36e8fbc8ad23a4cfd052235eec1f110f9415e3ab493abe4582ce",
+        "structuralEntries": {
+          "common.identity_tags": [
+            "orange, short hair, pointed locks over the forehead and beside the cheeks",
+            "Cat (large and triangular), orange outside, pale cream inside, top of the head",
+            "yellow-green, narrow vertical pupils",
+            "Cat-type, 1, long and slender with a rounded tip, orange",
+            "pink long-sleeved top with a light blue front panel, white cuff ruffles and pink ribbons, small yellow bells at the neck and sleeve ribbons",
+            "pale yellow apron",
+            "long blue-gray stockings",
+            "pink lace-up boots, white trim and laces"
+          ],
+          "common.silhouette_features": [
+            "short stature (about 145cm)",
+            "orange, short hair, pointed locks over the forehead and beside the cheeks",
+            "Cat (large and triangular), orange outside, pale cream inside, top of the head",
+            "yellow-green, narrow vertical pupils",
+            "Cat-type, 1, long and slender with a rounded tip, orange"
+          ],
+          "forms.normal.form_tags": ["normal form"],
+          "forms.normal.ai_tags": [
+            "normal form",
+            "short stature (about 145cm)",
+            "orange, short hair, pointed locks over the forehead and beside the cheeks",
+            "Cat (large and triangular), orange outside, pale cream inside, top of the head",
+            "yellow-green, narrow vertical pupils",
+            "Cat-type, 1, long and slender with a rounded tip, orange",
+            "pink long-sleeved top with a light blue front panel, white cuff ruffles and pink ribbons, small yellow bells at the neck and sleeve ribbons",
+            "pale yellow apron",
+            "long blue-gray stockings",
+            "pink lace-up boots, white trim and laces"
+          ]
+        },
+        "lastStructuralResync": "2026-11-19"
+      }
     }
   },
   {

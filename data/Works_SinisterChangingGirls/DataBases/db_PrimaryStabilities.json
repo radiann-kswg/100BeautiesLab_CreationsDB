@@ -288,7 +288,111 @@
       }
     ],
     "Summary_JP": "九蓮国の理科大学を経て黒薔薇国の「シンフォニー.X(ツェーン)」に就職し、現在はヒューマノイド開発部の企画担当を行っている。\n要件定義も的確でタロットカードによる占いに秀でた相談しやすい人柄でありながら、部署内では「英皇国のセブンティエイト特殊探偵団で世界を救った英雄」とも噂されている。\nしかし彼女は、異性との交友経験や性的趣向が全くない「純潔」すぎる素質があり、彼女に近づこうとした男は必ず彼女を護らんとする\"何者かによって抹消されている\"という……",
-    "Summary_EN": "After graduating from a science university in LotusNinea, she joined 'Symphony.X' in SchwarzeRoseland, and now handles planning for its Humanoid Development Department.\nPrecise in requirements definition, gifted at tarot card readings and easy to consult, she is also rumored within her department to be \"the hero who saved the world with Team.78 the Special Investigators of Internic.Kingdom\".\nHowever, she has a disposition of 'Chastity' taken too far, with absolutely no experience of relationships with the opposite gender nor any sexual inclinations, and it is said that any man who tries to get close to her is invariably \"ERASED by someone\" intent on protecting her..."
+    "Summary_EN": "After graduating from a science university in LotusNinea, she joined 'Symphony.X' in SchwarzeRoseland, and now handles planning for its Humanoid Development Department.\nPrecise in requirements definition, gifted at tarot card readings and easy to consult, she is also rumored within her department to be \"the hero who saved the world with Team.78 the Special Investigators of Internic.Kingdom\".\nHowever, she has a disposition of 'Chastity' taken too far, with absolutely no experience of relationships with the opposite gender nor any sexual inclinations, and it is said that any man who tries to get close to her is invariably \"ERASED by someone\" intent on protecting her...",
+    "AIHints": {
+      "common": {
+        "identity_tags": [
+          "long hair in a high ponytail with a braid, orange",
+          "braid hanging on the left side",
+          "yellow green",
+          "short-sleeved coat, large lapels, large pockets on both sides, and a small shield-shaped mark on the left chest, grayish brown; lapels: white",
+          "shirt and tie, shirt: pale aqua; tie: pink",
+          "shorts and long socks, shorts: mustard yellow; socks: gray",
+          "lace-up boots, brown"
+        ],
+        "silhouette_features": [
+          "slightly tall stature (about 167cm)",
+          "long hair in a high ponytail with a braid, orange",
+          "braid hanging on the left side",
+          "yellow green"
+        ],
+        "immutable_traits": null,
+        "expression_tendency": null,
+        "age_appearance": null,
+        "palette_priority": {
+          "primary": "#E98D30",
+          "secondary": null,
+          "accent": "#D6C729"
+        },
+        "natural_language_description": null,
+        "reference_images": {
+          "main": "https://database.numbertales-radiann.net/data/Works_SinisterChangingGirls/Images/DB_PrimaryStabilities/concept/cnsp_imgSCG-NNE.png",
+          "concept": "https://database.numbertales-radiann.net/data/Works_SinisterChangingGirls/Images/DB_PrimaryStabilities/concept/cnsp_imgSCG-NNE.png"
+        }
+      },
+      "work_common": null,
+      "forms": {
+        "beforeChange": {
+          "form_tags": ["beforeChange form"],
+          "outfit_features": [
+            "short-sleeved coat, large lapels, large pockets on both sides, and a small shield-shaped mark on the left chest, grayish brown; lapels: white",
+            "shirt and tie, shirt: pale aqua; tie: pink",
+            "shorts and long socks, shorts: mustard yellow; socks: gray",
+            "lace-up boots, brown"
+          ],
+          "silhouette_notes": {
+            "body_description": [
+              "long hair in a high ponytail with a braid, orange",
+              "braid hanging on the left side",
+              "yellow green"
+            ],
+            "attached_items": []
+          },
+          "immutable_constraints": null,
+          "negative_keywords": null,
+          "ai_tags": [
+            "beforeChange form",
+            "slightly tall stature (about 167cm)",
+            "long hair in a high ponytail with a braid, orange",
+            "braid hanging on the left side",
+            "yellow green",
+            "short-sleeved coat, large lapels, large pockets on both sides, and a small shield-shaped mark on the left chest, grayish brown; lapels: white",
+            "shirt and tie, shirt: pale aqua; tie: pink",
+            "shorts and long socks, shorts: mustard yellow; socks: gray",
+            "lace-up boots, brown"
+          ],
+          "negative_visuals": [],
+          "natural_language_description": null,
+          "prompt_export": "beforeChange form, slightly tall stature (about 167cm), long hair in a high ponytail with a braid, orange, braid hanging on the left side, yellow green, short-sleeved coat, large lapels, large pockets on both sides, and a small shield-shaped mark on the left chest, grayish brown; lapels: white, shirt and tie, shirt: pale aqua; tie: pink, shorts and long socks, shorts: mustard yellow; socks: gray, lace-up boots, brown",
+          "negative_prompt_export": "",
+          "reference_images": null
+        }
+      },
+      "alt_modes": null,
+      "_meta": {
+        "structuralSourceHash": "sha256:896166ebeaaf3d0fbadddb48a22a3b0a7d793ca13afe74797b004fd23079e051",
+        "structuralEntries": {
+          "common.identity_tags": [
+            "long hair in a high ponytail with a braid, orange",
+            "braid hanging on the left side",
+            "yellow green",
+            "short-sleeved coat, large lapels, large pockets on both sides, and a small shield-shaped mark on the left chest, grayish brown; lapels: white",
+            "shirt and tie, shirt: pale aqua; tie: pink",
+            "shorts and long socks, shorts: mustard yellow; socks: gray",
+            "lace-up boots, brown"
+          ],
+          "common.silhouette_features": [
+            "slightly tall stature (about 167cm)",
+            "long hair in a high ponytail with a braid, orange",
+            "braid hanging on the left side",
+            "yellow green"
+          ],
+          "forms.beforeChange.form_tags": ["beforeChange form"],
+          "forms.beforeChange.ai_tags": [
+            "beforeChange form",
+            "slightly tall stature (about 167cm)",
+            "long hair in a high ponytail with a braid, orange",
+            "braid hanging on the left side",
+            "yellow green",
+            "short-sleeved coat, large lapels, large pockets on both sides, and a small shield-shaped mark on the left chest, grayish brown; lapels: white",
+            "shirt and tie, shirt: pale aqua; tie: pink",
+            "shorts and long socks, shorts: mustard yellow; socks: gray",
+            "lace-up boots, brown"
+          ]
+        },
+        "lastStructuralResync": "2026-11-19"
+      }
+    }
   },
   {
     "Drc": "ENE",
@@ -444,7 +548,12 @@
       },
       {
         "Formation": null,
-        "BodyPart": ["#BodyPart_Shoulder", "#BodyPart_Chest", "#BodyPart_Arm", "#BodyPart_Waist"],
+        "BodyPart": [
+          "#BodyPart_Shoulder",
+          "#BodyPart_Chest",
+          "#BodyPart_Arm",
+          "#BodyPart_Waist"
+        ],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -605,7 +714,108 @@
       }
     ],
     "Summary_JP": "「ミハイル」という国際情報広報機関に相乗りする形で世界を旅するギャル系配信者。\nその大胆で活発な性格と派手なファッションセンスに反し、世間に浮かれすぎて見られぬよう「自制」を常日頃から掛けていると彼女を推しているリスナーからの考察が後を絶たない。\n配信者としてバーチャルアバターを有しているものの、妖狐ゆえの変化とさえみられる群を抜いたコスプレ能力があり、現実空間でもアバターに負けない魅力を発信している。",
-    "Summary_EN": "A gal-style streamer who travels the world by riding along with 'Mikhail', the International Information & Public Relations Agency.\nDespite a bold, energetic personality and a flashy fashion sense, theories keep pouring in from the listeners who support her(zir) that this streamer constantly exercises 'Temperance' so as not to look too carried away by the world.\nAlthough she(ze) has a virtual avatar as a streamer, an outstanding talent for cosplay, one that could even be mistaken for a Warfox's shapeshifting, lets her(zir) broadcast a charm in real space that rivals the avatar's own."
+    "Summary_EN": "A gal-style streamer who travels the world by riding along with 'Mikhail', the International Information & Public Relations Agency.\nDespite a bold, energetic personality and a flashy fashion sense, theories keep pouring in from the listeners who support her(zir) that this streamer constantly exercises 'Temperance' so as not to look too carried away by the world.\nAlthough she(ze) has a virtual avatar as a streamer, an outstanding talent for cosplay, one that could even be mistaken for a Warfox's shapeshifting, lets her(zir) broadcast a charm in real space that rivals the avatar's own.",
+    "AIHints": {
+      "common": {
+        "identity_tags": [
+          "high ponytail, orange with yellow accents in the trailing locks",
+          "Fox, large pointed shape, outside: orange and yellow; inside: pale cream, top of the head",
+          "yellow",
+          "Fox-type, large tail, orange with a white tip",
+          "collared shirt, short top, and short-sleeved jacket, shirt: white; top: yellow; jacket: red orange, light-blue square ornament at the chest",
+          "skirt, belt, tights, and boots, boot cuffs and laces, skirt and boot cuffs: yellow; belt, tights, and laces: light blue; boots: orange"
+        ],
+        "silhouette_features": [
+          "average stature (about 159cm)",
+          "high ponytail, orange with yellow accents in the trailing locks",
+          "Fox, large pointed shape, outside: orange and yellow; inside: pale cream, top of the head",
+          "yellow",
+          "Fox-type, large tail, orange with a white tip"
+        ],
+        "immutable_traits": null,
+        "expression_tendency": null,
+        "age_appearance": null,
+        "palette_priority": {
+          "primary": "#FEA656",
+          "secondary": "#FEB626",
+          "accent": "#FECA12"
+        },
+        "natural_language_description": null,
+        "reference_images": {
+          "main": "https://database.numbertales-radiann.net/data/Works_SinisterChangingGirls/Images/DB_PrimaryStabilities/concept/cnsp_imgSCG-ENE.png",
+          "concept": "https://database.numbertales-radiann.net/data/Works_SinisterChangingGirls/Images/DB_PrimaryStabilities/concept/cnsp_imgSCG-ENE.png"
+        }
+      },
+      "work_common": null,
+      "forms": {
+        "beforeChange": {
+          "form_tags": ["beforeChange form"],
+          "outfit_features": [
+            "collared shirt, short top, and short-sleeved jacket, shirt: white; top: yellow; jacket: red orange, light-blue square ornament at the chest",
+            "skirt, belt, tights, and boots, boot cuffs and laces, skirt and boot cuffs: yellow; belt, tights, and laces: light blue; boots: orange"
+          ],
+          "silhouette_notes": {
+            "body_description": [
+              "high ponytail, orange with yellow accents in the trailing locks",
+              "Fox, large pointed shape, outside: orange and yellow; inside: pale cream, top of the head",
+              "yellow",
+              "Fox-type, large tail, orange with a white tip"
+            ],
+            "attached_items": []
+          },
+          "immutable_constraints": null,
+          "negative_keywords": null,
+          "ai_tags": [
+            "beforeChange form",
+            "average stature (about 159cm)",
+            "high ponytail, orange with yellow accents in the trailing locks",
+            "Fox, large pointed shape, outside: orange and yellow; inside: pale cream, top of the head",
+            "yellow",
+            "Fox-type, large tail, orange with a white tip",
+            "collared shirt, short top, and short-sleeved jacket, shirt: white; top: yellow; jacket: red orange, light-blue square ornament at the chest",
+            "skirt, belt, tights, and boots, boot cuffs and laces, skirt and boot cuffs: yellow; belt, tights, and laces: light blue; boots: orange"
+          ],
+          "negative_visuals": [],
+          "natural_language_description": null,
+          "prompt_export": "beforeChange form, average stature (about 159cm), high ponytail, orange with yellow accents in the trailing locks, Fox, large pointed shape, outside: orange and yellow; inside: pale cream, top of the head, yellow, Fox-type, large tail, orange with a white tip, collared shirt, short top, and short-sleeved jacket, shirt: white; top: yellow; jacket: red orange, light-blue square ornament at the chest, skirt, belt, tights, and boots, boot cuffs and laces, skirt and boot cuffs: yellow; belt, tights, and laces: light blue; boots: orange",
+          "negative_prompt_export": "",
+          "reference_images": null
+        }
+      },
+      "alt_modes": null,
+      "_meta": {
+        "structuralSourceHash": "sha256:72821a6be8407989db21cb86e9d2627e97ffdb68484809e39ece04490836163c",
+        "structuralEntries": {
+          "common.identity_tags": [
+            "high ponytail, orange with yellow accents in the trailing locks",
+            "Fox, large pointed shape, outside: orange and yellow; inside: pale cream, top of the head",
+            "yellow",
+            "Fox-type, large tail, orange with a white tip",
+            "collared shirt, short top, and short-sleeved jacket, shirt: white; top: yellow; jacket: red orange, light-blue square ornament at the chest",
+            "skirt, belt, tights, and boots, boot cuffs and laces, skirt and boot cuffs: yellow; belt, tights, and laces: light blue; boots: orange"
+          ],
+          "common.silhouette_features": [
+            "average stature (about 159cm)",
+            "high ponytail, orange with yellow accents in the trailing locks",
+            "Fox, large pointed shape, outside: orange and yellow; inside: pale cream, top of the head",
+            "yellow",
+            "Fox-type, large tail, orange with a white tip"
+          ],
+          "forms.beforeChange.form_tags": ["beforeChange form"],
+          "forms.beforeChange.ai_tags": [
+            "beforeChange form",
+            "average stature (about 159cm)",
+            "high ponytail, orange with yellow accents in the trailing locks",
+            "Fox, large pointed shape, outside: orange and yellow; inside: pale cream, top of the head",
+            "yellow",
+            "Fox-type, large tail, orange with a white tip",
+            "collared shirt, short top, and short-sleeved jacket, shirt: white; top: yellow; jacket: red orange, light-blue square ornament at the chest",
+            "skirt, belt, tights, and boots, boot cuffs and laces, skirt and boot cuffs: yellow; belt, tights, and laces: light blue; boots: orange"
+          ]
+        },
+        "lastStructuralResync": "2026-11-19"
+      }
+    }
   },
   {
     "Drc": "ESE",
@@ -933,7 +1143,111 @@
       }
     ],
     "Summary_JP": "学内事業の「百花繚乱研究所」への所属を経由する形で、九蓮国の理科大学にて博士課程の選考に合格している。\n顧客が必要とするものを瞬時に判断し必要な人材を取りまとめるエース気質な人柄で、研究所内では「英皇国のセブンティエイト特殊探偵団で世界を救った英雄」とも噂されている。\nしかし彼女は、自分の創出物や肖像・著作物を需要のある他人へ積極的に提供しようとする「救恤」すぎる気質があり、彼女の物欲や所有物はまるで\"常に何者かと共有されるべきもの\"であるようだとか……",
-    "Summary_EN": "By way of joining the 'HundredBeauties Laboratory', an on-campus venture, she has passed the selection for the doctoral program at a science university in LotusNinea.\nAn ace by nature who instantly judges what clients need and brings together the right people, she is also rumored within the Laboratory to be \"the hero who saved the world with Team.78 the Special Investigators of Internic.Kingdom\".\nHowever, she has a disposition of 'Charity' taken too far, eagerly offering her own creations, likeness and works to anyone who wants them, and it seems as though her material desires and belongings are \"things ALWAYS meant to be SHARED with someone\"..."
+    "Summary_EN": "By way of joining the 'HundredBeauties Laboratory', an on-campus venture, she has passed the selection for the doctoral program at a science university in LotusNinea.\nAn ace by nature who instantly judges what clients need and brings together the right people, she is also rumored within the Laboratory to be \"the hero who saved the world with Team.78 the Special Investigators of Internic.Kingdom\".\nHowever, she has a disposition of 'Charity' taken too far, eagerly offering her own creations, likeness and works to anyone who wants them, and it seems as though her material desires and belongings are \"things ALWAYS meant to be SHARED with someone\"...",
+    "AIHints": {
+      "common": {
+        "identity_tags": [
+          "long hair in a high ponytail with a braid, ochre",
+          "braid hanging on the right side",
+          "yellow green",
+          "short-sleeved coat, large lapels, large pockets on both sides, and a small shield-shaped mark on the left chest, grayish brown; lapels: white",
+          "shirt and ribbon, shirt: brown; ribbon: green; collar: white",
+          "shorts and long socks, shorts: mustard yellow; socks: gray",
+          "lace-up boots, brown"
+        ],
+        "silhouette_features": [
+          "slightly tall stature (about 167cm)",
+          "long hair in a high ponytail with a braid, ochre",
+          "braid hanging on the right side",
+          "yellow green"
+        ],
+        "immutable_traits": null,
+        "expression_tendency": null,
+        "age_appearance": null,
+        "palette_priority": {
+          "primary": "#C58E29",
+          "secondary": null,
+          "accent": "#D6C728"
+        },
+        "natural_language_description": null,
+        "reference_images": {
+          "main": "https://database.numbertales-radiann.net/data/Works_SinisterChangingGirls/Images/DB_PrimaryStabilities/concept/cnsp_imgSCG-SSW.png",
+          "concept": "https://database.numbertales-radiann.net/data/Works_SinisterChangingGirls/Images/DB_PrimaryStabilities/concept/cnsp_imgSCG-SSW.png"
+        }
+      },
+      "work_common": null,
+      "forms": {
+        "beforeChange": {
+          "form_tags": ["beforeChange form"],
+          "outfit_features": [
+            "short-sleeved coat, large lapels, large pockets on both sides, and a small shield-shaped mark on the left chest, grayish brown; lapels: white",
+            "shirt and ribbon, shirt: brown; ribbon: green; collar: white",
+            "shorts and long socks, shorts: mustard yellow; socks: gray",
+            "lace-up boots, brown"
+          ],
+          "silhouette_notes": {
+            "body_description": [
+              "long hair in a high ponytail with a braid, ochre",
+              "braid hanging on the right side",
+              "yellow green"
+            ],
+            "attached_items": []
+          },
+          "immutable_constraints": null,
+          "negative_keywords": null,
+          "ai_tags": [
+            "beforeChange form",
+            "slightly tall stature (about 167cm)",
+            "long hair in a high ponytail with a braid, ochre",
+            "braid hanging on the right side",
+            "yellow green",
+            "short-sleeved coat, large lapels, large pockets on both sides, and a small shield-shaped mark on the left chest, grayish brown; lapels: white",
+            "shirt and ribbon, shirt: brown; ribbon: green; collar: white",
+            "shorts and long socks, shorts: mustard yellow; socks: gray",
+            "lace-up boots, brown"
+          ],
+          "negative_visuals": [],
+          "natural_language_description": null,
+          "prompt_export": "beforeChange form, slightly tall stature (about 167cm), long hair in a high ponytail with a braid, ochre, braid hanging on the right side, yellow green, short-sleeved coat, large lapels, large pockets on both sides, and a small shield-shaped mark on the left chest, grayish brown; lapels: white, shirt and ribbon, shirt: brown; ribbon: green; collar: white, shorts and long socks, shorts: mustard yellow; socks: gray, lace-up boots, brown",
+          "negative_prompt_export": "",
+          "reference_images": null
+        }
+      },
+      "alt_modes": null,
+      "_meta": {
+        "structuralSourceHash": "sha256:8e4e9a2fb5e5bc36f97d9ef11133fce04a0565b83baa1355a04e31b1299b607f",
+        "structuralEntries": {
+          "common.identity_tags": [
+            "long hair in a high ponytail with a braid, ochre",
+            "braid hanging on the right side",
+            "yellow green",
+            "short-sleeved coat, large lapels, large pockets on both sides, and a small shield-shaped mark on the left chest, grayish brown; lapels: white",
+            "shirt and ribbon, shirt: brown; ribbon: green; collar: white",
+            "shorts and long socks, shorts: mustard yellow; socks: gray",
+            "lace-up boots, brown"
+          ],
+          "common.silhouette_features": [
+            "slightly tall stature (about 167cm)",
+            "long hair in a high ponytail with a braid, ochre",
+            "braid hanging on the right side",
+            "yellow green"
+          ],
+          "forms.beforeChange.form_tags": ["beforeChange form"],
+          "forms.beforeChange.ai_tags": [
+            "beforeChange form",
+            "slightly tall stature (about 167cm)",
+            "long hair in a high ponytail with a braid, ochre",
+            "braid hanging on the right side",
+            "yellow green",
+            "short-sleeved coat, large lapels, large pockets on both sides, and a small shield-shaped mark on the left chest, grayish brown; lapels: white",
+            "shirt and ribbon, shirt: brown; ribbon: green; collar: white",
+            "shorts and long socks, shorts: mustard yellow; socks: gray",
+            "lace-up boots, brown"
+          ]
+        },
+        "lastStructuralResync": "2026-11-19"
+      }
+    }
   },
   {
     "Drc": "WSW",
