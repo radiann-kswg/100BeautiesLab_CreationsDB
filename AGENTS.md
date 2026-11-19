@@ -172,6 +172,7 @@
 
 ## 最近の実装運用ルール
 
+- **`Laterality` の左右**: キャラクター本人の身体を基準に、部位と位置の記述を「左肩」「右腕」のように日英でそろえます。着用品は着けた状態での身体側を使います。詳細は `docs/jp-notation-rules.md` §1-8。
 - **UI 表示修正の第一候補**: 画面崩れや表示漏れは、まず `db_type.json($DefType)` / `$display` / `db_meta.json($DetailLayout)` で制御できないかを確認し、UI のハードコード追加は最後の手段とします。
 - **フィールド順の正**: レコードのキー順・UI の表示順とも `db_type.json($DefType)` を正とします。作品固有フィールド（`Index` / `Images` / 作品固有 `_DBLink` 等）の配置は `$slot` マーカー（`$slotMatch` / `$slotExpand` / `$slotOrder` / `$slotAnchor`）で宣言し、ツールや UI に field 名依存の分岐を足しません。データのキー順は `npm run data:order:write` で整列し、`npm run data:order:check` と `tests/data.field-order.test.js` が守ります。詳細は `docs/schema-meta-processing.md` §5.4.1。
 - **`$DetailLayout` の役割**: グローバル宣言フィールドについては `basicFields` は「どれを basic に出すか」の選択に専念し、並び順は `$DefType` に揃えます。作品別 typedef 宣言のフィールドはグローバル `$DefType` に位置が無いため `$DetailLayout` が位置の正になり、`basicFields` 側は `#WorkBasic` の `$slotAnchor` が「`basicFields` 上の直前の隣人の直後」へ、`subFields` 側は `#WorkRest` の `$slotOrder` が catch-all スロット内の並びを決めます。

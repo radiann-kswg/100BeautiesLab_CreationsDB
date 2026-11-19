@@ -142,8 +142,8 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Position",
-            "value_JP": "左肩からのマントの端",
-            "value_EN": "from the left shoulder to the edge of the cape"
+            "value_JP": "左肩から垂れるマントの裾",
+            "value_EN": "on the hem of the cape hanging from the left shoulder"
           },
           {
             "AttrLabel": "#DesignAttr_Color",
@@ -285,7 +285,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Tail"],
+        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -2506,8 +2506,8 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "水色のレギンス",
-            "value_EN": "light blue leggings"
+            "value_JP": "裾が広がった水色のパンツ",
+            "value_EN": "light blue pants with flared hems"
           }
         ],
         "img_PNGName": null,
@@ -3319,9 +3319,9 @@
         "ColorName_JP": "主色",
         "ColorName_EN": "Primary Color",
         "AppliesTo": [
-          "#BodyPart_Halo",
-          "#BodyPart_FaceMaking",
-          "#BodyPart_Neck"
+          "#BodyPart_Hair",
+          "#BodyPart_Ear",
+          "#BodyPart_Tail"
         ],
         "Formation": null,
         "Note_JP": null,

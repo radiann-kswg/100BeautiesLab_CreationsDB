@@ -99,14 +99,14 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Shoulder"],
-        "Laterality": null,
+        "BodyPart": ["#BodyPart_Chest"],
+        "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Position",
-            "value_JP": "フードの開口部付近のフロントショルダー部分",
-            "value_EN": "the front shoulder area near the hood opening"
+            "value_JP": "パーカーの左胸、フードの開口部のすぐ下",
+            "value_EN": "on the left chest of the hoodie, just below the hood opening"
           },
           {
             "AttrLabel": "#DesignAttr_Color",
@@ -748,8 +748,8 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "淡いオレンジのスポーティシャツ",
-            "value_EN": "light orange sporty shirt"
+            "value_JP": "灰白色のスポーティシャツ",
+            "value_EN": "grayish-white sporty shirt"
           }
         ],
         "img_PNGName": null,
@@ -1188,11 +1188,11 @@
           "#BodyPart_Hair",
           "#BodyPart_Eye",
           "#BodyPart_Chest",
-          "#BodyPart_Leg"
+          "#BodyPart_Foot"
         ],
         "Formation": null,
-        "Note_JP": null,
-        "Note_EN": null
+        "Note_JP": "髪まわりではヘアクリップに使われる。",
+        "Note_EN": "On the hair, this color is used for the clips."
       },
       {
         "Role": "#ColorRole_Secondary",
@@ -1422,13 +1422,13 @@
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Shoulder"],
-        "Laterality": null,
+        "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Position",
-            "value_JP": "ケープの開口部付近のフロントショルダー部分",
-            "value_EN": "the front shoulder area near the cape opening"
+            "value_JP": "ケープの開口部付近、左肩から左胸に掛かる部分",
+            "value_EN": "near the cape opening, on the front panel between the left shoulder and left chest"
           },
           {
             "AttrLabel": "#DesignAttr_Color",
@@ -1448,13 +1448,13 @@
       {
         "Formation": "humanoid",
         "BodyPart": ["#BodyPart_Shoulder"],
-        "Laterality": null,
+        "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Position",
-            "value_JP": "ケープの開口部付近のフロントショルダー部分",
-            "value_EN": "the front shoulder area near the cape opening"
+            "value_JP": "ケープの開口部付近、左肩から左胸に掛かる部分",
+            "value_EN": "near the cape opening, on the front panel between the left shoulder and left chest"
           },
           {
             "AttrLabel": "#DesignAttr_Color",
@@ -1940,8 +1940,8 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "深緑色の目(オッドアイ/虹彩異色症)",
-            "value_EN": "dark green eyes (heterochromia/odd eyes)"
+            "value_JP": "深緑色の左目(オッドアイ/虹彩異色症)",
+            "value_EN": "dark green left eye (heterochromia)"
           }
         ],
         "img_PNGName": null,
@@ -1956,8 +1956,8 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "深緑色に水色の掛かった目(オッドアイ/虹彩異色症,普段は包帯で隠れている)",
-            "value_EN": "dark green eyes with a hint of light blue (heterochromia/odd eyes, usually hidden by tape wristbands)"
+            "value_JP": "深緑色に水色の掛かった右目(オッドアイ/虹彩異色症、普段は包帯で隠れている)",
+            "value_EN": "dark green right eye with a hint of light blue (heterochromia), usually covered by a bandage"
           }
         ],
         "img_PNGName": null,
@@ -1988,8 +1988,8 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "包帯(頭とポニーテールに巻かれている)",
-            "value_EN": "tape wristbands (wrapped around the head and ponytail)"
+            "value_JP": "頭に巻いた包帯が右目を覆う。ポニーテールにも包帯を巻いている。",
+            "value_EN": "A bandage wrapped around the head covers the right eye. Bandages are also wrapped around the ponytail."
           }
         ],
         "img_PNGName": null,
@@ -2020,8 +2020,8 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "包帯(頭と右腕に巻かれている)",
-            "value_EN": "tape wristbands (wrapped around the head and right arm)"
+            "value_JP": "右目を覆う頭の包帯と、右腕に巻いた包帯",
+            "value_EN": "a bandage around the head covering the right eye, and bandages around the right arm"
           }
         ],
         "img_PNGName": null,
@@ -2444,8 +2444,8 @@
         "Note_EN": null
       },
       {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Neck"],
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Shoulder", "#BodyPart_Arm"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -2940,10 +2940,9 @@
         "ColorName_JP": "副色",
         "ColorName_EN": "Secondary Color",
         "AppliesTo": [
-          "#BodyPart_Hair",
-          "#BodyPart_Eye",
-          "#BodyPart_Hand",
-          "#BodyPart_Neck"
+          "#BodyPart_Ear",
+          "#BodyPart_Leg",
+          "#BodyPart_Tail"
         ],
         "Formation": null,
         "Note_JP": null,
@@ -3299,8 +3298,8 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "工具入れポーチ",
-            "value_EN": "tool pouches"
+            "value_JP": "左腰の工具入れポーチ",
+            "value_EN": "tool pouch on the left hip"
           }
         ],
         "img_PNGName": null,
@@ -4806,13 +4805,13 @@
       {
         "Formation": null,
         "BodyPart": ["#BodyPart_Shoulder"],
-        "Laterality": "#Lat_Right",
+        "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Position",
-            "value_JP": "左肩掛け,球体のフードの縁のすぐ下の右あたり",
-            "value_EN": "on left shoulder, around right just below the edge of the spherical hood"
+            "value_JP": "人型では左肩のケープに、球体ではフードの縁のすぐ下、左肩に当たる位置にある。",
+            "value_EN": "on the cape over the left shoulder in Humanoid Formation and just below the edge of the hood at the left shoulder in Corefolder Formation"
           },
           {
             "AttrLabel": "#DesignAttr_Color",
@@ -5357,7 +5356,7 @@
         "Hex": "#5C9ABC",
         "ColorName_JP": "主色(衣装)",
         "ColorName_EN": "Primary Color (Costume)",
-        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Chest"],
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Foot"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -6235,7 +6234,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Eye", "#BodyPart_Ear"],
         "Laterality": "#Lat_Right",
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -6498,13 +6497,13 @@
       {
         "Formation": null,
         "BodyPart": ["#BodyPart_Head"],
-        "Laterality": "#Lat_Right",
+        "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Position",
-            "value_JP": "帽子のつば周辺で向かって右側",
-            "value_EN": "around the brim of the hat, on the right side"
+            "value_JP": "左のこめかみの上、帽子のつば付近",
+            "value_EN": "near the brim of the hat above the left temple"
           },
           {
             "AttrLabel": "#DesignAttr_Color",
@@ -6592,7 +6591,7 @@
         "Note_EN": null
       },
       {
-        "Formation": "humanoid",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Shoulder", "#BodyPart_Neck"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
@@ -6890,13 +6889,13 @@
       {
         "Formation": null,
         "BodyPart": ["#BodyPart_Hair"],
-        "Laterality": null,
+        "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Position",
-            "value_JP": "ヘアピンの形状",
-            "value_EN": "the shape of the hair pin"
+            "value_JP": "左側の前髪に留めたヘアピンの形状",
+            "value_EN": "the shape of the hairpin on the left side of the bangs"
           },
           {
             "AttrLabel": "#DesignAttr_Color",
@@ -6926,8 +6925,8 @@
           },
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "四角いヘアピン(17の形)",
-            "value_EN": "square hair pin (17 shape)"
+            "value_JP": "左側の前髪に留めた四角いヘアピン(17の形)",
+            "value_EN": "square hairpin shaped like 17 on the left side of the bangs"
           }
         ],
         "img_PNGName": null,
@@ -7417,7 +7416,7 @@
         "Hex": "#ED5D47",
         "ColorName_JP": "主色(衣装)",
         "ColorName_EN": "Primary Color (Costume)",
-        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Hair"],
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Leg"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -8814,7 +8813,7 @@
       {
         "Formation": "humanoid",
         "BodyPart": ["#BodyPart_Chest"],
-        "Laterality": null,
+        "Laterality": "#Lat_Center",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
           {
@@ -8886,7 +8885,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -9332,13 +9331,13 @@
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Waist"],
-        "Laterality": "#Lat_Right",
+        "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Position",
-            "value_JP": "球体の緯度中央の薄緑色体毛に薄色の帯模様が掛かっている部分の向かって右, 帯模様の縦の大きさに合わせてやや大きく",
-            "value_EN": "the right side of the light green fur area with a pale stripe pattern at the equator of the sphere, somewhat large to match the vertical size of the stripe pattern"
+            "value_JP": "球体の左腰、薄緑色の体毛を横切る淡い帯模様の上に、帯幅に合わせてやや大きく",
+            "value_EN": "on the left flank of the sphere, on the pale stripe across the light green fur at mid-body, sized to fit the height of the stripe"
           },
           {
             "AttrLabel": "#DesignAttr_Color",
@@ -9358,13 +9357,13 @@
       {
         "Formation": "humanoid",
         "BodyPart": ["#BodyPart_Chest"],
-        "Laterality": "#Lat_Right",
+        "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Position",
-            "value_JP": "パーカーの胸から腰にかけて薄色の帯模様が掛かっている部分の向かって右, 帯模様の縦の大きさに合わせてやや大きく",
-            "value_EN": "the right side of the area with a pale stripe pattern from the chest to the waist of the hooded top, somewhat large to match the vertical size of the stripe pattern"
+            "value_JP": "パーカーの胸から腰にかかる淡い帯模様のうち、左胸に当たる部分に、帯幅に合わせてやや大きく",
+            "value_EN": "on the left chest of the hoodie, on the pale stripe between the chest and waist, sized to fit the height of the stripe"
           },
           {
             "AttrLabel": "#DesignAttr_Color",
@@ -9541,7 +9540,7 @@
         "Hex": "#B1DDA6",
         "ColorName_JP": "主色(衣装)",
         "ColorName_EN": "Primary Color (Costume)",
-        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Chest", "#BodyPart_Waist"],
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Arm"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -10859,7 +10858,7 @@
         "Hex": "#DD7C9C",
         "ColorName_JP": "副色（衣装）",
         "ColorName_EN": "Secondary Color (Costume)",
-        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Chest", "#BodyPart_Leg"],
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Neck"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -11125,8 +11124,8 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "数字「27」マーキングがなされた紫色の名札",
-            "value_EN": "number '27' marking on purple name tag"
+            "value_JP": "左胸に付けた、数字「27」が入った紫色の名札",
+            "value_EN": "purple name tag marked with the number 27 on the left chest"
           }
         ],
         "img_PNGName": "attr_tagNTS-27-numberMark",
@@ -11156,7 +11155,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -11318,12 +11317,7 @@
         "Hex": "#736E9A",
         "ColorName_JP": "副色（衣装）",
         "ColorName_EN": "Secondary Color (Costume)",
-        "AppliesTo": [
-          "#BodyPart_Hair",
-          "#BodyPart_Chest",
-          "#BodyPart_Leg",
-          "#BodyPart_Foot"
-        ],
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Leg", "#BodyPart_Foot"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -11863,13 +11857,7 @@
         "Hex": "#FFD59B",
         "ColorName_JP": "副色（衣装）",
         "ColorName_EN": "Secondary Color (Costume)",
-        "AppliesTo": [
-          "#BodyPart_Chest",
-          "#BodyPart_Shoulder",
-          "#BodyPart_Ear",
-          "#BodyPart_Hair",
-          "#BodyPart_Waist"
-        ],
+        "AppliesTo": ["#BodyPart_Ear", "#BodyPart_Waist", "#BodyPart_Leg"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -12452,7 +12440,7 @@
       {
         "Formation": "humanoid",
         "BodyPart": ["#BodyPart_Hand"],
-        "Laterality": "#Lat_Right",
+        "Laterality": "#Lat_Both",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
           {
@@ -12597,11 +12585,12 @@
           "#BodyPart_Hand",
           "#BodyPart_Chest",
           "#BodyPart_Waist",
-          "#BodyPart_Leg"
+          "#BodyPart_Leg",
+          "#BodyPart_Foot"
         ],
         "Formation": null,
-        "Note_JP": null,
-        "Note_EN": null
+        "Note_JP": "髪まわりでは左右のリボンに使われる。",
+        "Note_EN": "On the hair, this color is used for the ribbons on either side."
       },
       {
         "Role": "#ColorRole_Secondary",
@@ -13063,7 +13052,6 @@
         "ColorName_JP": "主色(衣装)",
         "ColorName_EN": "Primary Color (Costume)",
         "AppliesTo": [
-          "#BodyPart_Hair",
           "#BodyPart_Shoulder",
           "#BodyPart_Chest",
           "#BodyPart_Leg",
@@ -13292,13 +13280,13 @@
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Waist"],
-        "Laterality": "#Lat_Right",
+        "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Position",
-            "value_JP": "球体の緯度中央の薄緑色体毛に薄色の帯模様が掛かっている部分の向かって右, 帯模様の縦の大きさに合わせてやや大きく",
-            "value_EN": "the right side of the light green fur area with a pale stripe pattern at the equator of the sphere, somewhat large to match the vertical size of the stripe pattern"
+            "value_JP": "球体の左腰、薄緑色の体毛を横切る淡い帯模様の上に、帯幅に合わせてやや大きく",
+            "value_EN": "on the left flank of the sphere, on the pale stripe across the light green fur at mid-body, sized to fit the height of the stripe"
           },
           {
             "AttrLabel": "#DesignAttr_Color",
@@ -13318,13 +13306,13 @@
       {
         "Formation": "humanoid",
         "BodyPart": ["#BodyPart_Chest"],
-        "Laterality": "#Lat_Right",
+        "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Position",
-            "value_JP": "パーカーの胸から腰にかけて薄色の帯模様が掛かっている部分の向かって右, 帯模様の縦の大きさに合わせてやや大きく",
-            "value_EN": "the right side of the area with a pale stripe pattern from the chest to the waist of the hooded top, somewhat large to match the vertical size of the stripe pattern"
+            "value_JP": "パーカーの胸から腰にかかる淡い帯模様のうち、左胸に当たる部分に、帯幅に合わせてやや大きく",
+            "value_EN": "on the left chest of the hoodie, on the pale stripe between the chest and waist, sized to fit the height of the stripe"
           },
           {
             "AttrLabel": "#DesignAttr_Color",
@@ -13342,7 +13330,7 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Hair"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
@@ -13358,7 +13346,7 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
@@ -13389,7 +13377,7 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_FaceMaking"],
         "Laterality": null,
         "DesignElement": "#Element_Emblem",
@@ -13405,7 +13393,7 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": null,
         "Laterality": null,
         "DesignElement": "#Element_Motif",
@@ -13421,7 +13409,7 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": "humanoid",
         "BodyPart": ["#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
@@ -13437,7 +13425,7 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_FaceMaking"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
@@ -13453,7 +13441,7 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": "humanoid",
         "BodyPart": ["#BodyPart_Leg"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
@@ -13758,7 +13746,7 @@
       {
         "Formation": "humanoid",
         "BodyPart": ["#BodyPart_Hand"],
-        "Laterality": "#Lat_Right",
+        "Laterality": "#Lat_Both",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
           {
@@ -13957,11 +13945,7 @@
         "Hex": "#FF8FAD",
         "ColorName_JP": "主色(衣装)",
         "ColorName_EN": "Primary Color (Costume)",
-        "AppliesTo": [
-          "#BodyPart_Shoulder",
-          "#BodyPart_Hair",
-          "#BodyPart_Chest"
-        ],
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Leg"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -14456,7 +14440,7 @@
         "Hex": "#405AB9",
         "ColorName_JP": "メインアクセントカラー（瞳, アクセサリー）",
         "ColorName_EN": "Main Accent Color (Eye Color, Accessory Color)",
-        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Eye", "#BodyPart_Leg"],
+        "AppliesTo": ["#BodyPart_Eye", "#BodyPart_Leg"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -14877,11 +14861,7 @@
         "Hex": "#C8D253",
         "ColorName_JP": "メインアクセントカラー（瞳, アクセサリー）",
         "ColorName_EN": "Main Accent Color (Eye Color, Accessory Color)",
-        "AppliesTo": [
-          "#BodyPart_Hair",
-          "#BodyPart_Eye",
-          "#BodyPart_FaceMaking"
-        ],
+        "AppliesTo": ["#BodyPart_Eye", "#BodyPart_FaceMaking"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -16095,7 +16075,7 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": "humanoid",
         "BodyPart": null,
         "Laterality": null,
         "DesignElement": "#Element_BodyType",
@@ -16674,11 +16654,12 @@
           "#BodyPart_Hair",
           "#BodyPart_Chest",
           "#BodyPart_Waist",
-          "#BodyPart_Foot"
+          "#BodyPart_Foot",
+          "#BodyPart_Leg"
         ],
         "Formation": null,
-        "Note_JP": null,
-        "Note_EN": null
+        "Note_JP": "髪まわりでは編み髪の先の飾りに使われる。",
+        "Note_EN": "On the hair, this color is used for the ornament at the end of the braid."
       },
       {
         "Role": "#ColorRole_Sub",
@@ -17069,7 +17050,7 @@
         "Hex": "#5C9ABC",
         "ColorName_JP": "副色（衣装）",
         "ColorName_EN": "Secondary Color (Costume)",
-        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Eye", "#BodyPart_Leg"],
+        "AppliesTo": ["#BodyPart_Eye", "#BodyPart_Leg"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -17381,8 +17362,8 @@
           },
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "二色のツインテールと青のリボン",
-            "value_EN": "two-tone twin-tails with blue ribbons"
+            "value_JP": "青灰色のリボンで二色の髪を左右に結んだツインテール",
+            "value_EN": "two-tone hair tied into two ponytails with blue-gray ribbons"
           }
         ],
         "img_PNGName": null,
@@ -17497,10 +17478,10 @@
         "Hex": "#E8AFD8",
         "ColorName_JP": "主色",
         "ColorName_EN": "Primary Color",
-        "AppliesTo": ["#BodyPart_Neck", "#BodyPart_Foot"],
+        "AppliesTo": ["#BodyPart_Neck", "#BodyPart_Foot", "#BodyPart_Tail"],
         "Formation": null,
-        "Note_JP": null,
-        "Note_EN": null
+        "Note_JP": "尾の地色。",
+        "Note_EN": "Base color of the tails."
       },
       {
         "Role": "#ColorRole_Primary",
@@ -17521,11 +17502,12 @@
           "#BodyPart_Hair",
           "#BodyPart_Neck",
           "#BodyPart_Chest",
-          "#BodyPart_Foot"
+          "#BodyPart_Foot",
+          "#BodyPart_Tail"
         ],
         "Formation": null,
-        "Note_JP": null,
-        "Note_EN": null
+        "Note_JP": "尾先の色。",
+        "Note_EN": "Color of the tail tips."
       },
       {
         "Role": "#ColorRole_Accent",
@@ -17826,8 +17808,8 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "濃い紺色のショートヘア",
-            "value_EN": "short dark navy hair"
+            "value_JP": "青いショートヘア",
+            "value_EN": "short blue hair"
           }
         ],
         "img_PNGName": null,
@@ -17890,8 +17872,8 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "濃紺のサイハイソックス",
-            "value_EN": "dark navy thigh-high socks"
+            "value_JP": "履き口が膝より下の濃紺のソックス",
+            "value_EN": "dark navy socks that end below the knee"
           }
         ],
         "img_PNGName": null,
@@ -17952,12 +17934,7 @@
         "Hex": "#405AB9",
         "ColorName_JP": "主色(衣装)",
         "ColorName_EN": "Primary Color (Costume)",
-        "AppliesTo": [
-          "#BodyPart_Chest",
-          "#BodyPart_Hair",
-          "#BodyPart_Leg",
-          "#BodyPart_Foot"
-        ],
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Leg", "#BodyPart_Foot"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -19003,7 +18980,7 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": "humanoid",
         "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
@@ -19115,8 +19092,8 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "赤いトリム付き青いジャケット",
-            "value_EN": "blue jacket with red trim"
+            "value_JP": "袖口にピンクの縁取りがある赤紫色のジャケット",
+            "value_EN": "reddish-purple jacket with pink trim on the sleeves"
           }
         ],
         "img_PNGName": null,
@@ -19131,8 +19108,8 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "ピンクのシャツ",
-            "value_EN": "pink shirt"
+            "value_JP": "灰色のシャツ",
+            "value_EN": "gray shirt"
           }
         ],
         "img_PNGName": null,
@@ -19147,8 +19124,8 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "白いショートパンツ",
-            "value_EN": "white shorts"
+            "value_JP": "赤いショートパンツ",
+            "value_EN": "red shorts"
           }
         ],
         "img_PNGName": null,
@@ -19208,7 +19185,7 @@
         "Hex": "#E55951",
         "ColorName_JP": "メインアクセントカラー（アクセサリー）",
         "ColorName_EN": "Main Accent Color (Accessory Color)",
-        "AppliesTo": ["#BodyPart_Chest"],
+        "AppliesTo": ["#BodyPart_Leg", "#BodyPart_Eye"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -20314,8 +20291,8 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "濃い藍色のミディアムヘア",
-            "value_EN": "medium dark indigo hair"
+            "value_JP": "明るい青のミディアムヘア",
+            "value_EN": "medium-length light blue hair"
           }
         ],
         "img_PNGName": null,
@@ -20467,13 +20444,7 @@
         "Hex": "#405AB9",
         "ColorName_JP": "メインアクセントカラー（瞳, アクセサリー）",
         "ColorName_EN": "Main Accent Color (Eye Color, Accessory Color)",
-        "AppliesTo": [
-          "#BodyPart_Shoulder",
-          "#BodyPart_Hair",
-          "#BodyPart_Eye",
-          "#BodyPart_Chest",
-          "#BodyPart_Leg"
-        ],
+        "AppliesTo": ["#BodyPart_Shoulder", "#BodyPart_Eye", "#BodyPart_Chest"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -20685,14 +20656,14 @@
     "AppearanceDetail": [
       {
         "Formation": "corefolder",
-        "BodyPart": ["#BodyPart_Arm"],
-        "Laterality": "#Lat_Right",
+        "BodyPart": ["#BodyPart_Chest"],
+        "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Position",
-            "value_JP": "スカーフのように身体に巻いているパーカーの向かって右側の袖,ミント色先端部分に小さく(袖を括っている部分で一部が隠れることがある)",
-            "value_EN": "On the right-hand sleeve of the hooded top, which is wrapped around the body like a scarf, there is a small detail on the mint-coloured tip (which may be partially hidden by the part where the sleeve is tied)"
+            "value_JP": "パーカーをスカーフのように身体に巻いたとき、左胸側に垂れる袖のミント色の先端に小さく（結び目で一部が隠れることがある）",
+            "value_EN": "a small mark on the mint-colored tip of the sleeve hanging on the left side of the chest when the hooded top is wrapped around the body like a scarf (the knot may partly hide it)"
           },
           {
             "AttrLabel": "#DesignAttr_Color",
@@ -20710,15 +20681,15 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": "humanoid",
         "BodyPart": ["#BodyPart_Waist"],
-        "Laterality": "#Lat_Right",
+        "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Position",
-            "value_JP": "腰に巻いているパーカーの向かって右側の袖,ミント色先端部分に小さく(袖を括っている部分で一部が隠れることがある)",
-            "value_EN": "On the right-hand sleeve of the hooded top, which is wrapped around the waist, there is a small detail on the mint-coloured tip (which may be partially hidden by the part where the sleeve is tied)"
+            "value_JP": "パーカーを腰に巻いたとき、腰の左側に垂れる袖のミント色の先端に小さく（結び目で一部が隠れることがある）",
+            "value_EN": "a small mark on the mint-colored tip of the sleeve hanging on the left side of the waist when the hooded top is tied around it (the knot may partly hide it)"
           },
           {
             "AttrLabel": "#DesignAttr_Color",
@@ -20769,7 +20740,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -21565,14 +21536,14 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Leg"],
+        "BodyPart": ["#BodyPart_Arm", "#BodyPart_Leg"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "ティールブルーの袖とショートパンツ",
-            "value_EN": "teal-blue sleeves and shorts"
+            "value_JP": "ティールブルーの手袋の袖口とショートパンツ",
+            "value_EN": "teal-blue glove cuffs and shorts"
           }
         ],
         "img_PNGName": null,
@@ -22077,7 +22048,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Foot"],
+        "BodyPart": ["#BodyPart_Leg", "#BodyPart_Foot"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -22103,7 +22074,7 @@
         "Hex": "#FFC675",
         "ColorName_JP": "主色",
         "ColorName_EN": "Primary Color",
-        "AppliesTo": ["#BodyPart_Leg", "#BodyPart_Foot"],
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Ear", "#BodyPart_Tail"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -22361,7 +22332,7 @@
           {
             "AttrLabel": "#DesignAttr_Position",
             "value_JP": "球体の両胸の緑色体毛部分で左右に1桁ずつ",
-            "value_EN": "one digit on each green fur area of the chest spheres"
+            "value_EN": "one digit on each side of the chest, on the green fur of the sphere"
           },
           {
             "AttrLabel": "#DesignAttr_Color",
@@ -22381,7 +22352,7 @@
       {
         "Formation": "humanoid",
         "BodyPart": ["#BodyPart_Chest"],
-        "Laterality": "#Lat_Right",
+        "Laterality": "#Lat_Both",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
           {
@@ -23317,8 +23288,8 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "琥珀色の目",
-            "value_EN": "amber eyes"
+            "value_JP": "黄緑色の虹彩と青い瞳孔",
+            "value_EN": "yellow-green irises with blue pupils"
           }
         ],
         "img_PNGName": null,
@@ -23333,8 +23304,8 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "黄色いブレザー",
-            "value_EN": "yellow blazer"
+            "value_JP": "黄色い長袖の上衣",
+            "value_EN": "yellow long-sleeved top"
           }
         ],
         "img_PNGName": null,
@@ -23349,8 +23320,8 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "オレンジ色のショートパンツ",
-            "value_EN": "orange shorts"
+            "value_JP": "オリーブ色のロングスカート",
+            "value_EN": "long olive-green skirt"
           }
         ],
         "img_PNGName": null,
@@ -23365,8 +23336,8 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "黄色いブーツ",
-            "value_EN": "yellow boots"
+            "value_JP": "足首にストラップがある黄色い靴",
+            "value_EN": "yellow shoes with ankle straps"
           }
         ],
         "img_PNGName": null,
@@ -23438,7 +23409,7 @@
         "Hex": "#E8F152",
         "ColorName_JP": "主色(衣装)",
         "ColorName_EN": "Primary Color (Costume)",
-        "AppliesTo": ["#BodyPart_Arm", "#BodyPart_Foot"],
+        "AppliesTo": ["#BodyPart_Arm", "#BodyPart_Foot", "#BodyPart_Eye"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -23478,7 +23449,12 @@
         "Hex": "#A6BC40",
         "ColorName_JP": "副色（衣装）",
         "ColorName_EN": "Secondary Color (Costume)",
-        "AppliesTo": ["#BodyPart_Arm"],
+        "AppliesTo": [
+          "#BodyPart_Arm",
+          "#BodyPart_Eye",
+          "#BodyPart_Waist",
+          "#BodyPart_Leg"
+        ],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -24728,13 +24704,13 @@
         "Formation": null,
         "Costume": "usual",
         "BodyPart": ["#BodyPart_Head"],
-        "Laterality": "#Lat_Right",
+        "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Position",
-            "value_JP": "フードの向かって右側紺色部分(通常衣装)",
-            "value_EN": "On the right side of the hood, on the navy-colored part (regular outfit)"
+            "value_JP": "頭の左側にあるフードの紺色部分（通常衣装）",
+            "value_EN": "on the navy part of the hood on the left side of the head (regular outfit)"
           },
           {
             "AttrLabel": "#DesignAttr_Color",
@@ -25796,8 +25772,8 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "橙色の目",
-            "value_EN": "orange eyes"
+            "value_JP": "上側が赤紫色、下側が淡い黄橙色の虹彩",
+            "value_EN": "irises with a reddish-purple upper half and a pale yellow-orange lower half"
           }
         ],
         "img_PNGName": null,
@@ -25892,8 +25868,8 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "茶色の靴",
-            "value_EN": "brown shoes"
+            "value_JP": "淡い橙色とサーモンピンクの編み上げブーツ",
+            "value_EN": "pale orange and salmon-pink lace-up boots"
           }
         ],
         "img_PNGName": null,
@@ -26147,7 +26123,7 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": "humanoid",
         "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
@@ -26211,8 +26187,8 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "紫の目",
-            "value_EN": "violet eyes"
+            "value_JP": "青い目",
+            "value_EN": "blue eyes"
           }
         ],
         "img_PNGName": null,
@@ -26590,8 +26566,8 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "ライトグリーンの目",
-            "value_EN": "light green eyes"
+            "value_JP": "ピンクの虹彩。両目の目尻に薄緑色の縁取りがある",
+            "value_EN": "pink irises with a pale green accent at the outer corner of each eye"
           }
         ],
         "img_PNGName": null,
@@ -26615,15 +26591,15 @@
         "Note_EN": null
       },
       {
-        "Formation": "humanoid",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Neck"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "青いリボンアクセント",
-            "value_EN": "blue ribbon accents"
+            "value_JP": "首に結んだピンクのリボン",
+            "value_EN": "pink ribbon tied around the neck"
           }
         ],
         "img_PNGName": null,
@@ -26638,8 +26614,8 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "ピンクの靴",
-            "value_EN": "pink shoes"
+            "value_JP": "甲に薄緑色のアクセントがある灰白色の靴",
+            "value_EN": "gray-white shoes with a pale green accent on the instep"
           }
         ],
         "img_PNGName": null,
@@ -26667,18 +26643,20 @@
           "#BodyPart_Eye",
           "#BodyPart_Chest",
           "#BodyPart_Waist",
-          "#BodyPart_Leg"
+          "#BodyPart_Leg",
+          "#BodyPart_Arm",
+          "#BodyPart_Foot"
         ],
         "Formation": null,
-        "Note_JP": null,
-        "Note_EN": null
+        "Note_JP": "目では、両目の目尻の縁取りに使われる。",
+        "Note_EN": "On the eyes, this color outlines the outer corners."
       },
       {
         "Role": "#ColorRole_Secondary",
         "Hex": "#ECEBE4",
         "ColorName_JP": "副色",
         "ColorName_EN": "Secondary Color",
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Foot"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -26688,7 +26666,7 @@
         "Hex": "#F4ABB4",
         "ColorName_JP": "メインアクセントカラー（アクセサリー）",
         "ColorName_EN": "Main Accent Color (Accessory Color)",
-        "AppliesTo": ["#BodyPart_Foot"],
+        "AppliesTo": ["#BodyPart_Eye", "#BodyPart_Neck"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -26698,7 +26676,7 @@
         "Hex": "#F9C9DE",
         "ColorName_JP": "サブアクセントカラー（アクセサリー）",
         "ColorName_EN": "Sub Accent Color (Accessory Color)",
-        "AppliesTo": ["#BodyPart_Foot"],
+        "AppliesTo": ["#BodyPart_Eye", "#BodyPart_Shoulder", "#BodyPart_Arm"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -26848,7 +26826,7 @@
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
-        "Laterality": "#Lat_Right",
+        "Laterality": "#Lat_Both",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
           {
@@ -26874,7 +26852,7 @@
       {
         "Formation": "humanoid",
         "BodyPart": ["#BodyPart_Chest"],
-        "Laterality": "#Lat_Right",
+        "Laterality": "#Lat_Both",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
           {
@@ -27988,13 +27966,13 @@
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Head"],
-        "Laterality": "#Lat_Right",
+        "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Position",
-            "value_JP": "バンダナの向かって右側",
-            "value_EN": "on the right side of the bandana"
+            "value_JP": "頭の左側にあるバンダナの布地",
+            "value_EN": "on the bandana on the left side of the head"
           },
           {
             "AttrLabel": "#DesignAttr_Color",
@@ -28013,14 +27991,15 @@
       },
       {
         "Formation": "humanoid",
+        "Costume": "usual",
         "BodyPart": ["#BodyPart_Head"],
-        "Laterality": "#Lat_Right",
+        "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Position",
-            "value_JP": "バンダナの向かって右側(通常衣装)",
-            "value_EN": "on the right side of the bandana (normal outfit)"
+            "value_JP": "頭の左側にあるバンダナの布地（通常衣装）",
+            "value_EN": "on the bandana on the left side of the head (normal outfit)"
           },
           {
             "AttrLabel": "#DesignAttr_Color",
@@ -28104,6 +28083,7 @@
       },
       {
         "Formation": "humanoid",
+        "Costume": "usual",
         "BodyPart": ["#BodyPart_Head"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
@@ -28120,6 +28100,7 @@
       },
       {
         "Formation": "humanoid",
+        "Costume": "usual",
         "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
@@ -28136,6 +28117,7 @@
       },
       {
         "Formation": "humanoid",
+        "Costume": "usual",
         "BodyPart": ["#BodyPart_Leg"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
@@ -28373,7 +28355,7 @@
           },
           {
             "AttrLabel": "#DesignAttr_Notation",
-            "value_JP": "アラビア数字の「69」(少しスライタスドされた文字デザイン)",
+            "value_JP": "アラビア数字の「69」(少しスタイライズされた文字デザイン)",
             "value_EN": "Arabic numeral '69' (slightly stylized design)"
           }
         ],
@@ -28383,6 +28365,7 @@
       },
       {
         "Formation": "humanoid",
+        "Costume": "usual",
         "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
@@ -28450,6 +28433,7 @@
       },
       {
         "Formation": null,
+        "Costume": "usual",
         "BodyPart": ["#BodyPart_Neck"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
@@ -28514,6 +28498,7 @@
       },
       {
         "Formation": "humanoid",
+        "Costume": "usual",
         "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Leg"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
@@ -28530,7 +28515,8 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Neck"],
+        "Costume": "usual",
+        "BodyPart": ["#BodyPart_Neck", "#BodyPart_Chest", "#BodyPart_Arm"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -28546,6 +28532,7 @@
       },
       {
         "Formation": "humanoid",
+        "Costume": "usual",
         "BodyPart": ["#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
@@ -28848,14 +28835,14 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Waist"],
+        "BodyPart": ["#BodyPart_Shoulder"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Position",
-            "value_JP": "衣装左裾の濃紺部分に大きく",
-            "value_EN": "on the left hem of the dark blue area of the costume"
+            "value_JP": "衣装の左袖の肩付近、濃紺の部分に大きく",
+            "value_EN": "large on the dark blue area of the left sleeve near the shoulder"
           },
           {
             "AttrLabel": "#DesignAttr_Color",
@@ -28921,7 +28908,12 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Leg"],
+        "BodyPart": [
+          "#BodyPart_Chest",
+          "#BodyPart_Shoulder",
+          "#BodyPart_Waist",
+          "#BodyPart_Leg"
+        ],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -29361,13 +29353,13 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Foot"],
+        "BodyPart": ["#BodyPart_Leg", "#BodyPart_Foot"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "青い膝上ソックス",
+            "value_JP": "青い膝下丈のソックス",
             "value_EN": "blue knee-high socks"
           }
         ],
@@ -29623,13 +29615,13 @@
       {
         "Formation": "humanoid",
         "BodyPart": ["#BodyPart_Neck"],
-        "Laterality": "#Lat_Left",
+        "Laterality": "#Lat_Right",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Position",
-            "value_JP": "首の向かって左側面にバーコードとして",
-            "value_EN": "on the left side of the neck, as a barcode"
+            "value_JP": "首の右側面にバーコードとして",
+            "value_EN": "as a barcode on the right side of the neck"
           },
           {
             "AttrLabel": "#DesignAttr_Color",
@@ -29745,14 +29737,14 @@
       },
       {
         "Formation": null,
-        "BodyPart": null,
-        "Laterality": null,
+        "BodyPart": ["#BodyPart_Chest"],
+        "Laterality": "#Lat_Left",
         "DesignElement": "#Element_Tag",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "「研修」名札",
-            "value_EN": "'研修' (trainee) name tag"
+            "value_JP": "左胸の「研修」名札",
+            "value_EN": "'研修' (trainee) name tag on the left side of the chest"
           }
         ],
         "img_PNGName": null,
@@ -29762,13 +29754,13 @@
       {
         "Formation": null,
         "BodyPart": null,
-        "Laterality": null,
+        "Laterality": "#Lat_Right",
         "DesignElement": "#Element_Tag",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "バーコードの番号タグ",
-            "value_EN": "barcode-style numbered tag"
+            "value_JP": "人型では首の右側面、球体では右胸から首元にかけてのバーコードの番号タグ",
+            "value_EN": "barcode-style numbered tag on the right side of the neck in Humanoid Formation and on the upper right chest near the neck in Corefolder Formation"
           }
         ],
         "img_PNGName": null,
@@ -31249,8 +31241,8 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Position",
-            "value_JP": "ヘッドセットのイヤーカフ部分にやや大きく",
-            "value_EN": "On the ear cuff part of the headset, somewhat large"
+            "value_JP": "ヘッドセット左右のイヤーカフの外側にやや大きく",
+            "value_EN": "fairly large on the outside of each ear cup on the headset"
           },
           {
             "AttrLabel": "#DesignAttr_Color",
@@ -31264,8 +31256,8 @@
           }
         ],
         "img_PNGName": "attr_numberMarkNTS-76-headset",
-        "Note_JP": null,
-        "Note_EN": null
+        "Note_JP": "眼鏡とヘッドセットを外すと、イヤーカフの「76」は見えなくなる。胸の「76」はそのまま残る。",
+        "Note_EN": "When the glasses and headset are removed, the 76 on each ear cup disappears from view. The 76 on the chest stays visible."
       },
       {
         "Formation": null,
@@ -31316,14 +31308,14 @@
       },
       {
         "Formation": null,
-        "BodyPart": ["#BodyPart_Eye", "#BodyPart_Head"],
+        "BodyPart": ["#BodyPart_Eye", "#BodyPart_Head", "#BodyPart_Ear"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "丸く濃い眼鏡付きのピンクのヘッドフォン",
-            "value_EN": "pink headphones with round dark glasses"
+            "value_JP": "厚いレンズの黒縁丸眼鏡が付いたピンクのヘッドセット。眼鏡とヘッドセットは一緒に着脱する。",
+            "value_EN": "A pink headset with round, black-framed glasses and thick lenses. The glasses and headset are worn and removed together."
           }
         ],
         "img_PNGName": null,
@@ -31380,7 +31372,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Foot"],
+        "BodyPart": ["#BodyPart_Leg", "#BodyPart_Foot"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -31451,31 +31443,37 @@
           "#BodyPart_Head",
           "#BodyPart_Eye",
           "#BodyPart_Neck",
-          "#BodyPart_Leg"
+          "#BodyPart_Leg",
+          "#BodyPart_Ear"
         ],
         "Formation": null,
-        "Note_JP": null,
-        "Note_EN": null
+        "Note_JP": "装着時のイヤーカフ外縁にも使われる。",
+        "Note_EN": "Also used on the rims of the ear cups when the headset is worn."
       },
       {
         "Role": "#ColorRole_Accent",
         "Hex": "#FCE8EC",
         "ColorName_JP": "サブアクセントカラー（アクセサリー）",
         "ColorName_EN": "Sub Accent Color (Accessory Color)",
-        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Foot"],
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Foot", "#BodyPart_Head"],
         "Formation": null,
-        "Note_JP": null,
-        "Note_EN": null
+        "Note_JP": "装着時のヘッドバンドにも使われる。",
+        "Note_EN": "Also used on the headband when the headset is worn."
       },
       {
         "Role": "#ColorRole_Sub",
         "Hex": "#9DB0DB",
         "ColorName_JP": "副色（衣装）",
         "ColorName_EN": "Secondary Color (Costume)",
-        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Hair", "#BodyPart_Foot"],
+        "AppliesTo": [
+          "#BodyPart_Chest",
+          "#BodyPart_Hair",
+          "#BodyPart_Foot",
+          "#BodyPart_Ear"
+        ],
         "Formation": null,
-        "Note_JP": null,
-        "Note_EN": null
+        "Note_JP": "装着時のイヤーカフ側面の「76」にも使われる。",
+        "Note_EN": "Also used for the 76 on each ear cup when the headset is worn."
       }
     ],
     "ConversationPattern": {
@@ -31773,7 +31771,12 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Leg"],
+        "BodyPart": [
+          "#BodyPart_Chest",
+          "#BodyPart_Arm",
+          "#BodyPart_Waist",
+          "#BodyPart_Leg"
+        ],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -31833,10 +31836,11 @@
         "ColorName_EN": "Primary Color (Costume)",
         "AppliesTo": [
           "#BodyPart_Chest",
-          "#BodyPart_Hair",
-          "#BodyPart_Eye",
+          "#BodyPart_Ear",
+          "#BodyPart_Tail",
           "#BodyPart_Leg",
-          "#BodyPart_Foot"
+          "#BodyPart_Foot",
+          "#BodyPart_Arm"
         ],
         "Formation": null,
         "Note_JP": null,
@@ -32742,7 +32746,7 @@
       {
         "Formation": "humanoid",
         "BodyPart": ["#BodyPart_Waist", "#BodyPart_Leg"],
-        "Laterality": "#Lat_Left",
+        "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
           {
@@ -33586,7 +33590,7 @@
       {
         "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": "#Lat_Left",
+        "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
           {
@@ -34032,7 +34036,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Foot"],
+        "BodyPart": ["#BodyPart_Leg", "#BodyPart_Foot"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -35171,7 +35175,7 @@
       {
         "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": "#Lat_Left",
+        "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
           {
@@ -35550,13 +35554,13 @@
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
-        "Laterality": "#Lat_Right",
+        "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Position",
-            "value_JP": "球体の前面左胸の白色部分,ネクタイの向かって右側",
-            "value_EN": "The white area on the front left chest of the sphere, and the right side of the necktie"
+            "value_JP": "球体の左胸前面の白色部分、ネクタイのすぐ隣",
+            "value_EN": "on the white fur on the left side of the chest, next to the necktie"
           },
           {
             "AttrLabel": "#DesignAttr_Color",
@@ -35576,13 +35580,13 @@
       {
         "Formation": "humanoid",
         "BodyPart": ["#BodyPart_Chest"],
-        "Laterality": "#Lat_Right",
+        "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Position",
-            "value_JP": "スーツの左胸,ネクタイの向かって右側",
-            "value_EN": "The left chest of the suit, and the right side of the necktie"
+            "value_JP": "スーツの左胸、ネクタイのすぐ隣",
+            "value_EN": "on the left chest of the suit, next to the necktie"
           },
           {
             "AttrLabel": "#DesignAttr_Color",
@@ -36529,13 +36533,13 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Foot"],
+        "BodyPart": ["#BodyPart_Leg", "#BodyPart_Foot"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "クリーム白い膝上ソックス",
+            "value_JP": "クリームがかった白の膝下丈ソックス",
             "value_EN": "cream-white knee-high socks"
           },
           {
@@ -38185,13 +38189,13 @@
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
-        "Laterality": "#Lat_Right",
+        "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Position",
-            "value_JP": "球体の前面左胸の白色部分,ネクタイの向かって右側",
-            "value_EN": "The white area on the front left chest of the sphere, and the right side of the necktie"
+            "value_JP": "球体の左胸前面の白色部分、ネクタイのすぐ隣",
+            "value_EN": "on the white fur on the left side of the chest, next to the necktie"
           },
           {
             "AttrLabel": "#DesignAttr_Color",
@@ -38211,13 +38215,13 @@
       {
         "Formation": "humanoid",
         "BodyPart": ["#BodyPart_Chest"],
-        "Laterality": "#Lat_Right",
+        "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Position",
-            "value_JP": "スーツの左胸,ネクタイの向かって右側(色合いであまり目立たない)",
-            "value_EN": "The left chest of the suit, and the right side of the necktie (not very noticeable due to the color)"
+            "value_JP": "スーツの左胸、ネクタイのすぐ隣（色合いであまり目立たない）",
+            "value_EN": "on the left chest of the suit, next to the necktie (not very noticeable due to the color)"
           },
           {
             "AttrLabel": "#DesignAttr_Color",
@@ -38673,14 +38677,14 @@
       },
       {
         "Formation": null,
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Ear", "#BodyPart_Tail"],
         "Laterality": null,
         "DesignElement": "#Element_Emblem",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "狐に似た耳と尾房模様",
-            "value_EN": "fox-like ears and tail-tufts pattern"
+            "value_JP": "狐に似た耳と、赤いジグザグ模様のある灰色の尾",
+            "value_EN": "fox-like ears and gray tails with red zigzag markings"
           }
         ],
         "img_PNGName": null,
@@ -38721,14 +38725,14 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Wing"],
+        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Arm"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "赤いジグザグ内側トリム付き濃い灰色の羽織コート",
-            "value_EN": "dark gray haori coat with red zigzag inner trim"
+            "value_JP": "濃い青みがかった灰色の羽織コート",
+            "value_EN": "dark bluish-gray haori coat"
           }
         ],
         "img_PNGName": null,
@@ -38806,7 +38810,7 @@
         "Hex": "#6D7881",
         "ColorName_JP": "主色",
         "ColorName_EN": "Primary Color",
-        "AppliesTo": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Ear", "#BodyPart_Tail"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -38821,8 +38825,10 @@
           "#BodyPart_Eye",
           "#BodyPart_Neck",
           "#BodyPart_Waist",
-          "#BodyPart_Wing",
-          "#BodyPart_FaceMaking"
+          "#BodyPart_FaceMaking",
+          "#BodyPart_Ear",
+          "#BodyPart_Tail",
+          "#BodyPart_Halo"
         ],
         "Formation": null,
         "Note_JP": null,
@@ -38833,7 +38839,7 @@
         "Hex": "#959A9D",
         "ColorName_JP": "副色",
         "ColorName_EN": "Secondary Color",
-        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Wing"],
+        "AppliesTo": ["#BodyPart_Ear", "#BodyPart_Tail", "#BodyPart_Leg"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -38873,7 +38879,7 @@
         "Hex": "#4F506F",
         "ColorName_JP": "補助色",
         "ColorName_EN": "Auxiliary Color",
-        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Wing"],
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Arm"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -38883,7 +38889,7 @@
         "Hex": "#CACDCC",
         "ColorName_JP": "補助色",
         "ColorName_EN": "Auxiliary Color",
-        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Wing"],
+        "AppliesTo": ["#BodyPart_Foot"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -39164,8 +39170,8 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "オレンジ色の「試用」ラベル",
-            "value_EN": "orange '試用' (trial / test) label"
+            "value_JP": "左胸のオレンジ色の「試用」ラベル",
+            "value_EN": "orange '試用' (trial / test) label on the left chest"
           }
         ],
         "img_PNGName": "attr_tagNTS-2B-試用",
@@ -39514,8 +39520,8 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "「調整中」黄色い注意ラベル",
-            "value_EN": "yellow '調整中' (under adjustment) caution label"
+            "value_JP": "全身カバーの左胸に付いた「調整中」の黄色い注意ラベル",
+            "value_EN": "yellow '調整中' (under adjustment) caution label on the left chest of the full-body cover"
           }
         ],
         "img_PNGName": "attr_tagNTS-10D-調整中",
@@ -39524,7 +39530,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": ["#BodyPart_Interchangeable", "#BodyPart_Foot"],
+        "BodyPart": ["#BodyPart_Interchangeable"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -40145,13 +40151,13 @@
       {
         "Formation": null,
         "BodyPart": ["#BodyPart_Chest"],
-        "Laterality": "#Lat_Right",
+        "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Position",
-            "value_JP": "白衣の左胸,襟の向かって右下にやや大きく",
-            "value_EN": "On the left chest of the white coat, slightly large on the lower right side of the collar"
+            "value_JP": "白衣の左胸、左襟の下にやや大きく",
+            "value_EN": "fairly large on the left chest of the white coat, below the left lapel"
           },
           {
             "AttrLabel": "#DesignAttr_Color",
@@ -40496,13 +40502,13 @@
       {
         "Formation": null,
         "BodyPart": ["#BodyPart_Chest"],
-        "Laterality": "#Lat_Right",
+        "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Position",
-            "value_JP": "白衣の左胸,襟の向かって右下にやや大きく",
-            "value_EN": "On the left chest of the white coat, slightly large on the lower right side of the collar"
+            "value_JP": "白衣の左胸、左襟の下にやや大きく",
+            "value_EN": "fairly large on the left chest of the white coat, below the left lapel"
           },
           {
             "AttrLabel": "#DesignAttr_Color",
