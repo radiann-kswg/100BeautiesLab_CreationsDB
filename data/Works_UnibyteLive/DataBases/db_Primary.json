@@ -559,7 +559,7 @@
       {
         "Formation": null,
         "BodyPart": ["#BodyPart_Ear", "#BodyPart_Wing", "#BodyPart_Tail"],
-        "Laterality": null,
+        "Laterality": "#Lat_Both",
         "DesignElement": "#Element_AccessoryUnit",
         "Attrs": [
           {

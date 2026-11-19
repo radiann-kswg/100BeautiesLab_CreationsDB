@@ -520,8 +520,8 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Position",
-            "value_JP": "左肩からのマントの端",
-            "value_EN": "from the left shoulder to the edge of the cape"
+            "value_JP": "左肩から垂れるマントの裾",
+            "value_EN": "on the hem of the cape hanging from the left shoulder"
           },
           {
             "AttrLabel": "#DesignAttr_Color",
@@ -637,7 +637,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Tail"],
+        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -1984,7 +1984,12 @@
         "Hex": "#FFA79B",
         "ColorName_JP": "サブアクセントカラー(瞳)",
         "ColorName_EN": "Sub Accent Color (Eye Color)",
-        "AppliesTo": ["#BodyPart_Eye"],
+        "AppliesTo": [
+          "#BodyPart_Head",
+          "#BodyPart_Eye",
+          "#BodyPart_Waist",
+          "#BodyPart_Foot"
+        ],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -3660,7 +3665,7 @@
     "Unlike_EN": "Things that do not fit established theory",
     "AppearanceDetail": [
       {
-        "Formation": "humanoid",
+        "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Waist"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
@@ -3887,8 +3892,8 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "水色のレギンス",
-            "value_EN": "light blue leggings"
+            "value_JP": "裾が広がった水色のパンツ",
+            "value_EN": "light blue pants with flared hems"
           }
         ],
         "img_PNGName": null,
@@ -4677,7 +4682,7 @@
         "Hex": "#BC8797",
         "ColorName_JP": "主色",
         "ColorName_EN": "Primary Color",
-        "AppliesTo": ["#BodyPart_Halo", "#BodyPart_Neck"],
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Ear", "#BodyPart_Tail"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -6072,13 +6077,13 @@
       {
         "Formation": null,
         "BodyPart": ["#BodyPart_FaceMaking"],
-        "Laterality": null,
+        "Laterality": "#Lat_Center",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Position",
-            "value_JP": "額に大きく",
-            "value_EN": "Large on the forehead"
+            "value_JP": "額の中央に大きく",
+            "value_EN": "large in the center of the forehead"
           },
           {
             "AttrLabel": "#DesignAttr_Color",
@@ -6147,7 +6152,7 @@
       {
         "Formation": null,
         "BodyPart": ["#BodyPart_Eye"],
-        "Laterality": null,
+        "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Motif",
         "Attrs": [
           {
@@ -6158,7 +6163,7 @@
           {
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "「8∞8」を両目で分けたような瞳孔",
-            "value_EN": "pupils divided like '8∞8'"
+            "value_EN": "pupils that together resemble '8∞8' split across both eyes"
           }
         ],
         "img_PNGName": null,
@@ -6291,11 +6296,10 @@
         "ColorName_JP": "副色",
         "ColorName_EN": "Secondary Color",
         "AppliesTo": [
-          "#BodyPart_Hair",
+          "#BodyPart_Chest",
           "#BodyPart_Shoulder",
           "#BodyPart_Arm",
-          "#BodyPart_Foot",
-          "#BodyPart_FaceMaking"
+          "#BodyPart_Foot"
         ],
         "Formation": null,
         "Note_JP": null,
@@ -6333,7 +6337,7 @@
         "Hex": "#FFA79B",
         "ColorName_JP": "副色（衣装）",
         "ColorName_EN": "Secondary Color (Costume)",
-        "AppliesTo": ["#BodyPart_Arm"],
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Arm"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -6759,8 +6763,8 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "青・紫・マゼンタのイヤリング",
-            "value_EN": "earrings in blue, purple, and magenta"
+            "value_JP": "左耳の青・紫・マゼンタのイヤリング",
+            "value_EN": "earrings in blue, purple, and magenta on the left ear"
           }
         ],
         "img_PNGName": null,
@@ -6775,8 +6779,8 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "黄・橙・マゼンタのイヤリング",
-            "value_EN": "earrings in yellow, orange, and magenta"
+            "value_JP": "右耳の黄・橙・マゼンタのイヤリング",
+            "value_EN": "earrings in yellow, orange, and magenta on the right ear"
           }
         ],
         "img_PNGName": null,
