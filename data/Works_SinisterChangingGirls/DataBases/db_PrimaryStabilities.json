@@ -444,7 +444,12 @@
       },
       {
         "Formation": null,
-        "BodyPart": ["#BodyPart_Shoulder", "#BodyPart_Chest", "#BodyPart_Arm", "#BodyPart_Waist"],
+        "BodyPart": [
+          "#BodyPart_Shoulder",
+          "#BodyPart_Chest",
+          "#BodyPart_Arm",
+          "#BodyPart_Waist"
+        ],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [

@@ -3318,11 +3318,7 @@
         "Hex": "#BC8797",
         "ColorName_JP": "主色",
         "ColorName_EN": "Primary Color",
-        "AppliesTo": [
-          "#BodyPart_Hair",
-          "#BodyPart_Ear",
-          "#BodyPart_Tail"
-        ],
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Ear", "#BodyPart_Tail"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null

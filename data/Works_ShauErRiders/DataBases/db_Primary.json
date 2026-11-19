@@ -275,7 +275,12 @@
         "Hex": "#F9E9E8",
         "ColorName_JP": "補助色",
         "ColorName_EN": "Auxiliary Color",
-        "AppliesTo": ["#BodyPart_Head", "#BodyPart_Ear", "#BodyPart_Hand", "#BodyPart_Tail"],
+        "AppliesTo": [
+          "#BodyPart_Head",
+          "#BodyPart_Ear",
+          "#BodyPart_Hand",
+          "#BodyPart_Tail"
+        ],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -750,7 +755,12 @@
         "Hex": "#767B7D",
         "ColorName_JP": "副色（衣装）",
         "ColorName_EN": "Secondary Color (Costume)",
-        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Arm", "#BodyPart_Hand", "#BodyPart_Leg"],
+        "AppliesTo": [
+          "#BodyPart_Chest",
+          "#BodyPart_Arm",
+          "#BodyPart_Hand",
+          "#BodyPart_Leg"
+        ],
         "Formation": null,
         "Note_JP": "通常制服の設定画での配色",
         "Note_EN": "Usual uniform palette in the concept art"
@@ -760,7 +770,12 @@
         "Hex": "#FFEEDC",
         "ColorName_JP": "補助色",
         "ColorName_EN": "Auxiliary Color",
-        "AppliesTo": ["#BodyPart_Head", "#BodyPart_Ear", "#BodyPart_Arm", "#BodyPart_Hand"],
+        "AppliesTo": [
+          "#BodyPart_Head",
+          "#BodyPart_Ear",
+          "#BodyPart_Arm",
+          "#BodyPart_Hand"
+        ],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null

@@ -746,7 +746,12 @@
         "Hex": "#9A9893",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Arm", "#BodyPart_Leg", "#BodyPart_Foot"],
+        "AppliesTo": [
+          "#BodyPart_Chest",
+          "#BodyPart_Arm",
+          "#BodyPart_Leg",
+          "#BodyPart_Foot"
+        ],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -766,7 +771,12 @@
         "Hex": "#9BC1E6",
         "ColorName_JP": null,
         "ColorName_EN": null,
-        "AppliesTo": ["#BodyPart_Leg", "#BodyPart_Ear", "#BodyPart_Hair", "#BodyPart_Tail"],
+        "AppliesTo": [
+          "#BodyPart_Leg",
+          "#BodyPart_Ear",
+          "#BodyPart_Hair",
+          "#BodyPart_Tail"
+        ],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null

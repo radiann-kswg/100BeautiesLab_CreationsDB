@@ -2939,11 +2939,7 @@
         "Hex": "#5E7AA9",
         "ColorName_JP": "副色",
         "ColorName_EN": "Secondary Color",
-        "AppliesTo": [
-          "#BodyPart_Ear",
-          "#BodyPart_Leg",
-          "#BodyPart_Tail"
-        ],
+        "AppliesTo": ["#BodyPart_Ear", "#BodyPart_Leg", "#BodyPart_Tail"],
         "Formation": null,
         "Note_JP": null,
         "Note_EN": null
@@ -40231,7 +40227,7 @@
           {
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "赤い目",
-            "value_EN": "green-brown eyes"
+            "value_EN": "red eyes"
           }
         ],
         "img_PNGName": null,
@@ -40247,7 +40243,7 @@
           {
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "淡い赤色の長いマフラー(端がストライプ模様)",
-            "value_EN": "long light teal scarf (ends with stripe pattern)"
+            "value_EN": "long light red scarf (ends with stripe pattern)"
           }
         ],
         "img_PNGName": null,

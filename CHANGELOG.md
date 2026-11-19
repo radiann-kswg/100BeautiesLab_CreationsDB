@@ -1,5 +1,14 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### chore: AIHints 拡張（`addon-ai-tag`）に合わせた `develop` 側のデータ整備 (2026-11-19)
+
+> 詳細は `_work_in_progress/2026-11-19_progress_aihints-develop-db-prep.md`。AIHints 本体は `addon-ai-tag` で実装（`develop` には含めない）。
+
+- **形態辞書**: 獣爾騎兵に `Dictionaries/dict_Formation.json`（`normal` = 通常時 / In normal form、`beasted` = 獣化時 / In beast form）を追加し、`Dictionaries/db_meta.json` へ `#Dict_Formation` を登録。`AppearanceDetail.Formation` に形態を入力できるようになった。キーとラベルは User 指定（AIHints の形態キーと同じ値）。既存レコードの値は変更していない。
+- **英訳修正**: ナンバーテールズ `0` の外見 2 値（目・マフラー）が `00` の英訳のコピーのままだったため、JP と設定原画に合わせて `red eyes` / `long light red scarf (ends with stripe pattern)` へ修正（User 承認）。豹変系女子 `N` がこの外見を継承するため、`addon-ai-tag` 側で `N` の AIHints の作り直しが必要。
+- **整形**: AIHints を載せる 5 DB（獣爾騎兵 Primary / 豹変系女子 Primary・PrimaryStabilities / ナンバーテールズ Primary・SelfSecondary）へ prettier を適用。内容は不変で、`addon-ai-tag` との差が AIHints ブロックの追加だけになる（マージ衝突の予防）。
+- **影響範囲**: 創作データのみ。`lib/` / `pages/` / `tools/` / `tests/` は変更なし、下流への波及なし。`npm test` 79 ファイル / 1448 件、`data:order:check` 0/1465。
+
 ### fix: SAR / SCG の外見表示と NTS からの外見継承をメタ宣言で整備 (2026-11-19)
 
 - SAR / SCG の `$DetailLayout.subFields` に `AppearanceDetail`、SAR に `ColorPalette` を登録。入力済みの外見詳細が sectionWrapper の表示制御で抑止されていた状態を解消した。
