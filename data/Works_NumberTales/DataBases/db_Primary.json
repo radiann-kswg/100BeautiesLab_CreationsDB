@@ -7177,14 +7177,18 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Leg"],
+        "BodyPart": [
+          "#BodyPart_Chest",
+          "#BodyPart_Waist",
+          "#BodyPart_Leg"
+        ],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "カジュアルなプライベート服装",
-            "value_EN": "casual private outfit"
+            "value_JP": "ピーチ色の上着と淡黄色のスカート",
+            "value_EN": "peach-colored top and pale yellow skirt"
           }
         ],
         "img_PNGName": null,
@@ -9049,14 +9053,18 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Leg"],
+        "BodyPart": [
+          "#BodyPart_Chest",
+          "#BodyPart_Waist",
+          "#BodyPart_Leg"
+        ],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "カジュアルなプライベート服装",
-            "value_EN": "casual private outfit"
+            "value_JP": "淡い緑色の上着と白い前立て、赤い裾広のパンツ",
+            "value_EN": "pale green top with a white front panel and red wide-leg trousers"
           }
         ],
         "img_PNGName": null,
@@ -11951,14 +11959,16 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Chest"],
+        "BodyPart": [
+          "#BodyPart_Chest"
+        ],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "オレンジ色のインナーウェア",
-            "value_EN": "orange inner wear"
+            "value_JP": "灰色の立ち襟のインナー",
+            "value_EN": "gray inner top with a stand collar"
           }
         ],
         "img_PNGName": null,
@@ -11983,14 +11993,18 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Leg"],
+        "BodyPart": [
+          "#BodyPart_Chest",
+          "#BodyPart_Waist",
+          "#BodyPart_Leg"
+        ],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "カジュアルなプライベート服装",
-            "value_EN": "casual private outfit"
+            "value_JP": "白いコートとオレンジ色のロングスカート",
+            "value_EN": "white coat and orange long skirt"
           }
         ],
         "img_PNGName": null,
@@ -13984,14 +13998,18 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Leg"],
+        "BodyPart": [
+          "#BodyPart_Chest",
+          "#BodyPart_Waist",
+          "#BodyPart_Leg"
+        ],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "カジュアルなプライベート服装",
-            "value_EN": "casual private outfit"
+            "value_JP": "緑のパーカーと黄色のパンツを合わせたカジュアルな服装",
+            "value_EN": "casual outfit with a green hoodie and yellow trousers"
           }
         ],
         "img_PNGName": null,
@@ -14549,14 +14567,16 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Leg"],
+        "BodyPart": [
+          "#BodyPart_Leg"
+        ],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "裾にアクセントカラーのあるピンクモーブのスカート",
-            "value_EN": "pink-mauve skirt with accent color at the hem"
+            "value_JP": "青紫色のスカート、裾はモーブ色",
+            "value_EN": "lavender-blue skirt with a mauve hem"
           }
         ],
         "img_PNGName": null,
@@ -14581,14 +14601,18 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Leg"],
+        "BodyPart": [
+          "#BodyPart_Chest",
+          "#BodyPart_Waist",
+          "#BodyPart_Leg"
+        ],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "カジュアルなプライベート服装",
-            "value_EN": "casual private outfit"
+            "value_JP": "薄桃色と青紫色の上着、モーブ色の裾が付いた青紫色のスカート",
+            "value_EN": "pale pink and lavender-blue top with a lavender-blue skirt and mauve hem"
           }
         ],
         "img_PNGName": null,
@@ -15186,14 +15210,17 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Leg"],
+        "BodyPart": [
+          "#BodyPart_Chest",
+          "#BodyPart_Waist"
+        ],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "濃いティールのボディスーツ",
-            "value_EN": "dark teal bodysuit"
+            "value_JP": "青緑色の上衣",
+            "value_EN": "teal top"
           }
         ],
         "img_PNGName": null,
@@ -15218,14 +15245,18 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Leg"],
+        "BodyPart": [
+          "#BodyPart_Chest",
+          "#BodyPart_Waist",
+          "#BodyPart_Leg"
+        ],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "カジュアルなプライベート服装",
-            "value_EN": "casual private outfit"
+            "value_JP": "青緑色の上衣、灰色の胸元、紺色の脚衣を組み合わせた服装",
+            "value_EN": "outfit combining a teal top, gray chest panel, and navy legwear"
           }
         ],
         "img_PNGName": null,
@@ -16566,14 +16597,18 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Leg"],
+        "BodyPart": [
+          "#BodyPart_Chest",
+          "#BodyPart_Waist",
+          "#BodyPart_Leg"
+        ],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "カジュアルなプライベート服装",
-            "value_EN": "casual private outfit"
+            "value_JP": "白いブラウスと紫のスカートを合わせた服装",
+            "value_EN": "outfit combining a white blouse and a purple skirt"
           }
         ],
         "img_PNGName": null,
@@ -23061,14 +23096,18 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Leg"],
+        "BodyPart": [
+          "#BodyPart_Chest",
+          "#BodyPart_Waist",
+          "#BodyPart_Leg"
+        ],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "カジュアルなプライベート服装",
-            "value_EN": "casual private outfit"
+            "value_JP": "青い縁取りの赤い上着と白いショートパンツを合わせた服装",
+            "value_EN": "outfit combining a red jacket with blue trim and white shorts"
           }
         ],
         "img_PNGName": null,
@@ -23791,14 +23830,18 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Leg"],
+        "BodyPart": [
+          "#BodyPart_Chest",
+          "#BodyPart_Waist",
+          "#BodyPart_Leg"
+        ],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "カジュアルなプライベート服装",
-            "value_EN": "casual private outfit"
+            "value_JP": "茶色のロングコートと淡いクリーム色のゆったりしたパンツを合わせた服装",
+            "value_EN": "outfit combining a brown long coat and loose pale cream pants"
           }
         ],
         "img_PNGName": null,
