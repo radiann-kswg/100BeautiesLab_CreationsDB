@@ -1798,6 +1798,7 @@
       {
         "TailShapeType": "#TailShapeType_Fox",
         "Count": 5,
+        "TailsUnit_PNGName": "attr_tailsUnitNTS-5",
         "Note_JP": null,
         "Note_EN": null
       }
@@ -11758,7 +11759,9 @@
       },
       {
         "Formation": null,
-        "BodyPart": ["#BodyPart_Ear"],
+        "BodyPart": [
+          "#BodyPart_Ear"
+        ],
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -11837,6 +11840,24 @@
         "img_PNGName": null,
         "Note_JP": "設定画の「ビジネス」の着こなし。",
         "Note_EN": "The business outfit shown in the concept art."
+      },
+      {
+        "Formation": null,
+        "BodyPart": [
+          "#BodyPart_Ear"
+        ],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_NumberMark",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "イヤリングの裏面",
+            "value_EN": "back of the earrings"
+          }
+        ],
+        "img_PNGName": "attr_numberMarkNTS-28-earingBack",
+        "Note_JP": "表面の番号意匠と対になる裏面図。",
+        "Note_EN": "Back view paired with the number motif on the front."
       }
     ],
     "ColorPalette": [
@@ -20666,6 +20687,7 @@
       {
         "TailShapeType": "#TailShapeType_Fox",
         "Count": 5,
+        "TailsUnit_PNGName": "attr_tailsUnitNTS-50",
         "Note_JP": null,
         "Note_EN": null
       }
@@ -23676,6 +23698,7 @@
           { "Laterality": "#Lat_Upper", "TailCount": 5, "ClusterCount": 2 },
           { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 1 }
         ],
+        "TailsUnit_PNGName": "attr_tailsUnitNTS-58",
         "Note_JP": null,
         "Note_EN": null
       }
@@ -25702,6 +25725,7 @@
           { "Laterality": "#Lat_Upper", "TailCount": 3, "ClusterCount": 1 },
           { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 2 }
         ],
+        "TailsUnit_PNGName": "attr_tailsUnitNTS-63",
         "Note_JP": null,
         "Note_EN": null
       }
@@ -30820,6 +30844,7 @@
           { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 1 },
           { "Laterality": "#Lat_Lower", "TailCount": 5, "ClusterCount": 2 }
         ],
+        "TailsUnit_PNGName": "attr_tailsUnitNTS-75",
         "Note_JP": null,
         "Note_EN": null
       }
@@ -34757,6 +34782,7 @@
           { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 1 },
           { "Laterality": "#Lat_Lower", "TailCount": 7, "ClusterCount": 2 }
         ],
+        "TailsUnit_PNGName": "attr_tailsUnitNTS-87",
         "Note_JP": null,
         "Note_EN": null
       }
@@ -39092,6 +39118,7 @@
       {
         "TailShapeType": "#TailShapeType_Fox",
         "Count": 2,
+        "TailsUnit_PNGName": "attr_tailsUnitNTS-2B",
         "Note_JP": null,
         "Note_EN": null
       }

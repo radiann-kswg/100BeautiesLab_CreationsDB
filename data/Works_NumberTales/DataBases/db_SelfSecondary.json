@@ -1090,7 +1090,31 @@
         "DayAbout_EN": "Development commemoration (in Caroles Class)"
       }
     ],
-    "AppearanceDetail": null,
+    "AppearanceDetail": [
+      {
+        "Formation": null,
+        "BodyPart": [
+          "#BodyPart_FaceMaking"
+        ],
+        "Laterality": "#Lat_Left",
+        "DesignElement": "#Element_NumberMark",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "左頬のロットマーク",
+            "value_EN": "lot mark on the left cheek"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Notation",
+            "value_JP": "下線付きのアラビア数字「223」",
+            "value_EN": "Arabic numerals '223' with an underline"
+          }
+        ],
+        "img_PNGName": "attr_numberMarkNTS-223-lot",
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ColorPalette": [
       {
         "Role": "#ColorRole_Primary",
@@ -3506,7 +3530,31 @@
         "DayAbout_EN": "Development commemoration (in Wa-no-Machi Class)"
       }
     ],
-    "AppearanceDetail": null,
+    "AppearanceDetail": [
+      {
+        "Formation": null,
+        "BodyPart": [
+          "#BodyPart_FaceMaking"
+        ],
+        "Laterality": "#Lat_Left",
+        "DesignElement": "#Element_NumberMark",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "左頬のロットマーク",
+            "value_EN": "lot mark on the left cheek"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Notation",
+            "value_JP": "下線付きのアラビア数字「753」",
+            "value_EN": "Arabic numerals '753' with an underline"
+          }
+        ],
+        "img_PNGName": "attr_numberMarkNTS-753-lot",
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ColorPalette": [
       {
         "Role": "#ColorRole_Primary",
