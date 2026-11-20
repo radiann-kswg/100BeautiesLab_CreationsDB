@@ -25,10 +25,12 @@
  */
 
 import { existsSync } from "node:fs";
+import { markAIImagePolicySync } from "./build-ai-image-policy.mjs";
 import { join } from "node:path";
 
 import {
   parseCommonArgs,
+  invalidateAIImagePolicy,
   readJson,
   esc,
   resolveIdxKey,
@@ -46,10 +48,13 @@ import {
 // 引数パース
 // ─────────────────────────────────────────────────────────────────────────────
 
-const { dryRun: DRY_RUN, clean: CLEAN, dbId: DB_ID, repoRoot: REPO_ROOT } =
+const { getArg, dryRun: DRY_RUN, clean: CLEAN, dbId: DB_ID, repoRoot: REPO_ROOT } =
   parseCommonArgs(process.argv.slice(2));
 
 const DATA_DIR = join(REPO_ROOT, "data");
+
+invalidateAIImagePolicy({ repoRoot: REPO_ROOT, bucket: getArg("--bucket") ?? "creationsdb-data", dryRun: DRY_RUN });
+if (!DRY_RUN) markAIImagePolicySync(REPO_ROOT, "hints", false, { bucket: getArg("--bucket") ?? "creationsdb-data", dbId: DB_ID });
 
 console.log(`[aihints] REPO_ROOT = ${REPO_ROOT}`);
 console.log(`[aihints] D1 DB_ID  = ${DB_ID}`);
@@ -175,4 +180,5 @@ for (const workKey of Object.keys(creationWorks)) {
 }
 
 console.log(`\n[aihints] 合計: ${totalHints} 件投入`);
+if (!DRY_RUN) markAIImagePolicySync(REPO_ROOT, "hints", true, { bucket: getArg("--bucket") ?? "creationsdb-data", dbId: DB_ID });
 console.log("[aihints] 完了 ✓");

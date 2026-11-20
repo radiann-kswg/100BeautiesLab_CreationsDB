@@ -39,6 +39,8 @@
 // セキュリティユーティリティ
 // ─────────────────────────────────────────────────────────────────────────────
 
+import { aiJsonResponse } from './ai-image-policy.js';
+
 const SAFE_TOKEN_RE      = /^[A-Za-z0-9_]+$/;
 const VALID_JSON_FILE_RE = /^[A-Za-z0-9_.\-]+\.json$/;
 
@@ -1255,7 +1257,7 @@ async function handleRequest(request, env) {
     // ── GET /api/v1/meta ────────────────────────────────────────────────────
     if (segments.length === 1 && segments[0] === "meta") {
       const meta = await getGlobalMeta(env);
-      return jsonResponse(meta);
+      return aiJsonResponse(meta, env, { metadata: true });
     }
 
     // ── GET /api/v1/works ───────────────────────────────────────────────────
@@ -1275,7 +1277,7 @@ async function handleRequest(request, env) {
           Works_OfficialLinks: info.Works_OfficialLinks ?? [],
         };
       });
-      return jsonResponse(works);
+      return aiJsonResponse(works, env, { metadata: true });
     }
 
     // :work が必要なルート
@@ -1295,7 +1297,7 @@ async function handleRequest(request, env) {
       // ── GET /api/v1/:work/meta ───────────────────────────────────────────
       if (segments[1] === "meta" && segments.length === 2) {
         const workMeta = await getWorkMeta(env, workKey);
-        return jsonResponse(workMeta ?? { key: workKey });
+        return aiJsonResponse(workMeta ?? { key: workKey }, env, { workKey, metadata: true });
       }
 
       // ── GET /api/v1/:work/dbs ────────────────────────────────────────────
@@ -1327,7 +1329,7 @@ async function handleRequest(request, env) {
           const [enriched] = applyCommons([record], workMeta, db);
           if (isPublicRecord(enriched)) visible.push({ db, record: enriched });
         }
-        return jsonResponse(visible);
+        return aiJsonResponse(visible, env, { workKey });
       }
 
       // :db が必要なルート
@@ -1351,7 +1353,7 @@ async function handleRequest(request, env) {
           // D1 の is_private フィルタに加え、_Commons 適用後にも非公開判定を行う（多層防御）。
           // migrate.mjs を再実行していない古い D1 が残っていても非公開レコードを返さない。
           const enriched = applyCommons(records, workMeta, dbNorm).filter(isPublicRecord);
-          return jsonResponse(enriched);
+          return aiJsonResponse(enriched, env, { workKey, dbName: capitalize(dbNorm) });
         }
 
         // ── GET /api/v1/:work/:db/records/:idx?idxKey=... ─────────────────
@@ -1373,7 +1375,7 @@ async function handleRequest(request, env) {
           const [enriched] = applyCommons([rec], workMeta, dbNorm);
           // _Commons 経由で isPrivate が注入されるレコードは 404 とする（多層防御）
           if (!isPublicRecord(enriched)) return errorResponse(404, "Record not found");
-          return jsonResponse(enriched);
+          return aiJsonResponse(enriched, env, { workKey, dbName: capitalize(dbNorm) });
         }
 
         // ── GET /api/v1/:work/:db/search?q=... ────────────────────────────
@@ -1385,7 +1387,7 @@ async function handleRequest(request, env) {
           // 検索結果にも records エンドポイントと同じ _Commons 適用 + 非公開除外を通す
           // （従来は生レコードを返しており、_Commons 経由の isPrivate を取りこぼしていた）
           const visible = applyCommons(hits, workMeta, dbNorm).filter(isPublicRecord);
-          return jsonResponse(visible);
+          return aiJsonResponse(visible, env, { workKey, dbName: capitalize(dbNorm) });
         }
 
         // ── GET /api/ai/:work/:db/aihints ─────────────────────────────────
@@ -1393,7 +1395,7 @@ async function handleRequest(request, env) {
           const authErr = checkAiAuth(request, env);
           if (authErr) return authErr;
           const hints = await getAihintsFromD1(env, workKey, capitalize(dbNorm));
-          return jsonResponse(hints);
+          return aiJsonResponse(hints, env, { workKey, dbName: capitalize(dbNorm), hints: true });
         }
 
         // ── GET /api/ai/:work/:db/aihints/:idx?form=<form> ────────────────
@@ -1404,7 +1406,7 @@ async function handleRequest(request, env) {
           const form     = url.searchParams.get("form") ?? null;
           const hint     = await getAihintFromD1(env, workKey, capitalize(dbNorm), idxValue, form);
           if (!hint) return errorResponse(404, "AIHints not found");
-          return jsonResponse(hint);
+          return aiJsonResponse(hint, env, { workKey, dbName: capitalize(dbNorm), hints: true });
         }
       }
     }

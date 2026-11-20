@@ -34,3 +34,15 @@ node tools/patch-appearance-detail.mjs --work NumberTales --patch .cache/appeara
 既存項目の変更と末尾追加に対応します。削除・並べ替えはこのツールの対象外です。対象外レコード・項目の書式は保持します。適用後は `npm run data:order:check` と対象データのテストを実行してください。
 
 形態・衣装・着脱を判断するときは [schema/meta 詳解](schema-meta-processing.md) の外見の節を参照してください。原画にない姿や未確定の状態対応は、候補へ断定して追加せず作者へ確認します。
+
+## 画像と衣装の対応表（#60 E・次段階の設計案）
+
+既存の Images を維持し、レコードの別メタ `Images_Appearance` をフィールド名ごとの配列にする案です。各要素は元の文字列と完全一致する `value` と、任意の `Formation` / `Costume` / `ReferenceOnly` を持ちます。
+
+```json
+"Images_Appearance": {
+  "designAlt_PNGPath": [{"value":"arts/art_imgNTS-68-humanoidOnWorkSuit","ReferenceOnly":true}]
+}
+```
+
+`ReferenceOnly: true` は「外見設定として収録せず画像参考だけにする」作者判断で、AI利用可否とは独立です。既定衣装の代表には選ばず、権利判断は AI_Optout / Images_AIOptout を優先します。未知の field/value・作品辞書にないコードを拒否する検証が必要です。これは別の実装課題へ分ける設計案で、現在の schema / CLI にはまだ追加していません。

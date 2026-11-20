@@ -16,8 +16,7 @@
       "_Commons": {
         "Progress": "notProceeded",
         "Belonging": [{ "Faction": "スターダスト財団" }]
-      },
-      "AI_Optout": true
+      }
     },
     "#DB_PrimaryKaleidoscope": {
       "AI_Optout": true,
@@ -35,8 +34,7 @@
       "_Commons": {
         "Progress": "notProceeded",
         "Belonging": [{ "Faction": "カレイドスコウプ教団" }]
-      },
-      "AI_Optout": true
+      }
     },
     "#DB_SemiPrimary": {
       "AI_Optout": true,
@@ -55,8 +53,7 @@
         "Progress": "notProceeded",
         "Belonging": [{ "Faction": "夜月機関" }]
       },
-      "DB_Hidden": true,
-      "AI_Optout": true
+      "DB_Hidden": true
     }
   },
   "General": {

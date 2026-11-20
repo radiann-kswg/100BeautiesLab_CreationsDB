@@ -108,8 +108,7 @@
             "Class": { "hideText": "？？？" }
           }
         ]
-      },
-      "AI_Optout": true
+      }
     },
     "#DB_SemiPrimary": {
       "AI_Optout": true,
@@ -221,8 +220,7 @@
             "Class": ["機関創設者"]
           }
         ]
-      },
-      "AI_Optout": true
+      }
     }
   },
   "General": {

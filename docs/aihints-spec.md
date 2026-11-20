@@ -260,6 +260,26 @@ Cloud Run POST /generate
 
 ---
 
+## AI画像・衣装・レコードの権利判定（2026-11-20）
+
+`/api/ai/` の records・検索・AIHints 応答は、`policy/ai-image-policy.json`（R2）で許可されたレコードと画像だけを返します。共有画像はどのレコードからの拒否でも全参照に優先し、`Images_AIOptout` の生値、typedef の `AI_Optout`、作品・DB・カテゴリ・レコードの拒否を合成します。旧相対パスと `_DBCrossLinkPath` も同じ物理画像へ解決します。cross-link だけで画像の許可は成立せず、参照先自身の直接宣言を必要とします。
+
+衣装辞書の `AI_Optout: true` は `AppearanceDetail` の該当衣装と、その衣装を明示した AIHints の文へ適用します。自由文に拒否衣装の記述が混ざる場合は、その文全体を除きます。衣装辞書は `Dictionaries/db_meta.json` の `keyField` / `dictFile` 宣言から読み、サイトの表示用原JSONは変更しません。
+
+AI除外レコードは一覧・検索へ出さず、単件は404です。メタ応答では除外画像一覧や画像の例を取り除きます。許可表が未生成・旧形式・更新途中の場合、衣装とレコードの権利も判定できないため records・検索・AIHints は503で閉じます。表は各リクエストでR2から直接読み、API応答も `Cache-Control: no-store` とします。通常のサイトと `develop` の `/api/v1/` は対象外です。
+
+更新手順は次の3段階です。`.github/workflows/cf-api-sync.yml` は同じ順序で実行します。
+
+```sh
+node pkg/cloudflare/scripts/migrate.mjs --repo-root . --clean
+node pkg/cloudflare/scripts/migrate-aihints.mjs --repo-root . --clean
+node pkg/cloudflare/scripts/build-ai-image-policy.mjs --repo-root .
+```
+
+同期の開始時には許可表を無効化します。最後の公開処理は、同じlocal・ソースJSONの指紋・R2バケット・D1名で両同期が成功したマーカー（`.cache/migrate/ai-image-policy-sync.json`）がある場合だけ通ります。片側だけの同期・途中失敗・その後のJSON変更では公開できません。公開成功後はマーカーを消費するため、後日の単独AIHints同期から古い表を再利用できません。`--r2-only` / `--d1-only` は表を有効化しません。`--bucket` / `--db-id` を変える場合は3コマンドでそろえてください。
+
+本番へ書かずに内容を検証するには `node pkg/cloudflare/scripts/build-ai-image-policy.mjs --repo-root . --dry-run` を使います。生成物・マーカーは `.cache/` のみへ保存します。
+
 ## 参考
 
 | 対象 | 参照先 |

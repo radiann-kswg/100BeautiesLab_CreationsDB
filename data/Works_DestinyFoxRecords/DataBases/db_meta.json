@@ -8,8 +8,7 @@
       "DB_Summary_EN": "Characters surrounding the second-generation RadianN proxy.\nThey are given motifs based on physical units and mathematical terminology.\nNote: this work/title is mainly for the author's recent reports, and is often unrelated to the '#REGION.8' of the creative world.",
       "_Commons": {
         "Belonging": [{ "Faction": "超次元執筆空間(アトリエ)の住民" }]
-      },
-      "AI_Optout": true
+      }
     },
     "#DB_Proxy": {
       "AI_Optout": true,
@@ -20,8 +19,7 @@
       "_Commons": {
         "Belonging": [{ "Faction": "『管理主』" }],
         "BirthDay": { "Day": { "Month": 7, "DayOfMonth": 1 } }
-      },
-      "AI_Optout": true
+      }
     }
   },
   "General": {

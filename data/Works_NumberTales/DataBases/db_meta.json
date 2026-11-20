@@ -27,8 +27,7 @@
         "FromArea": { "Area": "九蓮国" },
         "RaceType": "PortableHumanoid(TaleBeastType)",
         "isTriple": false
-      },
-      "AI_Optout": false
+      }
     },
     "#DB_SemiPrimary": {
       "AI_Optout": false,
@@ -56,8 +55,7 @@
         "Belonging": [{ "Faction": "百花繚乱研究所" }],
         "RaceType": "PortableHumanoid(TaleBeastType)",
         "isTriple": true
-      },
-      "AI_Optout": false
+      }
     },
     "#DB_SelfSecondary": {
       "AI_Optout": false,
@@ -77,8 +75,7 @@
             "RaceType": "PortableHumanoid(TaleBeastType)",
             "GenderType": "Neutral",
             "isTriple": true
-          },
-          "AI_Optout": false
+          }
         },
         {
           "AI_Optout": false,
@@ -90,8 +87,7 @@
             "Belonging": [{ "Faction": "百花繚乱研究所" }],
             "RaceType": "PortableHumanoid(TaleBeastType)",
             "isTriple": true
-          },
-          "AI_Optout": false
+          }
         },
         {
           "AI_Optout": false,
@@ -104,8 +100,7 @@
             "RaceType": "PortableHumanoid(TaleBeastType)",
             "GenderType": "Neutral",
             "isTriple": false
-          },
-          "AI_Optout": false
+          }
         },
         {
           "AI_Optout": false,
@@ -118,11 +113,9 @@
             "RaceType": "PortableHumanoid(TaleBeastType)",
             "GenderType": "Neutral",
             "isTriple": true
-          },
-          "AI_Optout": false
+          }
         }
-      ],
-      "AI_Optout": false
+      ]
     },
     "#DB_Secondary": {
       "DB_Label_JP": "二次創作",
@@ -154,8 +147,7 @@
             ],
             "RaceType": "PortableHumanoid(TaleBeastType,SoftwareBody)",
             "isTriple": false
-          },
-          "AI_Optout": true
+          }
         },
         {
           "AI_Optout": true,
@@ -177,8 +169,7 @@
             "Progress": "notProceeded",
             "isTriple": false,
             "isPrivate": true
-          },
-          "AI_Optout": true
+          }
         },
         {
           "AI_Optout": true,
@@ -199,8 +190,7 @@
                 "about_EN": "The actual species may differ slightly"
               }
             ]
-          },
-          "AI_Optout": true
+          }
         },
         {
           "AI_Optout": true,
@@ -213,8 +203,7 @@
             "GenderType": "Neutral",
             "isTriple": true
           },
-          "isPrivate": true,
-          "AI_Optout": true
+          "isPrivate": true
         }
       ],
       "#DB_UnprocessedSecondary": {
@@ -238,8 +227,7 @@
             "isPrivate": true
           }
         ],
-        "DB_Hidden": true,
-        "AI_Optout": true
+        "DB_Hidden": true
       }
     }
   },

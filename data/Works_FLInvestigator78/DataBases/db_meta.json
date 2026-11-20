@@ -28,8 +28,7 @@
           { "Suit": "PentacleObjects", "Class": ["金の硬貨支部"] },
           { "Suit": "Dealer", "Class": ["采配幹部(ディーラーズ)"] }
         ]
-      },
-      "AI_Optout": true
+      }
     },
     "#DB_PrimaryDealer": {
       "AI_Optout": true,
@@ -62,8 +61,7 @@
             "FromArea": { "Area": "九蓮国" }
           }
         ]
-      },
-      "AI_Optout": true
+      }
     },
     "#DB_MinorArcana": {
       "AI_Optout": true,
@@ -91,8 +89,7 @@
           { "Suit": "SlashSwords", "Class": ["風の刀剣支部"] },
           { "Suit": "PentacleObjects", "Class": ["金の硬貨支部"] }
         ]
-      },
-      "AI_Optout": true
+      }
     },
     "#DB_MinorsDealer": {
       "AI_Optout": true,
@@ -120,8 +117,7 @@
           { "Suit": "SlashSwords", "Class": ["風の刀剣支部"] },
           { "Suit": "PentacleObjects", "Class": ["金の硬貨支部"] }
         ]
-      },
-      "AI_Optout": true
+      }
     },
     "#DB_UnprocessedDealer": {
       "AI_Optout": true,
@@ -139,8 +135,7 @@
           { "Suit": "PentacleObjects", "Class": ["金の硬貨支部"] }
         ]
       },
-      "DB_Hidden": true,
-      "AI_Optout": true
+      "DB_Hidden": true
     }
   },
   "General": {

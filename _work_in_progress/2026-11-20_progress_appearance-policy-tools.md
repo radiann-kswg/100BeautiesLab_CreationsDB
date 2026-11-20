@@ -1,5 +1,49 @@
 # AppearanceDetail 補完・画像 AI オプトアウト・入力補助
 
+## 現在の実装と引継ぎ
+
+- User が main / develop の変更を `a1490f14` としてテスト・push。指示を受け、sub1 / addon-ai-tag へ `0b1e6eff` で一方向マージした。競合した CHANGELOG と第三者運用文書は両方の記述を残して統合した。
+- その後 sub1 で `98633e91`「AIオプトアウト周り機能調整」の追加コミットを確認。最終のCreationsAI生成元も同コミットへ合わせた。
+- sub1 で進行中だった API 作業は Git stash へ退避してから復元した。develop から取り込んだ外見・権利 JSON と、addon の既存 AIHints / AI_TextRP_Allowed を維持した。保護用 stash は残している。
+- 権利軸の `AI_Optout`（16メタファイル44指定、true27/false17）と画像別・衣装別指定は develop が正典。移管対象の他のJSON値は不変。AIHints 本文・API・AI_Unready・AI_TextRP_Allowed は addon 管理を維持する。
+- マージで同一オブジェクトに重複した AI_Optout 44キーを sub1 で除去。除去前後の JSON.parse 結果が同じことを全16ファイルで確認し、重複キーを検出する回帰テストを追加した。
+- NTS-61 の idol は辞書単位で除外し、外見4項目・AIHintsの該当衣装説明・画像3ファイルをAI向け出力から除く。D-Vines の分数番号4人だけをレコード単位で除外する。266/314にはデザイン思想が適用されないという作者判断に従い、権利除外を追加しない。
+- #60 の B（水着・作業着・レオタード）と C（夏服・仮装・寝間着）は作者確認によりすべて参考画像のみ。AppearanceDetail の新たな衣装にはしない。D の既存服装概要は総称として維持する案を作者へ確認中。E は Images を維持した `Images_Appearance` の field/value/Formation/Costume/ReferenceOnly 方式を別課題の設計案として CLI 文書へ記録。今回の衣装画像除外は Images_AIOptout で対応済み。
+
+## 作者確認に基づく外見補完
+
+- SCG NE の膨体は afterChanged。SE のクッションは Detachable:true。W の人型は afterChanged・球体は既存辞書の beforeChange、共通の髪・耳・目は null。NW は衣装 usual/jacketless と豹変後の左目（黒い白目・小さな赤い瞳）を分離した。
+- SAR カミツは共通の頭部・胸元、通常の尾・帯・袖、獣化後の長い蛇体と頭後方の袖状部分を分離。ハネゝカの制服 usual と私服 private を追加した。原画にない靴や他の騎兵の獣化形態は補完していない。
+- NTS14・41のブレザー、61のフードと番号、66の頭のフード、777系の装備は独立した着脱項目。28は腰巻きブレザーの usual と羽織る onBusiness を分け、腰のリボンボウを袖として整理した。61のidolヘアピンは維持した。
+- CLI は候補準備→dry-run→明示apply。before一致、複合インデックス、schema/辞書、根拠画像の実体・上位権利・共有画像拒否、旧相対参照と横断参照を検証。全候補検証後に原子置換し、書込み失敗時の復元も検証した。
+
+## 検証とレビュー
+
+- main 最終: 84ファイル / 1,519テスト成功。developマージ直後の sub1: 96ファイル / 1,811テスト成功。API・資料レイヤー・重複キー除去を含む sub1 最終: **98ファイル / 1,837テスト成功（16.90秒）**。agents:check、data:order:check（0/1465）、構文検査、ステージ/作業ツリーのdiff --checkも成功。
+- ローカル headless Edge、SW制御再訪各3回: キャラ一覧392.3 / 600.4 / 601.4ms、相関図575.7 / 592.4 / 553.0ms。6回とも1000ms未満、pageerrorなし、成功したJSONの重複ネットワーク取得なし。先行診断で相関図1075.3msを一度観測したことも記録に保持。
+- SCG-SE の詳細で「着脱可能」タグ1件を表示確認。main の `.cache/appearance-policy/browser-results.json` / `browser-observations.json` / `se-detachable.png` に証跡を保存した。
+- Ponytail Review で非公開DBのCommons補完停止、同名.private DBによる公開画像の誤除外、APIの不正型許可、旧相対参照の共有拒否漏れ、衣装dictFile未解決を検出・修正し、具体的な再現ケースで再検証した。
+- CreationsAI 最終は **40テスト成功・実データ再生成/validator成功**。732件、AI利用可191→187（差分は指定D-Vines4人だけ）。61の除外衣装4項目、AIHints衣装文、画像3ファイルの漏れとdesignAltの共通代表採用は0件。References/Localizationの明示許可と通常素体の参考画像を保持し、image-indexは481項目/480固有画像。生成元コミットは98633e91。
+- API許可表のdry-runは479画像/488参照。資料カタログ・typedef・Ref_/Loc_・Works_ImagesDirを含むpositive/negative fixtureで検証した。
+- 既存の未解決画像参照2件は SCG Regioministrators の「扇 三春」「扇 残冬」のconcept_PNGName。元の_DBCrossLinkPath値と同じで、新たな退行ではないことを確認した。
+- 証跡は sub1 `.cache/issue62-final/tests.log`、main `.cache/issue62-creationsai/{final-tests.log,final-build.log,final-validate.log,final-audit.json}`。
+
+## API の運用
+
+新しい許可表は全レコードから共有画像の拒否を合成する。full同期→AIHints同期→許可表公開の3段が、同じソース指紋・R2バケット・D1で成功した場合だけ有効になる。途中失敗・ソース変更・単独同期では有効化しない。許可表が不明な間、本文を返すAIエンドポイントは503、除外レコードの単件は404。通常サイトと develop の /api/v1 はこのフィルタの対象外。
+
+詳細: [AIHints仕様](../docs/aihints-spec.md)、[CLI使用法](../docs/appearance-detail-tools.md)。
+
+## 残作業
+
+- sub1のAPI追加変更は98633e91へコミットされたが、リモート反映・本番R2/D1同期・Workerデプロイは本作業では実行していない。
+- CreationsAIの変更と再生成物はローカルに用意済み。サブモジュールpinは688a3492のまま。DB側をリモートへ反映後、pin追従・commit/pushが必要。今回の実データ検証はCREATIONS_DB_ROOTでsub1を指定した。
+- #60 Dの作者確認、Eの別メタ実装は残る。Issue本文/コメントを作業中に定期確認し、追加されたB/Cと権利対象の決定を反映した。
+
+---
+
+以下は初期調査時の記録。
+
 ## 目的
 
 Issue #60・#62 の必須対応と、#61 の表情・動作も扱える AppearanceDetail 入力補助を進める。
@@ -30,11 +74,11 @@ Issue #60・#62 の必須対応と、#61 の表情・動作も扱える Appearan
 - sub1: AI 向け Worker / migration / 対応テスト。develop に AIHints エンドポイントを持ち込まない。
 - CreationsAI: `scripts/lib/policy.js`、データセット・画像索引生成、検証器と対応テスト。
 
-## 未完了
+## 初期調査後に解決した確認事項
 
-- 500 行超の変更について User の事前確認待ち（AGENTS.md 基本ルール）。
-- 原画の状態と正式なコードの対応、追加衣装の恒常設定化に関する作者判断。
-- 実装、データ適用、テスト、必要なローカル表示・性能検証。
+- 500行超の計画は User 承認済み。
+- SCGの形態、D-Vinesの除外範囲、B/Cの参考画像扱いは作者確認済み。
+- 実装と検証の現状は冒頭を参照。
 
 ## 調査時点の検証
 

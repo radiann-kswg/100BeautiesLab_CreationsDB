@@ -29,11 +29,13 @@ import { execFileSync } from "node:child_process";
 // D1 の is_private 列は Worker と同一ロジックで算出する必要があるため、
 // worker.js の実装をそのまま再利用する（ロジックの二重実装による乖離を避ける）
 import { applyCommons, isPublicRecord } from "../worker.js";
+import { markAIImagePolicySync } from "./build-ai-image-policy.mjs";
 
 // 引数パース・JSON 読み込み・SQL 整形・D1 投入は migrate-aihints.mjs と共通。
 // コピーで乖離させないため migrate-common.mjs へ集約している。
 import {
   parseCommonArgs,
+  invalidateAIImagePolicy,
   readJson,
   findJsonFiles,
   esc,
@@ -64,6 +66,9 @@ const D1_ONLY  = args.includes("--d1-only");
 const BUCKET   = getArg("--bucket") ?? "creationsdb-data";
 
 const DATA_DIR = join(REPO_ROOT, "data");
+
+invalidateAIImagePolicy({ repoRoot: REPO_ROOT, bucket: BUCKET, dryRun: DRY_RUN });
+if (!DRY_RUN) markAIImagePolicySync(REPO_ROOT, "full", false, { bucket: BUCKET, dbId: DB_ID });
 
 console.log(`[migrate] REPO_ROOT = ${REPO_ROOT}`);
 console.log(`[migrate] D1 DB_ID  = ${DB_ID}`);
@@ -345,4 +350,5 @@ if (r2Failures.length > 0) {
   process.exit(1);
 }
 
+if (!DRY_RUN && !R2_ONLY && !D1_ONLY) markAIImagePolicySync(REPO_ROOT, "full", true, { bucket: BUCKET, dbId: DB_ID });
 console.log("\n[migrate] 完了 ✓");

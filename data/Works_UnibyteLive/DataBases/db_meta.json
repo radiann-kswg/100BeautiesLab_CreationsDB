@@ -23,8 +23,7 @@
         "RaceType": "VirtualAvatar",
         "GenderType": "FemaleNeutral",
         "Weight_kg": { "hideText": "公開不要" }
-      },
-      "AI_Optout": true
+      }
     },
     "#DB_PrimaryPerformer": {
       "AI_Optout": true,
@@ -43,8 +42,7 @@
         "FromArea": { "Area": "九蓮国" },
         "RaceType": "Human",
         "GenderType": "Female"
-      },
-      "AI_Optout": true
+      }
     }
   },
   "General": {

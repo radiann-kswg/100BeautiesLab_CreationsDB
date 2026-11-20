@@ -140,7 +140,11 @@ describe('テキストRP推論のschemaと公開read契約', () => {
       },
       BUCKET: {
         get: async (key) => ({
-          json: async () => key === 'data/db_meta.json' ? { CreationWorks: {} } : meta,
+          json: async () => key === 'data/db_meta.json' ? { CreationWorks: {} }
+            : key === 'policy/ai-image-policy.json' ? {
+              version: 1, complete: true, paths: [], references: [], costumes: {},
+              records: { '#Works_Test/Primary': { indexKey: 'Card.Suit', allowed: ['A', 'B'] } },
+            } : meta,
         }),
       },
     };

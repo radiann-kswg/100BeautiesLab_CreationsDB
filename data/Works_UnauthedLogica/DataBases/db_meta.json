@@ -18,8 +18,7 @@
         "Progress": "notProceeded",
         "Belonging": [{ "Faction": "ラストラステクニカ-インストゥルメント" }],
         "RaceType": "Automaton"
-      },
-      "AI_Optout": true
+      }
     },
     "#DB_Primary": {
       "AI_Optout": true,
@@ -50,8 +49,7 @@
         "isMobs": false,
         "Progress": "notProceeded",
         "RaceType": "CustomAutomaton"
-      },
-      "AI_Optout": true
+      }
     }
   },
   "General": {

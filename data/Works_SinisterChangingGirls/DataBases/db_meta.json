@@ -11,8 +11,7 @@
         "StoryEraAbout_JP": "第9創世紀3年(西暦2052年相当)周辺",
         "StoryEraAbout_EN": "in WDCE.IX.3(Equivalent to in: DC.2052)"
       },
-      "_Commons": {},
-      "AI_Optout": false
+      "_Commons": {}
     },
     "#DB_PrimaryStabilities": {
       "AI_Optout": false,
@@ -25,8 +24,7 @@
         "StoryEraAbout_JP": "第9創世紀3年(西暦2052年相当)周辺",
         "StoryEraAbout_EN": "in WDCE.IX.3(Equivalent to in: DC.2052)"
       },
-      "_Commons": {},
-      "AI_Optout": false
+      "_Commons": {}
     },
     "#DB_SemiPrimary": {
       "AI_Optout": false,
@@ -39,8 +37,7 @@
         "StoryEraAbout_JP": "第9創世紀3年(西暦2052年相当)周辺",
         "StoryEraAbout_EN": "in WDCE.IX.3(Equivalent to in: DC.2052)"
       },
-      "_Commons": {},
-      "AI_Optout": false
+      "_Commons": {}
     },
     "#DB_Regioministrators": {
       "AI_Optout": false,
@@ -68,8 +65,7 @@
             "Class": ["『管制主』代理人（『還元』担当）"]
           }
         ]
-      },
-      "AI_Optout": false
+      }
     }
   },
   "General": {
