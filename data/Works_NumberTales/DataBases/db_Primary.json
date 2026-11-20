@@ -7360,211 +7360,230 @@
       }
     ],
     "AIHints": {
-      "common": {
-        "identity_tags": [
-          "peach orange hair",
-          "bangs covering the left eye",
-          "Fox",
-          "poncho cape, large cloak"
-        ],
-        "silhouette_features": [
-          "branching fox 2 tails",
-          "short stature (about 148cm)",
-          "peach orange hair",
-          "bangs covering the left eye",
-          "Fox"
-        ],
-        "immutable_traits": [
-          "number '12' marking: on the cape over the left shoulder in Humanoid Formation and just below the edge of the hood at the left shoulder in Corefolder Formation, dark color, Arabic numeral '12'"
-        ],
-        "expression_tendency": ["serene blank expression"],
-        "age_appearance": "early teenager",
-        "palette_priority": {
-          "primary": "#FFAC8F",
-          "secondary": "#FFD7C2",
-          "accent": "#FFD07D"
-        },
-        "natural_language_description": null,
-        "reference_images": {
-          "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-12.png",
-          "concept": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-12.png"
-        }
-      },
-      "work_common": {
-        "reference_images": {
-          "corefolder_reference": [
-            "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/Ref_Vocabulary/concept-figure/cnsp-fg_NTsCoreFolder.png"
-          ],
-          "humanoid_reference": [
-            "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/Ref_Vocabulary/concept-figure/cnsp-fg_NTsHumanoid.png"
-          ]
-        }
-      },
-      "forms": {
-        "humanoid": {
-          "form_tags": ["humanoid form"],
-          "outfit_features": [
-            "poncho cape, large cloak",
-            "casual private outfit"
-          ],
-          "silhouette_notes": {
-            "body_description": [
-              "peach orange hair",
-              "bangs covering the left eye",
-              "Fox",
-              "long peach orange hair"
+        "common": {
+            "identity_tags": [
+                "peach orange hair",
+                "bangs covering the left eye",
+                "Fox",
+                "poncho cape, large cloak"
             ],
-            "attached_items": []
-          },
-          "immutable_constraints": null,
-          "negative_keywords": null,
-          "ai_tags": [
-            "humanoid form",
-            "branching fox 2 tails",
-            "short stature (about 148cm)",
-            "early teenager",
-            "on the cape over the left shoulder in Humanoid Formation and just below the edge of the hood at the left shoulder in Corefolder Formation, dark color, Arabic numeral '12'",
-            "peach orange hair",
-            "bangs covering the left eye",
-            "Fox",
-            "poncho cape, large cloak",
-            "serene blank expression",
-            "long peach orange hair",
-            "casual private outfit"
-          ],
-          "negative_visuals": [],
-          "natural_language_description": null,
-          "prompt_export": "humanoid form, branching fox 2 tails, short stature (about 148cm), early teenager, on the cape over the left shoulder in Humanoid Formation and just below the edge of the hood at the left shoulder in Corefolder Formation, dark color, Arabic numeral '12', peach orange hair, bangs covering the left eye, Fox, poncho cape, large cloak, serene blank expression, long peach orange hair, casual private outfit",
-          "negative_prompt_export": "",
-          "reference_images": {
-            "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-12.png"
-          }
-        },
-        "corefolder": {
-          "form_tags": ["corefolder form"],
-          "outfit_features": ["poncho cape, large cloak"],
-          "silhouette_notes": {
-            "body_description": [
-              "spherical core body with the head as the only protruding part on top",
-              "peach orange hair",
-              "bangs covering the left eye",
-              "Fox"
+            "silhouette_features": [
+                "branching fox 2 tails",
+                "short stature (about 148cm)",
+                "peach orange hair",
+                "bangs covering the left eye",
+                "Fox"
             ],
-            "attached_items": []
-          },
-          "immutable_constraints": [
-            "do not render arms or hands",
-            "do not render legs or feet",
-            "do not dress in humanoid casual / fashion outfit"
-          ],
-          "negative_keywords": [
-            "feet",
-            "legs",
-            "shoes",
-            "high heels",
-            "arms",
-            "hands",
-            "hoodie",
-            "blazer",
-            "fashion outfit",
-            "bound by rope"
-          ],
-          "ai_tags": [
-            "corefolder form",
-            "branching fox 2 tails",
-            "short stature (about 148cm)",
-            "early teenager",
-            "on the cape over the left shoulder in Humanoid Formation and just below the edge of the hood at the left shoulder in Corefolder Formation, dark color, Arabic numeral '12'",
-            "peach orange hair",
-            "bangs covering the left eye",
-            "Fox",
-            "poncho cape, large cloak",
-            "serene blank expression"
-          ],
-          "negative_visuals": ["casual private outfit"],
-          "natural_language_description": "Corefolder form: a spherical cushion-like body in peach orange hair; bangs covering the left eye; Fox, with the number '12' marking (on left shoulder, around right just below the edge of the spherical hood, dark color, Arabic numeral '12').",
-          "prompt_export": "corefolder form, branching fox 2 tails, short stature (about 148cm), early teenager, on the cape over the left shoulder in Humanoid Formation and just below the edge of the hood at the left shoulder in Corefolder Formation, dark color, Arabic numeral '12', peach orange hair, bangs covering the left eye, Fox, poncho cape, large cloak, serene blank expression",
-          "negative_prompt_export": "casual private outfit",
-          "reference_images": {
-            "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-12.png",
-            "corefolder": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/corefolder/12/emstk_corefolderNTS-12-1.png",
-            "corefolder_arts": [
-              "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/arts/corefolders/sphericateDay/art_sphericateDay202212r1A.png",
-              "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/arts/corefolders/sphericateDay/art_sphericateDay202212r1B.png"
-            ]
-          }
-        }
-      },
-      "alt_modes": null,
-      "concept_contains_forms": ["corefolder", "humanoid"],
-      "_meta": {
-        "structuralSourceHash": "sha256:5e3b5f65a2deb2969614b5b84417a5af9182908fb1fc531ac7642fee52fe8ba3",
-        "structuralEntries": {
-          "common.identity_tags": [
-            "peach orange hair",
-            "bangs covering the left eye",
-            "Fox",
-            "poncho cape, large cloak"
-          ],
-          "common.silhouette_features": [
-            "branching fox 2 tails",
-            "short stature (about 148cm)",
-            "peach orange hair",
-            "bangs covering the left eye",
-            "Fox"
-          ],
-          "common.immutable_traits": [
-            "number '12' marking: on the cape over the left shoulder in Humanoid Formation and just below the edge of the hood at the left shoulder in Corefolder Formation, dark color, Arabic numeral '12'"
-          ],
-          "common.expression_tendency": ["serene blank expression"],
-          "forms.humanoid.form_tags": ["humanoid form"],
-          "forms.humanoid.ai_tags": [
-            "humanoid form",
-            "branching fox 2 tails",
-            "short stature (about 148cm)",
-            "early teenager",
-            "on the cape over the left shoulder in Humanoid Formation and just below the edge of the hood at the left shoulder in Corefolder Formation, dark color, Arabic numeral '12'",
-            "peach orange hair",
-            "bangs covering the left eye",
-            "Fox",
-            "poncho cape, large cloak",
-            "serene blank expression",
-            "long peach orange hair",
-            "casual private outfit"
-          ],
-          "forms.corefolder.form_tags": ["corefolder form"],
-          "forms.corefolder.ai_tags": [
-            "corefolder form",
-            "branching fox 2 tails",
-            "short stature (about 148cm)",
-            "early teenager",
-            "on the cape over the left shoulder in Humanoid Formation and just below the edge of the hood at the left shoulder in Corefolder Formation, dark color, Arabic numeral '12'",
-            "peach orange hair",
-            "bangs covering the left eye",
-            "Fox",
-            "poncho cape, large cloak",
-            "serene blank expression"
-          ],
-          "forms.corefolder.immutable_constraints": [
-            "do not render arms or hands",
-            "do not render legs or feet",
-            "do not dress in humanoid casual / fashion outfit"
-          ],
-          "forms.corefolder.negative_keywords": [
-            "feet",
-            "legs",
-            "shoes",
-            "high heels",
-            "arms",
-            "hands",
-            "hoodie",
-            "blazer",
-            "fashion outfit",
-            "bound by rope"
-          ]
+            "immutable_traits": [
+                "number '12' marking: on the cape over the left shoulder in Humanoid Formation and just below the edge of the hood at the left shoulder in Corefolder Formation, dark color, Arabic numeral '12'"
+            ],
+            "expression_tendency": [
+                "serene blank expression"
+            ],
+            "age_appearance": "early teenager",
+            "palette_priority": {
+                "primary": "#FFAC8F",
+                "secondary": "#FFD7C2",
+                "accent": "#FFD07D"
+            },
+            "natural_language_description": null,
+            "reference_images": {
+                "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-12.png",
+                "concept": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-12.png"
+            }
         },
-        "lastStructuralResync": "2026-11-19"
-      }
+        "work_common": {
+            "reference_images": {
+                "corefolder_reference": [
+                    "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/Ref_Vocabulary/concept-figure/cnsp-fg_NTsCoreFolder.png"
+                ],
+                "humanoid_reference": [
+                    "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/Ref_Vocabulary/concept-figure/cnsp-fg_NTsHumanoid.png"
+                ]
+            }
+        },
+        "forms": {
+            "humanoid": {
+                "form_tags": [
+                    "humanoid form"
+                ],
+                "outfit_features": [
+                    "poncho cape, large cloak",
+                    "peach-colored top and pale yellow skirt"
+                ],
+                "silhouette_notes": {
+                    "body_description": [
+                        "peach orange hair",
+                        "bangs covering the left eye",
+                        "Fox",
+                        "long peach orange hair"
+                    ],
+                    "attached_items": []
+                },
+                "immutable_constraints": null,
+                "negative_keywords": null,
+                "ai_tags": [
+                    "humanoid form",
+                    "branching fox 2 tails",
+                    "short stature (about 148cm)",
+                    "early teenager",
+                    "on the cape over the left shoulder in Humanoid Formation and just below the edge of the hood at the left shoulder in Corefolder Formation, dark color, Arabic numeral '12'",
+                    "peach orange hair",
+                    "bangs covering the left eye",
+                    "Fox",
+                    "poncho cape, large cloak",
+                    "serene blank expression",
+                    "long peach orange hair",
+                    "peach-colored top and pale yellow skirt"
+                ],
+                "negative_visuals": [],
+                "natural_language_description": null,
+                "prompt_export": "humanoid form, branching fox 2 tails, short stature (about 148cm), early teenager, on the cape over the left shoulder in Humanoid Formation and just below the edge of the hood at the left shoulder in Corefolder Formation, dark color, Arabic numeral '12', peach orange hair, bangs covering the left eye, Fox, poncho cape, large cloak, serene blank expression, long peach orange hair, peach-colored top and pale yellow skirt",
+                "negative_prompt_export": "",
+                "reference_images": {
+                    "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-12.png"
+                }
+            },
+            "corefolder": {
+                "form_tags": [
+                    "corefolder form"
+                ],
+                "outfit_features": [
+                    "poncho cape, large cloak"
+                ],
+                "silhouette_notes": {
+                    "body_description": [
+                        "spherical core body with the head as the only protruding part on top",
+                        "peach orange hair",
+                        "bangs covering the left eye",
+                        "Fox"
+                    ],
+                    "attached_items": []
+                },
+                "immutable_constraints": [
+                    "do not render arms or hands",
+                    "do not render legs or feet",
+                    "do not dress in humanoid casual / fashion outfit"
+                ],
+                "negative_keywords": [
+                    "feet",
+                    "legs",
+                    "shoes",
+                    "high heels",
+                    "arms",
+                    "hands",
+                    "hoodie",
+                    "blazer",
+                    "fashion outfit",
+                    "bound by rope"
+                ],
+                "ai_tags": [
+                    "corefolder form",
+                    "branching fox 2 tails",
+                    "short stature (about 148cm)",
+                    "early teenager",
+                    "on the cape over the left shoulder in Humanoid Formation and just below the edge of the hood at the left shoulder in Corefolder Formation, dark color, Arabic numeral '12'",
+                    "peach orange hair",
+                    "bangs covering the left eye",
+                    "Fox",
+                    "poncho cape, large cloak",
+                    "serene blank expression"
+                ],
+                "negative_visuals": [
+                    "peach-colored top and pale yellow skirt"
+                ],
+                "natural_language_description": "Corefolder form: a spherical cushion-like body in peach orange hair; bangs covering the left eye; Fox, with the number '12' marking (on left shoulder, around right just below the edge of the spherical hood, dark color, Arabic numeral '12').",
+                "prompt_export": "corefolder form, branching fox 2 tails, short stature (about 148cm), early teenager, on the cape over the left shoulder in Humanoid Formation and just below the edge of the hood at the left shoulder in Corefolder Formation, dark color, Arabic numeral '12', peach orange hair, bangs covering the left eye, Fox, poncho cape, large cloak, serene blank expression",
+                "negative_prompt_export": "peach-colored top and pale yellow skirt",
+                "reference_images": {
+                    "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-12.png",
+                    "corefolder": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/corefolder/12/emstk_corefolderNTS-12-1.png",
+                    "corefolder_arts": [
+                        "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/arts/corefolders/sphericateDay/art_sphericateDay202212r1A.png",
+                        "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/arts/corefolders/sphericateDay/art_sphericateDay202212r1B.png"
+                    ]
+                }
+            }
+        },
+        "alt_modes": null,
+        "concept_contains_forms": [
+            "corefolder",
+            "humanoid"
+        ],
+        "_meta": {
+            "structuralSourceHash": "sha256:f98a011bf511176131960073fbe92c38da79f1e90ef6e6ff906d3eb25fb6f123",
+            "structuralEntries": {
+                "common.identity_tags": [
+                    "peach orange hair",
+                    "bangs covering the left eye",
+                    "Fox",
+                    "poncho cape, large cloak"
+                ],
+                "common.silhouette_features": [
+                    "branching fox 2 tails",
+                    "short stature (about 148cm)",
+                    "peach orange hair",
+                    "bangs covering the left eye",
+                    "Fox"
+                ],
+                "common.immutable_traits": [
+                    "number '12' marking: on the cape over the left shoulder in Humanoid Formation and just below the edge of the hood at the left shoulder in Corefolder Formation, dark color, Arabic numeral '12'"
+                ],
+                "common.expression_tendency": [
+                    "serene blank expression"
+                ],
+                "forms.humanoid.form_tags": [
+                    "humanoid form"
+                ],
+                "forms.humanoid.ai_tags": [
+                    "humanoid form",
+                    "branching fox 2 tails",
+                    "short stature (about 148cm)",
+                    "early teenager",
+                    "on the cape over the left shoulder in Humanoid Formation and just below the edge of the hood at the left shoulder in Corefolder Formation, dark color, Arabic numeral '12'",
+                    "peach orange hair",
+                    "bangs covering the left eye",
+                    "Fox",
+                    "poncho cape, large cloak",
+                    "serene blank expression",
+                    "long peach orange hair",
+                    "peach-colored top and pale yellow skirt"
+                ],
+                "forms.corefolder.form_tags": [
+                    "corefolder form"
+                ],
+                "forms.corefolder.ai_tags": [
+                    "corefolder form",
+                    "branching fox 2 tails",
+                    "short stature (about 148cm)",
+                    "early teenager",
+                    "on the cape over the left shoulder in Humanoid Formation and just below the edge of the hood at the left shoulder in Corefolder Formation, dark color, Arabic numeral '12'",
+                    "peach orange hair",
+                    "bangs covering the left eye",
+                    "Fox",
+                    "poncho cape, large cloak",
+                    "serene blank expression"
+                ],
+                "forms.corefolder.immutable_constraints": [
+                    "do not render arms or hands",
+                    "do not render legs or feet",
+                    "do not dress in humanoid casual / fashion outfit"
+                ],
+                "forms.corefolder.negative_keywords": [
+                    "feet",
+                    "legs",
+                    "shoes",
+                    "high heels",
+                    "arms",
+                    "hands",
+                    "hoodie",
+                    "blazer",
+                    "fashion outfit",
+                    "bound by rope"
+                ]
+            },
+            "lastStructuralResync": "2026-11-20"
+        }
     }
   },
   {
@@ -9274,214 +9293,232 @@
       }
     ],
     "AIHints": {
-      "common": {
-        "identity_tags": [
-          "Fox",
-          "pink hair",
-          "right-side ponytail",
-          "harness equipped with safety device on the back",
-          "burn mark on right eye and ear"
-        ],
-        "silhouette_features": [
-          "branching fox 5 tails",
-          "average stature (about 158cm)",
-          "Fox",
-          "pink hair",
-          "right-side ponytail",
-          "burn mark on right eye and ear"
-        ],
-        "immutable_traits": null,
-        "expression_tendency": ["minimal expression"],
-        "age_appearance": "teenager",
-        "palette_priority": {
-          "primary": "#FFB1AB",
-          "secondary": "#589D74",
-          "accent": "#FFC4A6"
-        },
-        "natural_language_description": null,
-        "reference_images": {
-          "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-15.png",
-          "concept": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-15.png"
-        }
-      },
-      "work_common": {
-        "reference_images": {
-          "corefolder_reference": [
-            "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/Ref_Vocabulary/concept-figure/cnsp-fg_NTsCoreFolder.png"
-          ],
-          "humanoid_reference": [
-            "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/Ref_Vocabulary/concept-figure/cnsp-fg_NTsHumanoid.png"
-          ]
-        }
-      },
-      "forms": {
-        "corefolder": {
-          "form_tags": ["corefolder form"],
-          "outfit_features": [
-            "harness equipped with safety device on the back"
-          ],
-          "silhouette_notes": {
-            "body_description": [
-              "spherical core body with the head as the only protruding part on top",
-              "Fox",
-              "pink hair",
-              "right-side ponytail",
-              "burn mark on right eye and ear"
+        "common": {
+            "identity_tags": [
+                "Fox",
+                "pink hair",
+                "right-side ponytail",
+                "harness equipped with safety device on the back",
+                "burn mark on right eye and ear"
             ],
-            "attached_items": []
-          },
-          "immutable_constraints": [
-            "do not render arms or hands",
-            "do not render legs or feet",
-            "do not dress in humanoid casual / fashion outfit"
-          ],
-          "negative_keywords": [
-            "feet",
-            "legs",
-            "shoes",
-            "high heels",
-            "arms",
-            "hands",
-            "hoodie",
-            "blazer",
-            "fashion outfit",
-            "bound by rope"
-          ],
-          "ai_tags": [
-            "corefolder form",
-            "branching fox 5 tails",
-            "average stature (about 158cm)",
-            "teenager",
-            "Fox",
-            "pink hair",
-            "right-side ponytail",
-            "minimal expression",
-            "harness equipped with safety device on the back",
-            "burn mark on right eye and ear",
-            "on the front left chest of the white area of the sphere (usually partially hidden by the harness), dark green, Roman numeral 'XV'"
-          ],
-          "negative_visuals": ["casual private outfit", "pale-colored jacket"],
-          "natural_language_description": "Corefolder form: a spherical cushion-like body in Fox; pink hair; right-side ponytail; burn mark on right eye and ear, with the number '15' marking (on the front left chest of the white area of the sphere (usually partially hidden by the harness), dark green, Roman numeral 'XV').",
-          "prompt_export": "corefolder form, branching fox 5 tails, average stature (about 158cm), teenager, Fox, pink hair, right-side ponytail, minimal expression, harness equipped with safety device on the back, burn mark on right eye and ear, on the front left chest of the white area of the sphere (usually partially hidden by the harness), dark green, Roman numeral 'XV'",
-          "negative_prompt_export": "casual private outfit, pale-colored jacket",
-          "reference_images": {
-            "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-15.png",
-            "corefolder": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/corefolder/15/emstk_corefolderNTS-15-1.png"
-          }
-        },
-        "humanoid": {
-          "form_tags": ["humanoid form"],
-          "outfit_features": [
-            "harness equipped with safety device on the back",
-            "casual private outfit",
-            "pale-colored jacket"
-          ],
-          "silhouette_notes": {
-            "body_description": [
-              "Fox",
-              "pink hair",
-              "right-side ponytail",
-              "burn mark on right eye and ear"
+            "silhouette_features": [
+                "branching fox 5 tails",
+                "average stature (about 158cm)",
+                "Fox",
+                "pink hair",
+                "right-side ponytail",
+                "burn mark on right eye and ear"
             ],
-            "attached_items": []
-          },
-          "immutable_constraints": null,
-          "negative_keywords": null,
-          "ai_tags": [
-            "humanoid form",
-            "branching fox 5 tails",
-            "average stature (about 158cm)",
-            "teenager",
-            "Fox",
-            "pink hair",
-            "right-side ponytail",
-            "minimal expression",
-            "harness equipped with safety device on the back",
-            "burn mark on right eye and ear",
-            "left collar, around the neck, dark green, Roman numeral 'XV'",
-            "casual private outfit",
-            "pale-colored jacket"
-          ],
-          "negative_visuals": [],
-          "natural_language_description": null,
-          "prompt_export": "humanoid form, branching fox 5 tails, average stature (about 158cm), teenager, Fox, pink hair, right-side ponytail, minimal expression, harness equipped with safety device on the back, burn mark on right eye and ear, left collar, around the neck, dark green, Roman numeral 'XV', casual private outfit, pale-colored jacket",
-          "negative_prompt_export": "",
-          "reference_images": {
-            "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-15.png"
-          }
-        }
-      },
-      "alt_modes": null,
-      "concept_contains_forms": ["corefolder", "humanoid"],
-      "_meta": {
-        "structuralSourceHash": "sha256:1a6015ead99878d0d2daba6d0e3a057341d9ddfeeff38016a80dd6febe82c3ac",
-        "structuralEntries": {
-          "common.identity_tags": [
-            "Fox",
-            "pink hair",
-            "right-side ponytail",
-            "harness equipped with safety device on the back",
-            "burn mark on right eye and ear"
-          ],
-          "common.silhouette_features": [
-            "branching fox 5 tails",
-            "average stature (about 158cm)",
-            "Fox",
-            "pink hair",
-            "right-side ponytail",
-            "burn mark on right eye and ear"
-          ],
-          "common.expression_tendency": ["minimal expression"],
-          "forms.corefolder.form_tags": ["corefolder form"],
-          "forms.corefolder.ai_tags": [
-            "corefolder form",
-            "branching fox 5 tails",
-            "average stature (about 158cm)",
-            "teenager",
-            "Fox",
-            "pink hair",
-            "right-side ponytail",
-            "minimal expression",
-            "harness equipped with safety device on the back",
-            "burn mark on right eye and ear",
-            "on the front left chest of the white area of the sphere (usually partially hidden by the harness), dark green, Roman numeral 'XV'"
-          ],
-          "forms.corefolder.immutable_constraints": [
-            "do not render arms or hands",
-            "do not render legs or feet",
-            "do not dress in humanoid casual / fashion outfit"
-          ],
-          "forms.corefolder.negative_keywords": [
-            "feet",
-            "legs",
-            "shoes",
-            "high heels",
-            "arms",
-            "hands",
-            "hoodie",
-            "blazer",
-            "fashion outfit",
-            "bound by rope"
-          ],
-          "forms.humanoid.form_tags": ["humanoid form"],
-          "forms.humanoid.ai_tags": [
-            "humanoid form",
-            "branching fox 5 tails",
-            "average stature (about 158cm)",
-            "teenager",
-            "Fox",
-            "pink hair",
-            "right-side ponytail",
-            "minimal expression",
-            "harness equipped with safety device on the back",
-            "burn mark on right eye and ear",
-            "left collar, around the neck, dark green, Roman numeral 'XV'",
-            "casual private outfit",
-            "pale-colored jacket"
-          ]
+            "immutable_traits": null,
+            "expression_tendency": [
+                "minimal expression"
+            ],
+            "age_appearance": "teenager",
+            "palette_priority": {
+                "primary": "#FFB1AB",
+                "secondary": "#589D74",
+                "accent": "#FFC4A6"
+            },
+            "natural_language_description": null,
+            "reference_images": {
+                "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-15.png",
+                "concept": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-15.png"
+            }
         },
-        "lastStructuralResync": "2026-11-19"
-      }
+        "work_common": {
+            "reference_images": {
+                "corefolder_reference": [
+                    "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/Ref_Vocabulary/concept-figure/cnsp-fg_NTsCoreFolder.png"
+                ],
+                "humanoid_reference": [
+                    "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/Ref_Vocabulary/concept-figure/cnsp-fg_NTsHumanoid.png"
+                ]
+            }
+        },
+        "forms": {
+            "corefolder": {
+                "form_tags": [
+                    "corefolder form"
+                ],
+                "outfit_features": [
+                    "harness equipped with safety device on the back"
+                ],
+                "silhouette_notes": {
+                    "body_description": [
+                        "spherical core body with the head as the only protruding part on top",
+                        "Fox",
+                        "pink hair",
+                        "right-side ponytail",
+                        "burn mark on right eye and ear"
+                    ],
+                    "attached_items": []
+                },
+                "immutable_constraints": [
+                    "do not render arms or hands",
+                    "do not render legs or feet",
+                    "do not dress in humanoid casual / fashion outfit"
+                ],
+                "negative_keywords": [
+                    "feet",
+                    "legs",
+                    "shoes",
+                    "high heels",
+                    "arms",
+                    "hands",
+                    "hoodie",
+                    "blazer",
+                    "fashion outfit",
+                    "bound by rope"
+                ],
+                "ai_tags": [
+                    "corefolder form",
+                    "branching fox 5 tails",
+                    "average stature (about 158cm)",
+                    "teenager",
+                    "Fox",
+                    "pink hair",
+                    "right-side ponytail",
+                    "minimal expression",
+                    "harness equipped with safety device on the back",
+                    "burn mark on right eye and ear",
+                    "on the front left chest of the white area of the sphere (usually partially hidden by the harness), dark green, Roman numeral 'XV'"
+                ],
+                "negative_visuals": [
+                    "pale green top with a white front panel and red wide-leg trousers",
+                    "pale-colored jacket"
+                ],
+                "natural_language_description": "Corefolder form: a spherical cushion-like body in Fox; pink hair; right-side ponytail; burn mark on right eye and ear, with the number '15' marking (on the front left chest of the white area of the sphere (usually partially hidden by the harness), dark green, Roman numeral 'XV').",
+                "prompt_export": "corefolder form, branching fox 5 tails, average stature (about 158cm), teenager, Fox, pink hair, right-side ponytail, minimal expression, harness equipped with safety device on the back, burn mark on right eye and ear, on the front left chest of the white area of the sphere (usually partially hidden by the harness), dark green, Roman numeral 'XV'",
+                "negative_prompt_export": "pale green top with a white front panel and red wide-leg trousers, pale-colored jacket",
+                "reference_images": {
+                    "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-15.png",
+                    "corefolder": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/corefolder/15/emstk_corefolderNTS-15-1.png"
+                }
+            },
+            "humanoid": {
+                "form_tags": [
+                    "humanoid form"
+                ],
+                "outfit_features": [
+                    "harness equipped with safety device on the back",
+                    "pale green top with a white front panel and red wide-leg trousers",
+                    "pale-colored jacket"
+                ],
+                "silhouette_notes": {
+                    "body_description": [
+                        "Fox",
+                        "pink hair",
+                        "right-side ponytail",
+                        "burn mark on right eye and ear"
+                    ],
+                    "attached_items": []
+                },
+                "immutable_constraints": null,
+                "negative_keywords": null,
+                "ai_tags": [
+                    "humanoid form",
+                    "branching fox 5 tails",
+                    "average stature (about 158cm)",
+                    "teenager",
+                    "Fox",
+                    "pink hair",
+                    "right-side ponytail",
+                    "minimal expression",
+                    "harness equipped with safety device on the back",
+                    "burn mark on right eye and ear",
+                    "left collar, around the neck, dark green, Roman numeral 'XV'",
+                    "pale green top with a white front panel and red wide-leg trousers",
+                    "pale-colored jacket"
+                ],
+                "negative_visuals": [],
+                "natural_language_description": null,
+                "prompt_export": "humanoid form, branching fox 5 tails, average stature (about 158cm), teenager, Fox, pink hair, right-side ponytail, minimal expression, harness equipped with safety device on the back, burn mark on right eye and ear, left collar, around the neck, dark green, Roman numeral 'XV', pale green top with a white front panel and red wide-leg trousers, pale-colored jacket",
+                "negative_prompt_export": "",
+                "reference_images": {
+                    "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-15.png"
+                }
+            }
+        },
+        "alt_modes": null,
+        "concept_contains_forms": [
+            "corefolder",
+            "humanoid"
+        ],
+        "_meta": {
+            "structuralSourceHash": "sha256:2f97e2c85fffa0b630a7d672e3435db66f00ba051c08653986e00ef2ade6d7be",
+            "structuralEntries": {
+                "common.identity_tags": [
+                    "Fox",
+                    "pink hair",
+                    "right-side ponytail",
+                    "harness equipped with safety device on the back",
+                    "burn mark on right eye and ear"
+                ],
+                "common.silhouette_features": [
+                    "branching fox 5 tails",
+                    "average stature (about 158cm)",
+                    "Fox",
+                    "pink hair",
+                    "right-side ponytail",
+                    "burn mark on right eye and ear"
+                ],
+                "common.expression_tendency": [
+                    "minimal expression"
+                ],
+                "forms.corefolder.form_tags": [
+                    "corefolder form"
+                ],
+                "forms.corefolder.ai_tags": [
+                    "corefolder form",
+                    "branching fox 5 tails",
+                    "average stature (about 158cm)",
+                    "teenager",
+                    "Fox",
+                    "pink hair",
+                    "right-side ponytail",
+                    "minimal expression",
+                    "harness equipped with safety device on the back",
+                    "burn mark on right eye and ear",
+                    "on the front left chest of the white area of the sphere (usually partially hidden by the harness), dark green, Roman numeral 'XV'"
+                ],
+                "forms.corefolder.immutable_constraints": [
+                    "do not render arms or hands",
+                    "do not render legs or feet",
+                    "do not dress in humanoid casual / fashion outfit"
+                ],
+                "forms.corefolder.negative_keywords": [
+                    "feet",
+                    "legs",
+                    "shoes",
+                    "high heels",
+                    "arms",
+                    "hands",
+                    "hoodie",
+                    "blazer",
+                    "fashion outfit",
+                    "bound by rope"
+                ],
+                "forms.humanoid.form_tags": [
+                    "humanoid form"
+                ],
+                "forms.humanoid.ai_tags": [
+                    "humanoid form",
+                    "branching fox 5 tails",
+                    "average stature (about 158cm)",
+                    "teenager",
+                    "Fox",
+                    "pink hair",
+                    "right-side ponytail",
+                    "minimal expression",
+                    "harness equipped with safety device on the back",
+                    "burn mark on right eye and ear",
+                    "left collar, around the neck, dark green, Roman numeral 'XV'",
+                    "pale green top with a white front panel and red wide-leg trousers",
+                    "pale-colored jacket"
+                ]
+            },
+            "lastStructuralResync": "2026-11-20"
+        }
     }
   },
   {
@@ -12240,200 +12277,223 @@
     ],
     "VRMs": { "corefolder_VRMPath": ["20/vrm_NTS-20-corefolder"] },
     "AIHints": {
-      "common": {
-        "identity_tags": [
-          "Fox",
-          "silver white long hair, heart-shaped hair motif"
-        ],
-        "silhouette_features": [
-          "fox 2 tails",
-          "average stature (about 152cm)",
-          "Fox",
-          "silver white long hair, heart-shaped hair motif"
-        ],
-        "immutable_traits": null,
-        "expression_tendency": ["serene gentle smile/worried expression"],
-        "age_appearance": "teenager",
-        "palette_priority": {
-          "primary": "#FFA457",
-          "secondary": "#AEB4B4",
-          "accent": "#FFC4A3"
-        },
-        "natural_language_description": null,
-        "reference_images": {
-          "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-20.png",
-          "concept": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-20.png"
-        }
-      },
-      "work_common": {
-        "reference_images": {
-          "corefolder_reference": [
-            "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/Ref_Vocabulary/concept-figure/cnsp-fg_NTsCoreFolder.png"
-          ],
-          "humanoid_reference": [
-            "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/Ref_Vocabulary/concept-figure/cnsp-fg_NTsHumanoid.png"
-          ]
-        }
-      },
-      "forms": {
-        "corefolder": {
-          "form_tags": ["corefolder form"],
-          "outfit_features": ["choker with a number"],
-          "silhouette_notes": {
-            "body_description": [
-              "spherical core body with the head as the only protruding part on top",
-              "Fox",
-              "silver white long hair, heart-shaped hair motif"
+        "common": {
+            "identity_tags": [
+                "Fox",
+                "silver white long hair, heart-shaped hair motif"
             ],
-            "attached_items": []
-          },
-          "immutable_constraints": [
-            "do not render arms or hands",
-            "do not render legs or feet",
-            "do not dress in humanoid casual / fashion outfit"
-          ],
-          "negative_keywords": [
-            "feet",
-            "legs",
-            "shoes",
-            "high heels",
-            "arms",
-            "hands",
-            "hoodie",
-            "blazer",
-            "fashion outfit",
-            "bound by rope"
-          ],
-          "ai_tags": [
-            "corefolder form",
-            "fox 2 tails",
-            "average stature (about 152cm)",
-            "teenager",
-            "Fox",
-            "silver white long hair, heart-shaped hair motif",
-            "serene gentle smile/worried expression",
-            "the buckle part of the choker, dark, Arabic numeral '20'",
-            "choker with a number"
-          ],
-          "negative_visuals": ["long white open coat", "casual private outfit"],
-          "natural_language_description": "Corefolder form: a spherical cushion-like body in Fox; silver white long hair, heart-shaped hair motif, with the number '20' marking (the buckle part of the choker, dark, Arabic numeral '20').",
-          "prompt_export": "corefolder form, fox 2 tails, average stature (about 152cm), teenager, Fox, silver white long hair, heart-shaped hair motif, serene gentle smile/worried expression, the buckle part of the choker, dark, Arabic numeral '20', choker with a number",
-          "negative_prompt_export": "long white open coat, casual private outfit",
-          "reference_images": {
-            "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-20.png",
-            "corefolder": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/corefolder/20/emstk_corefolderNTS-20-1.png",
-            "corefolder_arts": [
-              "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/arts/corefolders/sphericateDay/art_sphericateDay202112.png",
-              "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/arts/corefolders/sphericateDay/art_sphericateDay202209r1A.png",
-              "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/arts/corefolders/sphericateDay/art_sphericateDay202209r1B.png"
-            ]
-          }
-        },
-        "humanoid": {
-          "form_tags": ["humanoid form"],
-          "outfit_features": ["long white open coat", "casual private outfit"],
-          "silhouette_notes": {
-            "body_description": [
-              "Fox",
-              "silver white long hair, heart-shaped hair motif",
-              "large breasts",
-              "orange inner wear",
-              "belt with a number"
+            "silhouette_features": [
+                "fox 2 tails",
+                "average stature (about 152cm)",
+                "Fox",
+                "silver white long hair, heart-shaped hair motif"
             ],
-            "attached_items": []
-          },
-          "immutable_constraints": null,
-          "negative_keywords": null,
-          "ai_tags": [
-            "humanoid form",
-            "fox 2 tails",
-            "average stature (about 152cm)",
-            "teenager",
-            "Fox",
-            "silver white long hair, heart-shaped hair motif",
-            "serene gentle smile/worried expression",
-            "the buckle part of the belt on the waist, dark, Arabic numeral '20'",
-            "large breasts",
-            "long white open coat",
-            "orange inner wear",
-            "belt with a number",
-            "casual private outfit"
-          ],
-          "negative_visuals": ["choker with a number"],
-          "natural_language_description": null,
-          "prompt_export": "humanoid form, fox 2 tails, average stature (about 152cm), teenager, Fox, silver white long hair, heart-shaped hair motif, serene gentle smile/worried expression, the buckle part of the belt on the waist, dark, Arabic numeral '20', large breasts, long white open coat, orange inner wear, belt with a number, casual private outfit",
-          "negative_prompt_export": "choker with a number",
-          "reference_images": {
-            "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-20.png"
-          }
-        }
-      },
-      "alt_modes": null,
-      "concept_contains_forms": ["corefolder", "humanoid"],
-      "_meta": {
-        "structuralSourceHash": "sha256:dfc6d1efa659db019ba0865cb399c376f3592affb78987d2ae1a54d60f5261a0",
-        "structuralEntries": {
-          "common.identity_tags": [
-            "Fox",
-            "silver white long hair, heart-shaped hair motif"
-          ],
-          "common.silhouette_features": [
-            "fox 2 tails",
-            "average stature (about 152cm)",
-            "Fox",
-            "silver white long hair, heart-shaped hair motif"
-          ],
-          "common.expression_tendency": [
-            "serene gentle smile/worried expression"
-          ],
-          "forms.corefolder.form_tags": ["corefolder form"],
-          "forms.corefolder.ai_tags": [
-            "corefolder form",
-            "fox 2 tails",
-            "average stature (about 152cm)",
-            "teenager",
-            "Fox",
-            "silver white long hair, heart-shaped hair motif",
-            "serene gentle smile/worried expression",
-            "the buckle part of the choker, dark, Arabic numeral '20'",
-            "choker with a number"
-          ],
-          "forms.corefolder.immutable_constraints": [
-            "do not render arms or hands",
-            "do not render legs or feet",
-            "do not dress in humanoid casual / fashion outfit"
-          ],
-          "forms.corefolder.negative_keywords": [
-            "feet",
-            "legs",
-            "shoes",
-            "high heels",
-            "arms",
-            "hands",
-            "hoodie",
-            "blazer",
-            "fashion outfit",
-            "bound by rope"
-          ],
-          "forms.humanoid.form_tags": ["humanoid form"],
-          "forms.humanoid.ai_tags": [
-            "humanoid form",
-            "fox 2 tails",
-            "average stature (about 152cm)",
-            "teenager",
-            "Fox",
-            "silver white long hair, heart-shaped hair motif",
-            "serene gentle smile/worried expression",
-            "the buckle part of the belt on the waist, dark, Arabic numeral '20'",
-            "large breasts",
-            "long white open coat",
-            "orange inner wear",
-            "belt with a number",
-            "casual private outfit"
-          ]
+            "immutable_traits": null,
+            "expression_tendency": [
+                "serene gentle smile/worried expression"
+            ],
+            "age_appearance": "teenager",
+            "palette_priority": {
+                "primary": "#FFA457",
+                "secondary": "#AEB4B4",
+                "accent": "#FFC4A3"
+            },
+            "natural_language_description": null,
+            "reference_images": {
+                "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-20.png",
+                "concept": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-20.png"
+            }
         },
-        "lastStructuralResync": "2026-08-11"
-      }
+        "work_common": {
+            "reference_images": {
+                "corefolder_reference": [
+                    "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/Ref_Vocabulary/concept-figure/cnsp-fg_NTsCoreFolder.png"
+                ],
+                "humanoid_reference": [
+                    "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/Ref_Vocabulary/concept-figure/cnsp-fg_NTsHumanoid.png"
+                ]
+            }
+        },
+        "forms": {
+            "corefolder": {
+                "form_tags": [
+                    "corefolder form"
+                ],
+                "outfit_features": [
+                    "choker with a number"
+                ],
+                "silhouette_notes": {
+                    "body_description": [
+                        "spherical core body with the head as the only protruding part on top",
+                        "Fox",
+                        "silver white long hair, heart-shaped hair motif"
+                    ],
+                    "attached_items": []
+                },
+                "immutable_constraints": [
+                    "do not render arms or hands",
+                    "do not render legs or feet",
+                    "do not dress in humanoid casual / fashion outfit"
+                ],
+                "negative_keywords": [
+                    "feet",
+                    "legs",
+                    "shoes",
+                    "high heels",
+                    "arms",
+                    "hands",
+                    "hoodie",
+                    "blazer",
+                    "fashion outfit",
+                    "bound by rope"
+                ],
+                "ai_tags": [
+                    "corefolder form",
+                    "fox 2 tails",
+                    "average stature (about 152cm)",
+                    "teenager",
+                    "Fox",
+                    "silver white long hair, heart-shaped hair motif",
+                    "serene gentle smile/worried expression",
+                    "the buckle part of the choker, dark, Arabic numeral '20'",
+                    "choker with a number"
+                ],
+                "negative_visuals": [
+                    "long white open coat",
+                    "white coat and orange long skirt"
+                ],
+                "natural_language_description": "Corefolder form: a spherical cushion-like body in Fox; silver white long hair, heart-shaped hair motif, with the number '20' marking (the buckle part of the choker, dark, Arabic numeral '20').",
+                "prompt_export": "corefolder form, fox 2 tails, average stature (about 152cm), teenager, Fox, silver white long hair, heart-shaped hair motif, serene gentle smile/worried expression, the buckle part of the choker, dark, Arabic numeral '20', choker with a number",
+                "negative_prompt_export": "long white open coat, white coat and orange long skirt",
+                "reference_images": {
+                    "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-20.png",
+                    "corefolder": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/corefolder/20/emstk_corefolderNTS-20-1.png",
+                    "corefolder_arts": [
+                        "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/arts/corefolders/sphericateDay/art_sphericateDay202112.png",
+                        "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/arts/corefolders/sphericateDay/art_sphericateDay202209r1A.png",
+                        "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/arts/corefolders/sphericateDay/art_sphericateDay202209r1B.png"
+                    ]
+                }
+            },
+            "humanoid": {
+                "form_tags": [
+                    "humanoid form"
+                ],
+                "outfit_features": [
+                    "long white open coat",
+                    "white coat and orange long skirt"
+                ],
+                "silhouette_notes": {
+                    "body_description": [
+                        "Fox",
+                        "silver white long hair, heart-shaped hair motif",
+                        "large breasts",
+                        "gray inner top with a stand collar",
+                        "belt with a number"
+                    ],
+                    "attached_items": []
+                },
+                "immutable_constraints": null,
+                "negative_keywords": null,
+                "ai_tags": [
+                    "humanoid form",
+                    "fox 2 tails",
+                    "average stature (about 152cm)",
+                    "teenager",
+                    "Fox",
+                    "silver white long hair, heart-shaped hair motif",
+                    "serene gentle smile/worried expression",
+                    "the buckle part of the belt on the waist, dark, Arabic numeral '20'",
+                    "large breasts",
+                    "long white open coat",
+                    "gray inner top with a stand collar",
+                    "belt with a number",
+                    "white coat and orange long skirt"
+                ],
+                "negative_visuals": [
+                    "choker with a number"
+                ],
+                "natural_language_description": null,
+                "prompt_export": "humanoid form, fox 2 tails, average stature (about 152cm), teenager, Fox, silver white long hair, heart-shaped hair motif, serene gentle smile/worried expression, the buckle part of the belt on the waist, dark, Arabic numeral '20', large breasts, long white open coat, gray inner top with a stand collar, belt with a number, white coat and orange long skirt",
+                "negative_prompt_export": "choker with a number",
+                "reference_images": {
+                    "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-20.png"
+                }
+            }
+        },
+        "alt_modes": null,
+        "concept_contains_forms": [
+            "corefolder",
+            "humanoid"
+        ],
+        "_meta": {
+            "structuralSourceHash": "sha256:8baba636c9cf05c16a875e87a9839bec2a5c975282974d243cf68bb3ccf2fe92",
+            "structuralEntries": {
+                "common.identity_tags": [
+                    "Fox",
+                    "silver white long hair, heart-shaped hair motif"
+                ],
+                "common.silhouette_features": [
+                    "fox 2 tails",
+                    "average stature (about 152cm)",
+                    "Fox",
+                    "silver white long hair, heart-shaped hair motif"
+                ],
+                "common.expression_tendency": [
+                    "serene gentle smile/worried expression"
+                ],
+                "forms.corefolder.form_tags": [
+                    "corefolder form"
+                ],
+                "forms.corefolder.ai_tags": [
+                    "corefolder form",
+                    "fox 2 tails",
+                    "average stature (about 152cm)",
+                    "teenager",
+                    "Fox",
+                    "silver white long hair, heart-shaped hair motif",
+                    "serene gentle smile/worried expression",
+                    "the buckle part of the choker, dark, Arabic numeral '20'",
+                    "choker with a number"
+                ],
+                "forms.corefolder.immutable_constraints": [
+                    "do not render arms or hands",
+                    "do not render legs or feet",
+                    "do not dress in humanoid casual / fashion outfit"
+                ],
+                "forms.corefolder.negative_keywords": [
+                    "feet",
+                    "legs",
+                    "shoes",
+                    "high heels",
+                    "arms",
+                    "hands",
+                    "hoodie",
+                    "blazer",
+                    "fashion outfit",
+                    "bound by rope"
+                ],
+                "forms.humanoid.form_tags": [
+                    "humanoid form"
+                ],
+                "forms.humanoid.ai_tags": [
+                    "humanoid form",
+                    "fox 2 tails",
+                    "average stature (about 152cm)",
+                    "teenager",
+                    "Fox",
+                    "silver white long hair, heart-shaped hair motif",
+                    "serene gentle smile/worried expression",
+                    "the buckle part of the belt on the waist, dark, Arabic numeral '20'",
+                    "large breasts",
+                    "long white open coat",
+                    "gray inner top with a stand collar",
+                    "belt with a number",
+                    "white coat and orange long skirt"
+                ]
+            },
+            "lastStructuralResync": "2026-11-20"
+        }
     }
   },
   {
@@ -14181,216 +14241,235 @@
       ]
     },
     "AIHints": {
-      "common": {
-        "identity_tags": [
-          "Fox",
-          "mint green hair",
-          "yellow horizontal line makeup on cheeks",
-          "number marking and stripe pattern"
-        ],
-        "silhouette_features": [
-          "branching fox 3 tails",
-          "short stature (about 149cm)",
-          "Fox",
-          "mint green hair",
-          "number marking and stripe pattern"
-        ],
-        "immutable_traits": null,
-        "expression_tendency": ["adventurous smile"],
-        "age_appearance": "teenager (16)",
-        "palette_priority": {
-          "primary": "#7BDEC1",
-          "secondary": "#C2F2DE",
-          "accent": "#B1DDA6"
-        },
-        "natural_language_description": null,
-        "reference_images": {
-          "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-23.png",
-          "concept": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-23.png",
-          "catalog": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/catalog/chr-dsgn_catalogNTS-23.png"
-        }
-      },
-      "work_common": {
-        "reference_images": {
-          "corefolder_reference": [
-            "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/Ref_Vocabulary/concept-figure/cnsp-fg_NTsCoreFolder.png"
-          ],
-          "humanoid_reference": [
-            "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/Ref_Vocabulary/concept-figure/cnsp-fg_NTsHumanoid.png"
-          ]
-        }
-      },
-      "forms": {
-        "corefolder": {
-          "form_tags": ["corefolder form"],
-          "outfit_features": [],
-          "silhouette_notes": {
-            "body_description": [
-              "spherical core body with the head as the only protruding part on top",
-              "Fox",
-              "mint green hair",
-              "number marking and stripe pattern"
+        "common": {
+            "identity_tags": [
+                "Fox",
+                "mint green hair",
+                "yellow horizontal line makeup on cheeks",
+                "number marking and stripe pattern"
             ],
-            "attached_items": ["yellow horizontal line makeup on cheeks"]
-          },
-          "immutable_constraints": [
-            "do not render arms or hands",
-            "do not render legs or feet",
-            "do not dress in humanoid casual / fashion outfit"
-          ],
-          "negative_keywords": [
-            "feet",
-            "legs",
-            "shoes",
-            "high heels",
-            "arms",
-            "hands",
-            "hoodie",
-            "blazer",
-            "fashion outfit",
-            "bound by rope"
-          ],
-          "ai_tags": [
-            "corefolder form",
-            "branching fox 3 tails",
-            "short stature (about 149cm)",
-            "teenager (16)",
-            "Fox",
-            "mint green hair",
-            "adventurous smile",
-            "yellow horizontal line makeup on cheeks",
-            "number marking and stripe pattern",
-            "on the left flank of the sphere, on the pale stripe across the light green fur at mid-body, sized to fit the height of the stripe, dark, Arabic numeral '23'"
-          ],
-          "negative_visuals": [
-            "green hooded top",
-            "athletic outfit",
-            "wide-leg pants",
-            "casual private outfit"
-          ],
-          "natural_language_description": "Corefolder form: a spherical cushion-like body in Fox; mint green hair; number marking and stripe pattern, with the number '23' marking (the right side of the light green fur area with a pale stripe pattern at the equator of the sphere, somewhat large to match the vertical size of the stripe pattern, dark, Arabic numeral '23'); yellow horizontal line makeup on cheeks.",
-          "prompt_export": "corefolder form, branching fox 3 tails, short stature (about 149cm), teenager (16), Fox, mint green hair, adventurous smile, yellow horizontal line makeup on cheeks, number marking and stripe pattern, on the left flank of the sphere, on the pale stripe across the light green fur at mid-body, sized to fit the height of the stripe, dark, Arabic numeral '23'",
-          "negative_prompt_export": "green hooded top, athletic outfit, wide-leg pants, casual private outfit",
-          "reference_images": {
-            "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-23.png",
-            "corefolder": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/corefolder/23/emstk_corefolderNTS-23-1.png",
-            "corefolder_arts": [
-              "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/arts/corefolders/sphericateDay/art_sphericateDay202301r2.png"
-            ]
-          }
-        },
-        "humanoid": {
-          "form_tags": ["humanoid form"],
-          "outfit_features": [
-            "green hooded top",
-            "athletic outfit",
-            "wide-leg pants",
-            "casual private outfit"
-          ],
-          "silhouette_notes": {
-            "body_description": [
-              "Fox",
-              "mint green hair",
-              "number marking and stripe pattern"
+            "silhouette_features": [
+                "branching fox 3 tails",
+                "short stature (about 149cm)",
+                "Fox",
+                "mint green hair",
+                "number marking and stripe pattern"
             ],
-            "attached_items": ["yellow horizontal line makeup on cheeks"]
-          },
-          "immutable_constraints": null,
-          "negative_keywords": null,
-          "ai_tags": [
-            "humanoid form",
-            "branching fox 3 tails",
-            "short stature (about 149cm)",
-            "teenager (16)",
-            "Fox",
-            "mint green hair",
-            "adventurous smile",
-            "yellow horizontal line makeup on cheeks",
-            "number marking and stripe pattern",
-            "on the left chest of the hoodie, on the pale stripe between the chest and waist, sized to fit the height of the stripe, dark, Arabic numeral '23'",
-            "green hooded top",
-            "athletic outfit",
-            "wide-leg pants",
-            "casual private outfit"
-          ],
-          "negative_visuals": [],
-          "natural_language_description": null,
-          "prompt_export": "humanoid form, branching fox 3 tails, short stature (about 149cm), teenager (16), Fox, mint green hair, adventurous smile, yellow horizontal line makeup on cheeks, number marking and stripe pattern, on the left chest of the hoodie, on the pale stripe between the chest and waist, sized to fit the height of the stripe, dark, Arabic numeral '23', green hooded top, athletic outfit, wide-leg pants, casual private outfit",
-          "negative_prompt_export": "",
-          "reference_images": {
-            "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-23.png"
-          }
-        }
-      },
-      "alt_modes": null,
-      "concept_contains_forms": ["corefolder", "humanoid"],
-      "_meta": {
-        "structuralSourceHash": "sha256:576295381d46fc1d05ca2fcdf859e38a165533dc6227dec1018a2c7849ea6232",
-        "structuralEntries": {
-          "common.identity_tags": [
-            "Fox",
-            "mint green hair",
-            "yellow horizontal line makeup on cheeks",
-            "number marking and stripe pattern"
-          ],
-          "common.silhouette_features": [
-            "branching fox 3 tails",
-            "short stature (about 149cm)",
-            "Fox",
-            "mint green hair",
-            "number marking and stripe pattern"
-          ],
-          "common.expression_tendency": ["adventurous smile"],
-          "forms.corefolder.form_tags": ["corefolder form"],
-          "forms.corefolder.ai_tags": [
-            "corefolder form",
-            "branching fox 3 tails",
-            "short stature (about 149cm)",
-            "teenager (16)",
-            "Fox",
-            "mint green hair",
-            "adventurous smile",
-            "yellow horizontal line makeup on cheeks",
-            "number marking and stripe pattern",
-            "on the left flank of the sphere, on the pale stripe across the light green fur at mid-body, sized to fit the height of the stripe, dark, Arabic numeral '23'"
-          ],
-          "forms.corefolder.immutable_constraints": [
-            "do not render arms or hands",
-            "do not render legs or feet",
-            "do not dress in humanoid casual / fashion outfit"
-          ],
-          "forms.corefolder.negative_keywords": [
-            "feet",
-            "legs",
-            "shoes",
-            "high heels",
-            "arms",
-            "hands",
-            "hoodie",
-            "blazer",
-            "fashion outfit",
-            "bound by rope"
-          ],
-          "forms.humanoid.form_tags": ["humanoid form"],
-          "forms.humanoid.ai_tags": [
-            "humanoid form",
-            "branching fox 3 tails",
-            "short stature (about 149cm)",
-            "teenager (16)",
-            "Fox",
-            "mint green hair",
-            "adventurous smile",
-            "yellow horizontal line makeup on cheeks",
-            "number marking and stripe pattern",
-            "on the left chest of the hoodie, on the pale stripe between the chest and waist, sized to fit the height of the stripe, dark, Arabic numeral '23'",
-            "green hooded top",
-            "athletic outfit",
-            "wide-leg pants",
-            "casual private outfit"
-          ]
+            "immutable_traits": null,
+            "expression_tendency": [
+                "adventurous smile"
+            ],
+            "age_appearance": "teenager (16)",
+            "palette_priority": {
+                "primary": "#7BDEC1",
+                "secondary": "#C2F2DE",
+                "accent": "#B1DDA6"
+            },
+            "natural_language_description": null,
+            "reference_images": {
+                "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-23.png",
+                "concept": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-23.png",
+                "catalog": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/catalog/chr-dsgn_catalogNTS-23.png"
+            }
         },
-        "lastStructuralResync": "2026-11-19"
-      }
+        "work_common": {
+            "reference_images": {
+                "corefolder_reference": [
+                    "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/Ref_Vocabulary/concept-figure/cnsp-fg_NTsCoreFolder.png"
+                ],
+                "humanoid_reference": [
+                    "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/Ref_Vocabulary/concept-figure/cnsp-fg_NTsHumanoid.png"
+                ]
+            }
+        },
+        "forms": {
+            "corefolder": {
+                "form_tags": [
+                    "corefolder form"
+                ],
+                "outfit_features": [],
+                "silhouette_notes": {
+                    "body_description": [
+                        "spherical core body with the head as the only protruding part on top",
+                        "Fox",
+                        "mint green hair",
+                        "number marking and stripe pattern"
+                    ],
+                    "attached_items": [
+                        "yellow horizontal line makeup on cheeks"
+                    ]
+                },
+                "immutable_constraints": [
+                    "do not render arms or hands",
+                    "do not render legs or feet",
+                    "do not dress in humanoid casual / fashion outfit"
+                ],
+                "negative_keywords": [
+                    "feet",
+                    "legs",
+                    "shoes",
+                    "high heels",
+                    "arms",
+                    "hands",
+                    "hoodie",
+                    "blazer",
+                    "fashion outfit",
+                    "bound by rope"
+                ],
+                "ai_tags": [
+                    "corefolder form",
+                    "branching fox 3 tails",
+                    "short stature (about 149cm)",
+                    "teenager (16)",
+                    "Fox",
+                    "mint green hair",
+                    "adventurous smile",
+                    "yellow horizontal line makeup on cheeks",
+                    "number marking and stripe pattern",
+                    "on the left flank of the sphere, on the pale stripe across the light green fur at mid-body, sized to fit the height of the stripe, dark, Arabic numeral '23'"
+                ],
+                "negative_visuals": [
+                    "green hooded top",
+                    "athletic outfit",
+                    "wide-leg pants",
+                    "casual outfit with a green hoodie and yellow trousers"
+                ],
+                "natural_language_description": "Corefolder form: a spherical cushion-like body in Fox; mint green hair; number marking and stripe pattern, with the number '23' marking (the right side of the light green fur area with a pale stripe pattern at the equator of the sphere, somewhat large to match the vertical size of the stripe pattern, dark, Arabic numeral '23'); yellow horizontal line makeup on cheeks.",
+                "prompt_export": "corefolder form, branching fox 3 tails, short stature (about 149cm), teenager (16), Fox, mint green hair, adventurous smile, yellow horizontal line makeup on cheeks, number marking and stripe pattern, on the left flank of the sphere, on the pale stripe across the light green fur at mid-body, sized to fit the height of the stripe, dark, Arabic numeral '23'",
+                "negative_prompt_export": "green hooded top, athletic outfit, wide-leg pants, casual outfit with a green hoodie and yellow trousers",
+                "reference_images": {
+                    "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-23.png",
+                    "corefolder": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/corefolder/23/emstk_corefolderNTS-23-1.png",
+                    "corefolder_arts": [
+                        "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/arts/corefolders/sphericateDay/art_sphericateDay202301r2.png"
+                    ]
+                }
+            },
+            "humanoid": {
+                "form_tags": [
+                    "humanoid form"
+                ],
+                "outfit_features": [
+                    "green hooded top",
+                    "athletic outfit",
+                    "wide-leg pants",
+                    "casual outfit with a green hoodie and yellow trousers"
+                ],
+                "silhouette_notes": {
+                    "body_description": [
+                        "Fox",
+                        "mint green hair",
+                        "number marking and stripe pattern"
+                    ],
+                    "attached_items": [
+                        "yellow horizontal line makeup on cheeks"
+                    ]
+                },
+                "immutable_constraints": null,
+                "negative_keywords": null,
+                "ai_tags": [
+                    "humanoid form",
+                    "branching fox 3 tails",
+                    "short stature (about 149cm)",
+                    "teenager (16)",
+                    "Fox",
+                    "mint green hair",
+                    "adventurous smile",
+                    "yellow horizontal line makeup on cheeks",
+                    "number marking and stripe pattern",
+                    "on the left chest of the hoodie, on the pale stripe between the chest and waist, sized to fit the height of the stripe, dark, Arabic numeral '23'",
+                    "green hooded top",
+                    "athletic outfit",
+                    "wide-leg pants",
+                    "casual outfit with a green hoodie and yellow trousers"
+                ],
+                "negative_visuals": [],
+                "natural_language_description": null,
+                "prompt_export": "humanoid form, branching fox 3 tails, short stature (about 149cm), teenager (16), Fox, mint green hair, adventurous smile, yellow horizontal line makeup on cheeks, number marking and stripe pattern, on the left chest of the hoodie, on the pale stripe between the chest and waist, sized to fit the height of the stripe, dark, Arabic numeral '23', green hooded top, athletic outfit, wide-leg pants, casual outfit with a green hoodie and yellow trousers",
+                "negative_prompt_export": "",
+                "reference_images": {
+                    "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-23.png"
+                }
+            }
+        },
+        "alt_modes": null,
+        "concept_contains_forms": [
+            "corefolder",
+            "humanoid"
+        ],
+        "_meta": {
+            "structuralSourceHash": "sha256:9510372d07370d41e7c62f4ad90a1037671c87bf979bfe77745042278b0ac9eb",
+            "structuralEntries": {
+                "common.identity_tags": [
+                    "Fox",
+                    "mint green hair",
+                    "yellow horizontal line makeup on cheeks",
+                    "number marking and stripe pattern"
+                ],
+                "common.silhouette_features": [
+                    "branching fox 3 tails",
+                    "short stature (about 149cm)",
+                    "Fox",
+                    "mint green hair",
+                    "number marking and stripe pattern"
+                ],
+                "common.expression_tendency": [
+                    "adventurous smile"
+                ],
+                "forms.corefolder.form_tags": [
+                    "corefolder form"
+                ],
+                "forms.corefolder.ai_tags": [
+                    "corefolder form",
+                    "branching fox 3 tails",
+                    "short stature (about 149cm)",
+                    "teenager (16)",
+                    "Fox",
+                    "mint green hair",
+                    "adventurous smile",
+                    "yellow horizontal line makeup on cheeks",
+                    "number marking and stripe pattern",
+                    "on the left flank of the sphere, on the pale stripe across the light green fur at mid-body, sized to fit the height of the stripe, dark, Arabic numeral '23'"
+                ],
+                "forms.corefolder.immutable_constraints": [
+                    "do not render arms or hands",
+                    "do not render legs or feet",
+                    "do not dress in humanoid casual / fashion outfit"
+                ],
+                "forms.corefolder.negative_keywords": [
+                    "feet",
+                    "legs",
+                    "shoes",
+                    "high heels",
+                    "arms",
+                    "hands",
+                    "hoodie",
+                    "blazer",
+                    "fashion outfit",
+                    "bound by rope"
+                ],
+                "forms.humanoid.form_tags": [
+                    "humanoid form"
+                ],
+                "forms.humanoid.ai_tags": [
+                    "humanoid form",
+                    "branching fox 3 tails",
+                    "short stature (about 149cm)",
+                    "teenager (16)",
+                    "Fox",
+                    "mint green hair",
+                    "adventurous smile",
+                    "yellow horizontal line makeup on cheeks",
+                    "number marking and stripe pattern",
+                    "on the left chest of the hoodie, on the pale stripe between the chest and waist, sized to fit the height of the stripe, dark, Arabic numeral '23'",
+                    "green hooded top",
+                    "athletic outfit",
+                    "wide-leg pants",
+                    "casual outfit with a green hoodie and yellow trousers"
+                ]
+            },
+            "lastStructuralResync": "2026-11-20"
+        }
     }
   },
   {
@@ -14797,211 +14876,224 @@
       ]
     },
     "AIHints": {
-      "common": {
-        "identity_tags": [
-          "Fox (with accent color tips)",
-          "long pink hair, heart-shaped light accent color bangs, two-tone twin tails with purple ribbon",
-          "purple eyes"
-        ],
-        "silhouette_features": [
-          "branching fox 4 tails",
-          "average stature (about 158cm)",
-          "Fox (with accent color tips)",
-          "purple eyes"
-        ],
-        "immutable_traits": [
-          "number '24' marking: the clasp of the neck scarf, dark color, Arabic numeral '24'"
-        ],
-        "expression_tendency": ["reserved quietly thoughtful expression"],
-        "age_appearance": "teenager",
-        "palette_priority": {
-          "primary": "#C680AF",
-          "secondary": "#0097C9",
-          "accent": "#E8AFD8"
-        },
-        "natural_language_description": null,
-        "reference_images": {
-          "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-24.png",
-          "concept": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-24.png"
-        }
-      },
-      "work_common": {
-        "reference_images": {
-          "corefolder_reference": [
-            "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/Ref_Vocabulary/concept-figure/cnsp-fg_NTsCoreFolder.png"
-          ],
-          "humanoid_reference": [
-            "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/Ref_Vocabulary/concept-figure/cnsp-fg_NTsHumanoid.png"
-          ]
-        }
-      },
-      "forms": {
-        "humanoid": {
-          "form_tags": ["humanoid form"],
-          "outfit_features": [
-            "long pink hair, heart-shaped light accent color bangs, two-tone twin tails with purple ribbon",
-            "pink-mauve skirt with accent color at the hem",
-            "casual private outfit"
-          ],
-          "silhouette_notes": {
-            "body_description": [
-              "Fox (with accent color tips)",
-              "purple eyes",
-              "large breasts"
+        "common": {
+            "identity_tags": [
+                "Fox (with accent color tips)",
+                "long pink hair, heart-shaped light accent color bangs, two-tone twin tails with purple ribbon",
+                "purple eyes"
             ],
-            "attached_items": []
-          },
-          "immutable_constraints": null,
-          "negative_keywords": null,
-          "ai_tags": [
-            "humanoid form",
-            "branching fox 4 tails",
-            "average stature (about 158cm)",
-            "teenager",
-            "the clasp of the neck scarf, dark color, Arabic numeral '24'",
-            "Fox (with accent color tips)",
-            "long pink hair, heart-shaped light accent color bangs, two-tone twin tails with purple ribbon",
-            "purple eyes",
-            "reserved quietly thoughtful expression",
-            "pink-mauve skirt with accent color at the hem",
-            "large breasts",
-            "casual private outfit"
-          ],
-          "negative_visuals": [],
-          "natural_language_description": null,
-          "prompt_export": "humanoid form, branching fox 4 tails, average stature (about 158cm), teenager, the clasp of the neck scarf, dark color, Arabic numeral '24', Fox (with accent color tips), long pink hair, heart-shaped light accent color bangs, two-tone twin tails with purple ribbon, purple eyes, reserved quietly thoughtful expression, pink-mauve skirt with accent color at the hem, large breasts, casual private outfit",
-          "negative_prompt_export": "",
-          "reference_images": {
-            "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-24.png"
-          }
-        },
-        "corefolder": {
-          "form_tags": ["corefolder form"],
-          "outfit_features": [
-            "long pink hair, heart-shaped light accent color bangs, two-tone twin tails with purple ribbon"
-          ],
-          "silhouette_notes": {
-            "body_description": [
-              "spherical core body with the head as the only protruding part on top",
-              "Fox (with accent color tips)",
-              "purple eyes"
+            "silhouette_features": [
+                "branching fox 4 tails",
+                "average stature (about 158cm)",
+                "Fox (with accent color tips)",
+                "purple eyes"
             ],
-            "attached_items": []
-          },
-          "immutable_constraints": [
-            "do not render arms or hands",
-            "do not render legs or feet",
-            "do not dress in humanoid casual / fashion outfit"
-          ],
-          "negative_keywords": [
-            "feet",
-            "legs",
-            "shoes",
-            "high heels",
-            "arms",
-            "hands",
-            "hoodie",
-            "blazer",
-            "fashion outfit",
-            "bound by rope"
-          ],
-          "ai_tags": [
-            "corefolder form",
-            "branching fox 4 tails",
-            "average stature (about 158cm)",
-            "teenager",
-            "the clasp of the neck scarf, dark color, Arabic numeral '24'",
-            "Fox (with accent color tips)",
-            "long pink hair, heart-shaped light accent color bangs, two-tone twin tails with purple ribbon",
-            "purple eyes",
-            "reserved quietly thoughtful expression"
-          ],
-          "negative_visuals": [
-            "pink-mauve skirt with accent color at the hem",
-            "casual private outfit"
-          ],
-          "natural_language_description": "Corefolder form: a spherical cushion-like body in Fox (with accent color tips); purple eyes, with the number '24' marking (the clasp of the neck scarf, dark color, Arabic numeral '24').",
-          "prompt_export": "corefolder form, branching fox 4 tails, average stature (about 158cm), teenager, the clasp of the neck scarf, dark color, Arabic numeral '24', Fox (with accent color tips), long pink hair, heart-shaped light accent color bangs, two-tone twin tails with purple ribbon, purple eyes, reserved quietly thoughtful expression",
-          "negative_prompt_export": "pink-mauve skirt with accent color at the hem, casual private outfit",
-          "reference_images": {
-            "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-24.png",
-            "corefolder": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/corefolder/24/emstk_corefolderNTS-24-1.png",
-            "corefolder_arts": [
-              "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/arts/corefolders/sphericateDay/art_sphericateDay202302r1.png",
-              "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/arts/corefolders/arts_imgNTS-24-corefolderMakingSample.png"
-            ]
-          }
-        }
-      },
-      "alt_modes": null,
-      "concept_contains_forms": ["corefolder", "humanoid"],
-      "_meta": {
-        "structuralSourceHash": "sha256:b135e7716f79f4501c733bc9026aee9b0611e5744e11ae08e62e9cd6dc99e642",
-        "structuralEntries": {
-          "common.identity_tags": [
-            "Fox (with accent color tips)",
-            "long pink hair, heart-shaped light accent color bangs, two-tone twin tails with purple ribbon",
-            "purple eyes"
-          ],
-          "common.silhouette_features": [
-            "branching fox 4 tails",
-            "average stature (about 158cm)",
-            "Fox (with accent color tips)",
-            "purple eyes"
-          ],
-          "common.immutable_traits": [
-            "number '24' marking: the clasp of the neck scarf, dark color, Arabic numeral '24'"
-          ],
-          "common.expression_tendency": [
-            "reserved quietly thoughtful expression"
-          ],
-          "forms.humanoid.form_tags": ["humanoid form"],
-          "forms.humanoid.ai_tags": [
-            "humanoid form",
-            "branching fox 4 tails",
-            "average stature (about 158cm)",
-            "teenager",
-            "the clasp of the neck scarf, dark color, Arabic numeral '24'",
-            "Fox (with accent color tips)",
-            "long pink hair, heart-shaped light accent color bangs, two-tone twin tails with purple ribbon",
-            "purple eyes",
-            "reserved quietly thoughtful expression",
-            "pink-mauve skirt with accent color at the hem",
-            "large breasts",
-            "casual private outfit"
-          ],
-          "forms.corefolder.form_tags": ["corefolder form"],
-          "forms.corefolder.ai_tags": [
-            "corefolder form",
-            "branching fox 4 tails",
-            "average stature (about 158cm)",
-            "teenager",
-            "the clasp of the neck scarf, dark color, Arabic numeral '24'",
-            "Fox (with accent color tips)",
-            "long pink hair, heart-shaped light accent color bangs, two-tone twin tails with purple ribbon",
-            "purple eyes",
-            "reserved quietly thoughtful expression"
-          ],
-          "forms.corefolder.immutable_constraints": [
-            "do not render arms or hands",
-            "do not render legs or feet",
-            "do not dress in humanoid casual / fashion outfit"
-          ],
-          "forms.corefolder.negative_keywords": [
-            "feet",
-            "legs",
-            "shoes",
-            "high heels",
-            "arms",
-            "hands",
-            "hoodie",
-            "blazer",
-            "fashion outfit",
-            "bound by rope"
-          ]
+            "immutable_traits": [
+                "number '24' marking: the clasp of the neck scarf, dark color, Arabic numeral '24'"
+            ],
+            "expression_tendency": [
+                "reserved quietly thoughtful expression"
+            ],
+            "age_appearance": "teenager",
+            "palette_priority": {
+                "primary": "#C680AF",
+                "secondary": "#0097C9",
+                "accent": "#E8AFD8"
+            },
+            "natural_language_description": null,
+            "reference_images": {
+                "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-24.png",
+                "concept": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-24.png"
+            }
         },
-        "lastStructuralResync": "2026-08-11"
-      }
+        "work_common": {
+            "reference_images": {
+                "corefolder_reference": [
+                    "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/Ref_Vocabulary/concept-figure/cnsp-fg_NTsCoreFolder.png"
+                ],
+                "humanoid_reference": [
+                    "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/Ref_Vocabulary/concept-figure/cnsp-fg_NTsHumanoid.png"
+                ]
+            }
+        },
+        "forms": {
+            "humanoid": {
+                "form_tags": [
+                    "humanoid form"
+                ],
+                "outfit_features": [
+                    "long pink hair, heart-shaped light accent color bangs, two-tone twin tails with purple ribbon",
+                    "lavender-blue skirt with a mauve hem",
+                    "pale pink and lavender-blue top with a lavender-blue skirt and mauve hem"
+                ],
+                "silhouette_notes": {
+                    "body_description": [
+                        "Fox (with accent color tips)",
+                        "purple eyes",
+                        "large breasts"
+                    ],
+                    "attached_items": []
+                },
+                "immutable_constraints": null,
+                "negative_keywords": null,
+                "ai_tags": [
+                    "humanoid form",
+                    "branching fox 4 tails",
+                    "average stature (about 158cm)",
+                    "teenager",
+                    "the clasp of the neck scarf, dark color, Arabic numeral '24'",
+                    "Fox (with accent color tips)",
+                    "long pink hair, heart-shaped light accent color bangs, two-tone twin tails with purple ribbon",
+                    "purple eyes",
+                    "reserved quietly thoughtful expression",
+                    "lavender-blue skirt with a mauve hem",
+                    "large breasts",
+                    "pale pink and lavender-blue top with a lavender-blue skirt and mauve hem"
+                ],
+                "negative_visuals": [],
+                "natural_language_description": null,
+                "prompt_export": "humanoid form, branching fox 4 tails, average stature (about 158cm), teenager, the clasp of the neck scarf, dark color, Arabic numeral '24', Fox (with accent color tips), long pink hair, heart-shaped light accent color bangs, two-tone twin tails with purple ribbon, purple eyes, reserved quietly thoughtful expression, lavender-blue skirt with a mauve hem, large breasts, pale pink and lavender-blue top with a lavender-blue skirt and mauve hem",
+                "negative_prompt_export": "",
+                "reference_images": {
+                    "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-24.png"
+                }
+            },
+            "corefolder": {
+                "form_tags": [
+                    "corefolder form"
+                ],
+                "outfit_features": [
+                    "long pink hair, heart-shaped light accent color bangs, two-tone twin tails with purple ribbon"
+                ],
+                "silhouette_notes": {
+                    "body_description": [
+                        "spherical core body with the head as the only protruding part on top",
+                        "Fox (with accent color tips)",
+                        "purple eyes"
+                    ],
+                    "attached_items": []
+                },
+                "immutable_constraints": [
+                    "do not render arms or hands",
+                    "do not render legs or feet",
+                    "do not dress in humanoid casual / fashion outfit"
+                ],
+                "negative_keywords": [
+                    "feet",
+                    "legs",
+                    "shoes",
+                    "high heels",
+                    "arms",
+                    "hands",
+                    "hoodie",
+                    "blazer",
+                    "fashion outfit",
+                    "bound by rope"
+                ],
+                "ai_tags": [
+                    "corefolder form",
+                    "branching fox 4 tails",
+                    "average stature (about 158cm)",
+                    "teenager",
+                    "the clasp of the neck scarf, dark color, Arabic numeral '24'",
+                    "Fox (with accent color tips)",
+                    "long pink hair, heart-shaped light accent color bangs, two-tone twin tails with purple ribbon",
+                    "purple eyes",
+                    "reserved quietly thoughtful expression"
+                ],
+                "negative_visuals": [
+                    "lavender-blue skirt with a mauve hem",
+                    "pale pink and lavender-blue top with a lavender-blue skirt and mauve hem"
+                ],
+                "natural_language_description": "Corefolder form: a spherical cushion-like body in Fox (with accent color tips); purple eyes, with the number '24' marking (the clasp of the neck scarf, dark color, Arabic numeral '24').",
+                "prompt_export": "corefolder form, branching fox 4 tails, average stature (about 158cm), teenager, the clasp of the neck scarf, dark color, Arabic numeral '24', Fox (with accent color tips), long pink hair, heart-shaped light accent color bangs, two-tone twin tails with purple ribbon, purple eyes, reserved quietly thoughtful expression",
+                "negative_prompt_export": "lavender-blue skirt with a mauve hem, pale pink and lavender-blue top with a lavender-blue skirt and mauve hem",
+                "reference_images": {
+                    "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-24.png",
+                    "corefolder": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/corefolder/24/emstk_corefolderNTS-24-1.png",
+                    "corefolder_arts": [
+                        "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/arts/corefolders/sphericateDay/art_sphericateDay202302r1.png",
+                        "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/arts/corefolders/arts_imgNTS-24-corefolderMakingSample.png"
+                    ]
+                }
+            }
+        },
+        "alt_modes": null,
+        "concept_contains_forms": [
+            "corefolder",
+            "humanoid"
+        ],
+        "_meta": {
+            "structuralSourceHash": "sha256:2467a4ac95dc8a070aa212a5a9289c1b8a31a35a0285a4f8ce24e28b2c89b5e7",
+            "structuralEntries": {
+                "common.identity_tags": [
+                    "Fox (with accent color tips)",
+                    "long pink hair, heart-shaped light accent color bangs, two-tone twin tails with purple ribbon",
+                    "purple eyes"
+                ],
+                "common.silhouette_features": [
+                    "branching fox 4 tails",
+                    "average stature (about 158cm)",
+                    "Fox (with accent color tips)",
+                    "purple eyes"
+                ],
+                "common.immutable_traits": [
+                    "number '24' marking: the clasp of the neck scarf, dark color, Arabic numeral '24'"
+                ],
+                "common.expression_tendency": [
+                    "reserved quietly thoughtful expression"
+                ],
+                "forms.humanoid.form_tags": [
+                    "humanoid form"
+                ],
+                "forms.humanoid.ai_tags": [
+                    "humanoid form",
+                    "branching fox 4 tails",
+                    "average stature (about 158cm)",
+                    "teenager",
+                    "the clasp of the neck scarf, dark color, Arabic numeral '24'",
+                    "Fox (with accent color tips)",
+                    "long pink hair, heart-shaped light accent color bangs, two-tone twin tails with purple ribbon",
+                    "purple eyes",
+                    "reserved quietly thoughtful expression",
+                    "lavender-blue skirt with a mauve hem",
+                    "large breasts",
+                    "pale pink and lavender-blue top with a lavender-blue skirt and mauve hem"
+                ],
+                "forms.corefolder.form_tags": [
+                    "corefolder form"
+                ],
+                "forms.corefolder.ai_tags": [
+                    "corefolder form",
+                    "branching fox 4 tails",
+                    "average stature (about 158cm)",
+                    "teenager",
+                    "the clasp of the neck scarf, dark color, Arabic numeral '24'",
+                    "Fox (with accent color tips)",
+                    "long pink hair, heart-shaped light accent color bangs, two-tone twin tails with purple ribbon",
+                    "purple eyes",
+                    "reserved quietly thoughtful expression"
+                ],
+                "forms.corefolder.immutable_constraints": [
+                    "do not render arms or hands",
+                    "do not render legs or feet",
+                    "do not dress in humanoid casual / fashion outfit"
+                ],
+                "forms.corefolder.negative_keywords": [
+                    "feet",
+                    "legs",
+                    "shoes",
+                    "high heels",
+                    "arms",
+                    "hands",
+                    "hoodie",
+                    "blazer",
+                    "fashion outfit",
+                    "bound by rope"
+                ]
+            },
+            "lastStructuralResync": "2026-11-20"
+        }
     }
   },
   {
@@ -15517,217 +15609,232 @@
     ],
     "VRMs": { "corefolder_VRMPath": ["25/vrm_NTS-25-corefolder"] },
     "AIHints": {
-      "common": {
-        "identity_tags": [
-          "Fox",
-          "steel blue short hair, light gray accent color in the bangs",
-          "navy eyelashes with teal eyes",
-          "deep green scarf with a charm made of five navy leaf-shaped jewels held together by a ring"
-        ],
-        "silhouette_features": [
-          "branching fox 5 tails",
-          "average stature (about 156cm)",
-          "Fox",
-          "steel blue short hair, light gray accent color in the bangs",
-          "navy eyelashes with teal eyes"
-        ],
-        "immutable_traits": null,
-        "expression_tendency": ["confident expression/friendly smile"],
-        "age_appearance": "teenager",
-        "palette_priority": {
-          "primary": "#A2AFB8",
-          "secondary": "#175D7E",
-          "accent": "#7EAEAB"
-        },
-        "natural_language_description": null,
-        "reference_images": {
-          "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-25.png",
-          "concept": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-25.png"
-        }
-      },
-      "work_common": {
-        "reference_images": {
-          "corefolder_reference": [
-            "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/Ref_Vocabulary/concept-figure/cnsp-fg_NTsCoreFolder.png"
-          ],
-          "humanoid_reference": [
-            "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/Ref_Vocabulary/concept-figure/cnsp-fg_NTsHumanoid.png"
-          ]
-        }
-      },
-      "forms": {
-        "corefolder": {
-          "form_tags": ["corefolder form"],
-          "outfit_features": [
-            "deep green scarf with a charm made of five navy leaf-shaped jewels held together by a ring"
-          ],
-          "silhouette_notes": {
-            "body_description": [
-              "spherical core body with the head as the only protruding part on top",
-              "Fox",
-              "steel blue short hair, light gray accent color in the bangs",
-              "navy eyelashes with teal eyes"
+        "common": {
+            "identity_tags": [
+                "Fox",
+                "steel blue short hair, light gray accent color in the bangs",
+                "navy eyelashes with teal eyes",
+                "deep green scarf with a charm made of five navy leaf-shaped jewels held together by a ring"
             ],
-            "attached_items": []
-          },
-          "immutable_constraints": [
-            "do not render arms or hands",
-            "do not render legs or feet",
-            "do not dress in humanoid casual / fashion outfit"
-          ],
-          "negative_keywords": [
-            "feet",
-            "legs",
-            "shoes",
-            "high heels",
-            "arms",
-            "hands",
-            "hoodie",
-            "blazer",
-            "fashion outfit",
-            "bound by rope"
-          ],
-          "ai_tags": [
-            "corefolder form",
-            "branching fox 5 tails",
-            "average stature (about 156cm)",
-            "teenager",
-            "Fox",
-            "steel blue short hair, light gray accent color in the bangs",
-            "navy eyelashes with teal eyes",
-            "confident expression/friendly smile",
-            "deep green scarf with a charm made of five navy leaf-shaped jewels held together by a ring",
-            "the gray fur area on the left chest of the sphere (may be hidden by scarf and charm accessories), dark color, Arabic numeral '25'"
-          ],
-          "negative_visuals": [
-            "dark teal bodysuit",
-            "casual private outfit",
-            "dark blue gloves"
-          ],
-          "natural_language_description": "Corefolder form: a spherical cushion-like body in Fox; steel blue short hair, light gray accent color in the bangs; navy eyelashes with teal eyes, with the number '25' marking (the gray fur area on the left chest of the sphere (may be hidden by scarf and charm accessories), dark color, Arabic numeral '25').",
-          "prompt_export": "corefolder form, branching fox 5 tails, average stature (about 156cm), teenager, Fox, steel blue short hair, light gray accent color in the bangs, navy eyelashes with teal eyes, confident expression/friendly smile, deep green scarf with a charm made of five navy leaf-shaped jewels held together by a ring, the gray fur area on the left chest of the sphere (may be hidden by scarf and charm accessories), dark color, Arabic numeral '25'",
-          "negative_prompt_export": "dark teal bodysuit, casual private outfit, dark blue gloves",
-          "reference_images": {
-            "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-25.png",
-            "corefolder": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/corefolder/25/emstk_corefolderNTS-25-1.png",
-            "corefolder_arts": [
-              "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/arts/corefolders/2023/art_imgNTS-25-corefolder.png"
-            ]
-          }
-        },
-        "humanoid": {
-          "form_tags": ["humanoid form"],
-          "outfit_features": [
-            "deep green scarf with a charm made of five navy leaf-shaped jewels held together by a ring",
-            "dark teal bodysuit",
-            "casual private outfit",
-            "dark blue gloves"
-          ],
-          "silhouette_notes": {
-            "body_description": [
-              "Fox",
-              "steel blue short hair, light gray accent color in the bangs",
-              "navy eyelashes with teal eyes",
-              "large breasts"
+            "silhouette_features": [
+                "branching fox 5 tails",
+                "average stature (about 156cm)",
+                "Fox",
+                "steel blue short hair, light gray accent color in the bangs",
+                "navy eyelashes with teal eyes"
             ],
-            "attached_items": []
-          },
-          "immutable_constraints": null,
-          "negative_keywords": null,
-          "ai_tags": [
-            "humanoid form",
-            "branching fox 5 tails",
-            "average stature (about 156cm)",
-            "teenager",
-            "Fox",
-            "steel blue short hair, light gray accent color in the bangs",
-            "navy eyelashes with teal eyes",
-            "confident expression/friendly smile",
-            "deep green scarf with a charm made of five navy leaf-shaped jewels held together by a ring",
-            "The entire chest area of the base wear, prominently (partially obscured by outerwear), dark green, Arabic numeral '25'",
-            "dark teal bodysuit",
-            "large breasts",
-            "casual private outfit",
-            "dark blue gloves"
-          ],
-          "negative_visuals": [],
-          "natural_language_description": null,
-          "prompt_export": "humanoid form, branching fox 5 tails, average stature (about 156cm), teenager, Fox, steel blue short hair, light gray accent color in the bangs, navy eyelashes with teal eyes, confident expression/friendly smile, deep green scarf with a charm made of five navy leaf-shaped jewels held together by a ring, The entire chest area of the base wear, prominently (partially obscured by outerwear), dark green, Arabic numeral '25', dark teal bodysuit, large breasts, casual private outfit, dark blue gloves",
-          "negative_prompt_export": "",
-          "reference_images": {
-            "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-25.png"
-          }
-        }
-      },
-      "alt_modes": null,
-      "concept_contains_forms": ["corefolder", "humanoid"],
-      "_meta": {
-        "structuralSourceHash": "sha256:9c1e1d767a013ce69633c723db1928b93d0120d5f80359cd85ea451254ab5f62",
-        "structuralEntries": {
-          "common.identity_tags": [
-            "Fox",
-            "steel blue short hair, light gray accent color in the bangs",
-            "navy eyelashes with teal eyes",
-            "deep green scarf with a charm made of five navy leaf-shaped jewels held together by a ring"
-          ],
-          "common.silhouette_features": [
-            "branching fox 5 tails",
-            "average stature (about 156cm)",
-            "Fox",
-            "steel blue short hair, light gray accent color in the bangs",
-            "navy eyelashes with teal eyes"
-          ],
-          "common.expression_tendency": ["confident expression/friendly smile"],
-          "forms.corefolder.form_tags": ["corefolder form"],
-          "forms.corefolder.ai_tags": [
-            "corefolder form",
-            "branching fox 5 tails",
-            "average stature (about 156cm)",
-            "teenager",
-            "Fox",
-            "steel blue short hair, light gray accent color in the bangs",
-            "navy eyelashes with teal eyes",
-            "confident expression/friendly smile",
-            "deep green scarf with a charm made of five navy leaf-shaped jewels held together by a ring",
-            "the gray fur area on the left chest of the sphere (may be hidden by scarf and charm accessories), dark color, Arabic numeral '25'"
-          ],
-          "forms.corefolder.immutable_constraints": [
-            "do not render arms or hands",
-            "do not render legs or feet",
-            "do not dress in humanoid casual / fashion outfit"
-          ],
-          "forms.corefolder.negative_keywords": [
-            "feet",
-            "legs",
-            "shoes",
-            "high heels",
-            "arms",
-            "hands",
-            "hoodie",
-            "blazer",
-            "fashion outfit",
-            "bound by rope"
-          ],
-          "forms.humanoid.form_tags": ["humanoid form"],
-          "forms.humanoid.ai_tags": [
-            "humanoid form",
-            "branching fox 5 tails",
-            "average stature (about 156cm)",
-            "teenager",
-            "Fox",
-            "steel blue short hair, light gray accent color in the bangs",
-            "navy eyelashes with teal eyes",
-            "confident expression/friendly smile",
-            "deep green scarf with a charm made of five navy leaf-shaped jewels held together by a ring",
-            "The entire chest area of the base wear, prominently (partially obscured by outerwear), dark green, Arabic numeral '25'",
-            "dark teal bodysuit",
-            "large breasts",
-            "casual private outfit",
-            "dark blue gloves"
-          ]
+            "immutable_traits": null,
+            "expression_tendency": [
+                "confident expression/friendly smile"
+            ],
+            "age_appearance": "teenager",
+            "palette_priority": {
+                "primary": "#A2AFB8",
+                "secondary": "#175D7E",
+                "accent": "#7EAEAB"
+            },
+            "natural_language_description": null,
+            "reference_images": {
+                "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-25.png",
+                "concept": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-25.png"
+            }
         },
-        "lastStructuralResync": "2026-08-11"
-      }
+        "work_common": {
+            "reference_images": {
+                "corefolder_reference": [
+                    "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/Ref_Vocabulary/concept-figure/cnsp-fg_NTsCoreFolder.png"
+                ],
+                "humanoid_reference": [
+                    "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/Ref_Vocabulary/concept-figure/cnsp-fg_NTsHumanoid.png"
+                ]
+            }
+        },
+        "forms": {
+            "corefolder": {
+                "form_tags": [
+                    "corefolder form"
+                ],
+                "outfit_features": [
+                    "deep green scarf with a charm made of five navy leaf-shaped jewels held together by a ring"
+                ],
+                "silhouette_notes": {
+                    "body_description": [
+                        "spherical core body with the head as the only protruding part on top",
+                        "Fox",
+                        "steel blue short hair, light gray accent color in the bangs",
+                        "navy eyelashes with teal eyes"
+                    ],
+                    "attached_items": []
+                },
+                "immutable_constraints": [
+                    "do not render arms or hands",
+                    "do not render legs or feet",
+                    "do not dress in humanoid casual / fashion outfit"
+                ],
+                "negative_keywords": [
+                    "feet",
+                    "legs",
+                    "shoes",
+                    "high heels",
+                    "arms",
+                    "hands",
+                    "hoodie",
+                    "blazer",
+                    "fashion outfit",
+                    "bound by rope"
+                ],
+                "ai_tags": [
+                    "corefolder form",
+                    "branching fox 5 tails",
+                    "average stature (about 156cm)",
+                    "teenager",
+                    "Fox",
+                    "steel blue short hair, light gray accent color in the bangs",
+                    "navy eyelashes with teal eyes",
+                    "confident expression/friendly smile",
+                    "deep green scarf with a charm made of five navy leaf-shaped jewels held together by a ring",
+                    "the gray fur area on the left chest of the sphere (may be hidden by scarf and charm accessories), dark color, Arabic numeral '25'"
+                ],
+                "negative_visuals": [
+                    "teal top",
+                    "outfit combining a teal top, gray chest panel, and navy legwear",
+                    "dark blue gloves"
+                ],
+                "natural_language_description": "Corefolder form: a spherical cushion-like body in Fox; steel blue short hair, light gray accent color in the bangs; navy eyelashes with teal eyes, with the number '25' marking (the gray fur area on the left chest of the sphere (may be hidden by scarf and charm accessories), dark color, Arabic numeral '25').",
+                "prompt_export": "corefolder form, branching fox 5 tails, average stature (about 156cm), teenager, Fox, steel blue short hair, light gray accent color in the bangs, navy eyelashes with teal eyes, confident expression/friendly smile, deep green scarf with a charm made of five navy leaf-shaped jewels held together by a ring, the gray fur area on the left chest of the sphere (may be hidden by scarf and charm accessories), dark color, Arabic numeral '25'",
+                "negative_prompt_export": "teal top, outfit combining a teal top, gray chest panel, and navy legwear, dark blue gloves",
+                "reference_images": {
+                    "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-25.png",
+                    "corefolder": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/corefolder/25/emstk_corefolderNTS-25-1.png",
+                    "corefolder_arts": [
+                        "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/arts/corefolders/2023/art_imgNTS-25-corefolder.png"
+                    ]
+                }
+            },
+            "humanoid": {
+                "form_tags": [
+                    "humanoid form"
+                ],
+                "outfit_features": [
+                    "deep green scarf with a charm made of five navy leaf-shaped jewels held together by a ring",
+                    "teal top",
+                    "outfit combining a teal top, gray chest panel, and navy legwear",
+                    "dark blue gloves"
+                ],
+                "silhouette_notes": {
+                    "body_description": [
+                        "Fox",
+                        "steel blue short hair, light gray accent color in the bangs",
+                        "navy eyelashes with teal eyes",
+                        "large breasts"
+                    ],
+                    "attached_items": []
+                },
+                "immutable_constraints": null,
+                "negative_keywords": null,
+                "ai_tags": [
+                    "humanoid form",
+                    "branching fox 5 tails",
+                    "average stature (about 156cm)",
+                    "teenager",
+                    "Fox",
+                    "steel blue short hair, light gray accent color in the bangs",
+                    "navy eyelashes with teal eyes",
+                    "confident expression/friendly smile",
+                    "deep green scarf with a charm made of five navy leaf-shaped jewels held together by a ring",
+                    "The entire chest area of the base wear, prominently (partially obscured by outerwear), dark green, Arabic numeral '25'",
+                    "teal top",
+                    "large breasts",
+                    "outfit combining a teal top, gray chest panel, and navy legwear",
+                    "dark blue gloves"
+                ],
+                "negative_visuals": [],
+                "natural_language_description": null,
+                "prompt_export": "humanoid form, branching fox 5 tails, average stature (about 156cm), teenager, Fox, steel blue short hair, light gray accent color in the bangs, navy eyelashes with teal eyes, confident expression/friendly smile, deep green scarf with a charm made of five navy leaf-shaped jewels held together by a ring, The entire chest area of the base wear, prominently (partially obscured by outerwear), dark green, Arabic numeral '25', teal top, large breasts, outfit combining a teal top, gray chest panel, and navy legwear, dark blue gloves",
+                "negative_prompt_export": "",
+                "reference_images": {
+                    "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-25.png"
+                }
+            }
+        },
+        "alt_modes": null,
+        "concept_contains_forms": [
+            "corefolder",
+            "humanoid"
+        ],
+        "_meta": {
+            "structuralSourceHash": "sha256:565ddcdc0e9b589ff42b6c79953ba0d35f24ca6d0486745729b1391f37429f9f",
+            "structuralEntries": {
+                "common.identity_tags": [
+                    "Fox",
+                    "steel blue short hair, light gray accent color in the bangs",
+                    "navy eyelashes with teal eyes",
+                    "deep green scarf with a charm made of five navy leaf-shaped jewels held together by a ring"
+                ],
+                "common.silhouette_features": [
+                    "branching fox 5 tails",
+                    "average stature (about 156cm)",
+                    "Fox",
+                    "steel blue short hair, light gray accent color in the bangs",
+                    "navy eyelashes with teal eyes"
+                ],
+                "common.expression_tendency": [
+                    "confident expression/friendly smile"
+                ],
+                "forms.corefolder.form_tags": [
+                    "corefolder form"
+                ],
+                "forms.corefolder.ai_tags": [
+                    "corefolder form",
+                    "branching fox 5 tails",
+                    "average stature (about 156cm)",
+                    "teenager",
+                    "Fox",
+                    "steel blue short hair, light gray accent color in the bangs",
+                    "navy eyelashes with teal eyes",
+                    "confident expression/friendly smile",
+                    "deep green scarf with a charm made of five navy leaf-shaped jewels held together by a ring",
+                    "the gray fur area on the left chest of the sphere (may be hidden by scarf and charm accessories), dark color, Arabic numeral '25'"
+                ],
+                "forms.corefolder.immutable_constraints": [
+                    "do not render arms or hands",
+                    "do not render legs or feet",
+                    "do not dress in humanoid casual / fashion outfit"
+                ],
+                "forms.corefolder.negative_keywords": [
+                    "feet",
+                    "legs",
+                    "shoes",
+                    "high heels",
+                    "arms",
+                    "hands",
+                    "hoodie",
+                    "blazer",
+                    "fashion outfit",
+                    "bound by rope"
+                ],
+                "forms.humanoid.form_tags": [
+                    "humanoid form"
+                ],
+                "forms.humanoid.ai_tags": [
+                    "humanoid form",
+                    "branching fox 5 tails",
+                    "average stature (about 156cm)",
+                    "teenager",
+                    "Fox",
+                    "steel blue short hair, light gray accent color in the bangs",
+                    "navy eyelashes with teal eyes",
+                    "confident expression/friendly smile",
+                    "deep green scarf with a charm made of five navy leaf-shaped jewels held together by a ring",
+                    "The entire chest area of the base wear, prominently (partially obscured by outerwear), dark green, Arabic numeral '25'",
+                    "teal top",
+                    "large breasts",
+                    "outfit combining a teal top, gray chest panel, and navy legwear",
+                    "dark blue gloves"
+                ]
+            },
+            "lastStructuralResync": "2026-11-20"
+        }
     }
   },
   {
@@ -16779,212 +16886,227 @@
       ]
     },
     "AIHints": {
-      "common": {
-        "identity_tags": [
-          "purple name tag marked with the number 27 on the left chest",
-          "short blue hair, side ponytail",
-          "erected fox ears"
-        ],
-        "silhouette_features": [
-          "branching fox 7 tails",
-          "slightly tall stature (about 162cm)",
-          "short blue hair, side ponytail",
-          "erected fox ears"
-        ],
-        "immutable_traits": null,
-        "expression_tendency": [
-          "calm composed expression (usual), gentle yet intimidating teacher-like expression (training mode)"
-        ],
-        "age_appearance": "teenager",
-        "palette_priority": {
-          "primary": "#E2EBEF",
-          "secondary": "#9BC1E6",
-          "accent": "#736E9A"
-        },
-        "natural_language_description": null,
-        "reference_images": {
-          "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-27.png",
-          "concept": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-27.png"
-        }
-      },
-      "work_common": {
-        "reference_images": {
-          "corefolder_reference": [
-            "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/Ref_Vocabulary/concept-figure/cnsp-fg_NTsCoreFolder.png"
-          ],
-          "humanoid_reference": [
-            "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/Ref_Vocabulary/concept-figure/cnsp-fg_NTsHumanoid.png"
-          ]
-        }
-      },
-      "forms": {
-        "corefolder": {
-          "form_tags": ["corefolder form"],
-          "outfit_features": [],
-          "silhouette_notes": {
-            "body_description": [
-              "spherical core body with the head as the only protruding part on top",
-              "short blue hair, side ponytail",
-              "erected fox ears"
+        "common": {
+            "identity_tags": [
+                "purple name tag marked with the number 27 on the left chest",
+                "short blue hair, side ponytail",
+                "erected fox ears"
             ],
-            "attached_items": ["number '27' marking on purple name tag"]
-          },
-          "immutable_constraints": [
-            "do not render arms or hands",
-            "do not render legs or feet",
-            "do not dress in humanoid casual / fashion outfit"
-          ],
-          "negative_keywords": [
-            "feet",
-            "legs",
-            "shoes",
-            "high heels",
-            "arms",
-            "hands",
-            "hoodie",
-            "blazer",
-            "fashion outfit",
-            "bound by rope"
-          ],
-          "ai_tags": [
-            "corefolder form",
-            "branching fox 7 tails",
-            "slightly tall stature (about 162cm)",
-            "teenager",
-            "purple name tag marked with the number 27 on the left chest",
-            "short blue hair, side ponytail",
-            "erected fox ears",
-            "calm composed expression (usual), gentle yet intimidating teacher-like expression (training mode)",
-            "As a purple name tag on the white area of the left chest on the sphere's front, light blue (printed on purple name tag), Arabic numeral '27'"
-          ],
-          "negative_visuals": [
-            "white blouse",
-            "purple pleated skirt",
-            "blue lace-up ankle boots",
-            "casual private outfit"
-          ],
-          "natural_language_description": "Corefolder form: a spherical cushion-like body in short blue hair, side ponytail; erected fox ears, with the number '27' marking (As a purple name tag on the white area of the left chest on the sphere's front, light blue (printed on purple name tag), Arabic numeral with an underbar on the left of digits: '_27'); number '27' marking on purple name tag.",
-          "prompt_export": "corefolder form, branching fox 7 tails, slightly tall stature (about 162cm), teenager, purple name tag marked with the number 27 on the left chest, short blue hair, side ponytail, erected fox ears, calm composed expression (usual), gentle yet intimidating teacher-like expression (training mode), As a purple name tag on the white area of the left chest on the sphere's front, light blue (printed on purple name tag), Arabic numeral '27'",
-          "negative_prompt_export": "white blouse, purple pleated skirt, blue lace-up ankle boots, casual private outfit",
-          "reference_images": {
-            "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-27.png",
-            "corefolder": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/corefolder/27/emstk_corefolderNTS-27-1.png",
-            "corefolder_arts": [
-              "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/arts/corefolders/sphericateDay/art_sphericateDay202403.png"
-            ]
-          }
-        },
-        "humanoid": {
-          "form_tags": ["humanoid form"],
-          "outfit_features": [
-            "white blouse",
-            "purple pleated skirt",
-            "blue lace-up ankle boots",
-            "casual private outfit"
-          ],
-          "silhouette_notes": {
-            "body_description": [
-              "short blue hair, side ponytail",
-              "erected fox ears",
-              "four white buttons"
+            "silhouette_features": [
+                "branching fox 7 tails",
+                "slightly tall stature (about 162cm)",
+                "short blue hair, side ponytail",
+                "erected fox ears"
             ],
-            "attached_items": []
-          },
-          "immutable_constraints": null,
-          "negative_keywords": null,
-          "ai_tags": [
-            "humanoid form",
-            "branching fox 7 tails",
-            "slightly tall stature (about 162cm)",
-            "teenager",
-            "purple name tag marked with the number 27 on the left chest",
-            "short blue hair, side ponytail",
-            "erected fox ears",
-            "calm composed expression (usual), gentle yet intimidating teacher-like expression (training mode)",
-            "As a purple name tag around the left chest to left side of the casual wear, light blue (printed on purple name tag), Arabic numeral '27'",
-            "white blouse",
-            "purple pleated skirt",
-            "four white buttons",
-            "blue lace-up ankle boots",
-            "casual private outfit"
-          ],
-          "negative_visuals": ["number '27' marking on purple name tag"],
-          "natural_language_description": null,
-          "prompt_export": "humanoid form, branching fox 7 tails, slightly tall stature (about 162cm), teenager, purple name tag marked with the number 27 on the left chest, short blue hair, side ponytail, erected fox ears, calm composed expression (usual), gentle yet intimidating teacher-like expression (training mode), As a purple name tag around the left chest to left side of the casual wear, light blue (printed on purple name tag), Arabic numeral '27', white blouse, purple pleated skirt, four white buttons, blue lace-up ankle boots, casual private outfit",
-          "negative_prompt_export": "number '27' marking on purple name tag",
-          "reference_images": {
-            "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-27.png"
-          }
-        }
-      },
-      "alt_modes": null,
-      "concept_contains_forms": ["corefolder", "humanoid"],
-      "_meta": {
-        "structuralSourceHash": "sha256:13c2d579993736091f22b50e9b35fdca277e19367bc9cdc38e45e83b6ac04033",
-        "structuralEntries": {
-          "common.identity_tags": [
-            "purple name tag marked with the number 27 on the left chest",
-            "short blue hair, side ponytail",
-            "erected fox ears"
-          ],
-          "common.silhouette_features": [
-            "branching fox 7 tails",
-            "slightly tall stature (about 162cm)",
-            "short blue hair, side ponytail",
-            "erected fox ears"
-          ],
-          "common.expression_tendency": [
-            "calm composed expression (usual), gentle yet intimidating teacher-like expression (training mode)"
-          ],
-          "forms.corefolder.form_tags": ["corefolder form"],
-          "forms.corefolder.ai_tags": [
-            "corefolder form",
-            "branching fox 7 tails",
-            "slightly tall stature (about 162cm)",
-            "teenager",
-            "purple name tag marked with the number 27 on the left chest",
-            "short blue hair, side ponytail",
-            "erected fox ears",
-            "calm composed expression (usual), gentle yet intimidating teacher-like expression (training mode)",
-            "As a purple name tag on the white area of the left chest on the sphere's front, light blue (printed on purple name tag), Arabic numeral '27'"
-          ],
-          "forms.corefolder.immutable_constraints": [
-            "do not render arms or hands",
-            "do not render legs or feet",
-            "do not dress in humanoid casual / fashion outfit"
-          ],
-          "forms.corefolder.negative_keywords": [
-            "feet",
-            "legs",
-            "shoes",
-            "high heels",
-            "arms",
-            "hands",
-            "hoodie",
-            "blazer",
-            "fashion outfit",
-            "bound by rope"
-          ],
-          "forms.humanoid.form_tags": ["humanoid form"],
-          "forms.humanoid.ai_tags": [
-            "humanoid form",
-            "branching fox 7 tails",
-            "slightly tall stature (about 162cm)",
-            "teenager",
-            "purple name tag marked with the number 27 on the left chest",
-            "short blue hair, side ponytail",
-            "erected fox ears",
-            "calm composed expression (usual), gentle yet intimidating teacher-like expression (training mode)",
-            "As a purple name tag around the left chest to left side of the casual wear, light blue (printed on purple name tag), Arabic numeral '27'",
-            "white blouse",
-            "purple pleated skirt",
-            "four white buttons",
-            "blue lace-up ankle boots",
-            "casual private outfit"
-          ]
+            "immutable_traits": null,
+            "expression_tendency": [
+                "calm composed expression (usual), gentle yet intimidating teacher-like expression (training mode)"
+            ],
+            "age_appearance": "teenager",
+            "palette_priority": {
+                "primary": "#E2EBEF",
+                "secondary": "#9BC1E6",
+                "accent": "#736E9A"
+            },
+            "natural_language_description": null,
+            "reference_images": {
+                "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-27.png",
+                "concept": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-27.png"
+            }
         },
-        "lastStructuralResync": "2026-11-19"
-      }
+        "work_common": {
+            "reference_images": {
+                "corefolder_reference": [
+                    "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/Ref_Vocabulary/concept-figure/cnsp-fg_NTsCoreFolder.png"
+                ],
+                "humanoid_reference": [
+                    "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/Ref_Vocabulary/concept-figure/cnsp-fg_NTsHumanoid.png"
+                ]
+            }
+        },
+        "forms": {
+            "corefolder": {
+                "form_tags": [
+                    "corefolder form"
+                ],
+                "outfit_features": [],
+                "silhouette_notes": {
+                    "body_description": [
+                        "spherical core body with the head as the only protruding part on top",
+                        "short blue hair, side ponytail",
+                        "erected fox ears"
+                    ],
+                    "attached_items": [
+                        "number '27' marking on purple name tag"
+                    ]
+                },
+                "immutable_constraints": [
+                    "do not render arms or hands",
+                    "do not render legs or feet",
+                    "do not dress in humanoid casual / fashion outfit"
+                ],
+                "negative_keywords": [
+                    "feet",
+                    "legs",
+                    "shoes",
+                    "high heels",
+                    "arms",
+                    "hands",
+                    "hoodie",
+                    "blazer",
+                    "fashion outfit",
+                    "bound by rope"
+                ],
+                "ai_tags": [
+                    "corefolder form",
+                    "branching fox 7 tails",
+                    "slightly tall stature (about 162cm)",
+                    "teenager",
+                    "purple name tag marked with the number 27 on the left chest",
+                    "short blue hair, side ponytail",
+                    "erected fox ears",
+                    "calm composed expression (usual), gentle yet intimidating teacher-like expression (training mode)",
+                    "As a purple name tag on the white area of the left chest on the sphere's front, light blue (printed on purple name tag), Arabic numeral '27'"
+                ],
+                "negative_visuals": [
+                    "white blouse",
+                    "purple pleated skirt",
+                    "blue lace-up ankle boots",
+                    "outfit combining a white blouse and a purple skirt"
+                ],
+                "natural_language_description": "Corefolder form: a spherical cushion-like body in short blue hair, side ponytail; erected fox ears, with the number '27' marking (As a purple name tag on the white area of the left chest on the sphere's front, light blue (printed on purple name tag), Arabic numeral with an underbar on the left of digits: '_27'); number '27' marking on purple name tag.",
+                "prompt_export": "corefolder form, branching fox 7 tails, slightly tall stature (about 162cm), teenager, purple name tag marked with the number 27 on the left chest, short blue hair, side ponytail, erected fox ears, calm composed expression (usual), gentle yet intimidating teacher-like expression (training mode), As a purple name tag on the white area of the left chest on the sphere's front, light blue (printed on purple name tag), Arabic numeral '27'",
+                "negative_prompt_export": "white blouse, purple pleated skirt, blue lace-up ankle boots, outfit combining a white blouse and a purple skirt",
+                "reference_images": {
+                    "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-27.png",
+                    "corefolder": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/corefolder/27/emstk_corefolderNTS-27-1.png",
+                    "corefolder_arts": [
+                        "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/arts/corefolders/sphericateDay/art_sphericateDay202403.png"
+                    ]
+                }
+            },
+            "humanoid": {
+                "form_tags": [
+                    "humanoid form"
+                ],
+                "outfit_features": [
+                    "white blouse",
+                    "purple pleated skirt",
+                    "blue lace-up ankle boots",
+                    "outfit combining a white blouse and a purple skirt"
+                ],
+                "silhouette_notes": {
+                    "body_description": [
+                        "short blue hair, side ponytail",
+                        "erected fox ears",
+                        "four white buttons"
+                    ],
+                    "attached_items": []
+                },
+                "immutable_constraints": null,
+                "negative_keywords": null,
+                "ai_tags": [
+                    "humanoid form",
+                    "branching fox 7 tails",
+                    "slightly tall stature (about 162cm)",
+                    "teenager",
+                    "purple name tag marked with the number 27 on the left chest",
+                    "short blue hair, side ponytail",
+                    "erected fox ears",
+                    "calm composed expression (usual), gentle yet intimidating teacher-like expression (training mode)",
+                    "As a purple name tag around the left chest to left side of the casual wear, light blue (printed on purple name tag), Arabic numeral '27'",
+                    "white blouse",
+                    "purple pleated skirt",
+                    "four white buttons",
+                    "blue lace-up ankle boots",
+                    "outfit combining a white blouse and a purple skirt"
+                ],
+                "negative_visuals": [
+                    "number '27' marking on purple name tag"
+                ],
+                "natural_language_description": null,
+                "prompt_export": "humanoid form, branching fox 7 tails, slightly tall stature (about 162cm), teenager, purple name tag marked with the number 27 on the left chest, short blue hair, side ponytail, erected fox ears, calm composed expression (usual), gentle yet intimidating teacher-like expression (training mode), As a purple name tag around the left chest to left side of the casual wear, light blue (printed on purple name tag), Arabic numeral '27', white blouse, purple pleated skirt, four white buttons, blue lace-up ankle boots, outfit combining a white blouse and a purple skirt",
+                "negative_prompt_export": "number '27' marking on purple name tag",
+                "reference_images": {
+                    "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-27.png"
+                }
+            }
+        },
+        "alt_modes": null,
+        "concept_contains_forms": [
+            "corefolder",
+            "humanoid"
+        ],
+        "_meta": {
+            "structuralSourceHash": "sha256:a34c6de8124249863f7f8d49ab381115a30fcd46b5bae3e173e6fe10d7e22b9b",
+            "structuralEntries": {
+                "common.identity_tags": [
+                    "purple name tag marked with the number 27 on the left chest",
+                    "short blue hair, side ponytail",
+                    "erected fox ears"
+                ],
+                "common.silhouette_features": [
+                    "branching fox 7 tails",
+                    "slightly tall stature (about 162cm)",
+                    "short blue hair, side ponytail",
+                    "erected fox ears"
+                ],
+                "common.expression_tendency": [
+                    "calm composed expression (usual), gentle yet intimidating teacher-like expression (training mode)"
+                ],
+                "forms.corefolder.form_tags": [
+                    "corefolder form"
+                ],
+                "forms.corefolder.ai_tags": [
+                    "corefolder form",
+                    "branching fox 7 tails",
+                    "slightly tall stature (about 162cm)",
+                    "teenager",
+                    "purple name tag marked with the number 27 on the left chest",
+                    "short blue hair, side ponytail",
+                    "erected fox ears",
+                    "calm composed expression (usual), gentle yet intimidating teacher-like expression (training mode)",
+                    "As a purple name tag on the white area of the left chest on the sphere's front, light blue (printed on purple name tag), Arabic numeral '27'"
+                ],
+                "forms.corefolder.immutable_constraints": [
+                    "do not render arms or hands",
+                    "do not render legs or feet",
+                    "do not dress in humanoid casual / fashion outfit"
+                ],
+                "forms.corefolder.negative_keywords": [
+                    "feet",
+                    "legs",
+                    "shoes",
+                    "high heels",
+                    "arms",
+                    "hands",
+                    "hoodie",
+                    "blazer",
+                    "fashion outfit",
+                    "bound by rope"
+                ],
+                "forms.humanoid.form_tags": [
+                    "humanoid form"
+                ],
+                "forms.humanoid.ai_tags": [
+                    "humanoid form",
+                    "branching fox 7 tails",
+                    "slightly tall stature (about 162cm)",
+                    "teenager",
+                    "purple name tag marked with the number 27 on the left chest",
+                    "short blue hair, side ponytail",
+                    "erected fox ears",
+                    "calm composed expression (usual), gentle yet intimidating teacher-like expression (training mode)",
+                    "As a purple name tag around the left chest to left side of the casual wear, light blue (printed on purple name tag), Arabic numeral '27'",
+                    "white blouse",
+                    "purple pleated skirt",
+                    "four white buttons",
+                    "blue lace-up ankle boots",
+                    "outfit combining a white blouse and a purple skirt"
+                ]
+            },
+            "lastStructuralResync": "2026-11-20"
+        }
     }
   },
   {
@@ -23318,226 +23440,242 @@
       }
     ],
     "AIHints": {
-      "common": {
-        "identity_tags": [
-          "Fox",
-          "short salmon-pink hair",
-          "red eyelashes with red and yellow eyes",
-          "yellow necktie and pin with '37' motif"
-        ],
-        "silhouette_features": [
-          "branching fox 7 tails",
-          "average stature (about 157cm)",
-          "Fox",
-          "short salmon-pink hair",
-          "red eyelashes with red and yellow eyes"
-        ],
-        "immutable_traits": [
-          "number '37' marking: the shape of the tie pin, red text with white frame, Arabic numeral '37.' (motif composed of multiple triangles)"
-        ],
-        "expression_tendency": [
-          "earnest diligent expression (usual)",
-          "childlike spoiled smile (when praised or patted on the head)"
-        ],
-        "age_appearance": "teenager",
-        "palette_priority": {
-          "primary": "#FFA79B",
-          "secondary": "#9DB0DB",
-          "accent": "#FF8682"
-        },
-        "natural_language_description": null,
-        "reference_images": {
-          "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-37.png",
-          "concept": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-37.png"
-        }
-      },
-      "work_common": {
-        "reference_images": {
-          "corefolder_reference": [
-            "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/Ref_Vocabulary/concept-figure/cnsp-fg_NTsCoreFolder.png"
-          ],
-          "humanoid_reference": [
-            "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/Ref_Vocabulary/concept-figure/cnsp-fg_NTsHumanoid.png"
-          ]
-        }
-      },
-      "forms": {
-        "humanoid": {
-          "form_tags": ["humanoid form"],
-          "outfit_features": [
-            "yellow necktie and pin with '37' motif",
-            "white shorts",
-            "casual private outfit"
-          ],
-          "silhouette_notes": {
-            "body_description": [
-              "Fox",
-              "short salmon-pink hair",
-              "red eyelashes with red and yellow eyes",
-              "red blazer with blue trim"
+        "common": {
+            "identity_tags": [
+                "Fox",
+                "short salmon-pink hair",
+                "red eyelashes with red and yellow eyes",
+                "yellow necktie and pin with '37' motif"
             ],
-            "attached_items": []
-          },
-          "immutable_constraints": null,
-          "negative_keywords": null,
-          "ai_tags": [
-            "humanoid form",
-            "branching fox 7 tails",
-            "average stature (about 157cm)",
-            "teenager",
-            "the shape of the tie pin, red text with white frame, Arabic numeral '37.' (motif composed of multiple triangles)",
-            "Fox",
-            "short salmon-pink hair",
-            "red eyelashes with red and yellow eyes",
-            "earnest diligent expression (usual)",
-            "childlike spoiled smile (when praised or patted on the head)",
-            "yellow necktie and pin with '37' motif",
-            "red blazer with blue trim",
-            "white shorts",
-            "casual private outfit"
-          ],
-          "negative_visuals": [],
-          "natural_language_description": null,
-          "prompt_export": "humanoid form, branching fox 7 tails, average stature (about 157cm), teenager, the shape of the tie pin, red text with white frame, Arabic numeral '37.' (motif composed of multiple triangles), Fox, short salmon-pink hair, red eyelashes with red and yellow eyes, earnest diligent expression (usual), childlike spoiled smile (when praised or patted on the head), yellow necktie and pin with '37' motif, red blazer with blue trim, white shorts, casual private outfit",
-          "negative_prompt_export": "",
-          "reference_images": {
-            "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-37.png"
-          }
-        },
-        "corefolder": {
-          "form_tags": ["corefolder form"],
-          "outfit_features": ["yellow necktie and pin with '37' motif"],
-          "silhouette_notes": {
-            "body_description": [
-              "spherical core body with the head as the only protruding part on top",
-              "Fox",
-              "short salmon-pink hair",
-              "red eyelashes with red and yellow eyes"
+            "silhouette_features": [
+                "branching fox 7 tails",
+                "average stature (about 157cm)",
+                "Fox",
+                "short salmon-pink hair",
+                "red eyelashes with red and yellow eyes"
             ],
-            "attached_items": []
-          },
-          "immutable_constraints": [
-            "do not render arms or hands",
-            "do not render legs or feet",
-            "do not dress in humanoid casual / fashion outfit"
-          ],
-          "negative_keywords": [
-            "feet",
-            "legs",
-            "shoes",
-            "high heels",
-            "arms",
-            "hands",
-            "hoodie",
-            "blazer",
-            "fashion outfit",
-            "bound by rope"
-          ],
-          "ai_tags": [
-            "corefolder form",
-            "branching fox 7 tails",
-            "average stature (about 157cm)",
-            "teenager",
-            "the shape of the tie pin, red text with white frame, Arabic numeral '37.' (motif composed of multiple triangles)",
-            "Fox",
-            "short salmon-pink hair",
-            "red eyelashes with red and yellow eyes",
-            "earnest diligent expression (usual)",
-            "childlike spoiled smile (when praised or patted on the head)",
-            "yellow necktie and pin with '37' motif"
-          ],
-          "negative_visuals": ["white shorts", "casual private outfit"],
-          "natural_language_description": "Corefolder form: a spherical cushion-like body in Fox; short salmon-pink hair; red eyelashes with red and yellow eyes, with the number '37' marking (the shape of the tie pin, red text with white frame, Arabic numeral '37.' (motif composed of multiple triangles)).",
-          "prompt_export": "corefolder form, branching fox 7 tails, average stature (about 157cm), teenager, the shape of the tie pin, red text with white frame, Arabic numeral '37.' (motif composed of multiple triangles), Fox, short salmon-pink hair, red eyelashes with red and yellow eyes, earnest diligent expression (usual), childlike spoiled smile (when praised or patted on the head), yellow necktie and pin with '37' motif",
-          "negative_prompt_export": "white shorts, casual private outfit",
-          "reference_images": {
-            "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-37.png",
-            "corefolder": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/corefolder/37/emstk_corefolderNTS-37-1.png",
-            "corefolder_arts": [
-              "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/arts/corefolders/sphericateDay/art_sphericateDay202212r1A.png",
-              "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/arts/corefolders/sphericateDay/art_sphericateDay202212r1B.png",
-              "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/arts/corefolders/2024/art_imgNTS-37-corefolderA.png",
-              "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/arts/corefolders/2024/art_imgNTS-37-corefolderB.png"
-            ]
-          }
-        }
-      },
-      "alt_modes": null,
-      "concept_contains_forms": ["corefolder", "humanoid"],
-      "_meta": {
-        "structuralSourceHash": "sha256:1784a115ae2fe8c5afcffbd0aac6fa0d8b5cbf74b73c12dae054866bc9489a90",
-        "structuralEntries": {
-          "common.identity_tags": [
-            "Fox",
-            "short salmon-pink hair",
-            "red eyelashes with red and yellow eyes",
-            "yellow necktie and pin with '37' motif"
-          ],
-          "common.silhouette_features": [
-            "branching fox 7 tails",
-            "average stature (about 157cm)",
-            "Fox",
-            "short salmon-pink hair",
-            "red eyelashes with red and yellow eyes"
-          ],
-          "common.immutable_traits": [
-            "number '37' marking: the shape of the tie pin, red text with white frame, Arabic numeral '37.' (motif composed of multiple triangles)"
-          ],
-          "common.expression_tendency": [
-            "earnest diligent expression (usual)",
-            "childlike spoiled smile (when praised or patted on the head)"
-          ],
-          "forms.humanoid.form_tags": ["humanoid form"],
-          "forms.humanoid.ai_tags": [
-            "humanoid form",
-            "branching fox 7 tails",
-            "average stature (about 157cm)",
-            "teenager",
-            "the shape of the tie pin, red text with white frame, Arabic numeral '37.' (motif composed of multiple triangles)",
-            "Fox",
-            "short salmon-pink hair",
-            "red eyelashes with red and yellow eyes",
-            "earnest diligent expression (usual)",
-            "childlike spoiled smile (when praised or patted on the head)",
-            "yellow necktie and pin with '37' motif",
-            "red blazer with blue trim",
-            "white shorts",
-            "casual private outfit"
-          ],
-          "forms.corefolder.form_tags": ["corefolder form"],
-          "forms.corefolder.ai_tags": [
-            "corefolder form",
-            "branching fox 7 tails",
-            "average stature (about 157cm)",
-            "teenager",
-            "the shape of the tie pin, red text with white frame, Arabic numeral '37.' (motif composed of multiple triangles)",
-            "Fox",
-            "short salmon-pink hair",
-            "red eyelashes with red and yellow eyes",
-            "earnest diligent expression (usual)",
-            "childlike spoiled smile (when praised or patted on the head)",
-            "yellow necktie and pin with '37' motif"
-          ],
-          "forms.corefolder.immutable_constraints": [
-            "do not render arms or hands",
-            "do not render legs or feet",
-            "do not dress in humanoid casual / fashion outfit"
-          ],
-          "forms.corefolder.negative_keywords": [
-            "feet",
-            "legs",
-            "shoes",
-            "high heels",
-            "arms",
-            "hands",
-            "hoodie",
-            "blazer",
-            "fashion outfit",
-            "bound by rope"
-          ]
+            "immutable_traits": [
+                "number '37' marking: the shape of the tie pin, red text with white frame, Arabic numeral '37.' (motif composed of multiple triangles)"
+            ],
+            "expression_tendency": [
+                "earnest diligent expression (usual)",
+                "childlike spoiled smile (when praised or patted on the head)"
+            ],
+            "age_appearance": "teenager",
+            "palette_priority": {
+                "primary": "#FFA79B",
+                "secondary": "#9DB0DB",
+                "accent": "#FF8682"
+            },
+            "natural_language_description": null,
+            "reference_images": {
+                "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-37.png",
+                "concept": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-37.png"
+            }
         },
-        "lastStructuralResync": "2026-08-11"
-      }
+        "work_common": {
+            "reference_images": {
+                "corefolder_reference": [
+                    "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/Ref_Vocabulary/concept-figure/cnsp-fg_NTsCoreFolder.png"
+                ],
+                "humanoid_reference": [
+                    "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/Ref_Vocabulary/concept-figure/cnsp-fg_NTsHumanoid.png"
+                ]
+            }
+        },
+        "forms": {
+            "humanoid": {
+                "form_tags": [
+                    "humanoid form"
+                ],
+                "outfit_features": [
+                    "yellow necktie and pin with '37' motif",
+                    "white shorts",
+                    "outfit combining a red jacket with blue trim and white shorts"
+                ],
+                "silhouette_notes": {
+                    "body_description": [
+                        "Fox",
+                        "short salmon-pink hair",
+                        "red eyelashes with red and yellow eyes",
+                        "red blazer with blue trim"
+                    ],
+                    "attached_items": []
+                },
+                "immutable_constraints": null,
+                "negative_keywords": null,
+                "ai_tags": [
+                    "humanoid form",
+                    "branching fox 7 tails",
+                    "average stature (about 157cm)",
+                    "teenager",
+                    "the shape of the tie pin, red text with white frame, Arabic numeral '37.' (motif composed of multiple triangles)",
+                    "Fox",
+                    "short salmon-pink hair",
+                    "red eyelashes with red and yellow eyes",
+                    "earnest diligent expression (usual)",
+                    "childlike spoiled smile (when praised or patted on the head)",
+                    "yellow necktie and pin with '37' motif",
+                    "red blazer with blue trim",
+                    "white shorts",
+                    "outfit combining a red jacket with blue trim and white shorts"
+                ],
+                "negative_visuals": [],
+                "natural_language_description": null,
+                "prompt_export": "humanoid form, branching fox 7 tails, average stature (about 157cm), teenager, the shape of the tie pin, red text with white frame, Arabic numeral '37.' (motif composed of multiple triangles), Fox, short salmon-pink hair, red eyelashes with red and yellow eyes, earnest diligent expression (usual), childlike spoiled smile (when praised or patted on the head), yellow necktie and pin with '37' motif, red blazer with blue trim, white shorts, outfit combining a red jacket with blue trim and white shorts",
+                "negative_prompt_export": "",
+                "reference_images": {
+                    "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-37.png"
+                }
+            },
+            "corefolder": {
+                "form_tags": [
+                    "corefolder form"
+                ],
+                "outfit_features": [
+                    "yellow necktie and pin with '37' motif"
+                ],
+                "silhouette_notes": {
+                    "body_description": [
+                        "spherical core body with the head as the only protruding part on top",
+                        "Fox",
+                        "short salmon-pink hair",
+                        "red eyelashes with red and yellow eyes"
+                    ],
+                    "attached_items": []
+                },
+                "immutable_constraints": [
+                    "do not render arms or hands",
+                    "do not render legs or feet",
+                    "do not dress in humanoid casual / fashion outfit"
+                ],
+                "negative_keywords": [
+                    "feet",
+                    "legs",
+                    "shoes",
+                    "high heels",
+                    "arms",
+                    "hands",
+                    "hoodie",
+                    "blazer",
+                    "fashion outfit",
+                    "bound by rope"
+                ],
+                "ai_tags": [
+                    "corefolder form",
+                    "branching fox 7 tails",
+                    "average stature (about 157cm)",
+                    "teenager",
+                    "the shape of the tie pin, red text with white frame, Arabic numeral '37.' (motif composed of multiple triangles)",
+                    "Fox",
+                    "short salmon-pink hair",
+                    "red eyelashes with red and yellow eyes",
+                    "earnest diligent expression (usual)",
+                    "childlike spoiled smile (when praised or patted on the head)",
+                    "yellow necktie and pin with '37' motif"
+                ],
+                "negative_visuals": [
+                    "white shorts",
+                    "outfit combining a red jacket with blue trim and white shorts"
+                ],
+                "natural_language_description": "Corefolder form: a spherical cushion-like body in Fox; short salmon-pink hair; red eyelashes with red and yellow eyes, with the number '37' marking (the shape of the tie pin, red text with white frame, Arabic numeral '37.' (motif composed of multiple triangles)).",
+                "prompt_export": "corefolder form, branching fox 7 tails, average stature (about 157cm), teenager, the shape of the tie pin, red text with white frame, Arabic numeral '37.' (motif composed of multiple triangles), Fox, short salmon-pink hair, red eyelashes with red and yellow eyes, earnest diligent expression (usual), childlike spoiled smile (when praised or patted on the head), yellow necktie and pin with '37' motif",
+                "negative_prompt_export": "white shorts, outfit combining a red jacket with blue trim and white shorts",
+                "reference_images": {
+                    "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-37.png",
+                    "corefolder": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/corefolder/37/emstk_corefolderNTS-37-1.png",
+                    "corefolder_arts": [
+                        "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/arts/corefolders/sphericateDay/art_sphericateDay202212r1A.png",
+                        "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/arts/corefolders/sphericateDay/art_sphericateDay202212r1B.png",
+                        "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/arts/corefolders/2024/art_imgNTS-37-corefolderA.png",
+                        "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/arts/corefolders/2024/art_imgNTS-37-corefolderB.png"
+                    ]
+                }
+            }
+        },
+        "alt_modes": null,
+        "concept_contains_forms": [
+            "corefolder",
+            "humanoid"
+        ],
+        "_meta": {
+            "structuralSourceHash": "sha256:0b8953e27ec561bf5834d832a20a787aa855a791a76ee4fde37678d17ba1db09",
+            "structuralEntries": {
+                "common.identity_tags": [
+                    "Fox",
+                    "short salmon-pink hair",
+                    "red eyelashes with red and yellow eyes",
+                    "yellow necktie and pin with '37' motif"
+                ],
+                "common.silhouette_features": [
+                    "branching fox 7 tails",
+                    "average stature (about 157cm)",
+                    "Fox",
+                    "short salmon-pink hair",
+                    "red eyelashes with red and yellow eyes"
+                ],
+                "common.immutable_traits": [
+                    "number '37' marking: the shape of the tie pin, red text with white frame, Arabic numeral '37.' (motif composed of multiple triangles)"
+                ],
+                "common.expression_tendency": [
+                    "earnest diligent expression (usual)",
+                    "childlike spoiled smile (when praised or patted on the head)"
+                ],
+                "forms.humanoid.form_tags": [
+                    "humanoid form"
+                ],
+                "forms.humanoid.ai_tags": [
+                    "humanoid form",
+                    "branching fox 7 tails",
+                    "average stature (about 157cm)",
+                    "teenager",
+                    "the shape of the tie pin, red text with white frame, Arabic numeral '37.' (motif composed of multiple triangles)",
+                    "Fox",
+                    "short salmon-pink hair",
+                    "red eyelashes with red and yellow eyes",
+                    "earnest diligent expression (usual)",
+                    "childlike spoiled smile (when praised or patted on the head)",
+                    "yellow necktie and pin with '37' motif",
+                    "red blazer with blue trim",
+                    "white shorts",
+                    "outfit combining a red jacket with blue trim and white shorts"
+                ],
+                "forms.corefolder.form_tags": [
+                    "corefolder form"
+                ],
+                "forms.corefolder.ai_tags": [
+                    "corefolder form",
+                    "branching fox 7 tails",
+                    "average stature (about 157cm)",
+                    "teenager",
+                    "the shape of the tie pin, red text with white frame, Arabic numeral '37.' (motif composed of multiple triangles)",
+                    "Fox",
+                    "short salmon-pink hair",
+                    "red eyelashes with red and yellow eyes",
+                    "earnest diligent expression (usual)",
+                    "childlike spoiled smile (when praised or patted on the head)",
+                    "yellow necktie and pin with '37' motif"
+                ],
+                "forms.corefolder.immutable_constraints": [
+                    "do not render arms or hands",
+                    "do not render legs or feet",
+                    "do not dress in humanoid casual / fashion outfit"
+                ],
+                "forms.corefolder.negative_keywords": [
+                    "feet",
+                    "legs",
+                    "shoes",
+                    "high heels",
+                    "arms",
+                    "hands",
+                    "hoodie",
+                    "blazer",
+                    "fashion outfit",
+                    "bound by rope"
+                ]
+            },
+            "lastStructuralResync": "2026-11-20"
+        }
     }
   },
   {
@@ -24045,199 +24183,220 @@
       }
     ],
     "AIHints": {
-      "common": {
-        "identity_tags": ["Fox", "short amber-blonde hair"],
-        "silhouette_features": [
-          "branching fox 9 tails",
-          "slightly tall stature (about 162cm)",
-          "Fox",
-          "short amber-blonde hair"
+        "common": {
+            "identity_tags": [
+                "Fox",
+                "short amber-blonde hair"
+            ],
+            "silhouette_features": [
+                "branching fox 9 tails",
+                "slightly tall stature (about 162cm)",
+                "Fox",
+                "short amber-blonde hair"
+            ],
+            "immutable_traits": null,
+            "expression_tendency": [
+                "cool composed expression"
+            ],
+            "age_appearance": "young adult",
+            "palette_priority": {
+                "primary": "#C1A072",
+                "secondary": "#9A6A4E",
+                "accent": "#FFF4DF"
+            },
+            "natural_language_description": null,
+            "reference_images": {
+                "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-39.png",
+                "concept": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-39.png",
+                "catalog": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/catalog/chr-dsgn_catalogNTS-39.png"
+            }
+        },
+        "work_common": {
+            "reference_images": {
+                "corefolder_reference": [
+                    "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/Ref_Vocabulary/concept-figure/cnsp-fg_NTsCoreFolder.png"
+                ],
+                "humanoid_reference": [
+                    "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/Ref_Vocabulary/concept-figure/cnsp-fg_NTsHumanoid.png"
+                ]
+            }
+        },
+        "forms": {
+            "corefolder": {
+                "form_tags": [
+                    "corefolder form"
+                ],
+                "outfit_features": [],
+                "silhouette_notes": {
+                    "body_description": [
+                        "spherical core body with the head as the only protruding part on top",
+                        "Fox",
+                        "short amber-blonde hair",
+                        "young adult male",
+                        "masculine stature"
+                    ],
+                    "attached_items": []
+                },
+                "immutable_constraints": [
+                    "do not render arms or hands",
+                    "do not render legs or feet",
+                    "do not dress in humanoid casual / fashion outfit"
+                ],
+                "negative_keywords": [
+                    "feet",
+                    "legs",
+                    "shoes",
+                    "high heels",
+                    "arms",
+                    "hands",
+                    "hoodie",
+                    "blazer",
+                    "fashion outfit",
+                    "bound by rope"
+                ],
+                "ai_tags": [
+                    "corefolder form",
+                    "branching fox 9 tails",
+                    "slightly tall stature (about 162cm)",
+                    "young adult",
+                    "Fox",
+                    "short amber-blonde hair",
+                    "cool composed expression",
+                    "Slightly large, centered on the front of the sphere at chest level, Dark color, Arabic numeral '39' (stylized motif)",
+                    "young adult male"
+                ],
+                "negative_visuals": [
+                    "long dark brown trench coat",
+                    "wide relaxed pants",
+                    "outfit combining a brown long coat and loose pale cream pants"
+                ],
+                "natural_language_description": "Corefolder form: a spherical cushion-like body in Fox; short amber-blonde hair; young adult male; masculine stature, with the number '39' marking (Slightly large, centered on the front of the sphere at chest level, Dark color, Arabic numeral '39' (stylized motif)).",
+                "prompt_export": "corefolder form, branching fox 9 tails, slightly tall stature (about 162cm), young adult, Fox, short amber-blonde hair, cool composed expression, Slightly large, centered on the front of the sphere at chest level, Dark color, Arabic numeral '39' (stylized motif), young adult male",
+                "negative_prompt_export": "long dark brown trench coat, wide relaxed pants, outfit combining a brown long coat and loose pale cream pants",
+                "reference_images": {
+                    "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-39.png",
+                    "corefolder": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/corefolder/39/emstk_corefolderNTS-39-1.png"
+                }
+            },
+            "humanoid": {
+                "form_tags": [
+                    "humanoid form"
+                ],
+                "outfit_features": [
+                    "long dark brown trench coat",
+                    "wide relaxed pants",
+                    "outfit combining a brown long coat and loose pale cream pants"
+                ],
+                "silhouette_notes": {
+                    "body_description": [
+                        "Fox",
+                        "short amber-blonde hair",
+                        "belt supporter with number design at waist",
+                        "tall masculine stature"
+                    ],
+                    "attached_items": []
+                },
+                "immutable_constraints": null,
+                "negative_keywords": null,
+                "ai_tags": [
+                    "humanoid form",
+                    "branching fox 9 tails",
+                    "slightly tall stature (about 162cm)",
+                    "young adult",
+                    "Fox",
+                    "short amber-blonde hair",
+                    "cool composed expression",
+                    "Prominently across the entire supporter visible from the inner side of the waist, Dark color, Arabic numeral '39' (stylized motif)",
+                    "masculine stature",
+                    "long dark brown trench coat",
+                    "belt supporter with number design at waist",
+                    "wide relaxed pants",
+                    "outfit combining a brown long coat and loose pale cream pants",
+                    "tall masculine stature"
+                ],
+                "negative_visuals": [],
+                "natural_language_description": null,
+                "prompt_export": "humanoid form, branching fox 9 tails, slightly tall stature (about 162cm), young adult, Fox, short amber-blonde hair, cool composed expression, Prominently across the entire supporter visible from the inner side of the waist, Dark color, Arabic numeral '39' (stylized motif), masculine stature, long dark brown trench coat, belt supporter with number design at waist, wide relaxed pants, outfit combining a brown long coat and loose pale cream pants, tall masculine stature",
+                "negative_prompt_export": "",
+                "reference_images": {
+                    "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-39.png"
+                }
+            }
+        },
+        "alt_modes": null,
+        "concept_contains_forms": [
+            "corefolder",
+            "humanoid"
         ],
-        "immutable_traits": null,
-        "expression_tendency": ["cool composed expression"],
-        "age_appearance": "young adult",
-        "palette_priority": {
-          "primary": "#C1A072",
-          "secondary": "#9A6A4E",
-          "accent": "#FFF4DF"
-        },
-        "natural_language_description": null,
-        "reference_images": {
-          "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-39.png",
-          "concept": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-39.png",
-          "catalog": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/catalog/chr-dsgn_catalogNTS-39.png"
+        "_meta": {
+            "structuralSourceHash": "sha256:4616292ad5a138df4ed7ed6ffdd50b92653b26563ad5eb9dfff375b7b940e791",
+            "structuralEntries": {
+                "common.identity_tags": [
+                    "Fox",
+                    "short amber-blonde hair"
+                ],
+                "common.silhouette_features": [
+                    "branching fox 9 tails",
+                    "slightly tall stature (about 162cm)",
+                    "Fox",
+                    "short amber-blonde hair"
+                ],
+                "common.expression_tendency": [
+                    "cool composed expression"
+                ],
+                "forms.corefolder.form_tags": [
+                    "corefolder form"
+                ],
+                "forms.corefolder.ai_tags": [
+                    "corefolder form",
+                    "branching fox 9 tails",
+                    "slightly tall stature (about 162cm)",
+                    "young adult",
+                    "Fox",
+                    "short amber-blonde hair",
+                    "cool composed expression",
+                    "Slightly large, centered on the front of the sphere at chest level, Dark color, Arabic numeral '39' (stylized motif)",
+                    "young adult male"
+                ],
+                "forms.corefolder.immutable_constraints": [
+                    "do not render arms or hands",
+                    "do not render legs or feet",
+                    "do not dress in humanoid casual / fashion outfit"
+                ],
+                "forms.corefolder.negative_keywords": [
+                    "feet",
+                    "legs",
+                    "shoes",
+                    "high heels",
+                    "arms",
+                    "hands",
+                    "hoodie",
+                    "blazer",
+                    "fashion outfit",
+                    "bound by rope"
+                ],
+                "forms.humanoid.form_tags": [
+                    "humanoid form"
+                ],
+                "forms.humanoid.ai_tags": [
+                    "humanoid form",
+                    "branching fox 9 tails",
+                    "slightly tall stature (about 162cm)",
+                    "young adult",
+                    "Fox",
+                    "short amber-blonde hair",
+                    "cool composed expression",
+                    "Prominently across the entire supporter visible from the inner side of the waist, Dark color, Arabic numeral '39' (stylized motif)",
+                    "masculine stature",
+                    "long dark brown trench coat",
+                    "belt supporter with number design at waist",
+                    "wide relaxed pants",
+                    "outfit combining a brown long coat and loose pale cream pants",
+                    "tall masculine stature"
+                ]
+            },
+            "lastStructuralResync": "2026-11-20"
         }
-      },
-      "work_common": {
-        "reference_images": {
-          "corefolder_reference": [
-            "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/Ref_Vocabulary/concept-figure/cnsp-fg_NTsCoreFolder.png"
-          ],
-          "humanoid_reference": [
-            "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/Ref_Vocabulary/concept-figure/cnsp-fg_NTsHumanoid.png"
-          ]
-        }
-      },
-      "forms": {
-        "corefolder": {
-          "form_tags": ["corefolder form"],
-          "outfit_features": [],
-          "silhouette_notes": {
-            "body_description": [
-              "spherical core body with the head as the only protruding part on top",
-              "Fox",
-              "short amber-blonde hair",
-              "young adult male",
-              "masculine stature"
-            ],
-            "attached_items": []
-          },
-          "immutable_constraints": [
-            "do not render arms or hands",
-            "do not render legs or feet",
-            "do not dress in humanoid casual / fashion outfit"
-          ],
-          "negative_keywords": [
-            "feet",
-            "legs",
-            "shoes",
-            "high heels",
-            "arms",
-            "hands",
-            "hoodie",
-            "blazer",
-            "fashion outfit",
-            "bound by rope"
-          ],
-          "ai_tags": [
-            "corefolder form",
-            "branching fox 9 tails",
-            "slightly tall stature (about 162cm)",
-            "young adult",
-            "Fox",
-            "short amber-blonde hair",
-            "cool composed expression",
-            "Slightly large, centered on the front of the sphere at chest level, Dark color, Arabic numeral '39' (stylized motif)",
-            "young adult male"
-          ],
-          "negative_visuals": [
-            "long dark brown trench coat",
-            "wide relaxed pants",
-            "casual private outfit"
-          ],
-          "natural_language_description": "Corefolder form: a spherical cushion-like body in Fox; short amber-blonde hair; young adult male; masculine stature, with the number '39' marking (Slightly large, centered on the front of the sphere at chest level, Dark color, Arabic numeral '39' (stylized motif)).",
-          "prompt_export": "corefolder form, branching fox 9 tails, slightly tall stature (about 162cm), young adult, Fox, short amber-blonde hair, cool composed expression, Slightly large, centered on the front of the sphere at chest level, Dark color, Arabic numeral '39' (stylized motif), young adult male",
-          "negative_prompt_export": "long dark brown trench coat, wide relaxed pants, casual private outfit",
-          "reference_images": {
-            "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-39.png",
-            "corefolder": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/corefolder/39/emstk_corefolderNTS-39-1.png"
-          }
-        },
-        "humanoid": {
-          "form_tags": ["humanoid form"],
-          "outfit_features": [
-            "long dark brown trench coat",
-            "wide relaxed pants",
-            "casual private outfit"
-          ],
-          "silhouette_notes": {
-            "body_description": [
-              "Fox",
-              "short amber-blonde hair",
-              "belt supporter with number design at waist",
-              "tall masculine stature"
-            ],
-            "attached_items": []
-          },
-          "immutable_constraints": null,
-          "negative_keywords": null,
-          "ai_tags": [
-            "humanoid form",
-            "branching fox 9 tails",
-            "slightly tall stature (about 162cm)",
-            "young adult",
-            "Fox",
-            "short amber-blonde hair",
-            "cool composed expression",
-            "Prominently across the entire supporter visible from the inner side of the waist, Dark color, Arabic numeral '39' (stylized motif)",
-            "masculine stature",
-            "long dark brown trench coat",
-            "belt supporter with number design at waist",
-            "wide relaxed pants",
-            "casual private outfit",
-            "tall masculine stature"
-          ],
-          "negative_visuals": [],
-          "natural_language_description": null,
-          "prompt_export": "humanoid form, branching fox 9 tails, slightly tall stature (about 162cm), young adult, Fox, short amber-blonde hair, cool composed expression, Prominently across the entire supporter visible from the inner side of the waist, Dark color, Arabic numeral '39' (stylized motif), masculine stature, long dark brown trench coat, belt supporter with number design at waist, wide relaxed pants, casual private outfit, tall masculine stature",
-          "negative_prompt_export": "",
-          "reference_images": {
-            "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-39.png"
-          }
-        }
-      },
-      "alt_modes": null,
-      "concept_contains_forms": ["corefolder", "humanoid"],
-      "_meta": {
-        "structuralSourceHash": "sha256:767a8714abb4b38ee9992a76620ad3e8987566b5c0583d71d9b52258d4cf592f",
-        "structuralEntries": {
-          "common.identity_tags": ["Fox", "short amber-blonde hair"],
-          "common.silhouette_features": [
-            "branching fox 9 tails",
-            "slightly tall stature (about 162cm)",
-            "Fox",
-            "short amber-blonde hair"
-          ],
-          "common.expression_tendency": ["cool composed expression"],
-          "forms.corefolder.form_tags": ["corefolder form"],
-          "forms.corefolder.ai_tags": [
-            "corefolder form",
-            "branching fox 9 tails",
-            "slightly tall stature (about 162cm)",
-            "young adult",
-            "Fox",
-            "short amber-blonde hair",
-            "cool composed expression",
-            "Slightly large, centered on the front of the sphere at chest level, Dark color, Arabic numeral '39' (stylized motif)",
-            "young adult male"
-          ],
-          "forms.corefolder.immutable_constraints": [
-            "do not render arms or hands",
-            "do not render legs or feet",
-            "do not dress in humanoid casual / fashion outfit"
-          ],
-          "forms.corefolder.negative_keywords": [
-            "feet",
-            "legs",
-            "shoes",
-            "high heels",
-            "arms",
-            "hands",
-            "hoodie",
-            "blazer",
-            "fashion outfit",
-            "bound by rope"
-          ],
-          "forms.humanoid.form_tags": ["humanoid form"],
-          "forms.humanoid.ai_tags": [
-            "humanoid form",
-            "branching fox 9 tails",
-            "slightly tall stature (about 162cm)",
-            "young adult",
-            "Fox",
-            "short amber-blonde hair",
-            "cool composed expression",
-            "Prominently across the entire supporter visible from the inner side of the waist, Dark color, Arabic numeral '39' (stylized motif)",
-            "masculine stature",
-            "long dark brown trench coat",
-            "belt supporter with number design at waist",
-            "wide relaxed pants",
-            "casual private outfit",
-            "tall masculine stature"
-          ]
-        },
-        "lastStructuralResync": "2026-11-19"
-      }
     }
   },
   {

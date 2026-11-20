@@ -35,7 +35,9 @@ node tools/patch-appearance-detail.mjs --work NumberTales --patch .cache/appeara
 
 形態・衣装・着脱を判断するときは [schema/meta 詳解](schema-meta-processing.md) の外見の節を参照してください。原画にない姿や未確定の状態対応は、候補へ断定して追加せず作者へ確認します。
 
-## 画像と衣装の対応表（#60 E・次段階の設計案）
+## 画像と衣装の対応表（#60 Eから分離したIssue #63の設計案）
+
+実装課題は [Issue #63](https://github.com/radiann-kswg/100BeautiesLab_CreationsDB/issues/63) で追跡します。
 
 既存の Images を維持し、レコードの別メタ `Images_Appearance` をフィールド名ごとの配列にする案です。各要素は元の文字列と完全一致する `value` と、任意の `Formation` / `Costume` / `ReferenceOnly` を持ちます。
 
