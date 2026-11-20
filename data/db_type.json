@@ -63,6 +63,22 @@
       "$slotNote": "画像コンテナ。field 名ではなく $display.section で識別する。画像を持たない作品(UnauthedLogica 等)は宣言自体が無く、このスロットは空になる"
     },
     {
+      "hashTag": "Images_AIOptout",
+      "$type": "#Object|#Null",
+      "hashTag_JP": "画像別AI利用除外",
+      "hashTag_EN": "Image AI Opt-outs",
+      "$enrich": false,
+      "$display": { "auto": false }
+    },
+    {
+      "hashTag": "AI_Optout",
+      "$type": "#Boolean",
+      "hashTag_JP": "AI利用除外",
+      "hashTag_EN": "AI Opt-out",
+      "$enrich": false,
+      "$display": { "auto": false }
+    },
+    {
       "$slot": "#WorkBasic",
       "$slotMatch": { "$inLayout": "basicFields" },
       "$slotAnchor": "basicFields",

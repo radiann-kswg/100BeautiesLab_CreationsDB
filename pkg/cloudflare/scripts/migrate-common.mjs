@@ -35,6 +35,22 @@ export const WRANGLER_BASE_ARGS = ["wrangler"];
 /** Windows では shell: true が必要（.cmd 解決 + パスのスペース対応） */
 export const SPAWN_OPTS_BASE = process.platform === "win32" ? { shell: true } : {};
 
+/** AI 向け許可表を先に無効化し、同期途中・失敗時に古い許可を使わせない。 */
+export function invalidateAIImagePolicy({ repoRoot, bucket, dryRun }) {
+  if (!/^[a-z0-9-]+$/.test(bucket)) throw new Error("Invalid R2 bucket name");
+  const key = "policy/ai-image-policy.json";
+  if (dryRun) {
+    console.log(`[R2 dry-run] invalidate ${bucket}/${key}`);
+    return;
+  }
+  const file = ".cache/cloudflare/ai-image-policy-invalid.json";
+  mkdirSync(join(repoRoot, ".cache/cloudflare"), { recursive: true });
+  writeFileSync(join(repoRoot, file), JSON.stringify({ version: 1, complete: false, paths: [], references: [], records: {} }));
+  execFileSync(WRANGLER_CMD, [...WRANGLER_BASE_ARGS, "r2", "object", "put", `${bucket}/${key}`,
+    "--file", file, "--content-type", "application/json", "--remote"],
+    { stdio: "pipe", cwd: repoRoot, ...SPAWN_OPTS_BASE });
+}
+
 /** D1 操作時に wrangler.toml の場所を明示するための相対パス（repoRoot 基準）。
  *  cwd を repoRoot に固定しているため wrangler が pkg/cloudflare/ を自動探索できず、
  *  database_id（UUID）を解決できない問題を防ぐ。 */

@@ -1,6 +1,7 @@
 {
   "Databases": {
     "#Ref_Vocabulary": {
+      "AI_Optout": false,
       "DB_Label_JP": "語彙辞書",
       "DB_Label_EN": "Vocabulary",
       "DB_Layer": "References",
@@ -9,6 +10,7 @@
       "AI_Optout": false
     },
     "#Ref_Reference": {
+      "AI_Optout": false,
       "DB_Label_JP": "創作基本資料",
       "DB_Label_EN": "Reference",
       "DB_Layer": "References",

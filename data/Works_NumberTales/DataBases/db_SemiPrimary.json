@@ -5201,6 +5201,7 @@
       },
       {
         "Formation": null,
+        "Detachable": true,
         "BodyPart": ["#BodyPart_Back", "#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
@@ -5687,6 +5688,7 @@
       },
       {
         "Formation": "corefolder",
+        "Detachable": true,
         "BodyPart": ["#BodyPart_Interchangeable", "#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
@@ -5703,6 +5705,7 @@
       },
       {
         "Formation": "humanoid",
+        "Detachable": true,
         "BodyPart": ["#BodyPart_Back", "#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
@@ -7934,6 +7937,7 @@
     "Num": "3/3",
     "Num_Badge": "Dv3",
     "Progress": "unprofiled",
+    "AI_Optout": true,
     "isTriple": false,
     "FormalName_JP": "D-Vines 3番機",
     "FormalName_EN": "D-Vines Mk.3",
@@ -7961,6 +7965,7 @@
         "cnsp_imgNTS-Dv22,NTS-Dv7"
       ]
     },
+    "AI_Optout": true,
     "FormalName_JP": "D-Vines 7番機",
     "FormalName_EN": "D-Vines Mk.7",
     "ModelNumber": "ADPR-DV 7/7",
@@ -7975,6 +7980,7 @@
     "Num": "8/8",
     "Num_Badge": "Dv8",
     "Progress": "unprofiled",
+    "AI_Optout": true,
     "isTriple": false,
     "FormalName_JP": "D-Vines 8番機",
     "FormalName_EN": "D-Vines Mk.8",
@@ -8000,6 +8006,7 @@
         "cnsp_imgNTS-Dv7,NTS-Dv22"
       ]
     },
+    "AI_Optout": true,
     "FormalName_JP": "D-Vines 22番機",
     "FormalName_EN": "D-Vines Mk.22",
     "ModelNumber": "ADPR-DV 22/22",

@@ -1090,6 +1090,12 @@
             "hashTag_EN": "Costume"
           },
           {
+            "hashTag": "Detachable",
+            "$type": "#Boolean|#Null",
+            "hashTag_JP": "着脱可能",
+            "hashTag_EN": "Detachable"
+          },
+          {
             "hashTag": "BodyPart",
             "$type": "#ListIndex[]|#Null",
             "hashTag_JP": "身体部位",

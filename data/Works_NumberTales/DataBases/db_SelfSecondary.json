@@ -4662,6 +4662,7 @@
       },
       {
         "Formation": null,
+        "Detachable": true,
         "BodyPart": ["#BodyPart_Back", "#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
@@ -5169,6 +5170,7 @@
       },
       {
         "Formation": "corefolder",
+        "Detachable": true,
         "BodyPart": ["#BodyPart_Interchangeable", "#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
@@ -5185,6 +5187,7 @@
       },
       {
         "Formation": "humanoid",
+        "Detachable": true,
         "BodyPart": ["#BodyPart_Back", "#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",

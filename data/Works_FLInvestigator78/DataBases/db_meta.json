@@ -1,6 +1,7 @@
 {
   "Databases": {
     "#DB_Primary": {
+      "AI_Optout": true,
       "DB_Label_JP": "一次創作",
       "DB_Label_EN": "Primary",
       "DB_Summary": "運命線探偵の公式一次創作作品に登場するキャラクター。\nタロットカードに関連する特性をそれぞれ有している。",
@@ -31,6 +32,7 @@
       "AI_Optout": true
     },
     "#DB_PrimaryDealer": {
+      "AI_Optout": true,
       "DB_Label_JP": "一次創作(アルカナホルダー)",
       "DB_Label_EN": "Primary(Arcana Holders)",
       "DB_Summary": "運命線探偵の公式一次創作作品に登場するキャラクター。\nこちらにはタロットをモチーフにした能力の保有者に関する情報をまとめている。",
@@ -64,6 +66,7 @@
       "AI_Optout": true
     },
     "#DB_MinorArcana": {
+      "AI_Optout": true,
       "DB_Label_JP": "アルカナ(マイナーズ)",
       "DB_Label_EN": "Arcana(Minors)",
       "DB_Summary": "運命線探偵の公式一次創作作品に登場する能力存在。\nこちらには主に小アルカナの数札をモチーフにした能力存在に関する情報をまとめている。",
@@ -92,6 +95,7 @@
       "AI_Optout": true
     },
     "#DB_MinorsDealer": {
+      "AI_Optout": true,
       "DB_Label_JP": "アルカナホルダー(マイナーズ)",
       "DB_Label_EN": "ArcanaHolders(Minor Arcana)",
       "DB_Summary": "運命線探偵の公式一次創作作品に登場するキャラクター。\nこちらには主に小アルカナのタロットをモチーフにした能力の保有者に関する情報をまとめている。",
@@ -120,6 +124,7 @@
       "AI_Optout": true
     },
     "#DB_UnprocessedDealer": {
+      "AI_Optout": true,
       "DB_Label_JP": "未整理のアルカナホルダー",
       "DB_Label_EN": "Unprocessed Arcana Holder",
       "DB_Summary": "運命線探偵のうち、まだ制作の目途が立っていないキャラクター。\nこちらには主に小アルカナのタロットをモチーフにした能力の保有者に関する情報をまとめている。",

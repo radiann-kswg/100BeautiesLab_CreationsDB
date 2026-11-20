@@ -1,6 +1,7 @@
 {
   "Databases": {
     "#DB_PrimaryStardust": {
+      "AI_Optout": true,
       "DB_Label_JP": "一次創作(スターダスト財団)",
       "DB_Label_EN": "PrimaryStardust",
       "DB_Summary": "「スターダスト財団」の正式な幹部に相当する一次創作キャラクター。\n西洋占星術に用いられるサインなどに関連するコードネームが付与されている。",
@@ -19,6 +20,7 @@
       "AI_Optout": true
     },
     "#DB_PrimaryKaleidoscope": {
+      "AI_Optout": true,
       "DB_Label_JP": "一次創作(カレイドスコウプ教団)",
       "DB_Label_EN": "PrimaryKaleidoscope",
       "DB_Summary": "「カレイドスコウプ教団」の人体兵器（改造人間）に相当する一次創作キャラクター。\nチェスに用いられる駒に関連する番号付きのコードネームが付与されている。",
@@ -37,6 +39,7 @@
       "AI_Optout": true
     },
     "#DB_SemiPrimary": {
+      "AI_Optout": true,
       "DB_Label_JP": "準一次創作",
       "DB_Label_EN": "Semi-Primary",
       "DB_Summary": "",

@@ -1,0 +1,12 @@
+[
+  {
+    "Costume": "usual",
+    "Costume_JP": "通常制服",
+    "Costume_EN": "Usual Uniform"
+  },
+  {
+    "Costume": "private",
+    "Costume_JP": "私服",
+    "Costume_EN": "Casual Clothes"
+  }
+]
