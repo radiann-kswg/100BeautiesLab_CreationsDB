@@ -351,7 +351,7 @@
         "Note_EN": null
       },
       {
-        "Formation": null,
+        "Formation": "afterChanged",
         "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Leg"],
         "Laterality": null,
         "DesignElement": "#Element_BodyType",
@@ -1001,6 +1001,7 @@
       },
       {
         "Formation": null,
+        "Detachable": true,
         "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Leg"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
@@ -1853,7 +1854,7 @@
         "Note_EN": null
       },
       {
-        "Formation": null,
+        "Formation": "afterChanged",
         "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
@@ -1879,7 +1880,7 @@
         "Note_EN": null
       },
       {
-        "Formation": null,
+        "Formation": "afterChanged",
         "BodyPart": ["#BodyPart_Back", "#BodyPart_Waist"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
@@ -1905,7 +1906,7 @@
         "Note_EN": null
       },
       {
-        "Formation": null,
+        "Formation": "beforeChange",
         "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist"],
         "Laterality": null,
         "DesignElement": "#Element_BodyType",
@@ -2131,23 +2132,24 @@
         "Note_EN": null
       },
       {
-        "Formation": null,
+        "Formation": "afterChanged",
         "BodyPart": ["#BodyPart_Eye"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_Motif",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Color",
-            "value_JP": "左目の周囲：黒い陰影",
-            "value_EN": "dark shading around the left eye"
+            "value_JP": "開いた左目の黒い白目と小さな赤い瞳",
+            "value_EN": "black sclera and a small red iris in the open left eye"
           }
         ],
         "img_PNGName": null,
-        "Note_JP": "設定画のジャケット非着用時。",
-        "Note_EN": "The jacketless view in the concept art."
+        "Note_JP": "左目を開いた豹変後の姿。",
+        "Note_EN": "The changed form with the left eye open."
       },
       {
         "Formation": null,
+        "Costume": "jacketless",
         "BodyPart": ["#BodyPart_Head"],
         "Laterality": null,
         "DesignElement": "#Element_Expression",
@@ -2164,6 +2166,7 @@
       },
       {
         "Formation": null,
+        "Costume": "usual",
         "BodyPart": ["#BodyPart_Shoulder", "#BodyPart_Chest", "#BodyPart_Arm"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
@@ -2190,6 +2193,7 @@
       },
       {
         "Formation": null,
+        "Costume": "jacketless",
         "BodyPart": ["#BodyPart_Chest", "#BodyPart_Arm"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
@@ -2216,6 +2220,7 @@
       },
       {
         "Formation": null,
+        "Costume": "usual",
         "BodyPart": ["#BodyPart_Waist", "#BodyPart_Leg", "#BodyPart_Foot"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
@@ -2237,6 +2242,7 @@
       },
       {
         "Formation": null,
+        "Costume": "jacketless",
         "BodyPart": ["#BodyPart_Waist", "#BodyPart_Leg", "#BodyPart_Foot"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",

@@ -605,6 +605,7 @@
       },
       {
         "Formation": null,
+        "Costume": "usual",
         "BodyPart": ["#BodyPart_Neck", "#BodyPart_Chest", "#BodyPart_Arm"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
@@ -626,6 +627,7 @@
       },
       {
         "Formation": null,
+        "Costume": "usual",
         "BodyPart": ["#BodyPart_Waist", "#BodyPart_Leg"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
@@ -642,6 +644,7 @@
       },
       {
         "Formation": null,
+        "Costume": "usual",
         "BodyPart": ["#BodyPart_Hand"],
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_CostumeItem",
@@ -658,6 +661,7 @@
       },
       {
         "Formation": null,
+        "Costume": "usual",
         "BodyPart": ["#BodyPart_Leg"],
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_CostumeItem",
@@ -674,6 +678,7 @@
       },
       {
         "Formation": null,
+        "Costume": "usual",
         "BodyPart": ["#BodyPart_Foot"],
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_CostumeItem",
@@ -687,6 +692,67 @@
         "img_PNGName": null,
         "Note_JP": "通常制服（年賀絵原画・設定画左側）",
         "Note_EN": "Usual uniform (New-Year artwork / left-side concept art)"
+      },
+      {
+        "Formation": null,
+        "Costume": "private",
+        "BodyPart": ["#BodyPart_Neck", "#BodyPart_Chest", "#BodyPart_Arm"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "半袖のフード付き上着",
+            "value_EN": "short-sleeved hooded top"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "紫色、フードの内側と縁取り：薄紫色",
+            "value_EN": "purple; hood lining and trim: pale purple"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "前開き、左右に垂れるフードのひも",
+            "value_EN": "open front with hood drawstrings hanging on both sides"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": "設定画右下と私服差分。",
+        "Note_EN": "The lower-right concept view and the casual outfit illustration."
+      },
+      {
+        "Formation": null,
+        "Costume": "private",
+        "BodyPart": ["#BodyPart_Chest"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "上着の内側の灰色のインナー",
+            "value_EN": "gray inner top beneath the outer layer"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": "設定画右下と私服差分。",
+        "Note_EN": "The lower-right concept view and the casual outfit illustration."
+      },
+      {
+        "Formation": null,
+        "Costume": "private",
+        "BodyPart": ["#BodyPart_Waist", "#BodyPart_Leg"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "薄紫色のボトムス",
+            "value_EN": "pale purple bottoms"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": "設定画右下と私服差分。",
+        "Note_EN": "The lower-right concept view and the casual outfit illustration."
       }
     ],
     "ColorPalette": [
@@ -1263,7 +1329,7 @@
         "Note_EN": null
       },
       {
-        "Formation": null,
+        "Formation": "normal",
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
@@ -1309,7 +1375,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": ["#BodyPart_Neck", "#BodyPart_Chest", "#BodyPart_Arm"],
+        "BodyPart": ["#BodyPart_Neck", "#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -1317,7 +1383,34 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "赤い上着と黄土色の胸元・立ち襟",
             "value_EN": "red top with an ochre chest panel and stand collar"
-          },
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "normal",
+        "BodyPart": ["#BodyPart_Waist"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "白い帯",
+            "value_EN": "white waistband"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "normal",
+        "BodyPart": ["#BodyPart_Arm"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "白い袖口",
@@ -1334,20 +1427,51 @@
         "Note_EN": null
       },
       {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Waist"],
+        "Formation": "beasted",
+        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Tail"],
+        "Laterality": null,
+        "DesignElement": "#Element_BodyType",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "人型の頭部を残した、四肢のない細長い蛇体",
+            "value_EN": "long, limbless snake body retaining the humanoid head"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "黄緑色",
+            "value_EN": "yellow-green"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": "年賀絵Bの獣化した姿。",
+        "Note_EN": "Beast form shown in the B New Year illustration."
+      },
+      {
+        "Formation": "beasted",
+        "BodyPart": ["#BodyPart_Neck", "#BodyPart_Back"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
           {
+            "AttrLabel": "#DesignAttr_Shape",
+            "value_JP": "頭の後ろの大きな赤い結び目状の部分、左右へ広がる袖状の部分",
+            "value_EN": "large red bow-like part behind the head, with sleeve-like parts extending to both sides"
+          },
+          {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "白い帯",
-            "value_EN": "white waistband"
+            "value_JP": "白い袖口",
+            "value_EN": "white cuffs"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "両袖の丸いヘビ柄ワッペン",
+            "value_EN": "round snake-motif patches on both sleeves"
           }
         ],
         "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
+        "Note_JP": "年賀絵Bの獣化した姿。",
+        "Note_EN": "Beast form shown in the B New Year illustration."
       }
     ],
     "ColorPalette": [

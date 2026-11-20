@@ -1,6 +1,7 @@
 {
   "Databases": {
     "#DB_Primary": {
+      "AI_Optout": false,
       "DB_Label_JP": "一次創作(豹変系女子)",
       "DB_Label_EN": "Primary",
       "DB_Summary": "豹変系女子に相当する８人の一次創作キャラクター。\n七つの大罪と八方位に関連する属性が付与されている。",
@@ -13,6 +14,7 @@
       "_Commons": {}
     },
     "#DB_PrimaryStabilities": {
+      "AI_Optout": false,
       "DB_Label_JP": "一次創作(スタビリティ)",
       "DB_Label_EN": "Semi-Primary",
       "DB_Summary": "豹変系女子に類似する「スタビリティ」という８人の一次創作キャラクター。\n豹変系女子と同様に、七つの美徳と十六方位に関連する属性が付与されている。\nなお、天地方向の八方位にも対応している。",
@@ -25,6 +27,7 @@
       "_Commons": {}
     },
     "#DB_SemiPrimary": {
+      "AI_Optout": false,
       "DB_Label_JP": "準一次創作",
       "DB_Label_EN": "Semi-Primary",
       "DB_Summary": "豹変系女子(一次創作)に類似する８人のアンソロジーキャラクター。\n類似元と同様に、七つの大罪に対応する別の美徳に関連する属性が付与されている。ちなみにこちらは男性も含まれる。\nなお、天地方向の八方位にも対応している。",
@@ -37,6 +40,7 @@
       "_Commons": {}
     },
     "#DB_Regioministrators": {
+      "AI_Optout": false,
       "DB_Label_JP": "『管理主』",
       "DB_Label_EN": "Regioministrators",
       "DB_Summary": "４つの権限コードからなる、創作世界の『第８界』に存在し『第８界』を管理する重要な人物。",

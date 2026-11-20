@@ -1,5 +1,16 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### feat: 外見の形態・衣装・着脱補完と画像単位の AI 除外 (#60 / #61 / #62、2026-11-20)
+
+- **データ**: SCG の作者確認済み形態と小里の衣装差分、SAR カミツの獣化時とハネゝカの私服を補完。独立した着脱品は `AppearanceDetail.Detachable` で表す。画像にない設定は追加しない。
+- **画像の権利指定**: `Images` の従来形式を保ち、typedef の `AI_Optout` と `Images_AIOptout` を追加。FLI のカードデザインをフィールド単位、NTS-61 の第三者デザイン衣装の画像3件をファイル単位で除外。サイト表示と配色抽出は維持する。
+- **権利 JSON の正典を develop へ移管**: 16メタファイルの既存 `AI_Optout` 44指定（true27/false17）を値不変で移管。他項目も構造比較で不変を確認。画像・設定の登録と同じ工程で指定し、addon へのマージ時に再付与しない。AIHints 本文・API・`AI_Unready`・`AI_TextRP_Allowed` は addon 管理を維持する。
+- **追加の作者判断**: NTS の衣装辞書 `idol` を AI 利用除外にし、該当外見4項目と AIHints の衣装説明も AI 向け出力から除く。D-Vines の分数番号4人をレコード単位で除外。266/314はデザイン思想が適用されないため、この除外対象へ含めない。
+- **入力補助**: `tools/patch-appearance-detail.mjs` は候補準備・dry-run・明示 apply を提供。複合インデックス、before の一致、schema/辞書、出典画像を検証し、表情・動作の手動入力と原画に基づく校正も扱う。
+- **共通処理**: `pkg/ai-image-policy.mjs` に完全一致検証・画像参照の正規化・共有画像の拒否優先を集約。CreationsAI は全 AI 向け画像参照を同じ許可集合で絞る。API 実装は sub1 / `addon-ai-tag` で管理する。
+- **同期**: `migrate.mjs` は更新前に AI 向け画像許可表を無効化する。`addon-ai-tag` の同期完了後に再公開するまで AI 向け画像参照は返さない。本番同期・デプロイは未実施。
+- **下流への申し送り**: DB 固有 CLI と対応テストは対で同期対象から除外する。画像単位ポリシーの利用には上流差分と CreationsAI の追従が必要。詳細と検証結果は `_work_in_progress/2026-11-20_progress_appearance-policy-tools.md`。
+
 ### chore: AIHints 拡張（`addon-ai-tag`）に合わせた `develop` 側のデータ整備 (2026-11-19)
 
 > 詳細は `_work_in_progress/2026-11-19_progress_aihints-develop-db-prep.md`。AIHints 本体は `addon-ai-tag` で実装（`develop` には含めない）。

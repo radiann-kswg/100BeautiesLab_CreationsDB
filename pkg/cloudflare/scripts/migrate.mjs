@@ -49,6 +49,7 @@ import {
   WRANGLER_CMD,
   WRANGLER_BASE_ARGS,
   SPAWN_OPTS_BASE,
+  invalidateAIImagePolicy,
 } from "./migrate-common.mjs";
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -91,6 +92,9 @@ const { d1Execute, d1BatchInsert } = createD1Runner({
 /** グローバルメタを読み込む */
 const globalMeta = readJson(join(DATA_DIR, "db_meta.json")) ?? {};
 const creationWorks = globalMeta.CreationWorks ?? {};
+
+// AI 向け許可表の再公開は addon-ai-tag の同期が完了した時点に限る。
+invalidateAIImagePolicy({ repoRoot: REPO_ROOT, bucket: BUCKET, dryRun: DRY_RUN });
 
 // ─────────────────────────────────────────────────────────────────────────────
 // STEP 1: R2 アップロード

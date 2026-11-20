@@ -47,6 +47,7 @@
         {
           "hashTag": "cardDesign_PNGName",
           "$type": "#PNGFileName",
+          "AI_Optout": true,
           "hashTag_JP": "カードデザイン",
           "hashTag_EN": "Card Design"
         },

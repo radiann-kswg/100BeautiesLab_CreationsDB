@@ -1,6 +1,7 @@
 {
   "Databases": {
     "#DB_Primary": {
+      "AI_Optout": true,
       "DB_Label_JP": "一次創作",
       "DB_Label_EN": "Primary",
       "DB_Summary": "２代目ラジアン代理の周辺キャラクター。\n物理単位や数学用語をモチーフにした設定が付与されている。\nなお、このタイトルは作者の近況報告を主としているため、創作世界の『第８界』とは無関係であることが多い。",
@@ -10,6 +11,7 @@
       }
     },
     "#DB_Proxy": {
+      "AI_Optout": true,
       "DB_Label_JP": "代理",
       "DB_Label_EN": "Proxies",
       "DB_Summary": "弊創作を執筆している「ラジアン」の代理キャラクター",

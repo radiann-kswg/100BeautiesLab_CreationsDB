@@ -5733,6 +5733,7 @@
       },
       {
         "Formation": "humanoid",
+        "Detachable": true,
         "BodyPart": ["#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
@@ -11770,35 +11771,37 @@
       },
       {
         "Formation": "humanoid",
+        "Costume": "usual",
         "BodyPart": ["#BodyPart_Waist"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "腰のオレンジ色のリボンボウ",
-            "value_EN": "orange ribbon bow at waist"
+            "value_JP": "赤いブレザーを腰に巻き、袖をオレンジ色のリボンボウ状に結ぶ",
+            "value_EN": "red blazer tied around the waist, with its sleeves forming an orange ribbon bow"
           }
         ],
         "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
+        "Note_JP": "設定画の「普段」の着こなし。",
+        "Note_EN": "The casual outfit shown in the concept art."
       },
       {
         "Formation": "humanoid",
+        "Costume": "onBusiness",
         "BodyPart": ["#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "赤いブレザー(2パターンの着用方法)",
-            "value_EN": "red blazer (2 outfit variants)"
+            "value_JP": "羽織った赤いブレザー",
+            "value_EN": "red blazer worn as a jacket"
           }
         ],
         "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
+        "Note_JP": "設定画の「ビジネス」の着こなし。",
+        "Note_EN": "The business outfit shown in the concept art."
       }
     ],
     "ColorPalette": [
@@ -16922,6 +16925,7 @@
       },
       {
         "Formation": "humanoid",
+        "Detachable": true,
         "BodyPart": ["#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
@@ -24644,6 +24648,13 @@
         "humanoids/2023/art_imgNTS-61-humanoid"
       ]
     },
+    "Images_AIOptout": {
+      "corefolder_PNGPath": [
+        "61/emstk_corefolderNTS-61-idol1",
+        "61/emstk_corefolderNTS-61-idol2"
+      ],
+      "designAlt_PNGPath": ["catalog/chr-dsgn-alt_wipNTS-61-idol"]
+    },
     "FormalName_JP": "ナンバーテールズ61番機",
     "FormalName_EN": "NumberTales #61",
     "CodeName_JP": "六一",
@@ -24699,6 +24710,7 @@
       {
         "Formation": null,
         "Costume": "usual",
+        "Detachable": true,
         "BodyPart": ["#BodyPart_Head"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
@@ -24720,8 +24732,8 @@
           }
         ],
         "img_PNGName": "attr_numberMarkNTS-61",
-        "Note_JP": null,
-        "Note_EN": null
+        "Note_JP": "フードを下ろすと番号は肩側へ移る。フード自体は肩に残る。",
+        "Note_EN": "When lowered, the hood and its number remain at the shoulders."
       },
       {
         "Formation": null,
@@ -24867,6 +24879,7 @@
       {
         "Formation": null,
         "Costume": "usual",
+        "Detachable": true,
         "BodyPart": ["#BodyPart_Head"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
@@ -24878,8 +24891,8 @@
           }
         ],
         "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
+        "Note_JP": "フードを下ろすと番号は肩側へ移る。フード自体は肩に残る。",
+        "Note_EN": "When lowered, the hood and its number remain at the shoulders."
       },
       {
         "Formation": null,
@@ -26926,8 +26939,8 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "ピンクのフード付きマント",
-            "value_EN": "pink hooded cloak"
+            "value_JP": "肩に掛けたピンクのマント",
+            "value_EN": "pink cloak draped over the shoulders"
           }
         ],
         "img_PNGName": null,
@@ -27013,6 +27026,23 @@
         "img_PNGName": null,
         "Note_JP": null,
         "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "Detachable": true,
+        "BodyPart": ["#BodyPart_Head"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "頭にかぶったピンクのフード",
+            "value_EN": "pink hood worn over the head"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": "フードを下ろしても肩のマントは着用したまま。",
+        "Note_EN": "The cloak remains over the shoulders when the hood is lowered."
       }
     ],
     "ColorPalette": [

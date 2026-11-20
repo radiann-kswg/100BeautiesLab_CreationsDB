@@ -1,6 +1,7 @@
 {
   "Databases": {
     "#DB_SemiPrimary": {
+      "AI_Optout": true,
       "DB_Label_JP": "準一次創作",
       "DB_Label_EN": "SemiPrimary",
       "DB_Summary": "このアンソロジーに相当するキャラクター。\n八徳それぞれをモチーフにしている。",

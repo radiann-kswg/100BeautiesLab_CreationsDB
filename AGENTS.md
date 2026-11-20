@@ -210,6 +210,9 @@
 - **`ThisMasters._DBLink` のフォーマット**: `$Def_DBLinkRef` 形式を使用。`lib/section-renders/thisMasters.js` の `hydrateThisMastersLink` は SENTINEL_KEYS（`_DB / _Work / label_JP / label_EN`）を除いた最初のキーをインデックスとして動的解決します。
 - **画像以外のバイナリ資産（3Dモデル等）の追加パターン**: VRM 3Dアバター（`VRMs.corefolder_VRMPath`: `#VRMFilePath[]`）で確立したパターンとして、既存の `Images`/`ImageProcessor` パイプラインを流用・分岐で汚さず、専用型 + 専用 section-renderer（`$display.sectionWrapper`）+ client側専用URL構築ヘルパー（`pages/characters.js` の `buildTailsUnitImageUrl` 相当）で独立実装します。重い外部ライブラリ（three.js 等）が必要な場合は `pages/vendor/` に同梱（外部CDN非依存）し、ユーザー操作（ボタン押下等）まで動的 `import()` を遅延させます。詳細は `docs/wrapper-summary-registry.md` の `vrmViewerSection` / `docs/schema-meta-processing.md` の `#VRMFilePath` を参照してください。
 
+- **外見補完・着脱指定**: `AppearanceDetail` の補完・校正は `docs/appearance-detail-tools.md` の CLI で候補と根拠を確認してから適用します。`Detachable: true` は当該項目だけを衣装全体と独立に着脱できる宣言で、非着用を意味しません。形態・衣装の未確定な対応は作者へ確認します。
+- **画像単位の AI 除外**: typedef の `Images.*.AI_Optout` とレコードの `Images_AIOptout` を変更・利用するときは `docs/schema-meta-processing.md` と `docs/third-party-policy.md` を参照し、`pkg/ai-image-policy.mjs` で検証します。上位拒否・共有画像の拒否を優先し、不明な画像を AI 向けに許可しません。サイト表示・配色抽出とは分離します。
+
 ## GitHub Pages の軽量化・高速化（恒常対応）
 
 > 2026-11-02 の高速化対応（初回 17 秒 / 再訪 4〜11 秒 → 1 秒前後）で得た指標と仕組みを、以後の**すべての変更で維持する**ための節です。
@@ -267,11 +270,12 @@
 ### `develop` ブランチ（コアドキュメント・主機能）
 
 - コアコード・ドキュメントの source of truth。このブランチへのコミット・PRが原則。
-- **AIHints 関連のコード・スキーマ・エンドポイントは `develop` に含めない**（`addon-ai-tag` ブランチで管理）。
+- **AIHints 本文・専用コード・専用スキーマ・エンドポイントは `addon-ai-tag` で管理**します。**権利軸の JSON（`AI_Optout`、画像フィールドの指定、`Images_AIOptout`、衣装辞書の指定）は `develop` を正典**とし、画像・設定の登録と同じ変更で管理します。`AI_Unready` と `AI_TextRP_Allowed` はこの移管の対象外です。
 
 ### `addon-ai-tag` ブランチ（AIHints 専用機能）
 
 - `develop` を定期的にマージしながら派生する「拡張ブランチ」。`develop` → `addon-ai-tag` の一方向マージのみ。
+- `AI_Optout` 等の権利 JSON は develop から取り込み、マージ時に別途付与・上書きしません。許諾の変更が必要なら develop 側で行います。
 - **`addon-ai-tag` → `develop` への逆マージは行わない**。
 - 対象: `pkg/cloudflare/schema/d1-aihints.sql`、AIHints エンドポイント（Worker）、`migrate-aihints.mjs`、`cf-api-sync.yml` の AIHints 投入ステップ、`docs/aihints-spec.md`。
 - `develop` ブランチで作業中に AIHints 関連の要件に触れた場合、実装は `addon-ai-tag` に委ね、`develop` 側では「仕様上 `addon-ai-tag` で実装」という旨の注記にとどめる。

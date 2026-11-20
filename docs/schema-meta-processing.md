@@ -607,7 +607,34 @@ UI 側は厳密構造より `about_JP` / `about_EN` を優先して整形表示�
 
 SAR のハッカとネゝコは、制服共通色の代わりに使う衣装色を `#ColorRole_CommonOverride` で記録しています。色名は上書き対象の `$EnumDef_CommonColor` のラベルを使用し、HEX と適用部位は個別パレットに保持します。同じ色を瞳と衣装で兼用している行は、衣装の上書きだけを理由に役割を変えていません。
 
-SAR の制服共通色は赤・黄・青・灰・黄土色・白・薄灰色の7色です。ハネゝカの通常制服の設定画にある黄土色の差も個別の上書きとして保持します。通常制服に限定した外見・配色は `Note_JP/EN` で私服差分との適用範囲を区別しており、SAR の `Costume` 辞書や画像による自動切替を新設したものではありません。
+SAR の制服共通色は赤・黄・青・灰・黄土色・白・薄灰色の7色です。ハネゝカの通常制服の設定画にある黄土色の差も個別の上書きとして保持します。外見は `Costume: usual / private` で制服と私服を区別します。配色の既存 `Note_JP/EN` にある通常制服への限定も保持します。
+
+#### 外見の形態・衣装・着脱（Issue #60）
+
+- `Formation` は作品の形態辞書、`Costume` は衣装辞書を参照します。null は各軸で共通する特徴です。両方ある項目は両条件を満たすときに適用します。
+- `Detachable: true`（`#Boolean|#Null`）は、その項目を衣装全体とは独立に着脱できる宣言です。未指定/null は未宣言、false は着脱可能と宣言していない状態です。実際の着用有無は利用側の選択であり、true を「非着用」と読みません。
+- フードは頭にかぶる部分、マントは肩に残る部分のように、独立に変わる特徴を別項目へ分けます。別 Costume を作って他の `usual` 項目まで消すことを避けます。
+- 作者確認に従い SCG 三春の膨体は `afterChanged`、ユノの人型は `afterChanged`・球体は既存辞書の `beforeChange`、小里の左目の豹変後特徴は `afterChanged` です。小里のジャケット差分は Costume で分離します。
+- 入力・校正手順は [AppearanceDetail 補助ツール](appearance-detail-tools.md) を参照してください。
+
+#### 画像フィールド・ファイルの AI 除外（Issue #62）
+
+画像の文字列/配列形式は維持します。`Images` の子フィールド宣言へ `AI_Optout: true` を付けると全値を除外し、レコードの `Images_AIOptout`（`#Object|#Null`）ではフィールドごとに元の文字列と完全一致する値を列挙します。拡張子や大文字小文字を補正しません。
+
+```json
+"Images_AIOptout": {
+  "designAlt_PNGPath": ["catalog/chr-dsgn-alt_wipNTS-61-idol"],
+  "corefolder_PNGPath": ["61/emstk_corefolderNTS-61-idol1", "61/emstk_corefolderNTS-61-idol2"]
+}
+```
+
+`Images_AIOptout` は `$enrich: false` / `$display.auto: false` です。別レコードの画像指定と切り離して継承・表示しません。未宣言フィールド、元の Images にない値、文字列配列でない値、非 boolean の AI_Optout は `pkg/ai-image-policy.mjs` の検証で拒否します。
+
+上位（作品/DB/カテゴリ/レコード）の不許可・typedef・個別ファイルのどれかが拒否すれば除外します。false は上位の拒否を解除しません。実ファイルへ解決したあと、別レコード・別フィールド・`_DBCrossLinkPath` からの参照も同じ画像として合流し、一つでも拒否があれば全体で除外します。未解決の画像は AI 向け許可集合へ入れません。
+
+衣装辞書の行の `AI_Optout: true` は、その `Costume` を持つ AppearanceDetail と当該衣装を記述する AIHints を除外します。レコードの `AI_Optout: true`（`#Boolean`、任意）は公開を維持した AI 利用除外で、`$enrich: false` により他の人物へ持ち込みません。既存の DB/カテゴリ44指定は許否を変えず develop へ移管しました。これら権利 JSON と typedef は develop を正典とし、AIHints 本文・API・`AI_Unready`・`AI_TextRP_Allowed` は従来の addon 側の責務を維持します。
+
+サイトの表示と `$palette` による配色抽出は対象外です。CreationsAI は manifest の各画像参照・原データの Images・AIHints・image-index を同じ許可集合で絞り、通常衣装と確認できない designAlt を共通代表画像の fallback にしません。AI API の実装は `addon-ai-tag` で管理し、develop に AIHints のエンドポイントを追加しません。権利上の運用は [第三者運用方針](third-party-policy.md) §3.2 を参照してください。
 
 `$Def_Faction` で導入した宣言（他の `$Def_*` でも同じ意味で使えます）:
 

@@ -11,6 +11,7 @@
   },
   {
     "Costume": "idol",
+    "AI_Optout": true,
     "Costume_JP": "アイドル衣装",
     "Costume_EN": "Idol Costume"
   },
@@ -18,5 +19,10 @@
     "Costume": "miko",
     "Costume_JP": "巫女衣装",
     "Costume_EN": "Shrine Maiden Costume"
+  },
+  {
+    "Costume": "onBusiness",
+    "Costume_JP": "ビジネス時の衣装",
+    "Costume_EN": "Business Outfit"
   }
 ]
