@@ -20,6 +20,15 @@
     "Name_JP": "扇 零夏・スフィリア",
     "Name_JPReading": "おうぎ れいか・スフィリア",
     "Name_EN": "Arch Origth.Spheria",
+    "Images": {
+      "concept_PNGName": {
+        "_DBCrossLinkPath": {
+          "_DB": "PrimaryStabilities",
+          "_Field": "concept_PNGName",
+          "_IsoPath": "concept/cnsp_imgSCG-ENE"
+        }
+      }
+    },
     "FormalName_JP": "扇 零夏・スフィリア",
     "FormalName_JPReading": "おうぎ れいか・スフィリア",
     "FormalName_EN": "Arch Origth.Spheria",
