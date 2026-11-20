@@ -3211,7 +3211,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:59f726cd7ae3244ef4242cfb89f832b81d4bb0992b281d8a83ceaa41cfe784b8",
+        "structuralSourceHash": "sha256:70d7a34f6b77bca48f5572e7382573eb5c1c4ca8e5387a7b87e1ea0529b86053",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox",
@@ -3282,7 +3282,7 @@
             "light blue short skirt, teal stockings"
           ]
         },
-        "lastStructuralResync": "2026-11-19"
+        "lastStructuralResync": "2026-11-20"
       }
     }
   },
@@ -17254,9 +17254,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": [
-          "#BodyPart_Ear"
-        ],
+        "BodyPart": ["#BodyPart_Ear"],
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -17338,9 +17336,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": [
-          "#BodyPart_Ear"
-        ],
+        "BodyPart": ["#BodyPart_Ear"],
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -17526,7 +17522,8 @@
           "mathematical body tattoo"
         ],
         "immutable_traits": [
-          "number '28' marking: Earring shape (from one side, the four circles look like '28'), white (background is light orange), Arabic numeral '28' (the four circles look like '28')"
+          "number '28' marking: Earring shape (from one side, the four circles look like '28'), white (background is light orange), Arabic numeral '28' (the four circles look like '28')",
+          "number '28' marking: back of the earrings"
         ],
         "expression_tendency": null,
         "age_appearance": "young adult",
@@ -17595,13 +17592,14 @@
             "wavy orange hair",
             "dangling earrings",
             "mathematical body tattoo",
+            "back of the earrings",
             "The somewhat small white area in the center front of the sphere, orange, Arabic numeral '28'",
             "Somewhat large as body paint on the left shoulder's orange fur, dark color, Arabic numeral '28', with a small notation below indicating the sum of its divisors '=1+2+4+7+14'",
             "Somewhat large as body paint on the right shoulder's orange fur, dark color, Sigma notation indicating the sum of natural numbers up to the 3rd Mersenne number"
           ],
           "negative_visuals": ["orange ribbon bow at waist"],
           "natural_language_description": "Corefolder form: a spherical cushion-like body in Fox; wavy orange hair; mathematical body tattoo, with the number '28' marking (Earring shape (from one side, the four circles look like '28'), white (background is light orange), Arabic numeral '28' (the four circles look like '28'); The somewhat small white area in the center front of the sphere, orange, Arabic numeral '28'; Somewhat large as body paint on the left shoulder's orange fur, dark color, Arabic numeral '28', with a small notation below indicating the sum of its divisors '=1+2+4+7+14'; Somewhat large as body paint on the right shoulder's orange fur, dark color, Sigma notation indicating the sum of natural numbers up to the 3rd Mersenne number).",
-          "prompt_export": "corefolder form, branching fox 8 tails, slightly tall stature (about 164cm), young adult, Earring shape (from one side, the four circles look like '28'), white (background is light orange), Arabic numeral '28' (the four circles look like '28'), Fox, wavy orange hair, dangling earrings, mathematical body tattoo, The somewhat small white area in the center front of the sphere, orange, Arabic numeral '28', Somewhat large as body paint on the left shoulder's orange fur, dark color, Arabic numeral '28', with a small notation below indicating the sum of its divisors '=1+2+4+7+14', Somewhat large as body paint on the right shoulder's orange fur, dark color, Sigma notation indicating the sum of natural numbers up to the 3rd Mersenne number",
+          "prompt_export": "corefolder form, branching fox 8 tails, slightly tall stature (about 164cm), young adult, Earring shape (from one side, the four circles look like '28'), white (background is light orange), Arabic numeral '28' (the four circles look like '28'), Fox, wavy orange hair, dangling earrings, mathematical body tattoo, back of the earrings, The somewhat small white area in the center front of the sphere, orange, Arabic numeral '28', Somewhat large as body paint on the left shoulder's orange fur, dark color, Arabic numeral '28', with a small notation below indicating the sum of its divisors '=1+2+4+7+14', Somewhat large as body paint on the right shoulder's orange fur, dark color, Sigma notation indicating the sum of natural numbers up to the 3rd Mersenne number",
           "negative_prompt_export": "orange ribbon bow at waist",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-28.png",
@@ -17636,6 +17634,7 @@
             "wavy orange hair",
             "dangling earrings",
             "mathematical body tattoo",
+            "back of the earrings",
             "Slightly large on the chest of the innerwear (partially hidden when wearing a blazer), orange, Arabic numeral '28'",
             "Somewhat large as body paint on the left shoulder's bare skin (not visible when wearing a blazer), dark color, Arabic numeral '28', with a small notation below indicating the sum of its divisors '=1+2+4+7+14'",
             "Somewhat large as body paint on the right shoulder's bare skin (not visible when wearing a blazer), dark color, Sigma notation indicating the sum of natural numbers up to the 3rd Mersenne number",
@@ -17645,7 +17644,7 @@
           ],
           "negative_visuals": [],
           "natural_language_description": null,
-          "prompt_export": "humanoid form, branching fox 8 tails, slightly tall stature (about 164cm), young adult, Earring shape (from one side, the four circles look like '28'), white (background is light orange), Arabic numeral '28' (the four circles look like '28'), Fox, wavy orange hair, dangling earrings, mathematical body tattoo, Slightly large on the chest of the innerwear (partially hidden when wearing a blazer), orange, Arabic numeral '28', Somewhat large as body paint on the left shoulder's bare skin (not visible when wearing a blazer), dark color, Arabic numeral '28', with a small notation below indicating the sum of its divisors '=1+2+4+7+14', Somewhat large as body paint on the right shoulder's bare skin (not visible when wearing a blazer), dark color, Sigma notation indicating the sum of natural numbers up to the 3rd Mersenne number, curvy tall figure, red blazer tied around the waist, with its sleeves forming an orange ribbon bow, red blazer worn as a jacket",
+          "prompt_export": "humanoid form, branching fox 8 tails, slightly tall stature (about 164cm), young adult, Earring shape (from one side, the four circles look like '28'), white (background is light orange), Arabic numeral '28' (the four circles look like '28'), Fox, wavy orange hair, dangling earrings, mathematical body tattoo, back of the earrings, Slightly large on the chest of the innerwear (partially hidden when wearing a blazer), orange, Arabic numeral '28', Somewhat large as body paint on the left shoulder's bare skin (not visible when wearing a blazer), dark color, Arabic numeral '28', with a small notation below indicating the sum of its divisors '=1+2+4+7+14', Somewhat large as body paint on the right shoulder's bare skin (not visible when wearing a blazer), dark color, Sigma notation indicating the sum of natural numbers up to the 3rd Mersenne number, curvy tall figure, red blazer tied around the waist, with its sleeves forming an orange ribbon bow, red blazer worn as a jacket",
           "negative_prompt_export": "",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-28.png"
@@ -17655,7 +17654,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:3b5f06e08370e89d8de1d2da4423bdfb914225e97fa27eafcbecfb800aac29ed",
+        "structuralSourceHash": "sha256:f702f8f45e187154771cc7297fd42ed4368588bdc40e30f627615574b6867df7",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox",
@@ -17671,7 +17670,8 @@
             "mathematical body tattoo"
           ],
           "common.immutable_traits": [
-            "number '28' marking: Earring shape (from one side, the four circles look like '28'), white (background is light orange), Arabic numeral '28' (the four circles look like '28')"
+            "number '28' marking: Earring shape (from one side, the four circles look like '28'), white (background is light orange), Arabic numeral '28' (the four circles look like '28')",
+            "number '28' marking: back of the earrings"
           ],
           "forms.corefolder.form_tags": ["corefolder form"],
           "forms.corefolder.ai_tags": [
@@ -17684,6 +17684,7 @@
             "wavy orange hair",
             "dangling earrings",
             "mathematical body tattoo",
+            "back of the earrings",
             "The somewhat small white area in the center front of the sphere, orange, Arabic numeral '28'",
             "Somewhat large as body paint on the left shoulder's orange fur, dark color, Arabic numeral '28', with a small notation below indicating the sum of its divisors '=1+2+4+7+14'",
             "Somewhat large as body paint on the right shoulder's orange fur, dark color, Sigma notation indicating the sum of natural numbers up to the 3rd Mersenne number"
@@ -17716,6 +17717,7 @@
             "wavy orange hair",
             "dangling earrings",
             "mathematical body tattoo",
+            "back of the earrings",
             "Slightly large on the chest of the innerwear (partially hidden when wearing a blazer), orange, Arabic numeral '28'",
             "Somewhat large as body paint on the left shoulder's bare skin (not visible when wearing a blazer), dark color, Arabic numeral '28', with a small notation below indicating the sum of its divisors '=1+2+4+7+14'",
             "Somewhat large as body paint on the right shoulder's bare skin (not visible when wearing a blazer), dark color, Sigma notation indicating the sum of natural numbers up to the 3rd Mersenne number",
@@ -30973,7 +30975,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:c738c63f73053b295bce40eb3c9045bc0e318bb90b77102a8a2ada2ac760af85",
+        "structuralSourceHash": "sha256:8411f55bb35e071f497629c980cfcf5d5e53d8c6e0e6d8a65e4445a2eb3fe090",
         "structuralEntries": {
           "common.identity_tags": [
             "large cat ears",
@@ -31032,7 +31034,7 @@
             "dark green leggings"
           ]
         },
-        "lastStructuralResync": "2026-11-19"
+        "lastStructuralResync": "2026-11-20"
       }
     }
   },
@@ -35337,7 +35339,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:e74e5dfc5f26385d0c755e635cb4cde0c38222d29487a27d19beb7e88f5b5108",
+        "structuralSourceHash": "sha256:a1c25d33e9345560a78be8657072151dd20daa75a81db1e8e326a9154ea944b8",
         "structuralEntries": {
           "common.identity_tags": ["Fox", "long brown hair", "light blue eyes"],
           "common.silhouette_features": [
@@ -35388,7 +35390,7 @@
             "bound by rope"
           ]
         },
-        "lastStructuralResync": "2026-08-11"
+        "lastStructuralResync": "2026-11-20"
       }
     }
   },
@@ -38281,7 +38283,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:640ed739bfb741af02e5b55c3ca38b36c56fce4d3d9b423561bfb6007b1c3f38",
+        "structuralSourceHash": "sha256:23e43e15d00862f135ca29084390c055676eb2143a8b83945fe864863e3066cc",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox",
@@ -38345,7 +38347,7 @@
             "pale orange and salmon-pink lace-up boots"
           ]
         },
-        "lastStructuralResync": "2026-11-19"
+        "lastStructuralResync": "2026-11-20"
       }
     }
   },
@@ -45853,7 +45855,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:2f8e0586e311d0bffde873106b24af6e378e53fa3636712b2ce35deb597c82ba",
+        "structuralSourceHash": "sha256:797ba49e5d3fd458fde55e67680f4da8e8f4cddf2d5bb6a7f95f524fb8196a84",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox",
@@ -45916,7 +45918,7 @@
             "yellow shoes"
           ]
         },
-        "lastStructuralResync": "2026-08-11"
+        "lastStructuralResync": "2026-11-20"
       }
     }
   },
@@ -51484,7 +51486,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:7327da1ae35545359571076ebd8695ad1d7865e1e5692871591c79d9a37cd440",
+        "structuralSourceHash": "sha256:fac5c6310491609c97d8c26a67b9c3cb0b34d27a223c22186b177de383110e0e",
         "structuralEntries": {
           "common.identity_tags": [
             "Fox (multicolored with ear markings and tip color)",
@@ -51550,7 +51552,7 @@
             "bound by rope"
           ]
         },
-        "lastStructuralResync": "2026-08-11"
+        "lastStructuralResync": "2026-11-20"
       }
     }
   },
@@ -57820,7 +57822,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:92599eda66757158a62ca3b6fb051eb59ea711afe6eb61dd5e90d1fe6ca2bbc9",
+        "structuralSourceHash": "sha256:1cd34af84a20fa08dcc53c35382e5ddd4aa1febd47ff22e3d2672718a05ae3d9",
         "structuralEntries": {
           "common.identity_tags": ["Fox"],
           "common.silhouette_features": ["fox 2 tails", "Fox"],
@@ -57864,7 +57866,7 @@
             "holographic body (prototype state)"
           ]
         },
-        "lastStructuralResync": "2026-11-19"
+        "lastStructuralResync": "2026-11-20"
       }
     }
   },
