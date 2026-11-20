@@ -2,8 +2,9 @@
 
 ## 現在の実装と引継ぎ
 
-- **公開結果**: addonのD追従を7849c017でpush。CreationsAIは自動同期fa26d38を取り込んだ上に、生成スクリプト・正式pin7849c017・再生成物をf0379688でcommit/nonforce pushした。通常コマンドで40テスト、build、validatorが成功。許可187/732、61の衣装/画像/代表画像の漏れ0、D9人の旧語0を確認。
-- **CIで検出した修正**: developマージでmigrate.mjsのinvalidateAIImagePolicy importと呼び出しが二重になっていた。重複を除去し、同期CLI3本の構文テストを追加。修正前に構文エラーを再現し、修正後は関連57テストとfull/AIHints両CLIのdry-run成功。本番同期は修正push後のCIで追跡する。
+- **公開結果**: addonのD追従を7849c017でpush。CreationsAIは自動同期fa26d38を取り込んだ上に、生成スクリプト・正式pin7849c017・再生成物をf0379688でcommit/nonforce pushした。その後の自動同期d8eb504・4e9a69aも新しい生成コードで成功し、公開masterは4e9a69a・pinはaddonのa4b1a43d。GitHubから実ファイルを取得しGit blobとの一致も確認。許可187/732、61の衣装/画像/代表画像の漏れ0、D9人の旧語0を維持している。
+- **CIで検出した修正**: developマージでmigrate.mjsのinvalidateAIImagePolicy importと呼び出しが二重になっていた。重複を除去し、同期CLI3本の構文テストを追加。修正前に構文エラーを再現し、修正後は関連57テストとfull/AIHints両CLIのdry-run成功。fa10a498でpush後の本番同期は全工程成功した（下記参照）。
+- **Issueの最新確認**: #60は対応完了としてclosed。#62の最新コメント7032669653でも公開データセットの受け入れ条件達成と自動同期の修正を確認している。残っていた本番API反映も下記のとおり確認できた。#61はopenで、自動的な表情・仕草の推定は追加せず、今回のCLIで既存型への監修済み入力・校正を扱う。
 
 - #60 D の追加監修: 登録設定画・人型完成絵を9人分照合し、12/15/20/23/24/25/27/37/39に別の恒常的な私服を追加する根拠は見つからなかった。同じ衣装の総称を具体的な要約へ校正。20の灰色インナー、24の青紫スカート＋モーブ裾、25の青緑の上衣（全身ボディスーツと断定しない）も原画に合わせた。
 - D の正典変更は develop の11ac4911へコミット・pushされ、sub1へf2a22c25でマージした。AIHintsは9人だけ既存resyncと旧AD由来の完全一致23要素の限定校正で追従し、派生exportsを再計算。対象外レコード・原本文・画像・権利指定・手書き保護項目は維持。再resyncは9件すべてno-op、関連69テスト成功。
@@ -26,14 +27,23 @@
 
 ## 検証とレビュー
 
-- main のD校正後: **84ファイル / 1,519テスト成功**（maxWorkers=2）。並行負荷時に既存graph.routeの40ms閾値を41.9msで一度超過したため、対象単独26テスト成功後、負荷を抑えた全体再検証も実施。sub1 のD/AIHints追従後: **98ファイル / 1,837テスト成功（18.08秒）**。CLI構文修正後の関連57テストも成功。agents:check、data:order:check（0/1465）、構文・diff検査も成功。
+- main のD校正後: **84ファイル / 1,519テスト成功**（maxWorkers=2）。並行負荷時に既存graph.routeの40ms閾値を41.9msで一度超過したため、対象単独26テスト成功後、負荷を抑えた全体再検証も実施。sub1 の最終全体検証: **99ファイル / 1,840テスト成功（33.57秒、maxWorkers=2）**。後続のAIHints自動同期PR #64は5JSONのAIHints15件のみで、その他の値が構造的に不変なことと関連85テストの成功を確認。agents:check、data:order:check（0/1465）、構文・diff検査も成功。
 - ローカル headless Edge、SW制御再訪各3回: キャラ一覧392.3 / 600.4 / 601.4ms、相関図575.7 / 592.4 / 553.0ms。6回とも1000ms未満、pageerrorなし、成功したJSONの重複ネットワーク取得なし。先行診断で相関図1075.3msを一度観測したことも記録に保持。
 - SCG-SE の詳細で「着脱可能」タグ1件を表示確認。main の `.cache/appearance-policy/browser-results.json` / `browser-observations.json` / `se-detachable.png` に証跡を保存した。
 - Ponytail Review で非公開DBのCommons補完停止、同名.private DBによる公開画像の誤除外、APIの不正型許可、旧相対参照の共有拒否漏れ、衣装dictFile未解決を検出・修正し、具体的な再現ケースで再検証した。
-- CreationsAI 最終は **40テスト成功・実データ再生成/validator成功**。732件、AI利用可191→187（差分は指定D-Vines4人だけ）。61の除外衣装4項目、AIHints衣装文、画像3ファイルの漏れとdesignAltの共通代表採用は0件。References/Localizationの明示許可と通常素体の参考画像を保持し、image-indexは481項目/480固有画像。生成元コミットは98633e91。
+- CreationsAI 最終は **40テスト成功・実データ再生成/validator成功**。732件、AI利用可191→187（差分は指定D-Vines4人だけ）。61の除外衣装4項目、AIHints衣装文、画像3ファイルの漏れとdesignAltの共通代表採用は0件。References/Localizationの明示許可と通常素体の参考画像を保持し、image-indexは481項目/480固有画像。公開4e9a69aの生成元はa4b1a43d。初期ログの98633e91はamend前のローカルSHAで、公開履歴には使用しない。
 - API許可表のdry-runは479画像/488参照。資料カタログ・typedef・Ref_/Loc_・Works_ImagesDirを含むpositive/negative fixtureで検証した。
 - 既存の未解決画像参照2件は SCG Regioministrators の「扇 三春」「扇 残冬」のconcept_PNGName。元の_DBCrossLinkPath値と同じで、新たな退行ではないことを確認した。
 - 証跡は sub1 `.cache/issue62-final/tests.log`、main `.cache/issue62-creationsai/{final-tests.log,final-build.log,final-validate.log,final-audit.json}`。
+- 公開ファイルの検証証跡はmain `.cache/issue62-creationsai/public-verify.json` と `public-fetch/`。
+
+## 本番同期の追跡
+
+- 修正fa10a498の [Actions run 44690242199](https://github.com/radiann-kswg/100BeautiesLab_CreationsDB/actions/runs/44690242199) はWorkerデプロイ、D1 schema、R2/D1、AIHints、許可表公開まで全工程success。2026-11-20 JSTでrecords703件は15:59:31、AIHints127件は16:00:33に完了、許可表479画像/488参照は16:00:34に公開された。
+- 続く最新a4b1a43dの [Actions run 44690425879](https://github.com/radiann-kswg/100BeautiesLab_CreationsDB/actions/runs/44690425879) が直列化キューから開始。16:01の本番API確認では対象5件とも503 `AI policy unavailable` / `Cache-Control: no-store` で、再同期中の本文拒否を確認。成功後に同じ対象を以下のとおり再確認した。
+- a4b1a43dも全工程success。records703件は16:11:03、AIHints127件は16:11:57、許可表479画像/488参照の公開は16:11:58に完了した。
+- runは16:12:01に完了。16:13:03の公開API確認で61単件は200、AppearanceDetail11項目にidolは0、禁止画像3件の漏れ0、AIHintsの実在とidol/アイドル語0を確認。D-Vinesの3/3・7/7・8/8・22/22はすべて404。5応答すべて `Cache-Control: no-store`。秘密は取得していない。
+- 同期中と完了後の証跡はmain `.cache/appearance-policy/production-api-smoke-during-a4b-sync.json` / `production-api-smoke.json`。確認コードは同フォルダの `production-api-smoke.mjs`。
 
 ## API の運用
 
@@ -41,11 +51,12 @@
 
 詳細: [AIHints仕様](../docs/aihints-spec.md)、[CLI使用法](../docs/appearance-detail-tools.md)。
 
-## 残作業
+## 完了事項と別課題
 
-- CreationsAIの生成スクリプト・pin・再生成物はf0379688で公開済み。以後の自動同期も新しい生成コードを使用する。sourceと生成物の公開後CIを追跡する。
-- addonのWorkerデプロイは成功。R2/D1同期は先行runの待機とmigration構文エラーがあったため、CLI修正push後のCI完了を確認する。
+- CreationsAIは生成スクリプトの公開と後続自動同期2回、公開実ファイルの検証まで完了。
+- addonのWorkerデプロイと最新版a4b1a43dの同期、本番APIの除外確認まで完了。#62へのコメント投稿やclose操作は行っていない。
 - #60 Dは画像照合とデータ校正を完了、EはIssue #63へ分離済み。Issue本文/コメントを作業中に定期確認し、B/C・Dと権利対象の決定を反映した。
+- #61の画像からの自動推定と、下流GeneratorsAI/ShapeChangerAIでの形態・衣装・着脱の選択実装は今回の対象外。既存の未解決画像参照2件は上記のとおり保持。
 
 ---
 

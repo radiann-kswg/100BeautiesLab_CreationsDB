@@ -18,7 +18,7 @@
 - 同期前に許可表を無効化し、full同期・AIHints同期が同じソース指紋/投入先で成功した後だけ公開する段階を追加。途中の失敗・ソース変更・単独同期・隠し作業ディレクトリによる誤許可を防ぐ。CIもこの順序で実行する。
 - 旧相対参照、`_DBCrossLinkPath`、`DB_File`、衣装辞書の`dictFile`、作品別レイヤーのメタ/typedefを検証対象に含める。通常サイトとdevelopの通常APIは対象外。
 - CreationsAIの出力も同じ権利指定を反映して再生成。D-Vines4人だけを新たに権利理由で除外し、266/314は進捗理由の拒否を維持する。61の除外衣装と画像3件、designAltの共通代表採用が残らないことを検証する。
-- 検証の集計と未実施事項は `_work_in_progress/2026-11-20_progress_appearance-policy-tools.md`。本番同期・デプロイは未実施。
+- Workerデプロイと最新版a4b1a43dのR2/D1・AIHints同期、許可表公開は本番で成功。61の単件200応答から除外衣装・説明・画像3件が消え、D-Vines4人は404になることを公開APIで確認。CreationsAIの生成コードもmasterへ反映し、後続自動同期2回とも187/732件を維持。検証の集計は `_work_in_progress/2026-11-20_progress_appearance-policy-tools.md`。
 
 ### feat: 外見の形態・衣装・着脱補完と画像単位の AI 除外 (#60 / #61 / #62、2026-11-20)
 
@@ -28,7 +28,7 @@
 - **追加の作者判断**: NTS の衣装辞書 `idol` を AI 利用除外にし、該当外見4項目と AIHints の衣装説明も AI 向け出力から除く。D-Vines の分数番号4人をレコード単位で除外。266/314はデザイン思想が適用されないため、この除外対象へ含めない。
 - **入力補助**: `tools/patch-appearance-detail.mjs` は候補準備・dry-run・明示 apply を提供。複合インデックス、before の一致、schema/辞書、出典画像を検証し、表情・動作の手動入力と原画に基づく校正も扱う。
 - **共通処理**: `pkg/ai-image-policy.mjs` に完全一致検証・画像参照の正規化・共有画像の拒否優先を集約。CreationsAI は全 AI 向け画像参照を同じ許可集合で絞る。API 実装は sub1 / `addon-ai-tag` で管理する。
-- **同期**: `migrate.mjs` は更新前に AI 向け画像許可表を無効化する。`addon-ai-tag` の同期完了後に再公開するまで AI 向け画像参照は返さない。本番同期・デプロイは未実施。
+- **同期**: `migrate.mjs` は更新前に AI 向け画像許可表を無効化する。`addon-ai-tag` の同期完了後に再公開するまで AI 向け画像参照は返さない。本番への反映状況は上のaddon変更履歴と進捗ログを参照。
 - **下流への申し送り**: DB 固有 CLI と対応テストは対で同期対象から除外する。画像単位ポリシーの利用には上流差分と CreationsAI の追従が必要。詳細と検証結果は `_work_in_progress/2026-11-20_progress_appearance-policy-tools.md`。
 
 ### feat: AIHints を獣爾騎兵・豹変系女子へ拡張（形態キー・索引キーを作品別 typedef から解決） (2026-11-19)
