@@ -1310,9 +1310,7 @@
     "AppearanceDetail": [
       {
         "Formation": null,
-        "BodyPart": [
-          "#BodyPart_FaceMaking"
-        ],
+        "BodyPart": ["#BodyPart_FaceMaking"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -1406,11 +1404,13 @@
         ],
         "silhouette_features": [
           "scorpion 2 tails",
+          "average stature (about 151cm)",
           "TODO: hair color and length",
           "TODO: eye color",
           "exactly 2 tails total, no more no less"
         ],
         "immutable_traits": [
+          "number '223' marking: lot mark on the left cheek, Arabic numerals '223' with an underline",
           "digital construct (NumberTales unit)",
           "scorpion 2 tails (immutable count)",
           "'#223' number marking (immutable)"
@@ -1463,10 +1463,12 @@
           ],
           "ai_tags": [
             "corefolder form",
-            "1other",
-            "early teenager",
-            "TODO: ear type (no AppearanceDetail #Element_Ear entry found)",
             "scorpion 2 tails",
+            "average stature (about 151cm)",
+            "early teenager",
+            "lot mark on the left cheek, Arabic numerals '223' with an underline",
+            "1other",
+            "TODO: ear type (no AppearanceDetail #Element_Ear entry found)",
             "TODO: hair color and style",
             "TODO: eye color",
             "TODO: corefolder outfit key terms"
@@ -1478,7 +1480,7 @@
             "humanoid casual outfit"
           ],
           "natural_language_description": "TODO: 1-sentence description of the corefolder form.",
-          "prompt_export": "corefolder form, 1other, early teenager, scorpion 2 tails",
+          "prompt_export": "corefolder form, scorpion 2 tails, average stature (about 151cm), early teenager, lot mark on the left cheek, Arabic numerals '223' with an underline, 1other",
           "negative_prompt_export": "cat ears, rabbit ears, fewer or more than 2 tail(s), humanoid casual outfit",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SelfSecondary/concept/cr/cnsp_imgNTS-223.png",
@@ -1486,7 +1488,45 @@
           }
         }
       },
-      "alt_modes": null
+      "alt_modes": null,
+      "_meta": {
+        "structuralSourceHash": "sha256:804dc3586b22f6b852ad50cdbd84404c020d14815321fd765c89e29e8461b8b7",
+        "structuralEntries": {
+          "common.silhouette_features": [
+            "scorpion 2 tails",
+            "average stature (about 151cm)"
+          ],
+          "common.immutable_traits": [
+            "number '223' marking: lot mark on the left cheek, Arabic numerals '223' with an underline"
+          ],
+          "forms.corefolder.form_tags": ["corefolder form"],
+          "forms.corefolder.ai_tags": [
+            "corefolder form",
+            "scorpion 2 tails",
+            "average stature (about 151cm)",
+            "early teenager",
+            "lot mark on the left cheek, Arabic numerals '223' with an underline"
+          ],
+          "forms.corefolder.immutable_constraints": [
+            "do not render arms or hands",
+            "do not render legs or feet",
+            "do not dress in humanoid casual / fashion outfit"
+          ],
+          "forms.corefolder.negative_keywords": [
+            "feet",
+            "legs",
+            "shoes",
+            "high heels",
+            "arms",
+            "hands",
+            "hoodie",
+            "blazer",
+            "fashion outfit",
+            "bound by rope"
+          ]
+        },
+        "lastStructuralResync": "2026-11-20"
+      }
     }
   },
   {
@@ -4300,9 +4340,7 @@
     "AppearanceDetail": [
       {
         "Formation": null,
-        "BodyPart": [
-          "#BodyPart_FaceMaking"
-        ],
+        "BodyPart": ["#BodyPart_FaceMaking"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -4396,11 +4434,13 @@
         ],
         "silhouette_features": [
           "branching fox 7 tails",
+          "average stature (about 153cm)",
           "TODO: hair color and length",
           "TODO: eye color",
           "exactly 7 tails total: from Lower to Upper — Lower: 3 tails x3 clusters, 2 tails x2 clusters, Upper: 1 tails x1 clusters, no more no less"
         ],
         "immutable_traits": [
+          "number '753' marking: lot mark on the left cheek, Arabic numerals '753' with an underline",
           "digital construct (NumberTales unit)",
           "branching fox 7 tails (immutable count)",
           "'#753' number marking (immutable)"
@@ -4453,10 +4493,12 @@
           ],
           "ai_tags": [
             "corefolder form",
-            "1other",
-            "teenager",
-            "TODO: ear type (no AppearanceDetail #Element_Ear entry found)",
             "branching fox 7 tails",
+            "average stature (about 153cm)",
+            "teenager",
+            "lot mark on the left cheek, Arabic numerals '753' with an underline",
+            "1other",
+            "TODO: ear type (no AppearanceDetail #Element_Ear entry found)",
             "TODO: hair color and style",
             "TODO: eye color",
             "TODO: corefolder outfit key terms"
@@ -4468,7 +4510,7 @@
             "humanoid casual outfit"
           ],
           "natural_language_description": "TODO: 1-sentence description of the corefolder form.",
-          "prompt_export": "corefolder form, 1other, teenager, branching fox 7 tails",
+          "prompt_export": "corefolder form, branching fox 7 tails, average stature (about 153cm), teenager, lot mark on the left cheek, Arabic numerals '753' with an underline, 1other",
           "negative_prompt_export": "cat ears, rabbit ears, fewer or more than 7 tail(s), humanoid casual outfit",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SelfSecondary/concept/jw/cnsp_imgNTS-753.png",
@@ -4476,7 +4518,45 @@
           }
         }
       },
-      "alt_modes": null
+      "alt_modes": null,
+      "_meta": {
+        "structuralSourceHash": "sha256:840511bdda5ccb398d008f126b4ab31ef2677e7892cbdb3f3f43ac05e95e172e",
+        "structuralEntries": {
+          "common.silhouette_features": [
+            "branching fox 7 tails",
+            "average stature (about 153cm)"
+          ],
+          "common.immutable_traits": [
+            "number '753' marking: lot mark on the left cheek, Arabic numerals '753' with an underline"
+          ],
+          "forms.corefolder.form_tags": ["corefolder form"],
+          "forms.corefolder.ai_tags": [
+            "corefolder form",
+            "branching fox 7 tails",
+            "average stature (about 153cm)",
+            "teenager",
+            "lot mark on the left cheek, Arabic numerals '753' with an underline"
+          ],
+          "forms.corefolder.immutable_constraints": [
+            "do not render arms or hands",
+            "do not render legs or feet",
+            "do not dress in humanoid casual / fashion outfit"
+          ],
+          "forms.corefolder.negative_keywords": [
+            "feet",
+            "legs",
+            "shoes",
+            "high heels",
+            "arms",
+            "hands",
+            "hoodie",
+            "blazer",
+            "fashion outfit",
+            "bound by rope"
+          ]
+        },
+        "lastStructuralResync": "2026-11-20"
+      }
     }
   },
   {
