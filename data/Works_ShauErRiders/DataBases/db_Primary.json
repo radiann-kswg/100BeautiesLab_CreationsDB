@@ -1000,7 +1000,10 @@
           "ochre skirt and white waistband",
           "dark gray gloves",
           "long dark gray stockings",
-          "blue footwear with yellow trim"
+          "blue footwear with yellow trim",
+          "short-sleeved hooded top, purple; hood lining and trim: pale purple, open front with hood drawstrings hanging on both sides",
+          "gray inner top beneath the outer layer",
+          "pale purple bottoms"
         ],
         "silhouette_features": [
           "short stature (about 144cm)",
@@ -1032,7 +1035,10 @@
             "ochre skirt and white waistband",
             "dark gray gloves",
             "long dark gray stockings",
-            "blue footwear with yellow trim"
+            "blue footwear with yellow trim",
+            "short-sleeved hooded top, purple; hood lining and trim: pale purple, open front with hood drawstrings hanging on both sides",
+            "gray inner top beneath the outer layer",
+            "pale purple bottoms"
           ],
           "silhouette_notes": {
             "body_description": [
@@ -1056,18 +1062,21 @@
             "ochre skirt and white waistband",
             "dark gray gloves",
             "long dark gray stockings",
-            "blue footwear with yellow trim"
+            "blue footwear with yellow trim",
+            "short-sleeved hooded top, purple; hood lining and trim: pale purple, open front with hood drawstrings hanging on both sides",
+            "gray inner top beneath the outer layer",
+            "pale purple bottoms"
           ],
           "negative_visuals": [],
           "natural_language_description": null,
-          "prompt_export": "normal form, short stature (about 144cm), pink, cheek-length short hair, parted bangs and outward-flicking ends, Rabbit (long ears), pink outside, pale skin color inside, upright right ear and forward-drooping left ear, yellow, Rabbit-type, short tail, 1, pink with a pale tip, behind the waist, red top, white and yellow collar trim, white cuffs, ochre skirt and white waistband, dark gray gloves, long dark gray stockings, blue footwear with yellow trim",
+          "prompt_export": "normal form, short stature (about 144cm), pink, cheek-length short hair, parted bangs and outward-flicking ends, Rabbit (long ears), pink outside, pale skin color inside, upright right ear and forward-drooping left ear, yellow, Rabbit-type, short tail, 1, pink with a pale tip, behind the waist, red top, white and yellow collar trim, white cuffs, ochre skirt and white waistband, dark gray gloves, long dark gray stockings, blue footwear with yellow trim, short-sleeved hooded top, purple; hood lining and trim: pale purple, open front with hood drawstrings hanging on both sides, gray inner top beneath the outer layer, pale purple bottoms",
           "negative_prompt_export": "",
           "reference_images": null
         }
       },
       "alt_modes": null,
       "_meta": {
-        "structuralSourceHash": "sha256:9f4c7619056200a4b3185a7129a5e38da8453f7a096fed7bb4e9355cf3f023e3",
+        "structuralSourceHash": "sha256:bde73682fa1c010214c51adfd54d6570137c435808725ef330d92d96125563b2",
         "structuralEntries": {
           "common.identity_tags": [
             "pink, cheek-length short hair, parted bangs and outward-flicking ends",
@@ -1078,7 +1087,10 @@
             "ochre skirt and white waistband",
             "dark gray gloves",
             "long dark gray stockings",
-            "blue footwear with yellow trim"
+            "blue footwear with yellow trim",
+            "short-sleeved hooded top, purple; hood lining and trim: pale purple, open front with hood drawstrings hanging on both sides",
+            "gray inner top beneath the outer layer",
+            "pale purple bottoms"
           ],
           "common.silhouette_features": [
             "short stature (about 144cm)",
@@ -1099,10 +1111,13 @@
             "ochre skirt and white waistband",
             "dark gray gloves",
             "long dark gray stockings",
-            "blue footwear with yellow trim"
+            "blue footwear with yellow trim",
+            "short-sleeved hooded top, purple; hood lining and trim: pale purple, open front with hood drawstrings hanging on both sides",
+            "gray inner top beneath the outer layer",
+            "pale purple bottoms"
           ]
         },
-        "lastStructuralResync": "2026-11-19"
+        "lastStructuralResync": "2026-11-20"
       }
     }
   },
@@ -1878,17 +1893,14 @@
           "yellow-green, long nape hair extending like a snake at both sides, large fringe covering the left eye, upward curl on top",
           "yellow-orange irises and red pupils, narrow vertical pupils",
           "Reptile (pointed and extending sideways)",
-          "Reptile-type, 1, thick, long tail forming a large loop, yellow-green",
           "scaly skin",
-          "red top with an ochre chest panel and stand collar, white cuffs, round snake-motif patches on both sleeves",
-          "white waistband"
+          "red top with an ochre chest panel and stand collar"
         ],
         "silhouette_features": [
           "average stature (about 157cm)",
           "yellow-green, long nape hair extending like a snake at both sides, large fringe covering the left eye, upward curl on top",
           "yellow-orange irises and red pupils, narrow vertical pupils",
           "Reptile (pointed and extending sideways)",
-          "Reptile-type, 1, thick, long tail forming a large loop, yellow-green",
           "scaly skin"
         ],
         "immutable_traits": null,
@@ -1909,16 +1921,17 @@
         "normal": {
           "form_tags": ["normal form"],
           "outfit_features": [
-            "red top with an ochre chest panel and stand collar, white cuffs, round snake-motif patches on both sleeves",
-            "white waistband"
+            "red top with an ochre chest panel and stand collar",
+            "white waistband",
+            "white cuffs, round snake-motif patches on both sleeves"
           ],
           "silhouette_notes": {
             "body_description": [
               "yellow-green, long nape hair extending like a snake at both sides, large fringe covering the left eye, upward curl on top",
               "yellow-orange irises and red pupils, narrow vertical pupils",
               "Reptile (pointed and extending sideways)",
-              "Reptile-type, 1, thick, long tail forming a large loop, yellow-green",
-              "scaly skin"
+              "scaly skin",
+              "Reptile-type, 1, thick, long tail forming a large loop, yellow-green"
             ],
             "attached_items": []
           },
@@ -1930,30 +1943,33 @@
             "yellow-green, long nape hair extending like a snake at both sides, large fringe covering the left eye, upward curl on top",
             "yellow-orange irises and red pupils, narrow vertical pupils",
             "Reptile (pointed and extending sideways)",
-            "Reptile-type, 1, thick, long tail forming a large loop, yellow-green",
             "scaly skin",
-            "red top with an ochre chest panel and stand collar, white cuffs, round snake-motif patches on both sleeves",
-            "white waistband"
+            "red top with an ochre chest panel and stand collar",
+            "Reptile-type, 1, thick, long tail forming a large loop, yellow-green",
+            "white waistband",
+            "white cuffs, round snake-motif patches on both sleeves"
           ],
-          "negative_visuals": [],
+          "negative_visuals": [
+            "large red bow-like part behind the head, with sleeve-like parts extending to both sides, white cuffs, round snake-motif patches on both sleeves"
+          ],
           "natural_language_description": null,
-          "prompt_export": "normal form, average stature (about 157cm), yellow-green, long nape hair extending like a snake at both sides, large fringe covering the left eye, upward curl on top, yellow-orange irises and red pupils, narrow vertical pupils, Reptile (pointed and extending sideways), Reptile-type, 1, thick, long tail forming a large loop, yellow-green, scaly skin, red top with an ochre chest panel and stand collar, white cuffs, round snake-motif patches on both sleeves, white waistband",
-          "negative_prompt_export": "",
+          "prompt_export": "normal form, average stature (about 157cm), yellow-green, long nape hair extending like a snake at both sides, large fringe covering the left eye, upward curl on top, yellow-orange irises and red pupils, narrow vertical pupils, Reptile (pointed and extending sideways), scaly skin, red top with an ochre chest panel and stand collar, Reptile-type, 1, thick, long tail forming a large loop, yellow-green, white waistband, white cuffs, round snake-motif patches on both sleeves",
+          "negative_prompt_export": "large red bow-like part behind the head, with sleeve-like parts extending to both sides, white cuffs, round snake-motif patches on both sleeves",
           "reference_images": null
         },
         "beasted": {
           "form_tags": ["beasted form"],
           "outfit_features": [
-            "red top with an ochre chest panel and stand collar, white cuffs, round snake-motif patches on both sleeves",
-            "white waistband"
+            "red top with an ochre chest panel and stand collar",
+            "large red bow-like part behind the head, with sleeve-like parts extending to both sides, white cuffs, round snake-motif patches on both sleeves"
           ],
           "silhouette_notes": {
             "body_description": [
               "yellow-green, long nape hair extending like a snake at both sides, large fringe covering the left eye, upward curl on top",
               "yellow-orange irises and red pupils, narrow vertical pupils",
               "Reptile (pointed and extending sideways)",
-              "Reptile-type, 1, thick, long tail forming a large loop, yellow-green",
-              "scaly skin"
+              "scaly skin",
+              "long, limbless snake body retaining the humanoid head, yellow-green"
             ],
             "attached_items": []
           },
@@ -1965,15 +1981,18 @@
             "yellow-green, long nape hair extending like a snake at both sides, large fringe covering the left eye, upward curl on top",
             "yellow-orange irises and red pupils, narrow vertical pupils",
             "Reptile (pointed and extending sideways)",
-            "Reptile-type, 1, thick, long tail forming a large loop, yellow-green",
             "scaly skin",
-            "red top with an ochre chest panel and stand collar, white cuffs, round snake-motif patches on both sleeves",
-            "white waistband"
+            "red top with an ochre chest panel and stand collar",
+            "long, limbless snake body retaining the humanoid head, yellow-green",
+            "large red bow-like part behind the head, with sleeve-like parts extending to both sides, white cuffs, round snake-motif patches on both sleeves"
           ],
-          "negative_visuals": [],
+          "negative_visuals": [
+            "white waistband",
+            "white cuffs, round snake-motif patches on both sleeves"
+          ],
           "natural_language_description": null,
-          "prompt_export": "beasted form, average stature (about 157cm), yellow-green, long nape hair extending like a snake at both sides, large fringe covering the left eye, upward curl on top, yellow-orange irises and red pupils, narrow vertical pupils, Reptile (pointed and extending sideways), Reptile-type, 1, thick, long tail forming a large loop, yellow-green, scaly skin, red top with an ochre chest panel and stand collar, white cuffs, round snake-motif patches on both sleeves, white waistband",
-          "negative_prompt_export": "",
+          "prompt_export": "beasted form, average stature (about 157cm), yellow-green, long nape hair extending like a snake at both sides, large fringe covering the left eye, upward curl on top, yellow-orange irises and red pupils, narrow vertical pupils, Reptile (pointed and extending sideways), scaly skin, red top with an ochre chest panel and stand collar, long, limbless snake body retaining the humanoid head, yellow-green, large red bow-like part behind the head, with sleeve-like parts extending to both sides, white cuffs, round snake-motif patches on both sleeves",
+          "negative_prompt_export": "white waistband, white cuffs, round snake-motif patches on both sleeves",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_ShauErRiders/Images/DB_Primary/newYear/art_imgSAR-EZ6-B.png"
           }
@@ -1981,23 +2000,20 @@
       },
       "alt_modes": null,
       "_meta": {
-        "structuralSourceHash": "sha256:890afb295500c5741ae621b74a43609414c63abfc75de767af262dc14faa8dc2",
+        "structuralSourceHash": "sha256:481400fc4ec424394cc68f9fafdb4d2857ce30e62c184b9de45bae758746bb03",
         "structuralEntries": {
           "common.identity_tags": [
             "yellow-green, long nape hair extending like a snake at both sides, large fringe covering the left eye, upward curl on top",
             "yellow-orange irises and red pupils, narrow vertical pupils",
             "Reptile (pointed and extending sideways)",
-            "Reptile-type, 1, thick, long tail forming a large loop, yellow-green",
             "scaly skin",
-            "red top with an ochre chest panel and stand collar, white cuffs, round snake-motif patches on both sleeves",
-            "white waistband"
+            "red top with an ochre chest panel and stand collar"
           ],
           "common.silhouette_features": [
             "average stature (about 157cm)",
             "yellow-green, long nape hair extending like a snake at both sides, large fringe covering the left eye, upward curl on top",
             "yellow-orange irises and red pupils, narrow vertical pupils",
             "Reptile (pointed and extending sideways)",
-            "Reptile-type, 1, thick, long tail forming a large loop, yellow-green",
             "scaly skin"
           ],
           "forms.normal.form_tags": ["normal form"],
@@ -2007,10 +2023,11 @@
             "yellow-green, long nape hair extending like a snake at both sides, large fringe covering the left eye, upward curl on top",
             "yellow-orange irises and red pupils, narrow vertical pupils",
             "Reptile (pointed and extending sideways)",
-            "Reptile-type, 1, thick, long tail forming a large loop, yellow-green",
             "scaly skin",
-            "red top with an ochre chest panel and stand collar, white cuffs, round snake-motif patches on both sleeves",
-            "white waistband"
+            "red top with an ochre chest panel and stand collar",
+            "Reptile-type, 1, thick, long tail forming a large loop, yellow-green",
+            "white waistband",
+            "white cuffs, round snake-motif patches on both sleeves"
           ],
           "forms.beasted.form_tags": ["beasted form"],
           "forms.beasted.ai_tags": [
@@ -2019,13 +2036,13 @@
             "yellow-green, long nape hair extending like a snake at both sides, large fringe covering the left eye, upward curl on top",
             "yellow-orange irises and red pupils, narrow vertical pupils",
             "Reptile (pointed and extending sideways)",
-            "Reptile-type, 1, thick, long tail forming a large loop, yellow-green",
             "scaly skin",
-            "red top with an ochre chest panel and stand collar, white cuffs, round snake-motif patches on both sleeves",
-            "white waistband"
+            "red top with an ochre chest panel and stand collar",
+            "long, limbless snake body retaining the humanoid head, yellow-green",
+            "large red bow-like part behind the head, with sleeve-like parts extending to both sides, white cuffs, round snake-motif patches on both sleeves"
           ]
         },
-        "lastStructuralResync": "2026-11-19"
+        "lastStructuralResync": "2026-11-20"
       }
     }
   },

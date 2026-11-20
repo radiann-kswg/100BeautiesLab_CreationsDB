@@ -4907,7 +4907,7 @@
       },
       "alt_modes": null,
       "_meta": {
-        "structuralSourceHash": "sha256:4436d14faa1c33f26f8989e7df58d8a991352e2cb705e8af64e97ece8e9bf548",
+        "structuralSourceHash": "sha256:38ffa6500f1e79fbc99e2b3f552744de37ae7e52bf1a78f5efd44fd66f284887",
         "structuralEntries": {
           "common.identity_tags": [
             "Cat (drooping)",
@@ -4978,7 +4978,7 @@
             "bound by rope"
           ]
         },
-        "lastStructuralResync": "2026-10-12"
+        "lastStructuralResync": "2026-11-20"
       }
     }
   },
@@ -5435,7 +5435,7 @@
       },
       "alt_modes": null,
       "_meta": {
-        "structuralSourceHash": "sha256:1364ae55e4b053065b89d84847291d9cec323a8eb0664b440852fcbf1b64f502",
+        "structuralSourceHash": "sha256:a30c3a617edb7c3df079a7ba90af9cf6673e792c70010df86159070cb884fc34",
         "structuralEntries": {
           "common.identity_tags": [
             "Cat (drooping)",
@@ -5505,7 +5505,7 @@
             "navy leather shoes"
           ]
         },
-        "lastStructuralResync": "2026-10-12"
+        "lastStructuralResync": "2026-11-20"
       }
     }
   },
