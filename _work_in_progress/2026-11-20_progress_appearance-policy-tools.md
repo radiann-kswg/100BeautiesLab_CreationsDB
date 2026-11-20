@@ -2,12 +2,15 @@
 
 ## 現在の実装と引継ぎ
 
+- **公開結果**: addonのD追従を7849c017でpush。CreationsAIは自動同期fa26d38を取り込んだ上に、生成スクリプト・正式pin7849c017・再生成物をf0379688でcommit/nonforce pushした。通常コマンドで40テスト、build、validatorが成功。許可187/732、61の衣装/画像/代表画像の漏れ0、D9人の旧語0を確認。
+- **CIで検出した修正**: developマージでmigrate.mjsのinvalidateAIImagePolicy importと呼び出しが二重になっていた。重複を除去し、同期CLI3本の構文テストを追加。修正前に構文エラーを再現し、修正後は関連57テストとfull/AIHints両CLIのdry-run成功。本番同期は修正push後のCIで追跡する。
+
 - #60 D の追加監修: 登録設定画・人型完成絵を9人分照合し、12/15/20/23/24/25/27/37/39に別の恒常的な私服を追加する根拠は見つからなかった。同じ衣装の総称を具体的な要約へ校正。20の灰色インナー、24の青紫スカート＋モーブ裾、25の青緑の上衣（全身ボディスーツと断定しない）も原画に合わせた。
 - D の正典変更は develop の11ac4911へコミット・pushされ、sub1へf2a22c25でマージした。AIHintsは9人だけ既存resyncと旧AD由来の完全一致23要素の限定校正で追従し、派生exportsを再計算。対象外レコード・原本文・画像・権利指定・手書き保護項目は維持。再resyncは9件すべてno-op、関連69テスト成功。
 - #60 E は作者の明示依頼により [Issue #63](https://github.com/radiann-kswg/100BeautiesLab_CreationsDB/issues/63) へ分離・起票済み。形態/衣装/参考用区分と既存デザイン出典の対応、AI権利との独立性を受け入れ条件に含めた。
 
 - User が main / develop の変更を `a1490f14` としてテスト・push。指示を受け、sub1 / addon-ai-tag へ `0b1e6eff` で一方向マージした。競合した CHANGELOG と第三者運用文書は両方の記述を残して統合した。
-- その後 sub1 で `98633e91`「AIオプトアウト周り機能調整」の追加コミットを確認。最終のCreationsAI生成元も同コミットへ合わせた。
+- その後 sub1 で「AIオプトアウト周り機能調整」の追加コミットを確認（当時98633e91、amend後の公開SHAは211bff56）。現在の公開状態は冒頭の記録を優先する。
 - sub1 で進行中だった API 作業は Git stash へ退避してから復元した。develop から取り込んだ外見・権利 JSON と、addon の既存 AIHints / AI_TextRP_Allowed を維持した。保護用 stash は残している。
 - 権利軸の `AI_Optout`（16メタファイル44指定、true27/false17）と画像別・衣装別指定は develop が正典。移管対象の他のJSON値は不変。AIHints 本文・API・AI_Unready・AI_TextRP_Allowed は addon 管理を維持する。
 - マージで同一オブジェクトに重複した AI_Optout 44キーを sub1 で除去。除去前後の JSON.parse 結果が同じことを全16ファイルで確認し、重複キーを検出する回帰テストを追加した。
@@ -23,7 +26,7 @@
 
 ## 検証とレビュー
 
-- main 最終: 84ファイル / 1,519テスト成功。developマージ直後の sub1: 96ファイル / 1,811テスト成功。API・資料レイヤー・重複キー除去を含む sub1 最終: **98ファイル / 1,837テスト成功（16.90秒）**。agents:check、data:order:check（0/1465）、構文検査、ステージ/作業ツリーのdiff --checkも成功。
+- main のD校正後: **84ファイル / 1,519テスト成功**（maxWorkers=2）。並行負荷時に既存graph.routeの40ms閾値を41.9msで一度超過したため、対象単独26テスト成功後、負荷を抑えた全体再検証も実施。sub1 のD/AIHints追従後: **98ファイル / 1,837テスト成功（18.08秒）**。CLI構文修正後の関連57テストも成功。agents:check、data:order:check（0/1465）、構文・diff検査も成功。
 - ローカル headless Edge、SW制御再訪各3回: キャラ一覧392.3 / 600.4 / 601.4ms、相関図575.7 / 592.4 / 553.0ms。6回とも1000ms未満、pageerrorなし、成功したJSONの重複ネットワーク取得なし。先行診断で相関図1075.3msを一度観測したことも記録に保持。
 - SCG-SE の詳細で「着脱可能」タグ1件を表示確認。main の `.cache/appearance-policy/browser-results.json` / `browser-observations.json` / `se-detachable.png` に証跡を保存した。
 - Ponytail Review で非公開DBのCommons補完停止、同名.private DBによる公開画像の誤除外、APIの不正型許可、旧相対参照の共有拒否漏れ、衣装dictFile未解決を検出・修正し、具体的な再現ケースで再検証した。
@@ -40,8 +43,8 @@
 
 ## 残作業
 
-- sub1のAPI追加変更は98633e91へコミットされたが、リモート反映・本番R2/D1同期・Workerデプロイは本作業では実行していない。
-- CreationsAIの変更と再生成物はローカルに用意済み。サブモジュールpinは688a3492のまま。DB側をリモートへ反映後、pin追従・commit/pushが必要。今回の実データ検証はCREATIONS_DB_ROOTでsub1を指定した。
+- CreationsAIの生成スクリプト・pin・再生成物はf0379688で公開済み。以後の自動同期も新しい生成コードを使用する。sourceと生成物の公開後CIを追跡する。
+- addonのWorkerデプロイは成功。R2/D1同期は先行runの待機とmigration構文エラーがあったため、CLI修正push後のCI完了を確認する。
 - #60 Dは画像照合とデータ校正を完了、EはIssue #63へ分離済み。Issue本文/コメントを作業中に定期確認し、B/C・Dと権利対象の決定を反映した。
 
 ---
