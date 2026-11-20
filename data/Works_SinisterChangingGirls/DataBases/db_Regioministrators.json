@@ -25,7 +25,7 @@
         "_DBCrossLinkPath": {
           "_DB": "PrimaryStabilities",
           "_Field": "concept_PNGName",
-          "_IsoPath": "concept/cnsp_imgSCG-ENE"
+          "_IsoPath": "cnsp_imgSCG-ENE"
         }
       }
     },
@@ -64,7 +64,7 @@
         "_DBCrossLinkPath": {
           "_DB": "Primary",
           "_Field": "concept_PNGName",
-          "_IsoPath": "concept/cnsp_imgSCG-NE"
+          "_IsoPath": "cnsp_imgSCG-NE"
         }
       }
     },
@@ -96,7 +96,7 @@
         "_DBCrossLinkPath": {
           "_DB": "Primary",
           "_Field": "concept_PNGName",
-          "_IsoPath": "concept/cnsp_imgSCG-NW"
+          "_IsoPath": "cnsp_imgSCG-NW"
         }
       }
     },
