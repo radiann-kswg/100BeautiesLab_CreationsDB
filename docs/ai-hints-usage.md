@@ -58,6 +58,8 @@ GitHub 上に AI タグを置いただけでは、現在の生成 AI（ChatGPT �
 | `palette_priority`             | `object`    | **素体**の主色 / 補助色 / 差し色 (髪・瞳など)                                   | 全環境            |
 | `natural_language_description` | `#String`   | **素体**を述べる短文の英語サマリ (1〜2文)                                       | Gemini / ChatGPT  |
 
+外見から生成する `identity_tags` は、形態共通の候補が3個未満なら `TailsUnit` に明記された尾の形と本数で補う。候補が5個を超える場合は素体の特徴を優先して5個までを採り、各形態の `ai_tags` には候補をすべて残す。根拠が足りないときは作者が補完する。
+
 ---
 
 ## 4. `forms.<form>` 層のフィールド

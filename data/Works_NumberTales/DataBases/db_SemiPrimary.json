@@ -3494,6 +3494,263 @@
     "NumerospecStats": {
       "NumerospecAbout_JP": "万物と会話（交信・通信）できる",
       "NumerospecAbout_EN": "Can converse with all things (as communing and communicating)"
+    },
+    "AIHints": {
+      "common": {
+        "identity_tags": [
+          "Fox (pale yellow with pale gray tips)",
+          "three-tone blonde hair, two sidelocks and one back lock (three in total), each braided in three colors",
+          "three scorpion-type segmented tails gathered as if braided together",
+          "sky-blue eyes with unique pupils in one pale gray and two shades of yellow",
+          "roundly shaved pale yellow eyebrows"
+        ],
+        "silhouette_features": [
+          "scorpion 3 tails",
+          "petite stature (about 113cm)",
+          "Fox (pale yellow with pale gray tips)",
+          "three-tone blonde hair, two sidelocks and one back lock (three in total), each braided in three colors",
+          "three scorpion-type segmented tails gathered as if braided together",
+          "sky-blue eyes with unique pupils in one pale gray and two shades of yellow",
+          "roundly shaved pale yellow eyebrows"
+        ],
+        "immutable_traits": null,
+        "expression_tendency": [
+          "A pure and innocent girl, easygoing yet with a somewhat proactive side"
+        ],
+        "age_appearance": "child",
+        "palette_priority": {
+          "primary": "#FFCB13",
+          "secondary": "#D3DBDC",
+          "accent": "#FFA634"
+        },
+        "natural_language_description": null,
+        "reference_images": {
+          "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SemiPrimary/concept/cnsp_imgNTS-333.png",
+          "concept": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SemiPrimary/concept/cnsp_imgNTS-333.png"
+        }
+      },
+      "work_common": {
+        "reference_images": {
+          "corefolder_reference": [
+            "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/Ref_Vocabulary/concept-figure/cnsp-fg_NTsCoreFolder.png"
+          ],
+          "humanoid_reference": [
+            "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/Ref_Vocabulary/concept-figure/cnsp-fg_NTsHumanoid.png"
+          ]
+        }
+      },
+      "forms": {
+        "humanoid": {
+          "form_tags": [
+            "humanoid form"
+          ],
+          "outfit_features": [
+            "large gray ribbon tying up her three-colored long hair",
+            "gray ribbon with a round blue brooch featuring a three-color motif",
+            "pale gray collar",
+            "blue gothic lolita outfit combining Roman style and Japanese Showa-retro style",
+            "blue and pale gray thick-soled shoes adorned with gray ribbons"
+          ],
+          "silhouette_notes": {
+            "body_description": [
+              "Fox (pale yellow with pale gray tips)",
+              "three-tone blonde hair, two sidelocks and one back lock (three in total), each braided in three colors",
+              "three scorpion-type segmented tails gathered as if braided together",
+              "sky-blue eyes with unique pupils in one pale gray and two shades of yellow",
+              "roundly shaved pale yellow eyebrows",
+              "petite and cute build"
+            ],
+            "attached_items": [
+              "two round brooches featuring a three-color motif",
+              "halo in three shades of yellow and two of gray, with a dial telephone and signal-mark motif"
+            ]
+          },
+          "immutable_constraints": null,
+          "negative_keywords": null,
+          "ai_tags": [
+            "humanoid form",
+            "scorpion 3 tails",
+            "petite stature (about 113cm)",
+            "child",
+            "Fox (pale yellow with pale gray tips)",
+            "three-tone blonde hair, two sidelocks and one back lock (three in total), each braided in three colors",
+            "three scorpion-type segmented tails gathered as if braided together",
+            "sky-blue eyes with unique pupils in one pale gray and two shades of yellow",
+            "A pure and innocent girl, easygoing yet with a somewhat proactive side",
+            "roundly shaved pale yellow eyebrows",
+            "large gray ribbon tying up her three-colored long hair",
+            "gray ribbon with a round blue brooch featuring a three-color motif",
+            "two round brooches featuring a three-color motif",
+            "halo in three shades of yellow and two of gray, with a dial telephone and signal-mark motif",
+            "pale gray collar",
+            "fairly large on the left hem of the gothic lolita dress, ochre, Arabic numeral '333'",
+            "blue gothic lolita outfit combining Roman style and Japanese Showa-retro style",
+            "petite and cute build",
+            "blue and pale gray thick-soled shoes adorned with gray ribbons"
+          ],
+          "negative_visuals": [],
+          "natural_language_description": null,
+          "prompt_export": "humanoid form, scorpion 3 tails, petite stature (about 113cm), child, Fox (pale yellow with pale gray tips), three-tone blonde hair, two sidelocks and one back lock (three in total), each braided in three colors, three scorpion-type segmented tails gathered as if braided together, sky-blue eyes with unique pupils in one pale gray and two shades of yellow, A pure and innocent girl, easygoing yet with a somewhat proactive side, roundly shaved pale yellow eyebrows, large gray ribbon tying up her three-colored long hair, gray ribbon with a round blue brooch featuring a three-color motif, two round brooches featuring a three-color motif, halo in three shades of yellow and two of gray, with a dial telephone and signal-mark motif, pale gray collar, fairly large on the left hem of the gothic lolita dress, ochre, Arabic numeral '333', blue gothic lolita outfit combining Roman style and Japanese Showa-retro style, petite and cute build, blue and pale gray thick-soled shoes adorned with gray ribbons",
+          "negative_prompt_export": "",
+          "reference_images": null
+        },
+        "corefolder": {
+          "form_tags": [
+            "corefolder form"
+          ],
+          "outfit_features": [
+            "large gray ribbon tying up her three-colored long hair",
+            "gray ribbon with a round blue brooch featuring a three-color motif",
+            "pale gray collar"
+          ],
+          "silhouette_notes": {
+            "body_description": [
+              "spherical core body with the head as the only protruding part on top",
+              "Fox (pale yellow with pale gray tips)",
+              "three-tone blonde hair, two sidelocks and one back lock (three in total), each braided in three colors",
+              "three scorpion-type segmented tails gathered as if braided together",
+              "sky-blue eyes with unique pupils in one pale gray and two shades of yellow",
+              "roundly shaved pale yellow eyebrows"
+            ],
+            "attached_items": [
+              "two round brooches featuring a three-color motif",
+              "halo in three shades of yellow and two of gray, with a dial telephone and signal-mark motif"
+            ]
+          },
+          "immutable_constraints": [
+            "do not render arms or hands",
+            "do not render legs or feet",
+            "do not dress in humanoid casual / fashion outfit"
+          ],
+          "negative_keywords": [
+            "feet",
+            "legs",
+            "shoes",
+            "high heels",
+            "arms",
+            "hands",
+            "hoodie",
+            "blazer",
+            "fashion outfit",
+            "bound by rope"
+          ],
+          "ai_tags": [
+            "corefolder form",
+            "scorpion 3 tails",
+            "petite stature (about 113cm)",
+            "child",
+            "Fox (pale yellow with pale gray tips)",
+            "three-tone blonde hair, two sidelocks and one back lock (three in total), each braided in three colors",
+            "three scorpion-type segmented tails gathered as if braided together",
+            "sky-blue eyes with unique pupils in one pale gray and two shades of yellow",
+            "A pure and innocent girl, easygoing yet with a somewhat proactive side",
+            "roundly shaved pale yellow eyebrows",
+            "large gray ribbon tying up her three-colored long hair",
+            "gray ribbon with a round blue brooch featuring a three-color motif",
+            "two round brooches featuring a three-color motif",
+            "halo in three shades of yellow and two of gray, with a dial telephone and signal-mark motif",
+            "pale gray collar"
+          ],
+          "negative_visuals": [
+            "blue gothic lolita outfit combining Roman style and Japanese Showa-retro style",
+            "blue and pale gray thick-soled shoes adorned with gray ribbons"
+          ],
+          "natural_language_description": null,
+          "prompt_export": "corefolder form, scorpion 3 tails, petite stature (about 113cm), child, Fox (pale yellow with pale gray tips), three-tone blonde hair, two sidelocks and one back lock (three in total), each braided in three colors, three scorpion-type segmented tails gathered as if braided together, sky-blue eyes with unique pupils in one pale gray and two shades of yellow, A pure and innocent girl, easygoing yet with a somewhat proactive side, roundly shaved pale yellow eyebrows, large gray ribbon tying up her three-colored long hair, gray ribbon with a round blue brooch featuring a three-color motif, two round brooches featuring a three-color motif, halo in three shades of yellow and two of gray, with a dial telephone and signal-mark motif, pale gray collar",
+          "negative_prompt_export": "blue gothic lolita outfit combining Roman style and Japanese Showa-retro style, blue and pale gray thick-soled shoes adorned with gray ribbons",
+          "reference_images": {
+            "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SemiPrimary/concept/cnsp_imgNTS-333.png",
+            "corefolder": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SemiPrimary/corefolder/333/emstk_corefolderNTS-333-1.png"
+          }
+        }
+      },
+      "alt_modes": null,
+      "_meta": {
+        "structuralSourceHash": "sha256:f70fb54ca9d54918bdf07e1c4b65da7d3f36909a8b2a8ff955e27a82f8188f72",
+        "structuralEntries": {
+          "common.identity_tags": [
+            "Fox (pale yellow with pale gray tips)",
+            "three-tone blonde hair, two sidelocks and one back lock (three in total), each braided in three colors",
+            "three scorpion-type segmented tails gathered as if braided together",
+            "sky-blue eyes with unique pupils in one pale gray and two shades of yellow",
+            "roundly shaved pale yellow eyebrows"
+          ],
+          "common.silhouette_features": [
+            "scorpion 3 tails",
+            "petite stature (about 113cm)",
+            "Fox (pale yellow with pale gray tips)",
+            "three-tone blonde hair, two sidelocks and one back lock (three in total), each braided in three colors",
+            "three scorpion-type segmented tails gathered as if braided together",
+            "sky-blue eyes with unique pupils in one pale gray and two shades of yellow",
+            "roundly shaved pale yellow eyebrows"
+          ],
+          "common.expression_tendency": [
+            "A pure and innocent girl, easygoing yet with a somewhat proactive side"
+          ],
+          "forms.humanoid.form_tags": [
+            "humanoid form"
+          ],
+          "forms.humanoid.ai_tags": [
+            "humanoid form",
+            "scorpion 3 tails",
+            "petite stature (about 113cm)",
+            "child",
+            "Fox (pale yellow with pale gray tips)",
+            "three-tone blonde hair, two sidelocks and one back lock (three in total), each braided in three colors",
+            "three scorpion-type segmented tails gathered as if braided together",
+            "sky-blue eyes with unique pupils in one pale gray and two shades of yellow",
+            "A pure and innocent girl, easygoing yet with a somewhat proactive side",
+            "roundly shaved pale yellow eyebrows",
+            "large gray ribbon tying up her three-colored long hair",
+            "gray ribbon with a round blue brooch featuring a three-color motif",
+            "two round brooches featuring a three-color motif",
+            "halo in three shades of yellow and two of gray, with a dial telephone and signal-mark motif",
+            "pale gray collar",
+            "fairly large on the left hem of the gothic lolita dress, ochre, Arabic numeral '333'",
+            "blue gothic lolita outfit combining Roman style and Japanese Showa-retro style",
+            "petite and cute build",
+            "blue and pale gray thick-soled shoes adorned with gray ribbons"
+          ],
+          "forms.corefolder.form_tags": [
+            "corefolder form"
+          ],
+          "forms.corefolder.ai_tags": [
+            "corefolder form",
+            "scorpion 3 tails",
+            "petite stature (about 113cm)",
+            "child",
+            "Fox (pale yellow with pale gray tips)",
+            "three-tone blonde hair, two sidelocks and one back lock (three in total), each braided in three colors",
+            "three scorpion-type segmented tails gathered as if braided together",
+            "sky-blue eyes with unique pupils in one pale gray and two shades of yellow",
+            "A pure and innocent girl, easygoing yet with a somewhat proactive side",
+            "roundly shaved pale yellow eyebrows",
+            "large gray ribbon tying up her three-colored long hair",
+            "gray ribbon with a round blue brooch featuring a three-color motif",
+            "two round brooches featuring a three-color motif",
+            "halo in three shades of yellow and two of gray, with a dial telephone and signal-mark motif",
+            "pale gray collar"
+          ],
+          "forms.corefolder.immutable_constraints": [
+            "do not render arms or hands",
+            "do not render legs or feet",
+            "do not dress in humanoid casual / fashion outfit"
+          ],
+          "forms.corefolder.negative_keywords": [
+            "feet",
+            "legs",
+            "shoes",
+            "high heels",
+            "arms",
+            "hands",
+            "hoodie",
+            "blazer",
+            "fashion outfit",
+            "bound by rope"
+          ]
+        },
+        "lastStructuralResync": "2026-11-21"
+      }
     }
   },
   {

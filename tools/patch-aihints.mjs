@@ -3689,12 +3689,9 @@ export function buildAihintsFromAppearanceDetail(record, varsDef, label = record
     const source = Array.isArray(record.AppearanceDetail) ? record.AppearanceDetail : [];
 
     // ── 構造的正源（AppearanceDetail の記述より優先）──────────────
-    const tailDesc = (() => {
-        const parsed = parseTailsUnit(record.TailsUnit, varsDef);
-        if (!parsed) return null;
-        const desc = buildTailDescription(parsed);
-        return (typeof desc === 'string' && !desc.startsWith('TODO:')) ? desc : null;
-    })();
+    const tailGroups = Array.isArray(record.TailsUnit) ? record.TailsUnit : [];
+    const tails = tailGroups.map(group => buildTailDescription(parseTailsUnit([group], varsDef)));
+    const tailDesc = tails.length && tails.every(desc => !desc.startsWith('TODO:')) ? tails.join(', ') : null;
     const statureDesc = heightBandOf(record.Height_cm);
     const ageBand = (typeof record.ConceptAge === 'number' && Number.isFinite(record.ConceptAge))
         ? ageBandOf(record.ConceptAge)
@@ -3860,8 +3857,11 @@ export function buildAihintsFromAppearanceDetail(record, varsDef, label = record
         }
     }
 
+    // 共通特徴が少なければ構造化された尾を使う。5個を超えるときは素体を先に採る。
+    if (identityTags.length < 3 && tailDesc) pushUnique(identityTags, idSeen, tailDesc);
+    const bodyTags = identityTags.filter(tag => sfSeen.has(normalizeMotifEntry(tag)));
     const newCommon = {
-        identity_tags: identityTags,
+        identity_tags: identityTags.length > 5 ? [...new Set([...bodyTags, ...identityTags])].slice(0, 5) : identityTags,
         silhouette_features: silhouetteFeatures,
         // `Num` を持たない作品の索引値（方角・干支など）は番号ではないため、番号扱いの接頭辞を付けない
         immutable_traits: markingLinesShared.length > 0

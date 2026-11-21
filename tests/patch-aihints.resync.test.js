@@ -121,6 +121,22 @@ describe('computeStructuralSourceHash — 構造ソースの変化検知', () =>
 });
 
 describe('buildStructuralSnapshot — 構造由来であるべき値の一覧', () => {
+    it('少数の共通識別タグを尾で補い、多い場合は素体を優先して5個に収める', () => {
+        const record = makeRecord();
+        const snapshot = () => buildStructuralSnapshot(record, varsDef).arrays;
+        expect(snapshot()['common.identity_tags']).toEqual(['red orange hair', 'fox single tail']);
+        record.TailsUnit.push({ TailShapeType: '#TailShapeType_Scorpion', Count: 2 });
+        expect(snapshot()['common.identity_tags']).toContain('fox single tail, scorpion 2 tails');
+        const outfits = ['coat', 'vest', 'cap', 'scarf', 'boots'].map(value_EN => ({
+            Formation: null, DesignElement: '#Element_CostumeItem',
+            Attrs: [{ AttrLabel: '#DesignAttr_Overview', value_EN }],
+        }));
+        record.AppearanceDetail.unshift(...outfits);
+        const arrays = snapshot();
+        expect(arrays['common.identity_tags']).toEqual(['red orange hair', 'coat', 'vest', 'cap', 'scarf']);
+        expect(arrays['forms.corefolder.ai_tags']).toContain('boots');
+    });
+
     it('ColorPalette から palette_priority を導出する', () => {
         const { scalars } = buildStructuralSnapshot(makeRecord(), varsDef);
         expect(scalars['common.palette_priority']).toEqual({

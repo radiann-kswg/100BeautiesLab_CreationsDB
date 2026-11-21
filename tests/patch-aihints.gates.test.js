@@ -108,9 +108,19 @@ describe('ゲートの前提条件（実データ）', () => {
         expect(withTodo).toEqual([]);
     });
 
-    it('Primary の AIHints 件数が 92 のまま（本ラウンドは seed しないため不変であるべき）', () => {
-        const count = loadDb('db_Primary.json').filter((r) => r?.AIHints).length;
-        expect(count).toBe(92);
+    it('外見原本から補完した4件は共通識別タグを3〜5個持ち、未確定の欄は空欄にする', () => {
+        for (const [file, ids] of [['db_Primary.json', ['0', '00', 80]], ['db_SemiPrimary.json', [333]]]) {
+            const records = loadDb(file);
+            for (const id of ids) {
+                const hints = records.find(r => r.Num === id)?.AIHints;
+                expect(hints?.common.identity_tags.length).toBeGreaterThanOrEqual(3);
+                expect(hints.common.identity_tags.length).toBeLessThanOrEqual(5);
+                expect(JSON.stringify(hints)).not.toContain('TODO:');
+                if (id === '0' || id === '00') {
+                    expect(Object.keys(hints.forms)).toEqual(['humanoid']);
+                }
+            }
+        }
     });
 
     it('SemiPrimary / SelfSecondary は seed 済みで、AIHints は参照画像を持つレコードだけに付く', () => {
