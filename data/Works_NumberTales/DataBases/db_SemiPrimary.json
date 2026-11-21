@@ -3099,6 +3099,7 @@
         "TailShapeType": "#TailShapeType_Scorpion",
         "Count": 3,
         "Segment": 3,
+        "TailsUnit_PNGName": "attr_tailsUnitNTS-333",
         "Note_JP": "編み込むように束ねられており、1本1本色が異なる",
         "Note_EN": "Braided together like a plait, with each strand having a different color"
       }
@@ -3592,7 +3593,7 @@
     "GenderType": "Neutral",
     "Class": ["百倍番(ハンドレッズデジッツ)", "カレンド"],
     "Backgrounds_JP": "「100倍数の年は閏年でないが、400倍数だと閏年」という（グレゴリオ暦の）400年周期法則から命名された",
-    "Backgrounds_EN": "Named after the Gregorian 400-year rule: years divisible by 100 are not leap years, but years divisible by 400 are leap years."
+    "Backgrounds_EN": "Named after (the Gregorian) 400-year rule: years divisible by 100 are not leap years, but years divisible by 400 are leap years."
   },
   {
     "Num": 444,
@@ -6048,6 +6049,7 @@
       {
         "TailShapeType": "#TailShapeType_BirdTailOnly",
         "Count": null,
+        "TailsUnit_PNGName": "attr_tailsUnitNTS-888",
         "Note_JP": "左右の翼部と尾羽が3つの「8」のような模様をしている",
         "Note_EN": "The left and right wings and tail feathers have a pattern resembling three '8's."
       }
