@@ -1328,6 +1328,42 @@
         "img_PNGName": "attr_numberMarkNTS-223-lot",
         "Note_JP": null,
         "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": [
+          "#BodyPart_Eye"
+        ],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "黄色と水色の瞳",
+            "value_EN": "yellow and light blue eyes"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": [
+          "#BodyPart_Hair"
+        ],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "淡いクリーム色の髪",
+            "value_EN": "pale cream hair"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
       }
     ],
     "ColorPalette": [
@@ -4358,6 +4394,42 @@
           }
         ],
         "img_PNGName": "attr_numberMarkNTS-753-lot",
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": [
+          "#BodyPart_Eye"
+        ],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "青と黄色の瞳",
+            "value_EN": "blue and yellow eyes"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": [
+          "#BodyPart_Hair"
+        ],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "淡い橙色の髪",
+            "value_EN": "light orange hair"
+          }
+        ],
+        "img_PNGName": null,
         "Note_JP": null,
         "Note_EN": null
       }
