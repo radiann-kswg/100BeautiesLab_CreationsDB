@@ -57,12 +57,10 @@ import {
 // 引数パース
 // ─────────────────────────────────────────────────────────────────────────────
 
-const args = process.argv.slice(2);
-const { getArg, dryRun: DRY_RUN, clean: CLEAN, dbId: DB_ID, repoRoot: REPO_ROOT } = parseCommonArgs(args);
-
-const R2_ONLY  = args.includes("--r2-only");
-const D1_ONLY  = args.includes("--d1-only");
-const BUCKET   = getArg("--bucket") ?? "creationsdb-data";
+const {
+  dryRun: DRY_RUN, clean: CLEAN, dbId: DB_ID, bucket: BUCKET, repoRoot: REPO_ROOT,
+  r2Only: R2_ONLY, d1Only: D1_ONLY,
+} = parseCommonArgs(process.argv.slice(2), { allowPartialSync: true });
 
 const DATA_DIR = join(REPO_ROOT, "data");
 

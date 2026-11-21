@@ -82,7 +82,7 @@ describe('pkg/nodejs: Works_Hidden / DB_Hidden による非公開制御', () => 
   beforeAll(() => { hiddenDbs = findHiddenDbs(); });
 
   it('実データに DB_Hidden: true の DB が存在する（テストの前提）', () => {
-    expect(hiddenDbs.length).toBeGreaterThan(0);
+    expect(hiddenDbs).toContainEqual({ work: 'NumberTales', db: 'UnprocessedSecondary' });
   });
 
   it('DB_Hidden の DB は listDBs() の一覧に現れない', async () => {

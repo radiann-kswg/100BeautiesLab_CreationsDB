@@ -211,6 +211,7 @@
 - **カタログ用メタ宣言**: 作品/DB の概要メタ（`CreationWorks`, `Databases.#DB_*`）の正式な補助 schema は、グローバル `data/db_type.json` のトップレベル `$MetaType` で管理します。
 - **DB 表示名の正**: DB セレクトや作品概要の DB 見出しは、作品別 `db_meta.json` の `Databases.#DB_<DbName>.DB_Label` / `DB_Label_EN` を優先し、未定義時のみ SW の既定ラベル補完に依存します。
 - **`DB_Hidden` によるDB完全非公開**: `db_meta.json` の `Databases.#DB_<DbName>` に `"DB_Hidden": true` を置くと、そのDB全体が SW の DB リストと直接アクセスの両方から 404 で遮断されます。`isPrivate`（レコード単位）と異なり DB 単位で作用します。メタ欠損時はチェックをスキップします（`docs/api-sw-spec.md` §5.3）。
+- **DB 単位の AI 除外**: カタログの `DB_Hidden` と `AI_Optout` のどちらかが `true` なら、その DB 全体を AI 利用から除外します。両方が `false` または未指定の場合も、作品・カテゴリ・レコード・画像などの除外指定を適用します。
 - **`Works_Hidden` による作品完全非公開**: `data/db_meta.json` の `CreationWorks.#Works_<WorkName>` に `"Works_Hidden": true` を置くと、その作品全体が SW の作品一覧・配下DB・検索の全エンドポイントから 404 で遮断されます。グローバルメタ欠損時はチェックをスキップします（`docs/api-sw-spec.md` §5.4）。
 - **横断運用の参照先**: 実装判断の横断ルールは `docs/implementation-playbook.md` を先に確認し、必要な差分だけ追加します。
 - **wrapper / section renderer の第一候補**: 複合 summary は `pages/characters.js` や `lib/sw-common.js` に field 名依存の if を足す前に、`lib/wrapper-common.js` と schema の `$display.wrapper` / `$display.role` で吸収できないかを確認します。`subFields` の standalone 描画も同様に、`lib/section-wrapper-common.js` と `$display.sectionWrapper` で吸収できないかを確認します。
@@ -556,6 +557,7 @@ UI → Service Worker (`/pages/v1/`) → 静的 JSON 読み込み + `_DBLink`/`_
 - **データソース**: R2 (`creationsdb-data`) で JSON 静的ミラー、D1 (`creationsdb-d1`) で FTS5 検索インデックス
 - **初回セットアップ**: `schema/d1-init.sql` を D1 に適用 → `scripts/migrate.mjs` でデータ投入 → `wrangler deploy`
 - **データ更新**: `data/` を変更したら `scripts/migrate.mjs` を再実行して R2/D1 を同期
+- **同期先の組み合わせ**: D1 を更新する場合は本番 D1 と本番 R2 を対にする。検証時は `--db-id` と `--bucket` で検証先を両方指定する。`--d1-only` も対象 R2 の AI 許可表を先に無効化する。詳細は `docs/deploy-howto.md` §2。
 - **現在の対応範囲**: `_Commons` 適用・`isPrivate` 除外・FTS5 検索。`_DBLink`/`_Jump` 解決は次フェーズ。
 - **`Works_Hidden` / `DB_Hidden`**: D1 クエリレベルで判定して 404 を返す
 

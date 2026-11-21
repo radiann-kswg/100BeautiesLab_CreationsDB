@@ -87,6 +87,14 @@ node pkg/cloudflare/scripts/migrate.mjs --repo-root . --dry-run
 何件の JSON が対象になるか、D1 に何行 INSERT されるかが表示される。
 エラーがないことを確認してから実行へ進む。
 
+D1 を更新する全体同期と `--d1-only` では、本番 D1 と本番 R2 を対にする。検証時は検証用の D1 名とバケット名を両方指定する。片方だけが本番の場合は dry-run でも書き込み前に終了する。本番 D1 のバインディング名 `DB` も本番扱いになる。
+
+```bash
+node pkg/cloudflare/scripts/migrate.mjs --dry-run --d1-only --db-id staging-db --bucket staging-bucket
+```
+
+`--d1-only` の実同期でも、D1 更新前に対象 R2 の AI 許可表を無効化する。AI 向け本文 API は `addon-ai-tag` で同じ対象の同期が完了し、許可表を再公開するまで 503 を返す。
+
 ### 2-2. R2 のみ先に投入
 
 ```bash

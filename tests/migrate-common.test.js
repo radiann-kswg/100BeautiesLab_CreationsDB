@@ -9,6 +9,7 @@
 
 import { describe, it, expect, vi } from 'vitest';
 import { join } from 'node:path';
+import { readFileSync } from 'node:fs';
 import {
   parseCommonArgs,
   esc,
@@ -24,7 +25,7 @@ import {
 
 describe('parseCommonArgs', () => {
   it('フラグと値引数を読み分ける', () => {
-    const r = parseCommonArgs(['--dry-run', '--db-id', 'test-db', '--repo-root', '.']);
+    const r = parseCommonArgs(['--dry-run', '--db-id', 'test-db', '--bucket', 'test-bucket', '--repo-root', '.']);
     expect(r.dryRun).toBe(true);
     expect(r.clean).toBe(false);
     expect(r.dbId).toBe('test-db');
@@ -35,9 +36,41 @@ describe('parseCommonArgs', () => {
   });
 
   it('getArg で固有オプションも読める（--bucket 等）', () => {
-    const { getArg } = parseCommonArgs(['--bucket', 'my-bucket']);
+    const { getArg } = parseCommonArgs(['--bucket', 'my-bucket', '--db-id', 'test-db']);
     expect(getArg('--bucket')).toBe('my-bucket');
     expect(getArg('--nothing')).toBeUndefined();
+  });
+
+  it('Wrangler 設定の本番 D1 と R2 は同じ環境でのみ組み合わせられる', () => {
+    const config = readFileSync(new URL('../pkg/cloudflare/wrangler.toml', import.meta.url), 'utf8');
+    const d1 = config.split('[[d1_databases]]')[1].split('\n[')[0];
+    const productionBucket = /^bucket_name\s*=\s*"([^"]+)"/m.exec(config)[1];
+    for (const key of ['database_name', 'binding', 'database_id']) {
+      const dbId = new RegExp(`^${key}\\s*=\\s*"([^"]+)"`, 'm').exec(d1)[1];
+      expect(parseCommonArgs(['--db-id', dbId]).bucket).toBe(productionBucket);
+      expect(() => parseCommonArgs(['--db-id', dbId, '--bucket', 'test-bucket'])).toThrow(/環境/);
+    }
+    expect(() => parseCommonArgs(['--db-id', 'test-db', '--bucket', productionBucket])).toThrow(/環境/);
+  });
+
+  it('検証 D1 は全体同期・D1 専用同期のどちらでも対応バケットを必要とする', () => {
+    const options = { allowPartialSync: true };
+    for (const mode of [[], ['--d1-only']]) {
+      const argv = [...mode, '--db-id=test-db'];
+      expect(() => parseCommonArgs(argv, options)).toThrow(/環境/);
+      expect(parseCommonArgs([...argv, '--bucket=test-bucket'], options).bucket).toBe('test-bucket');
+    }
+  });
+
+  it('R2 専用同期だけが D1 との組み合わせ判定を省略できる', () => {
+    const argv = ['--r2-only', '--bucket', 'test-bucket'];
+    expect(parseCommonArgs(argv, { allowPartialSync: true }).r2Only).toBe(true);
+    expect(() => parseCommonArgs([...argv, '--d1-only'], { allowPartialSync: true })).toThrow(/同時/);
+    expect(() => parseCommonArgs(argv)).toThrow();
+  });
+
+  it.each(['--bucket', '--db-id', '--buckte=test-bucket'])('不完全な宛先を既定の本番に戻さない %s', arg => {
+    expect(() => parseCommonArgs([arg])).toThrow();
   });
 });
 

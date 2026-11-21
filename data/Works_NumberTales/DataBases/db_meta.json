@@ -205,30 +205,30 @@
           },
           "isPrivate": true
         }
+      ]
+    },
+    "#DB_UnprocessedSecondary": {
+      "AI_Optout": true,
+      "DB_Label_JP": "未整理の二次創作枠",
+      "DB_Label_EN": "Unprocessed Secondary",
+      "DB_Summary": "ナンバーテールズのうち、まだ制作予定のない3桁の番号をもつキャラクターの空き枠で、こちらは二次創作に準ずる括りとする。\nゾロ目(111の倍数)などの予約された番号を除く101以上999未満の非負整数である数秘をそれぞれ有している。",
+      "DB_Summary_EN": "Among NumberTales, placeholder slots for characters with three-digit numbers that are not yet planned for production, treated as quasi-secondary creations.\nEach one has numerology based on a non-negative integer from 101 to below 999, excluding reserved numbers such as repdigits (multiples of 111).",
+      "_Secondaries": [
+        {
+          "sec_Category": null,
+          "sec_DesignedBy": null,
+          "sec_SeriesTitle": null,
+          "_Commons": {
+            "Progress": "notProceeded",
+            "Belonging": [{ "Faction": "百花繚乱研究所" }],
+            "RaceType": "PortableHumanoid(TaleBeastType)",
+            "GenderType": "Neutral",
+            "isTriple": true
+          },
+          "isPrivate": true
+        }
       ],
-      "#DB_UnprocessedSecondary": {
-        "AI_Optout": true,
-        "DB_Label_JP": "未整理の二次創作枠",
-        "DB_Label_EN": "Unprocessed Secondary",
-        "DB_Summary": "ナンバーテールズのうち、まだ制作予定のない3桁の番号をもつキャラクターの空き枠で、こちらは二次創作に準ずる括りとする。\nゾロ目(111の倍数)などの予約された番号を除く101以上999未満の非負整数である数秘をそれぞれ有している。",
-        "DB_Summary_EN": "Among NumberTales, placeholder slots for characters with three-digit numbers that are not yet planned for production, treated as quasi-secondary creations.\nEach one has numerology based on a non-negative integer from 101 to below 999, excluding reserved numbers such as repdigits (multiples of 111).",
-        "_Secondaries": [
-          {
-            "sec_Category": null,
-            "sec_DesignedBy": null,
-            "sec_SeriesTitle": null,
-            "_Commons": {
-              "Progress": "notProceeded",
-              "Belonging": [{ "Faction": "百花繚乱研究所" }],
-              "RaceType": "PortableHumanoid(TaleBeastType)",
-              "GenderType": "Neutral",
-              "isTriple": true
-            },
-            "isPrivate": true
-          }
-        ],
-        "DB_Hidden": true
-      }
+      "DB_Hidden": true
     }
   },
   "General": {
