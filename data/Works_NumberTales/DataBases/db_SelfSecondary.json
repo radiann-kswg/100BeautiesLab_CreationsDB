@@ -1331,9 +1331,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": [
-          "#BodyPart_Eye"
-        ],
+        "BodyPart": ["#BodyPart_Eye"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -1349,9 +1347,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": [
-          "#BodyPart_Hair"
-        ],
+        "BodyPart": ["#BodyPart_Hair"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -4408,9 +4404,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": [
-          "#BodyPart_Eye"
-        ],
+        "BodyPart": ["#BodyPart_Eye"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -4426,9 +4420,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": [
-          "#BodyPart_Hair"
-        ],
+        "BodyPart": ["#BodyPart_Hair"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [

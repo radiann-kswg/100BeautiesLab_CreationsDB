@@ -3541,9 +3541,7 @@
       },
       "forms": {
         "humanoid": {
-          "form_tags": [
-            "humanoid form"
-          ],
+          "form_tags": ["humanoid form"],
           "outfit_features": [
             "large gray ribbon tying up her three-colored long hair",
             "gray ribbon with a round blue brooch featuring a three-color motif",
@@ -3595,9 +3593,7 @@
           "reference_images": null
         },
         "corefolder": {
-          "form_tags": [
-            "corefolder form"
-          ],
+          "form_tags": ["corefolder form"],
           "outfit_features": [
             "large gray ribbon tying up her three-colored long hair",
             "gray ribbon with a round blue brooch featuring a three-color motif",
@@ -3687,9 +3683,7 @@
           "common.expression_tendency": [
             "A pure and innocent girl, easygoing yet with a somewhat proactive side"
           ],
-          "forms.humanoid.form_tags": [
-            "humanoid form"
-          ],
+          "forms.humanoid.form_tags": ["humanoid form"],
           "forms.humanoid.ai_tags": [
             "humanoid form",
             "scorpion 3 tails",
@@ -3711,9 +3705,7 @@
             "petite and cute build",
             "blue and pale gray thick-soled shoes adorned with gray ribbons"
           ],
-          "forms.corefolder.form_tags": [
-            "corefolder form"
-          ],
+          "forms.corefolder.form_tags": ["corefolder form"],
           "forms.corefolder.ai_tags": [
             "corefolder form",
             "scorpion 3 tails",

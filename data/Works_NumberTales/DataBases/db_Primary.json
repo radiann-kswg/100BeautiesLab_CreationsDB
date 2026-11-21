@@ -275,9 +275,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": [
-          "#BodyPart_Eye"
-        ],
+        "BodyPart": ["#BodyPart_Eye"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -7220,9 +7218,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": [
-          "#BodyPart_Eye"
-        ],
+        "BodyPart": ["#BodyPart_Eye"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -7848,9 +7844,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": [
-          "#BodyPart_Eye"
-        ],
+        "BodyPart": ["#BodyPart_Eye"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -8168,7 +8162,11 @@
       "_meta": {
         "structuralSourceHash": "sha256:1b056bbd78f12c946ef97fc21452291f8d96f79f2821461a4a0d8685ba4674eb",
         "structuralEntries": {
-          "common.identity_tags": ["Fox", "teal light blue hair", "yellow eyes"],
+          "common.identity_tags": [
+            "Fox",
+            "teal light blue hair",
+            "yellow eyes"
+          ],
           "common.silhouette_features": [
             "branching fox 3 tails",
             "short stature (about 148cm)",
@@ -9794,9 +9792,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": [
-          "#BodyPart_Eye"
-        ],
+        "BodyPart": ["#BodyPart_Eye"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -10425,9 +10421,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": [
-          "#BodyPart_Eye"
-        ],
+        "BodyPart": ["#BodyPart_Eye"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -11016,9 +11010,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": [
-          "#BodyPart_Eye"
-        ],
+        "BodyPart": ["#BodyPart_Eye"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -12155,9 +12147,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": [
-          "#BodyPart_Eye"
-        ],
+        "BodyPart": ["#BodyPart_Eye"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -14204,9 +14194,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": [
-          "#BodyPart_Eye"
-        ],
+        "BodyPart": ["#BodyPart_Eye"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -16140,9 +16128,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": [
-          "#BodyPart_Eye"
-        ],
+        "BodyPart": ["#BodyPart_Eye"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -16822,9 +16808,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": [
-          "#BodyPart_Eye"
-        ],
+        "BodyPart": ["#BodyPart_Eye"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -17608,9 +17592,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": [
-          "#BodyPart_Eye"
-        ],
+        "BodyPart": ["#BodyPart_Eye"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -18194,9 +18176,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": [
-          "#BodyPart_Eye"
-        ],
+        "BodyPart": ["#BodyPart_Eye"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -18838,9 +18818,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": [
-          "#BodyPart_Eye"
-        ],
+        "BodyPart": ["#BodyPart_Eye"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -20183,9 +20161,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": [
-          "#BodyPart_Eye"
-        ],
+        "BodyPart": ["#BodyPart_Eye"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -20869,9 +20845,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": [
-          "#BodyPart_Eye"
-        ],
+        "BodyPart": ["#BodyPart_Eye"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -22868,9 +22842,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": [
-          "#BodyPart_Eye"
-        ],
+        "BodyPart": ["#BodyPart_Eye"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -24268,9 +24240,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": [
-          "#BodyPart_Eye"
-        ],
+        "BodyPart": ["#BodyPart_Eye"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -24604,7 +24574,11 @@
       "_meta": {
         "structuralSourceHash": "sha256:cb58ba33bf3a17478d6d7a247f78a6dc100976293f6ca6f757ea4d9d37639fe8",
         "structuralEntries": {
-          "common.identity_tags": ["Fox", "short amber-blonde hair", "brown eyes"],
+          "common.identity_tags": [
+            "Fox",
+            "short amber-blonde hair",
+            "brown eyes"
+          ],
           "common.silhouette_features": [
             "branching fox 9 tails",
             "slightly tall stature (about 162cm)",
@@ -24888,9 +24862,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": [
-          "#BodyPart_Eye"
-        ],
+        "BodyPart": ["#BodyPart_Eye"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -29975,7 +29947,11 @@
     },
     "AIHints": {
       "common": {
-        "identity_tags": ["Fox", "short dark green hair", "blue-green eyes, glasses with headset"],
+        "identity_tags": [
+          "Fox",
+          "short dark green hair",
+          "blue-green eyes, glasses with headset"
+        ],
         "silhouette_features": [
           "branching fox 8 tails",
           "slightly tall stature (about 161cm)",
@@ -30103,7 +30079,11 @@
       "_meta": {
         "structuralSourceHash": "sha256:3bf26ed1aff517c749c4123e30789b176b575cbc0f8be272f8e3d3cf3c52062b",
         "structuralEntries": {
-          "common.identity_tags": ["Fox", "short dark green hair", "blue-green eyes, glasses with headset"],
+          "common.identity_tags": [
+            "Fox",
+            "short dark green hair",
+            "blue-green eyes, glasses with headset"
+          ],
           "common.silhouette_features": [
             "branching fox 8 tails",
             "slightly tall stature (about 161cm)",
@@ -31645,9 +31625,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": [
-          "#BodyPart_Eye"
-        ],
+        "BodyPart": ["#BodyPart_Eye"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -33756,7 +33734,11 @@
     },
     "AIHints": {
       "common": {
-        "identity_tags": ["medium dark green hair", "green eyes", "fox 5 tails"],
+        "identity_tags": [
+          "medium dark green hair",
+          "green eyes",
+          "fox 5 tails"
+        ],
         "silhouette_features": [
           "fox 5 tails",
           "slightly tall stature (about 165cm)",
@@ -33887,7 +33869,11 @@
       "_meta": {
         "structuralSourceHash": "sha256:f210f6557d244bdc61fd98df24228b141aec3ad98a1df87527ad5c74e70a10fa",
         "structuralEntries": {
-          "common.identity_tags": ["medium dark green hair", "green eyes", "fox 5 tails"],
+          "common.identity_tags": [
+            "medium dark green hair",
+            "green eyes",
+            "fox 5 tails"
+          ],
           "common.silhouette_features": [
             "fox 5 tails",
             "slightly tall stature (about 165cm)",
@@ -48876,9 +48862,7 @@
       },
       "forms": {
         "corefolder": {
-          "form_tags": [
-            "corefolder form"
-          ],
+          "form_tags": ["corefolder form"],
           "outfit_features": [],
           "silhouette_notes": {
             "body_description": [
@@ -48920,21 +48904,15 @@
             "subcontractor engineer style",
             "the white area on the front-left chest of the sphere, slightly below the body hair and small, orange, Arabic numeral '80'"
           ],
-          "negative_visuals": [
-            "brown mechanic vest like an employee uniform"
-          ],
+          "negative_visuals": ["brown mechanic vest like an employee uniform"],
           "natural_language_description": "Corefolder form: a spherical cushion-like body in Fox (Has a brown accent pattern at the tip); dark orange wide-open eyes; orange-red hair with light ocher accent color and figure-eight-shaped bangs; curl bob hair with a figure-eight-shaped outline, with the number '80' marking (the white area on the front-left chest of the sphere, slightly below the body hair and small, orange, Arabic numeral '80').",
           "prompt_export": "corefolder form, fox 8 tails, short stature (about 144cm), young adult, Fox (Has a brown accent pattern at the tip), dark orange wide-open eyes, orange-red hair with light ocher accent color and figure-eight-shaped bangs, curl bob hair with a figure-eight-shaped outline, restless, hysterical expression, subcontractor engineer style, the white area on the front-left chest of the sphere, slightly below the body hair and small, orange, Arabic numeral '80'",
           "negative_prompt_export": "brown mechanic vest like an employee uniform",
           "reference_images": null
         },
         "humanoid": {
-          "form_tags": [
-            "humanoid form"
-          ],
-          "outfit_features": [
-            "brown mechanic vest like an employee uniform"
-          ],
+          "form_tags": ["humanoid form"],
+          "outfit_features": ["brown mechanic vest like an employee uniform"],
           "silhouette_notes": {
             "body_description": [
               "Fox (Has a brown accent pattern at the tip)",
@@ -48992,9 +48970,7 @@
             "restless, hysterical expression",
             "subcontractor engineer style"
           ],
-          "forms.corefolder.form_tags": [
-            "corefolder form"
-          ],
+          "forms.corefolder.form_tags": ["corefolder form"],
           "forms.corefolder.ai_tags": [
             "corefolder form",
             "fox 8 tails",
@@ -49025,9 +49001,7 @@
             "fashion outfit",
             "bound by rope"
           ],
-          "forms.humanoid.form_tags": [
-            "humanoid form"
-          ],
+          "forms.humanoid.form_tags": ["humanoid form"],
           "forms.humanoid.ai_tags": [
             "humanoid form",
             "fox 8 tails",
@@ -58336,8 +58310,17 @@
     ],
     "AIHints": {
       "common": {
-        "identity_tags": ["Fox", "pale silver-gray long hair", "amber-orange eyes"],
-        "silhouette_features": ["fox 2 tails", "Fox", "pale silver-gray long hair", "amber-orange eyes"],
+        "identity_tags": [
+          "Fox",
+          "pale silver-gray long hair",
+          "amber-orange eyes"
+        ],
+        "silhouette_features": [
+          "fox 2 tails",
+          "Fox",
+          "pale silver-gray long hair",
+          "amber-orange eyes"
+        ],
         "immutable_traits": null,
         "expression_tendency": null,
         "age_appearance": "teenager",
@@ -58455,8 +58438,17 @@
       "_meta": {
         "structuralSourceHash": "sha256:cdc22b0b59794cc0560cad32266850e72440dc270936803c5f21f1ad6704396a",
         "structuralEntries": {
-          "common.identity_tags": ["Fox", "pale silver-gray long hair", "amber-orange eyes"],
-          "common.silhouette_features": ["fox 2 tails", "Fox", "pale silver-gray long hair", "amber-orange eyes"],
+          "common.identity_tags": [
+            "Fox",
+            "pale silver-gray long hair",
+            "amber-orange eyes"
+          ],
+          "common.silhouette_features": [
+            "fox 2 tails",
+            "Fox",
+            "pale silver-gray long hair",
+            "amber-orange eyes"
+          ],
           "forms.corefolder.form_tags": ["corefolder form"],
           "forms.corefolder.ai_tags": [
             "corefolder form",
@@ -59463,7 +59455,11 @@
       "_meta": {
         "structuralSourceHash": "sha256:966cdc71971090a37e4398d77d94cbf217ae996166f3ba361bd728f90d6d87b8",
         "structuralEntries": {
-          "common.identity_tags": ["Cat", "gray shoulder-length hair", "yellow eyes"],
+          "common.identity_tags": [
+            "Cat",
+            "gray shoulder-length hair",
+            "yellow eyes"
+          ],
           "common.silhouette_features": [
             "cat single tail",
             "slightly tall stature (about 165cm)",
@@ -59905,9 +59901,7 @@
       },
       "forms": {
         "humanoid": {
-          "form_tags": [
-            "humanoid form"
-          ],
+          "form_tags": ["humanoid form"],
           "outfit_features": [
             "cat ear accessories",
             "long light red scarf (ends with stripe pattern)",
@@ -59965,9 +59959,7 @@
           "common.immutable_traits": [
             "number '0' marking: fairly large on the left chest of the white coat, below the left lapel, light brown (with dark outline), Arabic numeral '0'"
           ],
-          "forms.humanoid.form_tags": [
-            "humanoid form"
-          ],
+          "forms.humanoid.form_tags": ["humanoid form"],
           "forms.humanoid.ai_tags": [
             "humanoid form",
             "cat single tail",
@@ -60371,9 +60363,7 @@
       },
       "forms": {
         "humanoid": {
-          "form_tags": [
-            "humanoid form"
-          ],
+          "form_tags": ["humanoid form"],
           "outfit_features": [
             "cat ear accessories",
             "long light teal scarf (ends with stripe pattern)",
@@ -60431,9 +60421,7 @@
           "common.immutable_traits": [
             "number '00' marking: fairly large on the left chest of the white coat, below the left lapel, light brown (with dark outline), Arabic numeral '00'"
           ],
-          "forms.humanoid.form_tags": [
-            "humanoid form"
-          ],
+          "forms.humanoid.form_tags": ["humanoid form"],
           "forms.humanoid.ai_tags": [
             "humanoid form",
             "cat single tail",
