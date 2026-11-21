@@ -79,7 +79,7 @@ NUM |or CLASS         |           \ LOT VALIANT
 528 |Solfeggio freq.  |          [MP]528-PM***
 ----+-----------------+------------------------
 265 |Knight direction |          [MP]265-RM***
-314 |PI:Circle radio  |Dv.22/7  ([MP]314-PM***)
+314 |PI:Circle radio  |Dv.22/7  ([MP]314-RM***)
 360 |Degree per rev.  |          [MP]360-RM***
 ----+-----------------+------------------------
 333 |Required Height  |[Cxi]III ([MP]333-*****)

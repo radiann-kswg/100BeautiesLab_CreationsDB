@@ -335,7 +335,7 @@
     "Class_JP": "D-Vines(ディ-ヴァインズ)",
     "Class_EN": "D-Vines",
     "Class_Code": "DVs",
-    "isSecondary": null
+    "isSecondary": true
   },
   {
     "Class": "ナンバーテールズ化",

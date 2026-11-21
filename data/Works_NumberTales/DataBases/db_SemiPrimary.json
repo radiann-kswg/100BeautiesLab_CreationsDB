@@ -2234,8 +2234,8 @@
     "isTriple": false,
     "Name_JP": "266(ヒルベルト)",
     "Name_EN": "266(Hilbert)",
-    "FormalName_JP": "ナンバーテールズ 仮設2^√2号機(ナンバーテールズ266番機, 正規型ディ-ヴァインズ8番+母艦3番開発機)",
-    "FormalName_EN": "NumberTales Tentative Unit.2^√2 (NumberTales Mk.266, Normalized D-Vines Mk.8+MotherShip.3 for Development)",
+    "FormalName_JP": "ナンバーテールズ 仮設2^√2号機(ナンバーテールズ266番機, 正規型ディ-ヴァインズ8/3番開発機)",
+    "FormalName_EN": "NumberTales Tentative Unit.2^√2 (NumberTales Mk.266, Normalized D-Vines Mk.8/3 for Development)",
     "CodeName_JP": "二六六",
     "CodeName_EN": "Two-Six-Six",
     "SPCodeName_JP": "ゲルフォント＝シュナイダー定数: ヒルベルトの第7問題（2^√2≈2.66≈3/8）",
@@ -2244,9 +2244,7 @@
     "RaceType": "PortableHumanoid(PhoenixType)",
     "GenderType": "Neutral",
     "Belonging": [{ "Faction": "シンフォニー.X" }],
-    "Class": ["証明者", "D-Vines開発機"],
-    "AdditionalDesigned_JP": "原案：散狐アタスト(https://misskey.io/@atast)",
-    "AdditionalDesigned_EN": "Original Concept：Atast(https://misskey.io/@atast)"
+    "Class": ["証明者", "D-Vines開発機"]
   },
   {
     "Num": "289-sq",
@@ -2271,12 +2269,14 @@
   {
     "Num": 314,
     "Num_Badge": "314",
-    "Progress": "nowCreating",
+    "Progress": "stillTentative",
+    "VariantModels_DBLink": [{ "_DB": "SelfSecondary", "Num": "314-rm" }],
     "isTriple": false,
     "Name_JP": "314(マドカ)",
     "Name_EN": "314(Circcle)",
-    "FormalName_JP": "ナンバーテールズ仮設π号機(ナンバーテールズ314番機, 正規型ディ-ヴァインズ22番+母艦7番開発機)",
-    "FormalName_EN": "NumberTales Tentative Unit.π (NumberTales Mk.314, Normalized D-Vines Mk.22+MotherShip.7 for Development)",
+    "Images": { "concept_PNGName": "DVinesForDevelop/cnsp_imgNTS-314" },
+    "FormalName_JP": "ナンバーテールズ仮設π号機(ナンバーテールズ314番機, 正規型ディ-ヴァインズ22/7番開発機)",
+    "FormalName_EN": "NumberTales Tentative Unit.π (NumberTales Mk.314, Normalized D-Vines Mk.22/7 for Development)",
     "CodeName_JP": "三一四",
     "CodeName_EN": "Three-One-Four",
     "SPCodeName_JP": "π(=3.14…: 円周率上3桁)≒22/7",
@@ -2287,9 +2287,7 @@
     "Belonging": [{ "Faction": "シンフォニー.X" }],
     "Class": ["レイディアントコンストレイント", "D-Vines開発機"],
     "Backgrounds_JP": "円周率(3.14)から由来",
-    "Backgrounds_EN": "Derived from the value of π(pi) (3.14).",
-    "AdditionalDesigned_JP": "原案：散狐アタスト(https://misskey.io/@atast)",
-    "AdditionalDesigned_EN": "Original Concept：Atast(https://misskey.io/@atast)"
+    "Backgrounds_EN": "Derived from the value of π(pi) (3.14)."
   },
   {
     "Num": "323-ma",
