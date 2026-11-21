@@ -55319,6 +55319,7 @@
     "Progress": "nowCreating",
     "Name_JP": "95(キュウゴ)",
     "Name_EN": "95(Ninfife)",
+    "Images": { "concept_PNGName": "cnsp_imgNTS-95" },
     "FormalName_JP": "ナンバーテールズ95番機",
     "FormalName_EN": "NumberTales #95",
     "CodeName_JP": "九五",
@@ -55360,12 +55361,20 @@
       "Related": [
         {
           "Num": 15,
+          "Comments": "「この御恩は一生忘れませんぞ……!!」",
+          "Comments_EN": "I will never forget this favor for the rest of my life...!!",
           "RelationLabel": [
             "cousin",
             "secretRelation",
             "wellMatched",
             "adverselyAffected"
           ]
+        },
+        {
+          "Num": 59,
+          "Comments": "「兄者はちょっと横暴すぎでござる…」",
+          "Comments_EN": "My brother is a bit too overbearing...",
+          "RelationLabel": ["brother|sister", "classmate", "awkward"]
         }
       ]
     }
