@@ -29,10 +29,12 @@ describe('database shapes', () => {
     expect(works.length).toBeGreaterThan(0);
     for (const [key, work] of works) {
       const dir = `data/${work.Works_Dir || key.slice(1)}/DataBases`;
-      const keys = Object.keys(load(`${dir}/db_meta.json`).Databases);
+      const { Databases } = load(`${dir}/db_meta.json`);
+      const keys = Object.keys(Databases);
       expect(keys.length, dir).toBeGreaterThan(0);
       for (const db of keys) {
         expect(db, dir).toMatch(/^#DB_\w+$/);
+        expect(Object.keys(Databases[db]).filter(key => key.startsWith('#DB_')), `${dir}/${db}`).toEqual([]);
         const file = `${dir}/${db.replace(/^#DB_/, 'db_')}.json`;
         expect(load(file), file).toBeInstanceOf(Array);
       }

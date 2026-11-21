@@ -146,6 +146,13 @@ describe('AppearanceDetail 候補の反映', () => {
 describe('根拠画像のポリシー', () => {
     beforeEach(() => { patches[0].sources = [{ field: 'concept_PNGName', value: 'drawing', note: '原画で確認した形状', permissionNote: '作者がこの入力補助への利用を許諾' }]; });
     it('原画の実在と作者許諾メモがそろえば候補を検証する', () => expect(run().results).toHaveLength(1));
+    it.each([{ DB_Hidden: true }, { DB_Hidden: true, AI_Optout: false }, { DB_Hidden: false, AI_Optout: true }])(
+        'DB の非公開指定と AI 除外指定のどちらかで根拠画像を除外する %j', flags => {
+            save('data/Works_Demo/DataBases/db_meta.json', { Databases: { '#DB_Primary': flags } });
+            records[0].AI_Optout = false;
+            save('data/Works_Demo/DataBases/db_Primary.json', records);
+            expect(() => run()).toThrow(/オプトアウト/);
+        });
     it('DBカタログに載っていない作業用JSONをレコードとして走査しない', () => {
         save('data/Works_Demo/DataBases/db_temp.json', { temporary: true });
         expect(run().results).toHaveLength(1);
