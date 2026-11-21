@@ -65,7 +65,7 @@ const readJsonOrNull = (p) => {
 };
 
 /**
- * `Databases` 木から DB エントリを再帰で引く（`#DB_Secondary.#DB_UnprocessedSecondary` 等のネスト DB を含む）。
+ * カタログ直下の DB エントリを優先し、旧データの入れ子も解決する。
  * @param {any} node
  * @param {string} key  `#DB_<DbName>`
  * @returns {any|null}
@@ -348,11 +348,12 @@ Options:
                       AIHints の視覚 TODO（palette / hair / eye / outfit）に適用する
                       未入力スロットのみを埋め、確定済みの値は上書きしない
                       vision-results.json の形式は VisionResult typedef を参照
-  --force-ai-optout   db_meta.json の 'AI_Optout: true' ガードをバイパスする（緊急時のみ）
+  --force-ai-optout   公開 DB の 'AI_Optout: true' ガードをバイパスする（緊急時のみ）
+                      未指定時は AI_Optout: true の DB への書き込みを exit 2 で拒否する
+                      DB_Hidden: true の DB は常に exit 2 で拒否する
   --include-ai-unready
                       $EnumDef_Progress で 'AI_Unready' と宣言された進捗段階のレコードも scaffold 対象に含める
                       （既定は付与不要としてスキップ。--force-ai-optout〈権利〉とは別軸の判定）
-                      未指定時は AI_Optout: true の DB への書き込みを exit 2 で拒否する
   -v, --verbose       詳細ログ
   -h, --help          このヘルプを表示
 `);
@@ -468,7 +469,7 @@ export function imageRefKey(work, db, folder, rel) {
  *
  * @description 合同絵は登場キャラ全員のレコードの `Images.*` に（別 DB からは `_DBCrossLinkPath` で）
  *   載る。opt-out は**権利上の可否**なので OR で効かせ、opt-in 側のキャラの AIHints からも外す。
- *   レコードの opt-out は DB 単位（`#DB_*.AI_Optout`。ネスト DB も再帰で引く）と
+ *   DB の `DB_Hidden`・`AI_Optout` と
  *   カテゴリ単位（`findSecondaryDef()`）の OR。メタ欠損の作品・DB は既存ゲートと同じくスキップ。
  * @param {string} [dataRoot]  `data/` ディレクトリ（テスト用に差し替え可）
  * @returns {Set<string>} imageRefKey() 形式のキー集合
@@ -490,8 +491,9 @@ export function collectOptoutImageKeys(dataRoot = path.join(REPO_ROOT, 'data')) 
             const records = readJson(path.join(dbDir, file));
             if (!Array.isArray(records)) continue;
             const secDefs = entry._Secondaries ?? entry.Secondaries ?? null;
+            const dbDenied = entry.DB_Hidden === true || entry.AI_Optout === true;
             for (const rec of records) {
-                if (entry.AI_Optout !== true && findSecondaryDef(rec, secDefs)?.AI_Optout !== true) continue;
+                if (!dbDenied && findSecondaryDef(rec, secDefs)?.AI_Optout !== true) continue;
                 for (const [field, value] of Object.entries(rec?.Images ?? {})) {
                     for (const v of [].concat(value)) {
                         const x = v?._DBCrossLinkPath;
@@ -4504,7 +4506,7 @@ function resolveDbTarget(opts) {
     if (fs.existsSync(dbMetaPath)) {
         try {
             const dbMeta = JSON.parse(fs.readFileSync(dbMetaPath, 'utf8'));
-            dbEntry = dbMeta?.Databases?.[`#DB_${opts.db}`]
+            dbEntry = findDbEntry(dbMeta?.Databases, `#DB_${opts.db}`)
                 ?? dbMeta?.Databases?.[`#Ref_${opts.db}`]
                 ?? null;
         } catch (e) {
@@ -4514,7 +4516,12 @@ function resolveDbTarget(opts) {
         }
     }
 
-    // ---- AI_Optout ガード ----
+    if (dbEntry?.DB_Hidden === true) {
+        console.error(`[ABORT] 対象 DB は DB_Hidden: true が設定されています: ${path.relative(REPO_ROOT, dbPath)}`);
+        process.exit(2);
+    }
+
+    // ---- 公開 DB の AI_Optout ガード ----
     // 対象 DB に `AI_Optout: true` がある場合は原則全モード
     // （suggest / fill-todos / fix-refs / gen-vision-tasks / apply-vision-results）を拒否する。
     // --force-ai-optout で明示的バイパス可能。

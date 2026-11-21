@@ -28,14 +28,14 @@
  *   ★ `AI_Optout` ブロックの方針（2026-08-19 整備）:
  *     宣言箇所の**列挙をやめ、データが増えても成立し続ける規則**だけを固定した。
  *       (1) 全作品横断の規則 … 綴りは `AI_Optout` のみ / 値は boolean /
- *           第三者がデザインに関与するカテゴリは必ず `true`。走査は再帰で、
- *           ネスト DB（`#DB_Secondary.#DB_UnprocessedSecondary`）の宣言も取りこぼさない。
+ *           第三者がデザインに関与するカテゴリは必ず `true`。DB 配下のカテゴリも再帰で走査する。
  *       (2) NumberTales の意味論の骨格のみ実データで固定 … DB レベルの可否と、
  *           実レコードが `findSecondaryDef` 経由で宣言どおりの可否へ解決されること。
  *           カテゴリ混在の撃ち分けは合成データ側（`patch-aihints.secondaries.test.js`）が担保する。
  */
 
 import { describe, it, expect } from 'vitest';
+import { spawnSync } from 'node:child_process';
 import { readFileSync, readdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -141,9 +141,7 @@ describe('ゲートの前提条件（実データ）', () => {
  * `AI_Optout` の宣言箇所と `_Secondaries[]` の定義を集める。
  *
  * @description
- *   ★ ノード走査を**再帰**にしているのは、DB エントリがネストしうるため。
- *     実データに `Databases.#DB_Secondary.#DB_UnprocessedSecondary` が存在し、
- *     `Databases.#DB_*` の 1 階層だけを見る実装ではその宣言を取りこぼす。
+ *   ★ DB 自身と、その配下のカテゴリ・辞書などの宣言を再帰で検査する。
  *   ★ 対象はグローバル / 作品別 / `References/` を問わず全ファイル。
  *     opt-out は権利軸の対外表明なので、AIHints の対象 DB だけを見ても足りない。
  *
@@ -235,13 +233,20 @@ describe('AI_Optout の意味論（NumberTales 実データ）', () => {
         }
     });
 
-    it('Secondary は全 `_Secondaries` カテゴリとネスト DB が `AI_Optout: true`', () => {
+    it('Secondary の全カテゴリとカタログ直下の未整理二次創作 DB が AI 除外されている', () => {
         // 公認二次創作 DB は「カテゴリを足しても true であるべき側」なので全称で固定する。
         const secs = DBS['#DB_Secondary']._Secondaries;
         expect(secs.length).toBeGreaterThan(0);
         expect(secs.filter((s) => s.AI_Optout !== true)).toEqual([]);
-        // ネストした DB エントリ（未整理の二次創作枠）。DB_Hidden とは別軸なので個別に宣言が要る。
-        expect(DBS['#DB_Secondary']['#DB_UnprocessedSecondary'].AI_Optout).toBe(true);
+        expect(DBS['#DB_UnprocessedSecondary']).toMatchObject({ DB_Hidden: true, AI_Optout: true });
+    });
+
+    it('非公開 DB への AIHints 付与は --force-ai-optout でも拒否する', () => {
+        const result = spawnSync(process.execPath, [
+            'tools/patch-aihints.mjs', '--work', 'NumberTales', '--db', 'UnprocessedSecondary', '--all', '--force-ai-optout',
+        ], { cwd: repoRoot, encoding: 'utf8' });
+        expect(result.status).toBe(2);
+        expect(result.stderr).toContain('DB_Hidden');
     });
 
     it('実レコードは `findSecondaryDef` 経由で宣言どおりの opt-in / opt-out へ解決される', () => {

@@ -402,7 +402,7 @@ DB 単位の AI 利用は `DB_Hidden` と `AI_Optout` のどちらかが `true` 
 挙動と用途:
 
 - `tools/patch-aihints.mjs` の全モード（`--suggest` / `--apply` / `--fix-refs` / `--fill-todos` / `--gen-vision-tasks` / `--apply-vision-results`）は、対象 DB に `AI_Optout: true` が設定されている場合、書き込み・解析を行わず exit code `2` で終了します。
-- 緊急時のバイパスとして `--force-ai-optout` を併用した場合のみ、警告を表示したうえで処理を続行します。
+- 公開 DB の明示的な AI 除外は、緊急時に `--force-ai-optout` で上書きできます。`DB_Hidden: true` の DB はこのオプションの有無にかかわらず終了コード `2` で拒否し、その DB が参照する共有画像も AIHints の候補から除外します。
 - 同時に AI 学習・LLM 取り込みへの opt-out 表明として外部利用者・スクレイパー向けのシグナルを兼ねます（規約面の解釈は `guideline.md` / `docs/third-party-policy.md` に委ねます）。
 - 作品別 `db_meta.json` が欠損している場合はチェックをスキップします（既存の欠損耐性方針に合わせます）。
 - スキーマ (`$Def_DatabaseCatalog`) には宣言しません。`DB_Hidden` / `Works_Hidden` と同様、表示メタではなくガード用フラグであるためです。
@@ -414,7 +414,7 @@ DB 単位の AI 利用は `DB_Hidden` と `AI_Optout` のどちらかが `true` 
 | 粒度                                               | レコード単位             | DB 全体                                    | 作品全体                                                       | DB 全体 または `_Secondaries` カテゴリ単位                                                                                 |
 | 適用場所                                           | `db_*.json` の各レコード | `db_meta.json` の `Databases.#DB_<DbName>` | グローバル `db_meta.json` の `CreationWorks.#Works_<WorkName>` | 作品別 `db_meta.json` の `Databases.#DB_<DbName>` 直下、および `#DB_<DbName>._Secondaries[]` の各要素                      |
 | API 配信への影響                                   | 対象レコードを除外       | 該当DBを 404                               | 作品ごと 404                                                   | 影響なし（配信は継続）。ただし `migrate-aihints.mjs` が D1 への AIHints 投入を抑止                                         |
-| AI 補助ツール（`tools/patch-aihints.mjs`）への影響 | なし                     | （配信遮断のため事実上不可）               | （同左）                                                       | DB レベルは全モードで exit 2 / カテゴリ単位は該当レコードを `skipped-ai-optout`（いずれも `--force-ai-optout` でバイパス） |
+| AI 補助ツール（`tools/patch-aihints.mjs`）への影響 | なし                     | 全モードが exit 2 で拒否               | （配信遮断のため事実上不可）                                                       | DB レベルは全モードで exit 2 / カテゴリ単位は該当レコードを `skipped-ai-optout`（いずれも `--force-ai-optout` でバイパス） |
 | AI 学習 opt-out 表明                               | なし                     | なし                                       | なし                                                           | あり                                                                                                                       |
 
 ### `_Secondaries` カテゴリ単位の `AI_Optout`
@@ -474,7 +474,7 @@ DB 単位の AI 利用は `DB_Hidden` と `AI_Optout` のどちらかが `true` 
   - **opt-out の DB が opt-in の DB の画像を `_DBCrossLinkPath` で参照していると、その画像は opt-in 側の AIHints でも参照画像に使われません**（`collectOptoutImageKeys()` の OR 判定）。`#DB_Regioministrators` は当初 `true` で、X / Y が `#DB_Primary` の `NE` / `NW` の設定原画を参照していたため、この 2 件へ AIHints を付与できませんでした。同日 User 判断で `false` に変更して解消しています（`docs/ai-hints-usage.md` §9.12）。DB 単位の可否を切り替えるときは、その DB が他 DB の画像を参照していないかも確認してください。
 - `Works_NumberTales/DataBases/db_meta.json`: `#DB_Primary` / `#DB_SemiPrimary` / `#DB_SelfSecondary` は **DB レベルで** `AI_Optout: false`（いずれも User 自身の創作物のため権利上の opt-out は不要）。
 - `#DB_SelfSecondary` は **カテゴリ単位で混在**する。「散狐アタストさん協賛」（`sec_SeriesTitle: "D-Vines"`）のみ `AI_Optout: true`、他の 3 カテゴリ（「リクエストナンバー」/「量産型マスタートリプル」/ catch-all）は `false`。D-Vines は散狐アタストさんの提案による協賛シリーズであり User 単独作ではないため、権利軸の opt-out を宣言している。
-- `#DB_Secondary`（公認二次創作）は `_Secondaries` の全カテゴリが `AI_Optout: true`（第三者デザインを含むため）。ネストされた `#DB_Secondary.#DB_UnprocessedSecondary`（`DB_Hidden: true` の空き枠 DB）も **DB レベルで** `AI_Optout: true`。
+- `#DB_Secondary`（公認二次創作）は `_Secondaries` の全カテゴリが `AI_Optout: true`（第三者デザインを含むため）。カタログ直下の `#DB_UnprocessedSecondary`（`DB_Hidden: true` の未整理二次創作 DB）も **DB レベルで** `AI_Optout: true`。
 - その他の作品別 `db_meta.json` の DB / Ref エントリには `AI_Optout: true` を付与済み。
 
 > **`#DB_SelfSecondary` のカテゴリ混在は、2026-07-17 の「`AI_Optout` を権利軸へ純化」の巻き戻しではありません。**

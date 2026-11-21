@@ -1,5 +1,9 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### fix: 非公開 DB を AIHints の入力と共有参照画像から除外（addon-ai-tag、2026-11-21）
+
+- `patch-aihints.mjs` は `DB_Hidden: true` の DB を全モードで終了コード 2 とし、公開 DB が参照する合同絵にも非公開側の除外を適用する。未整理二次創作 DB の回帰テストをカタログ直下の宣言に合わせた。
+
 ### fix: マージで重複したmigration importと無効化処理を整理 (2026-11-20)
 
 - `migrate.mjs` の `invalidateAIImagePolicy` が二重importされ、CIのR2/D1同期が構文エラーで停止していたため、重複importと重複した無効化呼び出しを除去。無効化は同期開始時の1回を維持する。

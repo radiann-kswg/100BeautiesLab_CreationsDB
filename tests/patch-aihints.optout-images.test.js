@@ -29,10 +29,11 @@ function makeDataRoot() {
                 _Secondaries: [{ sec_Category: '自創作キャラ化企画', sec_SeriesTitle: 'ナンバーテールズ化', _Commons: {}, AI_Optout: true }],
                 '#DB_UnprocessedSecondary': { AI_Optout: true },
             },
+            '#DB_Hidden': { DB_Hidden: true, AI_Optout: false },
         },
     });
     write('db_SelfSecondary.json', [
-        { Num: 148, sec_Category: 'プレゼントナンバー', Images: { arts_PNGPath: [GIFT, 'solo/art_imgNTS-148'] } },
+        { Num: 148, sec_Category: 'プレゼントナンバー', Images: { arts_PNGPath: [GIFT, 'solo/art_imgNTS-148', 'shared/hidden'] } },
     ]);
     write('db_Secondary.json', [
         {
@@ -44,6 +45,9 @@ function makeDataRoot() {
     ]);
     // ネスト DB の DB 単位 opt-out
     write('db_UnprocessedSecondary.json', [{ Num: 1, Images: { corefolder_PNGPath: ['1/x'] } }]);
+    write('db_Hidden.json', [{ Images: { arts_PNGPath: [
+        { _DBCrossLinkPath: { _DB: 'SelfSecondary', _IsoPath: 'shared/hidden' } },
+    ] } }]);
     return root;
 }
 
@@ -60,5 +64,9 @@ describe('collectOptoutImageKeys', () => {
 
     it('ネスト DB の DB 単位 opt-out も拾う', () => {
         expect(keys.has(imageRefKey('NT', 'UnprocessedSecondary', 'corefolder', '1/x'))).toBe(true);
+    });
+
+    it('AI_Optout が false でも、非公開 DB が参照する共有画像を除外する', () => {
+        expect(keys.has(imageRefKey('NT', 'SelfSecondary', 'arts', 'shared/hidden'))).toBe(true);
     });
 });

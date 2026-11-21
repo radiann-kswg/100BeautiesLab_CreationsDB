@@ -202,7 +202,8 @@ https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primar
 | 画像 / イラスト**なし** (設定のみ)                            | 任意。付与する場合でも `forms.<form>.reference_images` は省略し、`identity_tags` は設定から推測した範囲に限る                                                                                                           |
 | `Progress` が `AI_Unready` と宣言された段階                   | **付与不要**。scaffold 生成時に `skipped-progress` として soft skip する（`--include-ai-unready` で対象化）。既存 AIHints の保守モードは妨げない                                                                        |
 | ある形態の画像のみ存在 (例: corefolder 画像のみ)              | 存在する形態の `forms.<form>` のみを付与し、もう一方は省略                                                                                                                                                              |
-| `AI_Optout: true` が設定（DB または `_Secondaries` カテゴリ） | **付与不可**。DB レベルは `tools/patch-aihints.mjs` の全モードが exit 2 で拒否、カテゴリ単位は該当レコードを `skipped-ai-optout`（緊急時のみ `--force-ai-optout` でバイパス）。詳細は `docs/api-sw-spec.md` §5.5 を参照 |
+| `DB_Hidden: true` が設定 | 対象 DB は全モードで終了コード 2。`--force-ai-optout` を指定しても拒否し、共有画像も AIHints の候補から除外する。 |
+| `AI_Optout: true` が設定（公開 DB または `_Secondaries` カテゴリ） | **付与不可**。DB レベルは `tools/patch-aihints.mjs` の全モードが exit 2 で拒否、カテゴリ単位は該当レコードを `skipped-ai-optout`（緊急時のみ `--force-ai-optout` でバイパス）。詳細は `docs/api-sw-spec.md` §5.5 を参照 |
 
 上表に加えて、次の 3 つも付与を止めます（2026-11-19 追加）。
 
@@ -279,7 +280,7 @@ https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primar
 >
 > **獣爾騎兵（`Works_ShauErRiders`）/ 豹変系女子（`Works_SinisterChangingGirls`）**（2026-11-19）: `AI_Optout: false` 化に合わせて対応済みです。本セクションの TODO 雛形・視覚解析フローは使わず、§9.12 の経路で生成します。
 >
-> **`Secondary` / `Proxy` 等、およびその他の作品**（`Works_FLInvestigator78` / `Works_UnauthedLogica` / `Works_PastDivers` / `Works_DestinyFoxRecords` ほか）へ適用する際は、まず作品別 schema（`db_type.json($VersDef)`）へ `$Def_AIHints` 一式を宣言してください（未宣言の作品は `skipped-no-typedef` で止まり、NumberTales の雛形は流れません）。そのうえで画像ディレクトリ構造・`Images.*_PNGPath` 規則の差異を個別に検証してください。なお `#DB_Secondary` は `_Secondaries` の全カテゴリが `AI_Optout: true`（第三者デザインを含むため）であり、対象外です（ネストされた `#DB_UnprocessedSecondary` も `DB_Hidden: true` / `AI_Optout: true`）。
+> **`Secondary` / `Proxy` 等、およびその他の作品**（`Works_FLInvestigator78` / `Works_UnauthedLogica` / `Works_PastDivers` / `Works_DestinyFoxRecords` ほか）へ適用する際は、まず作品別 schema（`db_type.json($VersDef)`）へ `$Def_AIHints` 一式を宣言してください（未宣言の作品は `skipped-no-typedef` で止まり、NumberTales の雛形は流れません）。そのうえで画像ディレクトリ構造・`Images.*_PNGPath` 規則の差異を個別に検証してください。なお `#DB_Secondary` は `_Secondaries` の全カテゴリが `AI_Optout: true`（第三者デザインを含むため）であり、対象外です（カタログ直下の `#DB_UnprocessedSecondary` も `DB_Hidden: true` / `AI_Optout: true`）。
 
 ### 9.1 ワークフロー全体像
 
