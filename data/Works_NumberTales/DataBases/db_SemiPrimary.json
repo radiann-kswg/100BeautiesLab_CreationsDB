@@ -6507,7 +6507,7 @@
       },
       "alt_modes": null,
       "_meta": {
-        "structuralSourceHash": "sha256:e2173a2abfdbb532521ca776aa56a43de1f15c112776c2dfcc3aa61783321724",
+        "structuralSourceHash": "sha256:cf32cb0400799d3b724028ec3f4cb34edbaa45956fb7df8687675a346894d42d",
         "structuralEntries": {
           "common.identity_tags": [
             "EarShapeType_Wing (ears resembling the orange wing sections)",
@@ -6573,7 +6573,7 @@
             "bound by rope"
           ]
         },
-        "lastStructuralResync": "2026-11-19"
+        "lastStructuralResync": "2026-11-21"
       }
     }
   },
