@@ -272,6 +272,24 @@
         "img_PNGName": null,
         "Note_JP": null,
         "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": [
+          "#BodyPart_Eye"
+        ],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "赤と淡い灰色の瞳",
+            "value_EN": "red and light gray eyes"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
       }
     ],
     "ColorPalette": [
@@ -4944,6 +4962,24 @@
         "img_PNGName": null,
         "Note_JP": null,
         "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": [
+          "#BodyPart_Eye"
+        ],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "橙色の瞳",
+            "value_EN": "orange eyes"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
       }
     ],
     "ColorPalette": [
@@ -5334,6 +5370,24 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "赤い口の白い手袋",
             "value_EN": "white gloves with red mouths"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": [
+          "#BodyPart_Eye"
+        ],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "黄色の瞳",
+            "value_EN": "yellow eyes"
           }
         ],
         "img_PNGName": null,
@@ -6660,6 +6714,24 @@
         "img_PNGName": null,
         "Note_JP": null,
         "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": [
+          "#BodyPart_Eye"
+        ],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "くすんだピンクの瞳",
+            "value_EN": "muted pink eyes"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
       }
     ],
     "ColorPalette": [
@@ -7049,6 +7121,24 @@
         "img_PNGName": null,
         "Note_JP": null,
         "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": [
+          "#BodyPart_Eye"
+        ],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "青みがかった灰色の瞳",
+            "value_EN": "bluish gray eyes"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
       }
     ],
     "ColorPalette": [
@@ -7399,6 +7489,24 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "スカート",
             "value_EN": "skirt"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": [
+          "#BodyPart_Eye"
+        ],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "赤い瞳",
+            "value_EN": "red eyes"
           }
         ],
         "img_PNGName": null,
@@ -8150,6 +8258,24 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "白いコートとオレンジ色のロングスカート",
             "value_EN": "white coat and orange long skirt"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": [
+          "#BodyPart_Eye"
+        ],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "淡い橙色の瞳",
+            "value_EN": "light orange eyes"
           }
         ],
         "img_PNGName": null,
@@ -9538,6 +9664,24 @@
         "img_PNGName": null,
         "Note_JP": null,
         "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": [
+          "#BodyPart_Eye"
+        ],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "緑色の瞳",
+            "value_EN": "green eyes"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
       }
     ],
     "ColorPalette": [
@@ -10829,6 +10973,24 @@
         "img_PNGName": null,
         "Note_JP": null,
         "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": [
+          "#BodyPart_Eye"
+        ],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "淡いピンクの瞳",
+            "value_EN": "pale pink eyes"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
       }
     ],
     "ColorPalette": [
@@ -11297,6 +11459,24 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "白いブラウスと紫のスカートを合わせた服装",
             "value_EN": "outfit combining a white blouse and a purple skirt"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": [
+          "#BodyPart_Eye"
+        ],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "淡い青灰色の瞳",
+            "value_EN": "pale blue-gray eyes"
           }
         ],
         "img_PNGName": null,
@@ -11858,6 +12038,24 @@
         "img_PNGName": "attr_numberMarkNTS-28-earingBack",
         "Note_JP": "表面の番号意匠と対になる裏面図。",
         "Note_EN": "Back view paired with the number motif on the front."
+      },
+      {
+        "Formation": null,
+        "BodyPart": [
+          "#BodyPart_Eye"
+        ],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "橙色の瞳",
+            "value_EN": "orange eyes"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
       }
     ],
     "ColorPalette": [
@@ -12190,6 +12388,24 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "やや大きめの胸",
             "value_EN": "medium-large bust"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": [
+          "#BodyPart_Eye"
+        ],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "灰色がかった瞳",
+            "value_EN": "grayish eyes"
           }
         ],
         "img_PNGName": null,
@@ -12612,6 +12828,24 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "大きな胸",
             "value_EN": "large breasts"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": [
+          "#BodyPart_Eye"
+        ],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "金色の瞳",
+            "value_EN": "golden eyes"
           }
         ],
         "img_PNGName": null,
@@ -13526,6 +13760,24 @@
         "img_PNGName": null,
         "Note_JP": null,
         "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": [
+          "#BodyPart_Eye"
+        ],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "緑と黄色の瞳",
+            "value_EN": "green and yellow eyes"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
       }
     ],
     "ColorPalette": [
@@ -13977,6 +14229,24 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "番号付きの白い手袋",
             "value_EN": "white gloves with numbers"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": [
+          "#BodyPart_Eye"
+        ],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "赤みがかった瞳",
+            "value_EN": "reddish eyes"
           }
         ],
         "img_PNGName": null,
@@ -15305,6 +15575,24 @@
         "img_PNGName": null,
         "Note_JP": null,
         "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": [
+          "#BodyPart_Eye"
+        ],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "ピンクの瞳",
+            "value_EN": "pink eyes"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
       }
     ],
     "ColorPalette": [
@@ -16264,6 +16552,24 @@
         "img_PNGName": null,
         "Note_JP": null,
         "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": [
+          "#BodyPart_Eye"
+        ],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "茶色の瞳",
+            "value_EN": "brown eyes"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
       }
     ],
     "ColorPalette": [
@@ -16660,6 +16966,24 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "「40」をモチーフにした紋様",
             "value_EN": "pattern inspired by '40'"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": [
+          "#BodyPart_Eye"
+        ],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "青い瞳",
+            "value_EN": "blue eyes"
           }
         ],
         "img_PNGName": null,
@@ -17435,23 +17759,7 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
-        "BodyPart": ["#BodyPart_Eye"],
-        "Laterality": null,
-        "DesignElement": "#Element_Motif",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "青い目",
-            "value_EN": "blue eyes"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Eye"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
@@ -19919,7 +20227,7 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Hair"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
@@ -19935,44 +20243,7 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
-        "BodyPart": ["#BodyPart_Eye"],
-        "Laterality": "#Lat_Both",
-        "DesignElement": "#Element_CostumeItem",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "青緑色の目",
-            "value_EN": "blue-green eyes"
-          },
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "眼鏡付きのヘッドセット",
-            "value_EN": "glasses with headset"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Hair"],
-        "Laterality": null,
-        "DesignElement": "#Element_Motif",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "深緑色のショートヘア",
-            "value_EN": "short dark green hair"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Eye"],
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_CostumeItem",
@@ -21274,6 +21545,24 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "淡い色のチャームが付けられた深緑色のベルト",
             "value_EN": "dark green belt with pale-colored charm"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": [
+          "#BodyPart_Eye"
+        ],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "赤い瞳",
+            "value_EN": "red eyes"
           }
         ],
         "img_PNGName": null,
@@ -39227,7 +39516,7 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Hair"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
@@ -39243,7 +39532,7 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Eye"],
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Motif",
@@ -39271,38 +39560,6 @@
           }
         ],
         "img_PNGName": "attr_tagNTS-2B-試用",
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Hair"],
-        "Laterality": null,
-        "DesignElement": "#Element_Motif",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "淡い銀灰色の長い髪",
-            "value_EN": "pale silver-gray long hair"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Eye"],
-        "Laterality": "#Lat_Both",
-        "DesignElement": "#Element_Motif",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "琥珀オレンジの目",
-            "value_EN": "amber-orange eyes"
-          }
-        ],
-        "img_PNGName": null,
         "Note_JP": null,
         "Note_EN": null
       },
@@ -39896,7 +40153,7 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Hair"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
@@ -39912,7 +40169,7 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Eye"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
@@ -39937,38 +40194,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "灰色ベージュの長いマフラー(端がストライプ模様)",
             "value_EN": "long gray-beige scarf (with striped ends)"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Hair"],
-        "Laterality": null,
-        "DesignElement": "#Element_Motif",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "灰色のショルダーレングスヘア",
-            "value_EN": "gray shoulder-length hair"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Eye"],
-        "Laterality": null,
-        "DesignElement": "#Element_Motif",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "黄色い目",
-            "value_EN": "yellow eyes"
           }
         ],
         "img_PNGName": null,
