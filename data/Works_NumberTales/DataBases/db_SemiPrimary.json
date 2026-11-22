@@ -6890,6 +6890,14 @@
       ],
       "arts_PNGPath": ["corefolders/autumnMoon/art_autumnMoon2025"]
     },
+    "Images_Appearance": {
+      "arts_PNGPath": [
+        {
+          "value": "corefolders/autumnMoon/art_autumnMoon2025",
+          "Formation": "corefolder"
+        }
+      ]
+    },
     "FormalName_JP": "ナンバーテールズ3x11番機(仮称)",
     "FormalName_EN": "NumberTales #3x11(Tentative)",
     "CodeName_JP": "三倍",

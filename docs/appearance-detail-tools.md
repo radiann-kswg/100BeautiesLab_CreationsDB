@@ -35,7 +35,21 @@ node tools/patch-appearance-detail.mjs --work NumberTales --patch .cache/appeara
 
 形態・衣装・着脱を判断するときは [schema/meta 詳解](schema-meta-processing.md) の外見の節を参照してください。原画にない姿や未確定の状態対応は、候補へ断定して追加せず作者へ確認します。
 
-## 画像と衣装の対応表（#60 Eから分離したIssue #63の設計案）
+## 完成絵の登場人物と形態（addon-ai-tag）
+
+`Images_Appearance.arts_PNGPath[]` は各レコード本人についての生成結果です。`value` は元の `Images.arts_PNGPath` と同じ文字列または参照オブジェクト、`Formation` は作品辞書のコードです。形態未指定は未確認を表します。
+
+```powershell
+node tools/sync-numbertales-art.mjs          # 差分を表示
+node tools/sync-numbertales-art.mjs --write  # 再生成
+node tools/sync-numbertales-art.mjs --check  # 差分があれば終了コード1
+```
+
+NumberTales では、ギャラリーへの登録と画像名の `NTS-<バッジ>` が一致するときに登場を記録します。たとえば `chart_imgNTS-47,NTS-74-humanoid` は両者が humanoid。各人に形態が明記されていれば個別に読みます。形態や登場人物を画像名から読めない記念絵は、原画で確認した内容を [確認済み原画の一覧](../tools/numbertales-reviewed-arts.json) に記録します。この一覧は許可済みの実パスと SHA-256 が一致したときに優先します。原画の差し替え時は確認をやり直します。フォルダ名だけで形態を確定しません。
+
+上位の非公開・AI除外、共有画像の拒否、進捗除外を反映し、元画像の削除・改名・許諾変更後は再生成で古い行が消えます。権利指定は develop、生成は addon の構造的再同期ワークフローが担当します。CreationsAI は実画像の許可を再判定し、同じ実パスに登場する同一作品のレコード ID を `characters`、本人の形態を `form` に出します。1枚に同じ人物の複数形態が登場する場合は画像ごとに形態の数だけ行を生成し、manifest は `form: null` と確認済みの `forms` 配列を返します。作業用の入力表は配布用 `data` から取り除きます。
+
+## 衣装・参考用区分の拡張案（Issue #63）
 
 実装課題は [Issue #63](https://github.com/radiann-kswg/100BeautiesLab_CreationsDB/issues/63) で追跡します。
 
@@ -47,4 +61,4 @@ node tools/patch-appearance-detail.mjs --work NumberTales --patch .cache/appeara
 }
 ```
 
-`ReferenceOnly: true` は「外見設定として収録せず画像参考だけにする」作者判断で、AI利用可否とは独立です。既定衣装の代表には選ばず、権利判断は AI_Optout / Images_AIOptout を優先します。未知の field/value・作品辞書にないコードを拒否する検証が必要です。これは別の実装課題へ分ける設計案で、現在の schema / CLI にはまだ追加していません。
+`ReferenceOnly: true` は「外見設定として収録せず画像参考だけにする」作者判断で、AI利用可否とは独立です。衣装・参考用区分・デザイン出典と代表画像選択は #63 の対象です。上の `designAlt_PNGPath` はその設計例です。

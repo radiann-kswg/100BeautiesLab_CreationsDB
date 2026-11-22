@@ -299,6 +299,8 @@
 
 ### `addon-ai-tag` ブランチ（AIHints 専用機能）
 
+- NumberTales の `Images_Appearance` はこのブランチの生成項目です。画像の登録と権利指定は develop で管理し、取り込み後に `node tools/sync-numbertales-art.mjs --write` で再生成します。自動同期・形態未確認時の扱いは `docs/appearance-detail-tools.md` を参照してください。
+
 - `develop` を定期的にマージしながら派生する「拡張ブランチ」。`develop` → `addon-ai-tag` の一方向マージのみ。
 - `AI_Optout` 等の権利 JSON は develop から取り込み、マージ時に別途付与・上書きしません。許諾の変更が必要なら develop 側で行います。
 - **`addon-ai-tag` → `develop` への逆マージは行わない**。

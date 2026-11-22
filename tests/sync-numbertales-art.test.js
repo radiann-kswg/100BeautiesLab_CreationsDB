@@ -1,0 +1,39 @@
+import { expect, it } from 'vitest';
+import { artAppearance, reviewedEntries, updateArtRecord } from '../tools/sync-numbertales-art.mjs';
+
+const forms = new Set(['corefolder', 'humanoid']);
+it('合同絵は番号を完全一致させ、共通の末尾指定と個別の形態を読む', () => {
+  const pair = 'chattingArt/chart_imgNTS-47,NTS-74-humanoid';
+  expect(artAppearance(pair, '47', forms)).toEqual({ value: pair, Formation: 'humanoid' });
+  expect(artAppearance(pair, '74', forms)).toEqual({ value: pair, Formation: 'humanoid' });
+  expect(artAppearance(pair, '7', forms)).toBeNull();
+  const mixed = 'gift/gift_imgNTS-148-corefolder,NTS-148ZE-humanoid';
+  expect(artAppearance(mixed, '148', forms).Formation).toBe('corefolder');
+  expect(artAppearance(mixed, '148ZE', forms).Formation).toBe('humanoid');
+  const cross = { _DBCrossLinkPath: { _DB: 'Primary', _IsoPath: pair } };
+  expect(artAppearance(cross, '74', forms)).toEqual({ value: cross, Formation: 'humanoid' });
+  expect(artAppearance('corefolders/art_event', '47', forms)).toBeNull();
+  expect(artAppearance('corefolders/art_imgNTS-47', '47', forms)).toEqual({value: 'corefolders/art_imgNTS-47'});
+  expect(artAppearance('art_imgNTS-00-drawing', '0', forms)).toBeNull();
+  expect(artAppearance('art_imgNTS-00-drawing', '00', forms)).toEqual({ value: 'art_imgNTS-00-drawing' });
+});
+
+it('原画と本人が一致したときだけ、その子に確認できたすべての形態を返す', () => {
+  const review = { sha256: 'v1', formations: { humanoid: ['7', '8'], corefolder: ['8'] } };
+  const cross = { _DBCrossLinkPath: { _DB: 'SemiPrimary', _IsoPath: 'event' } };
+  expect(reviewedEntries(review, 8, cross, 'v1', forms)).toEqual([
+    { value: cross, Formation: 'humanoid' }, { value: cross, Formation: 'corefolder' },
+  ]);
+  expect(reviewedEntries(review, 7, cross, 'v1', forms)).toHaveLength(1);
+  expect(reviewedEntries(review, 9, cross, 'v1', forms)).toBeNull();
+  expect(reviewedEntries(review, 8, cross, 'v2', forms)).toBeNull();
+});
+
+it('同一入力は書き換えず、参照や許可が消えた場合は生成項目だけを除く', () => {
+  const original = '{\r\n    "Num":26,\r\n    "Images":{"arts_PNGPath":["art"]},\r\n    "Name_JP":"test"\r\n  }';
+  const entries = [{ value: 'art', Formation: 'humanoid' }];
+  const updated = updateArtRecord(original, JSON.parse(original), entries);
+  expect(JSON.parse(updated).Images_Appearance.arts_PNGPath).toEqual(entries);
+  expect(updateArtRecord(updated, JSON.parse(updated), entries)).toBe(updated);
+  expect(updateArtRecord(updated, JSON.parse(updated), [])).toBe(original);
+});

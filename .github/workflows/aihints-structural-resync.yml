@@ -23,8 +23,14 @@ on:
     branches:
       - addon-ai-tag
     paths:
-      # AIHints の構造ソースは DB 本体にある。画像やドキュメントの変更では走らせない。
-      - "data/Works_*/DataBases/db_*.json"
+      # 共有画像の許諾は別作品・資料 DB からも変化し得る。
+      - "data/**/*.json"
+      - "data/**/Images/**"
+      - "tools/sync-numbertales-art.mjs"
+      - "tools/numbertales-reviewed-arts.json"
+      - "pkg/cloudflare/ai-image-policy.js"
+      - "pkg/cloudflare/scripts/build-ai-image-policy.mjs"
+      - "pkg/ai-image-policy.mjs"
 
 # 同一ブランチで連続 push されたとき、PR ブランチへの force-push が競合しないよう直列化する。
 concurrency:
@@ -78,6 +84,13 @@ jobs:
           echo "files=${files}" >> "$GITHUB_OUTPUT"
           echo "対象: ${targets:-（なし）}"
 
+      - name: NumberTales の画像別登場形態を再生成
+        id: arts
+        run: |
+          node tools/sync-numbertales-art.mjs --write
+          files=$(git diff --name-only -- 'data/Works_NumberTales/DataBases/db_*.json' | tr '\n' ' ')
+          echo "files=${files}" >> "$GITHUB_OUTPUT"
+
       - name: 構造的再同期の実行
         if: steps.targets.outputs.list != ''
         run: |
@@ -100,9 +113,9 @@ jobs:
       # 差分判定も対象ファイルに限定する。想定外のファイルが混ざったまま PR を立てない。
       - name: 差分の判定
         id: diff
-        if: steps.targets.outputs.files != ''
+        if: steps.targets.outputs.files != '' || steps.arts.outputs.files != ''
         env:
-          TARGET_FILES: ${{ steps.targets.outputs.files }}
+          TARGET_FILES: ${{ steps.targets.outputs.files }} ${{ steps.arts.outputs.files }}
         run: |
           # data/ 配下で対象外のファイルが変更されていたら異常（整形ノイズの混入など）。
           # PR に混ぜず、ここで失敗させる。data/ の外（npm ci による package-lock 等）は対象外。
@@ -137,7 +150,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: auto/aihints-structural-resync
-          TARGET_FILES: ${{ steps.targets.outputs.files }}
+          TARGET_FILES: ${{ steps.targets.outputs.files }} ${{ steps.arts.outputs.files }}
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -173,6 +186,7 @@ jobs:
           ## 何を変えたか
 
           - `--resync-structural`（find-exact-and-replace + provenance）で再同期しています。
+          - NumberTales の `Images_Appearance` を、登録済み画像名・バッジ・現在の画像利用条件から再生成しています。
           - **User が手で書いた／編集したタグには触れていません。** `AIHints._meta.structuralEntries` に
             記録された「ツールが挿入した文字列」だけを差し替えています。
           - 再同期の対象外: `outfit_features` / `silhouette_notes` / `natural_language_description` /

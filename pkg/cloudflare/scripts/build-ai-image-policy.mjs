@@ -45,7 +45,7 @@ export function markAIImagePolicySync(repoRoot, phase, complete = false, { bucke
 }
 
 /** 元データ全体から直接宣言された画像だけを allow に加え、共有画像の deny を合成する。 */
-export function buildAIImagePolicy(repoRoot) {
+export function buildAIImagePolicy(repoRoot, { permittedReferencePaths } = {}) {
   const dataDir = join(repoRoot, 'data');
   const files = new Map(policyFiles(repoRoot).map((file) => [relative(dataDir, file).replace(/\\/g, '/'), JSON.parse(readFileSync(file, 'utf8'))]));
   const globalMeta = files.get('db_meta.json');
@@ -183,7 +183,10 @@ export function buildAIImagePolicy(repoRoot) {
   }
   const references = [];
   for (const candidate of candidates) {
-    if (permission.has(candidate.path)) references.push(candidate.key);
+    if (permission.has(candidate.path)) {
+      references.push(candidate.key);
+      permittedReferencePaths?.set(candidate.key, candidate.path);
+    }
     else if (typeof candidate.raw === 'string') blockedValues.add(candidate.raw);
   }
   return { version: 1, complete: true, paths: permission.paths().sort(), references: [...new Set(references)], records, costumes, blockedValues: [...blockedValues] };

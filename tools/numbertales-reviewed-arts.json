@@ -1,0 +1,118 @@
+{
+  "data/Works_NumberTales/Images/DB_Primary/arts/corefolders/autumnMoon/art_autumnMoon2023.png": {
+    "sha256": "c11eb27d39ea7bf66852399d0e945dccf98e8108baa14e4cdc696ec253d58711",
+    "formations": {"corefolder":["22","29"]}
+  },
+  "data/Works_NumberTales/Images/DB_Primary/arts/corefolders/autumnMoon/art_autumnMoon2024.png": {
+    "sha256": "c0399c23df7f16b195105ce148626f5b390fe6e3ef621d1b8c5f520dfdbb3a3b",
+    "formations": {"corefolder":["22","73"]}
+  },
+  "data/Works_NumberTales/Images/DB_Primary/arts/corefolders/sphericateDay/art_sphericateDay202111.png": {
+    "sha256": "c495e7d86023150279b77a3e5340d0ba0120f2d7248178d90d915fca7d117eed",
+    "formations": {"humanoid":["8"],"corefolder":["8"]}
+  },
+  "data/Works_NumberTales/Images/DB_Primary/arts/corefolders/sphericateDay/art_sphericateDay202112.png": {
+    "sha256": "8c5ca70cf7c1ff0c23ced9475b72ad01b77a5bcb48d0eb2c977242cd0c3fdfdb",
+    "formations": {"humanoid":["20","2B"],"corefolder":["2B"]}
+  },
+  "data/Works_NumberTales/Images/DB_Primary/arts/corefolders/sphericateDay/art_sphericateDay202201.png": {
+    "sha256": "cfead7aba180de4d636f788b8ff5d3d5dd937a1fbf1784c0c7ce58322af933c8",
+    "formations": {"humanoid":["93"],"corefolder":["93"]}
+  },
+  "data/Works_NumberTales/Images/DB_Primary/arts/corefolders/sphericateDay/art_sphericateDay202202.png": {
+    "sha256": "2223e4cde661538d91d41d42d0cd1405e916361cfdcd68f460e9b90796e93489",
+    "formations": {"humanoid":["33"],"corefolder":["33"]}
+  },
+  "data/Works_NumberTales/Images/DB_Primary/arts/corefolders/sphericateDay/art_sphericateDay202209r1A.png": {
+    "sha256": "83820c64f8d03deabe190eafba96b42bb524ee7c9b76c71db3b546e9583ab9f7",
+    "formations": {"corefolder":["16","20","61","2B"]}
+  },
+  "data/Works_NumberTales/Images/DB_Primary/arts/corefolders/sphericateDay/art_sphericateDay202209r1B.png": {
+    "sha256": "30889b6978bf089b79486039f73d19c1f725f0b21480adb90e133ef34524f27f",
+    "formations": {"corefolder":["16","20","61","2B"]}
+  },
+  "data/Works_NumberTales/Images/DB_Primary/arts/corefolders/sphericateDay/art_sphericateDay202212r1A.png": {
+    "sha256": "0d8d4b3ac402c3a794221ff82605b3f3d3e0215632c28a4f8fd242dab1d155d2",
+    "formations": {"corefolder":["12","37","73"]}
+  },
+  "data/Works_NumberTales/Images/DB_Primary/arts/corefolders/sphericateDay/art_sphericateDay202212r1B.png": {
+    "sha256": "f3d73f7ca7fe4fdc7b8e8d5399ce9d820870a8878cb309a5cd858be2076cfec8",
+    "formations": {"corefolder":["12","37","73"]}
+  },
+  "data/Works_NumberTales/Images/DB_Primary/arts/corefolders/sphericateDay/art_sphericateDay202301r2.png": {
+    "sha256": "ab3f1d048709ba7c359e556130d4604f89218d05d47c770841240eb67767d28f",
+    "formations": {"corefolder":["14","23","68"]}
+  },
+  "data/Works_NumberTales/Images/DB_Primary/arts/corefolders/sphericateDay/art_sphericateDay202302r1.png": {
+    "sha256": "37de54d9d336beda006e13d518c9b880185adc96be3e47c0d9ab562a1aa112ae",
+    "formations": {"corefolder":["4","6","24"]}
+  },
+  "data/Works_NumberTales/Images/DB_Primary/arts/corefolders/sphericateDay/art_sphericateDay202305-imgNTS-57.png": {
+    "sha256": "4c75d1d375e1e5691cd3f332656d3dbe28066de743e0c5e76c8d64b9ebbda44c",
+    "formations": {"humanoid":["57"],"corefolder":["57"]}
+  },
+  "data/Works_NumberTales/Images/DB_Primary/arts/corefolders/sphericateDay/art_sphericateDay202305-imgNTS-75.png": {
+    "sha256": "c8f1fb26120706c2d6e82ff5a9ffcdb90a4132720b8b476b9b18f347b46ec5ae",
+    "formations": {"humanoid":["75"],"corefolder":["75"]}
+  },
+  "data/Works_NumberTales/Images/DB_Primary/arts/corefolders/sphericateDay/art_sphericateDay202306.png": {
+    "sha256": "754f4c36dfbef8b726aac402c54eaa9081f1229958933774652ca231b266e86b",
+    "formations": {"humanoid":["13","14"],"corefolder":["13","14"]}
+  },
+  "data/Works_NumberTales/Images/DB_Primary/arts/corefolders/sphericateDay/art_sphericateDay202307.png": {
+    "sha256": "c7a1c7a9a32ae9f1fc79eebf8ede158d521ca69c58089cd7dfd67669c4c01ecf",
+    "formations": {"corefolder":["47","74"]}
+  },
+  "data/Works_NumberTales/Images/DB_Primary/arts/corefolders/sphericateDay/art_sphericateDay202309-Overall.png": {
+    "sha256": "5ec98286693b787652401b7c9eeb16806b3e20dd259e0a03806cc88cd25bd64e",
+    "formations": {"humanoid":["14"],"corefolder":["14"]}
+  },
+  "data/Works_NumberTales/Images/DB_Primary/arts/corefolders/sphericateDay/art_sphericateDay202309-imgNTS-9.png": {
+    "sha256": "bc32395b9626e3249aca494ff490563b0445438b0c30ee3544b60b5a15534a82",
+    "formations": {"humanoid":["9"],"corefolder":["9"]}
+  },
+  "data/Works_NumberTales/Images/DB_Primary/arts/corefolders/sphericateDay/art_sphericateDay202310.png": {
+    "sha256": "cedd9b6dea2073b9c4688d08ea9579e44e98401a0b4fc2f2b2907ff6541febed",
+    "formations": {"corefolder":["44","66","85"]}
+  },
+  "data/Works_NumberTales/Images/DB_Primary/arts/corefolders/sphericateDay/art_sphericateDay202403.png": {
+    "sha256": "0e33ded353794886da4245fb317c9538a62add7dbb912a4913d51c44b993a14f",
+    "formations": {"corefolder":["7","9","27","29"]}
+  },
+  "data/Works_NumberTales/Images/DB_Primary/arts/humanoids/art_mothersDay2023.png": {
+    "sha256": "d05f40118b03198e547bf4b92132d4d679368c7ea2c9608c06de8bb65c1a70d0",
+    "formations": {"humanoid":["36","63"]}
+  },
+  "data/Works_NumberTales/Images/DB_Primary/arts/humanoids/art_numbertalesAniv2nd.png": {
+    "sha256": "e1e2fe3d65e8eff8efb72a5d4436920a8a449e6a6a9eccff9317b7ad46cb996b",
+    "formations": {"humanoid":["2","2B"]}
+  },
+  "data/Works_NumberTales/Images/DB_Primary/arts/humanoids/art_numbertalesAniv4th.png": {
+    "sha256": "436f97134f91bc27965c2be081c279b30e1f7e15a06a11227c5fcaf4feea47bb",
+    "formations": {"humanoid":["4"]}
+  },
+  "data/Works_NumberTales/Images/DB_Primary/arts/humanoids/art_pmNTS-5game.png": {
+    "sha256": "5cffe27d5c33b7255bdd75040db1a62048cf62e4f7f73436740208707f08be2c",
+    "formations": {"humanoid":["5"]}
+  },
+  "data/Works_NumberTales/Images/DB_Primary/arts/humanoids/cnsp_chrstNTS-93.png": {
+    "sha256": "78e81689179f9bc1e86fc8516c9157d0144e32a56151093898827df01d7c60d7",
+    "formations": {"humanoid":["93"]}
+  },
+  "data/Works_NumberTales/Images/DB_Primary/arts/humanoids/parody/art_imgNTS-34,NTS-43-parody.png": {
+    "sha256": "fe148a3fbf47f1da019f76aa2a7909c66e95f31bc3aa45520625f23987777908",
+    "formations": {"humanoid":["34","43"]}
+  },
+  "data/Works_NumberTales/Images/DB_Primary/arts/humanoids/parody/art_imgNTS-42-homage.png": {
+    "sha256": "7bd6b789a8762fe7f8dc83dc1962fc524c3e9f80939a95a4bd2803df64aa38b9",
+    "formations": {"humanoid":["42"]}
+  },
+  "data/Works_NumberTales/Images/DB_Primary/arts/humanoids/parody/art_imgNTS-73-parody.png": {
+    "sha256": "2647610218304a7f12b28680df59947c05db66026d5bf0dcd7bc99ab11e4cda5",
+    "formations": {"humanoid":["73"]}
+  },
+  "data/Works_NumberTales/Images/DB_SemiPrimary/arts/corefolders/autumnMoon/art_autumnMoon2025.png": {
+    "sha256": "6508f5f8d87903ab876c61f62de4c3f70f7f4cd66421b6c53453085b4b2f4140",
+    "formations": {"corefolder":["22","3x11"]}
+  }
+}

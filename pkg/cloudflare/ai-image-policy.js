@@ -49,7 +49,7 @@ export function filterAIResponse(data, policy, { workKey, dbName, metadata = fal
     if (!value || typeof value !== 'object') return value;
     const output = {};
     for (const [key, child] of Object.entries(value)) {
-      if (key === 'Images_AIOptout' || key === '_DBCrossLinkPath') continue;
+      if (key === 'Images_AIOptout' || key === 'Images_Appearance' || key === '_DBCrossLinkPath') continue;
       if (metadata && (key === 'AppearanceDetail' || key === 'AIHints')) continue;
       if (key === 'Images') {
         if (child === null) { output[key] = null; continue; }
