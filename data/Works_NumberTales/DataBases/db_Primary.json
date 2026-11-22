@@ -15911,6 +15911,7 @@
       "concept_PNGName": "cnsp_imgNTS-26",
       "corefolder_PNGPath": ["26/emstk_corefolderNTS-26-1"],
       "arts_PNGPath": [
+        "chattingArt/chart_imgNTS-26-humanoid",
         {
           "_DBCrossLinkPath": {
             "_DB": "Proxy",

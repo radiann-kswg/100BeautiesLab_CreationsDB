@@ -31,3 +31,12 @@ NumberTales の typedef が宣言する2形態について、`Formation` 以外�
 ## 外見原本への反映
 
 作者の実行了承後、main の `develop` で NumberTales の `db_Primary.json` と `db_SelfSecondary.json` に瞳21件・髪2件を追記し、形態だけが異なる7組を共通化した。フィールド順検査は全1,465レコードで差分0、Vitest は1,528件すべて成功した。AIHints の入力と下流 manifest の再集計は `addon-ai-tag` 側で行う。
+
+## AIHints と公開後の検証
+
+- 外見原本は `develop@8a5b2ad7`、AIHints は `addon-ai-tag@388d9a8e` に反映。対象は Primary 27件、SemiPrimary 1件、SelfSecondary 2件。バイナの共通タグには種族・銀灰色の長髪・琥珀がかった橙色の瞳がそろった。
+- `tools/patch-aihints.mjs` は共通候補が少ないときに形と本数が分かる尾を使い、候補が5個を超えるときは素体を優先する。223の尾はサソリ型2本とキツネ型3本の両方を反映。0・00は原本が人型のためヒューマノイド形態を使用し、外見年齢は空欄。333のコアフォルダ形態の番号位置も未確定のため自然文を空欄とした。仕様とテストは `docs/ai-hints-usage.md`、`tests/patch-aihints.{resync,gates}.test.js` に反映した。
+- 対象30件すべてで共通タグは3〜5個。構造再同期の2回目は全件差分なし。main で変更した3つのDBを照合し、既存の人手による自然文・衣装記述・参照画像と、対象外レコードの値が維持されたことを確認した。
+- 自動再同期後の `addon-ai-tag@d6ca65e8` を sub1 に取り込み、同じ公開コミットの隔離コピーを lockfile 指定の Vitest 5.1.0 で検証した。全1,848テスト（99ファイル）が成功した。
+- 公開 manifest の対象120件を元の調査と照合した。原典 AIHints は113→117件、原典の共通タグが3個未満は10→0件、下流導出のみは7→3件。対象全員の画像とAI利用可否も一致した。従前から共通タグが6個以上の対象外12件は今回の不足件数に含めていない。[公開ビルド記録](https://github.com/radiann-kswg/100BeautiesLab_CreationsAI/blob/7dbd5997e0b2316afe9722563037013b286fbb0f/ai-dataset/build-info.json)
+- 残る SemiPrimary の `216-cub`、SelfSecondary の148・216は外見原本の入力後に再評価する。画像生成による再現性評価は今回の検証外。
