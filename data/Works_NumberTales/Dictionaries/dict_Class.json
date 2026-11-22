@@ -207,6 +207,13 @@
     "isSecondary": false
   },
   {
+    "Class": "ポリポテンザーレン",
+    "Class_JP": "ポリポテンザーレン",
+    "Class_EN": "Polypotenzhalen",
+    "Class_Code": "NPPZ",
+    "isSecondary": null
+  },
+  {
     "Class": "バーチャリティテールズ",
     "Class_EN": "VirtualityTales",
     "Class_Code": "NVT",
