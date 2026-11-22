@@ -1188,7 +1188,11 @@
       { "Faction": "シンフォニー.XVI" }
     ],
     "FromArea": { "Area": "黒薔薇国" },
-    "Class": ["キュビクザール型", "ヒューマノイド開発部(シンフォニー.XVI)"]
+    "Class": [
+      "キュビクザール型",
+      "ヒューマノイド開発部(シンフォニー.XVI)",
+      "ポリポテンザーレン"
+    ]
   },
   {
     "Num": "144-sq",
@@ -1216,7 +1220,8 @@
       "マスマティカコンストレイント",
       "キャレ型",
       "キャレ型ハイナンバーズ開発部",
-      "マルチアドレセンス"
+      "マルチアドレセンス",
+      "ポリポテンザーレン"
     ]
   },
   {
@@ -1318,6 +1323,7 @@
       "キュビクザール型",
       "インターフェイスコンストレイント",
       "ヒューマノイド開発部(シンフォニー.X)",
+      "ポリポテンザーレン",
       "マルチアドレセンス"
     ],
     "Height_cm": 149,
@@ -2840,7 +2846,7 @@
     "Num": "225-sq",
     "Num_Badge": "225SQ",
     "Progress": "notProceeded",
-    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 225 }],
+    "AnotherVersions_DBLink": [{ "_DB": "SelfSecondary", "Num": 225 }],
     "Name_JP": "225(クインザリエ)\n15²(クインザリエ)",
     "Name_EN": "225(Quinzarrié)\n15²(Quinzarrié)",
     "FormalName_JP": "ナンバーテールズ キャレ・クインズ(同位異格225番機)",
@@ -2854,7 +2860,34 @@
       { "Faction": "レゾンデイトルカンパニー" }
     ],
     "FromArea": { "Area": "神皇国" },
-    "Class": ["キャレ型", "キャレ型ハイナンバーズ開発部", "マルチアドレセンス"]
+    "Class": [
+      "キャレ型",
+      "キャレ型ハイナンバーズ開発部",
+      "マルチアドレセンス",
+      "ポリポテンザーレン"
+    ]
+  },
+  {
+    "Num": "243-qp",
+    "Num_Badge": "243QP",
+    "Progress": "notProceeded",
+    "AnotherVersions_DBLink": [{ "_DB": "SelfSecondary", "Num": 243 }],
+    "Name_JP": "3⁵(ホッフュン)\n243(ホッフュン)",
+    "Name_EN": "3⁵(Hochünf)\n243(Hochünf)",
+    "FormalName_JP": "仮設型ハイナンバーテールズ3^5番機(ナンバーテールズ324番機)",
+    "FormalName_EN": "Tentative HighNumberTales Unit.3^5 (NumberTales Mk.324)",
+    "ModelNumber": "APHR-NT Hoch-V",
+    "GenderType": "Neutral",
+    "Belonging": [
+      { "Faction": "シンフォニー.XVI" },
+      { "Faction": "国際ヒューマノイド技術学会" }
+    ],
+    "FromArea": { "Area": "黒薔薇国" },
+    "Class": [
+      "仮設型ハイナンバーズ",
+      "ヒューマノイド開発部(シンフォニー.XVI)",
+      "ポリポテンザーレン"
+    ]
   },
   {
     "Num": "247-ma",
@@ -2936,7 +2969,7 @@
       { "Faction": "国際ヒューマノイド技術学会" }
     ],
     "FromArea": { "Area": "英皇国" },
-    "Class": ["トリプルフォーズ", "国際協議個体", "バーチャリティテールズ"],
+    "Class": ["国際協議個体", "ポリポテンザーレン", "バーチャリティテールズ"],
     "Backgrounds_JP": "1バイトで表現できる値の数から由来\nなお、国際ヒューマノイド技術学会協賛による特殊な型式シリーズの個体となる",
     "Backgrounds_EN": "Named after the number of values representable in one byte.\nNote: This unit is a special model series sponsored by the International Humanoid Technology Society."
   },
@@ -2957,7 +2990,7 @@
     "RaceType": "PortableHumanoid(PhoenixType)",
     "GenderType": "Neutral",
     "Belonging": [{ "Faction": "シンフォニー.X" }],
-    "Class": ["証明者", "D-Vines開発機"]
+    "Class": ["証明者", "D-Vines開発機", "マルチアドレセンス"]
   },
   {
     "Num": "289-sq",
@@ -3033,7 +3066,7 @@
     "Num": "324-sq",
     "Num_Badge": "324SQ",
     "Progress": "notProceeded",
-    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 324 }],
+    "AnotherVersions_DBLink": [{ "_DB": "SelfSecondary", "Num": 324 }],
     "Name_JP": "324(キャデュイズ)\n18²(キャデュイズ)",
     "Name_EN": "324(Cadd'huits)\n18²(Cadd'huits)",
     "FormalName_JP": "ナンバーテールズ キャレ・ディズュイット(同位異格324番機)",
@@ -3047,7 +3080,12 @@
       { "Faction": "レゾンデイトルカンパニー" }
     ],
     "FromArea": { "Area": "黒薔薇国" },
-    "Class": ["キャレ型", "キャレ型ハイナンバーズ開発部", "マルチアドレセンス"]
+    "Class": [
+      "キャレ型",
+      "キャレ型ハイナンバーズ開発部",
+      "マルチアドレセンス",
+      "ポリポテンザーレン"
+    ]
   },
   {
     "Num": 333,
@@ -3771,7 +3809,7 @@
     "Num": "361-sq",
     "Num_Badge": "361SQ",
     "Progress": "notProceeded",
-    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 361 }],
+    "AnotherVersions_DBLink": [{ "_DB": "SelfSecondary", "Num": 361 }],
     "Name_JP": "361(キャディネ)\n19²(キャディネ)",
     "Name_EN": "361(Caddinéf)\n19²(Caddinéf)",
     "FormalName_JP": "ナンバーテールズ キャレ・ディズネフ(同位異格361番機)",
@@ -4623,7 +4661,7 @@
       { "Faction": "国際ヒューマノイド技術学会" }
     ],
     "FromArea": { "Area": "英皇国" },
-    "Class": ["トリプルエイツ", "バーチャリティテールズ", "国際協議個体"],
+    "Class": ["バーチャリティテールズ", "国際協議個体", "ポリポテンザーレン"],
     "Backgrounds_JP": "SI接頭辞「ki(キロバイナリ)」の半分に相当する指数に由来\nなお、国際ヒューマノイド技術学会協賛による特殊な型式シリーズの個体となる",
     "Backgrounds_EN": "Named from the exponent corresponding to half of the SI prefix 'ki(kilo binary)'.\nNote: This unit is a special model series sponsored by the International Humanoid Technology Society."
   },
@@ -5265,6 +5303,7 @@
     "Class": [
       "キュビクザール型",
       "ヒューマノイド開発部(シンフォニー.X)",
+      "ポリポテンザーレン",
       "国際協議個体"
     ]
   },
@@ -7639,6 +7678,7 @@
     "Class": [
       "キャレ型",
       "キュビクザール型",
+      "ポリポテンザーレン",
       "ヒューマノイド開発部(シンフォニー.XVI)",
       "国際協議個体",
       "バイナリーコンストレイント"
@@ -8159,6 +8199,7 @@
     "Num": "9x9",
     "Num_Badge": "9x9",
     "Progress": "notProceeded",
+    "AnotherVersions_DBLink": [{ "_DB": "Primary", "Num": 81 }],
     "Name_JP": "81(クック)\n9²(クック)",
     "Name_EN": "81(Neuf-neuf)\n9²(Neuf-neuf)",
     "FormalName_JP": "ナンバーテールズ キャレ・ネフ(仮設9x9番機)",
@@ -8174,7 +8215,12 @@
       { "Faction": "レゾンデイトルカンパニー" }
     ],
     "FromArea": { "Area": "神皇国" },
-    "Class": ["9倍2桁番", "キャレ型", "キャレ型ハイナンバーズ開発部"],
+    "Class": [
+      "9倍2桁番",
+      "キャレ型",
+      "キャレ型ハイナンバーズ開発部",
+      "ポリポテンザーレン"
+    ],
     "AnivDay": [
       {
         "Day": { "Month": 9, "DayOfMonth": 9 },
