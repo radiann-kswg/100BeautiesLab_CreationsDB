@@ -290,6 +290,12 @@ node tools/inventory-numbertales-art.mjs ../100BeautiesLab_CreationsAI/ai-datase
 
 集計対象は `manifest-training.jsonl` の許可済みキャラクター、許可済み DB、同じビルドの `image-index.json` に実パスが載った画像です。言語差分を除き、`arts` と `corefolder` の両方を数えます。両方が空の子は手元の原画を先に探し、あれば登録、なければ制作候補にします。`sharedArts` には合同絵の参照元、`confirmedCharacters` には登場を確認できた人物のレコード ID が出ます。[今回の制作候補](../_work_in_progress/2026-11-22_progress_issue28-art.md)
 
+### 7.2 作品ごとの形態名
+
+球体化姿やそれに相当する形態には、作品ごとの呼び名があります。ナンバーテールズでは「コアフォルダ」、運命線狐の記録では「弱体球体化」、ハンカクライブでは「キーキャッパー」です。
+
+今後ほかの作品に形態を追加するときも、その作品で作者が定めた名称を使います。形態と AI 利用の可否は別々に扱い、AI 向けの出力には既存の利用条件を適用します。
+
 ---
 
 ## 8. 検証（最低限）
