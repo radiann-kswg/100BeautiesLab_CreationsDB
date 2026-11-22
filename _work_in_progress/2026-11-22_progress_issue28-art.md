@@ -1,6 +1,6 @@
 # NumberTales 完成イラストの収録と制作候補（2026-11-22）
 
-[Issue #28](https://github.com/radiann-kswg/100BeautiesLab_CreationsDB/issues/28) の残対応。上流は本体ローカルの `develop@14ffc63a`。作者確認により、26番の絵チャット画像を Primary の `Images.arts_PNGPath` に追加し、既存のレコード・画像カテゴリの利用条件を適用した。既存の別作品への画像参照も保持した。
+[Issue #28](https://github.com/radiann-kswg/100BeautiesLab_CreationsDB/issues/28) の残対応。作者確認により、26番の絵チャット画像を Primary の `Images.arts_PNGPath` に追加し、既存のレコード・画像カテゴリの利用条件を適用した。既存の別作品への画像参照も保持した。画像は `develop@97f0a901`、棚卸しは `develop@91ec77be` に収録。
 
 ## 収録結果
 
@@ -10,7 +10,7 @@
 
 ## 制作・収録の優先順位
 
-CreationsAI `7dbd5997` のビルダーと検証器を使用。入力は `addon-ai-tag@d6ca65e8` のアーカイブに今回の26番の参照と89番のファイルを適用したもの。出力は `.cache/issue28-inventory/dataset/`。作品・DB・カテゴリ・レコード・個別画像の除外、共有画像の拒否優先を適用した。同じ出力の許可済みマニフェストと画像索引の共通部分を集計した。
+CreationsAI のビルダー・検証器に画像別の登場記録の読み込みを追加し、`addon-ai-tag@59f0ee92` の生成結果で検証した。出力は `.cache/issue28-inventory/dataset/`。作品・DB・カテゴリ・レコード・個別画像の除外、共有画像の拒否優先を適用し、同じビルドの許可済みマニフェストと画像索引を照合した。
 
 NumberTales の対象は Primary 95件、SemiPrimary 13件、SelfSecondary 9件、計117件。8月の112件とは母集団が異なる。設定画・衣装資料は別カテゴリで、下表で0枚でも設定画が存在する場合がある。
 
@@ -23,6 +23,13 @@ NumberTales の対象は Primary 95件、SemiPrimary 13件、SelfSecondary 9件�
 
 残り60件は `arts` と `corefolder` の両方を持つ。許可済み `arts` は延べ130参照・実画像100枚。このうち19枚を複数の対象レコードが参照する。56・65のコアフォルダ合同絵、47・74の絵チャット、34・43の合同絵は、いずれも双方のレコードに登録済み。記念絵のようにファイル名に番号がないものも、実パスで集計した。
 
+## 画像別の登場形態（#63 と共通）
+
+- 登録と許諾は develop、各レコードの `Images_Appearance` の生成は addon-ai-tag。既存の構造的再同期ワークフローが、ギャラリー・バッジ・画像名と確認済み原画から再生成する。許可や参照が消えたときは該当の行も消える。
+- 64レコード・実画像100枚・延べ130参照すべてに登場 ID が付き、128参照で本人の形態を確認できた。0・00 の各1参照は登場のみ。合同絵19枚のすべてで、実パスごとの参照元 ID と manifest の `characters` が一致した。別 DB への参照も含む。
+- 作者確認により、2021年12月絵ではハツカ（20）はヒューマノイド、バイナ（2B、レコード ID `2-alt`）はヒューマノイドとコアフォルダ。2周年絵は2・2Bともにヒューマノイド。両方の原画で人物別の出力を照合した。
+- CreationsAI は本人の単一形態を `form`、複数なら `form: null` と `forms` 配列で出力。画像利用条件を再判定し、同じ作品の確認済み ID をまとめ、入力用の表は配布レコードから除く。
+
 ## 検証と再集計
 
 ```powershell
@@ -31,5 +38,6 @@ node tools/inventory-numbertales-art.mjs .cache/issue28-inventory/dataset
 
 公開済みデータセットを再集計する場合は、引数をその `ai-dataset` ディレクトリに変更する。出力には親コミット、対象レコードの全バッジ、共有実パスと参照元が含まれる。ファイル名やギャラリー掲載だけで個々の登場人物の形態を確定しない。
 
-- 下流のローカル再ビルドと検証成功。全11作品・1,511レコード、画像参照533件、未解決0件。公開データセットへの反映は上流変更の取り込み後。
+- develop のテスト1,529件、addon のテスト1,851件、CreationsAI のテスト41件が成功。addon の再生成差分は0件、フィールド順の修正対象も1,465件中0件。
+- 下流のローカル再ビルドと検証成功。全11作品・1,511レコード、画像参照533件、未解決0件。公開データセットへの反映は上流とビルダー取り込み後。#63 の衣装・参考専用区分は別途継続。
 - [収録・再集計の手順](../docs/db-update-guidelines.md#71-numbertales-の完成イラストを公開するとき)・[棚卸しツール](../tools/inventory-numbertales-art.mjs)・[回帰テスト](../tests/inventory-numbertales-art.test.js)・[11月20日の事前調査](./2026-11-20_github-issue-28-review.md)・[画像メタの別課題 #63](https://github.com/radiann-kswg/100BeautiesLab_CreationsDB/issues/63)
