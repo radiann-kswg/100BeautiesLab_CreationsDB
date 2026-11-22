@@ -231,6 +231,7 @@
 
 - **外見補完・着脱指定**: `AppearanceDetail` の補完・校正は `docs/appearance-detail-tools.md` の CLI で候補と根拠を確認してから適用します。`Detachable: true` は当該項目だけを衣装全体と独立に着脱できる宣言で、非着用を意味しません。形態・衣装の未確定な対応は作者へ確認します。
 - **画像単位の AI 除外**: typedef の `Images.*.AI_Optout` とレコードの `Images_AIOptout` を変更・利用するときは `docs/schema-meta-processing.md` と `docs/third-party-policy.md` を参照し、`pkg/ai-image-policy.mjs` で検証します。上位拒否・共有画像の拒否を優先し、不明な画像を AI 向けに許可しません。サイト表示・配色抽出とは分離します。
+- **NumberTales の完成絵収録**: 公開時に登場を確認した各キャラクターの `Images` を実ファイルへ紐付けます。`Images_Appearance` は `addon-ai-tag` への取り込み後に自動生成します。AI 向け制作候補は CreationsAI の検証済み許可データで棚卸しします。収録・再集計は `docs/db-update-guidelines.md` §7.1。
 
 ## GitHub Pages の軽量化・高速化（恒常対応）
 
