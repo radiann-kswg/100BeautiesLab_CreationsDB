@@ -59,6 +59,14 @@ displayNameFull: {{@FormalNameCompact}}{{#@FormalNameReading}}（{{@FormalNameRe
 {{#each ConversationPattern.DialogueExamples}}- {{@dialogue}}
 {{/each}}
 
+{{#@RelationComments}}### 「{{@DisplayName}}」がほかのキャラクターに向けた一言
+
+以下は、ほかのキャラクターに向けた一言の抜粋です。口調の参考にしてください。
+
+{{#each @RelationComments}}- {{@dialogue}}
+{{/each}}
+{{/@RelationComments}}
+
 # userとの会話を行うにあたって
 
 ## 不明な点があったときは

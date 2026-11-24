@@ -1,5 +1,10 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### ロールプレイプロンプトに関係キャラへの一言を口調の参考として追加（2026-11-24、#72）
+
+- `tools/build-roleplay-prompts.mjs` に合成変数 `@RelationComments` を追加し、4 作品のテンプレへ「ほかのキャラクターに向けた一言」節を足した。`Relation.*[].Comments` のうち「」で始まる台詞だけを、相手の名前なしで並べる（地の文・`Reply`・`hideText` は除外）。`docs/roleplay-prompt-generation.md` の「他キャラ言及を載せない」方針に、この例外を明記。
+- 台詞例が少ないキャラで AI が口調（方言・語尾）を誇張する問題（#72）への補助。配布用プロンプト 51 件を再生成（一言の無い 22 件は変化なし）。台詞例そのものの追加は User の手入力で継続。
+
 ### test: AI 除外ポリシーのテストから NumberTales の実データ検証を分離（2026-11-24）
 
 - `tests/ai-image-policy.test.js` にあった「61のアイドル4項目と分数D-Vines4人の指定を維持する」を `tests/data.ai-image-policy-numbertales.test.js` へ移した。テスト内容は変更なし。
