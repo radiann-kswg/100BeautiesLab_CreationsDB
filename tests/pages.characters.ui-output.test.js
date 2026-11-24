@@ -1761,6 +1761,19 @@ describe('pages/characters.js UI output', () => {
 		expect(topLevelOptions.map((o) => o.value)).toEqual(['#Works_NumberTales']);
 	});
 
+	it('populateWorks() without a work link selects the first declared title, not the last one', async () => {
+		charactersModule.__setCharactersTestState({
+			worksCatalog: [
+				{ key: '#Works_NumberTales', Title_JP: 'ナンバーテールズ', Works_Shared: false },
+				{ key: '#Works_DestinyFoxRecords', Title_JP: '運命線狐の記録', Works_Shared: false },
+				{ key: '#Works_CommonReferences', Title_JP: '共通資料', Works_Shared: true }
+			]
+		});
+
+		expect(await charactersModule.__populateWorksForTest('')).toBe('#Works_NumberTales');
+		expect(await charactersModule.__populateWorksForTest('DestinyFoxRecords')).toBe('#Works_DestinyFoxRecords');
+	});
+
 	// Calling 系の行重複回帰（2026-07-04 の重複修正 → 2026-07-14 の棚卸しで裏取り）
 	//
 	// グローバル $DefType は FirstPerson/SecondPerson/ThirdPersonCalling を base キーのみで宣言するが、
