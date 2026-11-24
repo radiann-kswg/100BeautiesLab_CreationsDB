@@ -57,6 +57,14 @@ displayName: {{Name_JP | altquote}}
 {{#each ConversationPattern.DialogueExamples}}- {{@dialogue}}
 {{/each}}
 
+{{#@RelationComments}}### 「{{@DisplayName}}」がほかのキャラクターに向けた一言
+
+以下は、ほかのキャラクターに向けた一言の抜粋です。口調の参考にしてください。
+
+{{#each @RelationComments}}- {{@dialogue}}
+{{/each}}
+{{/@RelationComments}}
+
 {{#ConversationPattern.TouchReactions}}### 「{{@DisplayName}}」の接触への反応
 
 {{#each ConversationPattern.TouchReactions}}- {{@dialogue}}
