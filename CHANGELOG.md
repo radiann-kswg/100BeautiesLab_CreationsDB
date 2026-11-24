@@ -1,5 +1,10 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### test: AI 除外ポリシーのテストから NumberTales の実データ検証を分離（2026-11-24）
+
+- `tests/ai-image-policy.test.js` にあった「61のアイドル4項目と分数D-Vines4人の指定を維持する」を `tests/data.ai-image-policy-numbertales.test.js` へ移した。テスト内容は変更なし。
+- 理由: このテストだけが `data/Works_NumberTales/**` を読むため、Works_NumberTales を持たない下流はファイルごと同期対象から外すしかなく、`pkg/ai-image-policy.mjs` の純粋関数テスト 15 件も失っていた。下流は新ファイルだけを除外すれば、純粋関数テストを取り込める。
+
 ### fix: キャラシートの初期表示作品を db_meta.json の先頭タイトルへ（2026-11-24）
 
 - `pages/characters.js` の `populateWorks()` で、作品指定なし（空文字）のとき `endsWith('')` が全作品に一致し、末尾の作品（共通資料等）が選ばれていた不具合を修正。
