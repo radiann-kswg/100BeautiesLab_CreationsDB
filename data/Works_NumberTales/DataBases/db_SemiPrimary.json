@@ -1723,6 +1723,14 @@
         "chattingArt/chart_imgNTS-222A,NTS-222B-humanoidWBed"
       ]
     },
+    "Images_Appearance": {
+      "designAlt_PNGPath": [
+        {
+          "value": "chattingArt/chart_imgNTS-222A,NTS-222B-humanoidWBed",
+          "ReferenceOnly": true
+        }
+      ]
+    },
     "FormalName_JP": "ナンバーテールズ222番機(開発用オリジナル版3倍型2号機)",
     "FormalName_EN": "NumberTales #222 (Original version for development of EXtended By.3 Type Unit.2)",
     "ModelNumber": "APHR-NT [x3]II",
@@ -2296,6 +2304,14 @@
       "corefolder_PNGPath": ["222/emstk_corefolderNTS-222B-2"],
       "designAlt_PNGPath": [
         "chattingArt/chart_imgNTS-222A,NTS-222B-humanoidWBed"
+      ]
+    },
+    "Images_Appearance": {
+      "designAlt_PNGPath": [
+        {
+          "value": "chattingArt/chart_imgNTS-222A,NTS-222B-humanoidWBed",
+          "ReferenceOnly": true
+        }
       ]
     },
     "FormalName_JP": "ナンバーテールズ222番機(開発用オリジナル版1+11号2倍機)",

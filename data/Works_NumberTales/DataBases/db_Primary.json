@@ -2631,6 +2631,12 @@
           "value": "humanoids/art_pmNTS-5game",
           "Formation": "humanoid"
         }
+      ],
+      "designAlt_PNGPath": [
+        {
+          "value": "chattingArt/chart_imgNTS-25,NTS-5-humanoidCoolerSeason",
+          "ReferenceOnly": true
+        }
       ]
     },
     "FormalName_JP": "ナンバーテールズ5番機",
@@ -15478,6 +15484,12 @@
           "value": "humanoids/2024/art_imgNTS-25-humanoidValentineB",
           "Formation": "humanoid"
         }
+      ],
+      "designAlt_PNGPath": [
+        {
+          "value": "chattingArt/chart_imgNTS-25,NTS-5-humanoidCoolerSeason",
+          "ReferenceOnly": true
+        }
       ]
     },
     "FormalName_JP": "ナンバーテールズ25番機",
@@ -22289,6 +22301,14 @@
       ],
       "designAlt_PNGPath": ["chattingArt/chart_imgNTS-35-humanoidswimwear"]
     },
+    "Images_Appearance": {
+      "designAlt_PNGPath": [
+        {
+          "value": "chattingArt/chart_imgNTS-35-humanoidswimwear",
+          "ReferenceOnly": true
+        }
+      ]
+    },
     "FormalName_JP": "ナンバーテールズ35番機",
     "FormalName_EN": "NumberTales #35",
     "CodeName_JP": "三五",
@@ -27588,6 +27608,16 @@
         {
           "value": "corefolders/sphericateDay/art_sphericateDay202310",
           "Formation": "corefolder"
+        }
+      ],
+      "designAlt_PNGPath": [
+        {
+          "value": "eventArt/art_sphericateDay-halloween2023A",
+          "ReferenceOnly": true
+        },
+        {
+          "value": "eventArt/art_sphericateDay-halloween2023B",
+          "ReferenceOnly": true
         }
       ]
     },
@@ -40503,6 +40533,20 @@
           "value": "corefolders/sphericateDay/art_sphericateDay202310",
           "Formation": "corefolder"
         }
+      ],
+      "designAlt_PNGPath": [
+        {
+          "value": "eventArt/art_sphericateDay-halloween2023A",
+          "ReferenceOnly": true
+        },
+        {
+          "value": "eventArt/art_sphericateDay-halloween2023B",
+          "ReferenceOnly": true
+        },
+        {
+          "value": "chattingArt/chart_imgNTS-66-corefolderHalloween",
+          "ReferenceOnly": true
+        }
       ]
     },
     "FormalName_JP": "ナンバーテールズ66番機",
@@ -42097,6 +42141,12 @@
           "value": "corefolders/2023/art_imgNTS-68-corefolder",
           "Formation": "corefolder"
         }
+      ],
+      "designAlt_PNGPath": [
+        {
+          "value": "arts/art_imgNTS-68-humanoidOnWorkSuit",
+          "ReferenceOnly": true
+        }
       ]
     },
     "FormalName_JP": "ナンバーテールズ68番機",
@@ -42682,6 +42732,12 @@
         {
           "value": "humanoids/2023/art_imgNTS-69-humanoidOnMask",
           "Formation": "humanoid"
+        }
+      ],
+      "designAlt_PNGPath": [
+        {
+          "value": "chattingArt/chart_imgNTS-69-humanoidLeotard",
+          "ReferenceOnly": true
         }
       ]
     },
@@ -51082,6 +51138,16 @@
         {
           "value": "corefolders/sphericateDay/art_sphericateDay202310",
           "Formation": "corefolder"
+        }
+      ],
+      "designAlt_PNGPath": [
+        {
+          "value": "eventArt/art_sphericateDay-halloween2023A",
+          "ReferenceOnly": true
+        },
+        {
+          "value": "eventArt/art_sphericateDay-halloween2023B",
+          "ReferenceOnly": true
         }
       ]
     },
