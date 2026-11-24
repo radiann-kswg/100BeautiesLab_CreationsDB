@@ -1,5 +1,5 @@
 import { expect, it } from 'vitest';
-import { artAppearance, reviewedEntries, updateArtRecord } from '../tools/sync-numbertales-art.mjs';
+import { artAppearance, nextAppearance, reviewedEntries, updateArtRecord } from '../tools/sync-numbertales-art.mjs';
 
 const forms = new Set(['corefolder', 'humanoid']);
 it('合同絵は番号を完全一致させ、共通の末尾指定と個別の形態を読む', () => {
@@ -36,4 +36,16 @@ it('同一入力は書き換えず、参照や許可が消えた場合は生成�
   expect(JSON.parse(updated).Images_Appearance.arts_PNGPath).toEqual(entries);
   expect(updateArtRecord(updated, JSON.parse(updated), entries)).toBe(updated);
   expect(updateArtRecord(updated, JSON.parse(updated), [])).toBe(original);
+});
+
+it('作者が手入力した他フィールドの行と、arts 行の衣装・参考用区分を再生成で消さない', () => {
+  const designAlt = [{ value: 'alt', ReferenceOnly: true }];
+  const current = { arts_PNGPath: [{ value: 'art', Formation: 'humanoid', Costume: null }, { value: 'old' }], designAlt_PNGPath: designAlt };
+  expect(nextAppearance(current, [{ value: 'art', Formation: 'humanoid' }])).toEqual({
+    arts_PNGPath: [{ value: 'art', Formation: 'humanoid', Costume: null }], designAlt_PNGPath: designAlt,
+  });
+  // 形態が変わった行には手入力を引き継がない（別の判断として作者が入れ直す）
+  expect(nextAppearance(current, [{ value: 'art', Formation: 'corefolder' }]).arts_PNGPath).toEqual([{ value: 'art', Formation: 'corefolder' }]);
+  expect(nextAppearance(current, [])).toEqual({ designAlt_PNGPath: designAlt });
+  expect(nextAppearance({ arts_PNGPath: [{ value: 'art' }] }, [])).toBeUndefined();
 });

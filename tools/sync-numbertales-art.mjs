@@ -47,9 +47,32 @@ export function reviewedEntries(review, badge, raw, digest, forms) {
   return matches.length ? matches.map(([Formation]) => ({ value: raw, Formation })) : null;
 }
 
+/** 作者が手入力する属性。生成し直しても、同じ画像・形態の行へ引き継ぐ。 */
+const manualAttrs = ['Costume', 'ReferenceOnly'];
+
+/**
+ * 生成した arts 行と、既存の対応表を合わせる。生成対象は arts_PNGPath だけで、
+ * ほかの画像フィールドの行（参考用区分など作者の手入力）はそのまま残す。
+ */
+export function nextAppearance(current, entries) {
+  const { [field]: oldRows = [], ...rest } = current ?? {};
+  const merged = entries.map(entry => {
+    const manual = oldRows.find(row => isDeepStrictEqual(row.value, entry.value) && row.Formation === entry.Formation
+      && Object.hasOwn(row, 'Formation') === Object.hasOwn(entry, 'Formation'));
+    const kept = Object.fromEntries(manualAttrs.filter(name => manual && Object.hasOwn(manual, name)).map(name => [name, manual[name]]));
+    return { ...entry, ...kept };
+  });
+  if (merged.length) return { [field]: merged, ...rest };
+  return Object.keys(rest).length ? rest : undefined;
+}
+
 /** 既存メンバーの書式を保持し、権利・参照が消えたら生成項目も取り除く。 */
 export function updateArtRecord(text, row, entries) {
-  const next = entries.length ? { [field]: entries } : undefined;
+  return writeAppearance(text, row, nextAppearance(row[key], entries));
+}
+
+/** 対応表のメンバーを next に置き換える。next が無ければメンバーごと取り除く。 */
+export function writeAppearance(text, row, next) {
   if (isDeepStrictEqual(row[key], next)) return text;
   const members = scanRecordMembers(text, 0, text.length);
   const i = members.findIndex(member => member.key === key);
@@ -116,9 +139,10 @@ function main() {
       }
       const [start, end] = spans[i];
       const old = original.slice(start, end);
-      const updated = updateArtRecord(old, row, entries);
+      const next = nextAppearance(row[key], entries);
+      const updated = writeAppearance(old, row, next);
       if (updated === old) continue;
-      if (entries.length) row[key] = { [field]: entries }; else delete row[key];
+      if (next) row[key] = next; else delete row[key];
       output = output.slice(0, start) + updated + output.slice(end);
       count++;
     }

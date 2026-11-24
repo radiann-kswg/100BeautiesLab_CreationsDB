@@ -1,5 +1,12 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### 画像ごとの形態・衣装・参考用区分（addon-ai-tag、2026-11-24、#63）
+
+- `Images_Appearance` を、`arts_PNGPath` 以外の画像フィールドと `Costume` / `ReferenceOnly` まで扱う対応表に広げた。`Formation` / `Costume` は辞書コード＝確認済み、`null`＝作者が明示した「共通」、キー無し＝「未確認」。`ReferenceOnly` は AI 利用の許諾と独立で、除外指定を解除しない。
+- `tools/sync-numbertales-art.mjs` は `arts_PNGPath` だけを再生成し、ほかのフィールドの行と arts 行の手入力属性を残すよう修正（従来は対応表全体を置き換えていた）。
+- `tests/data.images-appearance.test.js` を追加し、不明なフィールド・元画像に無い値・未定義の辞書コードを検出する。#60 B/C の作者判断（5/25/35/44/66/68/69/85/222A/222B の衣装差分は参考画像のみ）を `designAlt_PNGPath` に反映。外見項目は追加していない。
+- 下流: CreationsAI は対応表の新しい項目を検証・投影し、未確認・参考用の画像を代表画像に選ばないよう追従する（同日の CreationsAI 側変更）。旧 CreationsAI は `arts_PNGPath` 以外のキーを不正として止まるため、**CreationsAI 側を先にマージ**してから本変更を `addon-ai-tag` へ入れること（新 CreationsAI は旧データも読める）。
+
 ### NumberTales 完成絵の形態を addon で自動生成（2026-11-22、#28）
 
 - 既存の構造的再同期 PR で `Images_Appearance` を更新。ギャラリー参照・番号バッジ・画像利用条件に従い、本人の形態を CreationsAI の manifest へ引き渡す。元画像や権利指定は develop が管理する。
