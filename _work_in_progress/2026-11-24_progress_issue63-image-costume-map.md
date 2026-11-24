@@ -17,7 +17,7 @@
 
 ### CreationsDB（`addon-ai-tag`）
 
-1. `tools/sync-numbertales-art.mjs` … 生成対象の `arts_PNGPath` だけを書き換え、ほかの画像フィールドの手入力行を残す。`arts_PNGPath` の手入力属性（`Costume` / `ReferenceOnly`）も、同じ `value`・`Formation` の行へ引き継ぐ。
+1. `tools/sync-numbertales-art.mjs` … 生成対象の `arts_PNGPath` だけを書き換え、ほかの画像フィールドの手入力行を残す。`arts_PNGPath` の手入力行（`Costume` / `ReferenceOnly` / `Formation: null` を持つ行）も、画像が許可済みで実在する限りすべて別行として残す（PR #73 のレビューで、共通指定・独立した参考用行・複数衣装行が消える問題を修正）。
 2. `tests/data.images-appearance.test.js` … 全作品の対応表を検証する（不明なフィールド / 元の `Images` に無い `value` / 未定義の辞書コード / 型違い をエラーにする）。
 3. #60 B/C の作者判断を対応表へ反映（`designAlt_PNGPath` に `ReferenceOnly: true`。形態・衣装コードは付けない＝未確認のまま。外見項目は追加しない）。
 4. docs（`appearance-detail-tools.md` / `schema-meta-processing.md`）・`AGENTS.md`・`CHANGELOG.md` を更新。

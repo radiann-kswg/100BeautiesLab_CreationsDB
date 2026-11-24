@@ -3,7 +3,7 @@
 ### 画像ごとの形態・衣装・参考用区分（addon-ai-tag、2026-11-24、#63）
 
 - `Images_Appearance` を、`arts_PNGPath` 以外の画像フィールドと `Costume` / `ReferenceOnly` まで扱う対応表に広げた。`Formation` / `Costume` は辞書コード＝確認済み、`null`＝作者が明示した「共通」、キー無し＝「未確認」。`ReferenceOnly` は AI 利用の許諾と独立で、除外指定を解除しない。
-- `tools/sync-numbertales-art.mjs` は `arts_PNGPath` だけを再生成し、ほかのフィールドの行と arts 行の手入力属性を残すよう修正（従来は対応表全体を置き換えていた）。
+- `tools/sync-numbertales-art.mjs` は `arts_PNGPath` だけを再生成し、ほかのフィールドの行と、arts の手入力行（`Costume` / `ReferenceOnly` / `Formation: null` を持つ行。同じ画像・形態の複数衣装行も含む）を、画像が許可済みで実在する限り残すよう修正（従来は対応表全体を置き換えていた）。
 - `tests/data.images-appearance.test.js` を追加し、不明なフィールド・元画像に無い値・未定義の辞書コードを検出する。#60 B/C の作者判断（5/25/35/44/66/68/69/85/222A/222B の衣装差分は参考画像のみ）を `designAlt_PNGPath` に反映。外見項目は追加していない。
 - 下流: CreationsAI は対応表の新しい項目を検証・投影し、未確認・参考用の画像を代表画像に選ばないよう追従する（同日の CreationsAI 側変更）。旧 CreationsAI は `arts_PNGPath` 以外のキーを不正として止まるため、**CreationsAI 側を先にマージ**してから本変更を `addon-ai-tag` へ入れること（新 CreationsAI は旧データも読める）。
 

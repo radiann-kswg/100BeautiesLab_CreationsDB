@@ -66,7 +66,7 @@ NumberTales では、ギャラリーへの登録と画像名の `NTS-<バッジ>
 | キーが無い | 未確認。画像名やフォルダ名から推定しない | 選ばない |
 
 - `ReferenceOnly: true` は「外見設定として収録せず、画像参考だけにする」作者判断です。AI 利用の可否とは独立で、`AI_Optout` / `Images_AIOptout` / 衣装辞書の拒否を解除も追加もしません。参考用の画像は代表画像に選びません。
-- `arts_PNGPath` の行は再同期ツールが生成します。作者が足した `Costume` / `ReferenceOnly` は、同じ `value`・`Formation` の行へ引き継がれます。形態の判断が変わった行には引き継がないので、入れ直してください。
+- `arts_PNGPath` の行は再同期ツールが生成します。`Costume` か `ReferenceOnly` を持つ行と、`Formation: null`（共通）を明示した行は作者の手入力行として扱い、画像が許可済みで実在する限りすべて残ります。生成行と同じ `value`・`Formation` の手入力行があれば、生成行の代わりにそちらを使います（同じ画像・形態に複数の衣装行があっても全部残る）。画像の許可や参照が消えたときは、手入力行も一緒に消えます。
 - `arts_PNGPath` 以外のフィールド（`designAlt_PNGPath` など）の行は作者の手入力で、再同期しても消えません。
 - 検証は `tests/data.images-appearance.test.js` です。`Images` に無いフィールド、元の画像に無い `value`、未定義の辞書コード、不明な項目、真偽値でない `ReferenceOnly` をエラーにします。
 - デザインの作者表記は既存の `AdditionalDesigned_JP/EN` を使い、この表には作者名や許諾を書きません。
