@@ -65,8 +65,8 @@
     {
       "hashTag": "Images_Appearance",
       "$type": "#Object|#Null",
-      "hashTag_JP": "画像別の登場形態",
-      "hashTag_EN": "Depicted Forms by Image",
+      "hashTag_JP": "画像別の形態・衣装",
+      "hashTag_EN": "Forms and Costumes by Image",
       "$enrich": false,
       "$display": { "auto": false }
     },

@@ -37,7 +37,7 @@ node tools/patch-appearance-detail.mjs --work NumberTales --patch .cache/appeara
 
 ## 完成絵の登場人物と形態（addon-ai-tag）
 
-`Images_Appearance.arts_PNGPath[]` は各レコード本人についての生成結果です。`value` は元の `Images.arts_PNGPath` と同じ文字列または参照オブジェクト、`Formation` は作品辞書のコードです。形態未指定は未確認を表します。
+`Images_Appearance.arts_PNGPath[]` は各レコード本人についての生成結果です。`value` は元の `Images.arts_PNGPath` と同じ文字列または参照オブジェクト、`Formation` は作品辞書のコードです。形態未指定は未確認を表します（`null` は「共通」。下記の衣装・参考用区分の節を参照）。
 
 ```powershell
 node tools/sync-numbertales-art.mjs          # 差分を表示
@@ -49,11 +49,9 @@ NumberTales では、ギャラリーへの登録と画像名の `NTS-<バッジ>
 
 上位の非公開・AI除外、共有画像の拒否、進捗除外を反映し、元画像の削除・改名・許諾変更後は再生成で古い行が消えます。権利指定は develop、生成は addon の構造的再同期ワークフローが担当します。CreationsAI は実画像の許可を再判定し、同じ実パスに登場する同一作品のレコード ID を `characters`、本人の形態を `form` に出します。1枚に同じ人物の複数形態が登場する場合は画像ごとに形態の数だけ行を生成し、manifest は `form: null` と確認済みの `forms` 配列を返します。作業用の入力表は配布用 `data` から取り除きます。
 
-## 衣装・参考用区分の拡張案（Issue #63）
+## 衣装・参考用区分（Issue #63）
 
-実装課題は [Issue #63](https://github.com/radiann-kswg/100BeautiesLab_CreationsDB/issues/63) で追跡します。
-
-既存の Images を維持し、レコードの別メタ `Images_Appearance` をフィールド名ごとの配列にする案です。各要素は元の文字列と完全一致する `value` と、任意の `Formation` / `Costume` / `ReferenceOnly` を持ちます。
+[Issue #63](https://github.com/radiann-kswg/100BeautiesLab_CreationsDB/issues/63) の対応表も、同じ `Images_Appearance` に置きます（2026-11-24、`addon-ai-tag` に集約）。既存の `Images` はそのまま残し、画像フィールド名ごとに行の配列を持ちます。各行は元の画像と完全一致する `value` と、任意の `Formation` / `Costume` / `ReferenceOnly` を持ちます。
 
 ```json
 "Images_Appearance": {
@@ -61,4 +59,15 @@ NumberTales では、ギャラリーへの登録と画像名の `NTS-<バッジ>
 }
 ```
 
-`ReferenceOnly: true` は「外見設定として収録せず画像参考だけにする」作者判断で、AI利用可否とは独立です。衣装・参考用区分・デザイン出典と代表画像選択は #63 の対象です。上の `designAlt_PNGPath` はその設計例です。
+| `Formation` / `Costume` の書き方 | 意味 | 代表画像 |
+| -------------------------------- | ---- | -------- |
+| 作品辞書のコード | その形態・衣装に対応すると確認済み | そのコードの代表に選べる |
+| `null` | 作者が「共通」と明示 | すべての形態・衣装の代表に選べる |
+| キーが無い | 未確認。画像名やフォルダ名から推定しない | 選ばない |
+
+- `ReferenceOnly: true` は「外見設定として収録せず、画像参考だけにする」作者判断です。AI 利用の可否とは独立で、`AI_Optout` / `Images_AIOptout` / 衣装辞書の拒否を解除も追加もしません。参考用の画像は代表画像に選びません。
+- `arts_PNGPath` の行は再同期ツールが生成します。`Costume` か `ReferenceOnly` を持つ行と、`Formation: null`（共通）を明示した行は作者の手入力行として扱い、画像が許可済みで実在する限りすべて残ります。生成行と同じ `value`・`Formation` の手入力行があれば、生成行の代わりにそちらを使います（同じ画像・形態に複数の衣装行があっても全部残る）。画像の許可や参照が消えたときは、手入力行も一緒に消えます。
+- `arts_PNGPath` 以外のフィールド（`designAlt_PNGPath` など）の行は作者の手入力で、再同期しても消えません。
+- 検証は `tests/data.images-appearance.test.js` です。`Images` に無いフィールド、元の画像に無い `value`、未定義の辞書コード、不明な項目、真偽値でない `ReferenceOnly` をエラーにします。
+- デザインの作者表記は既存の `AdditionalDesigned_JP/EN` を使い、この表には作者名や許諾を書きません。
+- 衣装を指定して代表画像を選ぶ仕組みはまだありません。現在は「未確認・参考用の画像を代表に選ばない」までを CreationsAI が担います。

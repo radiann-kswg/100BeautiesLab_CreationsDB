@@ -47,9 +47,40 @@ export function reviewedEntries(review, badge, raw, digest, forms) {
   return matches.length ? matches.map(([Formation]) => ({ value: raw, Formation })) : null;
 }
 
+/**
+ * 作者の手入力行か。衣装・参考用区分を持つ行と、共通（Formation: null）を明示した行は
+ * 生成器が作らないので、再同期で置き換えずに残す。
+ */
+const isManualRow = row => Object.hasOwn(row, 'Costume') || Object.hasOwn(row, 'ReferenceOnly') || row.Formation === null;
+const sameForm = (a, b) => Object.hasOwn(a, 'Formation') === Object.hasOwn(b, 'Formation') && a.Formation === b.Formation;
+
+/**
+ * 生成した arts 行と、既存の対応表を合わせる。生成対象は arts_PNGPath だけで、
+ * ほかの画像フィールドの行（参考用区分など作者の手入力）はそのまま残す。
+ * arts の手入力行は、利用中の画像（permitted。省略時は生成行の value）に限りすべて残し、
+ * 同じ value・Formation の手入力行がある生成行はその手入力行で置き換える。
+ */
+export function nextAppearance(current, entries, permitted = entries.map(entry => entry.value)) {
+  const { [field]: oldRows = [], ...rest } = current ?? {};
+  const manual = oldRows.filter(row => isManualRow(row) && permitted.some(value => isDeepStrictEqual(value, row.value)));
+  const used = new Set();
+  const merged = entries.flatMap(entry => {
+    const matches = manual.filter(row => isDeepStrictEqual(row.value, entry.value) && sameForm(row, entry));
+    matches.forEach(row => used.add(row));
+    return matches.length ? matches : [entry];
+  });
+  merged.push(...manual.filter(row => !used.has(row)));
+  if (merged.length) return { [field]: merged, ...rest };
+  return Object.keys(rest).length ? rest : undefined;
+}
+
 /** 既存メンバーの書式を保持し、権利・参照が消えたら生成項目も取り除く。 */
-export function updateArtRecord(text, row, entries) {
-  const next = entries.length ? { [field]: entries } : undefined;
+export function updateArtRecord(text, row, entries, permitted) {
+  return writeAppearance(text, row, nextAppearance(row[key], entries, permitted));
+}
+
+/** 対応表のメンバーを next に置き換える。next が無ければメンバーごと取り除く。 */
+export function writeAppearance(text, row, next) {
   if (isDeepStrictEqual(row[key], next)) return text;
   const members = scanRecordMembers(text, 0, text.length);
   const i = members.findIndex(member => member.key === key);
@@ -95,10 +126,13 @@ function main() {
     for (let i = records.length - 1; i >= 0; i--) {
       const row = records[i];
       const entries = [];
+      // 許可済みで実在する画像。手入力行はこの範囲でだけ残す（権利・参照が消えたら一緒に消える）。
+      const permitted = [];
       if (top.AI_Optout !== true && meta.Databases['#DB_' + db] && allowed.has(String(row.Num)) && !unready.has(effective[i].Progress)) {
         for (const raw of [row.Images?.[field]].flat()) {
           const image = references.get(imageReferenceKey(work, db, field, raw));
           if (!image) continue;
+          permitted.push(raw);
           const badge = row.Num_Badge ?? row.Num;
           const review = reviewed[image];
           if (review && !digests.has(image)) {
@@ -116,9 +150,10 @@ function main() {
       }
       const [start, end] = spans[i];
       const old = original.slice(start, end);
-      const updated = updateArtRecord(old, row, entries);
+      const next = nextAppearance(row[key], entries, permitted);
+      const updated = writeAppearance(old, row, next);
       if (updated === old) continue;
-      if (entries.length) row[key] = { [field]: entries }; else delete row[key];
+      if (next) row[key] = next; else delete row[key];
       output = output.slice(0, start) + updated + output.slice(end);
       count++;
     }

@@ -633,7 +633,7 @@ SAR の制服共通色は赤・黄・青・灰・黄土色・白・薄灰色の7
 
 #### 画像フィールド・ファイルの AI 除外（Issue #62）
 
-関連する `Images_Appearance` は、このブランチの再同期で作る登場形態の対応表です。型は `#Object|#Null`、`$enrich: false`、`$display.auto: false`。本人のレコードが持つ画像と形態を対応付けます。生成・検証方法は [入力補助の説明](appearance-detail-tools.md) を参照してください。
+関連する `Images_Appearance` は、本人のレコードが持つ画像と形態・衣装・参考用区分（`ReferenceOnly`）を対応付ける表です。型は `#Object|#Null`、`$enrich: false`、`$display.auto: false`。`arts_PNGPath` の行はこのブランチの再同期で生成し、ほかの画像フィールドの行は作者が手入力します。`Formation` / `Costume` は辞書コードが確認済み、`null` が「共通」、キー無しが「未確認」です（Issue #63）。生成・検証方法は [入力補助の説明](appearance-detail-tools.md) を参照してください。
 
 画像の文字列/配列形式は維持します。`Images` の子フィールド宣言へ `AI_Optout: true` を付けると全値を除外し、レコードの `Images_AIOptout`（`#Object|#Null`）ではフィールドごとに元の文字列と完全一致する値を列挙します。拡張子や大文字小文字を補正しません。
 
