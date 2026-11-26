@@ -1593,6 +1593,14 @@
         "art_imgSAR-EZ6-newyear2025B"
       ]
     },
+    "Images_Appearance": {
+      "newYear_PNGPath": [
+        { "value": "art_imgSAR-EZ6-A", "Formation": "normal" },
+        { "value": "art_imgSAR-EZ6-B", "Formation": "beasted" },
+        { "value": "art_imgSAR-EZ6-newyear2025A", "Formation": "normal" },
+        { "value": "art_imgSAR-EZ6-newyear2025B", "Formation": "beasted" }
+      ]
+    },
     "FormalName_JP": "花.花琳",
     "FormalName_JPReading": "ホゥア・フアリン",
     "FormalName_EN": "huā.HuāLín",
@@ -1955,7 +1963,9 @@
           "natural_language_description": null,
           "prompt_export": "normal form, average stature (about 157cm), yellow-green, long nape hair extending like a snake at both sides, large fringe covering the left eye, upward curl on top, yellow-orange irises and red pupils, narrow vertical pupils, Reptile (pointed and extending sideways), scaly skin, red top with an ochre chest panel and stand collar, Reptile-type, 1, thick, long tail forming a large loop, yellow-green, white waistband, white cuffs, round snake-motif patches on both sleeves",
           "negative_prompt_export": "large red bow-like part behind the head, with sleeve-like parts extending to both sides, white cuffs, round snake-motif patches on both sleeves",
-          "reference_images": null
+          "reference_images": {
+            "main": "https://database.numbertales-radiann.net/data/Works_ShauErRiders/Images/DB_Primary/newYear/art_imgSAR-EZ6-A.png"
+          }
         },
         "beasted": {
           "form_tags": ["beasted form"],
