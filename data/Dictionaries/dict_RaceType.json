@@ -329,6 +329,12 @@
     ]
   },
   {
+    "RaceType": "Half-Humanoid",
+    "RaceType_JP": "ハーフヒューマノイド",
+    "RaceType_EN": "Half-Humanoid",
+    "basis": [{ "RaceType": "Human" }, { "RaceType": "Humanoid" }]
+  },
+  {
     "RaceType": "Automaton",
     "RaceType_JP": "オートマトン(汎用)",
     "RaceType_EN": "Automaton (General Purpose)"
