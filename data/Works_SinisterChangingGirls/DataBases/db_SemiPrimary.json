@@ -17,8 +17,24 @@
     "Drc": "UE",
     "isPrivate": true,
     "Progress": "notProceeded",
+    "Name_JP": "ヒュース・ナイチンゲール",
+    "Name_EN": "Hugh Nightingale",
+    "FormalName_JP": "ヒュース=ヴァイセットル・ナイチンゲール",
+    "FormalName_EN": "Hugh=Weißeter Nightingale",
     "CodeName_JP": "忍耐の朝方",
-    "CodeName_EN": "Patience o'clock in Morning"
+    "CodeName_EN": "Patience o'clock in Morning",
+    "RaceType": "Human",
+    "GenderType": "Male",
+    "Belonging": [
+      { "Faction": "シンフォニー.XI" },
+      { "Faction": "シンフォニー.XVI" }
+    ],
+    "FromArea": { "Area": "黒薔薇国" },
+    "Class": ["新人類研究部"],
+    "Height_cm": 167,
+    "Weight_kg": 59,
+    "Age": 34,
+    "BirthDay": { "Day": { "Month": 5, "DayOfMonth": 2 } }
   },
   {
     "Drc": "USE",
@@ -168,7 +184,27 @@
     "Drc": "UNW",
     "isPrivate": true,
     "Progress": "notProceeded",
+    "Name_JP": "ヴェクトル\nセレナ.V.A",
+    "Name_EN": "Vector\nSerena.V.A.Vector",
+    "FormalName_JP": "セレナ・フォン・アンデルセン",
+    "FormalName_EN": "Serena.von.Andersen",
     "CodeName_JP": "謙虚の夜",
-    "CodeName_EN": "Humility o'clock in Night"
+    "CodeName_EN": "Humility o'clock in Night",
+    "ModelNumber": "ASERX-Vec XXII",
+    "ModelName_JP": "ヴェクトール型 特異演算機.ツヴァイウンドツヴァン",
+    "ModelName_EN": "Vector-type Singularity Enigma Nu.Zweiundzwanzig",
+    "RaceType": "Half-Humanoid",
+    "GenderType": "FemaleNeutral",
+    "Belonging": [
+      { "Faction": "国際情報広報機関『ミハイル』" },
+      { "Faction": "シンフォニー.XVI" }
+    ],
+    "FromArea": { "Area": "黒薔薇国" },
+    "Class": ["国際情報屋 同行者", "左遷・逆行研究部"],
+    "Height_cm": 162,
+    "Weight_kg": { "hideText": "？？？" },
+    "BustSize": "B",
+    "Age": { "hideText": "？？？" },
+    "BirthDay": { "Day": { "Month": 5, "DayOfMonth": 16 } }
   }
 ]
