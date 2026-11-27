@@ -281,3 +281,22 @@ describe('不足フィールドの enrich 補填（$enrich: true の *_DBLink）
 		expect(await enrichRecordFromLinks(miss, ctx)).toBe(miss);
 	});
 });
+
+describe('関係キャラへの一言（@RelationComments）', () => {
+	it('「」の台詞だけを相手の名前なしで並べ、地の文・返答・マスクは載せない', () => {
+		const record = { Relation: {
+			Related: [
+				{ Num: 1, Comments: '「台詞A」', Comments_EN: '"Line A"', Reply: [{ Num: 2, Comments: '「返答」' }] },
+				{ Num: 2, Comments: '（※読めない）' },
+				{ Num: 3, Comments: { hideText: 'secret' } },
+			],
+			Commented: [{ Num: 4, Comments: '「台詞B」' }],
+		} };
+		const vars = buildVars(record, { config: {}, lang: 'jp', pathRoles: { fileKey: 'Num' } });
+		expect(vars.RelationComments).toEqual([
+			{ value_JP: '「台詞A」', value_EN: '"Line A"' },
+			{ value_JP: '「台詞B」', value_EN: '' },
+		]);
+		expect(buildVars({}, { config: {}, lang: 'jp', pathRoles: { fileKey: 'Num' } }).RelationComments).toEqual([]);
+	});
+});

@@ -11,6 +11,16 @@
 
 - 既存の構造的再同期 PR で `Images_Appearance` を更新。ギャラリー参照・番号バッジ・画像利用条件に従い、本人の形態を CreationsAI の manifest へ引き渡す。元画像や権利指定は develop が管理する。
 
+### ロールプレイプロンプトに関係キャラへの一言を口調の参考として追加（2026-11-24、#72）
+
+- `tools/build-roleplay-prompts.mjs` に合成変数 `@RelationComments` を追加し、4 作品のテンプレへ「ほかのキャラクターに向けた一言」節を足した。`Relation.*[].Comments` のうち「」で始まる台詞だけを、相手の名前なしで並べる（地の文・`Reply`・`hideText` は除外）。`docs/roleplay-prompt-generation.md` の「他キャラ言及を載せない」方針に、この例外を明記。
+- 台詞例が少ないキャラで AI が口調（方言・語尾）を誇張する問題（#72）への補助。配布用プロンプト 51 件を再生成（一言の無い 22 件は変化なし）。台詞例そのものの追加は User の手入力で継続。
+
+### test: AI 除外ポリシーのテストから NumberTales の実データ検証を分離（2026-11-24）
+
+- `tests/ai-image-policy.test.js` にあった「61のアイドル4項目と分数D-Vines4人の指定を維持する」を `tests/data.ai-image-policy-numbertales.test.js` へ移した。テスト内容は変更なし。
+- 理由: このテストだけが `data/Works_NumberTales/**` を読むため、Works_NumberTales を持たない下流はファイルごと同期対象から外すしかなく、`pkg/ai-image-policy.mjs` の純粋関数テスト 15 件も失っていた。下流は新ファイルだけを除外すれば、純粋関数テストを取り込める。
+
 ### fix: キャラシートの初期表示作品を db_meta.json の先頭タイトルへ（2026-11-24）
 
 - `pages/characters.js` の `populateWorks()` で、作品指定なし（空文字）のとき `endsWith('')` が全作品に一致し、末尾の作品（共通資料等）が選ばれていた不具合を修正。

@@ -50,6 +50,11 @@
 - テストは `npm test`（Vitest）で実行します。PowerShell の実行ポリシーで `npm.ps1` がブロックされる場合は `npm.cmd test` または `.\node_modules\.bin\vitest.cmd run` を使用します。
 - `.claude/settings.json` の `PostToolUse` フックにより、Edit/Write 時に Prettier 整形が自動実行されます。
 - `.claude/skills/` は **生成物**です（`.agents/skills/` から `npm run agents:build` で生成）。直接編集せず、`.agents/skills/` 側を編集してください。
+- **画像観察の GPT 委譲**（正典 `AGENTS.md`「画像観察は GPT へ委ねる」）: `AppearanceDetail` / `ColorPalette` 向けの原画観察は、自分で画像を読む前に `codex` CLI へ画像を添付して所見を受け取ります。プロンプトには部位・確認観点を書き、所見だけを返すよう指示します。
+  ```powershell
+  codex exec --sandbox read-only "<部位と確認観点。観察できた所見だけを JSON で返す>" -i <AI 利用許可済みの画像パス>
+  ```
+  出力は候補と根拠メモの材料に留め、`data/` へ直接書きません。`codex` が使えない環境（Cowork サンドボックス等）では User に伝えて判断を仰ぎます。
 
 ### `data/` 配下を編集するとき
 

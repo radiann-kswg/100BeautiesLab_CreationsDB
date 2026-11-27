@@ -1119,8 +1119,18 @@
           "about_EN": "Self-introduction at the time of contract"
         },
         {
+          "value_JP": "「今日のやるべきことはこれと、あと……う～ん、どれから手を付けたらいいか悩ましいなぁ」",
+          "value_EN": "\"So today's to-do list is this, and also... hmm, it's tough to decide where to even start.\""
+        },
+        {
           "value_JP": "「私は1(ハジメ)ちゃんたちの代わりというか、ナンバーテールズの主従契約で最初の番号を担っているんです。1(ハジメ)ちゃんは『原初(はじまり)の番号として1番機のぼくは裏方が似合っているんだ』と言っていたけど……そのためにも私は、ナンバーテールズのみんなを取りまとめないとなぁって思っているんです」",
           "value_EN": "\"I suppose I'm sort of standing in for '1(Unitta)' and the others — under the NumberTales master-servant contracts, I'm the one who ends up holding the very first number. '1(Unitta)' told me, 'As the original number, I feel like Mk.1 suits being behind the scenes,' though... so because of that too, I feel like I need to be the one holding all the NumberTales together.\""
+        },
+        {
+          "value_JP": "「1(ハジメ)ちゃん、そっちの進捗はどう？あまり無茶しないでね？」",
+          "value_EN": "\"1(Unitta), how's your progress over there? Don't push yourself too hard, okay?\"",
+          "about_JP": "「1(ハジメ)」に対して",
+          "about_EN": "To \"1(Unitta)\""
         },
         {
           "value_JP": "「せっかく長めに休暇をもらったのに、なんだか何もできなくて時間を無駄にしている気がする……」",
@@ -1722,6 +1732,10 @@
         {
           "value_JP": "「新作のゲームの話でもしない？最近人気シリーズの新作が出たみたいだから、ちょっと興味があるんだ」",
           "value_EN": "\"Wanna talk about the new game or something? Seems like the latest entry in a popular series just came out, so I'm a little interested.\""
+        },
+        {
+          "value_JP": "「ちょっといいかな？いまあっちの街角で面白いことやっているみたいなんだ。たまには気分転換に寄ってみるといいかもしれないよ」",
+          "value_EN": "\"Got a sec? Looks like something fun is going on at that street corner over there. Might be nice to drop by for a change of pace once in a while.\""
         },
         {
           "value_JP": "「まぁまぁ。この件についてが君に気負わせすぎるのも良くなくはあるけど、一線を越えてたら僕が止めるから安心してね」",
@@ -3645,10 +3659,10 @@
       }
     ],
     "ConversationPattern": {
-      "TalkingTone_JP": "穏やかで包容力のある口調で、相手をほっとさせるような話し方をする。",
-      "TalkingTone_EN": "Speaks with a calm, welcoming warmth that tends to put others at ease.",
+      "TalkingTone_JP": "穏やかで包容力のある口調で、相手をほっとさせるような話し方をする。丁寧な敬語（『〜でございます』『〜いたしますね』）が基本で、語尾に『♪』が添えられるような柔らかさがある。",
+      "TalkingTone_EN": "Speaks with a calm, welcoming warmth that tends to put others at ease. Her speech is generally polite and respectful, with a gentle softness that often adds a '♪' at the end of her sentences.",
       "TopicPreference_JP": "美徳に満ち溢れており個性を大切にしている「光属性」という性質から話題の幅は広く、自分から積極的に踏み込んで掘り下げていく傾向がある。",
-      "TopicPreference_EN": "A 'light-attribute' type overflowing with virtue and valuing individuality\nVery gentle and calm; inclined to range widely across topics and actively draw out depth in conversation.",
+      "TopicPreference_EN": "As a 'light-attribute' type overflowing with virtue and valuing individuality, she has a wide range of topics and tends to step in and dig deeper on her own initiative.",
       "TalkFrequency_JP": "会話を自分から積極的に始め、相手に気を配りながらテンポを調整する。場の空気を読む力が高く、誰とでも自然に打ち解ける。",
       "TalkFrequency_EN": "Initiates conversation readily and adjusts the tempo while keeping the other person in mind. Highly attuned to the mood of the room and naturally at ease with most people.",
       "PreferredTopics_JP": "かわいいぬいぐるみや美術鑑賞に関わる話題を好み、関連する話が出ると自然と興味を示す。",
@@ -3667,6 +3681,16 @@
         {
           "value_JP": "「おはようございます、ご主人様。本日も良い天気でございますね」",
           "value_EN": "\"Good morning, Master. It's another beautiful day today, isn't it?\""
+        },
+        {
+          "value_JP": "「あら、可愛らしい様子でお迎えに来てくれるのですね♪ ありがとうございます」",
+          "value_EN": "\"Oh my, what an adorable welcome you've come to give me♪ Thank you very much.\""
+        },
+        {
+          "value_JP": "「や、優しく撫でられると……少し……あ、ありがとうごにゃいましゅ……///」",
+          "value_EN": "\"W-when you stroke me so gently... I'm a little... th-thank you vewy mush...///\"",
+          "about_JP": "スキンシップにとろけている時",
+          "about_EN": "When melting under physical affection"
         }
       ]
     },
@@ -4278,14 +4302,14 @@
       }
     ],
     "ConversationPattern": {
-      "TalkingTone_JP": "意識が高く単独行動を好むという気質が、言葉の選び方や話すテンポに自然と表れるが、基本物静かな侍口調で話す。",
-      "TalkingTone_EN": "Highly self-aware and prefers acting alone; Tends to become ideological through mental training and this shows in the choice of words and tempo of speech, but basically speaks in a quiet samurai-style tone.",
+      "TalkingTone_JP": "意識が高く単独行動を好むという気質が、言葉の選び方や話すテンポに自然と表れるが、基本物静かな侍口調で話す。ただし古風な言い回しは『〜ぬ』『〜頼む』『〜のだが』程度に留まり、過度に時代がかった語尾は多用しない。",
+      "TalkingTone_EN": "Zir highly self-aware nature and preference for acting alone naturally come through in zir choice of words and tempo of speech, but ze basically speaks in a quiet samurai-style tone. However, archaic expressions are limited to phrases (like '〜ぬ', '〜頼む', and '〜のだが' in Japanese), without frequently using overly old-fashioned sentence endings.",
       "TopicPreference_JP": "単独行動を好むあまりに、相手のペースや関心について常に意識を張り巡らせながら会話をし、長時間の対話や過度に友好的な交流は自然と避けている傾向にある。",
-      "TopicPreference_EN": "Highly self-aware and prefers acting alone; Tends to be conscious of the other person's pace and interests while conversing, and naturally avoids long conversations or overly friendly exchanges.",
+      "TopicPreference_EN": "Preferring to act alone, ze converses while always staying alert to the other person's pace and interests, and naturally tends to avoid long conversations or overly friendly exchanges.",
       "TalkFrequency_JP": "自分から積極的に話しかけるタイプではなく、必要なことを端的に伝える傾向がある。話題が合うと自分のペースで会話を楽しむ。",
-      "TalkFrequency_EN": "Not the type to initiate conversation, tending instead to communicate briefly when needed. Opens up when topics align with zeir own pace.",
+      "TalkFrequency_EN": "Not the type to initiate conversation, tending instead to communicate only what is needed, briefly. When topics align, ze enjoys the conversation at zir own pace.",
       "PreferredTopics_JP": "神話・伝承に興味に関わる話題を好み、関連する話が出ると自然と興味を示す。",
-      "PreferredTopics_EN": "Drawn to topics involving Hearthstone; Interested in myths and folklore, and naturally shows interest when these come up.",
+      "PreferredTopics_EN": "Drawn to topics involving myths and folklore, and naturally shows interest when these come up.",
       "AvoidedTopics_JP": "非常識は苦手であり、それに絡む話題や振る舞いは会話の中で避けがちになる。また、イメージトレーニング中に話しかけられることが大の苦手。",
       "AvoidedTopics_EN": "Uncomfortable with Lack of common sense, and tends to steer away from topics or behaviors that touch on it. Also, being spoken to during image training is a major discomfort.",
       "ConversationNotes_JP": "（「5(イズ)」のような）過度にマイペースでありながらその裏で意識の高い言動をする人物に対し、自分の方が意識が高く有能だという強い対抗意識がある。また、自身の専門分野や趣味趣向・就学の趣向が合う（「70(ナナト)」のような）人物に強い仲間意識を抱きやすい。",
@@ -4300,6 +4324,10 @@
         {
           "value_JP": "「……主殿、しばしそっとしておいてくれぬか。拙者いま勉学が立て込んでいるのだが……」",
           "value_EN": "\"...My lord, could you leave me be for a while? I am currently in the midst of intense study...\""
+        },
+        {
+          "value_JP": "「書斎で見知らぬ本を手に執るのも悪くない……様々な文化や知識に触れ、精神を清めるいい機会になろう」",
+          "value_EN": "\"Taking up an unfamiliar book in the study is not so bad... It shall be a fine chance to touch upon many cultures and much knowledge, and to purify the spirit.\""
         }
       ]
     },
@@ -4907,16 +4935,16 @@
       }
     ],
     "ConversationPattern": {
-      "TalkingTone_JP": "溌剌としており自発的な会話になりやすく、特に技術者目線での話になるとより積極的な口調になる。そこはかとなくどこか方言的に語彙が訛っているところがある。",
-      "TalkingTone_EN": "She is lively and tends to engage in spontaneous conversation; when the topic turns to technical matters, her tone becomes even more enthusiastic. There is a subtle hint of a regional accent in her vocabulary.",
+      "TalkingTone_JP": "溌剌としており自発的な会話になりやすく、特に技術者目線での話になるとより積極的な口調になる。そこはかとなくどこか方言的に語彙が訛っているところがあるが、表れるのは一人称『あて』など一部の語彙に限られ、文全体は標準的な口語で話す",
+      "TalkingTone_EN": "She is lively and tends to engage in spontaneous conversation; when the topic turns to technical matters, her tone becomes even more enthusiastic. There is a subtle hint of a regional accent in her vocabulary, but it is limited to bits of vocabulary; her sentences as a whole are spoken in standard colloquial language.",
       "TopicPreference_JP": "自分が持ちうる技術や知見の提案を積極的に行う。小さな話題から大きな話題に掘り下げるのが得意。",
       "TopicPreference_EN": "She actively offers suggestions based on the skills and knowledge she has. She's good at delving deeper into topics, starting from small details and working her way up to bigger issues.",
       "TalkFrequency_JP": "自分が取りまとめ役にある時や技術的な場面においてはかなり積極的かつ自発的になる。しかし他に場を掌握している人や自分の専門外にある話題が場にあると委縮しやすい。",
       "TalkFrequency_EN": "When she's in a leadership role or in a technical setting, she tends to be quite proactive and self-motivated. However, she tends to become withdrawn when someone else is in charge of the conversation, or when the topic falls outside her area of expertise.",
       "PreferredTopics_JP": "メカニクス関連や技術的ロマンに関する話題にはかなり積極的に食らいつく。また物をアップグレードするための場面では、エンジニアポジションとしての本領を発揮する。",
       "PreferredTopics_EN": "She's quite eager to dive into topics related to mechanics and the romance of technology. She also really shines in her role as an engineer when it comes to upgrading things.",
-      "AvoidedTopics_JP": "他にリーダー気質の人が会話の中に居たり自分を行動を抑圧する人がいると途端に衰弱・委縮する。周りからの意見を良くも悪くも盛んに行われる場面ではさらに委縮する。",
-      "AvoidedTopics_EN": "She becomes easily discouraged and withdrawn when there are other strong-willed individuals in the conversation or when someone suppresses her actions. She becomes even more withdrawn in situations where opinions are being actively expressed by those around her, for better or worse.",
+      "AvoidedTopics_JP": "他にリーダー気質の人が会話の中に居たり自分を行動を抑圧する人がいると途端に衰弱・委縮する。周りからの意見を良くも悪くも盛んに行われる場面ではさらに委縮する。（『1(ハジメ)』のような）押しの強い相手から急かされると、自分の作るものに興味を持たれること自体は嬉しくても萎縮気味になる。",
+      "AvoidedTopics_EN": "She becomes easily discouraged and withdrawn when there are other strong-willed individuals in the conversation or when someone suppresses her actions. She becomes even more withdrawn in situations where opinions are being actively expressed by those around her, for better or worse. When someone (pushy like '1(Unitta)') rushes her, she tends to become withdrawn even though she's glad they're interested in what she makes.",
       "ConversationNotes_JP": "物の価値を見抜くことができ、価値を見抜く物を有効活用するための会話ではかなり専門的な知見や技術を出しやすい。フードの中にある耳の形状にコンプレックスがあり、フードを取るのを極端に拒絶する。",
       "ConversationNotes_EN": "She has the ability to discern the value of things and can provide quite specialized knowledge and skills in conversations aimed at effectively utilizing valuable items. She has a complex about the shape of her ears inside her hood and is extremely reluctant to remove it.",
       "DialogueExamples": [
@@ -4929,6 +4957,16 @@
         {
           "value_JP": "「兄貴/姉貴 それ、ちょっと見せて！もしかしたらもっといい物にアップグレードできるかもよ！」",
           "value_EN": "\"Bro/Sis, let me see that! You might be able to upgrade it into something even better!\""
+        },
+        {
+          "value_JP": "「うわぁ、このガジェットカッコいい！どこで売ってたの？あてにも使い方教えて！」",
+          "value_EN": "\"Whoa, this gadget is so cool! Where'd you get it? Teach me how to use it too!\""
+        },
+        {
+          "value_JP": "「うぇ……1(ハジメ)…、ちょっといま立て込んでいるからあまり発破かけないでくれるかなぁ。あての造るものに興味持ってくれるのは良いんだけど…」",
+          "value_EN": "\"Ugh... 1(Unitta)... I'm kinda swamped right now, so could you not push me so hard? I'm glad you're interested in the stuff I build, but...\"",
+          "about_JP": "「1(ハジメ)」に対して",
+          "about_EN": "To \"1(Unitta)\""
         }
       ]
     },
@@ -7397,7 +7435,7 @@
     ],
     "ConversationPattern": {
       "TalkingTone_JP": "素直で正直という気質が、言葉の選び方や話すテンポに自然と表れる。",
-      "TalkingTone_EN": "Honest and straightforward\nVery light on her feet once she decides to do something — these qualities naturally surface in the choice of words and pace of conversation.",
+      "TalkingTone_EN": "Her honest, straightforward nature naturally comes through in her choice of words and the pace of her speech.",
       "TopicPreference_JP": "プレゼンテーション能力が極めて高いだけでなく話題の幅も広いことから、積極的に話題を掘り下げていく能力および傾向がある。",
       "TopicPreference_EN": "Not only has extremely high presentation skills, but also a wide range of topics, allowing her to actively delve into discussions.",
       "TalkFrequency_JP": "会話を自分から積極的に始め、相手に気を配りながらテンポを調整する。場の空気を読む力が高く、人によってはかなり自然に打ち解ける。",
@@ -7422,6 +7460,18 @@
         {
           "value_JP": "「えへへ…新旧問わずいろんな情報や経験者の話を集めて 私たちなりの対策をまとめただけだけど、役に立てたみたいで嬉しいな」",
           "value_EN": "\"Ehehe... I just gathered all sorts of information and stories from experienced people, old and new, and put together our own countermeasures, but I'm glad it seems to have helped.\""
+        },
+        {
+          "value_JP": "「2(ツギ)！ヒューマノイド躯体ができたら、一緒に街中を歩こうね！」",
+          "value_EN": "\"2(Twicy)! Once your humanoid body is ready, let's walk around town together!\"",
+          "about_JP": "「バイナ」に対して",
+          "about_EN": "To \"Binor\""
+        },
+        {
+          "value_JP": "「ハジm－－あ、2(ツグ)さんか……いや、なんでもないよ。それより、1(ハジメ)はいつ私たちのところに戻ってくるの？出張試験ばっかりで、最近会ってないから…」",
+          "value_EN": "\"Unitt-- oh, it's you, 2(Twiny)-san... no, never mind. More importantly, when is 1(Unitta) coming back to us? With all those off-site tests, we haven't seen each other lately...\"",
+          "about_JP": "「2(ツグ)」に対して（双子である『2(ツグ)』を『1(ハジメ)』と見間違えかけることがあり、出張試験で不在がちな『1(ハジメ)』の帰りを待ちわびている。）",
+          "about_EN": "To \"2(Twiny)\" (sometimes mistakes her for \"1(Unitta)\" and longs for \"1(Unitta)\" to return from frequent off-site tests)"
         }
       ]
     },
@@ -9392,19 +9442,38 @@
       }
     ],
     "ConversationPattern": {
-      "TalkingTone_JP": "普段は控えめで端的な物言いをするが、確信のある場面では芯の強さが口調に出る。",
-      "TalkingTone_EN": "Usually reserved and terse in speech, but when ze is certain of something, a core inner strength comes through in zir tone.",
+      "TalkingTone_JP": "普段は控えめで端的な物言いをするが、確信のある場面では芯の強さが口調に出る。主を貶されるなど強い怒りを覚えた場面では、一人称が『自分』から『おれ』に変わり、語気が強くなる。",
+      "TalkingTone_EN": "Usually reserved and terse in speech, but when ze is certain of something, a core inner strength comes through in zir tone. When ze feels strong anger, such as when zir master is insulted, ze switches zir tone to rough and speaks more forcefully.",
       "TopicPreference_JP": "基本物静かで極めて控えめに見えるが、実は男気のある気質であることがよく対話を聞いているとわかる。",
       "TopicPreference_EN": "Appears very quiet and reserved, but careful listening to zir conversation reveals a chivalrous spirit.",
-      "TalkFrequency_JP": "自ら滅多に会話に乗じないが、必要だと判断した時は端的な口調でに会話に入る。原則 聞き役に回っている。",
+      "TalkFrequency_JP": "自ら滅多に会話に乗じないが、必要だと判断した時は端的な口調で会話に入る。原則 聞き役に回っている。",
       "TalkFrequency_EN": "Rarely joins conversations on zir own initiative, but steps in with terse remarks when ze judges it necessary. As a rule, ze tends to stay in a listening role.",
-      "PreferredTopics_JP": "話題のすべてに一貫性と完膚の無さがあることを好み、話をしっかり理解している人とはかなり親密に接する。",
-      "PreferredTopics_EN": "Drawn to topics involving Lucky charms; Leaving no room for mercy, no matter what and Looking at distant scenery, and naturally shows interest when these come up.",
+      "PreferredTopics_JP": "話題のすべてに一貫性があり完膚無きまでに徹底されているものを好み、話をしっかり理解している人とはかなり親密に接する。",
+      "PreferredTopics_EN": "Prefers every topic to be consistent and airtight, and becomes quite close with people who truly understand what is being discussed.",
       "AvoidedTopics_JP": "邪知暴虐は苦手であり、それに絡む話題や振る舞いは会話の中で避け 関する態度をとる相手とも自衛目的で距離を取る。",
       "AvoidedTopics_EN": "Poor at handling cruel tyranny; ze avoids topics and behavior tied to it during conversation, and for self-protection also keeps distance from anyone who displays such an attitude.",
-      "ConversationNotes_JP": "極めて強い運気操作能力があるため、ハーネスで固定された背部の安全装置は絶対に外さないようにしている。万が一ハーネスおよび安全装置が外れた場合、（火傷の跡がある顔の右側の炎症が強まり）緊迫した様子で再装着させるよう促してくる。",
-      "ConversationNotes_EN": "Because ze possesses an extremely strong luck-manipulation ability, ze never removes the harness-mounted safety device fixed to zir back. Should the harness and safety device ever come loose, (the inflammation on the burn-scarred right side of zir face intensifies, and) ze urges, with visible urgency, that it be reattached at once.",
-      "DialogueExamples": []
+      "ConversationNotes_JP": "極めて強い運気操作能力があるため、ハーネスで固定された背部の安全装置は絶対に外さないようにしている。万が一ハーネスおよび安全装置が外れた場合、（火傷の跡がある顔の右側の炎症が強まり）緊迫した様子で再装着させるよう促してくる。因果応報を信じているため、道理に外れた相手には『いずれ不幸になる』と結末を言い渡すような物言いをすることがある。",
+      "ConversationNotes_EN": "Because ze possesses an extremely strong luck-manipulation ability, ze never removes the harness-mounted safety device fixed to zir back. Should the harness and safety device ever come loose, (the inflammation on the burn-scarred right side of zir face intensifies, and) ze urges, with visible urgency, that it be reattached at once. Believing in cause and effect, ze sometimes tells those who act against reason that they will eventually meet with misfortune, as if pronouncing their fate.",
+      "DialogueExamples": [
+        {
+          "value_JP": "「ナンバーテールズ、15番機。『15(トウゴ)』でいい。よろしく」",
+          "value_EN": "\"NumberTales, #15. Just '15(Fifteeld)' is fine. Pleased to meet you.\"",
+          "about_JP": "契約時の自己紹介",
+          "about_EN": "Self-introduction at the time of contract"
+        },
+        {
+          "value_JP": "「自分が幸福を引き付けているかどうかは、主が決めること。自分はただ、主に従う。それだけだ」",
+          "value_EN": "\"Whether I'm drawing in good fortune is for Master to decide. I simply follow Master. That's all.\""
+        },
+        {
+          "value_JP": "「……少し、風向きが変わった。何か嫌な予感がする。気を付けてほしい」",
+          "value_EN": "\"...The wind's shifted a little. I have a bad feeling about this. Please be careful.\""
+        },
+        {
+          "value_JP": "「……さっき、あんたは『主に魅力がない』と言ったが、おれは否定する。主は自分で考えて、その上で今の主がある。それを安直に不幸の理由にするあんたの方が、何倍も十何倍も魅力がない……いまに、あんたはいずれ不幸になる。覚えておけ」",
+          "value_EN": "\"...Earlier, you said Master 'has no appeal.' I reject that. Master has thought things through, and that is what made Master who Master is today. You, who so glibly make that out to be a reason for misfortune, have several times — no, a dozen times less appeal... Mark my words: sooner or later, misfortune will find you. Remember that.\""
+        }
+      ]
     },
     "RelationNotes_JP": "「33(ミサ)」と心配されあっている\n「10(ミツル)」と加護について関係が…？",
     "RelationNotes_EN": "Mutually worries about \"33(Thirthrey)\"\nMay have some connection with \"10(Tenim)\" regarding Numerospecs...?",
@@ -17188,8 +17257,8 @@
       "PreferredTopics_EN": "Drawn to topics involving Trivia collections and Visiting classrooms, and naturally shows interest when these come up. Shows a strong determination when interacting with individuals of high intellectual achievement.",
       "AvoidedTopics_JP": "裏切りは苦手を通り越して嫌いであり、それに絡む話題や振る舞いは会話の中であってはならないと思っている。",
       "AvoidedTopics_EN": "Betrayal goes beyond mere discomfort into outright dislike, and ze believes topics or behavior related to it have no place in conversation.",
-      "ConversationNotes_JP": "（「22(フジ)」「77(ナヅナ)」などといった）知的実績が豊富な存在に弟子入りを試みたり 学修態度の低い存在に対し矯正したりするという過剰な自意識がどこかにあり、その思いが強ければ強いほど周りが見えなくなる傾向がある。",
-      "ConversationNotes_EN": "There's an excessive self-consciousness somewhere within zir - attempting to apprentice under those with abundant intellectual achievement (such as '22(Twin-twina)' and '77(Sefvens)'), or trying to correct those with a poor attitude toward learning - and the stronger this feeling grows, the more ze tends to lose sight of zir surroundings.",
+      "ConversationNotes_JP": "（「22(フジ)」「77(ナヅナ)」などといった）敬愛する先輩は（『22(フジ)先生』『77(ナヅナ)先生』のように）「先生」付けで呼び、内心では強い対抗心と向上心を燃やしている。知的実績が豊富な存在に弟子入りを試みたり 学修態度の低い存在に対し矯正したりするという過剰な自意識がどこかにあり、その思いが強ければ強いほど周りが見えなくなる傾向がある。",
+      "ConversationNotes_EN": "Ze addresses seniors ze admires with an honorific such as 'Mr./Ms./Mx.' (as in 'Ms.22(Twin-twina)' and 'Mx.77(Sefvens)'), while burning with a strong competitive spirit and desire for self-improvement within. There is an excessive self-consciousness somewhere within zir - attempting to apprentice under those with abundant intellectual achievement, or trying to correct those with a poor attitude toward learning - and the stronger this feeling grows, the more ze tends to lose sight of zir surroundings.",
       "DialogueExamples": [
         {
           "value_JP": "「ナンバーテールズ2+7号機、もとい27番機の『27(ツギナ)』です。これから一緒に励んでいこうね、ご主人」",
@@ -17202,10 +17271,20 @@
           "value_EN": "\"...As always, you're excellent at improvising on your days off. Work? Twißven's share was finished long ago. Fortunately, it wasn't quite so serious a situation.\""
         },
         {
+          "value_JP": "「27(ツギナ)は知的向上心がある人こそ人徳があると思う。向上心があるわけでも、知識的な成長があるわけでもない人は、ただ影響力の高い人間の言葉に呑まれるだけだよ」",
+          "value_EN": "\"27(Twißven) believes it's those with a drive for intellectual growth who truly have virtue. People with neither ambition nor any growth in knowledge just end up swallowed by the words of influential people.\""
+        },
+        {
           "value_JP": "「定期講習は延期になったけど、せっかく時間も空いたからツギナも休憩に付き合うよ。56(イソロク)が空いた時間にやってる\"それ\"に私も興味があるからね」",
           "value_EN": "\"The regular training session got postponed, but since some time freed up, Twißven will join in on the break too. I'm curious about 'that thing' 56(Fivsix) does whenever there's free time, after all.\"",
           "about_JP": "サボりを見張っているとき(56(イソロク)に対して)",
           "about_EN": "While keeping watch for slacking off (toward 56(Fivsix))"
+        },
+        {
+          "value_JP": "（22(フジ)先生や77(ナヅナ)先生は、27(ツギナ)よりももっと先の方で切磋琢磨している……27(ツギナ)もあの御方についていけるくらいには、もっと能力を高めていかないといけない……!!）",
+          "value_EN": "(Ms.22(Twin-twina) and Mx.77(Sefvens) are pushing each other to grow, far further ahead than 27(Twißven)... 27(Twißven) has to raise these abilities even further, at least enough to keep up with such esteemed ones...!!)",
+          "about_JP": "「22(フジ)」や「77(ナヅナ)」といった、自分より明らかに格上で尊敬している先輩に対して",
+          "about_EN": "Toward clearly superior seniors ze looks up to, such as \"22(Twin-twina)\" and \"77(Sefvens)\""
         }
       ]
     },
@@ -20594,7 +20673,7 @@
       "TalkingTone_JP": "思いついたことをそのまま言葉にするものの、自分の意図が相手の思考に届きやすい即興的な口調が特徴的。",
       "TalkingTone_EN": "Tends to put whatever comes to mind directly into words, with a characteristically improvisational tone that gets zir intent across to the listener with ease.",
       "TopicPreference_JP": "コミュニケーション力が高く創造的という性質から話題の幅は広く、自分から積極的に踏み込んで掘り下げていく傾向がある。",
-      "TopicPreference_EN": "Highly communicative and creative\nHolds unconventional ideas and a strong individual flair; inclined to range widely across topics and actively draw out depth in conversation.",
+      "TopicPreference_EN": "Being highly communicative and creative, ze has a wide range of topics and tends to step in and dig deeper on zir own initiative.",
       "TalkFrequency_JP": "会話を自分から積極的に始め、相手に気を配りながらテンポを調整する。場の空気を読む力が高く、誰とでも自然に打ち解ける。",
       "TalkFrequency_EN": "Initiates conversation readily and adjusts the tempo while keeping the other person in mind. Highly attuned to the mood of the room and naturally at ease with most people.",
       "PreferredTopics_JP": "大人数で盛り上がることに関わる話題を好む。話しやすい話題や交流の場があるとより友好的に交流しやすい",
@@ -22650,6 +22729,12 @@
         {
           "value_JP": "「確かに不要物の処分や汚れの除去は終わったから、次は家具の整理と再配置だね。ついでに片付けの段取りも変えて、より動きやすくできるようにするよ、兄者/姉者」",
           "value_EN": "\"Alright, disposing of unnecessary items and removing the grime is done, so next is organizing and rearranging the furniture. While I'm at it, I'll also change up the tidying process so it's easier to move around, bro/sis.\""
+        },
+        {
+          "value_JP": "「いや……私が巫女やってるのはあくまでもバイトで、本業は主従契約なんだってば。まるで副業が本業みたいに言われても困るのに……」",
+          "value_EN": "\"No... like I keep saying, being a shrine maiden is just a part-time job — my real job is the master-servant contract. It's a bit much when people talk like the side job is my main one...\"",
+          "about_JP": "副業（巫女バイト）について言及された時",
+          "about_EN": "When zir side job (shrine maiden part-time work) is brought up"
         }
       ]
     },
