@@ -7,6 +7,9 @@ concurrency:
   cancel-in-progress: true
 jobs:
   review:
+    # Bot 作成の自動 PR（aihints-structural-resync 等）は claude-code-action が
+    # 非人間アクターとして拒否するため、レビュー対象から外す
+    if: github.event.pull_request.user.type != 'Bot'
     runs-on: ubuntu-latest
     permissions:
       contents: read
