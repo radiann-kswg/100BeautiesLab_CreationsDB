@@ -24412,7 +24412,7 @@
   {
     "Num": 38,
     "Num_Badge": "38",
-    "Progress": "notProceeded",
+    "Progress": "nowCreating",
     "Name_JP": "38(サタハ)",
     "Name_EN": "38(Threighas)",
     "FormalName_JP": "ナンバーテールズ38番機",
@@ -24424,6 +24424,20 @@
     "ModelName_EN": "NumberTales Unit.3+8.A (Mk.38)",
     "GenderType": "FemaleNeutral",
     "Class": ["デュアルイレブンズ"],
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 8,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 3, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 5, "ClusterCount": 1 }
+        ],
+        "TailsUnit_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ConceptAge": 27,
     "AnivDay": [
       {
         "Day": { "Month": 3, "DayOfMonth": 8 },
@@ -24431,10 +24445,28 @@
         "DayAbout_EN": "Development commemoration"
       }
     ],
+    "FirstPersonCalling_JP": "僕",
+    "FirstPersonCalling_EN": "I (masc.)",
+    "SecondPersonCalling_JP": "君",
+    "SecondPersonCalling_EN": "you (neutral)",
+    "ThirdPersonCalling_JP": "彼/彼女;[※名前呼び]",
+    "ThirdPersonCalling_EN": "he/she; [*by name]",
+    "ForMasterCalling_JP": "主任\n~主任",
+    "ForMasterCalling_EN": "Chief\nChief. ~",
+    "Character_JP": "基本ムードメーカーで催し物に積極的",
+    "Character_EN": "Basically a mood maker and actively participates in events",
+    "Hobby_JP": "宴会",
+    "Hobby_EN": "Parties",
+    "SpecialSkill_JP": "不正のないくじ引き（を催すこと）",
+    "SpecialSkill_EN": "Fair lottery drawing (hosting)",
+    "Favor_JP": "日本酒",
+    "Favor_EN": "Sake (Far Eastern alcohol drink)",
+    "Unlike_JP": "形式だけの人間関係",
+    "Unlike_EN": "Superficial human relationships",
     "AppearanceDetail": [],
     "NumerospecStats": {
-      "NumerospecAbout_JP": "幸運を味方にする\nこの効果は物質的なものにも大いに影響される",
-      "NumerospecAbout_EN": "Draws luck to one's side\nThis effect is also greatly influenced by material things"
+      "NumerospecAbout_JP": "幸運を味方にする\nこの効果は社会的な物にも物質的なものにも大いに影響される",
+      "NumerospecAbout_EN": "Draws luck to one's side\nThis effect is also greatly influenced by social and material factors"
     },
     "Relation": {
       "Related": [{ "Num": 44, "RelationLabel": ["wellMatched"] }],
@@ -56208,6 +56240,18 @@
     "ModelName_EN": "NumberTales Unit.5+9.B (Mk.95)",
     "GenderType": "MaleNeutral",
     "Class": ["デュアルファイブズ"],
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 9,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 4, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 5, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "AnivDay": [
       {
         "Day": { "Month": 9, "DayOfMonth": 5 },
@@ -56223,9 +56267,249 @@
     "SpecialSkill_EN": "Writing light novels",
     "Favor_JP": "転機（転職・転校などの）",
     "Favor_EN": "Turning points (career changes, school transfers, etc.)",
-    "Unlike_JP": "現状に拘束されること",
-    "Unlike_EN": "Being tied down to the current situation",
-    "AppearanceDetail": [],
+    "Unlike_JP": "現状に拘束されること\nストレス",
+    "Unlike_EN": "Being tied down to the current situation\nStress",
+    "AppearanceDetail": [
+      {
+        "Formation": "corefolder",
+        "BodyPart": ["#BodyPart_Chest"],
+        "Laterality": null,
+        "DesignElement": "#Element_NumberMark",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "球体の前面中央、白色の腹部の上部",
+            "value_EN": "the upper part of the white belly at the front center of the sphere"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "暗色",
+            "value_EN": "dark"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Notation",
+            "value_JP": "アラビア数字の「95」",
+            "value_EN": "Arabic numeral '95'"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Chest"],
+        "Laterality": "#Lat_Left",
+        "DesignElement": "#Element_NumberMark",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "Vネックシャツの左胸",
+            "value_EN": "the front-left chest of the V-neck shirt"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "暗色",
+            "value_EN": "dark"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Notation",
+            "value_JP": "アラビア数字の「95」",
+            "value_EN": "Arabic numeral '95'"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Hair"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "濃い緑と緑のツートーンの髪",
+            "value_EN": "two-tone dark green and green hair"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "外ハネのショートヘア",
+            "value_EN": "short hair flipped outward"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Eye"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "オリーブ色の目",
+            "value_EN": "olive eyes"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Chest"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "淡い黄緑色の半袖Vネックシャツ",
+            "value_EN": "pale yellow-green short-sleeved V-neck shirt"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Neck", "#BodyPart_Arm"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "白い襟と白い裾のインナー",
+            "value_EN": "inner layer with a white collar and hem"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "濃い灰色の長袖(袖口は明るい灰色)",
+            "value_EN": "dark gray long sleeves (light gray cuffs)"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Leg"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "暗いオリーブ色の長ズボン",
+            "value_EN": "dark olive long trousers"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Foot"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "濃い灰色の短靴",
+            "value_EN": "dark gray low shoes"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": [
+          "#BodyPart_Ear"
+        ],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Ear",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox",
+            "about_JP": "垂れ耳",
+            "about_EN": "drooping ears"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#4F6F57",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Tail"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#64A56A",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Tail"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#B1C790",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Chest"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#5E5E41",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Eye", "#BodyPart_Leg"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#CDD2CE",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Neck", "#BodyPart_Arm"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#58595A",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Arm", "#BodyPart_Foot"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "RelationNotes_JP": "「15(トウゴ)」を「死神様」と慕っているが…？",
     "RelationNotes_EN": "Looks up to '15(Fifteeld)' as a 'goddeath(Shinigami-sama)', but...?",
     "Backgrounds_JP": "ROS開発中で暴走による自壊寸前になったことがあった",
@@ -56233,8 +56517,8 @@
     "InStory_JP": "滅多に本領が発揮されない個体のため、主人に指名されてもマッチングで契約が頓挫しがち",
     "InStory_EN": "A unit whose true potential is rarely drawn out, so even when named by a master, contract negotiations through matchmaking tend to fall through",
     "NumerospecStats": {
-      "NumerospecAbout_JP": "現環境から離れたときの支えになる\nただし発動条件が極めて限られており、情報が少ない",
-      "NumerospecAbout_EN": "Becomes a source of support when one steps away from the current environment\nHowever, activation conditions are extremely limited and little is known"
+      "NumerospecAbout_JP": "環境変化の支えになる\nただし発動条件が極めて限られており、情報が少ない",
+      "NumerospecAbout_EN": "Becomes a source of support when changed environments occur\nHowever, activation conditions are extremely limited and little is known"
     },
     "Relation": {
       "Related": [
