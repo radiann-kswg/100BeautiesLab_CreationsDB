@@ -689,5 +689,243 @@
       "NumerospecAbout_JP": "世界トップ10のメカニック実績がある(学士課程で記録)\n姉と同等の頭脳を持つが発達障害を患っている",
       "NumerospecAbout_EN": "Holds a track record among the world’s top 10 mechanics (recorded during undergraduate studies)\nPossesses intellect equal to his older sister’s, but has a developmental disability"
     }
+  },
+  {
+    "Num": "any",
+    "Num_Badge": "ANY",
+    "Progress": "stillTentative",
+    "Name_JP": "乃木 希",
+    "Name_JPReading": "のぎ のぞみ",
+    "Name_EN": "Nozomi Nogi",
+    "Images": { "concept_PNGName": "cnsp_imgNTS-ANY" },
+    "RaceType": "Human",
+    "GenderType": "Female",
+    "Belonging": [{ "Faction": "第三県立朱音高等学校" }],
+    "Class": [],
+    "Height_cm": 158,
+    "Weight_kg": 58,
+    "BustSize": "B",
+    "Age": 17,
+    "ForMasterCalling_JP": null,
+    "ForMasterCalling_EN": null,
+    "AppearanceDetail": [
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Hair"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "灰色の長い髪を高い位置で結んだポニーテール",
+            "value_EN": "long gray hair tied in a high ponytail"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Eye"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "赤茶色の目",
+            "value_EN": "reddish-brown eyes"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Head"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "大きな黄色のリボン(ポニーテールの結び目)",
+            "value_EN": "large yellow ribbon (at the base of the ponytail)"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Chest"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "白い襟の付いた赤茶色の半袖シャツ(中央に淡い橙色の前立て、袖口に細い白の縁取り)",
+            "value_EN": "reddish-brown short-sleeved shirt with a white collar (pale orange front placket, thin white trim on the sleeve cuffs)"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Waist", "#BodyPart_Leg"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "淡い黄土色の膝上丈の幅広い半ズボン",
+            "value_EN": "pale ochre wide-legged above-the-knee shorts"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Leg"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "白い長い靴下",
+            "value_EN": "long white socks"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Foot"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "濃い灰色のロングブーツ(履き口にベルトと黄色の留め具)",
+            "value_EN": "dark gray tall boots (with a strap and yellow buckle near the top)"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#B5AD9B",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#C8785B",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Eye", "#BodyPart_Chest"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#FCC39E",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Chest"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#EEC694",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Waist", "#BodyPart_Leg"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#69625A",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Foot"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#FFF000",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Head", "#BodyPart_Foot"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#D89C82",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_CommonOverride",
+        "Hex": "#FDE8C2",
+        "ColorName_JP": "肌色",
+        "ColorName_EN": "Skin Color",
+        "AppliesTo": [
+          "#BodyPart_Head",
+          "#BodyPart_Neck",
+          "#BodyPart_Arm",
+          "#BodyPart_Hand"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "RelationNotes_JP": "「39(サク)」や「93(クミ)」といったナンバーテールズと契約している",
+    "RelationNotes_EN": "Contracts with NumberTales such as '39(Trenína)' and '93(Nintris)'",
+    "InStory_JP": "母親の叶わなかった夢を叶えるため、および自身を救った恩を返すため、救命士を志望している",
+    "InStory_EN": "Aspires to become a paramedic to fulfill her mother's unachieved dreams and to repay the debt of gratitude for saving her own life",
+    "RelationTo_Primary": {
+      "Related": [
+        {
+          "Num": 39,
+          "RelationLabel": ["hadInCommision"],
+          "Reply": { "RelationLabel": ["hadInCommision", "trusted"] }
+        },
+        {
+          "Num": 93,
+          "RelationLabel": ["hadInCommision", "wellMatched"],
+          "Reply": { "RelationLabel": ["hadInCommision", "wellMatched"] }
+        }
+      ]
+    }
   }
 ]

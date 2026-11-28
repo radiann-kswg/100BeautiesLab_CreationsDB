@@ -16875,7 +16875,8 @@
     "ThisMasters": [
       {
         "value_JP": "乃木 希（VIPマスター;夜月機関 救命本部 推薦所属候補者）",
-        "value_EN": "Nozomi Nogi（VIP-Master; Yadzuki Org. Lifeguards Headquarter Recommended Candidate）"
+        "value_EN": "Nozomi Nogi（VIP-Master; Yadzuki Org. Lifeguards Headquarter Recommended Candidate）",
+        "_DBLink": { "_Work": "NumberTales", "_DB": "PrimaryHuman", "Num": "any" }
       }
     ]
   },
@@ -37293,7 +37294,8 @@
     "ThisMasters": [
       {
         "value_JP": "乃木 希（VIPマスター;夜月機関 救命本部 推薦所属候補者）",
-        "value_EN": "Nozomi Nogi（VIP-Master; Yadzuki Org. Lifeguards Headquarter Recommended Candidate）"
+        "value_EN": "Nozomi Nogi（VIP-Master; Yadzuki Org. Lifeguards Headquarter Recommended Candidate）",
+        "_DBLink": { "_Work": "NumberTales", "_DB": "PrimaryHuman", "Num": "any" }
       }
     ],
     "VRMs": { "corefolder_VRMPath": ["93/vrm_NTS-93-corefolder"] }

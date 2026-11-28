@@ -6,7 +6,7 @@
 - カタログに `#DB_PrimaryHuman` / `#DB_SemiPrimaryHuman` を追加（親 DB の `_Commons` から `RaceType` だけ除外）。`DB_Label` は仮置き、`DB_Summary` は未記入。
 - 作品別 typedef に `RelationTo_PrimaryHuman` を追加し、`0`・`00` 宛ての関係 13 件を `Relation` / `RelationTo_Primary` から付け替えた。ラベルは仮置き。
 - 4 作品の `_DBLink` 13 箇所と `_DBCrossLinkPath` 2 箇所の `_DB` を更新。画像 5 枚と配布用ロールプレイプロンプト 4 件を `DB_PrimaryHuman` / `DB_SemiPrimaryHuman` 配下へ移動。
-- `tools/build-roleplay-prompts.mjs` の `@RelationComments` が `Relation` に加えて `RelationTo_*` の台詞も拾うようにした。関係を別 DB 宛てフィールドへ付け替えた 85 の一言がプロンプトから落ちるのを防ぐため（85 は一言の並び順だけ変化、他の既存プロンプトは変化なし）。
+- `tools/build-roleplay-prompts.mjs` の `@RelationComments` が `Relation` に加えて `RelationTo_*` / `RelationOriginalTo_*` の台詞も拾うようにした。関係を別 DB 宛てフィールドへ付け替えた 85 の一言がプロンプトから落ちるのを防ぐため（85 は一言の並び順だけ変化、他の既存プロンプトは変化なし）。
 - 影響: 旧直リンク `?c=NumberTales/Primary/Num:0` などは開けなくなる（短縮形 `?b=NTS-0` はカタログ順の走査で引き続き解決）。下流への波及は上記ツールの 1 箇所と、テスト 2 ファイルの参照先変更（`Works_NumberTales` の実データを読むテスト）。R2 / D1 の再同期と `addon-ai-tag` 側の追従が別途必要。
 
 ### ロールプレイプロンプトに関係キャラへの一言を口調の参考として追加（2026-11-24、#72）

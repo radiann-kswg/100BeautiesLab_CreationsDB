@@ -21,6 +21,19 @@
 - `tools/build-roleplay-prompts.mjs` の `@RelationComments` を `RelationTo_*` にも対応させた（付け替えた 85 の一言が落ちるのを防ぐ。85 のプロンプトは並び順のみ変化）。
 - コード変更は上記 1 箇所のみ。レコードの移動は書式を保つためテキスト処理で行い、移動前後でレコード・関係エントリが 1 件も欠けないことを検証した。
 
+## 追記: `any`（乃木 希）の補完（同日）
+
+User が `PrimaryHuman` へ追加した `Num: "any"` を、記載済みの情報と設定原画から補完した。
+
+- `AppearanceDetail` 7 項目: GPT（`codex exec`）の画像観察とエージェントの目視が一致した部位だけを `tools/patch-appearance-detail.mjs` の dry-run 経由で適用。
+- `ColorPalette` 8 色: Hex は `tools/patch-colorpalette.mjs` によるカラーチップ実測値。`AppliesTo` は色語の自動転記が誤っていたため、GPT の所見と `--figure-bands` の実測で差し替えた。`ColorName_*` は未記入。
+- `db_Primary.json` の 39・93 の `ThisMasters` に `_DBLink`（`PrimaryHuman` / `any`）を追加。
+- GPT のコードレビューを受け、`@RelationComments` の対象に `RelationOriginalTo_*` も加え、回帰テストを 1 本追加。
+- User の確認（同日）を反映: 表情差分の線は線画と下書きのみ（記載なし）。袖口は細い白の縁取り、下衣は半ズボンとして外見本文を更新。`#FDE8C2` は `#ColorRole_CommonOverride`（肌色。同ファイルの `0` / `00` と同じ書式）へ変更。瞳は上衣と同色のため `#C8785B` の `AppliesTo` に `#BodyPart_Eye` を追加。
+- 残り（User 判断待ち）: `#D89C82` の用途（`AppliesTo` 未指定のまま）、`ColorName_*`、`Class`。
+- GPT レビューの指摘で未対応: `$Def_ThisMastersEntry` に `_DBLink` が宣言されていない（既存の `%`・`∞`・`0`・`00` 宛てリンクと同じ既存仕様のため今回は変更せず）。
+- 検証: `npm test` 86 ファイル 1540 件成功。
+
 ## 影響範囲（編集したファイル）
 
 - `data/Works_NumberTales/DataBases/`: `db_Primary.json` / `db_SemiPrimary.json` / `db_PrimaryHuman.json`（新規）/ `db_SemiPrimaryHuman.json`（新規）/ `db_meta.json` / `db_type.json`
