@@ -56430,9 +56430,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": [
-          "#BodyPart_Ear"
-        ],
+        "BodyPart": ["#BodyPart_Ear"],
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
