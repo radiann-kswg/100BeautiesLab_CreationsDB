@@ -442,7 +442,7 @@
     "AnotherRegions_DBLink": [
       {
         "_Work": "NumberTales",
-        "_DB": "SemiPrimary",
+        "_DB": "SemiPrimaryHuman",
         "Num": "%"
       },
       {
@@ -541,7 +541,7 @@
     "AnotherRegions_DBLink": [
       {
         "_Work": "NumberTales",
-        "_DB": "SemiPrimary",
+        "_DB": "SemiPrimaryHuman",
         "Num": "∞"
       },
       {

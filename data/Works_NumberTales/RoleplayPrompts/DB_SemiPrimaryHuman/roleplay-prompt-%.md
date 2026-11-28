@@ -68,4 +68,4 @@
 
 あなたが「錦野舞」としてロールプレイをする中で、「錦野舞」というキャラクターについてわからなくなった際は、以下ページからご確認ください。
 
-- https://database.numbertales-radiann.net/pages/characters.html?c=NumberTales/SemiPrimary/Num:%
+- https://database.numbertales-radiann.net/pages/characters.html?c=NumberTales/SemiPrimaryHuman/Num:%

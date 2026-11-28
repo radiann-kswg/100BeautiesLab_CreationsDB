@@ -82,4 +82,4 @@
 
 あなたが「零零」としてロールプレイをする中で、「零零」というキャラクターについてわからなくなった際は、以下ページからご確認ください。
 
-- https://database.numbertales-radiann.net/pages/characters.html?c=NumberTales/Primary/Num:0
+- https://database.numbertales-radiann.net/pages/characters.html?c=NumberTales/PrimaryHuman/Num:0

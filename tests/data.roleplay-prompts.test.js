@@ -299,4 +299,15 @@ describe('関係キャラへの一言（@RelationComments）', () => {
 		]);
 		expect(buildVars({}, { config: {}, lang: 'jp', pathRoles: { fileKey: 'Num' } }).RelationComments).toEqual([]);
 	});
+
+	it('別 DB 宛ての RelationTo_* / RelationOriginalTo_* の台詞も拾い、無関係なキーは拾わない', () => {
+		const record = {
+			Relation: { Related: [{ Num: 1, Comments: '「同DB」' }] },
+			RelationTo_PrimaryHuman: { Related: [{ Num: '0', Comments: '「別DB」' }] },
+			RelationOriginalTo_Primary: { Commented: [{ Num: 2, Comments: '「原作」' }] },
+			RelationNotes_JP: '「メモ」',
+		};
+		const vars = buildVars(record, { config: {}, lang: 'jp', pathRoles: { fileKey: 'Num' } });
+		expect(vars.RelationComments.map((c) => c.value_JP)).toEqual(['「同DB」', '「別DB」', '「原作」']);
+	});
 });

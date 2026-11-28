@@ -757,10 +757,10 @@ describe('pages/characters.js UI output', () => {
 			}
 		});
 
-		// 錦野 舞 は db_SemiPrimary.json に移動済み（Belonging は直接レコードに入っている）。
+		// 錦野 舞 は db_SemiPrimaryHuman.json に移動済み（Belonging は直接レコードに入っている）。
 		// Class の1要素（グローバルの汎用クラス辞書には存在しない値）が
 		// scopeField 付きの #Dict_SymphonyXVI（Belonging一致行）から解決できることを確認する。
-		const dancyActresssilkRaw = structuredClone(numberTalesSemiPrimaryRecords.find((record) => record?.Name_JP === '錦野 舞'));
+		const dancyActresssilkRaw = structuredClone(loadJson('data/Works_NumberTales/DataBases/db_SemiPrimaryHuman.json').find((record) => record?.Name_JP === '錦野 舞'));
 		// Belonging は `$Def_Faction[]`（`{ Faction }` 子要素）なので、scopeField 照合対象の値を取り出して確認する
 		const dancyBelongingFactions = (Array.isArray(dancyActresssilkRaw?.Belonging) ? dancyActresssilkRaw.Belonging : [])
 			.map((item) => (item && typeof item === 'object') ? item.Faction : item);
@@ -1569,7 +1569,7 @@ describe('pages/characters.js UI output', () => {
 		const workDir = 'Works_SinisterChangingGirls';
 		const workId = `#${workDir}`;
 		const primaryRecords = loadJson(`data/${workDir}/DataBases/db_Primary.json`);
-		const sourceRecord = numberTalesPrimaryRecords.find((record) => String(record?.Num) === '0');
+		const sourceRecord = loadJson('data/Works_NumberTales/DataBases/db_PrimaryHuman.json').find((record) => String(record?.Num) === '0');
 		// enrich 後の継承値を再現し、参照元作品の enum 宣言は持ち込まない。
 		const inheritedRecord = {
 			...primaryRecords.find((record) => record?.Drc === 'N'),

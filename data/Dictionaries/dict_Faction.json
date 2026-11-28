@@ -83,6 +83,15 @@
     "isAcademic": true
   },
   {
+    "Faction": "第三県立朱音高等学校",
+    "Faction_EN": "S3 Akane High School",
+    "FactionsBaseArea": { "Area": "九蓮国" },
+    "RegionstyleWithin": null,
+    "isForSecondary": false,
+    "isMaker": false,
+    "isAcademic": true
+  },
+  {
     "Faction": "第三県立技巧美術女子高校",
     "Faction_EN": "Prefecture.3 Technical Arts Girls' High School",
     "FactionsBaseArea": { "Area": "九蓮国" },

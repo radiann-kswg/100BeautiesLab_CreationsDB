@@ -152,6 +152,10 @@
     "SpecialPattern_EN": "Ptn.St(Situation-Scaled Variable Effect)"
   },
   {
+    "SpecialPattern": "Ptn.StZ(状況に反比例するとも思われる作用)",
+    "SpecialPattern_EN": "Ptn.StZ(Might also be Inversely Situation-Scaled Variable Effect)"
+  },
+  {
     "SpecialPattern": "Ptn.X(転化・転送効果)",
     "SpecialPattern_EN": "Ptn.X(Conversion / Transfer Effect)"
   },

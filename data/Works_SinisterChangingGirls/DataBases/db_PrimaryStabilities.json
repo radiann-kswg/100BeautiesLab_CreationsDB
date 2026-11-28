@@ -11,7 +11,7 @@
       },
       {
         "_Work": "NumberTales",
-        "_DB": "SemiPrimary",
+        "_DB": "SemiPrimaryHuman",
         "Num": "%"
       }
     ],
@@ -866,7 +866,7 @@
       },
       {
         "_Work": "NumberTales",
-        "_DB": "SemiPrimary",
+        "_DB": "SemiPrimaryHuman",
         "Num": "∞"
       }
     ],

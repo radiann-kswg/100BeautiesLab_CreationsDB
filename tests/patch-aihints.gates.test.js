@@ -109,7 +109,7 @@ describe('ゲートの前提条件（実データ）', () => {
     });
 
     it('外見原本から補完した4件は共通識別タグを3〜5個持ち、未確定の欄は空欄にする', () => {
-        for (const [file, ids] of [['db_Primary.json', ['0', '00', 80]], ['db_SemiPrimary.json', [333]]]) {
+        for (const [file, ids] of [['db_PrimaryHuman.json', ['0', '00']], ['db_Primary.json', [80]], ['db_SemiPrimary.json', [333]]]) {
             const records = loadDb(file);
             for (const id of ids) {
                 const hints = records.find(r => r.Num === id)?.AIHints;
