@@ -5039,7 +5039,11 @@
       {
         "value_JP": "百花繚乱研究所(N3US大学 千歳研究室) ゼミアシスタント",
         "value_EN": "100Beauties Lab. (N3US University Dr.Thouser Laboratory) Seminar Assistant",
-        "_DBLink": { "_Work": "NumberTales", "_DB": "SemiPrimaryHuman", "Num": "∞" }
+        "_DBLink": {
+          "_Work": "NumberTales",
+          "_DB": "SemiPrimaryHuman",
+          "Num": "∞"
+        }
       }
     ],
     "AIHints": {
@@ -24976,7 +24980,11 @@
       {
         "value_JP": "乃木 希（VIPマスター;夜月機関 救命本部 推薦所属候補者）",
         "value_EN": "Nozomi Nogi（VIP-Master; Yadzuki Org. Lifeguards Headquarter Recommended Candidate）",
-        "_DBLink": { "_Work": "NumberTales", "_DB": "PrimaryHuman", "Num": "any" }
+        "_DBLink": {
+          "_Work": "NumberTales",
+          "_DB": "PrimaryHuman",
+          "Num": "any"
+        }
       }
     ],
     "AIHints": {
@@ -49007,7 +49015,11 @@
       {
         "value_JP": "錦野 舞（シンフォニー.X(ツェーン) D-Vine開発部 最高責任部長）",
         "value_EN": "Dancy Actressilk (Symphony.X(Zehn) Chief Executive in Development Department for D-Vines)",
-        "_DBLink": { "_Work": "NumberTales", "_DB": "SemiPrimaryHuman", "Num": "%" }
+        "_DBLink": {
+          "_Work": "NumberTales",
+          "_DB": "SemiPrimaryHuman",
+          "Num": "%"
+        }
       }
     ],
     "AIHints": {
@@ -52900,7 +52912,11 @@
       {
         "value_JP": "百花繚乱研究所(N3US大学 千歳研究室) ゼミアシスタント",
         "value_EN": "100Beauties Lab. (N3US University Dr.Thouser Laboratory) Seminar Assistant",
-        "_DBLink": { "_Work": "NumberTales", "_DB": "SemiPrimaryHuman", "Num": "∞" }
+        "_DBLink": {
+          "_Work": "NumberTales",
+          "_DB": "SemiPrimaryHuman",
+          "Num": "∞"
+        }
       }
     ],
     "AIHints": {
@@ -55435,7 +55451,11 @@
       {
         "value_JP": "乃木 希（VIPマスター;夜月機関 救命本部 推薦所属候補者）",
         "value_EN": "Nozomi Nogi（VIP-Master; Yadzuki Org. Lifeguards Headquarter Recommended Candidate）",
-        "_DBLink": { "_Work": "NumberTales", "_DB": "PrimaryHuman", "Num": "any" }
+        "_DBLink": {
+          "_Work": "NumberTales",
+          "_DB": "PrimaryHuman",
+          "Num": "any"
+        }
       }
     ],
     "VRMs": { "corefolder_VRMPath": ["93/vrm_NTS-93-corefolder"] },
@@ -60623,9 +60643,7 @@
       "NumerospecAbout_EN": "Holds a personality equivalent to that of the developer siblings (Zera and Hudret)\nIncidentally, zir name derives from the siblings’ true family name, \"Thouser\""
     },
     "Relation": {
-      "Related": [
-        { "Num": 81, "RelationLabel": ["wellMatched"] }
-      ]
+      "Related": [{ "Num": 81, "RelationLabel": ["wellMatched"] }]
     },
     "ThisMasters": [
       {
@@ -60646,7 +60664,11 @@
         "about_JP": "仕方なく所持",
         "value_EN": "Hudred Norumber",
         "about_EN": "Reluctantly possessed",
-        "_DBLink": { "_Work": "NumberTales", "_DB": "PrimaryHuman", "Num": "00" }
+        "_DBLink": {
+          "_Work": "NumberTales",
+          "_DB": "PrimaryHuman",
+          "Num": "00"
+        }
       }
     ],
     "RelationTo_PrimaryHuman": {
