@@ -320,8 +320,12 @@ export function buildVars(record, ctx) {
 	// 関係キャラへの一言（`Relation.*[].Comments`）を、口調の参考として台詞だけ並べる。
 	// 関係性・他キャラ言及は User の手動判断なので相手の名前は出さない。「」で始まる台詞だけを使い、
 	// （※…）の地の文・返答（Reply）・hideText マスクは載せない。
-	const relation = record.Relation && typeof record.Relation === 'object' && !Array.isArray(record.Relation) ? record.Relation : {};
-	vars.RelationComments = Object.values(relation).flat()
+	// 相手が別 DB にいるだけで本人の台詞であることは変わらないため、`RelationTo_*` も同じ扱いにする。
+	vars.RelationComments = Object.keys(record)
+		.filter((k) => k === 'Relation' || k.startsWith('RelationTo_'))
+		.map((k) => record[k])
+		.filter((v) => v && typeof v === 'object' && !Array.isArray(v))
+		.flatMap((v) => Object.values(v).flat())
 		.filter((e) => typeof e?.Comments === 'string' && e.Comments.trim().startsWith('「'))
 		.map((e) => ({ value_JP: e.Comments.trim(), value_EN: typeof e.Comments_EN === 'string' ? e.Comments_EN.trim() : '' }));
 

@@ -366,7 +366,7 @@ describe('_DBLink / _Jump merge (in-process)', () => {
 
     const records = loadJson(`data/Works_SinisterChangingGirls/DataBases/db_${dbName}.json`);
     const input = records.find(r => r.Drc === drc);
-    const linked = loadJson('data/Works_NumberTales/DataBases/db_Primary.json')
+    const linked = loadJson('data/Works_NumberTales/DataBases/db_PrimaryHuman.json')
       .find(r => String(r.Num) === num);
 
     // キーを省略して NTS の正典を継承し、作品別の設定画リンクは SCG の宣言を使う。
@@ -375,7 +375,7 @@ describe('_DBLink / _Jump merge (in-process)', () => {
     expect(linked).toBeTruthy();
     expect(linked.AppearanceDetail.length).toBeGreaterThan(0);
     expect(input.Images.conceptAlt_PNGName[0]._DBCrossLinkPath).toMatchObject({
-      _Work: 'NumberTales', _DB: 'Primary', _Field: 'concept_PNGName',
+      _Work: 'NumberTales', _DB: 'PrimaryHuman', _Field: 'concept_PNGName',
       _IsoPath: linked.Images.concept_PNGName
     });
     const expectedImages = structuredClone(input.Images);
@@ -797,7 +797,7 @@ describe('_DBLink / _Jump merge (in-process)', () => {
 
     // 参照先（NumberTales/SemiPrimary の Num: "%"）は Class と RelationTo_Primary の双方を持つ。
     // cross-work の `_DBLink` 制約により、これらが参照元へ流れ込んではいけない
-    const ntSemiPrimary = loadJson('data/Works_NumberTales/DataBases/db_SemiPrimary.json');
+    const ntSemiPrimary = loadJson('data/Works_NumberTales/DataBases/db_SemiPrimaryHuman.json');
     const linked = ntSemiPrimary.find(r => String(r?.Num) === '%');
     expect(linked).toBeTruthy();
     expect(linked.Class).toEqual(['開発者', 'ヒューマノイド開発部(シンフォニー.X)']);
