@@ -566,6 +566,7 @@ node tools/patch-aihints.mjs --work NumberTales --db Primary --all --apply-appea
 - **no-op 判定**: `AIHints._meta.structuralSourceHash` が構造ソース（`TailsUnit` / `AppearanceDetail` / `ColorPalette` / `GenderType` / `ConceptAge` / `Height_cm` / `Num`）のハッシュと一致すれば、そのレコードは処理せず `resync-unchanged` を返す。
 - **導出値の再生成**: `prompt_export` / `negative_prompt_export` はソース配列（`ai_tags` / `negative_visuals`）からの導出値のため、再同期の最後に `regenerateFormExports()` で常に作り直す。タグだけ更新して export が古いまま残る不整合（生成 AI へ渡る文字列と実データの食い違い）を防ぐ。
 - `_meta` は `_DBLink` と同様の内部補助情報として扱い、UI / 公開 API へは露出させない。
+- **参照画像は対象外**: `reference_images` は再同期しない。画像を改名した・レコードを別 DB へ移した等で URL が古くなると、`tests/aihints.schema.test.js` の「自サイトの画像 URL は実ファイルへ解決する」が落ちる。そのときは `--fix-refs` を `--records` で対象レコードに絞って実行する（`--all` は、参照画像が空欄のレコードや手で据えた参照画像まで作り直すため）。
 
 #### コマンド
 

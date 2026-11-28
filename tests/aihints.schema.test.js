@@ -13,7 +13,7 @@
  */
 
 import { describe, it, expect } from 'vitest';
-import { readFileSync } from 'node:fs';
+import { readFileSync, existsSync, globSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -99,7 +99,7 @@ describe('AIHints schema: corefolder enhancements (NumberTales)', () => {
  * humanoid form は参照画像の有無ではなく `AppearanceDetail` の `Formation: "humanoid"`
  * エントリから生成されるため、画像が corefolder しか無い DB にも humanoid form は存在する。
  */
-const AIHINTS_DBS = ['db_Primary.json', 'db_SemiPrimary.json', 'db_SelfSecondary.json'];
+const AIHINTS_DBS = ['db_Primary.json', 'db_PrimaryHuman.json', 'db_SemiPrimary.json', 'db_SelfSecondary.json'];
 
 describe.each(AIHINTS_DBS)('AIHints data: upgraded NumberTales/%s records', (db) => {
     const dbPath = `data/Works_NumberTales/DataBases/${db}`;
@@ -121,7 +121,8 @@ describe.each(AIHINTS_DBS)('AIHints data: upgraded NumberTales/%s records', (db)
         }
     });
 
-    it('AIHints を持つ全レコードの corefolder form に silhouette_notes (object) / immutable_constraints / negative_keywords が存在する', () => {
+    // 人間キャラクターだけの DB（PrimaryHuman）は corefolder form を持たないため、件数の下限を課さない。
+    it.skipIf(!records.some(r => r?.AIHints?.forms?.corefolder))('AIHints を持つ全レコードの corefolder form に silhouette_notes (object) / immutable_constraints / negative_keywords が存在する', () => {
         const aihRecords = records.filter(r => r && r.AIHints?.forms?.corefolder);
         expect(aihRecords.length).toBeGreaterThan(0);
 
@@ -261,5 +262,17 @@ describe.each(AIHINTS_DBS)('AIHints data: upgraded NumberTales/%s records', (db)
                 `#${rec.Num} corefolder NLD の衣装語はすべて outfit_features に宣言済み（未宣言: ${leakedGarments.join(', ')}）`,
             ).toBe(true);
         }
+    });
+});
+
+describe('AIHints data: 参照画像 URL', () => {
+    // `--resync-structural`（push ごとの自動再同期）は参照画像を作り直さない。画像の改名やレコードの DB 移動で
+    // URL が古くなったらここで落ちるので、`tools/patch-aihints.mjs --fix-refs` で作り直す。
+    it('どの作品・DB でも、自サイトの画像 URL は実ファイルへ解決する', () => {
+        const missing = globSync('data/Works_*/DataBases/db_*.json', { cwd: repoRoot }).flatMap((file) =>
+            (readFileSync(join(repoRoot, file), 'utf-8').match(/https:\/\/database\.numbertales-radiann\.net\/data\/[^"\\\s]+/g) ?? [])
+                .filter((url) => !existsSync(join(repoRoot, decodeURI(new URL(url).pathname))))
+                .map((url) => `${file} ${url}`));
+        expect(missing).toEqual([]);
     });
 });

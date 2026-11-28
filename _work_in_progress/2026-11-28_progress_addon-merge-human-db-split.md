@@ -38,9 +38,20 @@
 - AI 画像許可表は `develop` の同期で無効化されており、本ブランチの同期が完了するまで再公開されない（設計どおり）。
 - 本ブランチを push すると `migrate.mjs --clean` → `migrate-aihints.mjs --clean` → 許可表の公開が走り、上記は解消する見込み。
 
+## 追記: 参照画像 URL の検出回路（同日）
+
+マージコミット `14bd1dfb` を push したあと、再同期が参照画像を作り直さない件へ対応した。
+
+- `--fix-refs` を AIHints のある全 DB へ試し打ちして差分を調べた（ファイルは元へ戻した）。獣爾騎兵・豹変系女子は差分なし。NumberTales は次の 2 種類だけが変わる。
+  - 切れた URL 6 本: `SemiPrimary` の `777`・`777.Jackpot`、`SelfSecondary` の `777-mp`・`777.Jackpot-mp` の `concept_variants`。画像の改名に追従していなかった。
+  - 空欄の穴埋め: `Primary` の 80（corefolder / humanoid）と `SemiPrimary` の 333（humanoid）の `reference_images` が `null`。
+- 切れた URL は `--fix-refs --records` で該当 4 レコードだけ作り直した。空欄の 2 レコードは意図が分からないため触っていない。
+- `--fix-refs` を自動再同期へ組み込む案は採らなかった。`--all` は空欄や手で据えた参照画像まで作り直すため。代わりに、切れた URL を `npm test` で検出する（`tests/aihints.schema.test.js`）。修正前のデータで落ちることを確認済み。
+- `docs/ai-hints-usage.md` §9.10 に手順を追記。
+
 ## 未完了タスク
 
-- [ ] 本ブランチの push（User の判断）。push 後、`cf-api-sync` の成功と `/api/ai/NumberTales/PrimaryHuman/aihints/0` の応答を確認する。
-- [ ] push 後の CreationsAI 自動同期（`sync-dataset.yml`）の結果を確認する。
-- [ ] `patch-aihints.mjs --resync-structural` は `reference_images` を作り直さない。今後レコードを別 DB へ移すときは `--fix-refs` を併せて実行する（手順書への追記は未実施）。
-- [ ] 80 の `forms.*.reference_images` が `null` のまま（`--fix-refs` で埋まる。今回のマージとは無関係の既存状態）。
+- [ ] 上記追記分の push（User の判断）。
+- [ ] `cf-api-sync` の成功と `/api/ai/NumberTales/PrimaryHuman/aihints/0` の応答を確認する。
+- [ ] CreationsAI 自動同期（`sync-dataset.yml`）の結果を確認する。
+- [ ] 80・333 の `reference_images` が `null` のままでよいか（User の判断。埋めるなら `--fix-refs --records 80` 等）。

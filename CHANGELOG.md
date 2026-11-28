@@ -1,5 +1,12 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### AIHints の参照画像 URL が古くなったらテストで検出する（addon-ai-tag、2026-11-28）
+
+- `tests/aihints.schema.test.js` に「自サイトの画像 URL は実ファイルへ解決する」を追加し、全作品の `DataBases/db_*.json` を対象にした。`--resync-structural`（push ごとの自動再同期）は `reference_images` を作り直さないため、画像の改名やレコードの DB 移動のあと古い URL が残っても気づけなかった。獣爾騎兵・豹変系女子だけを見ていた同じ検査（`tests/patch-aihints.other-works.test.js`）はこちらへ一本化。
+- このテストで見つかった既存の切れた URL 6 本を修正。`SemiPrimary` の `777`・`777.Jackpot` と `SelfSecondary` の `777-mp`・`777.Jackpot-mp` の `common.reference_images.concept_variants`（画像の改名に未追従）。値は `--fix-refs --records` の出力。
+- 同テストの NumberTales 対象 DB に `db_PrimaryHuman.json` を追加（`0`・`00` の移動で対象から外れていた）。corefolder form を持たない DB では corefolder の件数下限を課さない。
+- `docs/ai-hints-usage.md` §9.10 に、参照画像は再同期の対象外で `--fix-refs` を `--records` で絞って使う旨を追記。
+
 ### 人間キャラクターの DB 分離へ AIHints を追従（addon-ai-tag、2026-11-28）
 
 - `develop` の DB 分離を取り込み、`0`・`00` の `AIHints` / `Images_Appearance` を `db_PrimaryHuman.json` へ移した。`reference_images` は `Images/DB_PrimaryHuman/` を指す。`%`・`∞` は本ブランチ固有のキーを持たない。

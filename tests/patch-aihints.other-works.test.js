@@ -31,7 +31,6 @@ import {
 } from '../tools/patch-aihints.mjs';
 
 const repoRoot = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
-const PUBLIC_ORIGIN = 'https://database.numbertales-radiann.net';
 
 /** AIHints を付与済みの「corefolder を持たない作品」と対象 DB */
 const SEEDED = [
@@ -432,13 +431,5 @@ describe.each(SEEDED)('実データ: %s / %s の AIHints', (work, db) => {
             expect(rec.isPrivate === true, label(rec)).toBe(false);
             expect(unready.has(rec.Progress), label(rec)).toBe(false);
         }
-    });
-
-    it('参照画像の URL はすべて実ファイルへ解決する', () => {
-        const missing = withHints
-            .flatMap((r) => collectStrings(r.AIHints))
-            .filter((s) => s.startsWith(`${PUBLIC_ORIGIN}/`))
-            .filter((url) => !fs.existsSync(path.join(repoRoot, url.slice(PUBLIC_ORIGIN.length + 1))));
-        expect(missing).toEqual([]);
     });
 });
