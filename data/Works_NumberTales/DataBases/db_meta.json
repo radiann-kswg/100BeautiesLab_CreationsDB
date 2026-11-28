@@ -29,6 +29,34 @@
         "isTriple": false
       }
     },
+    "#DB_PrimaryHuman": {
+      "AI_Optout": false,
+      "DB_Label_JP": "一次創作(人間)",
+      "DB_Label_EN": "Primary (Human)",
+      "DB_Summary": "",
+      "DB_Summary_EN": "",
+      "StoryEra": {
+        "FromEra": [
+          { "EraGen": 8, "YearInEra": 5 },
+          { "EraGen": 9, "YearInEra": 1 },
+          { "byRealYear": 2050 }
+        ],
+        "ToEra": [
+          { "EraGen": 8, "YearInEra": 6 },
+          { "EraGen": 9, "YearInEra": 2 },
+          { "byRealYear": 2051 }
+        ],
+        "InEra": [{ "EraGen": 8, "YearInEra": 5 }, { "byRealYear": 2050 }],
+        "StoryEraAbout_JP": "第8創世紀5〜6年(第9創世紀1〜2年,西暦2050〜2051年相当)",
+        "StoryEraAbout_EN": "between WDCE.VIII.5-6(Equivalent to between: WDCE.IX.1-2, DC.2050-2051)"
+      },
+      "_Commons": {
+        "Progress": "notProceeded",
+        "Belonging": [{ "Faction": "百花繚乱研究所" }],
+        "FromArea": { "Area": "九蓮国" },
+        "isTriple": false
+      }
+    },
     "#DB_SemiPrimary": {
       "AI_Optout": false,
       "DB_Label_JP": "準一次創作",
@@ -54,6 +82,33 @@
         "Progress": "notProceeded",
         "Belonging": [{ "Faction": "百花繚乱研究所" }],
         "RaceType": "PortableHumanoid(TaleBeastType)",
+        "isTriple": true
+      }
+    },
+    "#DB_SemiPrimaryHuman": {
+      "AI_Optout": false,
+      "DB_Label_JP": "準一次創作(人間)",
+      "DB_Label_EN": "Semi-Primary (Human)",
+      "DB_Summary": "",
+      "DB_Summary_EN": "",
+      "StoryEra": {
+        "FromEra": [
+          { "EraGen": 8, "YearInEra": 5 },
+          { "EraGen": 9, "YearInEra": 1 },
+          { "byRealYear": 2050 }
+        ],
+        "ToEra": [
+          { "EraGen": 8, "YearInEra": 7 },
+          { "EraGen": 9, "YearInEra": 3 },
+          { "byRealYear": 2052 }
+        ],
+        "InEra": [{ "EraGen": 8, "YearInEra": 6 }, { "byRealYear": 2051 }],
+        "StoryEraAbout_JP": "第8創世紀5〜7年(第9創世紀1〜3年,西暦2050〜2052年相当)",
+        "StoryEraAbout_EN": "between WDCE.VIII.5-7(Equivalent to between: WDCE.IX.1-3, DC.2050-2052)"
+      },
+      "_Commons": {
+        "Progress": "notProceeded",
+        "Belonging": [{ "Faction": "百花繚乱研究所" }],
         "isTriple": true
       }
     },

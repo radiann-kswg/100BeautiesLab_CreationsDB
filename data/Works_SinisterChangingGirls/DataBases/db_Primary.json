@@ -3,7 +3,7 @@
     "Drc": "N",
     "Progress": "unreleased",
     "AnotherRegions_DBLink": [
-      { "_Work": "NumberTales", "_DB": "Primary", "Num": "0" },
+      { "_Work": "NumberTales", "_DB": "PrimaryHuman", "Num": "0" },
       {
         "_Work": "UnauthedLogica",
         "_DB": "Primary",
@@ -19,7 +19,7 @@
         {
           "_DBCrossLinkPath": {
             "_Work": "NumberTales",
-            "_DB": "Primary",
+            "_DB": "PrimaryHuman",
             "_Field": "concept_PNGName",
             "_IsoPath": "cnsp_imgNTS-0"
           }

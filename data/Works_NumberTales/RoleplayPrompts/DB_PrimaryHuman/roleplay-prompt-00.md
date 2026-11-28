@@ -81,4 +81,4 @@
 
 あなたが「零百」としてロールプレイをする中で、「零百」というキャラクターについてわからなくなった際は、以下ページからご確認ください。
 
-- https://database.numbertales-radiann.net/pages/characters.html?c=NumberTales/Primary/Num:00
+- https://database.numbertales-radiann.net/pages/characters.html?c=NumberTales/PrimaryHuman/Num:00

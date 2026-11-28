@@ -271,6 +271,27 @@
       "$display": { "sectionWrapper": "relationSection", "open": true }
     },
     {
+      "hashTag": "RelationTo_PrimaryHuman",
+      "$type": [
+        {
+          "hashTag": "Related",
+          "$type": "$Def_Relations[]",
+          "hashTag_JP": "親密な関係",
+          "hashTag_EN": "Close Related to Primary Characters (Human)"
+        },
+        {
+          "hashTag": "Commented",
+          "$type": "$Def_Relations[]",
+          "hashTag_JP": "コメント",
+          "hashTag_EN": "Commented to Primary Characters (Human)"
+        }
+      ],
+      "hashTag_JP": "基本個体(人間)との関係",
+      "hashTag_EN": "Relation to Basic Units (Human)",
+      "isForSecondary": false,
+      "$display": { "sectionWrapper": "relationSection", "open": true }
+    },
+    {
       "hashTag": "RelationOriginalTo_Primary",
       "$type": [
         {
