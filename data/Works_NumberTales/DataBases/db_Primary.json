@@ -3521,7 +3521,7 @@
     "ThisMasters": [
       {
         "value_JP": "百花繚乱研究所(N3US大学 千歳研究室) ゼミアシスタント",
-        "value_EN": "100 Beauties Lab. (N3US University Dr.Thouser Laboratory) Seminar Assistant",
+        "value_EN": "100Beauties Lab. (N3US University Dr.Thouser Laboratory) Seminar Assistant",
         "_DBLink": { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": "∞" }
       }
     ]
@@ -8575,7 +8575,12 @@
     "ThisMasters": [
       {
         "value_JP": "メルランディア・シラユキ",
-        "value_EN": "Merlandia.S.White"
+        "value_EN": "Merlandia.Schnees",
+        "_DBLink": {
+          "_Work": "SinisterChangingGirls",
+          "_DB": "SemiPrimary",
+          "Drc": "DNE"
+        }
       }
     ],
     "VRMs": { "corefolder_VRMPath": ["20/vrm_NTS-20-corefolder"] }
@@ -35584,7 +35589,7 @@
     "ThisMasters": [
       {
         "value_JP": "百花繚乱研究所(N3US大学 千歳研究室) ゼミアシスタント",
-        "value_EN": "100 Beauties Lab. (N3US University Dr.Thouser Laboratory) Seminar Assistant",
+        "value_EN": "100Beauties Lab. (N3US University Dr.Thouser Laboratory) Seminar Assistant",
         "_DBLink": { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": "∞" }
       }
     ]
@@ -37668,10 +37673,13 @@
   {
     "Num": 95,
     "Num_Badge": "95",
-    "Progress": "nowCreating",
+    "Progress": "stillTentative",
     "Name_JP": "95(キュウゴ)",
     "Name_EN": "95(Ninfife)",
-    "Images": { "concept_PNGName": "cnsp_imgNTS-95" },
+    "Images": {
+      "concept_PNGName": "cnsp_imgNTS-95",
+      "conceptAlt_PNGName": ["cnsp_imgNTS-95-inStable"]
+    },
     "FormalName_JP": "ナンバーテールズ95番機",
     "FormalName_EN": "NumberTales #95",
     "CodeName_JP": "九五",
@@ -37700,8 +37708,16 @@
         "DayAbout_EN": "Development commemoration"
       }
     ],
-    "Character_JP": "癖で万が一のことを考えている\n異世界転生に興味があるらしいが…",
-    "Character_EN": "Out of habit, he’s always thinking about worst-case scenarios\nApparently has some interest in isekai reincarnation, but…",
+    "FirstPersonCalling_JP": "拙者",
+    "FirstPersonCalling_EN": "I (archaic warrior-style: sessha)",
+    "SecondPersonCalling_JP": "~殿,貴殿",
+    "SecondPersonCalling_EN": "lordship.~, your lordship (kiden)",
+    "ThirdPersonCalling_JP": "*ちら;~殿",
+    "ThirdPersonCalling_EN": "that/this person (*chira, formal); ~-dono",
+    "ForMasterCalling_JP": "主人公様",
+    "ForMasterCalling_EN": "Sir/Lady Protagonist",
+    "Character_JP": "環境により情緒が変わりやすく、癖で万が一のことを考えてしまう\n異世界転生に興味があるらしいが…",
+    "Character_EN": "His mood shifts easily with his surroundings, and out of habit he can't help thinking about worst-case scenarios\nApparently has some interest in isekai(another-world) reincarnation, but…",
     "Hobby_JP": "対策、災害などへの備え",
     "Hobby_EN": "Disaster preparedness and countermeasure planning",
     "SpecialSkill_JP": "ライトノベル執筆",
@@ -37871,9 +37887,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": [
-          "#BodyPart_Ear"
-        ],
+        "BodyPart": ["#BodyPart_Ear"],
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
@@ -37887,6 +37901,38 @@
         "img_PNGName": null,
         "Note_JP": null,
         "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": null,
+        "Laterality": null,
+        "DesignElement": "#Element_Expression",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "眉を上げて目を見開いた、頬に照れ線のある明るい笑顔",
+            "value_EN": "bright wide-eyed smile with raised brows and blush lines on the cheeks"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": "環境が良いとき",
+        "Note_EN": "in a good environment"
+      },
+      {
+        "Formation": null,
+        "BodyPart": null,
+        "Laterality": null,
+        "DesignElement": "#Element_Expression",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "眉頭を下げて目を細め、口を小さく閉じた横目の表情",
+            "value_EN": "sideways glance with inner brows lowered, narrowed eyes, and a small closed mouth"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": "環境が悪いとき",
+        "Note_EN": "in a bad environment"
       }
     ],
     "ColorPalette": [
@@ -37951,15 +37997,41 @@
         "Note_EN": null
       }
     ],
+    "ConversationPattern": {
+      "TalkingTone_JP": "古のヲタク口調を意識した話し方をする。",
+      "TalkingTone_EN": "He speaks in a deliberately old-school otaku style."
+    },
     "RelationNotes_JP": "「15(トウゴ)」を「死神様」と慕っているが…？",
     "RelationNotes_EN": "Looks up to '15(Fifteeld)' as a 'goddeath(Shinigami-sama)', but...?",
+    "Summary_JP": "「現状からの環境変化に対応することへ特化している」と百花繚乱研究所での学説では唱えられているが、陰湿でストイックな性格からなかなかデータ収集に有用な主人とマッチングする機会に恵まれず、詳細な実績もデータも不足している。\n『80番機以降の不安定化問題』に大きくかかわる個体であることから、「80(ヤソ)」や「94(ツクシ)」と同様に特殊な設計が必須だったようだ。\n「異世界転生もの」に興味を持つサブカルヲタクな一面があるが……",
+    "Summary_EN": "Theories at the 100Beauties Lab. hold that he is 'specialized in adapting to environmental changes from the status quo', but his gloomy, stoic personality rarely gives him the chance to be matched with a master useful for data collection, so both his detailed track record and his data remain scarce.\nAs a unit deeply involved in 'the Unstable Units Under-#80 Problem', he apparently required a special design, just like '80(Eightis)' and '94(Ninfors)'.\nHe has a subculture-otaku(nerd subculture enthusiast) side with an interest in 'isekai(another world) reincarnation' stories, but……",
+    "AbilityStats": {
+      "Speed": { "Rank": "A" },
+      "Communication": { "Rank": "B" },
+      "Leading": { "Rank": "C" },
+      "Precision": { "Rank": "D" },
+      "Technic": { "Rank": "A" },
+      "Actuation": { "Rank": "Z" }
+    },
     "Backgrounds_JP": "ROS開発中で暴走による自壊寸前になったことがあった",
     "Backgrounds_EN": "During ROS development, he came close to self-destruction through runaway",
     "InStory_JP": "滅多に本領が発揮されない個体のため、主人に指名されてもマッチングで契約が頓挫しがち",
     "InStory_EN": "A unit whose true potential is rarely drawn out, so even when named by a master, contract negotiations through matchmaking tend to fall through",
     "NumerospecStats": {
       "NumerospecAbout_JP": "環境変化の支えになる\nただし発動条件が極めて限られており、情報が少ない",
-      "NumerospecAbout_EN": "Becomes a source of support when changed environments occur\nHowever, activation conditions are extremely limited and little is known"
+      "NumerospecAbout_EN": "Becomes a source of support when changed environments occur\nHowever, activation conditions are extremely limited and little is known",
+      "EffectStats": {
+        "Mental": { "EffectText": "逆効果(仕様)" },
+        "Monetize": { "EffectText": "効果無" },
+        "Working": { "EffectText": "特殊" },
+        "Luck": { "EffectText": "極めて絶大(場合により逆効果)" },
+        "Communication": { "EffectText": "効果無" }
+      },
+      "SpecialPattern": [
+        "Ptn.Rz-(実現性向上効果がある傾向)",
+        "Ptn.StZ(状況に反比例するとも思われる作用)"
+      ],
+      "SafetyLevel": { "SafetyLevelText": "用法により厳重注意" }
     },
     "Relation": {
       "Related": [

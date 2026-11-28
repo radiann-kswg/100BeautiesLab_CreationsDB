@@ -17,6 +17,12 @@
     "basis": [{ "RaceType": "Human" }]
   },
   {
+    "RaceType": "Human(genderless)",
+    "RaceType_JP": "人間(無性別)",
+    "RaceType_EN": "Human (genderless)",
+    "basis": [{ "RaceType": "Human" }]
+  },
+  {
     "RaceType": "OverHuman",
     "RaceType_JP": "超過人間",
     "RaceType_EN": "OverHuman",

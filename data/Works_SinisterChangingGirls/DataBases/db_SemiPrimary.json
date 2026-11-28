@@ -8,14 +8,25 @@
   },
   {
     "Drc": "DNE",
-    "isPrivate": true,
     "Progress": "notProceeded",
+    "Name_JP": "メルランディア・シラユキ",
+    "Name_EN": "Merlandia.Schnees",
+    "FormalName_JP": "メルランディア=フェブルーアス シラユキ\nティーレ フェブルーア",
+    "FormalName_EN": "Merlandia=Februars Schnees\nTile Februar",
     "CodeName_JP": "感謝の未明",
-    "CodeName_EN": "Gratitude o'clock in Early"
+    "CodeName_EN": "Gratitude o'clock in Early",
+    "RaceType": "Human(genderless)",
+    "GenderType": "FemaleNeutral",
+    "Belonging": [{ "Faction": "シンフォニー.XI" }, { "Faction": "夜月機関" }],
+    "FromArea": { "Area": "黒薔薇国" },
+    "Class": [],
+    "Height_cm": 168,
+    "Weight_kg": { "hideText": "？？？" },
+    "Age": 32,
+    "BirthDay": { "Day": { "Month": 4, "DayOfMonth": 13 } }
   },
   {
     "Drc": "UE",
-    "isPrivate": true,
     "Progress": "notProceeded",
     "Name_JP": "ヒュース・ナイチンゲール",
     "Name_EN": "Hugh Nightingale",
