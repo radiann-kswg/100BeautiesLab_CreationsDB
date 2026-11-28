@@ -59,7 +59,15 @@
 - PR #79 は User がマージ（`8f2a9770`）。`9212b3d9` 分の `cf-api-sync` は、このマージの同期が積まれたため順番待ちのまま取り消された（失敗ではない）。
 - User の判断（同日）で、空欄だった 80・333 の形態別 `reference_images` を `--fix-refs --records` で補完した。変更は該当 2 レコードの 3 箇所だけ。
 
+## 追記: 本番反映の確認（同日）
+
+- `addon-ai-tag` `92e97536` まで push。`cf-api-sync` は `14bd1dfb` / `8f2a9770` / `92e97536` の 3 本とも成功（`9212b3d9` 分は後続に積まれて取り消し）。最後の 1 本で「AIHints D1 同期」「AI画像許可表の公開」まで成功。
+- 公開 API: `/api/v1/NumberTales/dbs` に `PrimaryHuman` / `SemiPrimaryHuman` が載る。`PrimaryHuman/records/0` は AIHints 付きで `Images/DB_PrimaryHuman/` を指す。`Primary/records/0` は 404。`SemiPrimary/records/777` は修正後の `concept_variants` を返す。
+- 参照画像 URL（`0`・`ANY`・777 系 3 本・80・333）はすべて 200。
+- `/api/ai/.../aihints` は Bearer 認証が必要なため直接は未確認（401）。同期ステップの成功で代替。
+- 構造的再同期の自動 PR は、80・333 を含む最後の push では作られていない（対象ファイルを prettier 準拠にしたため）。
+- 関連 Issue: CreationsDB #75（巳刻カミツの状態付け）は #76 で修正済みのため、確認結果をコメントして閉じた。下流の GeneratorsAI #53 / ShapeChangerAI #33 には、上流側が完了した旨と、判定に使えるデータセットの項目（`images.new_year[].form` / `preferred_reference_images.forms`）をコメントした。どちらも原因は下流のコードにあるため開いたまま。
+
 ## 未完了タスク
 
-- [ ] 80・333 の補完と本ログ追記の push（User の判断）。
-- [ ] `cf-api-sync`（`14bd1dfb` 分と `8f2a9770` 分）の成功と `/api/ai/NumberTales/PrimaryHuman/aihints/0` の応答を確認する。
+- なし（本ログは完了扱いにできる。`.completed/` への退避は User の依頼で行う）。

@@ -36,7 +36,7 @@
 
 | ログ                                                                                                                               | 主題                                                           | 状態                              |
 | ---------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- | --------------------------------- |
-| [2026-11-28_progress_addon-merge-human-db-split.md](./2026-11-28_progress_addon-merge-human-db-split.md) | `develop` 取り込みマージ（`483b1c52`）。人間キャラクターの DB 分離へ AIHints を追従 | 🟢 現行（push と本番同期の確認が残る） |
+| [2026-11-28_progress_addon-merge-human-db-split.md](./2026-11-28_progress_addon-merge-human-db-split.md) | `develop` 取り込みマージ（`483b1c52`）。人間キャラクターの DB 分離へ AIHints を追従 | ✅ 完了（本番反映まで確認済み。退避待ち） |
 | [2026-11-20_progress_appearance-policy-tools.md](./2026-11-20_progress_appearance-policy-tools.md) | #60の外見校正・#62のAI除外・AppearanceDetail補助CLIとCreationsAI追従 | 実装・公開データセット・本番API検証完了（#63と自動推定は別課題） |
 | [2026-11-19_progress_aihints-shauer-sinister.md](./2026-11-19_progress_aihints-shauer-sinister.md) | AIHints を獣爾騎兵・豹変系女子へ拡張（作品別の形態キー / 索引キー、17 件へ付与） | 🟢 現行（下流 2 リポジトリの形態キー対応と、創作判断が要る枠の入力が残る） |
 | [2026-09-06_progress_aihints-seed-semiprimary-selfsecondary.md](./2026-09-06_progress_aihints-seed-semiprimary-selfsecondary.md) | AIHints seed 本体（SemiPrimary 11 件 / SelfSecondary 7 件）。下流 CreationsAI Issue #1 依頼1 | 🟢 現行（視覚 TODO の補完が残る） |
