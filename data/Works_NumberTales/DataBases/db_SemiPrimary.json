@@ -3644,7 +3644,9 @@
           "natural_language_description": null,
           "prompt_export": "humanoid form, scorpion 3 tails, petite stature (about 113cm), child, Fox (pale yellow with pale gray tips), three-tone blonde hair, two sidelocks and one back lock (three in total), each braided in three colors, three scorpion-type segmented tails gathered as if braided together, sky-blue eyes with unique pupils in one pale gray and two shades of yellow, A pure and innocent girl, easygoing yet with a somewhat proactive side, roundly shaved pale yellow eyebrows, large gray ribbon tying up her three-colored long hair, gray ribbon with a round blue brooch featuring a three-color motif, two round brooches featuring a three-color motif, halo in three shades of yellow and two of gray, with a dial telephone and signal-mark motif, pale gray collar, fairly large on the left hem of the gothic lolita dress, ochre, Arabic numeral '333', blue gothic lolita outfit combining Roman style and Japanese Showa-retro style, petite and cute build, blue and pale gray thick-soled shoes adorned with gray ribbons",
           "negative_prompt_export": "",
-          "reference_images": null
+          "reference_images": {
+            "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_SemiPrimary/concept/cnsp_imgNTS-333.png"
+          }
         },
         "corefolder": {
           "form_tags": ["corefolder form"],

@@ -56,8 +56,10 @@
 - 構造的再同期の PR #79（`auto/aihints-structural-resync` → `addon-ai-tag`）は `db_Primary.json` の整形だけ（+31/-9）。JSON として `addon-ai-tag` と一致し、ワークフロー内の `npm test` も成功。`_DB` を `PrimaryHuman` 等へ書き換えて 80 桁を超えた `_DBLink` 6 行の折り返しと、`Related` 1 箇所の畳み込み。
 - `develop` 側の `db_Primary.json` / `db_SemiPrimaryHuman.json` / `db_SelfSecondary.json` は prettier 準拠になっていない行がある。本ブランチは自動 PR で整形されるため、整形だけの PR は今後も出る。
 
+- PR #79 は User がマージ（`8f2a9770`）。`9212b3d9` 分の `cf-api-sync` は、このマージの同期が積まれたため順番待ちのまま取り消された（失敗ではない）。
+- User の判断（同日）で、空欄だった 80・333 の形態別 `reference_images` を `--fix-refs --records` で補完した。変更は該当 2 レコードの 3 箇所だけ。
+
 ## 未完了タスク
 
-- [ ] PR #79 のマージ（整形のみ。レビュー済み）。
-- [ ] `cf-api-sync`（`14bd1dfb` 分と `9212b3d9` 分）の成功と `/api/ai/NumberTales/PrimaryHuman/aihints/0` の応答を確認する。
-- [ ] 80・333 の `reference_images` が `null` のままでよいか（User の判断。埋めるなら `--fix-refs --records 80` 等）。
+- [ ] 80・333 の補完と本ログ追記の push（User の判断）。
+- [ ] `cf-api-sync`（`14bd1dfb` 分と `8f2a9770` 分）の成功と `/api/ai/NumberTales/PrimaryHuman/aihints/0` の応答を確認する。

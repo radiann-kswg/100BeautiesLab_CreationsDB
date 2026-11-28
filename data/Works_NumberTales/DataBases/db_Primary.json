@@ -49817,7 +49817,9 @@
           "natural_language_description": "Corefolder form: a spherical cushion-like body in Fox (Has a brown accent pattern at the tip); dark orange wide-open eyes; orange-red hair with light ocher accent color and figure-eight-shaped bangs; curl bob hair with a figure-eight-shaped outline, with the number '80' marking (the white area on the front-left chest of the sphere, slightly below the body hair and small, orange, Arabic numeral '80').",
           "prompt_export": "corefolder form, fox 8 tails, short stature (about 144cm), young adult, Fox (Has a brown accent pattern at the tip), dark orange wide-open eyes, orange-red hair with light ocher accent color and figure-eight-shaped bangs, curl bob hair with a figure-eight-shaped outline, restless, hysterical expression, subcontractor engineer style, the white area on the front-left chest of the sphere, slightly below the body hair and small, orange, Arabic numeral '80'",
           "negative_prompt_export": "brown mechanic vest like an employee uniform",
-          "reference_images": null
+          "reference_images": {
+            "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-80.png"
+          }
         },
         "humanoid": {
           "form_tags": ["humanoid form"],
@@ -49854,7 +49856,9 @@
           "natural_language_description": null,
           "prompt_export": "humanoid form, fox 8 tails, short stature (about 144cm), young adult, Fox (Has a brown accent pattern at the tip), dark orange wide-open eyes, orange-red hair with light ocher accent color and figure-eight-shaped bangs, curl bob hair with a figure-eight-shaped outline, restless, hysterical expression, subcontractor engineer style, the left chest of the mechanics suit (slightly inconspicuous due to color), orange, Arabic numeral '80', Cannot feel at ease without an information terminal to check logistics, such as a smartphone or server equipment, brown mechanic vest like an employee uniform, orange shorts that suggest workwear",
           "negative_prompt_export": "",
-          "reference_images": null
+          "reference_images": {
+            "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_imgNTS-80.png"
+          }
         }
       },
       "alt_modes": null,
