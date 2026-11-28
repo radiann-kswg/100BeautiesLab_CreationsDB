@@ -36,7 +36,7 @@
 
 | ログ                                                                                                                               | 主題                                                           | 状態                              |
 | ---------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- | --------------------------------- |
-| [2026-11-28_progress_addon-merge-human-db-split.md](./2026-11-28_progress_addon-merge-human-db-split.md) | `develop` 取り込みマージ（`483b1c52`）。人間キャラクターの DB 分離へ AIHints を追従 | ✅ 完了（本番反映まで確認済み。退避待ち） |
+| [.completed/2026-11-28_progress_addon-merge-human-db-split.md](./.completed/2026-11-28_progress_addon-merge-human-db-split.md) | `develop` 取り込みマージ（`483b1c52`）。人間キャラクターの DB 分離へ AIHints を追従 | ✅ 完了・退避済み |
 | [2026-11-20_progress_appearance-policy-tools.md](./2026-11-20_progress_appearance-policy-tools.md) | #60の外見校正・#62のAI除外・AppearanceDetail補助CLIとCreationsAI追従 | 実装・公開データセット・本番API検証完了（#63と自動推定は別課題） |
 | [2026-11-19_progress_aihints-shauer-sinister.md](./2026-11-19_progress_aihints-shauer-sinister.md) | AIHints を獣爾騎兵・豹変系女子へ拡張（作品別の形態キー / 索引キー、17 件へ付与） | 🟢 現行（下流 2 リポジトリの形態キー対応と、創作判断が要る枠の入力が残る） |
 | [2026-09-06_progress_aihints-seed-semiprimary-selfsecondary.md](./2026-09-06_progress_aihints-seed-semiprimary-selfsecondary.md) | AIHints seed 本体（SemiPrimary 11 件 / SelfSecondary 7 件）。下流 CreationsAI Issue #1 依頼1 | 🟢 現行（視覚 TODO の補完が残る） |
@@ -87,6 +87,11 @@
 ## 完了（.completed へ退避済み）
 
 以下のファイルは実装・検証が完了し、`_work_in_progress/.completed/` へ移動済みです（Git 管轄外）。
+
+### 2026-11-28 addon-ai-tag マージ後に追加退避（1件・本ブランチ固有）
+
+- `2026-11-28_progress_addon-merge-human-db-split.md`（`develop` の人間キャラクター DB 分離の取り込み。
+  AIHints の移設・参照画像 URL の検出テスト・本番同期 3 本の成功・CreationsDB #75 のクローズまで確認し、未完了タスクなし）
 
 ### 2026-11-19 棚卸しで追加退避（19件）
 
@@ -373,6 +378,11 @@
 ---
 
 ## 整理履歴
+
+- **2026-11-28、addon-ai-tag 側で 1件 を `.completed/` へ退避しました（`sub1`）。**
+  対象は `2026-11-28_progress_addon-merge-human-db-split.md`。本番 API（`PrimaryHuman` のレコード応答と参照画像 URL）と
+  `cf-api-sync` の成功を確認してから退避した。`develop` 由来の `2026-11-28_progress_numbertales-human-db-split.md` は
+  User 記入待ちの項目（`DB_Label` / `RelationTo_PrimaryHuman` のラベル確認ほか）が残るため直下に残す。
 
 - **2026-11-19 の棚卸しで、19件 を `.completed/` へ退避し、直下を 42件 → 23件（母艦・README 含む）に整理しました。**
   前回 08-20 の棚卸しは状態整理のみで退避を行っていなかったため、08-09 以降の完了ログがまとめて残っていた。
