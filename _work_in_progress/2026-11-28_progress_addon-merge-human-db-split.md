@@ -49,9 +49,15 @@
 - `--fix-refs` を自動再同期へ組み込む案は採らなかった。`--all` は空欄や手で据えた参照画像まで作り直すため。代わりに、切れた URL を `npm test` で検出する（`tests/aihints.schema.test.js`）。修正前のデータで落ちることを確認済み。
 - `docs/ai-hints-usage.md` §9.10 に手順を追記。
 
+## 追記: push と自動処理の結果（同日）
+
+- push 済み: `develop` `2e593e29`（`docs/roleplay-prompt-generation.md` の 1 行）、`addon-ai-tag` `9212b3d9`（上記追記分 `13914cb3` と、`develop` の同 1 行を取り込むマージ）。
+- CreationsAI の自動同期（`sync-dataset.yml`）は `creations-db@14bd1dfb` で成功。許可 187 件で変わらず、`0`・`00` は `db_PrimaryHuman.json` と `Images/DB_PrimaryHuman/` を指す。
+- 構造的再同期の PR #79（`auto/aihints-structural-resync` → `addon-ai-tag`）は `db_Primary.json` の整形だけ（+31/-9）。JSON として `addon-ai-tag` と一致し、ワークフロー内の `npm test` も成功。`_DB` を `PrimaryHuman` 等へ書き換えて 80 桁を超えた `_DBLink` 6 行の折り返しと、`Related` 1 箇所の畳み込み。
+- `develop` 側の `db_Primary.json` / `db_SemiPrimaryHuman.json` / `db_SelfSecondary.json` は prettier 準拠になっていない行がある。本ブランチは自動 PR で整形されるため、整形だけの PR は今後も出る。
+
 ## 未完了タスク
 
-- [ ] 上記追記分の push（User の判断）。
-- [ ] `cf-api-sync` の成功と `/api/ai/NumberTales/PrimaryHuman/aihints/0` の応答を確認する。
-- [ ] CreationsAI 自動同期（`sync-dataset.yml`）の結果を確認する。
+- [ ] PR #79 のマージ（整形のみ。レビュー済み）。
+- [ ] `cf-api-sync`（`14bd1dfb` 分と `9212b3d9` 分）の成功と `/api/ai/NumberTales/PrimaryHuman/aihints/0` の応答を確認する。
 - [ ] 80・333 の `reference_images` が `null` のままでよいか（User の判断。埋めるなら `--fix-refs --records 80` 等）。
